@@ -22,7 +22,7 @@
           "disabled": false
         },
         "throttlingMethod": "simulate",
-        "skipAudits": ["uses-http2", "canonical", "is-crawlable", "redirects-http"]
+        "skipAudits": ["uses-http2", "canonical", "is-crawlable", "redirects-http", "robots-txt"]
       }
     },
     "assert": {

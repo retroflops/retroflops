@@ -162,10 +162,14 @@ jobs:
         env:
           CHROME_PATH: /usr/bin/google-chrome
 
+      # Lighthouse rejects the intentional Content-Signal extension as an
+      # unknown robots.txt directive, so lighthouserc excludes that audit.
+      # Keep the reports for every other audit available when the job fails.
       - name: Upload the Lighthouse reports
         if: always()
         uses: actions/upload-artifact@330a01c490aca151604b8cf639adc76d48f6c5d4 # v5.0.0
         with:
           name: lighthouse-reports
           path: .lighthouseci/
+          include-hidden-files: true
           retention-days: 7

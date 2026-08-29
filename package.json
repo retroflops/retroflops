@@ -29,6 +29,7 @@
     "lint": "oxlint",
     "lint:fix": "oxlint --fix",
     "postbuild": "pagefind --site dist",
+    "pretypecheck": "pnpm data:build",
     "preview": "ASTRO_TELEMETRY_DISABLED=1 node scripts/preview-server.ts",
     "preview:pages": "ASTRO_TELEMETRY_DISABLED=1 OUT_DIR=dist-pages BASE_PATH=/retroflops/ node scripts/preview-server.ts",
     "test": "vitest run",
