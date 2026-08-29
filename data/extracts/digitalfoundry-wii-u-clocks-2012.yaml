@@ -1,0 +1,17 @@
+- extract: >-
+    1.243125GHz, exactly. 3 PowerPC 750 type cores (similar to Wii's Broadway,
+    but more cache). GPU core at 549.999755MHz.
+  extractHash: f279da1e54259656c605e20140da425ae8bbf43965d44e6f374edc37c3596e61
+  id: df-wii-u:clocks
+  locator: Body text, the quoted post reproduced in full
+  notes: >-
+    The publication is quoting a hacker who read these out of the shipped
+    console, and the precision is the point of the quote: six decimal places is
+    what measurement looks like against a vendor's silence. The catalog records
+    1.24 GHz and 550 MHz, which is what the publication's own headline states
+    and what the extra digits round to; carrying 549.999755 MHz forward would
+    claim a precision about the console that only describes one reading of one
+    machine.
+  sourceId: digitalfoundry-wii-u-clocks-2012
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-15

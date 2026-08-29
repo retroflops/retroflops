@@ -1,0 +1,13 @@
+id: atari-800-rom
+slug: atari-800-rom
+kind: memory
+name: Atari 800 firmware ROM
+manufacturer: Atari
+architecture: Mask ROM
+introducedDate: '1979'
+memoryType: Mask ROM
+summary:
+  Read-only operating-system firmware mapped into the Atari 800 address space.
+sourceIds:
+  - atari-800-technical-reference-notes
+editorialStatus: provisional

@@ -1,0 +1,9 @@
+id: raspberry-pi-5-product-brief:specification
+sourceId: raspberry-pi-5-product-brief
+locator: Page 3, Specification
+extract: >-
+  Broadcom BCM2712 2.4GHz quad-core 64-bit Arm Cortex-A76 CPU. VideoCore VII
+  GPU. LPDDR4X-4267 SDRAM. 5V/5A DC power via USB-C.
+transcribedOn: 2026-08-13
+transcribedBy: RetroFlops editorial
+extractHash: daab946a6cbdd7782ef76df2b3c312bac1da6e9e692c3f5eb31bec22b145b942

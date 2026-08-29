@@ -1,0 +1,246 @@
+- comparabilityGroup: clock-frequency|cpu|nominal-clock
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - ibm-pc-technical-reference:cpu-clock
+  id: ibm-pc-5150:clock-frequency
+  method: nominal-clock
+  metric: clock-frequency
+  normalized:
+    value: "4770000"
+    unit: Hz
+    significantDigits: 3
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 3
+    state: value
+    unit: MHz
+    value: "4.77"
+  scope: cpu
+  sourceIds:
+    - ibm-pc-technical-reference
+  status: vendor-rated
+  subject:
+    configurationId: base-16k
+    id: ibm-pc-5150
+    kind: system
+  evidenceLevel: confirmed
+- comparabilityGroup: memory-capacity|memory|design-capacity
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - ibm-pc-technical-reference:base-memory
+  id: ibm-pc-5150-ram:capacity
+  method: design-capacity
+  metric: memory-capacity
+  normalized:
+    value: "16384"
+    unit: B
+    significantDigits: 2
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 2
+    state: value
+    unit: KiB
+    value: "16"
+  scope: memory
+  sourceIds:
+    - ibm-pc-technical-reference
+  status: vendor-rated
+  subject:
+    id: ibm-pc-5150-ram
+    kind: component
+  evidenceLevel: confirmed
+- comparabilityGroup: memory-capacity|memory|design-capacity
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - ibm-pc-technical-reference:base-memory
+  id: ibm-pc-5150-rom:capacity
+  method: design-capacity
+  metric: memory-capacity
+  normalized:
+    value: "40960"
+    unit: B
+    significantDigits: 2
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 2
+    state: value
+    unit: KiB
+    value: "40"
+  scope: memory
+  sourceIds:
+    - ibm-pc-technical-reference
+  status: vendor-rated
+  subject:
+    id: ibm-pc-5150-rom
+    kind: component
+  evidenceLevel: confirmed
+- caveat: >-
+    Adds 1 memory-capacity figure obtained by design-capacity. Left out:
+    {{measurement:ibm-pc-5150-rom:capacity}} of BIOS and BASIC ROM (read-only
+    firmware, not memory the machine can write to). A total is only as
+    trustworthy as the decision about what belongs in it, so both the terms and
+    the exclusions are named records.
+  comparabilityGroup: memory-capacity|whole-system|design-capacity
+  derivedFrom: ibm-pc-5150:whole-system-memory
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - ibm-pc-technical-reference:base-memory
+  id: ibm-pc-5150:whole-system-memory-capacity
+  method: design-capacity
+  metric: memory-capacity
+  normalized:
+    value: "16384"
+    unit: B
+    significantDigits: 5
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 5
+    state: value
+    unit: B
+    value: "16384"
+  scope: whole-system
+  sourceIds:
+    - ibm-pc-technical-reference
+  status: derived
+  subject:
+    id: ibm-pc-5150
+    kind: system
+  evidenceLevel: confirmed
+- comparabilityGroup: clock-frequency|gpu|nominal-clock
+  editorialStatus: approved
+  evidenceStage: shipped
+  id: ibm-pc-5150:gpu-clock-frequency
+  method: nominal-clock
+  metric: clock-frequency
+  provenance: vendor
+  quantity:
+    note: >-
+      The 5150 supports different display adapters, so there is no single system
+      GPU clock.
+    state: not-applicable
+  scope: gpu
+  sourceIds:
+    - ibm-pc-technical-reference
+  status: vendor-rated
+  subject:
+    id: ibm-pc-5150
+    kind: system
+- comparabilityGroup: memory-bandwidth|memory|theoretical-peak
+  caveat: >-
+    Divides bytes transferred by one processor memory cycle by the published
+    memory cycle time. The result is an interface ceiling when a manual
+    specifies nanoseconds per byte instead of a transfer rate. It is not
+    measured application throughput: refresh, contention and wait states can
+    consume cycles. Reported to 3 significant digits. That is the precision of
+    the cycle time, because the bytes-per-cycle constant is exact.
+  derivedFrom: ibm-pc-5150:memory-bandwidth-from-cycle-time
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - ibm-pc-technical-reference:memory-cycle-time
+  id: ibm-pc-5150:memory-bandwidth
+  method: theoretical-peak
+  metric: memory-bandwidth
+  provenance: vendor
+  quantity:
+    significantDigits: 3
+    state: value
+    unit: MB/s
+    value: '1.19'
+  rounding: half-up
+  scope: memory
+  sourceIds:
+    - ibm-pc-technical-reference
+  status: derived
+  subject:
+    id: ibm-pc-5150
+    kind: system
+  normalized:
+    value: "1190000"
+    unit: B/s
+    significantDigits: 3
+    unitRegistry: units-v1
+  evidenceLevel: confirmed
+- comparabilityGroup: memory-cycle-time|memory|nominal-cycle-time
+  conditions: One processor generated memory read or write cycle with Ready inactive.
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - ibm-pc-technical-reference:memory-cycle-time
+  id: ibm-pc-5150:memory-cycle-time
+  method: nominal-cycle-time
+  metric: memory-cycle-time
+  provenance: vendor
+  quantity:
+    significantDigits: 3
+    state: value
+    unit: ns
+    value: '840'
+  scope: memory
+  sourceIds:
+    - ibm-pc-technical-reference
+  status: vendor-rated
+  subject:
+    id: ibm-pc-5150
+    kind: system
+  normalized:
+    value: "0.00000084"
+    unit: s
+    significantDigits: 3
+    unitRegistry: units-v1
+  evidenceLevel: confirmed
+- comparabilityGroup: peak-fp32-rate|cpu|theoretical-peak
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - ibm-pc-technical-reference:coprocessor
+  id: ibm-pc-5150-8088:peak-fp32-rate
+  method: theoretical-peak
+  metric: peak-fp32-rate
+  provenance: vendor
+  quantity:
+    note: The selected 5150 configuration contains no 8087 floating-point
+      coprocessor.
+    state: not-applicable
+  scope: cpu
+  sourceIds:
+    - ibm-pc-technical-reference
+  status: vendor-rated
+  subject:
+    id: ibm-pc-5150-8088
+    kind: component
+- comparabilityGroup: rated-power-consumption|whole-system|rated-power
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - ibm-pc-technical-reference:power-supply
+  id: ibm-pc-5150:rated-power-consumption
+  method: rated-power
+  metric: rated-power-consumption
+  provenance: vendor
+  quantity:
+    note: The source specifies power-supply limits, not a system consumption rating.
+    state: unknown
+  unknownAudit:
+    reviewedOn: 2026-08-25
+    routesChecked:
+      - vendor-documentation
+      - independent-analysis
+      - community-source
+    outcome: no-compatible-candidate
+    summary: The checked reference specifies supply limits, not system consumption.
+  scope: whole-system
+  sourceIds:
+    - ibm-pc-technical-reference
+  status: vendor-rated
+  subject:
+    id: ibm-pc-5150
+    kind: system

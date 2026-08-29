@@ -1,0 +1,14 @@
+id: 3dfx-sst-1-data-book
+title: SST-1 (a.k.a. Voodoo Graphics) High Performance Graphics Engine for 3D Game Acceleration
+publisher: 3Dfx Interactive, Inc.
+url: https://www.bitsavers.org/components/3dfx/Voodoo1_SST-1_Spec_r1.61_199912.pdf
+publishedDate: 1999-12-01
+accessedDate: 2026-08-26
+locator: Title page and SST-1 hardware description
+extract: SST-1 (a.k.a. Voodoo Graphics) High Performance Graphics Engine for 3D Game Acceleration.
+tier: A
+sourceType: vendor-documentation
+editorialStatus: provisional
+usageNote: >-
+  Public archive of a 3dfx document. It describes the SST-1 hardware but does
+  not establish a board-specific rate or power figure.

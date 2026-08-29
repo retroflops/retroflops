@@ -1,0 +1,23 @@
+id: bbc-micro-service-manual
+title: BBC Microcomputer Service Manual
+publisher: Acorn Computers Limited
+url: https://archive.org/download/bbc-micro-service-manual/BBC-Micro-Service-Manual%20Sections-1-2-3_djvu.txt
+archiveUrl: https://archive.org/details/bbc-micro-service-manual
+publishedDate: 1985-10
+accessedDate: 2026-08-24
+locator: >-
+  Sections 1.2.2, 3.1, 3.3 "CRT controller + video processor + Teletext
+  hardware" (printed p. 12), and 3.14
+tier: A
+sourceType: technical-manual
+editorialStatus: approved
+license: Copyright Acorn Computers Limited. Quoted here under short-extract fair
+  use for verification of the figures cited.
+fetch:
+  url: https://archive.org/download/bbc-micro-service-manual/BBC-Micro-Service-Manual%20Sections-1-2-3_djvu.txt
+  finalUrl: https://ia601604.us.archive.org/17/items/bbc-micro-service-manual/BBC-Micro-Service-Manual%20Sections-1-2-3_djvu.txt
+  fetchedAt: 2026-08-24T14:27:26Z
+  httpStatus: 200
+  contentType: text/plain; charset=utf-8
+  byteLength: 318902
+  sha256: 62240491cd26cbfb423d959e04cae22b3b2fba0150e4a835e9634f77dc226eb6

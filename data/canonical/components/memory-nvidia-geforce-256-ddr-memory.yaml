@@ -1,0 +1,13 @@
+id: nvidia-geforce-256-ddr-memory
+slug: nvidia-geforce-256-ddr-memory
+kind: memory
+name: NVIDIA GeForce 256 DDR 32 MiB frame buffer
+manufacturer: NVIDIA
+memoryType: DDR SDRAM
+introducedDate: 1999-12
+summary: >-
+  The DDR SDRAM frame buffer fitted to NVIDIA's December 1999 GeForce 256
+  reference card.
+sourceIds:
+  - wikipedia-geforce-256-specifications
+editorialStatus: provisional

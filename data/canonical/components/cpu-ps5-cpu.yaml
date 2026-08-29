@@ -1,0 +1,21 @@
+id: ps5-cpu
+slug: ps5-cpu
+kind: cpu
+name: PlayStation 5 custom processor (CPU section)
+manufacturer: Sony Interactive Entertainment / AMD
+architecture: x86-64 (Zen 2)
+introducedDate: '2020'
+instructionSet: x86-64
+instructionSetFamily: x86
+summary:
+  'Eight x86-64 cores with {{context:ps5-cpu:context-unit-16}} threads, and no
+  fixed frequency: Sony specifies a variable clock and a ceiling of
+  {{context:ps5-cpu:context-ghz-3-5}}.'
+notes:
+  "The PlayStation 4's processor states no clock at all; this one states that
+  the clock is not a constant. They are different silences, and the record keeps
+  them apart: the nominal frequency is not-applicable here rather than unknown,
+  because a machine whose frequency varies by design does not have one."
+sourceIds:
+  - scei-ps5-hardware-specs-2020
+editorialStatus: provisional

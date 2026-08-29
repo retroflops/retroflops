@@ -1,0 +1,22 @@
+accessedDate: 2026-08-13
+editorialStatus: approved
+extract: >-
+  Radeon RX 7900 XTX: 2300 MHz game clock and 2500 MHz boost clock; 24 GB GDDR6
+  frame buffer; 960 GB/s memory bandwidth; 61.42 TFLOPS FP32 peak at the boost
+  clock; 355 W total board power.
+fetch:
+  byteLength: 190061
+  contentType: text/html
+  fetchedAt: 2026-08-13T14:52:17Z
+  httpStatus: 200
+  sha256: 6eb9d7e1f7e39ee09cc72a314b8ca89623f24e0eb269d0704d89ae64f71881cf
+  url: https://www.amd.com/en/products/graphics/desktops/radeon/7000-series/amd-radeon-rx-7900xtx.html
+id: amd-radeon-rx-7900-xtx-product-specifications
+license: Copyright retained by the publisher. Short extracts are recorded solely
+  to verify the cited specifications.
+locator: Reference-card specification table and architecture summary
+publisher: Advanced Micro Devices, Inc.
+sourceType: vendor-documentation
+tier: A
+title: AMD Radeon RX 7900 XTX — reference specifications
+url: https://www.amd.com/en/products/graphics/desktops/radeon/7000-series/amd-radeon-rx-7900xtx.html

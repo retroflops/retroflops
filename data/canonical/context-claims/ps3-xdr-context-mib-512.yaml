@@ -1,0 +1,23 @@
+id: ps3-xdr:context-mib-512
+subject:
+  kind: component
+  id: ps3-xdr
+label: Capacity
+quantity:
+  state: value
+  value: '512'
+  unit: MiB
+  significantDigits: 3
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - scei-ps3-launch-2006
+  - scei-ps3-specifications-2005
+  - scei-ps3-cecha01-manual
+extractIds:
+  - scei-ps3-2006:specification
+  - scei-ps3-2005:memory
+  - scei-ps3-cecha01:processors-and-memory
+evidenceLevel: confirmed

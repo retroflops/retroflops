@@ -1,0 +1,24 @@
+id: phase5-cyberstorm-mk1-manual
+title: CYBERSTORM 68040/68060 Accelerator Manual
+publisher: phase 5 digital products
+url: https://amiga.resource.cx/manual/CS_Mk1.pdf
+publishedDate: '1994'
+accessedDate: 2026-08-26
+locator: Installation, pages 4–5
+extract: >-
+  The CYBERSTORM system is to be installed in the processor slot of the Amiga
+  4000. Set the jumpers for a synchronous CYBERSTORM 68060/50 MHz on EXT.
+tier: A
+sourceType: technical-manual
+editorialStatus: provisional
+license: Copyright phase 5 digital products. Quoted under short-extract fair use.
+usageNote: >-
+  This manual documents a third-party accelerator configuration for an Amiga
+  4000. It is not evidence that Commodore sold the A4000 with a 68060.
+fetch:
+  url: https://amiga.resource.cx/manual/CS_Mk1.pdf
+  fetchedAt: 2026-08-26T19:02:29Z
+  httpStatus: 200
+  contentType: application/pdf
+  byteLength: 1088423
+  sha256: 77f76cda1d6f4d4055da738df3152de21603466b01be84a21642fcf93647494d

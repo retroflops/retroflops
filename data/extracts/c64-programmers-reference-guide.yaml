@@ -1,0 +1,102 @@
+- extract: >-
+    The formulas above are based on the fact that:
+
+    system frequency = 1.02273E6 NTSC (North American TV standard)
+
+    = 0.98525E6 PAL (U.K. and most European TV standard)
+  extractHash: f1810ffe0e34946a5b2587c682ce87f30c780aa6ae71f85abab08597c7790937
+  id: c64-prg:p351:system-frequency
+  locator: page 351, RS-232 baud-rate formulas in the Input/Output Guide
+  notes: >-
+    The manual states the system clock only here, in passing, as the basis for
+    the RS-232 baud-rate formulas. The precision recorded is the manual's own:
+    six significant digits for NTSC and five for PAL. Both are rounded from the
+    exact ratios of the video crystal, which this manual does not give.
+  sourceId: c64-programmers-reference-guide
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-07-28
+- extract: >-
+    The Commodore 64 has 64K bytes of RAM. It also has 20K bytes of ROM,
+    containing BASIC, the operating system, and the standard character set. It
+    also accesses input/output devices as a 4K chunk of memory. How is this all
+    possible on a computer with a 16-bit address bus, that is normally only
+    capable of addressing 64K?
+  extractHash: 3d3950632aea7bc26feef44703fac88ead3e953d785d1dcc9ccb3368980ebeb9
+  id: c64-prg:p260:memory
+  locator: page 260, "Memory management on the Commodore 64"
+  notes: >-
+    "64K bytes" here means 64 KiB, an exact 65 536 bytes, and likewise 20K is
+    exactly 20 KiB. The passage also establishes that RAM and ROM overlap in the
+    address space, which is why the two capacities cannot simply be added.
+  sourceId: c64-programmers-reference-guide
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-07-28
+- extract: >-
+    The internal processor architecture is identical to the MOS Technology 6502
+    to provide software compatibility.
+
+    FEATURES OF THE 6510 ...
+
+    • Eight-bit parallel processing
+
+    • 56 Instructions
+
+    • Decimal and binary arithmetic
+
+    • Thirteen addressing modes
+
+    • Eight-Bit Bi-Directional Data Bus
+
+    • Addressable memory range of up to 65K bytes
+
+    • Pipeline architecture
+
+    • 1-MHz and 2-MHz operation
+  extractHash: 3e3d70b99ad3d290898aac897db28cafca8fc812baa9360c6e6d05f8645fa46f
+  id: c64-prg:p402:6510-features
+  locator: appendix L, page 402, "Features of the 6510"
+  notes: >-
+    The scan renders "MOS Technology" as "M OS Technology"; corrected here.
+    Bullets not bearing on the recorded figures (supply voltage, process,
+    indexing, stack, interrupts, DMA, M6800 bus compatibility, memory speed) are
+    omitted. "1-MHz and 2-MHz operation" is the part's rated speed grade, not
+    the rate the Commodore 64 clocks it at, which is set by the video chip.
+  sourceId: c64-programmers-reference-guide
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-07-28
+- extract: >-
+    Pin 6 is the DOT CLOCK. This is the 8.18-MHz video dot clock. All system
+    timing is derived from this clock.
+  extractHash: 3d951a88185d566d90a0096c1f3ee28c22aea6b92716a10cc957e952868c76fd
+  id: c64-prg:p367:dot-clock
+  locator: page 367, "Expansion port" description in the Input/Output Guide
+  notes: >-
+    The scan doubles the spaces between words; they are collapsed here and
+    nothing else is changed. The guide is a North American publication and 8.18
+    MHz is eight times the NTSC system frequency it states on page 351, so the
+    figure belongs to the NTSC machine; the PAL dot clock is not stated anywhere
+    in this document. Note which direction the derivation runs: the manual makes
+    the dot clock the primary rate and the processor clock the divided one.
+  sourceId: c64-programmers-reference-guide
+  transcribed:
+    significantDigits: 3
+    state: value
+    unit: MHz
+    value: '8.18'
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-04
+- extract: >-
+    Floating-point numbers are stored (using five bytes of memory) and are
+    manipulated in calculations with ten places of accuracy. However, the
+    numbers are rounded to nine digits when results are printed.
+  extractHash: c032ca5ea5f88d1da0b405b1664b8ba7ed2d0931aaf80a0d42716bc43bf4cced
+  id: c64-prg:p6:floating-point-format
+  locator: page 6, "Floating-point constants"
+  notes: >-
+    Five bytes establishes a 40-bit storage format. Ten decimal places of
+    calculation accuracy does not make it IEEE single or double precision. The
+    guide gives no benchmark run, so it supports the format classification but
+    not a sustained rate.
+  sourceId: c64-programmers-reference-guide
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-24

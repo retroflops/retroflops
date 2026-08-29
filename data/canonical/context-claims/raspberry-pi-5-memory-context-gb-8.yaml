@@ -1,0 +1,17 @@
+id: raspberry-pi-5-memory:context-gb-8
+subject:
+  kind: component
+  id: raspberry-pi-5-memory
+label: Capacity
+quantity:
+  state: value
+  value: '8'
+  unit: GB
+  significantDigits: 1
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - raspberry-pi-5-product-brief
+evidenceLevel: confirmed

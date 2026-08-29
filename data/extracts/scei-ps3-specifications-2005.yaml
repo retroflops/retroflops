@@ -1,0 +1,88 @@
+- extract: >-
+    CPU: Cell Processor
+
+    PowerPC-base Core @3.2GHz
+
+    1 VMX vector unit per core
+
+    512KB L2 cache
+
+    7 x SPE @3.2GHz
+
+    7 x 128b 128 SIMD GPRs
+
+    7 x 256KB SRAM for SPE
+
+    1 of 8 SPEs reserved for redundancy
+
+    total floating point performance : 218 GFLOPS
+  extractHash: 4710abd107383a8f0a5a1a69e6ee5cf1f5bc9b63202fe4e39af14204089ac13e
+  id: scei-ps3-2005:cpu
+  locator: '"<PLAYSTATION®3 Specifications>" table, CPU rows'
+  notes: >-
+    The table is laid out as a label column beside a stack of value rows; the
+    label is rejoined here with a colon and the rows kept in order. "1 of 8 SPEs
+    reserved for redundancy" is retained because it explains why seven are
+    quoted where the die carries eight. The 218 GFLOPS figure names no precision
+    and no operation mix.
+  sourceId: scei-ps3-specifications-2005
+  transcribed:
+    significantDigits: 2
+    state: value
+    unit: GHz
+    value: '3.2'
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-07-29
+- extract: >-
+    GPU: RSX @550MHz
+
+    1.8 TFLOPS floating point performance
+
+    Full HD (up to 1080p) x 2 channels
+
+    Multi-way programmable parallel floating point shader pipelines
+  extractHash: e9c7f19fdc54aa1b60ac5775b1067c1b3cfaaf4617ed8a8bf6715f4bfd73cc0b
+  id: scei-ps3-2005:gpu
+  locator: '"<PLAYSTATION®3 Specifications>" table, GPU rows'
+  notes: >-
+    Neither the shader-unit count nor the operations counted per cycle is given,
+    so the 1.8 TFLOPS figure cannot be reconstructed from the clock. Sony's
+    launch specification a year later restates neither number.
+  sourceId: scei-ps3-specifications-2005
+  transcribed:
+    significantDigits: 3
+    state: value
+    unit: MHz
+    value: '550'
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-07-29
+- extract: >-
+    Memory: 256MB XDR Main RAM @3.2GHz
+
+    256MB GDDR3 VRAM @700MHz
+
+    System Bandwidth: Main RAM 25.6GB/s
+
+    VRAM 22.4GB/s
+
+    RSX 20GB/s (write) + 15GB/s (read)
+
+    SB 2.5GB/s (write) + 2.5GB/s (read)
+  extractHash: 657adc92c20cfd9448b380661d1d91204f441c8aec629a99ae1a608925e4b99c
+  id: scei-ps3-2005:memory
+  locator:
+    '"<PLAYSTATION®3 Specifications>" table, Memory and System Bandwidth rows'
+  notes: >-
+    "256MB" means 256 MiB, as elsewhere in this catalog's console records. The
+    two memories are separate pools with separate figures throughout: main
+    memory belongs to the Cell processor and video memory to the RSX, and the
+    bus rates between them are quoted as a third pair of numbers rather than
+    folded into either. The "SB" rows describe the south-bridge link.
+  sourceId: scei-ps3-specifications-2005
+  transcribed:
+    significantDigits: 3
+    state: value
+    unit: MiB
+    value: '256'
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-07-29

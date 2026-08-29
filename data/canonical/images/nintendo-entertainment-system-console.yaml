@@ -1,0 +1,44 @@
+accessedDate: 2026-08-17
+alt: A gray and off-white Nintendo Entertainment System photographed against white from the front
+  left, its front-loading cartridge door closed above the power and reset buttons and two controller
+  ports.
+attribution: Photograph by Evan-Amos, released into the public domain by its author, via Wikimedia Commons.
+canonical:
+  byteLength: 16729
+  format: avif
+  height: 960
+  sha256: feaf69a568ea3d4494ad8c3e4a5383f6007c42ecf47e20ccd9a6ada26fce6251
+  width: 1280
+caption: The front-loading Nintendo Entertainment System, the case in which this hardware was sold
+  in North America.
+creator: Evan-Amos
+creatorType: person
+editorialStatus: approved
+id: nintendo-entertainment-system-console
+original:
+  byteLength: 2193817
+  height: 2880
+  mediaType: image/jpeg
+  sha256: 53c4ff11da6ba56bc2d9d8138dd585d126e08fe22350e8e0363003f9ddb8ab3c
+  width: 4020
+originalUrl: https://upload.wikimedia.org/wikipedia/commons/8/82/Nintendo-Entertainment-System-NES-Console-FL.jpg
+publisher: Wikimedia Commons
+rights:
+  id: pd-self
+  statedAt: https://commons.wikimedia.org/wiki/File:Nintendo-Entertainment-System-NES-Console-FL.jpg
+  statement: "I, the copyright holder of this work, release this work into the public domain. This
+    applies worldwide. In some countries this may not be legally possible; if so: I grant anyone the
+    right to use this work for any purpose, without any conditions, unless such conditions are
+    required by law."
+  url: https://commons.wikimedia.org/wiki/Template:PD-self
+sourcePageUrl: https://commons.wikimedia.org/wiki/File:Nintendo-Entertainment-System-NES-Console-FL.jpg
+title: Nintendo-Entertainment-System-NES-Console-FL.jpg
+transform:
+  background: "#ffffff"
+  fit: pad
+  note: The photograph is wider than 4:3 and the machine reaches both ends of it, so no crop keeps the
+    whole subject. The declared margin is the same white as the backdrop the photograph was taken
+    against, which is why it cannot be seen; it is recorded because it is there.
+  preset: image-v1
+  sourceHeight: 2880
+  sourceWidth: 4020

@@ -1,0 +1,17 @@
+id: microsoft-xbox-pentium-iii:context-unit-1
+subject:
+  kind: component
+  id: microsoft-xbox-pentium-iii
+label: Core count
+quantity:
+  state: value
+  value: '1'
+  unit: unit
+  significantDigits: 1
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - microsoft-xbox-hardware-specification
+evidenceLevel: confirmed

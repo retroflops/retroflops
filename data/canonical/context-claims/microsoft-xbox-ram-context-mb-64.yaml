@@ -1,0 +1,19 @@
+id: microsoft-xbox-ram:context-mb-64
+subject:
+  kind: component
+  id: microsoft-xbox-ram
+label: Capacity
+quantity:
+  state: value
+  value: '64'
+  unit: MB
+  significantDigits: 2
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - microsoft-xbox-hardware-specification
+extractIds:
+  - original-xbox-specifications:main-memory
+evidenceLevel: confirmed

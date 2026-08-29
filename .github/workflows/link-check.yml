@@ -1,0 +1,49 @@
+name: Source links
+
+# Run monthly or on demand. A moved document needs research, not a failed build.
+# Failures from another site's temporary outage would make the quality gate
+# unreliable.
+on:
+  schedule:
+    - cron: '0 6 1 * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  links:
+    name: Are the documents still there?
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Set up pnpm
+        uses: pnpm/action-setup@0ebf47130e4866e96fce0953f49152a61190b271 # v6.0.9
+
+      - name: Set up Node.js
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version-file: .node-version
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      # This scheduled job is the only workflow that contacts the network. It
+      # does not write to the repository and reports unavailable primary or
+      # archive URLs.
+      - name: Check every source URL and archive address
+        run: pnpm data:links | tee link-report.txt
+
+      - name: Keep the report
+        if: always()
+        uses: actions/upload-artifact@330a01c490aca151604b8cf639adc76d48f6c5d4 # v5.0.0
+        with:
+          name: link-report
+          path: link-report.txt
+          retention-days: 30

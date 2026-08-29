@@ -1,0 +1,17 @@
+id: snes-5a22:context-mhz-1-79
+subject:
+  kind: component
+  id: snes-5a22
+label: Frequency
+quantity:
+  state: value
+  value: '1.79'
+  unit: MHz
+  significantDigits: 3
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - nintendo-snes-tech-specs
+evidenceLevel: confirmed

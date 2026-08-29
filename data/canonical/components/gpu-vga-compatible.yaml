@@ -1,0 +1,17 @@
+id: vga-compatible-adapter
+slug: vga-compatible-adapter
+kind: gpu
+name: VGA-compatible display adapter
+manufacturer: PC industry
+architecture: VGA-compatible raster display controller
+introducedDate: '1987'
+summary:
+  The common raster display-controller class used by the representative 386,
+  486, Pentium, Pentium II and Pentium 4 systems.
+notes:
+  VGA compatibility describes display behavior, not one oscillator or one 3D
+  architecture. The catalog records its explicitly non-floating-point nature
+  instead of inventing a clock for the class.
+sourceIds:
+  - intel-historical-x86-documentation
+editorialStatus: provisional

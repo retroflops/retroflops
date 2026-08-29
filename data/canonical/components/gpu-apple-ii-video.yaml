@@ -1,0 +1,11 @@
+id: apple-ii-video
+slug: apple-ii-video
+kind: gpu
+name: Apple II video generator
+manufacturer: Apple Computer
+architecture: Discrete TTL video logic
+introducedDate: '1977'
+summary: Timing and display logic coupled to the Apple II's system clock.
+sourceIds:
+  - apple-ii-reference-manual
+editorialStatus: approved

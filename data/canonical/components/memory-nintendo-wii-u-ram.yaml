@@ -1,0 +1,12 @@
+editorialStatus: provisional
+id: nintendo-wii-u-ram
+slug: nintendo-wii-u-ram
+kind: memory
+name: Nintendo Wii U unified memory
+manufacturer: Nintendo
+architecture: DDR3
+introducedDate: '2012'
+memoryType: DDR3
+summary: '{{measurement:nintendo-wii-u-ram:capacity}} of installed DDR3.'
+sourceIds:
+  - digitalfoundry-wii-u-review

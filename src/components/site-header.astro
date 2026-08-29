@@ -1,0 +1,52 @@
+---
+// SPDX-FileCopyrightText: 2026 Wojciech Polak
+// SPDX-License-Identifier: MIT
+
+/**
+ * The site header.
+ *
+ * Five destinations do not fit on one line at phone widths, and wrapping them
+ * cost three rows of chrome above every page. Below 40rem the list collapses
+ * into a disclosure instead. `<details>` lets the menu open with no JavaScript
+ * at all. Above it, the same markup is a plain row beside the brand.
+ */
+import { isActiveRoute, route } from '~/lib/paths';
+
+const pathname = Astro.url.pathname;
+
+const links = [
+  { href: '/explore/', label: 'Explore' },
+  { href: '/compare/', label: 'Compare' },
+  { href: '/timeline/', label: 'Timeline' },
+  { href: '/methodology/', label: 'Methodology' },
+  { href: '/data/', label: 'Data' },
+];
+---
+
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a class="site-header__brand" href={route('/')}>Retro<span>Flops</span></a>
+    <details class="site-menu">
+      <summary class="site-menu__toggle">
+        <span class="site-menu__bars" aria-hidden="true"></span>
+        Menu
+      </summary>
+      <nav class="site-nav" aria-label="Primary">
+        <ul>
+          {
+            links.map((link) => (
+              <li>
+                <a
+                  href={route(link.href)}
+                  aria-current={isActiveRoute(pathname, link.href) ? 'page' : undefined}
+                >
+                  {link.label}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </nav>
+    </details>
+  </div>
+</header>

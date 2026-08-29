@@ -1,0 +1,269 @@
+- caveat: >-
+    The Geekbench result identifies the retail phone and reports its base
+    frequency.
+  comparabilityGroup: clock-frequency|cpu|nominal-clock
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: apple-iphone-15-pro:cpu-clock-frequency
+  method: nominal-clock
+  metric: clock-frequency
+  provenance: independent
+  quantity:
+    significantDigits: 3
+    state: value
+    unit: GHz
+    value: "3.78"
+  scope: cpu
+  sourceIds:
+    - geekbench-iphone-15-pro-result-111108
+  status: measured
+  subject:
+    id: apple-iphone-15-pro
+    kind: system
+  normalized:
+    value: "3780000000"
+    unit: Hz
+    significantDigits: 3
+    unitRegistry: units-v1
+  evidenceLevel: confirmed
+- caveat: The device-tree reading is published by a tier C source.
+  comparabilityGroup: clock-frequency|gpu|nominal-clock
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: apple-iphone-15-pro:gpu-clock-frequency
+  method: nominal-clock
+  metric: clock-frequency
+  provenance: community
+  quantity:
+    significantDigits: 4
+    state: value
+    unit: MHz
+    value: "1338"
+  scope: gpu
+  sourceIds:
+    - the-apple-wiki-a17-pro
+  status: measured
+  subject:
+    id: apple-iphone-15-pro
+    kind: system
+  normalized:
+    value: "1338000000"
+    unit: Hz
+    significantDigits: 4
+    unitRegistry: units-v1
+  evidenceLevel: rumored
+- caveat: The cited benchmark report identifies the phone's installed RAM.
+  comparabilityGroup: memory-capacity|whole-system|design-capacity
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: apple-iphone-15-pro:whole-system-memory-capacity
+  method: design-capacity
+  metric: memory-capacity
+  provenance: independent
+  quantity:
+    significantDigits: 1
+    state: value
+    unit: GB
+    value: "8"
+  scope: whole-system
+  sourceIds:
+    - macrumors-iphone-15-pro-geekbench-ram
+  status: measured
+  subject:
+    id: apple-iphone-15-pro
+    kind: system
+  normalized:
+    value: "8000000000"
+    unit: B
+    significantDigits: 1
+    unitRegistry: units-v1
+  evidenceLevel: reported
+- caveat: The published interface figure is a tier C specification claim.
+  comparabilityGroup: memory-bandwidth|whole-system|theoretical-peak
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: apple-iphone-15-pro:whole-system-memory-bandwidth
+  method: theoretical-peak
+  metric: memory-bandwidth
+  provenance: community
+  quantity:
+    significantDigits: 3
+    state: value
+    unit: GB/s
+    value: "51.2"
+  scope: whole-system
+  sourceIds:
+    - cpu-monkey-apple-a17-pro
+  status: theoretical
+  subject:
+    id: apple-iphone-15-pro
+    kind: system
+  normalized:
+    value: "51200000000"
+    unit: B/s
+    significantDigits: 3
+    unitRegistry: units-v1
+  evidenceLevel: rumored
+- caveat: Apple publishes no standalone FP32 throughput figure for this phone GPU.
+  comparabilityGroup: peak-fp32-rate|gpu|theoretical-peak
+  editorialStatus: approved
+  evidenceStage: shipped
+  id: apple-iphone-15-pro:peak-fp32-rate
+  method: theoretical-peak
+  metric: peak-fp32-rate
+  provenance: vendor
+  quantity:
+    note: Apple publishes no standalone FP32 throughput figure for this phone GPU.
+    state: unknown
+  unknownAudit:
+    reviewedOn: 2026-08-25
+    routesChecked:
+      - vendor-documentation
+      - benchmark-database
+      - specialist-reference
+      - community-source
+    outcome: no-published-candidate
+    summary: No checked source states a standalone FP32 throughput for this GPU.
+  scope: gpu
+  sourceIds:
+    - apple-iphone-15-pro-tech-specs
+  status: vendor-rated
+  subject:
+    id: apple-iphone-15-pro
+    kind: system
+- caveat: Battery-life durations and charging limits are not a whole-system power
+    rating.
+  comparabilityGroup: rated-power-consumption|whole-system|rated-power
+  editorialStatus: approved
+  evidenceStage: shipped
+  id: apple-iphone-15-pro:rated-power-consumption
+  method: rated-power
+  metric: rated-power-consumption
+  provenance: vendor
+  quantity:
+    note: Battery-life durations and charging limits are not a whole-system power
+      rating.
+    state: unknown
+  unknownAudit:
+    reviewedOn: 2026-08-25
+    routesChecked:
+      - vendor-documentation
+      - independent-analysis
+      - community-source
+      - specialist-reference
+    outcome: no-compatible-candidate
+    summary: Charging limits and battery-life tests do not state a whole-phone rated
+      power.
+  scope: whole-system
+  sourceIds:
+    - apple-iphone-15-pro-tech-specs
+  status: vendor-rated
+  subject:
+    id: apple-iphone-15-pro
+    kind: system
+- asOf: 2026-07-26
+  benchmark:
+    id: geekbench
+    variant: single-core
+    version: "6"
+  caveat: >-
+    A dated capture of the benchmark publisher’s rolling device average. It may
+    be compared only with the same variant from this capture date.
+  comparabilityGroup: geekbench-score|whole-system|benchmark-chart-average|geekbench@6:single-core
+  editorialStatus: approved
+  evidenceStage: shipped
+  id: apple-iphone-15-pro:geekbench-6-single-core
+  method: benchmark-chart-average
+  metric: geekbench-score
+  normalized:
+    value: "2535"
+    unit: score
+    significantDigits: 4
+    unitRegistry: units-v1
+  provenance: independent
+  quantity:
+    significantDigits: 4
+    state: value
+    unit: score
+    value: "2535"
+  scope: whole-system
+  sourceIds:
+    - geekbench-apple-iphone-15-pro-chart-2026-07-26
+  status: measured
+  subject:
+    id: apple-iphone-15-pro
+    kind: system
+  evidenceLevel: confirmed
+- asOf: 2026-07-26
+  benchmark:
+    id: geekbench
+    variant: multi-core
+    version: "6"
+  caveat: >-
+    A dated capture of the benchmark publisher’s rolling device average. It may
+    be compared only with the same variant from this capture date.
+  comparabilityGroup: geekbench-score|whole-system|benchmark-chart-average|geekbench@6:multi-core
+  editorialStatus: approved
+  evidenceStage: shipped
+  id: apple-iphone-15-pro:geekbench-6-multi-core
+  method: benchmark-chart-average
+  metric: geekbench-score
+  normalized:
+    value: "6863"
+    unit: score
+    significantDigits: 4
+    unitRegistry: units-v1
+  provenance: independent
+  quantity:
+    significantDigits: 4
+    state: value
+    unit: score
+    value: "6863"
+  scope: whole-system
+  sourceIds:
+    - geekbench-apple-iphone-15-pro-chart-2026-07-26
+  status: measured
+  subject:
+    id: apple-iphone-15-pro
+    kind: system
+  evidenceLevel: confirmed
+- asOf: 2026-08-18
+  benchmark:
+    id: geekbench-compute
+    variant: metal
+    version: "6"
+  caveat: >-
+    A dated capture of the benchmark publisher’s rolling average for this
+    graphics processor, read from the 18 July 2026 Metal chart. It may be
+    compared only with another Geekbench 6 Metal figure from this curation
+    round, never with an OpenCL figure, a later version or a processor score.
+    The chart keys the row on the A17 Pro’s graphics processor, so the figure
+    describes the chip wherever it is fitted rather than this phone alone.
+  comparabilityGroup: geekbench-compute-score|gpu|benchmark-chart-average|geekbench-compute@6:metal
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - geekbench-metal-chart-2026-07-18:apple-a17-pro
+    - geekbench-metal-chart-2026-07-18:what-the-figures-are
+  id: apple-iphone-15-pro-gpu:geekbench-compute-6-metal
+  method: benchmark-chart-average
+  metric: geekbench-compute-score
+  normalized:
+    value: "26779"
+    unit: score
+    significantDigits: 5
+    unitRegistry: units-v1
+  provenance: independent
+  quantity:
+    significantDigits: 5
+    state: value
+    unit: score
+    value: "26779"
+  scope: gpu
+  sourceIds:
+    - geekbench-metal-benchmark-chart-2026-07-18
+  status: measured
+  subject:
+    id: apple-iphone-15-pro-gpu
+    kind: component
+  evidenceLevel: confirmed

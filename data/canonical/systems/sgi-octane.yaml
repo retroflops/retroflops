@@ -1,0 +1,80 @@
+id: sgi-octane
+slug: sgi-octane
+name: Silicon Graphics Octane
+manufacturer: Silicon Graphics, Inc.
+type: workstation
+releaseDate: '1997'
+region: Worldwide
+summary: >-
+  SGI's mid-range workstation: one or two
+  {{measurement:sgi-octane:1x:clock-frequency}} MIPS R10000 processors under
+  IRIX, and the first machine in this catalog with published SPEC results and a
+  floating-point unit worth measuring.
+description: >-
+  The Octane is the first machine here with quoted benchmark results. Earlier
+  records use design specifications, such as clock rates, memory sizes and
+  instruction timings, because comparable benchmark results do not exist for
+  those machines. SGI published SPEC CPU95 results for the Octane. They measure
+  what the processor, the memory subsystem and the compiler achieve together on
+  a named workload, so they are a different kind of number. The two SPEC results
+  are not from the same machine. The CINT95 result used a single-processor
+  Octane with {{context:sgi-octane:context-mb-128}} of memory; the CFP95 result
+  used a two-processor Octane with {{context:sgi-octane:context-mb-256}} and an
+  auto-parallelizing compiler. They are recorded against separate
+  configurations.
+imageIds:
+  - sgi-octane-workstation
+configurations:
+  - id: 1x-250mhz
+    label: Octane 1X 250MHz R10k
+    releaseDate: 1998-03
+    entries:
+      - componentId: mips-r10000
+        role: main-cpu
+        count: 1
+        shared: false
+        notes: >-
+          Processor chip revision 3.1, with the R10010 floating-point chip at
+          revision 0.0.
+        measurementIds:
+          - sgi-octane:1x:clock-frequency
+      - componentId: sgi-octane-memory
+        role: system-memory
+        count: 1
+        shared: false
+        measurementIds:
+          - sgi-octane:1x:memory-capacity
+    notes: >-
+      The configuration SGI published the CINT95 result on:
+      {{measurement:sgi-octane:1x:memory-capacity}} of memory, IRIX64 6.4,
+      MIPSpro C 7.2.
+  - id: 2x-250mhz
+    label: Octane 2X 250MHz R10k
+    releaseDate: 1998-03
+    entries:
+      - componentId: mips-r10000
+        role: main-cpu
+        count: 2
+        shared: false
+        measurementIds:
+          - sgi-octane:2x:clock-frequency
+      - componentId: sgi-octane-memory
+        role: system-memory
+        count: 1
+        shared: false
+        measurementIds:
+          - sgi-octane:2x:memory-capacity
+    notes: >-
+      The configuration SGI published the CFP95 result on:
+      {{measurement:sgi-octane:2x:memory-capacity}} of memory, IRIX64 6.4,
+      MIPSpro Fortran 77 and 90 7.2 with the Auto Parallelizing Option.
+notes: >-
+  Graphics are not modeled here. The Octane shipped with several different
+  graphics subsystems, and the cited SPEC results do not identify which one was
+  fitted; recording a guess would be worse than recording nothing. The release
+  date is editorial context, not a figure the cited results carry. They state
+  hardware availability of March 1998 for these two configurations.
+sourceIds:
+  - spec-cpu95-octane-int
+  - spec-cpu95-octane-fp
+editorialStatus: approved

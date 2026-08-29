@@ -1,0 +1,51 @@
+{
+  "$schema": "./node_modules/oxfmt/configuration_schema.json",
+  "printWidth": 100,
+  "tabWidth": 2,
+  "useTabs": false,
+  "semi": true,
+  "singleQuote": true,
+  "jsxSingleQuote": false,
+  "quoteProps": "as-needed",
+  "trailingComma": "all",
+  "arrowParens": "always",
+  "bracketSpacing": true,
+  "endOfLine": "lf",
+  "insertFinalNewline": true,
+  "proseWrap": "always",
+  "sortImports": true,
+  "sortPackageJson": true,
+  "overrides": [
+    {
+      "files": ["**/*.md"],
+      "options": {
+        "printWidth": 80
+      }
+    },
+    {
+      "files": ["**/*.yaml"],
+      "options": {
+        "printWidth": 80
+      }
+    }
+  ],
+  "ignorePatterns": [
+    "dist/",
+    "dist-pages/",
+    "deep-research/",
+    "test-results/",
+    "playwright-report/",
+    ".astro/",
+    "node_modules/",
+    ".cache/",
+    "data/cache/",
+    "data/generated/",
+    "data/canonical/images/",
+    "data/canonical/measurements/",
+    "data/sources/",
+    "public/data/",
+    "public/pagefind/",
+    "pnpm-lock.yaml",
+    "*.astro"
+  ]
+}

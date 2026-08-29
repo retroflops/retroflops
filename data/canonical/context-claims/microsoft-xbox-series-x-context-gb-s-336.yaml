@@ -1,0 +1,19 @@
+id: microsoft-xbox-series-x:context-gb-s-336
+subject:
+  kind: system
+  id: microsoft-xbox-series-x
+label: Rate
+quantity:
+  state: value
+  value: '336'
+  unit: GB/s
+  significantDigits: 3
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - xbox-wire-series-x-tech-2020
+extractIds:
+  - xbox-series-x-tech:specs:memory-bandwidth
+evidenceLevel: confirmed

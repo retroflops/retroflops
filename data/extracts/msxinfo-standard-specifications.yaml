@@ -1,0 +1,7 @@
+- extract: Zilog Z80 compatible running at 3.58 MHz.
+  id: msxinfo-standard-specifications:cpu-clock
+  locator: Processor row, MSX column
+  sourceId: msxinfo-standard-specifications
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-25
+  extractHash: 55aed54edfaca957dde6c6e90045ac53838f9052f446489df1b358881aa736aa

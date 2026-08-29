@@ -1,0 +1,19 @@
+id: amiga-500:context-mib-9
+subject:
+  kind: system
+  id: amiga-500
+label: Capacity
+quantity:
+  state: value
+  value: '9'
+  unit: MiB
+  significantDigits: 1
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - amiga-hardware-reference-manual
+extractIds:
+  - amiga-hrm:p5:table-1-1
+evidenceLevel: confirmed

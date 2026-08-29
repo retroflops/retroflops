@@ -1,0 +1,12 @@
+editorialStatus: approved
+id: nintendo-wii-u-latte
+slug: nintendo-wii-u-latte
+kind: gpu
+name: AMD Latte
+manufacturer: AMD / Nintendo
+architecture: Latte
+introducedDate: '2012'
+summary: The graphics processor fitted to the Nintendo Wii U.
+sourceIds:
+  - nintendo-wii-u-tech-specs
+  - digitalfoundry-wii-u-clocks-2012

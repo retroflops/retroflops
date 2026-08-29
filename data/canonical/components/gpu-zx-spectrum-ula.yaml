@@ -1,0 +1,11 @@
+id: zx-spectrum-ula
+slug: zx-spectrum-ula
+kind: gpu
+name: ZX Spectrum ULA
+manufacturer: Sinclair Research
+architecture: Uncommitted logic array
+introducedDate: '1982'
+summary: Display and memory-contention logic integrated in a ULA.
+sourceIds:
+  - zx-spectrum-48k-manual
+editorialStatus: provisional

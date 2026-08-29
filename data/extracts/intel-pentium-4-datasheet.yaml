@@ -1,0 +1,27 @@
+- extract: >-
+    Table 5-1. Processor Thermal Design Power / Front Side Bus Frequency |
+    Processor and Core Frequency | Thermal Design Power1,2 (W) | Minimum TC (°C)
+    | Maximum TC (°C) ... 800 MHz FSB with 512-KB L2 Cache Only / Processors
+    with multiple VIDs / 2.40C GHz 2.60C GHz 2.80C GHz 3 GHz 3.20C GHz 3.40 GHz
+    / 66.2 69.0 69.7 81.9 82.0 89.0
+  extractHash: 13338210bb46c1dde27d2b1b6b0f2528f6e3e01f11c473312f57a73e1249985e
+  id: intel-pentium-4-datasheet:thermal-design-power-3ghz
+  locator: >-
+    Section 5, Table 5-1 "Processor Thermal Design Power", page 69, "800 MHz FSB
+    with 512-KB L2 Cache Only" block, Processors with multiple VIDs, 3 GHz row
+  notes: >-
+    The table is a grid of frequency lists against wattage lists, so the 3 GHz
+    figure is positional: fourth of the six frequencies in the 800 MHz FSB
+    block, fourth of the six wattages. Two neighboring numbers are close enough
+    to be mistaken for corroboration and are not — 81.8 W belongs to the 3.06
+    GHz part on the 533 MHz bus, and 82.0 W to the 3.20C GHz part on the same
+    800 MHz bus. A 3 GHz row appears in no other block: on this datasheet's
+    evidence the frequency exists only with the 800 MHz front side bus.
+  sourceId: intel-pentium-4-datasheet
+  transcribed:
+    significantDigits: 3
+    state: value
+    unit: W
+    value: '81.9'
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-16

@@ -1,0 +1,24 @@
+accessedDate: 2026-08-03
+editorialStatus: approved
+fetch:
+  byteLength: 121670
+  contentType: text/html;charset=utf-8
+  fetchedAt: 2026-08-03T21:20:30Z
+  httpStatus: 200
+  sha256: c8272e715174a2f4c7ace215f5e33dccf638fb3292842b8d6d86317bd15a515c
+  url: https://www.apple.com/newsroom/2007/06/28iPhone-Premieres-This-Friday-Night-at-Apple-Retail-Stores/
+id: apple-iphone-retail-launch-2007
+license: Copyright Apple Inc. Quoted here under short-extract fair use for
+  verification of the figures cited.
+locator: Section "Pricing and Availability"
+publishedDate: 2007-06-28
+publisher: Apple Inc.
+sourceType: vendor-documentation
+tier: A
+title: iPhone Premieres This Friday Night at Apple Retail Stores
+url: https://www.apple.com/newsroom/2007/06/28iPhone-Premieres-This-Friday-Night-at-Apple-Retail-Stores/
+usageNote: >-
+  A retail-availability release dated the day before the phone went on sale,
+  naming the hour and repeating the two capacities. It is cited rather than the
+  January announcement wherever a figure needs to describe hardware buyers could
+  actually take home.

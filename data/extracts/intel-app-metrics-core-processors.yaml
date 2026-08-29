@@ -1,0 +1,18 @@
+- extract: >-
+    Processor Group Processor Number GFLOPS APP / Intel® Core™ i9 processor
+    14900K (36M Cache, up to 6.00 GHz) i9-14900K 1228.8 0.36864
+  extractHash: 8349244497cadac11d58260aafae64778b3543f6fc62fd0d3b8e002d650305dd
+  id: intel-app-metrics-core-processors:i9-14900k-gflops
+  locator: Page 1, Intel® Core™ 14th Generation table, i9-14900K row
+  notes: >-
+    Transcribed as evidence that the figure cannot be used, not as a figure.
+    Intel states 1228.8 GFLOPS for this part and names no precision anywhere in
+    the document: a search of all twenty-four pages finds "precision", "FP32",
+    "FP64", "single-precision" and "double-precision" in no column header,
+    footnote or paragraph. The only gloss is the closing note's "Giga Floating
+    Point operations per Second (GFLOPS)". The 14900KS, rated to a higher 6.20
+    GHz, carries the identical 1228.8, so the column is not a function of the
+    clock Intel prints beside it.
+  sourceId: intel-app-metrics-core-processors
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-16

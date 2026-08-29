@@ -1,0 +1,11 @@
+- extract: '16GB or 32GB flash drive'
+  extractHash: 64366198fa9427988d6cded32fb435109319160ce1b505505c2bf57194e1d0bc
+  id: apple-iphone-4-tech-specs:capacity
+  locator: Capacity section
+  notes: >-
+    Apple lists the flash capacities the phone was sold in and nothing about the
+    memory it runs programs in. The two are different quantities and are kept in
+    different metrics; this is the number printed on the box.
+  sourceId: apple-iphone-4-tech-specs
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-24

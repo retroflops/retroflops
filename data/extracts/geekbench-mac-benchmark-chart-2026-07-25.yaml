@@ -1,0 +1,32 @@
+- extract: >-
+    The data on this chart is calculated from Geekbench 6 results users have
+    uploaded to the Geekbench Browser. To make sure the results accurately
+    reflect the average performance of each Mac, the chart only includes Macs
+    with at least five unique results.
+  extractHash: 4392ceae0c8cf4babaf2d92d4489a7fd3ed836a6d228b797728c1a33c279cee2
+  id: geekbench-mac-chart-2026:what-the-figures-are
+  locator: Introductory paragraph above the chart
+  notes:
+    This says the chart reports a rolling average rather than one machine's
+    result.
+  sourceId: geekbench-mac-benchmark-chart-2026-07-25
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-07-26
+- extract: >-
+    Mac mini (Late 2020) | Apple M1 @ 3.2 GHz (8 cores) | 2198
+
+    Mac mini (Late 2020) | Apple M1 @ 3.2 GHz (8 cores) | 8915
+
+    Mac mini (2024) | Apple M4 @ 4.4 GHz (10 CPU cores, 10 GPU cores) | 3273
+
+    Mac mini (2024) | Apple M4 @ 4.4 GHz (10 CPU cores, 10 GPU cores) | 15226
+  extractHash: b8c415aec480257c6309f03d1e43602941b80fbb71003401886d71fb8b028770
+  id: geekbench-mac-chart-2026:mac-mini-m1
+  locator: Single-Core and Multi-Core tables, Mac mini rows
+  notes: >-
+    The first pair is the M1 row and the second pair is the baseline ten-core M4
+    row; the source's clock strings are not separately recorded as Apple
+    specifications.
+  sourceId: geekbench-mac-benchmark-chart-2026-07-25
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-07-26

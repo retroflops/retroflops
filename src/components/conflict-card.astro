@@ -1,0 +1,125 @@
+---
+// SPDX-FileCopyrightText: 2026 Wojciech Polak
+// SPDX-License-Identifier: MIT
+
+/**
+ * A disagreement between sources, published rather than resolved silently.
+ *
+ * Both candidate values stay visible with their evidence, and the editorial
+ * decision is shown as a decision, with a date and a rationale, not as a
+ * quiet preference for one number over the other.
+ */
+import type { Conflict, Source } from '~/lib/data/schema';
+import { formatQuantity, metricLabel } from '~/lib/display';
+import { route } from '~/lib/paths';
+
+interface Props {
+  conflict: Conflict;
+  sources: readonly Source[];
+}
+
+const { conflict, sources } = Astro.props;
+
+const accepted = conflict.decision.outcome === 'accepted' ? conflict.decision.candidateIndex : -1;
+---
+
+<article class="conflict stack">
+  <h3>{metricLabel(conflict.metric)}</h3>
+
+  <ol class="conflict__candidates">
+    {
+      conflict.candidates.map((candidate, index) => (
+        <li class:list={['conflict__candidate', index === accepted && 'is-accepted']}>
+          <p class="numeric conflict__value">
+            {formatQuantity(candidate.quantity).text}
+            {index === accepted && <span class="badge badge--accepted">accepted</span>}
+          </p>
+          <p class="conflict__evidence">{candidate.evidence}</p>
+          <ul class="conflict__sources">
+            {candidate.sourceIds.map((id) => (
+              <li>
+                <a class="wrap-anywhere" href={route(`/sources/${id}/`)}>
+                  {sources.find((source) => source.id === id)?.title ?? id}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </li>
+      ))
+    }
+  </ol>
+
+  <div class="conflict__decision stack">
+    <h4>
+      {conflict.decision.outcome === 'accepted' ? 'Editorial decision' : 'Unresolved'}
+      <span class="conflict__date">{conflict.decision.decidedOn}</span>
+    </h4>
+    <p>{conflict.decision.rationale}</p>
+  </div>
+</article>
+
+<style>
+  .conflict {
+    border: var(--border-hairline);
+    background-color: var(--surface-raised);
+    padding: var(--space-s);
+  }
+
+  .conflict__candidates {
+    display: grid;
+    gap: var(--space-s);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .conflict__candidate {
+    border-inline-start: 3px solid var(--border-strong);
+    padding-inline-start: var(--space-s);
+  }
+
+  .conflict__candidate.is-accepted {
+    border-inline-start-color: var(--text-accent);
+  }
+
+  .conflict__value {
+    font-size: var(--step-1);
+    font-weight: 650;
+  }
+
+  .conflict__evidence {
+    max-inline-size: var(--prose-max);
+    font-size: var(--step--1);
+    color: var(--text-secondary);
+  }
+
+  .conflict__sources {
+    margin-block-start: var(--space-3xs);
+    padding: 0;
+    list-style: none;
+    font-size: var(--step--1);
+  }
+
+  .conflict__decision {
+    border-block-start: var(--border-hairline);
+    padding-block-start: var(--space-s);
+  }
+
+  .conflict__decision h4 {
+    font-size: var(--step-0);
+  }
+
+  .conflict__decision p {
+    max-inline-size: var(--prose-max);
+    font-size: var(--step--1);
+    color: var(--text-secondary);
+  }
+
+  .conflict__date {
+    margin-inline-start: var(--space-2xs);
+    font-family: var(--font-mono);
+    font-size: var(--step--1);
+    font-weight: 400;
+    color: var(--text-muted);
+  }
+</style>

@@ -1,0 +1,28 @@
+accessedDate: 2026-07-29
+editorialStatus: approved
+fetch:
+  byteLength: 186457
+  contentType: text/plain; charset=utf-8
+  fetchedAt: 2026-07-29T07:11:57Z
+  finalUrl: https://dn790003.ca.archive.org/0/items/manual_AMIGA1200H_SM_COMMODORE/AMIGA1200H_SM_COMMODORE_djvu.txt
+  httpStatus: 200
+  sha256: d8e1a1baf32219bc275c3c200d9fc483a3507a179eb52161869eda547994491c
+  url: https://archive.org/download/manual_AMIGA1200H_SM_COMMODORE/AMIGA1200H_SM_COMMODORE_djvu.txt
+id: amiga-1200-service-manual
+locator: >-
+  Appendix A "Technical specifications", page A-1; A1200/A1200HD functional
+  specification, page 5-3
+publisher: Commodore Business Machines
+sourceType: technical-manual
+tier: A
+title: Amiga 1200 Service Manual
+url: https://archive.org/download/manual_AMIGA1200H_SM_COMMODORE/AMIGA1200H_SM_COMMODORE_djvu.txt
+publishedDate: "1992"
+archiveUrl: https://archive.org/details/manual_AMIGA1200H_SM_COMMODORE
+license: Copyright Commodore Business Machines. Quoted here under short-extract
+  fair use for verification of the figures cited.
+usageNote: >-
+  The scanned text layer of this manual is noticeably unreliable: it renders
+  14.32 as "14.82", 32-bit as "82-bit" and 256K as "236K". Figures taken from it
+  are cross-checked against the crystal frequencies in the Amiga Hardware
+  Reference Manual before being published.

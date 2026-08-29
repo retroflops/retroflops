@@ -1,0 +1,14 @@
+id: macintosh-128k-ram
+slug: macintosh-128k-ram
+kind: memory
+name: Macintosh 128K RAM
+manufacturer: Apple Computer
+architecture: Dynamic RAM
+introducedDate: '1984'
+memoryType: Dynamic RAM
+summary:
+  '{{measurement:macintosh-128k-ram:capacity}} writable memory shared with the
+  display.'
+sourceIds:
+  - macintosh-128k-technical-reference
+editorialStatus: provisional

@@ -1,0 +1,17 @@
+id: macintosh-128k-technical-reference
+title: "Macintosh 128K: Technical Specifications"
+publisher: Apple
+url: https://support.apple.com/en-us/112190
+accessedDate: 2026-08-22
+locator: Logic Board, Power, Memory and Software tables
+extract: "Macintosh 128K: Technical Specifications"
+tier: A
+sourceType: technical-manual
+editorialStatus: provisional
+fetch:
+  url: https://support.apple.com/en-us/112190
+  fetchedAt: 2026-08-24T19:42:10Z
+  httpStatus: 200
+  contentType: text/html;charset=utf-8
+  byteLength: 1148219
+  sha256: 7c7dee32ac676afd66db26c61590fcee10c1f04f48deb3cab05b9b72226b09a2

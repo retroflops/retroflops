@@ -1,0 +1,24 @@
+- extract: >-
+    Apple M1 (4x Firestorm 3200 MHz + 4x Icestorm  2064 MHz), RAM: 16 GB, 8x
+    16-bit LPDDR4X-4266.
+  extractHash: 3e69bc9b75082675bf67f71c869ce6495e6f3514a4bba0633353091d571787d9
+  id: 7cpu-m1:clocks
+  locator: Opening line of the page, above the per-core cache tables
+  notes: >-
+    The double space before 2064 is in the source and is kept. Both frequencies
+    agree exactly with AnandTech's, which is what lets either figure be
+    approved: two independent parties measured the same machine and reported the
+    same numbers. The efficiency-core figure is transcribed here and the
+    performance-core figure on AnandTech's record, so each of the two readings
+    has an owner. The benchmark logs further down the page report the same 3200
+    MHz as a run-time observation — "1T CPU Freq (MHz): 3197 3202 3201 3200" —
+    which is why this is a measured clock rather than a specification anybody
+    published.
+  sourceId: 7cpu-apple-m1
+  transcribed:
+    significantDigits: 4
+    state: value
+    unit: MHz
+    value: '2064'
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-04

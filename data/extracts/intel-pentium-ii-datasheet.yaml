@@ -1,0 +1,26 @@
+- extract: >-
+    Table 20. Pentium® II Processor Thermal Design Specification1 / Processor
+    Core Frequency (MHz) | L2 Cache Size (kB) | Max Processor Power2 (W) | Max
+    Thermal Plate Power3 (W) ... / 300 4 512 43.0 41.4 5 72 5 72
+  extractHash: 1ae590abb5398316b73594ffaba52a7727e356518c0906877ba66e5b4eee4b20
+  id: intel-pentium-ii-datasheet:max-processor-power-300mhz
+  locator: >-
+    Section 4.1 Thermal Specifications, Table 20 "Pentium® II Processor Thermal
+    Design Specification", page 43, 300 MHz row
+  notes: >-
+    The "4" between 300 and 512 is a footnote marker on the frequency, not a
+    column: note 4 reads "This specification applies to CPU ID 63x", so 43.0 W
+    describes the 0.35-micron part and not a later 300 MHz stepping. The table
+    proves the point by listing 266 MHz twice — 38.2 W under note 4 and 19.5 W
+    under note 5, CPU ID 65x — and by rating the faster 333 MHz part at 23.7 W.
+    43.0 W is the Max Processor Power column, which note 2 defines as 100% of
+    processor core and 100% L2 cache power; the adjacent 41.4 W is a different
+    quantity, the Max Thermal Plate Power.
+  sourceId: intel-pentium-ii-datasheet
+  transcribed:
+    significantDigits: 3
+    state: value
+    unit: W
+    value: '43.0'
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-16

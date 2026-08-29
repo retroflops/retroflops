@@ -1,0 +1,19 @@
+id: apple-mac-mini-m1:context-v-100
+subject:
+  kind: system
+  id: apple-mac-mini-m1
+label: Contextual value
+quantity:
+  state: value
+  value: '100'
+  unit: V
+  significantDigits: 3
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - apple-mac-mini-m1-tech-specs
+extractIds:
+  - apple-mac-mini-m1:electrical
+evidenceLevel: confirmed

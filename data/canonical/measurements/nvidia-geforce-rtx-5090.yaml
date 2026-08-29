@@ -1,0 +1,399 @@
+- caveat: >-
+    The base clock, from the product page: the whitepaper's appendix states only
+    the boost clock. It is the figure that belongs beside a fixed frequency, and
+    the reason a reader can put this card next to a Commodore 64 without the
+    comparison quietly changing what it means.
+  comparabilityGroup: clock-frequency|gpu|nominal-clock
+  conditions: Reference card, as specified in NVIDIA's product specification table.
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - nvidia-rtx-5090:product-specifications
+  id: nvidia-gb202:clock-frequency-base
+  method: nominal-clock
+  metric: clock-frequency
+  normalized:
+    value: "2010000000"
+    unit: Hz
+    significantDigits: 3
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 3
+    state: value
+    unit: GHz
+    value: "2.01"
+  scope: gpu
+  sourceIds:
+    - nvidia-rtx-5090-product-specifications
+  status: vendor-rated
+  subject:
+    id: nvidia-gb202
+    kind: component
+  evidenceLevel: confirmed
+- caveat: >-
+    Taken from the whitepaper, which states
+    {{measurement:nvidia-gb202:clock-frequency-boost}}, rather than from the
+    product page, which states {{context:nvidia-gb202:context-ghz-2-41}}. That
+    is the same figure to three digits, and the more precise one is the one
+    recorded. A ceiling reached when there is headroom, so it shares a
+    comparability group with the GeForce GTX 1080's boost clock and with the
+    PlayStation 5's variable-frequency maximum, and none with a fixed clock.
+  comparabilityGroup: clock-frequency|gpu|peak-clock
+  conditions: Reference card, the frequency NVIDIA guarantees the card reaches
+    when power and thermal headroom allow.
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - nvidia-rtx-5090:whitepaper-table
+    - nvidia-rtx-5090:product-specifications
+  id: nvidia-gb202:clock-frequency-boost
+  method: peak-clock
+  metric: clock-frequency
+  normalized:
+    value: "2407000000"
+    unit: Hz
+    significantDigits: 4
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 4
+    state: value
+    unit: MHz
+    value: "2407"
+  scope: gpu
+  sourceIds:
+    - nvidia-rtx-blackwell-whitepaper
+    - nvidia-rtx-5090-product-specifications
+  status: vendor-rated
+  subject:
+    id: nvidia-gb202
+    kind: component
+  evidenceLevel: confirmed
+- caveat: >-
+    The whitepaper writes "Peak FP32 TFLOPS (non-Tensor)", which names both the
+    precision and the units that produce it, so this rate is comparable with the
+    GeForce GTX 1080's and with nothing else on the card. The product page's
+    "3352 AI TOPS" and "318 TFLOPS" are not recorded anywhere in this catalog:
+    the first counts low-precision tensor operations, the second is the
+    ray-tracing engine's, and neither may be divided by a single-precision peak.
+  comparabilityGroup: peak-fp32-rate|gpu|theoretical-peak
+  conditions: "{{context:nvidia-gb202:context-unit-21760}} cores at the
+    {{measurement:nvidia-gb202:clock-frequency-boost}} boost clock, on the
+    general shader units rather than the tensor cores. A theoretical peak, not
+    an achieved rate."
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - nvidia-rtx-5090:whitepaper-table
+  id: nvidia-gb202:peak-fp32-rate
+  method: theoretical-peak
+  metric: peak-fp32-rate
+  normalized:
+    value: "104800000000000"
+    unit: FLOP/s
+    significantDigits: 4
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 4
+    state: value
+    unit: TFLOP/s
+    value: "104.8"
+  scope: gpu
+  sourceIds:
+    - nvidia-rtx-blackwell-whitepaper
+  status: theoretical
+  subject:
+    id: nvidia-gb202
+    kind: component
+  evidenceLevel: confirmed
+- caveat: >-
+    Both documents write "32 GB", read as
+    {{measurement:nvidia-rtx-5090-memory:capacity}} in the binary convention
+    this catalog applies to every memory capacity. Recorded at whole-system
+    scope because it is all the memory the card has, and it means what a card's
+    memory means rather than what a computer's does.
+  comparabilityGroup: memory-capacity|whole-system|design-capacity
+  conditions: The card's own memory, on a
+    {{measurement:nvidia-rtx-5090-memory:bus-width}} interface. No host memory
+    is included.
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - nvidia-rtx-5090:whitepaper-table
+    - nvidia-rtx-5090:product-specifications
+  id: nvidia-rtx-5090-memory:capacity
+  method: design-capacity
+  metric: memory-capacity
+  normalized:
+    value: "34359738368"
+    unit: B
+    significantDigits: 2
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 2
+    state: value
+    unit: GiB
+    value: "32"
+  scope: whole-system
+  sourceIds:
+    - nvidia-rtx-blackwell-whitepaper
+    - nvidia-rtx-5090-product-specifications
+  status: vendor-rated
+  subject:
+    id: nvidia-rtx-5090-memory
+    kind: component
+  evidenceLevel: confirmed
+- caveat: >-
+    Stated in the architecture whitepaper and nowhere on the page that sells the
+    card, which gives the interface width and stops. Same metric, same scope,
+    same method as the GeForce GTX 1080's, which is what makes a multiplier
+    between the two legitimate.
+  comparabilityGroup: memory-bandwidth|memory|theoretical-peak
+  conditions: Peak transfer rate of the GDDR7 memory at 28 Gbps on a
+    {{measurement:nvidia-rtx-5090-memory:bus-width}} interface.
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - nvidia-rtx-5090:whitepaper-table
+  id: nvidia-rtx-5090-memory:bandwidth
+  method: theoretical-peak
+  metric: memory-bandwidth
+  normalized:
+    value: "1792000000000"
+    unit: B/s
+    significantDigits: 4
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 4
+    state: value
+    unit: GB/s
+    value: "1792"
+  scope: memory
+  sourceIds:
+    - nvidia-rtx-blackwell-whitepaper
+  status: theoretical
+  subject:
+    id: nvidia-rtx-5090-memory
+    kind: component
+  evidenceLevel: confirmed
+- caveat: >-
+    Adds 1 memory-bandwidth figure obtained by theoretical-peak. Nothing in the
+    catalog is left out of it. A total is only as trustworthy as the decision
+    about what belongs in it, so both the terms and the exclusions are named
+    records.
+  comparabilityGroup: memory-bandwidth|whole-system|theoretical-peak
+  conditions: One pool of GDDR7 on the card, and nothing else on it.
+  derivedFrom: nvidia-geforce-rtx-5090:whole-system-memory-bandwidth
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - nvidia-rtx-5090:whitepaper-table
+  id: nvidia-geforce-rtx-5090:whole-system-memory-bandwidth
+  method: theoretical-peak
+  metric: memory-bandwidth
+  normalized:
+    value: "1792000000000"
+    unit: B/s
+    significantDigits: 4
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 4
+    state: value
+    unit: GB/s
+    value: "1792"
+  rounding: none
+  scope: whole-system
+  sourceIds:
+    - nvidia-rtx-blackwell-whitepaper
+  status: derived
+  subject:
+    id: nvidia-geforce-rtx-5090
+    kind: system
+  evidenceLevel: confirmed
+- caveat: >-
+    NVIDIA's word here is "Total Graphics Power", not TDP: a board power rather
+    than a cooling-design target, which is why it is recorded under a different
+    metric from the GeForce GTX 1080's {{context:nvidia-gb202:context-w-180}}.
+    The two are the same kind of claim about two cards and not the same
+    quantity, and neither metric permits a ratio, so the difference costs
+    nothing and hiding it would.
+  comparabilityGroup: rated-power-consumption|gpu|rated-power
+  conditions: '"TGP (Total Graphics Power): 575W" for the reference card,
+    alongside a {{context:nvidia-gb202:context-w-1000}} required system power
+    that describes a computer rather than this card.'
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - nvidia-rtx-5090:whitepaper-table
+    - nvidia-rtx-5090:product-specifications
+  id: nvidia-gb202:rated-power-consumption
+  method: rated-power
+  metric: rated-power-consumption
+  normalized:
+    value: "575"
+    unit: W
+    significantDigits: 3
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 3
+    state: value
+    unit: W
+    value: "575"
+  scope: gpu
+  sourceIds:
+    - nvidia-rtx-blackwell-whitepaper
+    - nvidia-rtx-5090-product-specifications
+  status: vendor-rated
+  subject:
+    id: nvidia-gb202
+    kind: component
+  evidenceLevel: confirmed
+- caveat: >-
+    The count is the full die’s. The same whitepaper says the full GB202 carries
+    192 streaming multiprocessors and that this card has 170, so some of these
+    transistors are not enabled on it. NVIDIA nevertheless prints 92.2 billion
+    in the card’s own column, and the figure is recorded as the vendor states it
+    with the discrepancy named here rather than silently corrected.
+  comparabilityGroup: transistor-count|gpu|die-specification
+  conditions: Whole GB202 die.
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - nvidia-rtx-5090:whitepaper-table
+    - nvidia-rtx-5090:gb202-die
+  id: nvidia-gb202:transistor-count
+  method: die-specification
+  metric: transistor-count
+  normalized:
+    value: "92200000000"
+    unit: transistor
+    significantDigits: 3
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 3
+    state: value
+    unit: transistor
+    value: "92200000000"
+  scope: gpu
+  sourceIds:
+    - nvidia-rtx-blackwell-whitepaper
+  status: vendor-rated
+  subject:
+    id: nvidia-gb202
+    kind: component
+  evidenceLevel: confirmed
+- caveat: >-
+    "4N" is a foundry process name, not a dimension, and NVIDIA calls it a
+    custom process rather than the stock one, so the four is a label the number
+    4 happens to sit inside. Recorded because the metric is defined as a
+    marketing node name and forbids ratios outright.
+  comparabilityGroup: process-node|gpu|die-specification
+  conditions: 'Node as named in the whitepaper: "TSMC 4nm 4N NVIDIA Custom Process".'
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - nvidia-rtx-5090:whitepaper-process
+  id: nvidia-gb202:process-node
+  method: die-specification
+  metric: process-node
+  normalized:
+    value: "0.000000004"
+    unit: m
+    significantDigits: 1
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 1
+    state: value
+    unit: nm
+    value: "4"
+  scope: gpu
+  sourceIds:
+    - nvidia-rtx-blackwell-whitepaper
+  status: vendor-rated
+  subject:
+    id: nvidia-gb202
+    kind: component
+  evidenceLevel: confirmed
+- caveat: >-
+    One of the few figures NVIDIA prints identically in the whitepaper and on
+    the page that sells the card.
+  comparabilityGroup: memory-bus-width|memory|design-capacity
+  conditions: "Width of the interface between the GB202 and the GDDR7 fitted to
+    the card: sixteen {{context:nvidia-rtx-5090-memory:context-bit-32}}
+    controllers."
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - nvidia-rtx-5090:whitepaper-table
+    - nvidia-rtx-5090:gb202-die
+    - nvidia-rtx-5090:product-specifications
+  id: nvidia-rtx-5090-memory:bus-width
+  method: design-capacity
+  metric: memory-bus-width
+  normalized:
+    value: "512"
+    unit: bit
+    significantDigits: 3
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 3
+    state: value
+    unit: bit
+    value: "512"
+  scope: memory
+  sourceIds:
+    - nvidia-rtx-blackwell-whitepaper
+    - nvidia-rtx-5090-product-specifications
+  status: vendor-rated
+  subject:
+    id: nvidia-rtx-5090-memory
+    kind: component
+  evidenceLevel: confirmed
+- asOf: 2026-08-18
+  benchmark:
+    id: geekbench-compute
+    variant: opencl
+    version: "7"
+  caveat: >-
+    A dated capture of the benchmark publisher’s rolling average for this
+    graphics processor, read from the 25 July 2026 OpenCL chart. Version 7
+    calibrates a compute result against a baseline of 100,000, so it may be
+    compared only with another Geekbench 7 OpenCL figure from this curation
+    round, never with a Metal figure, an earlier version or a processor score.
+  comparabilityGroup: geekbench-compute-score|gpu|benchmark-chart-average|geekbench-compute@7:opencl
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - geekbench-opencl-chart-2026-07-25:rtx-5090
+    - geekbench-opencl-chart-2026-07-25:what-the-figures-are
+  id: nvidia-gb202:geekbench-compute-7-opencl
+  method: benchmark-chart-average
+  metric: geekbench-compute-score
+  normalized:
+    value: "335760"
+    unit: score
+    significantDigits: 6
+    unitRegistry: units-v1
+  provenance: independent
+  quantity:
+    significantDigits: 6
+    state: value
+    unit: score
+    value: "335760"
+  scope: gpu
+  sourceIds:
+    - geekbench-opencl-benchmark-chart-2026-07-25
+  status: measured
+  subject:
+    id: nvidia-gb202
+    kind: component
+  evidenceLevel: confirmed

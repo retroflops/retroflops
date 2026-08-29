@@ -1,0 +1,22 @@
+accessedDate: 2026-08-13
+editorialStatus: approved
+fetch:
+  byteLength: 82087
+  contentType: text/html; charset=UTF-8
+  fetchedAt: 2026-08-16T17:45:36Z
+  httpStatus: 200
+  sha256: f73be671bb460ac98d0b6721443ad946ba3a19ab89ac5cc6cde64dcd569fd7b2
+  url: https://www.netlib.org/performance/html/dhrystone.data.col1.html
+id: x86-dhrystone-results
+license: No license is stated by Netlib; cited under short-extract fair use for
+  verification of the figures.
+locator: Dhrystone results table and its CPU, clock, version 1.1 and version 2.1 columns
+publisher: Netlib (University of Tennessee and Oak Ridge National Laboratory)
+sourceType: independent-analysis
+tier: B
+title: "PDS: The Performance Database Server — Dhrystone"
+url: https://www.netlib.org/performance/html/dhrystone.data.col1.html
+usageNote: >-
+  The table is used only where it names the Dhrystone version and the processor
+  clock used by the run. Its historic result rows are retained as provisional
+  rather than treated as an official certification.

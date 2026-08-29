@@ -1,0 +1,17 @@
+id: game-boy-lr35902:context-unit-1
+subject:
+  kind: component
+  id: game-boy-lr35902
+label: Core count
+quantity:
+  state: value
+  value: '1'
+  unit: unit
+  significantDigits: 1
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - game-boy-cpu-manual
+evidenceLevel: reported

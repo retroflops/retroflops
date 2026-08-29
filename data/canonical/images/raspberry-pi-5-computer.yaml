@@ -1,0 +1,41 @@
+accessedDate: 2026-08-17
+alt: A green Raspberry Pi 5 board photographed from above against white, with a black forty-pin
+  header along one edge, two stacked USB pairs and an Ethernet socket.
+attribution: Photograph by SimonWaldherr, licensed CC BY 4.0, via Wikimedia Commons.
+canonical:
+  byteLength: 107463
+  format: avif
+  height: 960
+  sha256: 0af0a09c9068daf30e16a9b59ed0dcbe010cff45f7945ca9c464fb965c7e3521
+  width: 1280
+caption: "A Raspberry Pi 5. The board is the product: there is no case, and the connectors along its
+  edges are what a buyer gets."
+creator: SimonWaldherr
+creatorType: person
+editorialStatus: approved
+id: raspberry-pi-5-computer
+original:
+  byteLength: 3903561
+  height: 3400
+  mediaType: image/jpeg
+  sha256: 77a724485f6b48408aacf2e42806783e1c9448997a9e9627905fe2d3f2ada264
+  width: 4600
+originalUrl: https://upload.wikimedia.org/wikipedia/commons/e/e7/Raspberry_Pi_5.jpg
+publisher: Wikimedia Commons
+rights:
+  id: cc-by-4.0
+  statedAt: https://commons.wikimedia.org/wiki/File:Raspberry_Pi_5.jpg
+  statement: "I, the copyright holder of this work, hereby publish it under the following license:
+    This file is licensed under the Creative Commons Attribution 4.0 International license."
+  url: https://creativecommons.org/licenses/by/4.0/
+sourcePageUrl: https://commons.wikimedia.org/wiki/File:Raspberry_Pi_5.jpg
+title: Raspberry Pi 5.jpg
+transform:
+  background: "#ffffff"
+  fit: pad
+  note: The photograph is wider than 4:3 and the machine reaches both ends of it, so no crop keeps the
+    whole subject. The declared margin is the same white as the backdrop the photograph was taken
+    against, which is why it cannot be seen; it is recorded because it is there.
+  preset: image-v1
+  sourceHeight: 3400
+  sourceWidth: 4600

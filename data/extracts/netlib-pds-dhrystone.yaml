@@ -1,0 +1,37 @@
+- extract: >2-
+                                                         CPU   MIPS   MIPS
+        System                      OS          CPU     (MHz)  V1.1   V2.1  REF
+  extractHash: af906d814063034b7efb645ab25218de0c7f50c5d843d4bda269f5d5255c20d4
+  id: netlib-dhrystone:columns
+  locator: Table heading, above row 001
+  notes: >-
+    Transcribed with no value: this record exists to establish what the columns
+    are. Two Dhrystone versions have their own columns, so a row states which
+    version produced which figure — and a metric that refuses a Dhrystone number
+    without a version can accept one from here. Column alignment is preserved
+    because it is what associates a figure with a version; the leading spaces
+    are the source's.
+  sourceId: netlib-pds-dhrystone
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-04
+- extract:
+    328 Commodore 64           C64 ROM      6510          1.0    0.0205 ---   1
+  extractHash: 7bcb595c28404e9e43003ec082308a0cfc06056937d048e03c37ad08eef92d6a
+  id: netlib-dhrystone:commodore-64
+  locator: Results table, row 328, the last row of the table
+  notes: >-
+    Read against the heading: 0.0205 sits under "MIPS V1.1" and the "---" under
+    "MIPS V2.1" means the machine was never run on version 2.1. The clock column
+    says 1.0 MHz, which is neither of the two rates this catalog records for the
+    machine — the table rounds, and 0.98525 and 1.02273 both round to 1.0 — so
+    the figure is not attached to either regional variant. "C64 ROM" in the OS
+    column means the run used the machine's own ROM environment rather than a
+    hosted operating system.
+  sourceId: netlib-pds-dhrystone
+  transcribed:
+    significantDigits: 3
+    state: value
+    unit: DMIPS
+    value: '0.0205'
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-04

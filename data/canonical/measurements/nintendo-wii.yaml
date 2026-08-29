@@ -1,0 +1,237 @@
+- caveat: >-
+    Nintendo's public manuals state no processor clock. Wikipedia gives
+    {{measurement:nintendo-wii:retail:cpu-clock-frequency}} for the Broadway
+    processor, and the catalog carries it as rumored.
+  comparabilityGroup: clock-frequency|cpu|nominal-clock
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: nintendo-wii:retail:cpu-clock-frequency
+  method: nominal-clock
+  metric: clock-frequency
+  provenance: community
+  quantity:
+    state: value
+    value: "729"
+    unit: MHz
+    significantDigits: 3
+  scope: cpu
+  sourceIds:
+    - nintendo-wii-hardware-overview
+    - wikipedia-wii-specifications
+  status: vendor-rated
+  subject:
+    configurationId: retail
+    id: nintendo-wii
+    kind: system
+  evidenceLevel: rumored
+  normalized:
+    value: "729000000"
+    unit: Hz
+    significantDigits: 3
+    unitRegistry: units-v1
+- caveat: >-
+    Nintendo's public manuals state no graphics clock. Wikipedia gives
+    {{measurement:nintendo-wii:retail:gpu-clock-frequency}} for the Hollywood
+    graphics processor, and the catalog carries it as rumored.
+  comparabilityGroup: clock-frequency|gpu|nominal-clock
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: nintendo-wii:retail:gpu-clock-frequency
+  method: nominal-clock
+  metric: clock-frequency
+  provenance: community
+  quantity:
+    state: value
+    value: "243"
+    unit: MHz
+    significantDigits: 3
+  scope: gpu
+  sourceIds:
+    - nintendo-wii-hardware-overview
+    - wikipedia-wii-specifications
+  status: vendor-rated
+  subject:
+    configurationId: retail
+    id: nintendo-wii
+    kind: system
+  evidenceLevel: rumored
+  normalized:
+    value: "243000000"
+    unit: Hz
+    significantDigits: 3
+    unitRegistry: units-v1
+- caveat: Two independent technical sources identify the MEM1 capacity.
+  comparabilityGroup: memory-capacity|memory|design-capacity
+  editorialStatus: provisional
+  evidenceStage: shipped
+  extractIds:
+    - marcan-wii-fail-2008:main-memory
+    - copetti-wii-architecture:main-memory
+  id: nintendo-wii-mem1:capacity
+  method: design-capacity
+  metric: memory-capacity
+  provenance: vendor
+  quantity:
+    significantDigits: 2
+    state: value
+    unit: MiB
+    value: "24"
+  scope: memory
+  sourceIds:
+    - marcan-wii-fail-2008
+    - copetti-wii-architecture
+  status: vendor-rated
+  subject:
+    id: nintendo-wii-mem1
+    kind: component
+  normalized:
+    value: "25165824"
+    unit: B
+    significantDigits: 2
+    unitRegistry: units-v1
+  evidenceLevel: confirmed
+- caveat: Two independent technical sources identify the MEM2 capacity.
+  comparabilityGroup: memory-capacity|memory|design-capacity
+  editorialStatus: provisional
+  evidenceStage: shipped
+  extractIds:
+    - marcan-wii-fail-2008:main-memory
+    - copetti-wii-architecture:main-memory
+  id: nintendo-wii-mem2:capacity
+  method: design-capacity
+  metric: memory-capacity
+  provenance: vendor
+  quantity:
+    significantDigits: 2
+    state: value
+    unit: MiB
+    value: "64"
+  scope: memory
+  sourceIds:
+    - marcan-wii-fail-2008
+    - copetti-wii-architecture
+  status: vendor-rated
+  subject:
+    id: nintendo-wii-mem2
+    kind: component
+  normalized:
+    value: "67108864"
+    unit: B
+    significantDigits: 2
+    unitRegistry: units-v1
+  evidenceLevel: confirmed
+- caveat: Nintendo's public Wii manuals do not support a whole-system memory total.
+  comparabilityGroup: memory-capacity|whole-system|design-capacity
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: nintendo-wii:whole-system-memory-capacity
+  method: design-capacity
+  metric: memory-capacity
+  provenance: vendor
+  quantity:
+    note: No whole-system total can be derived from Nintendo's public Wii manuals.
+    state: unknown
+  unknownAudit:
+    reviewedOn: 2026-08-25
+    routesChecked:
+      - vendor-documentation
+      - independent-analysis
+      - community-source
+    outcome: no-compatible-candidate
+    summary: Nintendo's public Wii manuals provide no compatible published value.
+  rounding: none
+  scope: whole-system
+  sourceIds:
+    - nintendo-wii-hardware-overview
+  status: vendor-rated
+  subject:
+    id: nintendo-wii
+    kind: system
+- caveat: >-
+    Provisional record for nintendo-wii: the primary technical source is
+    registered, but page-level transcription and independent review are pending.
+  comparabilityGroup: memory-bandwidth|memory|theoretical-peak
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: nintendo-wii:memory-bandwidth
+  method: theoretical-peak
+  metric: memory-bandwidth
+  provenance: vendor
+  quantity:
+    note: >-
+      The registered technical source does not yet provide a transcribed
+      comparable memory transfer-rate figure.
+    state: unknown
+  unknownAudit:
+    reviewedOn: 2026-08-25
+    routesChecked:
+      - vendor-documentation
+      - independent-analysis
+      - community-source
+    outcome: no-compatible-candidate
+    summary: Nintendo's public Wii manuals provide no compatible published value.
+  scope: memory
+  sourceIds:
+    - nintendo-wii-hardware-overview
+  status: vendor-rated
+  subject:
+    id: nintendo-wii
+    kind: system
+- caveat: >-
+    Provisional record for nintendo-wii: the primary technical source is
+    registered, but page-level transcription and independent review are pending.
+  comparabilityGroup: peak-fp32-rate|gpu|theoretical-peak
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: nintendo-wii:peak-fp32-rate
+  method: theoretical-peak
+  metric: peak-fp32-rate
+  provenance: vendor
+  quantity:
+    note: >-
+      The registered technical source does not yet provide a standalone GPU FP32
+      rate with a stated precision and method.
+    state: unknown
+  unknownAudit:
+    reviewedOn: 2026-08-25
+    routesChecked:
+      - vendor-documentation
+      - independent-analysis
+      - community-source
+    outcome: no-published-candidate
+    summary: Nintendo's public Wii manuals provide no compatible published value.
+  scope: gpu
+  sourceIds:
+    - nintendo-wii-hardware-overview
+  status: vendor-rated
+  subject:
+    id: nintendo-wii
+    kind: system
+- caveat: >-
+    Nintendo's public Wii manuals do not state a comparable whole-system power
+    rating.
+  comparabilityGroup: rated-power-consumption|whole-system|rated-power
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: nintendo-wii:rated-power-consumption
+  method: rated-power
+  metric: rated-power-consumption
+  provenance: vendor
+  quantity:
+    note: Nintendo's public Wii manuals do not state a whole-system power rating.
+    state: unknown
+  unknownAudit:
+    reviewedOn: 2026-08-25
+    routesChecked:
+      - vendor-documentation
+      - independent-analysis
+      - community-source
+    outcome: no-compatible-candidate
+    summary: Nintendo's public Wii manuals provide no compatible published value.
+  scope: whole-system
+  sourceIds:
+    - nintendo-wii-hardware-overview
+  status: vendor-rated
+  subject:
+    id: nintendo-wii
+    kind: system

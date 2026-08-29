@@ -1,0 +1,75 @@
+- extract: >-
+    CPU: x86-64-AMD Ryzen™ “Zen 2”; 8 Cores / 16 Threads; Variable frequency, up
+    to 3.5 GHz
+  extractHash: 1348196c9a215c32962941b9252b1bd50b711fe98f707d55c66c3ac9e884ff29
+  id: scei-ps5-2020:processor
+  locator: Specification table, CPU row
+  notes: >-
+    The row spans three cells and they are rejoined here with semicolons.
+    "Variable frequency, up to 3.5 GHz" is the whole of what Sony says about the
+    frequency: a ceiling, not a rate the machine holds, and not a nominal clock
+    at all.
+  sourceId: scei-ps5-hardware-specs-2020
+  transcribed:
+    significantDigits: 2
+    state: value
+    unit: GHz
+    value: '3.5'
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-03
+- extract: >-
+    GPU: AMD Radeon™ RDNA 2-based graphics engine; Ray Tracing Acceleration;
+    Variable frequency, up to 2.23 GHz (10.3 TFLOPS)
+  extractHash: 53e191342a7f805c2a885ddc0d13716ec649a7cf8b12ec2d581dfcf534fc09cf
+  id: scei-ps5-2020:graphics
+  locator: Specification table, GPU row
+  notes: >-
+    Three cells rejoined with semicolons. The teraflops figure names no
+    precision and the row states no compute-unit count, so it cannot be checked
+    against the frequency it is quoted beside. The article as first published in
+    March 2020 read 10.28 TFLOPS with 36 CUs; the table now reads 10.3 and drops
+    the count, which is why the source is treated as a document still being
+    revised.
+  sourceId: scei-ps5-hardware-specs-2020
+  transcribed:
+    significantDigits: 3
+    state: value
+    unit: GHz
+    value: '2.23'
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-03
+- extract: 'System Memory: GDDR6 16GB; 448GB/s Bandwidth'
+  extractHash: 58211c1bb68d4b99436822123bc3388bc7f93a53b9c5af8109056e443fbf1c33
+  id: scei-ps5-2020:memory
+  locator: Specification table, System Memory row
+  notes: >-
+    Two cells rejoined with a semicolon. Sony writes "16GB", read as 16 GiB in
+    the binary convention this catalog applies to memory. One pool for
+    everything, as on the PlayStation 4 — the word "System Memory" is Sony's,
+    and there is no second figure it excludes.
+  sourceId: scei-ps5-hardware-specs-2020
+  transcribed:
+    significantDigits: 2
+    state: value
+    unit: GiB
+    value: '16'
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-03
+- extract: 'SSD: 825GB; 5.5GB/s Read Bandwidth (Raw)'
+  extractHash: df41b14551bfa94ffddeed0c10d58393963631f5a39395b889636a6107bc8b2c
+  id: scei-ps5-2020:storage
+  locator: Specification table, SSD row
+  notes: >-
+    Two cells rejoined with a semicolon. 825 GB is read decimally and could not
+    sensibly be read otherwise: it is not a power of two, and reading it as
+    binary would silently turn it into a different number. The read bandwidth is
+    a storage figure, not a memory one, and is not recorded — the catalog has no
+    metric for it.
+  sourceId: scei-ps5-hardware-specs-2020
+  transcribed:
+    significantDigits: 3
+    state: value
+    unit: GB
+    value: '825'
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-03

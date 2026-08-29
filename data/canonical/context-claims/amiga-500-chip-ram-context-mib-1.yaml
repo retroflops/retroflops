@@ -1,0 +1,20 @@
+id: amiga-500-chip-ram:context-mib-1
+subject:
+  kind: component
+  id: amiga-500-chip-ram
+label: Capacity
+quantity:
+  state: value
+  value: '1'
+  unit: MiB
+  significantDigits: 1
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - amiga-hardware-reference-manual
+extractIds:
+  - amiga-hrm:p5:table-1-1
+  - amiga-hrm:p3:chip-memory
+evidenceLevel: confirmed

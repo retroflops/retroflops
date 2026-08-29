@@ -1,0 +1,17 @@
+id: apple-iphone-12-cpu:context-unit-6
+subject:
+  kind: component
+  id: apple-iphone-12-cpu
+label: Core count
+quantity:
+  state: value
+  value: '6'
+  unit: unit
+  significantDigits: 1
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - apple-iphone-12-tech-specs
+evidenceLevel: confirmed

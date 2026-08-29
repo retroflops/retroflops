@@ -1,0 +1,7 @@
+- extract: 'Pin 34 of IC5 clock: 3.579545 MHz + 30 Hz.'
+  extractHash: f16f1a5c4e4053a7fd58cd4481ee37fdbcffb741ea53f4537a704bb39e7c8397
+  id: sega-master-system-service-manual:ic5-clock
+  locator: Service procedures, Main Unit, oscillator circuit check
+  sourceId: sega-8bit-service-manual
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-24

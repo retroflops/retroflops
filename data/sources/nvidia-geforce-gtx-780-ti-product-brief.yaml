@@ -1,0 +1,18 @@
+id: nvidia-geforce-gtx-780-ti-product-brief
+title: GeForce GTX 780 Ti | Specifications
+publisher: NVIDIA
+url: https://www.nvidia.com/en-us/geforce/graphics-cards/geforce-gtx-780-ti/specifications/
+accessedDate: 2026-08-22
+locator: GPU Engine Specs, Memory Specs, and Thermal and Power Specs
+extract: >-
+  875 Base Clock; 928 Boost Clock; 3072 MB; 384-bit; 7.0 Gbps; 336 Memory
+  Bandwidth; 250 W Graphics Card Power
+tier: A
+sourceType: vendor-documentation
+license: Copyright retained by the publisher. Short extracts are recorded solely
+  to verify the cited specifications.
+editorialStatus: provisional
+usageNote: >-
+  NVIDIA labels these as its reference graphics-card design and says add-in-card
+  manufacturers may vary them. The page does not state an explicitly labelled
+  FP32 peak.

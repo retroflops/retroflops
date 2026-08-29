@@ -1,0 +1,21 @@
+- extract: 'Logic Board: 0.125 MB'
+  extractHash: 1bf22aa8e91ce3fecc0a6a5d246ffc7138285cb2f35a2a9a9bdd471010401d41
+  id: macintosh-128k-specifications:logic-board-memory
+  locator: Memory table, Logic Board row
+  sourceId: macintosh-128k-technical-reference
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-22
+- extract: 'ROM Size: 64K'
+  extractHash: cb4a9c273ce85729d51ea6832cfabe71e18c434d28f228927e5d767ab688944d
+  id: macintosh-128k-specifications:rom-size
+  locator: Software table, ROM Size row
+  sourceId: macintosh-128k-technical-reference
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-22
+- extract: 'Max Watts: 60'
+  extractHash: 6a5a38601dc541b6e8adfe3fde97476c2386935f1f33f1e457058f65273d2953
+  id: macintosh-128k-specifications:max-watts
+  locator: Power table, Max Watts row
+  sourceId: macintosh-128k-technical-reference
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-22

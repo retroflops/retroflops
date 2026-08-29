@@ -1,0 +1,20 @@
+id: valve-steam-deck:whole-system-memory
+formula:
+  id: sum
+  version: '1'
+  expression: a + b + …
+inputMeasurementIds:
+  - valve-steam-deck-ram:capacity
+exclusions: []
+result:
+  state: value
+  value: '17179869184'
+  unit: B
+  significantDigits: 11
+rounding: none
+caveat: >-
+  Adds 1 memory-capacity figure obtained by design-capacity. Nothing in the
+  catalog is left out of it. A total is only as trustworthy as the decision
+  about what belongs in it, so both the terms and the exclusions are named
+  records.
+editorialStatus: approved

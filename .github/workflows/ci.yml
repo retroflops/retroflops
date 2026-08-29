@@ -1,0 +1,171 @@
+name: CI
+
+# CI runs for pull requests. A push trigger would duplicate the run on the
+# default branch.
+on:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  # The production build runs without network access.
+  ASTRO_TELEMETRY_DISABLED: '1'
+
+jobs:
+  quality-gate:
+    name: Quality gate
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Set up pnpm
+        uses: pnpm/action-setup@0ebf47130e4866e96fce0953f49152a61190b271 # v6.0.9
+
+      - name: Set up Node.js
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version-file: .node-version
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Format check
+        run: pnpm format:check
+
+      - name: Lint
+        run: pnpm lint
+
+      - name: Typecheck
+        run: pnpm typecheck
+
+      - name: Check normalized data is current
+        run: pnpm data:normalize:check
+
+      - name: Validate data
+        run: pnpm data:validate
+
+      - name: Unit tests
+        run: pnpm test
+
+      - name: Build
+        run: pnpm build
+
+      - name: Asset budgets
+        run: pnpm budgets
+
+      # GitHub Pages hosts one site per repository, so pull requests have no
+      # separate URL. Upload the root build for local review with `pnpm preview`
+      # before the prefixed build replaces `dist` with paths under /retroflops/.
+      - name: Upload the built site for review
+        if: github.event_name == 'pull_request'
+        uses: actions/upload-artifact@330a01c490aca151604b8cf639adc76d48f6c5d4 # v5.0.0
+        with:
+          name: site-preview
+          path: dist/
+          retention-days: 7
+
+      # Block every outbound connection. The build fails if it gains a network
+      # dependency.
+      - name: Build with the network blocked
+        run: pnpm build:offline-check
+
+      - name: Build under a GitHub Pages repository prefix
+        run: pnpm build
+        env:
+          SITE_URL: https://example.github.io
+          BASE_PATH: /retroflops/
+
+  end-to-end:
+    name: End to end, axe and the Pages prefix
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Set up pnpm
+        uses: pnpm/action-setup@0ebf47130e4866e96fce0953f49152a61190b271 # v6.0.9
+
+      - name: Set up Node.js
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version-file: .node-version
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      # The suite checks this project's markup and layout rules, not browser
+      # differences. Chromium avoids running the same assertions three times.
+      - name: Install Chromium for Playwright
+        run: pnpm exec playwright install --with-deps chromium
+
+      # Playwright builds and serves the root site and the /retroflops/ version.
+      - name: End-to-end suite
+        run: pnpm test:e2e
+
+      - name: Upload the report when something failed
+        if: failure()
+        uses: actions/upload-artifact@330a01c490aca151604b8cf639adc76d48f6c5d4 # v5.0.0
+        with:
+          name: playwright-report
+          path: playwright-report/
+          retention-days: 7
+
+  budgets:
+    name: Lighthouse and asset budgets
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Set up pnpm
+        uses: pnpm/action-setup@0ebf47130e4866e96fce0953f49152a61190b271 # v6.0.9
+
+      - name: Set up Node.js
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version-file: .node-version
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build
+        run: pnpm build
+
+      # Inspect the built artifact: the gzipped initial JavaScript for each page
+      # kind and any large chunk loaded without a dynamic import.
+      - name: Asset budgets
+        run: pnpm budgets
+
+      # Lighthouse serves `dist`. `CHROME_PATH` selects the Chrome version
+      # preinstalled on this runner.
+      - name: Lighthouse CI
+        run: pnpm lighthouse
+        env:
+          CHROME_PATH: /usr/bin/google-chrome
+
+      - name: Upload the Lighthouse reports
+        if: always()
+        uses: actions/upload-artifact@330a01c490aca151604b8cf639adc76d48f6c5d4 # v5.0.0
+        with:
+          name: lighthouse-reports
+          path: .lighthouseci/
+          retention-days: 7

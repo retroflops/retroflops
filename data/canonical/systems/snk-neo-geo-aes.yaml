@@ -1,0 +1,45 @@
+configurations:
+  - entries:
+      - componentId: neo-geo-68000
+        count: 1
+        role: main-cpu
+        shared: false
+        measurementIds:
+          - snk-neo-geo-aes:cpu-clock-frequency
+      - componentId: neo-geo-lspc2
+        count: 1
+        role: gpu
+        shared: false
+        measurementIds:
+          - snk-neo-geo-aes:gpu-clock-frequency
+      - componentId: neo-geo-ram
+        count: 1
+        role: system-memory
+        shared: false
+        measurementIds:
+          - neo-geo-ram:capacity
+    id: retail
+    label: AES retail console
+editorialStatus: provisional
+id: snk-neo-geo-aes
+manufacturer: SNK
+name: SNK Neo Geo AES
+notes: >-
+  AES cartridges are removable storage, excluded from whole-system writable
+  memory.
+region: Japan
+releaseDate: 1990-04
+slug: snk-neo-geo-aes
+imageIds:
+  - snk-neo-geo-aes-console
+sourceIds:
+  - neo-geo-developers-manual
+summary: >-
+  A {{measurement:snk-neo-geo-aes:cpu-clock-frequency}} 68000 console with
+  {{measurement:neo-geo-ram:capacity}} work RAM and a sprite-focused video
+  controller.
+description: >-
+  This is SNK's AES home console configuration. It brings the Neo Geo's
+  sprite-oriented hardware into the catalog beside other cartridge consoles of
+  its era.
+type: console

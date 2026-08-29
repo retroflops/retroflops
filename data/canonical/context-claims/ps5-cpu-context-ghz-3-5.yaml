@@ -1,0 +1,17 @@
+id: ps5-cpu:context-ghz-3-5
+subject:
+  kind: component
+  id: ps5-cpu
+label: Frequency
+quantity:
+  state: value
+  value: '3.5'
+  unit: GHz
+  significantDigits: 2
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - scei-ps5-hardware-specs-2020
+evidenceLevel: confirmed

@@ -1,0 +1,21 @@
+accessedDate: 2026-07-29
+editorialStatus: approved
+fetch:
+  byteLength: 193972
+  contentType: text/html;charset=utf-8
+  fetchedAt: 2026-07-29T17:28:41Z
+  httpStatus: 200
+  sha256: 48a5234c6393af4fa01f7074322bf9a2d44cc6e1b90562d9ee4ed92c0430c1d0
+  url: https://www.apple.com/newsroom/2020/11/apple-unleashes-m1/
+id: apple-m1-announcement-2020
+license: Copyright Apple Inc. Quoted here under short-extract fair use for
+  verification of the figures cited.
+locator: >-
+  Opening section, "First System on a Chip for the Mac", "The World's Best CPU
+  Performance per Watt" and "World's Fastest Integrated Graphics"
+publishedDate: 2020-11-10
+publisher: Apple Inc.
+sourceType: vendor-documentation
+tier: A
+title: Apple unleashes M1
+url: https://www.apple.com/newsroom/2020/11/apple-unleashes-m1/

@@ -1,0 +1,18 @@
+- extract: RAM | 2GB, consisting of four Hynix DDR3-1600 modules
+  extractHash: 3d61a733a007ae9e5798d1b1c699470fa52e275d08024ca7bed94d34d6eea763
+  id: df-wii-u:review:ram
+  locator: Main unit specification table, 'RAM' row
+  notes: >-
+    Stated without hedging in a review of retail hardware, and it names the
+    parts the total is made of. The same publication's teardown article calls
+    the module size a best guess from photographs; this row does not, which is
+    why the table is what the figure rests on. Nintendo publishes no memory row
+    at all, so there is no vendor statement to agree or disagree with it.
+  sourceId: digitalfoundry-wii-u-review
+  transcribed:
+    significantDigits: 1
+    state: value
+    unit: GiB
+    value: '2'
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-15

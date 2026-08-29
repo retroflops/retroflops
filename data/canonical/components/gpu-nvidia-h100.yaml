@@ -1,0 +1,20 @@
+id: nvidia-h100-gpu
+slug: nvidia-h100
+kind: gpu
+name: NVIDIA H100 (SXM)
+manufacturer: NVIDIA
+architecture: Hopper
+summary:
+  A data-center accelerator rated at {{measurement:nvidia-h100:peak-fp64-rate}}
+  of double precision and 67 of single, with
+  {{context:nvidia-h100-gpu:context-gib-80}} of memory behind
+  {{context:nvidia-h100-gpu:context-tb-s-3-35}} and a
+  {{measurement:nvidia-h100:thermal-design-power}} power ceiling.
+notes:
+  It is the first record in this catalog whose floating-point figures state the
+  precision they were obtained in. Every earlier one — the Dreamcast's, the
+  PlayStations', the M1's — gives a rate and leaves the reader to guess, which
+  is why those are provisional and these are not.
+sourceIds:
+  - nvidia-h100-product-specifications
+editorialStatus: approved

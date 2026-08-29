@@ -1,0 +1,18 @@
+id: intel-core-i7-2600k
+slug: intel-core-i7-2600k
+kind: cpu
+name: Intel Core i7-2600K
+manufacturer: Intel
+architecture: Sandy Bridge
+introducedDate: 2011-01
+instructionSet: Intel 64
+instructionSetFamily: x86
+summary:
+  A {{context:intel-core-i7-2600k:context-unit-4}}-core,
+  {{context:intel-core-i7-2600k:context-unit-8}}-thread Sandy Bridge desktop
+  processor with a {{measurement:intel-core-i7-2600k:clock-frequency}} base
+  frequency and {{measurement:intel-core-i7-2600k:peak-clock}} Turbo Boost
+  maximum.
+sourceIds:
+  - intel-core-i7-2600k-specifications
+editorialStatus: provisional

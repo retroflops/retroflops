@@ -1,0 +1,20 @@
+id: sony-playstation-5:context-unit-2-2
+subject:
+  kind: system
+  id: sony-playstation-5
+  configurationId: launch
+label: Count
+quantity:
+  state: value
+  value: '2'
+  unit: unit
+  significantDigits: 1
+provenance: vendor
+evidenceStage: pre-launch
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - scei-ps5-hardware-specs-2020
+extractIds:
+  - scei-ps5-2020:processor
+evidenceLevel: confirmed

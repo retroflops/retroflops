@@ -1,0 +1,245 @@
+- caveat: >-
+    Commodore documents the standard processor module as a 68040-series part at
+    this nominal clock.
+  comparabilityGroup: clock-frequency|cpu|nominal-clock
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - a4000-ug:xi:features
+  id: amiga-4000:standard:cpu-clock-frequency
+  method: nominal-clock
+  metric: clock-frequency
+  normalized:
+    value: "25000000"
+    unit: Hz
+    significantDigits: 2
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 2
+    state: value
+    unit: MHz
+    value: '25'
+  scope: cpu
+  sourceIds:
+    - commodore-amiga-4000-user-guide
+  status: vendor-rated
+  subject:
+    configurationId: standard
+    id: amiga-4000
+    kind: system
+  evidenceLevel: confirmed
+- caveat: >-
+    This is the synchronous 68060 configuration described in the CYBERSTORM
+    manual. It is an accelerator replacement for the original processor module.
+  comparabilityGroup: clock-frequency|cpu|nominal-clock
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - cyberstorm-mk1:4-1:clock-jumpers
+  id: amiga-4000:cyberstorm-68060:cpu-clock-frequency
+  method: nominal-clock
+  metric: clock-frequency
+  normalized:
+    value: "50000000"
+    unit: Hz
+    significantDigits: 2
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 2
+    state: value
+    unit: MHz
+    value: '50'
+  scope: cpu
+  sourceIds:
+    - phase5-cyberstorm-mk1-manual
+  status: vendor-rated
+  subject:
+    configurationId: cyberstorm-68060
+    id: amiga-4000
+    kind: system
+  evidenceLevel: confirmed
+- caveat: >-
+    The guide documents one- and two-MiB Chip RAM configurations. This record
+    uses the two-MiB configuration, the maximum shared pool the motherboard
+    supports, rather than folding its variable Fast RAM into one total.
+  comparabilityGroup: memory-capacity|memory|design-capacity
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - a4000-ug:4-4:chip-ram
+  id: amiga-4000-chip-ram:capacity
+  method: design-capacity
+  metric: memory-capacity
+  normalized:
+    value: "2097152"
+    unit: B
+    significantDigits: 1
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 1
+    state: value
+    unit: MiB
+    value: '2'
+  scope: memory
+  sourceIds:
+    - commodore-amiga-4000-user-guide
+  status: vendor-rated
+  subject:
+    id: amiga-4000-chip-ram
+    kind: component
+  evidenceLevel: confirmed
+- caveat: >-
+    Adds the selected {{measurement:amiga-4000-chip-ram:capacity}} Chip-memory
+    configuration. Fast RAM remains outside the total because the manual gives
+    it as a changeable range rather than one fixed A4000 loadout.
+  comparabilityGroup: memory-capacity|whole-system|design-capacity
+  conditions: The selected two-MiB Chip-RAM configuration; CPU-only Fast RAM is excluded.
+  derivedFrom: amiga-4000:whole-system-memory
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - a4000-ug:4-4:chip-ram
+  id: amiga-4000:whole-system-memory-capacity
+  method: design-capacity
+  metric: memory-capacity
+  normalized:
+    value: "2097152"
+    unit: B
+    significantDigits: 1
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 1
+    state: value
+    unit: MiB
+    value: '2'
+  rounding: none
+  scope: whole-system
+  sourceIds:
+    - commodore-amiga-4000-user-guide
+  status: derived
+  subject:
+    id: amiga-4000
+    kind: system
+  evidenceLevel: confirmed
+- caveat: >-
+    The A4000 manual calls the graphics hardware an AA multichip coprocessor
+    system and gives no separate operating clock.
+  comparabilityGroup: clock-frequency|gpu|nominal-clock
+  editorialStatus: approved
+  evidenceStage: shipped
+  id: amiga-4000:gpu-clock-frequency
+  method: nominal-clock
+  metric: clock-frequency
+  provenance: vendor
+  quantity:
+    note: The checked manuals state no separate AA chipset clock.
+    state: unknown
+  unknownAudit:
+    reviewedOn: 2026-08-26
+    routesChecked:
+      - vendor-documentation
+      - independent-analysis
+      - community-source
+    outcome: no-published-candidate
+    summary: The checked manuals name the AA chipset but state no chipset clock.
+  scope: gpu
+  sourceIds:
+    - commodore-amiga-4000-user-guide
+    - phase5-cyberstorm-mk1-manual
+  status: vendor-rated
+  subject:
+    id: amiga-4000
+    kind: system
+- caveat: >-
+    The manuals distinguish shared Chip RAM from CPU-only Fast RAM, but state no
+    comparable memory transfer rate.
+  comparabilityGroup: memory-bandwidth|memory|theoretical-peak
+  editorialStatus: approved
+  evidenceStage: shipped
+  id: amiga-4000:memory-bandwidth
+  method: theoretical-peak
+  metric: memory-bandwidth
+  provenance: vendor
+  quantity:
+    note: The checked manuals provide capacity and memory topology, not a transfer
+      rate.
+    state: unknown
+  unknownAudit:
+    reviewedOn: 2026-08-26
+    routesChecked:
+      - vendor-documentation
+      - independent-analysis
+      - community-source
+    outcome: no-compatible-candidate
+    summary: The checked manuals state no reproducible memory transfer rate.
+  scope: memory
+  sourceIds:
+    - commodore-amiga-4000-user-guide
+    - phase5-cyberstorm-mk1-manual
+  status: vendor-rated
+  subject:
+    id: amiga-4000
+    kind: system
+- caveat: >-
+    A contemporary report records Motorola's peak claim for the standard
+    processor. It is a processor ceiling, not a measured Amiga application
+    result.
+  comparabilityGroup: peak-fp32-rate|cpu|theoretical-peak
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: amiga-4000:standard:peak-fp32-rate
+  method: theoretical-peak
+  metric: peak-fp32-rate
+  normalized:
+    value: "8000000"
+    unit: FLOP/s
+    significantDigits: 1
+    unitRegistry: units-v1
+  provenance: independent
+  quantity:
+    significantDigits: 1
+    state: value
+    unit: MFLOP/s
+    value: '8'
+  scope: cpu
+  sourceIds:
+    - techmonitor-motorola-68040-launch
+  status: theoretical
+  subject:
+    configurationId: standard
+    id: amiga-4000
+    kind: system
+  evidenceLevel: reported
+- caveat: >-
+    The checked manuals do not publish a whole-system electrical rating.
+  comparabilityGroup: rated-power-consumption|whole-system|rated-power
+  editorialStatus: approved
+  evidenceStage: shipped
+  id: amiga-4000:rated-power-consumption
+  method: rated-power
+  metric: rated-power-consumption
+  provenance: vendor
+  quantity:
+    note: The checked manuals state no whole-system power rating.
+    state: unknown
+  unknownAudit:
+    reviewedOn: 2026-08-26
+    routesChecked:
+      - vendor-documentation
+      - independent-analysis
+      - community-source
+      - specialist-reference
+    outcome: no-compatible-candidate
+    summary: The checked manuals state no whole-system electrical rating.
+  scope: whole-system
+  sourceIds:
+    - commodore-amiga-4000-user-guide
+    - phase5-cyberstorm-mk1-manual
+  status: vendor-rated
+  subject:
+    id: amiga-4000
+    kind: system

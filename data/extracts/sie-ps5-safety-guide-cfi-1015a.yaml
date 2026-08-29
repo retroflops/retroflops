@@ -1,0 +1,17 @@
+- extract: >-
+    Electrical rating	100-240 V   3.55-1.5 A
+
+    Maximum rated power	350 W
+  extractHash: 4cbe83a899648649bb8b1bb722e20ffacc7746899b48fc45c0d05f6a7c9de1f7
+  id: ps5-cfi-1015a:p7:rated-power
+  locator:
+    Specifications table, p. 7, 'Electrical rating' and 'Maximum rated power'
+    rows
+  notes: >-
+    The document's 'Model No.' line reads CFI-1015A, the launch chassis. Maximum
+    rated power is a nameplate maximum and not a measured draw under any
+    workload. Later PlayStation 5 revisions carry different ratings; those are
+    different hardware, not competing measurements of this one.
+  sourceId: sie-ps5-safety-guide-cfi-1015a
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-13

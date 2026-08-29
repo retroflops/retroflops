@@ -1,0 +1,17 @@
+id: agc-core-rope:context-bit-98304
+subject:
+  kind: component
+  id: agc-core-rope
+label: Width
+quantity:
+  state: value
+  value: '98304'
+  unit: bit
+  significantDigits: 5
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - ntrs-19760016247
+evidenceLevel: confirmed

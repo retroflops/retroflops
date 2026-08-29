@@ -1,0 +1,37 @@
+- extract: >-
+    Der Takt der CPU wurde von 1,60 auf 1,75 GHz angehoben und der GPU-Takt von
+    bisher 800 MHz um 6,6 Prozent auf 853 MHz erhöht.
+  extractHash: 0b98d0e8834cf1a822030f45c5678df1a272c1e2fe5d8e8d133047b7c3bd60ba
+  id: computerbase-xbox-one:clocks
+  locator:
+    '"Technische Daten" section, paragraph comparing the two consoles'' shader
+    counts'
+  notes: >-
+    The second source for both frequencies, in a review of retail hardware
+    published the day before the German launch. The decimal comma is this
+    publication's own. The same article repeats the processor figure in a table
+    setting the console against the PlayStation 4 and the Xbox 360.
+  sourceId: computerbase-xbox-one-test
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-15
+- extract: >-
+    Während die Xbox One auf acht Gigabyte herkömmlichen DDR3-Speicher setzt,
+    verbaut Sony in der PlayStation 4 den wesentlich teureren, aber schnelleren
+    GDDR5-Speicher.
+  extractHash: 6bfedd19852a3e1d0424f413ab3ba208b0a2f84fb88909e401737ba45f1d4065
+  id: computerbase-xbox-one:ram
+  locator: >-
+    "Technische Daten" section, paragraph on the memory difference between the
+    two consoles
+  notes: >-
+    The capacity written out in words, as a memory quantity, which is the binary
+    reading. The sentence exists to draw the contrast with the PlayStation 4's
+    GDDR5, and the memory type is the point being made rather than an aside.
+  sourceId: computerbase-xbox-one-test
+  transcribed:
+    significantDigits: 1
+    state: value
+    unit: GiB
+    value: '8'
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-15

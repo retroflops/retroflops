@@ -1,0 +1,51 @@
+- extract: >-
+    PS4 is centered around a powerful custom chip that contains eight x86-64
+    cores and a state of the art graphics processor. The Graphics Processing
+    Unit (GPU) has been enhanced in a number of ways, principally to allow for
+    easier use of the GPU for general purpose computing (GPGPU) such as physics
+    simulation. The GPU contains a unified array of 18 compute units, which
+    collectively generate 1.84 Teraflops of processing power that can freely be
+    applied to graphics, simulation tasks, or some mixture of the two.
+  extractHash: 0b85bd54d41ec1c01917f812a69505d748433dbe82e4e883bc2daac76983808c
+  id: scei-ps4-2013:processor
+  locator: >-
+    "Gamer Focused, Developer Inspired" section, paragraphs on the system
+    architecture
+  notes: >-
+    The whole of Sony's public hardware description of the PlayStation 4 is in
+    this paragraph and the next. There is no clock frequency anywhere in the
+    release, for either processor, and the 1.84 teraflops figure names no
+    precision. "Processing power that can freely be applied to graphics,
+    simulation tasks, or some mixture of the two" is retained because it is the
+    release's own statement that this is one pool of capability rather than a
+    graphics rate.
+  sourceId: scei-ps4-introduction-2013
+  transcribed:
+    significantDigits: 3
+    state: value
+    unit: TFLOP/s
+    value: '1.84'
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-07-29
+- extract: >-
+    PS4 is equipped with 8 GB of unified system memory, easing game creation and
+    increasing the richness of content achievable on the platform. GDDR5 is used
+    for this memory, giving the system 176 GB/second of bandwidth and providing
+    a further boost to graphics performance.
+  extractHash: 1906f4bfa9fa8ead60f92ef459e0dc2371f0546ab061daf2f107627265d94b25
+  id: scei-ps4-2013:memory
+  locator: '"Gamer Focused, Developer Inspired" section, memory paragraph'
+  notes: >-
+    "8 GB" means 8 GiB, as elsewhere in this catalog's console records.
+    "Unified" is the substantive word: one pool serves the processor and the
+    graphics units, so this figure answers a question the PlayStation 2's and
+    PlayStation 3's split memories cannot be asked. The 176 GB/second is
+    genuinely decimal — it is a bus rate rather than a capacity.
+  sourceId: scei-ps4-introduction-2013
+  transcribed:
+    significantDigits: 1
+    state: value
+    unit: GiB
+    value: '8'
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-07-29

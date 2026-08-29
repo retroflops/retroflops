@@ -1,0 +1,43 @@
+accessedDate: 2026-08-17
+alt: A dark gray Amstrad CPC 464 with a cassette deck built into the right of its keyboard,
+  connected to an Amstrad color monitor showing a high-score table.
+attribution: Photograph by Frédéric Bisson, licensed CC BY 2.0, via Wikimedia Commons.
+canonical:
+  byteLength: 58950
+  format: avif
+  height: 960
+  sha256: 6ae962103566dab636196bf3aa7c09e5b59827bb22874f4c616bc77e297533dc
+  width: 1280
+caption: An Amstrad CPC 464 with the CTM 640 color monitor it was sold with — the monitor also
+  supplied the computer's power. The screen is showing Arkanoid.
+creator: Frédéric Bisson
+creatorType: person
+editorialStatus: approved
+id: amstrad-cpc-464-computer
+original:
+  byteLength: 3665635
+  height: 3264
+  mediaType: image/jpeg
+  sha256: c9aaba6c52d9915b8ce9ef496074e2d21d477673aed7a29a19ddd8fd38965947
+  width: 4912
+originalUrl: https://upload.wikimedia.org/wikipedia/commons/c/c4/Amstrad_CPC_464_et_moniteur_couleur_CTM_640_%2826527817432%29.jpg
+publisher: Wikimedia Commons
+rights:
+  id: cc-by-2.0
+  statedAt: https://commons.wikimedia.org/wiki/File:Amstrad_CPC_464_et_moniteur_couleur_CTM_640_(26527817432).jpg
+  statement: This file is licensed under the Creative Commons Attribution 2.0 Generic license.
+  url: https://creativecommons.org/licenses/by/2.0/
+sourcePageUrl: https://commons.wikimedia.org/wiki/File:Amstrad_CPC_464_et_moniteur_couleur_CTM_640_(26527817432).jpg
+title: Amstrad CPC 464 et moniteur couleur CTM 640 (26527817432).jpg
+transform:
+  fit: crop
+  note: The photograph is wider than 4:3 and other exhibits stand at its right edge. The crop keeps
+    the left 4352 pixels, which holds the computer and its monitor.
+  preset: image-v1
+  region:
+    height: 3264
+    width: 4352
+    x: 0
+    y: 0
+  sourceHeight: 3264
+  sourceWidth: 4912

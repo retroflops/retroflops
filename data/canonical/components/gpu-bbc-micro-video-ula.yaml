@@ -1,0 +1,11 @@
+id: bbc-micro-video-ula
+slug: bbc-micro-video-ula
+kind: gpu
+name: BBC Micro Video ULA
+manufacturer: Acorn Computers
+architecture: Uncommitted logic array
+introducedDate: '1981'
+summary: Display timing and palette logic programmed by the 6502.
+sourceIds:
+  - bbc-micro-service-manual
+editorialStatus: approved

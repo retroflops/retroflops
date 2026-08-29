@@ -1,0 +1,17 @@
+id: snes-5a22:context-bit-16
+subject:
+  kind: component
+  id: snes-5a22
+label: Word size
+quantity:
+  state: value
+  value: '16'
+  unit: bit
+  significantDigits: 2
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - nintendo-snes-tech-specs
+evidenceLevel: confirmed

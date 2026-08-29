@@ -1,0 +1,35 @@
+- extract:
+    Graphics Base Frequency 850 MHz / Graphics Max Dynamic Frequency 1.35 GHz
+  extractHash: dca8cabda22020a8b48d13a43a88a4f8bb007166abf47b6f83b09fab9d5be75b
+  id: intel-core-i7-2600k-specifications:graphics-frequencies
+  locator: >-
+    Processor Graphics section, Graphics Base Frequency and Graphics Max Dynamic
+    Frequency rows
+  notes: >-
+    The other half of the pair that settles the shared integrated-graphics
+    component: Intel HD Graphics 3000 here at 850 MHz base and 1.35 GHz maximum
+    dynamic, UHD Graphics 770 on the i9-14900K page at 300 MHz and 1.65 GHz.
+    Both are vendor statements, and they disagree in both directions — the older
+    part has the higher base and the lower ceiling — so no single nominal
+    frequency can stand for the class.
+  sourceId: intel-core-i7-2600k-specifications
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-16
+- extract: >-
+    Memory Types DDR3 1066/1333 / Max # of Memory Channels 2 / Max Memory
+    Bandwidth 21 GB/s
+  extractHash: 72cc0d42970b145333c7f92a62c2359b99359bc356fb1680f35efc591c13d46b
+  id: intel-core-i7-2600k-specifications:max-memory-bandwidth
+  locator: >-
+    Memory Specifications section, Memory Types, Max # of Memory Channels and
+    Max Memory Bandwidth rows
+  notes: >-
+    Transcribed to show the scale of what the shared DDR component would have to
+    cover, not to fill it: this is a rating of one member's DDR3-1333
+    dual-channel interface. The same catalog component also stands for the
+    Pentium 4's DDR and the Core 2 Duo E6600's DDR2, which are different
+    standards at different rates, so this figure documents one machine and
+    cannot be inherited by the other two.
+  sourceId: intel-core-i7-2600k-specifications
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-16

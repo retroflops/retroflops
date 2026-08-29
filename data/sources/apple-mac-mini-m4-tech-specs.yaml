@@ -1,0 +1,19 @@
+accessedDate: 2026-08-13
+editorialStatus: approved
+fetch:
+  byteLength: 1182818
+  contentType: text/html;charset=utf-8
+  fetchedAt: 2026-08-13T15:24:27Z
+  httpStatus: 200
+  sha256: 814fa9c5e64bebf117da0c4d4b305951e2b7aecdfdd96f769b890d5c6aba21dd
+  url: https://support.apple.com/en-us/121555
+id: apple-mac-mini-m4-tech-specs
+license: Copyright Apple Inc. Quoted here under short-extract fair use for
+  verification of the cited specifications.
+locator: Chip, Memory and Electrical and Operating Requirements sections
+publishedDate: "2024"
+publisher: Apple Inc.
+sourceType: vendor-documentation
+tier: A
+title: Mac mini (2024) — Tech Specs
+url: https://support.apple.com/en-us/121555

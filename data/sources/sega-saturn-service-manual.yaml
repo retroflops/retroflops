@@ -1,0 +1,29 @@
+accessedDate: 2026-08-15
+editorialStatus: approved
+fetch:
+  byteLength: 5658216
+  contentType: application/pdf
+  fetchedAt: 2026-08-15T21:09:17Z
+  httpStatus: 200
+  sha256: 415c0ec07a077e9b8c8df086b788b85e57bd20f7db0c294ce08630e45fa80ee0
+  url: https://segaretro.org/images/4/4e/Sega_Service_Manual_-_Sega_Saturn_%28PAL%29_-_013-1_-_June_1995.pdf
+id: sega-saturn-service-manual
+license: Copyright Sega Enterprises. Quoted here under short-extract fair use
+  for verification of the figures cited.
+locator: "Section 1, Specifications: the Ratings block and the Specifications block"
+publishedDate: 1995-06
+publisher: Sega Enterprises, Ltd.
+sourceType: technical-manual
+tier: A
+title: Service Manual — Sega Saturn (PAL), No. 013-1
+url: https://segaretro.org/images/4/4e/Sega_Service_Manual_-_Sega_Saturn_%28PAL%29_-_013-1_-_June_1995.pdf
+usageNote: >-
+  Sega's own service manual, held by an enthusiast archive that is the custodian
+  and not the author — the same footing on which this project cites the Internet
+  Archive. It documents model MK-80200-50, the PAL console, so its processor
+  frequency is the PAL one and differs from the rate the Japanese machine runs
+  at; every figure read from it names the model. The scan carries an
+  optical-character layer whose quality varies, and transcriptions note where it
+  does. Its power rating disagrees with the figure Sega's own hardware
+  encyclopedia gives, which is recorded as a conflict rather than resolved by
+  preferring one document.

@@ -1,0 +1,44 @@
+accessedDate: 2026-08-17
+alt: "An indigo Game Boy Advance against white, held at an angle: a wide handheld with the screen in
+  the middle, a gray cross-shaped pad at the left, A and B buttons at the right, and shoulder
+  buttons along the top edge. The screen is off."
+attribution: Photograph by Evan-Amos, released into the public domain by its author, via Wikimedia Commons.
+canonical:
+  byteLength: 35069
+  format: avif
+  height: 960
+  sha256: f14573bf81102b7b08871f469184766c3103caeef76679a75001e22a69ea4cc0
+  width: 1280
+caption: A Game Boy Advance in Indigo, one of the launch colors, with the original unlit screen. The
+  screen is off.
+creator: Evan-Amos
+creatorType: person
+editorialStatus: approved
+id: game-boy-advance-handheld
+original:
+  byteLength: 4178754
+  height: 2900
+  mediaType: image/jpeg
+  sha256: 2825de1d467753f1a8c433e8715c6c6c90aea1875a89c7511dfc582743f35b79
+  width: 4200
+originalUrl: https://upload.wikimedia.org/wikipedia/commons/7/7d/Nintendo-Game-Boy-Advance-Purple-FL.jpg
+publisher: Wikimedia Commons
+rights:
+  id: pd-self
+  statedAt: https://commons.wikimedia.org/wiki/File:Nintendo-Game-Boy-Advance-Purple-FL.jpg
+  statement: "I, the copyright holder of this work, release this work into the public domain. This
+    applies worldwide. In some countries this may not be legally possible; if so: I grant anyone the
+    right to use this work for any purpose, without any conditions, unless such conditions are
+    required by law."
+  url: https://commons.wikimedia.org/wiki/Template:PD-self
+sourcePageUrl: https://commons.wikimedia.org/wiki/File:Nintendo-Game-Boy-Advance-Purple-FL.jpg
+title: Nintendo-Game-Boy-Advance-Purple-FL.jpg
+transform:
+  background: "#ffffff"
+  fit: pad
+  note: The photograph is wider than 4:3 and the machine reaches both ends of it, so no crop keeps the
+    whole subject. The declared margin is the same white as the backdrop the photograph was taken
+    against, which is why it cannot be seen; it is recorded because it is there.
+  preset: image-v1
+  sourceHeight: 2900
+  sourceWidth: 4200

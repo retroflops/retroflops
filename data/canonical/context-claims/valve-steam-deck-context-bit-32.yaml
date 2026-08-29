@@ -1,0 +1,19 @@
+id: valve-steam-deck:context-bit-32
+subject:
+  kind: system
+  id: valve-steam-deck
+label: Width
+quantity:
+  state: value
+  value: '32'
+  unit: bit
+  significantDigits: 2
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - valve-steam-deck-tech-specs
+extractIds:
+  - steam-deck:tech:ram
+evidenceLevel: confirmed

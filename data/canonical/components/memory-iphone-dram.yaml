@@ -1,0 +1,19 @@
+id: iphone-dram
+slug: iphone-dram
+kind: memory
+name: Apple iPhone system-on-chip memory
+manufacturer: Samsung
+memoryType: DDR SDRAM
+introducedDate: '2007'
+summary: >-
+  128 mebibytes on the same package as the processor and the graphics core,
+  shared by both. One pool, and the smaller of the two capacities the phone is
+  sold by.
+notes: >-
+  This is the memory the machine runs in, and it is not the number on the box:
+  the phone was sold as a {{context:iphone-dram:context-gb-4}} and an
+  {{context:iphone-dram:context-gb-8}} model, and both of those are flash
+  storage. Keeping them apart is why the catalog has a storage metric at all.
+sourceIds:
+  - anandtech-iphone-hardware-2009
+editorialStatus: provisional

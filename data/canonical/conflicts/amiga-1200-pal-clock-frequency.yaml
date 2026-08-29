@@ -1,0 +1,45 @@
+id: amiga-1200:pal-clock-frequency
+subject:
+  kind: system
+  id: amiga-1200
+  configurationId: pal
+metric: clock-frequency
+candidates:
+  - quantity:
+      state: value
+      value: '14.19'
+      unit: MHz
+      significantDigits: 4
+    sourceIds:
+      - amiga-1200-service-manual
+    evidence:
+      'Appendix A, page A-1, "Technical specifications", clock speed row: "NTSC:
+      14.32 MHz / PAL: 14.19 MHz". This is the manual''s dedicated
+      specifications table.'
+  - quantity:
+      state: value
+      value: '14.18'
+      unit: MHz
+      significantDigits: 4
+    sourceIds:
+      - amiga-1200-service-manual
+    evidence:
+      'Page 5-3, "A1200/A1200HD functional specification", Features, CPU: "14.18
+      MHz 68EC020 PAL". The same manual, in a summary list rather than a
+      specifications table.'
+decision:
+  outcome: accepted
+  candidateIndex: 0
+  rationale:
+    'The PAL Amiga base crystal is {{context:amiga-1200:context-mhz-28-37516}},
+    so half of it is {{context:amiga-1200:context-mhz-14-18758}} exactly.
+    Rounded to four significant digits that is 14.19; 14.18 is what truncation
+    gives. The specifications table in appendix A is also the more authoritative
+    of the two statements, being the manual''s dedicated technical-specification
+    section rather than a summary feature list. There is a further reason to
+    distrust the 14.18 reading: the scanned text of page 5-3 confuses 3 with 8
+    elsewhere in the same list, rendering the NTSC clock as "14.82 MHz" and the
+    data path as "82-bit", so the discrepancy may be an artifact of the scan
+    rather than a disagreement Commodore ever printed. Either way the accepted
+    figure is the one that follows from the crystal.'
+  decidedOn: 2026-07-29

@@ -1,0 +1,19 @@
+id: msxinfo-standard-specifications
+title: MSX Specifications
+publisher: MSX Information Network
+accessedDate: 2026-08-25
+locator: Processor row, MSX column
+extract: Zilog Z80 compatible running at 3.58 MHz.
+tier: B
+sourceType: independent-analysis
+url: https://www.msxinfo.net/msx-specifications/
+usageNote: >-
+  Independent specification reference, agreeing with MSX Top Secret 3 on the
+  standard clock.
+fetch:
+  url: https://www.msxinfo.net/msx-specifications/
+  fetchedAt: 2026-08-25T06:13:10Z
+  httpStatus: 200
+  contentType: text/html; charset=UTF-8
+  byteLength: 114488
+  sha256: c9ad9228f37ee8abc52e47e6087eba38f08dd7bf7287bff985fa3a1b6552831e

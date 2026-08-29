@@ -1,0 +1,67 @@
+- extract: >-
+    The CPU is based on the ARM11 core, in specific it is the ARM1176JZF-S. The
+    CPU runs at 412MHz to save power, although the core is capable of running at
+    667MHz. The ARM11 CPU is a single-issue in-order microprocessor with an
+    8-stage integer pipeline. It’s got a 32KB L1 cache (16KB for instructions,
+    16KB for data) and no L2 cache. The ARM11 CPU in the iPhone also has a
+    vector floating point unit, but thankfully the SoC includes a separate GPU
+    for 3D acceleration.
+  extractHash: 1a5c514d996a2865c49e88ddef0deb0275ffdbeee9f49e8b62700df35069f71b
+  id: anandtech-iphone:processor
+  locator: >-
+    Page 1, section "The Original", paragraph beginning "The CPU is based on the
+    ARM11 core"
+  notes: >-
+    The section is introduced as being about "The iPhone and iPhone 3G", which
+    share one system-on-chip, so the paragraph describes the first-generation
+    phone as well as its successor. Two frequencies appear and they are
+    different quantities: 412 MHz is what the part runs at, 667 MHz is what the
+    core could run at. Only the first is recorded. The last sentence is why the
+    phone's floating-point figure is unknown rather than not-applicable — the
+    core has a vector unit, and no rate is published for it.
+  sourceId: anandtech-iphone-hardware-2009
+  transcribed:
+    significantDigits: 3
+    state: value
+    unit: MHz
+    value: '412'
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-03
+- extract: >-
+    Coupled with the CPU and the GPU in the iPhone’s SoC is 128MB of DDR memory,
+    all on the same chip.
+  extractHash: 8a15563756981033ae89bfc2b18fd8a67d3b543c4d0569a61253ce7c759e6259
+  id: anandtech-iphone:memory
+  locator:
+    Page 1, section "The Original", paragraph beginning "Coupled with the CPU"
+  notes: >-
+    Written "128MB" and transcribed as 128 MiB, the binary reading this catalog
+    applies to every memory capacity. The sentence also settles the topology:
+    one pool on the package, shared by processor and graphics, so the machine's
+    whole-system capacity has one term and no exclusions.
+  sourceId: anandtech-iphone-hardware-2009
+  transcribed:
+    significantDigits: 3
+    state: value
+    unit: MiB
+    value: '128'
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-03
+- extract: >-
+    The MBX-Lite in the iPhone shares the same architecture as the MBX but is
+    optimized, once more, for power efficiency and thus is significantly slower.
+    I don’t have exact clock speed information for the MBX-Lite in the iPhone
+    but I’m guessing around 60MHz.
+  extractHash: f7fbe53624777797ef00eca3b956e9e5973564e792761b09e4ad4d8715ef6b1f
+  id: anandtech-iphone:graphics
+  locator: >-
+    Page 1, section "The Original", paragraph beginning "The MBX-Lite in the
+    iPhone"
+  notes: >-
+    Transcribed with no value on purpose. The analyst who established the
+    processor clock says outright that he does not have the graphics clock and
+    is guessing at it, so the guess is quoted as evidence of the absence and
+    never as the figure.
+  sourceId: anandtech-iphone-hardware-2009
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-03

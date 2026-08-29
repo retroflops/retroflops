@@ -1,0 +1,19 @@
+id: apple-mac-mini-m1:context-gb-s-62
+subject:
+  kind: system
+  id: apple-mac-mini-m1
+label: Rate
+quantity:
+  state: value
+  value: '62'
+  unit: GB/s
+  significantDigits: 2
+provenance: independent
+evidenceStage: shipped
+status: theoretical
+editorialStatus: provisional
+sourceIds:
+  - anandtech-mac-mini-m1-2020
+extractIds:
+  - anandtech-m1:memory-bandwidth
+evidenceLevel: reported

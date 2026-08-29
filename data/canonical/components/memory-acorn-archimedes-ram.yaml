@@ -1,0 +1,12 @@
+id: acorn-archimedes-ram
+slug: acorn-archimedes-ram
+kind: memory
+name: Acorn Archimedes A310 RAM
+manufacturer: Acorn Computers
+architecture: Dynamic RAM
+introducedDate: '1987'
+memoryType: Dynamic RAM
+summary: One mebibyte of writable system memory.
+sourceIds:
+  - acorn-archimedes-technical-reference
+editorialStatus: provisional

@@ -1,0 +1,75 @@
+editorialStatus: approved
+id: nintendo-switch
+slug: nintendo-switch
+name: Nintendo Switch
+manufacturer: Nintendo
+type: console
+family: nintendo-home-console
+releaseDate: 2017-03
+region: Worldwide
+summary: >-
+  Nintendo Switch, represented with its retail processor, graphics and installed
+  writable memory.
+description: >-
+  Docked and handheld operation are separate configurations. Their different GPU
+  rates are not silently collapsed into one nominal clock. Nintendo publishes
+  neither rate, nor any frequency at all: the figures here are independent
+  reporting, and the catalog records the vendor's silence beside them rather
+  than instead of them.
+configurations:
+  - id: docked
+    label: Docked mode
+    entries:
+      - componentId: nintendo-switch-tegra-x1-cpu
+        role: main-cpu
+        count: 1
+        shared: false
+        measurementIds:
+          - nintendo-switch:docked:cpu-clock-frequency-independent
+      - componentId: nintendo-switch-tegra-x1-gpu
+        role: gpu
+        count: 1
+        shared: false
+        measurementIds:
+          - nintendo-switch:docked:gpu-clock-frequency-independent
+      - componentId: nintendo-switch-ram
+        role: unified-memory
+        count: 1
+        shared: true
+        measurementIds:
+          - nintendo-switch-ram:capacity
+    notes: >-
+      The dock permits the GPU’s
+      {{measurement:nintendo-switch:docked:gpu-clock-frequency-independent}}
+      operating point.
+  - id: handheld
+    label: Handheld mode
+    entries:
+      - componentId: nintendo-switch-tegra-x1-cpu
+        role: main-cpu
+        count: 1
+        shared: false
+        measurementIds:
+          - nintendo-switch:handheld:cpu-clock-frequency-independent
+      - componentId: nintendo-switch-tegra-x1-gpu
+        role: gpu
+        count: 1
+        shared: false
+        measurementIds:
+          - nintendo-switch:handheld:gpu-clock-frequency-independent
+      - componentId: nintendo-switch-ram
+        role: unified-memory
+        count: 1
+        shared: true
+        measurementIds:
+          - nintendo-switch-ram:capacity
+    notes: >-
+      The handheld power envelope uses a lower
+      {{measurement:nintendo-switch:handheld:gpu-clock-frequency-independent}}
+      GPU operating point.
+imageIds:
+  - nintendo-switch-console
+sourceIds:
+  - nintendo-switch-tech-specs
+  - digitalfoundry-switch-clocks-2016
+  - computerbase-switch-test

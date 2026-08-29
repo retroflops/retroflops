@@ -1,0 +1,22 @@
+accessedDate: 2026-08-13
+editorialStatus: approved
+extract: >-
+  GeForce RTX 4090: 2235 MHz base clock and 2520 MHz boost clock; 24 GB GDDR6X
+  frame buffer; 1008 GB/s memory bandwidth; 82.58 TFLOPS general-shader FP32
+  peak; 450 W total graphics power.
+fetch:
+  byteLength: 768039
+  contentType: text/html; charset=UTF-8
+  fetchedAt: 2026-08-13T14:53:09Z
+  httpStatus: 200
+  sha256: ce07c3cf685b11e3afb97d9c43b4a52f92402b93ac29e11da1bff1a25d1bf662
+  url: https://www.nvidia.com/en-us/geforce/graphics-cards/40-series/rtx-4090/
+id: nvidia-geforce-rtx-4090-product-specifications
+license: Copyright retained by the publisher. Short extracts are recorded solely
+  to verify the cited specifications.
+locator: Reference-card specification table and architecture summary
+publisher: NVIDIA
+sourceType: vendor-documentation
+tier: A
+title: NVIDIA GeForce RTX 4090 — reference specifications
+url: https://www.nvidia.com/en-us/geforce/graphics-cards/40-series/rtx-4090/

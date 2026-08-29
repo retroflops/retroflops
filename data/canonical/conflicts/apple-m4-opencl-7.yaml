@@ -1,0 +1,36 @@
+id: apple-m4-gpu:geekbench-compute-7-opencl
+subject:
+  kind: component
+  id: apple-m4-gpu
+metric: geekbench-compute-score
+candidates:
+  - quantity:
+      state: value
+      value: '32716'
+      unit: score
+      significantDigits: 5
+    sourceIds:
+      - geekbench-opencl-benchmark-chart-2026-07-25
+    evidence: 'Device and Score table, row "Apple M4": 32716.'
+  - quantity:
+      state: value
+      value: '8518'
+      unit: score
+      significantDigits: 4
+    sourceIds:
+      - geekbench-opencl-benchmark-chart-2026-07-25
+    evidence: 'Device and Score table, row "QUALCOMM Apple M4 GPU730": 8518.'
+decision:
+  outcome: accepted
+  candidateIndex: 0
+  rationale:
+    'The chart keys its rows on the string a driver reports, so one product
+    reaches it under several names with several averages. The rule this catalog
+    applies, here and in every later round: take the row that names the product
+    as its maker names it, and treat a string carrying tokens the maker does not
+    use — a “GPU” suffix, a die designation, another company’s prefix — as the
+    driver’s name rather than the product’s. Qualcomm makes no Apple silicon, so
+    the prefix is a driver’s misreport and the row cannot be what it says it is.
+    Its average is a quarter of the other, which on its own would not decide
+    anything — the identification does.'
+  decidedOn: 2026-08-18

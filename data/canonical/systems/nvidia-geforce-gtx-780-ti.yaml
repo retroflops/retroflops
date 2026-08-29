@@ -1,0 +1,43 @@
+id: nvidia-geforce-gtx-780-ti
+slug: nvidia-geforce-gtx-780-ti
+name: NVIDIA GeForce GTX 780 Ti
+manufacturer: NVIDIA
+type: accelerator
+family: nvidia-geforce
+releaseDate: 2013-11
+region: Worldwide
+summary: >-
+  NVIDIA GeForce GTX 780 Ti:
+  {{measurement:nvidia-geforce-gtx-780-ti-memory:capacity}} of GDDR5,
+  {{measurement:nvidia-geforce-gtx-780-ti-memory:bandwidth}} peak bandwidth, and
+  {{measurement:nvidia-gk110b:rated-power-consumption}} graphics card power.
+description: >-
+  NVIDIA's reference-card specification page supplies clocks, memory, bandwidth
+  and board power. It does not state an explicitly labelled FP32 peak.
+configurations:
+  - id: reference-card
+    label: Reference card
+    releaseDate: 2013-11
+    entries:
+      - componentId: nvidia-gk110b
+        role: gpu
+        count: 1
+        shared: false
+        notes: >-
+          The lower declared clock; the separately named upper clock is recorded
+          as a peak-clock measurement.
+        measurementIds:
+          - nvidia-gk110b:clock-frequency-base
+          - nvidia-gk110b:clock-frequency-boost
+      - componentId: nvidia-geforce-gtx-780-ti-memory
+        role: video-memory
+        count: 1
+        shared: false
+        measurementIds:
+          - nvidia-geforce-gtx-780-ti-memory:capacity
+sourceIds:
+  - nvidia-geforce-gtx-780-ti-product-brief
+editorialStatus: provisional
+notes: >-
+  This accelerator’s whole-system memory is its fitted frame buffer; host memory
+  is excluded. Partner cards may differ from this reference configuration.

@@ -1,0 +1,55 @@
+configurations:
+  - entries:
+      - componentId: gba-arm7tdmi
+        count: 1
+        role: main-cpu
+        shared: false
+        measurementIds:
+          - game-boy-advance:cpu-clock-frequency
+      - componentId: gba-ppu
+        count: 1
+        role: gpu
+        shared: false
+        measurementIds:
+          - game-boy-advance:gpu-clock-frequency
+      - componentId: gba-ram
+        count: 1
+        role: system-memory
+        shared: false
+        measurementIds:
+          - gba-ram:capacity
+      - componentId: gba-video-ram
+        count: 1
+        role: video-memory
+        shared: false
+        notes: >-
+          Sits inside the system on a chip alongside the picture processor,
+          separate from the two work-RAM banks.
+        measurementIds:
+          - gba-video-ram:capacity
+    id: retail
+    label: Original retail handheld
+editorialStatus: provisional
+id: game-boy-advance
+manufacturer: Nintendo
+name: Game Boy Advance
+notes: >-
+  Game Pak ROM is removable storage and remains outside whole-system writable
+  memory.
+region: Japan
+releaseDate: 2001-03
+slug: game-boy-advance
+sourceIds:
+  - game-boy-advance-technical-manual
+summary: >-
+  An ARM7TDMI handheld that kept the Game Boy's tile and sprite hardware and
+  added bitmap modes, so it could run its predecessor's cartridges as well as
+  its own.
+imageIds:
+  - game-boy-advance-handheld
+type: handheld
+family: nintendo-handheld
+description: >-
+  The GBA carries a second, older processor alongside the ARM, so Game Boy
+  cartridges run on the silicon they were written for. The compatibility is in
+  the hardware, and a Game Boy game is not being emulated when it runs here.

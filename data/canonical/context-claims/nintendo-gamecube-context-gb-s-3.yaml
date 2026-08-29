@@ -1,0 +1,19 @@
+id: nintendo-gamecube:context-gb-s-3
+subject:
+  kind: system
+  id: nintendo-gamecube
+label: Rate
+quantity:
+  state: value
+  value: '3'
+  unit: GB/s
+  significantDigits: 1
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - nintendo-gamecube-tech-specs
+extractIds:
+  - gamecube-specs:main-memory-bandwidth
+evidenceLevel: confirmed

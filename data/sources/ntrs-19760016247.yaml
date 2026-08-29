@@ -1,0 +1,24 @@
+accessedDate: 2026-07-28
+author: M. D. Holley, W. L. Swingle, S. L. Bachman, C. J. LeBlanc, H. T. Howard
+  and H. M. Biggs
+editorialStatus: approved
+fetch:
+  byteLength: 13115888
+  contentType: application/pdf
+  fetchedAt: 2026-07-28T21:13:13Z
+  httpStatus: 200
+  sha256: cb6eedb8e969020531b4b22768af44779d2fc58d4876c65ca28967b1ea34d6e7
+  url: https://ntrs.nasa.gov/api/citations/19760016247/downloads/19760016247.pdf
+id: ntrs-19760016247
+license: Public domain (work of the United States Government)
+locator: >-
+  NASA TN D-8227, computer subsystem, pages 24-30; table I "Computer
+  characteristics" on page 26
+publishedDate: 1976-05
+publisher: NASA Lyndon B. Johnson Space Center
+sourceType: government-document
+tier: A
+title: >-
+  Apollo Experience Report - Guidance and Control Systems: Primary Guidance,
+  Navigation, and Control System Development (NASA TN D-8227)
+url: https://ntrs.nasa.gov/api/citations/19760016247/downloads/19760016247.pdf

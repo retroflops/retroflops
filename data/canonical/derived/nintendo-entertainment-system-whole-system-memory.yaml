@@ -1,0 +1,25 @@
+caveat: >-
+  Adds 2 memory-capacity figures obtained by design-capacity. Left out:
+  {{measurement:nintendo-entertainment-system:cartridge-storage-capacity}}
+  (removable program storage, not memory the console can write to). A total is
+  only as trustworthy as the decision about what belongs in it, so both the
+  terms and the exclusions are named records.
+editorialStatus: approved
+exclusions:
+  - label: removable game-cartridge ROM
+    measurementId: nintendo-entertainment-system:cartridge-storage-capacity
+    reason: removable program storage, not memory the console can write to
+formula:
+  expression: a + b + …
+  id: sum
+  version: '1'
+id: nintendo-entertainment-system:whole-system-memory
+inputMeasurementIds:
+  - nes-ram:capacity
+  - nes-video-ram:capacity
+result:
+  state: value
+  value: '4096'
+  unit: B
+  significantDigits: 4
+rounding: none

@@ -1,0 +1,18 @@
+id: nvidia-gp104:context-unit-2560
+subject:
+  kind: component
+  id: nvidia-gp104
+label: Shading-unit count
+quantity:
+  state: value
+  value: '2560'
+  unit: unit
+  significantDigits: 4
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - nvidia-gtx-1080-deep-dive-2016
+  - nvidia-gtx-1080-whitepaper
+evidenceLevel: confirmed

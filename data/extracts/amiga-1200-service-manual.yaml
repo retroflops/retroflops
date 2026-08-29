@@ -1,0 +1,84 @@
+- extract: >-
+    Technical Specifications
+
+    Clock Speed: NTSC: 14.32 MHz / PAL: 14.19 MHz
+
+    Processor: Surface-mount Motorola 68EC020 microprocessor. Optional
+    surface-mount Motorola 68881/68882 Floating Point Unit (factory-installed
+    only)
+
+    Custom Chips: AA multichip coprocessor system (Alice, Lisa, Paula) for
+    video, graphics, sound, and DMA
+
+    Chip Memory: 1 MB or 2 MB of 32-bit RAM; second megabyte on motherboard or
+    on internal expansion module
+
+    ROM: 512 KB
+  extractHash: cd1a0dcd38aa90c42ac1d0b5a24bb3335b8b3bcefc0edd39de58c1f5e901f5ac
+  id: a1200-sm:a-1:specifications
+  locator: appendix A, page A-1, "Technical specifications"
+  notes: >-
+    The scan lays this out as two columns, with every row label in the first and
+    its value in the second; the pairs are rejoined here with a colon. The scan
+    renders "68881/68882" as "6888 1/68882" and "Optional" as "Optiona!"; both
+    corrected. The Fast Memory and External interfaces rows are omitted as they
+    are not used by this dataset.
+  sourceId: amiga-1200-service-manual
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-07-29
+- extract: >-
+    Features
+
+    CPU
+
+    • 14.32 MHz 68EC020 NTSC
+
+    • 14.18 MHz 68EC020 PAL
+
+    • 24-bit Address space
+
+    • 32-bit Data path
+
+    Memory and Expansion
+
+    • 1 Megabyte (1 MB) Chip Memory standard on motherboard organized as 256K x
+    32 bit
+
+    • Expandable to 2 MB Chip Memory with addition of 1 MB (256K x 32) A1201
+    Memory/Real-Time Clock (RTC) expansion card (Systems are currently
+    configured with 2 MB Chip Memory standard.)
+  extractHash: f136654b33cb1a9febe667a17da2103c3e9507305fd5f65555f23491ecebf65b
+  id: a1200-sm:5-3:functional-specification
+  locator: page 5-3, "A1200/A1200HD functional specification", Features
+  notes: >-
+    The scan of this page is poor and confuses 3 with 8: it renders the NTSC
+    clock as "14.82 MHz", the data path as "82-bit" and 256K as "236K". All
+    three are corrected here against the appendix A table. The PAL clock reads
+    14.18 MHz here against 14.19 MHz in appendix A, and that difference is
+    recorded in the conflict ledger rather than silently resolved — see conflict
+    amiga-1200:pal-clock-frequency.
+  sourceId: amiga-1200-service-manual
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-07-29
+- extract: >-
+    Power Supply
+
+    23 watts, switching
+  extractHash: e6398ec11cdaf0b4b5b8d1bc50f8ef25c840613a7973235b4061d554b98fb6b9
+  id: amiga-1200-sm:appendix-a:power-supply
+  locator: appendix A "Technical Specifications", page A-2, row "Power Supply"
+  notes: >-
+    The specification table is scanned as two columns, the labels running ahead
+    of their values; the label and its value are rejoined here, and the row
+    above ("Clock/calendar — Optional, with battery backup") was used to confirm
+    the alignment. This is the supply the machine ships with rather than a draw
+    anybody measured, and the manual says elsewhere that the A1200 uses the same
+    supply as the A600.
+  sourceId: amiga-1200-service-manual
+  transcribed:
+    significantDigits: 2
+    state: value
+    unit: W
+    value: '23'
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-04

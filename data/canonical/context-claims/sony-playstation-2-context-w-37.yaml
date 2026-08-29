@@ -1,0 +1,19 @@
+id: sony-playstation-2:context-w-37
+subject:
+  kind: system
+  id: sony-playstation-2
+label: Contextual value
+quantity:
+  state: value
+  value: '37'
+  unit: W
+  significantDigits: 2
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - scei-ps2-specifications-1999
+  - scei-ee-gs-single-chip-2003
+  - scea-ps2-scph-39001-manual
+evidenceLevel: confirmed

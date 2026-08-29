@@ -1,0 +1,24 @@
+id: ps4-cpu
+slug: ps4-cpu
+kind: cpu
+name: PlayStation 4 custom processor (CPU section)
+manufacturer: Sony Computer Entertainment / AMD
+architecture: x86-64
+introducedDate: '2013'
+instructionSet: x86-64
+instructionSetFamily: x86
+summary: >-
+  Eight x86-64 cores sit on the same die as the graphics processor, making this
+  the first console here to run the instruction set of the desktop machines it
+  competes with.
+notes: >-
+  Sony describes the console as "centered around a powerful custom chip that
+  contains eight x86-64 cores and a state of the art graphics processor": one
+  chip, not two. The catalog splits it into a CPU record and a GPU record
+  because component kinds are `cpu`, `gpu` and `memory`, and a single record
+  cannot carry both a core count and a compute-unit count. The split is the data
+  model's, not Sony's. No clock frequency is recorded because Sony's releases
+  state none, for either half.
+sourceIds:
+  - scei-ps4-introduction-2013
+editorialStatus: approved

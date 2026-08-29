@@ -1,0 +1,17 @@
+id: hitachi-sh4:context-mhz-50
+subject:
+  kind: component
+  id: hitachi-sh4
+label: Frequency
+quantity:
+  state: value
+  value: '50'
+  unit: MHz
+  significantDigits: 2
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - dreamcast-hardware-spec
+evidenceLevel: confirmed

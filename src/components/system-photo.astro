@@ -1,0 +1,51 @@
+---
+// SPDX-FileCopyrightText: 2026 Wojciech Polak
+// SPDX-License-Identifier: MIT
+
+import { Image } from 'astro:assets';
+
+import { CANONICAL_HEIGHT, CANONICAL_WIDTH, RESPONSIVE_WIDTHS } from '~/lib/data/image-preset';
+import { getImageRights } from '~/lib/data/image-rights';
+import type { SystemImage } from '~/lib/system-images';
+
+interface Props {
+  image: SystemImage;
+}
+
+const { image } = Astro.props;
+const { asset, file } = image;
+const rights = getImageRights(asset.rights.id);
+
+/**
+ * What the layout does, so the browser fetches the 480 px variant on a
+ * phone rather than the 1280 px one: full width until the hero splits into two
+ * columns, then a column that stops growing at 24rem.
+ */
+const sizes = '(min-width: 56rem) 24rem, 100vw';
+---
+
+<figure class="system-photo">
+  <Image
+    src={file}
+    alt={asset.alt}
+    widths={[...RESPONSIVE_WIDTHS]}
+    sizes={sizes}
+    width={CANONICAL_WIDTH}
+    height={CANONICAL_HEIGHT}
+    format="avif"
+    quality={60}
+    loading="eager"
+    fetchpriority="high"
+    decoding="async"
+  />
+  <figcaption>
+    <p>{asset.caption}</p>
+    <p class="meta">
+      <a href={asset.sourcePageUrl} rel="license noopener">{asset.creator}</a>
+      {' · '}
+      <a href={asset.rights.url} rel="license noopener">{rights?.label ?? asset.rights.id}</a>
+      {' · '}
+      {asset.publisher}
+    </p>
+  </figcaption>
+</figure>

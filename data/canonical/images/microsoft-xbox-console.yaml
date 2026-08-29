@@ -1,0 +1,42 @@
+accessedDate: 2026-08-17
+alt: A large black Microsoft Xbox photographed against white, a green jeweled X molded into its
+  ridged lid, with a black Xbox controller plugged into the front left port.
+attribution: Photograph by Evan-Amos, released into the public domain by its author, via Wikimedia Commons.
+canonical:
+  byteLength: 23329
+  format: avif
+  height: 960
+  sha256: 0851e1f8d197aac3f1a3a34a56f86019ff5eadb333d10fdb7d35222acbfaf012
+  width: 1280
+caption: The first Xbox, shown with a controller plugged into it.
+creator: Evan-Amos
+creatorType: person
+editorialStatus: approved
+id: microsoft-xbox-console
+original:
+  byteLength: 4755943
+  height: 2620
+  mediaType: image/jpeg
+  sha256: b8fa755a63f06fb25de3344c00bcecafb5e3dd4300bb2a1055a9b3638448a7fd
+  width: 5700
+originalUrl: https://upload.wikimedia.org/wikipedia/commons/4/43/Xbox-console.jpg
+publisher: Wikimedia Commons
+rights:
+  id: pd-self
+  statedAt: https://commons.wikimedia.org/wiki/File:Xbox-console.jpg
+  statement: "I, the copyright holder of this work, release this work into the public domain. This
+    applies worldwide. In some countries this may not be legally possible; if so: I grant anyone the
+    right to use this work for any purpose, without any conditions, unless such conditions are
+    required by law."
+  url: https://commons.wikimedia.org/wiki/Template:PD-self
+sourcePageUrl: https://commons.wikimedia.org/wiki/File:Xbox-console.jpg
+title: Xbox-console.jpg
+transform:
+  background: "#ffffff"
+  fit: pad
+  note: The photograph is wider than 4:3 and the machine reaches both ends of it, so no crop keeps the
+    whole subject. The declared margin is the same white as the backdrop the photograph was taken
+    against, which is why it cannot be seen; it is recorded because it is there.
+  preset: image-v1
+  sourceHeight: 2620
+  sourceWidth: 5700

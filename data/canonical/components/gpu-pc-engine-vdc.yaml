@@ -1,0 +1,10 @@
+architecture: Tile and sprite video display controller
+editorialStatus: provisional
+id: pc-engine-vdc
+kind: gpu
+manufacturer: Hudson Soft
+name: Hudson Soft HuC6270 VDC
+slug: pc-engine-vdc
+sourceIds:
+  - nec-pc-engine-technical-manual
+summary: The PC Engine video display controller.

@@ -1,0 +1,20 @@
+id: amd-radeon-rx-7900-xtx:whole-system-memory-bandwidth
+formula:
+  id: sum
+  version: '1'
+  expression: a + b + …
+inputMeasurementIds:
+  - amd-radeon-rx-7900-xtx-memory:bandwidth
+exclusions: []
+result:
+  state: value
+  value: '960000000000'
+  unit: B/s
+  significantDigits: 12
+rounding: none
+caveat: >-
+  Adds 1 memory-bandwidth figure obtained by theoretical-peak. Nothing in the
+  catalog is left out of it. A total is only as trustworthy as the decision
+  about what belongs in it, so both the terms and the exclusions are named
+  records.
+editorialStatus: approved

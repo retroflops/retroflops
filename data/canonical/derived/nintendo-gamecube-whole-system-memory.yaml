@@ -1,0 +1,21 @@
+id: nintendo-gamecube:whole-system-memory
+formula:
+  id: sum
+  version: '1'
+  expression: a + b + …
+inputMeasurementIds:
+  - nintendo-gamecube-ram:capacity
+  - nintendo-gamecube-sound-ram:capacity
+exclusions: []
+result:
+  state: value
+  value: '41943040'
+  unit: B
+  significantDigits: 8
+rounding: none
+caveat: >-
+  Adds 2 memory-capacity figures obtained by design-capacity. Nothing in the
+  catalog is left out of it. A total is only as trustworthy as the decision
+  about what belongs in it, so both the terms and the exclusions are named
+  records.
+editorialStatus: approved

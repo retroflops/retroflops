@@ -1,0 +1,17 @@
+id: nvidia-h100-gpu:context-gib-80
+subject:
+  kind: component
+  id: nvidia-h100-gpu
+label: Capacity
+quantity:
+  state: value
+  value: '80'
+  unit: GiB
+  significantDigits: 2
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - nvidia-h100-product-specifications
+evidenceLevel: confirmed

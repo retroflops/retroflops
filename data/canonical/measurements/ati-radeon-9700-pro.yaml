@@ -1,0 +1,165 @@
+- caveat: The reference-card graphics clock.
+  comparabilityGroup: clock-frequency|gpu|nominal-clock
+  editorialStatus: approved
+  evidenceStage: shipped
+  id: ati-r300:clock-frequency-base
+  method: nominal-clock
+  metric: clock-frequency
+  normalized:
+    value: "325000000"
+    unit: Hz
+    significantDigits: 3
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 3
+    state: value
+    unit: MHz
+    value: "325"
+  scope: gpu
+  sourceIds:
+    - ati-radeon-9700-pro-product-brief
+  status: vendor-rated
+  subject:
+    id: ati-r300
+    kind: component
+  evidenceLevel: confirmed
+- caveat: The frame buffer fitted to the reference accelerator; host memory is
+    excluded.
+  comparabilityGroup: memory-capacity|whole-system|design-capacity
+  editorialStatus: approved
+  evidenceStage: shipped
+  id: ati-radeon-9700-pro-memory:capacity
+  method: design-capacity
+  metric: memory-capacity
+  normalized:
+    value: "134217728"
+    unit: B
+    significantDigits: 3
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 3
+    state: value
+    unit: MiB
+    value: "128"
+  scope: whole-system
+  sourceIds:
+    - ati-radeon-9700-pro-product-brief
+  status: vendor-rated
+  subject:
+    id: ati-radeon-9700-pro-memory
+    kind: component
+  evidenceLevel: confirmed
+- caveat: >-
+    Vendor-stated maximum transfer rate of this memory interface, not a
+    benchmarked application result.
+  comparabilityGroup: memory-bandwidth|memory|theoretical-peak
+  editorialStatus: approved
+  evidenceStage: shipped
+  id: ati-radeon-9700-pro-memory:bandwidth
+  method: theoretical-peak
+  metric: memory-bandwidth
+  normalized:
+    value: "19800000000"
+    unit: B/s
+    significantDigits: 3
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 3
+    state: value
+    unit: GB/s
+    value: "19.8"
+  scope: memory
+  sourceIds:
+    - ati-radeon-9700-pro-product-brief
+  status: theoretical
+  subject:
+    id: ati-radeon-9700-pro-memory
+    kind: component
+  evidenceLevel: confirmed
+- caveat: Adds the one fitted frame-buffer bandwidth. No host memory is included.
+  comparabilityGroup: memory-bandwidth|whole-system|theoretical-peak
+  derivedFrom: ati-radeon-9700-pro:whole-system-memory-bandwidth
+  editorialStatus: approved
+  evidenceStage: shipped
+  id: ati-radeon-9700-pro:whole-system-memory-bandwidth
+  method: theoretical-peak
+  metric: memory-bandwidth
+  normalized:
+    value: "19800000000"
+    unit: B/s
+    significantDigits: 3
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 3
+    state: value
+    unit: GB/s
+    value: "19.8"
+  rounding: none
+  scope: whole-system
+  sourceIds:
+    - ati-radeon-9700-pro-product-brief
+  status: derived
+  subject:
+    id: ati-radeon-9700-pro
+    kind: system
+  evidenceLevel: confirmed
+- caveat: >-
+    Programmable shaders do not authorize a catalog-side FLOPS estimate without
+    a published operation count.
+  comparabilityGroup: peak-fp32-rate|gpu|theoretical-peak
+  editorialStatus: approved
+  evidenceStage: shipped
+  id: ati-r300:peak-fp32-rate
+  method: theoretical-peak
+  metric: peak-fp32-rate
+  provenance: vendor
+  quantity:
+    note: The cited vendor material states no FP32 peak in FLOP/s.
+    state: unknown
+  unknownAudit:
+    reviewedOn: 2026-08-25
+    routesChecked:
+      - vendor-documentation
+      - independent-analysis
+      - community-source
+    outcome: no-published-candidate
+    summary: The cited vendor material provides no compatible published value.
+  scope: gpu
+  sourceIds:
+    - ati-radeon-9700-pro-product-brief
+  status: vendor-rated
+  subject:
+    id: ati-r300
+    kind: component
+- caveat: A recommended host-system supply is not a rating of this accelerator.
+  comparabilityGroup: rated-power-consumption|gpu|rated-power
+  editorialStatus: approved
+  evidenceStage: shipped
+  id: ati-r300:rated-power-consumption
+  method: rated-power
+  metric: rated-power-consumption
+  provenance: vendor
+  quantity:
+    note: >-
+      The cited vendor material does not state a board-power rating for this
+      accelerator.
+    state: unknown
+  unknownAudit:
+    reviewedOn: 2026-08-25
+    routesChecked:
+      - vendor-documentation
+      - independent-analysis
+      - community-source
+    outcome: no-published-candidate
+    summary: The cited vendor material provides no compatible published value.
+  scope: gpu
+  sourceIds:
+    - ati-radeon-9700-pro-product-brief
+  status: vendor-rated
+  subject:
+    id: ati-r300
+    kind: component

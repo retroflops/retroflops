@@ -1,0 +1,22 @@
+accessedDate: 2026-07-28
+editorialStatus: approved
+fetch:
+  byteLength: 2914200
+  contentType: application/pdf
+  fetchedAt: 2026-07-28T21:26:22Z
+  httpStatus: 200
+  sha256: d0575d1834b86d1d73e262ed83c0e7326693516fc775e7c9a28bbfefd3ef1a80
+  url: https://ntrs.nasa.gov/api/citations/19700023342/downloads/19700023342.pdf
+id: ntrs-19700023342
+license: Public domain (work of the United States Government)
+locator: >-
+  Digital computer and data adapter section, pages 24-27; table 5 "Computer
+  characteristics" on page 25
+publishedDate: "1970"
+publisher: NASA George C. Marshall Space Flight Center
+sourceType: government-document
+tier: A
+title: >-
+  Description and Performance of the Saturn Launch Vehicle's Navigation,
+  Guidance, and Control System
+url: https://ntrs.nasa.gov/api/citations/19700023342/downloads/19700023342.pdf

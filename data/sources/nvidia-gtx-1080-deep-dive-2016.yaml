@@ -1,0 +1,26 @@
+accessedDate: 2026-08-03
+author: Andrew Burnes
+editorialStatus: approved
+fetch:
+  byteLength: 629082
+  contentType: text/html; charset=UTF-8
+  fetchedAt: 2026-08-03T21:20:47Z
+  httpStatus: 200
+  sha256: c026f32ee7408fb52e666a01d3e563be5a5f851b5500489ed6a3dffabd1d39a9
+  url: https://www.nvidia.com/en-us/geforce/news/geforce-gtx-1080-gaming-perfected/
+id: nvidia-gtx-1080-deep-dive-2016
+license: Copyright NVIDIA Corporation. Quoted here under short-extract fair use
+  for verification of the figures cited.
+locator: Specifications table, "GeForce GTX 1080 (Pascal)" column
+publishedDate: 2016-05-26
+publisher: NVIDIA Corporation
+sourceType: vendor-documentation
+tier: A
+title: GeForce GTX 1080 Now Available. Learn More In This Deep Dive
+url: https://www.nvidia.com/en-us/geforce/news/geforce-gtx-1080-gaming-perfected/
+usageNote: >-
+  A dated launch article rather than a product page, and cited for that reason:
+  NVIDIA has taken the GeForce GTX 1080's specification page down, while this
+  article still carries the table it printed on the day the card went on sale.
+  The page title still says the card goes on sale tomorrow; the article headline
+  says it is now available.

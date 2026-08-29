@@ -1,0 +1,87 @@
+id: sony-playstation-3
+slug: sony-playstation-3
+name: Sony PlayStation 3
+aliases:
+  - PS3
+manufacturer: Sony Computer Entertainment
+type: console
+family: sony-playstation
+releaseDate: 2006-11
+region: Worldwide
+summary: >-
+  A Cell processor with seven vector co-processors and an NVIDIA-derived RSX,
+  each with {{measurement:ps3-xdr:capacity}} of memory. Sony never restated its
+  clocks or floating-point figures for shipping hardware.
+description: >-
+  Every figure on this record comes from one of two Sony specifications, and
+  which of the two decides how far the figure can be trusted.
+
+
+  The announcement of May 2005 is a full table: a
+  {{context:sony-playstation-3:context-ghz-3-2}} PowerPC core, seven SPEs at the
+  same clock, 218 GFLOPS between them, an RSX at
+  {{context:sony-playstation-3:context-mhz-550}} claimed at 1.8 TFLOPS, and 2
+  TFLOPS for the system. The launch specification of May 2006 describes the
+  console that shipped, and states none of it. It names the Cell processor and
+  the RSX without a clock for either, gives no floating-point figure at all, and
+  repeats only the memory: {{context:sony-playstation-3:context-mb-256}} of XDR
+  and {{context:sony-playstation-3:context-mb-256}} of GDDR3.
+
+
+  So the two memory capacities are approved and everything else is provisional.
+  Not because any particular number is doubted, but because a company that has
+  finished the hardware declined to restate what it said before it had. Those
+  figures are recorded as pre-launch evidence. That does not move them into a
+  comparability group of their own: an announced clock is still a nominal clock,
+  and it stands in the same row as the clock of a machine that shipped, where a
+  reader can see both. What it does is keep them provisional, and a provisional
+  record never feeds an automatic multiplier.
+configurations:
+  - id: launch
+    label: Launch console
+    releaseDate: 2006-11
+    entries:
+      - componentId: ps3-cell
+        role: main-cpu
+        count: 1
+        shared: false
+        notes: >-
+          One PowerPC core with {{context:ps3-cell:context-kb-512}} of L2 cache,
+          plus seven usable SPEs each with {{context:ps3-cell:context-kb-256}}
+          of local store. Clock from the 2005 announcement.
+        measurementIds:
+          - sony-playstation-3:cpu-clock-frequency
+      - componentId: ps3-rsx
+        role: gpu
+        count: 1
+        shared: false
+        notes:
+          Clock from the 2005 announcement; the launch specification gives none.
+        measurementIds:
+          - sony-playstation-3:gpu-clock-frequency
+      - componentId: ps3-xdr
+        role: system-memory
+        count: 1
+        shared: false
+        measurementIds:
+          - ps3-xdr:capacity
+      - componentId: ps3-gddr3
+        role: video-memory
+        count: 1
+        shared: false
+        measurementIds:
+          - ps3-gddr3:capacity
+notes: >-
+  The release date is editorial context as the catalog defines it, but it is
+  unusually well attested here: the launch specification is titled with the
+  date. The 2005 announcement's "System Floating Point Performance: 2 TFLOPS" is
+  not recorded because it sums a CPU figure and a GPU figure into one number.
+  The catalog has no metric that spans both scopes. No derived claim compares
+  the two memory bandwidths, although both are stated, because the ratio formula
+  declines provisional inputs.
+imageIds:
+  - sony-playstation-3-console
+sourceIds:
+  - scei-ps3-specifications-2005
+  - scei-ps3-launch-2006
+editorialStatus: approved

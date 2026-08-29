@@ -1,0 +1,17 @@
+id: amstrad-cpc464-rom:context-kib-32
+subject:
+  kind: component
+  id: amstrad-cpc464-rom
+label: Capacity
+quantity:
+  state: value
+  value: '32'
+  unit: KiB
+  significantDigits: 2
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - amstrad-cpc464-user-instructions
+evidenceLevel: confirmed

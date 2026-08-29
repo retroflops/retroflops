@@ -1,0 +1,11 @@
+architecture: Static RAM
+editorialStatus: provisional
+id: neo-geo-ram
+kind: memory
+manufacturer: SNK
+memoryType: Static RAM
+name: Neo Geo AES work RAM
+slug: neo-geo-ram
+sourceIds:
+  - neo-geo-developers-manual
+summary: '{{measurement:neo-geo-ram:capacity}} writable main RAM.'

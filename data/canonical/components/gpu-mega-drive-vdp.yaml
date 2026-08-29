@@ -1,0 +1,10 @@
+architecture: Tile and sprite video display processor
+editorialStatus: provisional
+id: mega-drive-vdp
+kind: gpu
+manufacturer: Sega
+name: Sega Mega Drive VDP
+slug: mega-drive-vdp
+sourceIds:
+  - sega-mega-drive-service-manual
+summary: The Mega Drive tile and sprite graphics processor.

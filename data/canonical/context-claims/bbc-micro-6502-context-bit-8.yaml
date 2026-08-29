@@ -1,0 +1,18 @@
+id: bbc-micro-6502:context-bit-8
+subject:
+  kind: component
+  id: bbc-micro-6502
+label: Word size
+quantity:
+  state: value
+  value: '8'
+  unit: bit
+  significantDigits: 1
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - bbc-micro-service-manual
+  - bbc-micro-information-sheet
+evidenceLevel: confirmed

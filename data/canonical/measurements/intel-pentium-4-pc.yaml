@@ -1,0 +1,180 @@
+- caveat: >-
+    This figure remains provisional until the cited source is corroborated for
+    the exact configuration.
+  comparabilityGroup: clock-frequency|cpu|nominal-clock
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: intel-pentium-4:clock-frequency
+  method: nominal-clock
+  metric: clock-frequency
+  normalized:
+    value: "3000000000"
+    unit: Hz
+    significantDigits: 2
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 2
+    state: value
+    unit: GHz
+    value: "3.0"
+  scope: cpu
+  sourceIds:
+    - intel-historical-x86-documentation
+  status: vendor-rated
+  subject:
+    id: intel-pentium-4
+    kind: component
+  evidenceLevel: confirmed
+- caveat: >-
+    This figure remains provisional until the cited source is corroborated for
+    the exact configuration.
+  comparabilityGroup: clock-frequency|cpu|peak-clock
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: intel-pentium-4:peak-clock
+  method: peak-clock
+  metric: clock-frequency
+  provenance: vendor
+  quantity:
+    note: The selected Pentium 4 configuration predates Turbo Boost.
+    state: not-applicable
+  scope: cpu
+  sourceIds:
+    - intel-historical-x86-documentation
+  status: vendor-rated
+  subject:
+    id: intel-pentium-4
+    kind: component
+- benchmark:
+    id: dhrystone
+    version: "2.1"
+  caveat: >-
+    A named historic Dhrystone 2.1 result, normalized by the run clock; the
+    one-source result remains provisional.
+  comparabilityGroup: dhrystone-mips-per-mhz|cpu|benchmark-run|dhrystone@2.1
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: intel-pentium-4:dhrystone-mips-per-mhz
+  method: benchmark-run
+  metric: dhrystone-mips-per-mhz
+  normalized:
+    value: "2.5"
+    unit: DMIPS/MHz
+    significantDigits: 2
+    unitRegistry: units-v1
+  provenance: independent
+  quantity:
+    significantDigits: 2
+    state: value
+    unit: DMIPS/MHz
+    value: "2.5"
+  scope: cpu
+  sourceIds:
+    - x86-dhrystone-results
+  status: measured
+  subject:
+    id: intel-pentium-4
+    kind: component
+  evidenceLevel: reported
+- caveat: >-
+    This figure remains provisional until the cited source is corroborated for
+    the exact configuration.
+  comparabilityGroup: peak-fp32-rate|cpu|theoretical-peak
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: intel-pentium-4:peak-fp32-rate
+  method: theoretical-peak
+  metric: peak-fp32-rate
+  provenance: vendor
+  quantity:
+    note: >-
+      The processor has floating-point hardware, but the cited specification
+      does not publish an FP32 peak in FLOP/s.
+    state: unknown
+  unknownAudit:
+    reviewedOn: 2026-08-25
+    routesChecked:
+      - vendor-documentation
+      - independent-analysis
+      - community-source
+    outcome: no-compatible-candidate
+    summary: The checked historical documentation provides no precision-qualified
+      FP32 rate.
+  scope: cpu
+  sourceIds:
+    - intel-historical-x86-documentation
+  status: vendor-rated
+  subject:
+    id: intel-pentium-4
+    kind: component
+- caveat: >-
+    The first x86 part in this catalog whose datasheet prints a column headed
+    Thermal Design Power, and the table is organized by bus rather than by
+    clock: a {{measurement:intel-pentium-4:clock-frequency}} row exists only
+    under the {{context:intel-pentium-4:context-mhz-800}} front side bus, which
+    places this processor later than the 2002 the surrounding representative
+    configuration is dated to. The 2002 flagship was
+    {{context:intel-pentium-4:context-ghz-3-06}} on the
+    {{context:intel-pentium-4:context-mhz-533}} bus, rated
+    {{context:intel-pentium-4:context-w-81-8}} in the same table. That is near
+    enough to 81.9 to be mistaken for corroboration, and it is a different
+    processor. The catalog's representative year is unresolved against Intel's
+    product chronology and needs its own document.
+  comparabilityGroup: thermal-design-power|cpu|rated-power
+  conditions: "{{measurement:intel-pentium-4:clock-frequency}} with an
+    {{context:intel-pentium-4:context-mhz-800}} front side bus and
+    {{context:intel-pentium-4:context-kb-512}} of L2 cache on the 0.13 micron
+    process, in the multiple-VID group."
+  editorialStatus: approved
+  evidenceStage: shipped
+  id: intel-pentium-4:thermal-design-power
+  method: rated-power
+  metric: thermal-design-power
+  normalized:
+    value: "81.9"
+    unit: W
+    significantDigits: 3
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 3
+    state: value
+    unit: W
+    value: "81.9"
+  scope: cpu
+  sourceIds:
+    - intel-pentium-4-datasheet
+  status: vendor-rated
+  subject:
+    id: intel-pentium-4
+    kind: component
+  evidenceLevel: confirmed
+- caveat: >-
+    This figure remains provisional until the cited source is corroborated for
+    the exact configuration.
+  comparabilityGroup: memory-capacity|whole-system|design-capacity
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: intel-pentium-4-pc:whole-system-memory-capacity
+  method: design-capacity
+  metric: memory-capacity
+  normalized:
+    value: "536870912"
+    unit: B
+    significantDigits: 3
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 3
+    state: value
+    unit: MiB
+    value: "512"
+  scope: whole-system
+  sourceIds:
+    - intel-historical-x86-documentation
+  status: vendor-rated
+  subject:
+    id: intel-pentium-4-pc
+    kind: system
+  evidenceLevel: confirmed

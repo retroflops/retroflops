@@ -1,0 +1,17 @@
+id: agc-core-rope:context-word-6144
+subject:
+  kind: component
+  id: agc-core-rope
+label: Capacity
+quantity:
+  state: value
+  value: '6144'
+  unit: word
+  significantDigits: 4
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - ntrs-19760016247
+evidenceLevel: confirmed

@@ -1,0 +1,44 @@
+accessedDate: 2026-08-17
+alt: A black Sony PlayStation 2 lying flat and photographed against white from above and to the
+  side, the PlayStation 2 logo on its lid, two memory card slots and two controller ports on the
+  front face.
+attribution: Photograph by Evan-Amos, released into the public domain by its author, via Wikimedia Commons.
+canonical:
+  byteLength: 23464
+  format: avif
+  height: 960
+  sha256: 9e0db96229d368e4c6150808729334f6d39699ac19c7d316c7fb403f9b900b33
+  width: 1280
+caption: A PlayStation 2 of the original tall design, model SCPH-30001, lying on its side as most of
+  them were used.
+creator: Evan-Amos
+creatorType: person
+editorialStatus: approved
+id: sony-playstation-2-console
+original:
+  byteLength: 3542354
+  height: 2650
+  mediaType: image/jpeg
+  sha256: 57f9015ab62bdd46c10945062346a0b1ec4232b85cd3584dabaf150af42b4390
+  width: 4400
+originalUrl: https://upload.wikimedia.org/wikipedia/commons/7/7b/Sony-PlayStation-2-30001-Console-FL.jpg
+publisher: Wikimedia Commons
+rights:
+  id: pd-self
+  statedAt: https://commons.wikimedia.org/wiki/File:Sony-PlayStation-2-30001-Console-FL.jpg
+  statement: "I, the copyright holder of this work, release this work into the public domain. This
+    applies worldwide. In some countries this may not be legally possible; if so: I grant anyone the
+    right to use this work for any purpose, without any conditions, unless such conditions are
+    required by law."
+  url: https://commons.wikimedia.org/wiki/Template:PD-self
+sourcePageUrl: https://commons.wikimedia.org/wiki/File:Sony-PlayStation-2-30001-Console-FL.jpg
+title: Sony-PlayStation-2-30001-Console-FL.jpg
+transform:
+  background: "#ffffff"
+  fit: pad
+  note: The photograph is wider than 4:3 and the machine reaches both ends of it, so no crop keeps the
+    whole subject. The declared margin is the same white as the backdrop the photograph was taken
+    against, which is why it cannot be seen; it is recorded because it is there.
+  preset: image-v1
+  sourceHeight: 2650
+  sourceWidth: 4400

@@ -1,0 +1,51 @@
+configurations:
+  - entries:
+      - componentId: atari-2600-6507
+        count: 1
+        role: main-cpu
+        shared: false
+        measurementIds:
+          - atari-2600:cpu-clock-frequency
+      - componentId: atari-2600-tia
+        count: 1
+        role: gpu
+        shared: false
+        measurementIds:
+          - atari-2600:gpu-clock-frequency
+      - componentId: atari-2600-ram
+        count: 1
+        role: system-memory
+        shared: true
+        measurementIds:
+          - atari-2600-ram:capacity
+      - componentId: atari-2600-cartridge
+        count: 1
+        notes: Removable launch cartridge; storage, not writable system memory.
+        role: storage
+        shared: false
+        measurementIds:
+          - atari-2600:cartridge-storage-capacity
+    id: ntsc
+    label: NTSC launch configuration
+    region: North America
+description: >-
+  Racing the beam is the only way the machine works. There is too little
+  writable memory to hold a screen, so the running program must feed the video
+  chip in step with the scan, which welds a game’s code to the display timing it
+  was written against.
+editorialStatus: provisional
+id: atari-2600
+manufacturer: Atari
+name: Atari 2600
+region: United States
+releaseDate: 1977-09
+slug: atari-2600
+imageIds:
+  - atari-2600-console
+sourceIds:
+  - atari-2600-stella-programming-guide
+summary: >-
+  A 6507 console with no frame buffer. The running program builds each scanline
+  as the beam draws it, so the picture is composed in real time by the processor
+  itself.
+type: console

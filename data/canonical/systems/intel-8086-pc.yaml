@@ -1,0 +1,44 @@
+id: intel-8086-pc
+slug: intel-8086-pc
+name: Intel 8086 PC
+manufacturer: PC industry
+type: personal-computer
+family: reference-pc
+releaseDate: '1978'
+region: Worldwide
+summary: >-
+  A representative {{measurement:intel-8086:clock-frequency}} 8086 desktop
+  configuration with {{measurement:intel-8086-pc:whole-system-memory-capacity}}
+  of DRAM and a period display adapter.
+configurations:
+  - id: reference
+    label: 5 MHz reference configuration
+    entries:
+      - componentId: intel-8086
+        role: main-cpu
+        count: 1
+        shared: false
+        measurementIds:
+          - intel-8086:clock-frequency
+          - intel-8086:peak-clock
+      - componentId: pc-display-adapter
+        role: gpu
+        count: 1
+        shared: false
+        measurementIds:
+          - pc-display-adapter:clock-frequency
+      - componentId: pc-early-dram
+        role: system-memory
+        count: 1
+        shared: false
+        measurementIds:
+          - intel-8086-pc:whole-system-memory-capacity
+sourceIds:
+  - intel-historical-x86-documentation
+editorialStatus: provisional
+notes: >-
+  This entry has no photograph, and that is a decision rather than a gap: it
+  describes a processor in a typical machine of its era rather than a model
+  anybody sold, so there is no object to photograph. A picture of some
+  particular case would attach a claim about that computer to a record which
+  deliberately makes none.

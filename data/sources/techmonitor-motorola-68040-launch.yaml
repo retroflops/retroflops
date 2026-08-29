@@ -1,0 +1,25 @@
+id: techmonitor-motorola-68040-launch
+title: Motorola finally ready with 68040 samples; volume in July
+publisher: Tech Monitor
+url: https://www.techmonitor.ai/hardware/motorola_finally_ready_with_68040_samples_volume_in_july
+publishedDate: '1990-04-04'
+accessedDate: 2026-08-26
+locator: Launch-performance paragraph
+extract: >-
+  For maths calculations, Motorola claims an average of 3.5 MFLOPS, peaking at 8
+  MFLOPS.
+tier: B
+sourceType: periodical
+editorialStatus: provisional
+license: Copyright Tech Monitor. Quoted under short-extract fair use for
+  verification of the cited performance claim.
+usageNote: >-
+  The report is contemporaneous evidence for Motorola's 25 MHz 68040 peak claim,
+  not a measured Amiga benchmark.
+fetch:
+  url: https://www.techmonitor.ai/hardware/motorola_finally_ready_with_68040_samples_volume_in_july
+  fetchedAt: 2026-08-26T19:26:54Z
+  httpStatus: 200
+  contentType: text/html; charset=UTF-8
+  byteLength: 234478
+  sha256: d9a760e940f51ff8b6f957472379fd3592c90534dc0b9b4a6ae5eec9c6abd851

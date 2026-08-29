@@ -1,0 +1,15 @@
+id: apple-iphone-15-pro-gpu
+slug: apple-iphone-15-pro-gpu
+kind: gpu
+name: Apple iPhone 15 Pro GPU
+manufacturer: Apple
+architecture: Apple-designed six-core GPU
+introducedDate: '2023'
+summary:
+  The graphics section integrated with the processor in Apple iPhone 15 Pro.
+notes:
+  The cited Apple specification identifies the graphics configuration only where
+  Apple chose to disclose it; it supplies no graphics clock or FP32 peak.
+sourceIds:
+  - apple-iphone-15-pro-tech-specs
+editorialStatus: approved

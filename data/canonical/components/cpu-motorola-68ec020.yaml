@@ -1,0 +1,23 @@
+id: motorola-68ec020
+slug: motorola-68ec020
+kind: cpu
+name: Motorola MC68EC020
+manufacturer: Motorola
+architecture: Motorola 68020
+introducedDate: '1991'
+instructionSet: Motorola 68020
+instructionSetFamily: motorola-68000
+summary:
+  'The cost-reduced 68020: a full {{context:motorola-68ec020:context-bit-32}}
+  data path with the address bus cut to
+  {{context:motorola-68ec020:context-bit-24}} and the memory management unit
+  left out. The processor of the Amiga 1200.'
+notes:
+  Against the 68000 in the Amiga 500 it is a genuine generational change rather
+  than a faster clock — a {{context:motorola-68ec020:context-bit-32}} data path
+  instead of 16, an instruction cache, and single-access operations where the
+  68000 needed two. Floating point is not on the die; the Amiga 1200 has a
+  socket for a factory-installed 68881 or 68882 and nothing in it by default.
+sourceIds:
+  - amiga-1200-service-manual
+editorialStatus: approved

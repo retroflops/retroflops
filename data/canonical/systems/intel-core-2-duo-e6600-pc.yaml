@@ -1,0 +1,44 @@
+id: intel-core-2-duo-e6600-pc
+slug: intel-core-2-duo-e6600-pc
+name: Intel Core 2 Duo E6600 PC
+manufacturer: PC industry
+type: personal-computer
+family: reference-pc
+releaseDate: 2006-07
+region: Worldwide
+summary: >-
+  A representative Core 2 Duo E6600 desktop configuration with integrated
+  graphics; Intel's surviving family table does not fix an E6600-specific clock
+  or fitted RAM capacity.
+configurations:
+  - id: reference
+    label: Reference configuration with unresolved clock and RAM
+    entries:
+      - componentId: intel-core-2-duo-e6600
+        role: main-cpu
+        count: 1
+        shared: false
+        measurementIds:
+          - intel-core-2-duo-e6600:clock-frequency
+          - intel-core-2-duo-e6600:peak-clock
+      - componentId: intel-integrated-graphics
+        role: gpu
+        count: 1
+        shared: true
+        measurementIds:
+          - intel-integrated-graphics:clock-frequency
+      - componentId: pc-ddr-sdram
+        role: system-memory
+        count: 1
+        shared: true
+        measurementIds:
+          - intel-core-2-duo-e6600-pc:whole-system-memory-capacity
+sourceIds:
+  - intel-historical-x86-documentation
+editorialStatus: provisional
+notes: >-
+  This entry has no photograph, and that is a decision rather than a gap: it
+  describes a processor in a typical machine of its era rather than a model
+  anybody sold, so there is no object to photograph. A picture of some
+  particular case would attach a claim about that computer to a record which
+  deliberately makes none.

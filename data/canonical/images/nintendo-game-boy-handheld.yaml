@@ -1,0 +1,46 @@
+accessedDate: 2026-08-17
+alt: "A Nintendo Game Boy on a black surface, seen from above at an angle: a gray handheld with a
+  dark green screen window, a black cross-shaped pad, two magenta buttons marked B and A, and SELECT
+  and START below the pad. The plastic has yellowed."
+attribution: Photograph © Raimond Spekking, licensed CC BY-SA 4.0, via Wikimedia Commons.
+canonical:
+  byteLength: 42262
+  format: avif
+  height: 960
+  sha256: acab4795cbaa1f94272d807b0b4efbc7753fd37a271d0cae406c157d7808ea00
+  width: 1280
+caption: A Nintendo Game Boy, model DMG-01, switched off. The yellowing is the age of the plastic
+  rather than anything done to the machine.
+creator: Raimond Spekking
+creatorType: person
+editorialStatus: approved
+id: nintendo-game-boy-handheld
+original:
+  byteLength: 5048198
+  height: 2837
+  mediaType: image/jpeg
+  sha256: dc2ac1d50075b9753acccedc259a1ae3cd6b035f53fe079dfa65dbd5a65fa4ef
+  width: 3782
+originalUrl: https://upload.wikimedia.org/wikipedia/commons/8/88/Nintendo_Game_Boy_DMG-01-0243.jpg
+publisher: Wikimedia Commons
+rights:
+  id: cc-by-sa-4.0
+  statedAt: https://commons.wikimedia.org/wiki/File:Nintendo_Game_Boy_DMG-01-0243.jpg
+  statement: "I, the copyright holder of this work, hereby publish it under the following license:
+    This file is licensed under the Creative Commons Attribution-Share Alike 4.0 International
+    license."
+  url: https://creativecommons.org/licenses/by-sa/4.0/
+sourcePageUrl: https://commons.wikimedia.org/wiki/File:Nintendo_Game_Boy_DMG-01-0243.jpg
+title: Nintendo Game Boy DMG-01-0243.jpg
+transform:
+  fit: crop
+  note: The original is two pixels off 4:3. The crop takes one pixel from each edge, which is the
+    whole of the correction — nothing of the machine or the surface it lies on is lost.
+  preset: image-v1
+  region:
+    height: 2835
+    width: 3780
+    x: 1
+    y: 1
+  sourceHeight: 2837
+  sourceWidth: 3782

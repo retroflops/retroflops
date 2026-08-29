@@ -1,0 +1,15 @@
+- extract: >-
+    Power	120 V AC, 60 Hz
+
+    Maximum rated power	250 W
+  extractHash: 44b00f80d94d17343d901ab83e288af2da47b3a37137f6cf5caad477e0879685
+  id: ps4-cuh-1001a:p11:rated-power
+  locator: Specifications table, p. 11, 'Power' and 'Maximum rated power' rows
+  notes: >-
+    The document's cover and its 'Model No.' line both read CUH-1001A, so the
+    rating belongs to the launch chassis. Maximum rated power is a nameplate
+    maximum, not a gameplay draw. The mains row is transcribed with it because
+    the rating is stated for a 120 V, 60 Hz supply.
+  sourceId: scei-ps4-safety-guide-cuh-1001a
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-13

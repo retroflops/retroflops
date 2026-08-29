@@ -1,0 +1,20 @@
+id: wikipedia-game-boy-advance-specifications
+title: Game Boy Advance
+publisher: Wikipedia contributors
+accessedDate: 2026-08-26
+locator: Infobox, Memory row
+extract: >-
+  Memory 288 KB RAM, 98 KB Video RAM
+tier: C
+sourceType: wiki
+url: https://en.wikipedia.org/wiki/Game_Boy_Advance
+editorialStatus: provisional
+usageNote: >-
+  Tier C community article used only for the provisional internal-RAM capacity. The figure is the sum of the handheld's two work-RAM banks, as the infobox states it.
+fetch:
+  url: https://en.wikipedia.org/wiki/Game_Boy_Advance
+  fetchedAt: 2026-08-26T09:41:49Z
+  httpStatus: 200
+  contentType: text/html; charset=UTF-8
+  byteLength: 625647
+  sha256: 8eb54154c3f12628c1cd67a980c10be32897d5bbb9e06d72a765eff84236e378

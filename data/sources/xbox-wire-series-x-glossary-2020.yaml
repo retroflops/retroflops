@@ -1,0 +1,26 @@
+accessedDate: 2026-08-13
+editorialStatus: approved
+fetch:
+  byteLength: 88677
+  contentType: text/html; charset=UTF-8
+  fetchedAt: 2026-08-13T18:08:05Z
+  httpStatus: 200
+  sha256: 95af29c232208bc5069bf4031ece7dfc55cadb5b8f62f62d66bc344f3e5aace4
+  url: https://news.xbox.com/en-us/2020/03/16/xbox-series-x-glossary/
+id: xbox-wire-series-x-glossary-2020
+license: Copyright Microsoft. Quoted here under short-extract fair use for
+  verification of the figure cited.
+locator: Glossary entry for 'TFLOPS (Teraflops)'
+publishedDate: 2020-03-16
+publisher: Microsoft (Xbox Wire)
+sourceType: vendor-documentation
+tier: A
+title: Xbox Series X Glossary
+url: https://news.xbox.com/en-us/2020/03/16/xbox-series-x-glossary/
+usageNote: >-
+  Published the same day as the specification table and answering the question
+  the table leaves open. The specification row reads only '12 TFLOPS', which
+  names no precision and is therefore unusable as an FP32 rate; the glossary,
+  defining the same term for the same console, says the precision outright. A
+  vendor's silence in one document is worth re-testing against the rest of what
+  it published that day.

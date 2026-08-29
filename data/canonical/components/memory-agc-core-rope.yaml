@@ -1,0 +1,22 @@
+id: agc-core-rope
+slug: agc-core-rope
+kind: memory
+name: Apollo Guidance Computer core rope memory
+manufacturer: MIT Instrumentation Laboratory / Raytheon
+architecture: Transformer read-only rope
+introducedDate: '1966'
+memoryType: Core rope (woven transformer read-only memory)
+summary:
+  'Fixed program storage woven by hand: a wire threading a core stores a one, a
+  wire bypassing it stores a zero. Six modules of
+  {{context:agc-core-rope:context-unit-512}} cores and 192 sense lines each give
+  {{context:agc-core-rope:context-bit-98304}} per module.'
+notes:
+  Block II raised the rope capacity from Block I's
+  {{context:agc-core-rope:context-word-24576}} to
+  {{measurement:agc-core-rope:capacity}}. Address decoding is built into the
+  wiring, which is why its cycle time is no shorter than the erasable memory's
+  despite being read-only.
+sourceIds:
+  - ntrs-19760016247
+editorialStatus: approved

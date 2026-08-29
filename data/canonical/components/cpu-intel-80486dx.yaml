@@ -1,0 +1,15 @@
+id: intel-80486dx
+slug: intel-80486dx
+kind: cpu
+name: Intel 80486DX
+manufacturer: Intel
+architecture: '80486'
+introducedDate: 1989-04
+instructionSet: Intel 80486
+instructionSetFamily: x86
+summary:
+  A {{context:intel-80486dx:context-bit-32}} x86 processor integrating an x87
+  floating-point unit and an on-chip cache in the DX variant.
+sourceIds:
+  - intel-historical-x86-documentation
+editorialStatus: provisional

@@ -1,0 +1,16 @@
+id: nvidia-ad102
+slug: nvidia-ad102
+kind: gpu
+name: NVIDIA Ada Lovelace (NVIDIA GeForce RTX 4090)
+manufacturer: NVIDIA
+architecture: Ada Lovelace
+introducedDate: 2022-10
+summary:
+  NVIDIA GeForce RTX 4090 graphics processor, represented by vendor
+  reference-card specifications.
+notes:
+  The general-shader FP32 peak is separate from tensor, AI and ray-tracing
+  rates.
+sourceIds:
+  - nvidia-geforce-rtx-4090-product-specifications
+editorialStatus: approved

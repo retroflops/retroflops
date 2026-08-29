@@ -1,0 +1,9 @@
+- extract: >-
+    Le Voodoo Graphics, cadencé à 50 MHz, disposant d'un fillrate et d'une
+    passante mémoire de 50 Mpixels/s et 800 Mo/s.
+  id: hardware-fr-3dfx-voodoo:clock
+  locator: Voodoo Graphics section, opening specification sentence
+  sourceId: hardware-fr-3dfx-voodoo
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-25
+  extractHash: ce88987dca7bffba0379e13465150b096567971ba2b320d2de9ba91a6a66d529

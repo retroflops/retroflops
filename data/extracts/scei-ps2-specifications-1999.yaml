@@ -1,0 +1,102 @@
+- extract: >-
+    ＣＰＵ：１２８ビット“Ｅｍｏｔｉｏｎ Ｅｎｇｉｎｅ”
+
+    クロック周波数：３００ＭＨｚ
+
+    キャッシュ・メモリ：命令：１６ＫＢ、データ：８ＫＢ＋１６ＫＢ（ＳＰ）
+  extractHash: c3f5a209ee2c27328027353f95bc0885b303dcd14689533ec45f072a95f86d65
+  id: scei-ps2-1999:cpu
+  locator: page 4 of 4, 次世代プレイステーション概要仕様書, ＣＰＵ block
+  notes: >-
+    The release is set in full-width characters throughout and lays the table
+    out as a column of item names beside a column of values; the pairs are
+    rejoined here with a colon. In English: CPU, 128-bit "Emotion Engine"; clock
+    frequency 300 MHz; cache memory, instruction 16 KB, data 8 KB + 16 KB (SP,
+    scratchpad). This clock is superseded — see the conflict ledger entry for
+    the Emotion Engine clock frequency.
+  sourceId: scei-ps2-specifications-1999
+  transcribed:
+    significantDigits: 1
+    state: value
+    unit: MHz
+    value: '300'
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-07-29
+- extract: >-
+    メイン・メモリ：ダイレクト・ラムバス（Ｄｉｒｅｃｔ ＲＤＲＡＭ）
+
+    メモリ容量：３２ＭＢ
+
+    メモリバス・バンド幅：３．２ＧＢ（ギガ・バイト）／秒
+  extractHash: 6d57559a6157dc4d812449464fc6dc57baabbee276ccd0c7b23a535f11f090c2
+  id: scei-ps2-1999:main-memory
+  locator:
+    page 4 of 4, 次世代プレイステーション概要仕様書, メイン・メモリ rows of the
+    ＣＰＵ block
+  notes: >-
+    In English: main memory, Direct Rambus (Direct RDRAM); memory capacity 32
+    MB; memory bus bandwidth 3.2 GB (gigabytes) per second. "３２ＭＢ" means 32
+    MiB, as elsewhere in this catalog's console records. The bandwidth figure is
+    genuinely decimal: it is the product of the Rambus channel width and its
+    transfer rate, not a capacity.
+  sourceId: scei-ps2-specifications-1999
+  transcribed:
+    significantDigits: 2
+    state: value
+    unit: MiB
+    value: '32'
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-07-29
+- extract: >-
+    コ・プロセッサ：ＦＰＵ（浮動小数点乗加算器×１、浮動小数点割算器×１）
+
+    ベクトル演算ユニット：ＶＵ０＋ＶＵ１（浮動小数点乗加算器×９、浮動小数点割算器×３）
+
+    浮動小数点演算性能：６．２ＧＦＬＯＰＳ／秒
+  extractHash: a4a74beb8c7a5d3a0077efbc36bbdb61e2824c405f510623d8d87bc7fb24ad6c
+  id: scei-ps2-1999:floating-point
+  locator:
+    page 4 of 4, 次世代プレイステーション概要仕様書, コ・プロセッサ and
+    ベクトル演算ユニット rows
+  notes: >-
+    In English: coprocessor, FPU (floating-point multiply-adder ×1,
+    floating-point divider ×1); vector operation units VU0 + VU1 (floating-point
+    multiply-adders ×9, floating-point dividers ×3); floating-point performance
+    6.2 GFLOPS per second. The unit counts are kept in the extract because they
+    are what the 6.2 GFLOPS figure is summed from: it belongs to the whole chip,
+    not to the CPU core. The source states no precision, no operation mix and no
+    clock alongside it.
+  sourceId: scei-ps2-specifications-1999
+  transcribed:
+    significantDigits: 2
+    state: value
+    unit: GFLOP/s
+    value: '6.2'
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-07-29
+- extract: >-
+    グラフィックス：“Ｇｒａｐｈｉｃｓ Ｓｙｎｔｈｅｓｉｚｅｒ”
+
+    クロック周波数：１５０ＭＨｚ
+
+    ＤＲＡＭバス・バンド幅：４８ＧＢ（ギガ・バイト）／秒
+
+    ＤＲＡＭバス幅：２，５６０ビット
+  extractHash: ee7ff9744d935eac00643856397a31f3224b2a5dfd760afe8820b87e95692b5b
+  id: scei-ps2-1999:graphics
+  locator: page 4 of 4, 次世代プレイステーション概要仕様書, グラフィックス block
+  notes: >-
+    In English: graphics, "Graphics Synthesizer"; clock frequency 150 MHz; DRAM
+    bus bandwidth 48 GB (gigabytes) per second; DRAM bus width 2,560 bits. The
+    three figures are consistent with each other: 2560 bits at 150 MHz is 48
+    GB/s exactly. The scan renders the trademark as “Ｇｒａｐｈｉｃｓ
+    Ｓｙｎｔｈeｓｉｚｅｒ”, with one half-width e; it is transcribed here as the
+    full-width character the rest of the word uses.
+  sourceId: scei-ps2-specifications-1999
+  transcribed:
+    significantDigits: 3
+    state: value
+    unit: MHz
+    value: '150'
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-07-29

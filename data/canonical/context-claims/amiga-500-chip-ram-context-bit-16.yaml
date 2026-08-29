@@ -1,0 +1,17 @@
+id: amiga-500-chip-ram:context-bit-16
+subject:
+  kind: component
+  id: amiga-500-chip-ram
+label: Word size
+quantity:
+  state: value
+  value: '16'
+  unit: bit
+  significantDigits: 2
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - amiga-hardware-reference-manual
+evidenceLevel: confirmed

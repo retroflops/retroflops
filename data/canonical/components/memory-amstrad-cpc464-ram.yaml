@@ -1,0 +1,12 @@
+id: amstrad-cpc464-ram
+slug: amstrad-cpc464-ram
+kind: memory
+name: Amstrad CPC 464 RAM
+manufacturer: Amstrad
+architecture: Dynamic RAM
+introducedDate: '1984'
+memoryType: Dynamic RAM
+summary: '{{context:amstrad-cpc464-ram:context-kib-64}} writable system memory.'
+sourceIds:
+  - amstrad-cpc464-user-instructions
+editorialStatus: provisional

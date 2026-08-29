@@ -1,0 +1,18 @@
+id: mips-r10000:context-mb-1
+subject:
+  kind: component
+  id: mips-r10000
+label: Capacity
+quantity:
+  state: value
+  value: '1'
+  unit: MB
+  significantDigits: 1
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - spec-cpu95-octane-int
+  - spec-cpu95-octane-fp
+evidenceLevel: confirmed

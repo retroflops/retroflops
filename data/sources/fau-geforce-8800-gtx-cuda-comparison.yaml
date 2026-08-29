@@ -1,0 +1,15 @@
+id: fau-geforce-8800-gtx-cuda-comparison
+title: Comparison of High-Speed Ray Casting on GPU using CUDA
+publisher: Friedrich-Alexander-Universität Erlangen-Nürnberg
+url: https://www5.cs.fau.de/Forschung/Publikationen/2008/Weinlich08-COH-talk.pdf
+publishedDate: "2008"
+accessedDate: 2026-08-22
+locator: '"Evaluation: graphics cards" specification slide'
+extract: >-
+  Core clock 575 MHz; Shader clock 1350 MHz; Memory amount 768 MB; Memory
+  interface 384-bit; Memory clock speed 900 MHz; 86.4 GB/s
+tier: B
+sourceType: independent-analysis
+license: Copyright retained by the publisher. Short extracts are recorded solely
+  to verify the cited specifications.
+editorialStatus: provisional

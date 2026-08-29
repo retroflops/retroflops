@@ -1,0 +1,26 @@
+---
+// SPDX-FileCopyrightText: 2026 Wojciech Polak
+// SPDX-License-Identifier: MIT
+
+interface Props {
+  /** Checkpoint from TODO */
+  checkpoint: number;
+}
+
+const { checkpoint } = Astro.props;
+---
+
+<p class="planned-section">
+  Checkpoint {checkpoint} will build this section. Its route already exists so navigation, base-prefix
+  routing, and layout can be verified.
+</p>
+
+<style>
+  .planned-section {
+    max-inline-size: var(--prose-max);
+    border-inline-start: 3px solid var(--color-amber);
+    background-color: var(--color-amber-wash);
+    padding: var(--space-s);
+    color: var(--text-secondary);
+  }
+</style>

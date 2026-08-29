@@ -1,0 +1,20 @@
+id: ps4-gpu
+slug: ps4-gpu
+kind: gpu
+name: PlayStation 4 custom processor (GPU section)
+manufacturer: Sony Computer Entertainment / AMD
+architecture: Unified array of compute units
+introducedDate: '2013'
+summary:
+  '{{context:ps4-gpu:context-unit-18}} compute units on the processor die, rated
+  by Sony at {{measurement:ps4-gpu:peak-fp32-rate}} for graphics, simulation, or
+  any mixture of the two.'
+notes:
+  Sony gives the compute-unit count but no clock, so the teraflops figure cannot
+  be reconstructed from the parts — which is the reverse of the usual problem,
+  where the clock is published and the unit count is not. Both this and the
+  PlayStation 3's RSX figure are provisional; the difference is that here the
+  source at least states what the units are.
+sourceIds:
+  - scei-ps4-introduction-2013
+editorialStatus: approved

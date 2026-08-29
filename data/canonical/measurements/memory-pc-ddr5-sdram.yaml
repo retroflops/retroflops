@@ -1,0 +1,34 @@
+- caveat: >-
+    Intel's rating of the Core i9-14900K's memory interface, not a property of
+    any fitted module and not a measurement of traffic across it. It describes
+    the faster of the two memory types that processor accepts: the same
+    specification offers DDR4-3200, at which the interface reaches less. This is
+    the one component in the x86 line whose figure is safe to state, because
+    only one machine in the catalog is fitted with it. The DDR, DDR2 and DDR3
+    components shared across earlier machines have no equivalent single answer.
+  comparabilityGroup: memory-bandwidth|memory|theoretical-peak
+  conditions: Two channels of DDR5-5600 as rated for the Core i9-14900K memory controller.
+  editorialStatus: approved
+  evidenceStage: shipped
+  id: pc-ddr5-sdram:memory-bandwidth
+  method: theoretical-peak
+  metric: memory-bandwidth
+  normalized:
+    value: "89600000000"
+    unit: B/s
+    significantDigits: 3
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 3
+    state: value
+    unit: GB/s
+    value: "89.6"
+  scope: memory
+  sourceIds:
+    - intel-core-i9-14900k-specifications
+  status: vendor-rated
+  subject:
+    id: pc-ddr5-sdram
+    kind: component
+  evidenceLevel: confirmed

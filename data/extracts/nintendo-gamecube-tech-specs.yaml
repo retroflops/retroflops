@@ -1,0 +1,111 @@
+- extract: >-
+    MPU ("Unidad de Microprocesador")	Power PC de IBM "Gekko"
+
+    Frecuencia de reloj	485 MHz
+  extractHash: 5cc1defce19b84ea1a6b7389dfd3ced6b3c5cd1ef464742718be0670680ba6af
+  id: gamecube-specs:cpu-clock
+  locator:
+    Especificaciones Técnicas table, 'MPU' block, 'Frecuencia de reloj' row
+  notes: >-
+    The processor's own clock row, transcribed with the block heading above it
+    because the table uses the same row label again further down for the
+    graphics part. The next row gives 1125 Dmips (Dhrystone 2.1), which is a
+    figure this catalog's Dhrystone question is still open on and is not read
+    here.
+  sourceId: nintendo-gamecube-tech-specs
+  transcribed:
+    significantDigits: 3
+    state: value
+    unit: MHz
+    value: '485'
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-15
+- extract: >-
+    Sistema LSI	ATI/Nintendo "Flipper" de diseño exclusivo
+
+    Frecuencia de reloj	162 MHz
+  extractHash: 85788bf63e053fb4a62d81ec7d093988b8fdfe7deb29e6735efe7f7fa8a9f68d
+  id: gamecube-specs:gpu-clock
+  locator:
+    Especificaciones Técnicas table, 'Sistema LSI' block, 'Frecuencia de reloj'
+    row
+  notes: >-
+    The graphics part's clock, under its own block heading. The same 162 MHz
+    appears earlier in the processor's external-bus row, because the bus runs at
+    the graphics chip's rate — one frequency doing two jobs, not two figures
+    that happen to agree.
+  sourceId: nintendo-gamecube-tech-specs
+  transcribed:
+    significantDigits: 3
+    state: value
+    unit: MHz
+    value: '162'
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-15
+- extract: >-
+    Sistema de Memoria	Total 40MB
+
+    Memoria Principal de Sistema	24MB MoSys 1T-SRAM), Velocidad de acceso
+    continuo: 10ns aprox
+
+    Memoria de Sonido	16MB (81MHz DRAM)
+  extractHash: 0537a77182c2ac0273b3e0eb82c6da098595474b9e3a6a180fb48408033b0de4
+  id: gamecube-specs:memory
+  locator: >-
+    Especificaciones Técnicas table, 'Sistema de Memoria', 'Memoria Principal de
+    Sistema' and 'Memoria de Sonido' rows
+  notes: >-
+    Nintendo states the total first and then its two terms, which settles a
+    question this catalog would otherwise have had to decide for itself: the
+    sound memory belongs in the machine's memory, because the maker counts it
+    there. The unbalanced parenthesis after MoSys is the page's own. The
+    console's separate texture cache of about 1 MB sits inside the graphics part
+    and is not in this total.
+  sourceId: nintendo-gamecube-tech-specs
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-15
+- extract: Ancho de Banda de la Memoria Principal	2,6GB/segundo (máximo)
+  extractHash: 065ae658b7867323a8cf60f72248ddee67fe2c82347e69609d4eb5bc112c7dc0
+  id: gamecube-specs:main-memory-bandwidth
+  locator:
+    Especificaciones Técnicas table, 'Ancho de Banda de la Memoria Principal'
+    row
+  notes: >-
+    "Main memory bandwidth: 2.6 GB/second (maximum)". The comma is the Spanish
+    decimal separator. The same table states a separate 10,4GB/segundo for
+    texture access and a 1,3 GB/segundo external bus, so this row is
+    specifically the path to the 24 MB of main memory and not every data path in
+    the console.
+  sourceId: nintendo-gamecube-tech-specs
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-13
+- extract: Alimentación	Adaptador de corriente DC12V x 3,25A
+  extractHash: 4511b3a56fd4a28e191a25074597840ebdc56d5550660f602af6cb255650e612
+  id: gamecube-specs:power-adapter
+  locator: Especificaciones Técnicas table, 'Alimentación' row
+  notes: >-
+    "Power: power adapter DC12V x 3.25A". Nintendo states the supply's voltage
+    and current and no wattage; the 39 W figure the catalog records is the
+    product of the two, which is exact for a DC supply.
+  sourceId: nintendo-gamecube-tech-specs
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-13
+- extract: >-
+    Capacidad Aritmética con coma flotante	10,5 GFLOPS (máximo) (MPU, Geometry
+    Engine, HW Lighting Total)
+  extractHash: 4ed282a36ee35736bf7c90ca32536cb39ccc121034cacefc4e46ecfb0ac809b3
+  id: gamecube-specs:floating-point-aggregate
+  locator:
+    Especificaciones Técnicas table, 'Capacidad Aritmética con coma flotante'
+    row
+  notes: >-
+    Transcribed with no value. "Floating-point arithmetic capability: 10.5
+    GFLOPS (maximum) (MPU, Geometry Engine, HW Lighting Total)". This is the
+    figure that circulates as the GameCube's GPU FP32 rate, and Nintendo's own
+    wording refuses that reading twice over: it names no precision, and it is
+    explicitly a total across the processor, the geometry engine and the
+    lighting hardware. The row is kept so the console's unknown FP32 rate cites
+    the sentence that keeps it unknown.
+  sourceId: nintendo-gamecube-tech-specs
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-13

@@ -1,0 +1,11 @@
+architecture: Static RAM
+editorialStatus: provisional
+id: master-system-ram
+kind: memory
+manufacturer: Sega
+memoryType: Static RAM
+name: Sega Master System RAM
+slug: master-system-ram
+sourceIds:
+  - sega-8bit-service-manual
+summary: '{{context:master-system-ram:context-kib-8}} writable work RAM.'

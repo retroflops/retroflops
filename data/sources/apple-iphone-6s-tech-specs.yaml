@@ -1,0 +1,23 @@
+accessedDate: 2026-08-13
+editorialStatus: approved
+fetch:
+  byteLength: 1189127
+  contentType: text/html;charset=utf-8
+  fetchedAt: 2026-08-13T15:24:24Z
+  httpStatus: 200
+  sha256: 8b61d9aeda753e0e7081d74e849686ebb8b79d01d537fa4f96a0fea2b0bb7517
+  url: https://support.apple.com/en-us/111952
+id: apple-iphone-6s-tech-specs
+license: Copyright Apple Inc. Quoted here under short-extract fair use for
+  verification of the cited specifications.
+locator: Chip and Power and Battery sections
+publishedDate: "2015"
+publisher: Apple Inc.
+sourceType: vendor-documentation
+tier: A
+title: Apple iPhone 6s — Technical Specifications
+url: https://support.apple.com/en-us/111952
+usageNote: >-
+  Apple states the chip identification and retail technical details, while
+  deliberately not filling undocumented clock, DRAM, bandwidth, FP32 or
+  whole-system power fields.

@@ -1,0 +1,26 @@
+accessedDate: 2026-08-15
+editorialStatus: approved
+fetch:
+  byteLength: 79215
+  contentType: text/html
+  fetchedAt: 2026-08-15T19:18:30Z
+  httpStatus: 200
+  sha256: b14f56b0bd3bf242116a25dee501be2f85ca3ea6624d75b82593a724bf85fbf4
+  url: https://www.nintendo.com/en-gb/Hardware/Nintendo-History/Super-Nintendo/Technical-Details/Technical-Details-627042.html
+id: nintendo-snes-tech-specs
+license: Copyright Nintendo. Quoted here under short-extract fair use for
+  verification of the figures cited.
+locator: Technical Details table, CPU, Graphics Processor, Memory and Sound Chip rows
+publisher: Nintendo
+sourceType: vendor-documentation
+tier: A
+title: Super Nintendo — Technical Details
+url: https://www.nintendo.com/en-gb/Hardware/Nintendo-History/Super-Nintendo/Technical-Details/Technical-Details-627042.html
+usageNote: >-
+  The counterpart page for the Super Nintendo, and a fuller table than the
+  Nintendo Entertainment System's: it gives the memory in bits, states the video
+  memory separately, and puts a range on the cartridge size — the only vendor
+  statement this catalog has for that question on any cartridge machine. The
+  processor frequency it names is one of several this console genuinely runs at,
+  depending on which memory region is being addressed, and the measurement says
+  which.

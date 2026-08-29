@@ -1,0 +1,17 @@
+id: apollo-guidance-computer-block-ii:context-w-70
+subject:
+  kind: system
+  id: apollo-guidance-computer-block-ii
+label: Contextual value
+quantity:
+  state: value
+  value: '70'
+  unit: W
+  significantDigits: 2
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - ntrs-19760016247
+evidenceLevel: confirmed

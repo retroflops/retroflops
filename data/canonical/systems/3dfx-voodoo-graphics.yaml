@@ -1,0 +1,42 @@
+id: 3dfx-voodoo-graphics
+slug: 3dfx-voodoo-graphics
+name: 3dfx Voodoo Graphics
+manufacturer: 3dfx Interactive
+type: accelerator
+releaseDate: 1996-11
+region: Worldwide
+summary: >-
+  The card that made 3D acceleration ordinary on a home PC, running a
+  fixed-function pipeline of its own and leaving 2D to whatever adapter was
+  already fitted.
+description: >-
+  Voodoo Graphics drew only 3D. It sat beside an ordinary 2D card and took the
+  screen over when a game started, which is why a machine fitted with one needed
+  both boards and a short pass-through cable between them.
+imageIds:
+  - 3dfx-voodoo-graphics-card
+configurations:
+  - id: reference-card
+    label: Reference card
+    releaseDate: 1996-11
+    entries:
+      - componentId: 3dfx-voodoo-graphics
+        role: gpu
+        count: 1
+        shared: false
+        notes:
+          The dead citation does not establish a reference-card graphics clock.
+        measurementIds:
+          - 3dfx-voodoo-graphics:clock-frequency-base
+      - componentId: 3dfx-voodoo-graphics-memory
+        role: video-memory
+        count: 1
+        shared: false
+        measurementIds:
+          - 3dfx-voodoo-graphics-memory:capacity
+sourceIds:
+  - 3dfx-sst-1-data-book
+editorialStatus: provisional
+notes: >-
+  The dead citation does not establish the fitted frame buffer or other
+  reference-card details.

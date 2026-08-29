@@ -1,0 +1,12 @@
+editorialStatus: provisional
+id: microsoft-xbox-360-ram
+slug: microsoft-xbox-360-ram
+kind: memory
+name: Microsoft Xbox 360 unified memory
+manufacturer: Microsoft
+architecture: GDDR3
+introducedDate: '2005'
+memoryType: GDDR3
+summary: '{{measurement:microsoft-xbox-360-ram:capacity}} of installed GDDR3.'
+sourceIds:
+  - microsoft-xbox-360-hardware-overview

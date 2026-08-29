@@ -1,0 +1,49 @@
+accessedDate: 2026-08-17
+alt: "A cream Atari 520ST on a museum shelf: a wide keyboard unit with a numeric pad at the right
+  and the Atari logo and model name printed above it, with a boxed games compilation standing
+  behind."
+attribution: Photograph by MKFI, released into the public domain by its author, via Wikimedia Commons.
+canonical:
+  byteLength: 89480
+  format: avif
+  height: 960
+  sha256: ac5a586f5f85c1ffc23216f8b848e733894b9a48ae05a51e8ad0e38f4c2196c0
+  width: 1280
+caption: An Atari 520ST in the Helsinki computer and games console museum. The whole computer is
+  inside the keyboard; the power supply and drive were separate boxes.
+creator: MKFI
+creatorType: person
+editorialStatus: approved
+id: atari-520st-computer
+original:
+  byteLength: 6425020
+  height: 3456
+  mediaType: image/jpeg
+  sha256: 0d33c3129b3ae76f6281a7c1efbbec45609c409a07f6d649eb8f8d211550e1f6
+  width: 5184
+originalUrl: https://upload.wikimedia.org/wikipedia/commons/0/05/Atari_520ST_Tietokonemuseo.JPG
+publisher: Wikimedia Commons
+rights:
+  id: pd-self
+  statedAt: https://commons.wikimedia.org/wiki/File:Atari_520ST_Tietokonemuseo.JPG
+  statement: "I, the copyright holder of this work, release this work into the public domain. This
+    applies worldwide. In some countries this may not be legally possible; if so: I grant anyone the
+    right to use this work for any purpose, without any conditions, unless such conditions are
+    required by law."
+  url: https://commons.wikimedia.org/wiki/Template:PD-self
+sourcePageUrl: https://commons.wikimedia.org/wiki/File:Atari_520ST_Tietokonemuseo.JPG
+title: Atari 520ST Tietokonemuseo.JPG
+transform:
+  fit: crop
+  note: "The photograph is wider than 4:3 in a display case that no margin color would match, so the
+    frame is narrowed instead. The crop was measured against the machine rather than centered: a
+    centered one cut the left end of the case. It is the smallest 4:3 rectangle that clears the
+    whole computer, and what it drops is the museum's caption card."
+  preset: image-v1
+  region:
+    height: 3150
+    width: 4200
+    x: 980
+    y: 306
+  sourceHeight: 3456
+  sourceWidth: 5184

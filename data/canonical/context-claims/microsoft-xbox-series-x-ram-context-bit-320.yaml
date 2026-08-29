@@ -1,0 +1,19 @@
+id: microsoft-xbox-series-x-ram:context-bit-320
+subject:
+  kind: component
+  id: microsoft-xbox-series-x-ram
+label: Width
+quantity:
+  state: value
+  value: '320'
+  unit: bit
+  significantDigits: 3
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - xbox-wire-series-x-tech-2020
+extractIds:
+  - xbox-series-x-tech:specs:memory
+evidenceLevel: confirmed

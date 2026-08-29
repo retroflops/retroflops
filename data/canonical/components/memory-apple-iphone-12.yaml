@@ -1,0 +1,14 @@
+id: apple-iphone-12-memory
+slug: apple-iphone-12-memory
+kind: memory
+name: Apple iPhone 12 unified memory
+manufacturer: Apple
+memoryType: Unified mobile DRAM
+summary:
+  The working memory pool used by the Apple iPhone 12; Apple does not state its
+  installed capacity.
+notes:
+  Flash storage is a separate medium and is not a substitute for working memory.
+sourceIds:
+  - apple-iphone-12-tech-specs
+editorialStatus: approved

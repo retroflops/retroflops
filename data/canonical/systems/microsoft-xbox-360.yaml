@@ -1,0 +1,42 @@
+editorialStatus: provisional
+id: microsoft-xbox-360
+slug: microsoft-xbox-360
+name: Microsoft Xbox 360
+manufacturer: Microsoft
+type: console
+family: microsoft-xbox
+releaseDate: 2005-11
+region: North America
+summary: >-
+  Microsoft Xbox 360, represented with its retail processor, graphics and
+  installed writable memory.
+description: >-
+  The vendor’s headline “TFLOPS” combines processors that execute different
+  operation types and precisions. It is intentionally not represented as a
+  floating-point measurement.
+configurations:
+  - id: retail
+    label: Retail hardware
+    entries:
+      - componentId: microsoft-xbox-360-xenon
+        role: main-cpu
+        count: 1
+        shared: false
+        measurementIds:
+          - microsoft-xbox-360:retail:cpu-clock-frequency
+      - componentId: microsoft-xbox-360-xenos
+        role: gpu
+        count: 1
+        shared: false
+        measurementIds:
+          - microsoft-xbox-360:retail:gpu-clock-frequency
+      - componentId: microsoft-xbox-360-ram
+        role: unified-memory
+        count: 1
+        shared: true
+        measurementIds:
+          - microsoft-xbox-360-ram:capacity
+imageIds:
+  - microsoft-xbox-360-console
+sourceIds:
+  - microsoft-xbox-360-hardware-overview

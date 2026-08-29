@@ -1,0 +1,17 @@
+id: mos-6510:context-bit-16
+subject:
+  kind: component
+  id: mos-6510
+label: Width
+quantity:
+  state: value
+  value: '16'
+  unit: bit
+  significantDigits: 2
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - c64-programmers-reference-guide
+evidenceLevel: confirmed

@@ -1,0 +1,17 @@
+id: intel-pentium-ii:context-mhz-333
+subject:
+  kind: component
+  id: intel-pentium-ii
+label: Frequency
+quantity:
+  state: value
+  value: '333'
+  unit: MHz
+  significantDigits: 3
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - intel-pentium-ii-datasheet
+evidenceLevel: confirmed

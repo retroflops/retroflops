@@ -1,0 +1,21 @@
+accessedDate: 2026-07-29
+editorialStatus: approved
+fetch:
+  byteLength: 87479
+  contentType: text/html; charset=UTF-8
+  fetchedAt: 2026-07-29T17:16:59Z
+  httpStatus: 200
+  sha256: cc5ead2367567c8b04422230485071ecb55262ee70a1e142e30fc8c9676454f5
+  url: https://sonyinteractive.com/en/press-releases/2013/sony-computer-entertainment-inc-introduces-playstation4-ps4/
+id: scei-ps4-introduction-2013
+license: Copyright Sony Interactive Entertainment Inc. Quoted here under
+  short-extract fair use for verification of the figures cited.
+locator: >-
+  "Gamer Focused, Developer Inspired" section, the three paragraphs describing
+  the system architecture
+publishedDate: 2013-02-20
+publisher: Sony Computer Entertainment Inc.
+sourceType: vendor-documentation
+tier: A
+title: Sony Computer Entertainment Inc. Introduces PlayStation®4 (PS4™)
+url: https://sonyinteractive.com/en/press-releases/2013/sony-computer-entertainment-inc-introduces-playstation4-ps4/

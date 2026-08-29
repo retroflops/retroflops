@@ -1,0 +1,17 @@
+id: intel-historical-x86-documentation
+title: Intel Microprocessor Quick Reference Guide - Product Family
+publisher: Intel Corporation
+url: https://www.intel.com/pressroom/kits/quickreffam.htm
+accessedDate: 2026-08-22
+locator: >-
+  Historical processor-family tables: Intel486 Processors and Earlier, Pentium,
+  Pentium II, Pentium 4, and Core 2 sections
+tier: A
+sourceType: vendor-documentation
+license: Intel historical product material; cited for verification, without a
+  grant of reuse rights.
+usageNote: >-
+  This historical Intel table is a family-level source. Its Addressable Memory
+  field is architectural address space, not installed RAM, and its grouped rows
+  do not establish an individual SKU's clock unless the row names that SKU.
+editorialStatus: provisional

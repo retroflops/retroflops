@@ -1,0 +1,10 @@
+architecture: Tile, sprite and bitmap graphics engine
+editorialStatus: provisional
+id: gba-ppu
+kind: gpu
+manufacturer: Nintendo
+name: Game Boy Advance PPU
+slug: gba-ppu
+sourceIds:
+  - game-boy-advance-technical-manual
+summary: The Game Boy Advance graphics engine, primarily a tile and sprite unit.

@@ -1,0 +1,22 @@
+id: wikipedia-geforce-256-specifications
+title: GeForce 256
+publisher: Wikipedia contributors
+accessedDate: 2026-08-26
+locator: Specifications table, GeForce 256 SDR and GeForce 256 DDR rows
+extract: >-
+  The specifications table states the SDR and DDR model clocks, fill rates,
+  memory capacities, bandwidths, memory types, bus widths, FP32 rates, and TDPs.
+tier: C
+sourceType: wiki
+url: https://en.wikipedia.org/wiki/GeForce_256
+usageNote: >-
+  Tier C community table used only for provisional GeForce 256 configuration
+  figures. The 64 MiB partner-card option shown in the table is not a reference
+  configuration.
+fetch:
+  url: https://en.wikipedia.org/wiki/GeForce_256
+  fetchedAt: 2026-08-26T08:51:15Z
+  httpStatus: 200
+  contentType: text/html; charset=UTF-8
+  byteLength: 187132
+  sha256: ca0533494f67d5feb2f9431eec9e3466716cd241ad1e0b26ae1463988ffbe04e

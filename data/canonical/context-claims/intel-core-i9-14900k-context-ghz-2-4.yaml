@@ -1,0 +1,17 @@
+id: intel-core-i9-14900k:context-ghz-2-4
+subject:
+  kind: component
+  id: intel-core-i9-14900k
+label: Frequency
+quantity:
+  state: value
+  value: '2.4'
+  unit: GHz
+  significantDigits: 2
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - intel-desktop-processor-reference
+evidenceLevel: confirmed

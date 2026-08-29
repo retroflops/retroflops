@@ -1,0 +1,44 @@
+accessedDate: 2026-08-17
+alt: A small square aluminum Mac mini on a wooden table, an Apple logo on its top face and two USB-C
+  ports with a status light on the front edge.
+attribution: Photograph by Seasider53, licensed CC BY 4.0, via Wikimedia Commons.
+canonical:
+  byteLength: 57959
+  format: avif
+  height: 960
+  sha256: 465fc67aff016422a366b955b2e8fda5e9ddf791695bd000cd5627e901d62937
+  width: 1280
+caption: The 2024 Mac mini, the generation that shrank the case to 12.7 cm square and moved two
+  ports to the front.
+creator: Seasider53
+creatorType: person
+editorialStatus: approved
+id: apple-mac-mini-m4-computer
+original:
+  byteLength: 687781
+  height: 1785
+  mediaType: image/jpeg
+  sha256: 5b91116c78adcd0bc7b8466a394946237c7d842d8f217e4d5b69c936c60ec40b
+  width: 2125
+originalUrl: https://upload.wikimedia.org/wikipedia/commons/6/62/Mac_mini_2024_M4.jpg
+publisher: Wikimedia Commons
+rights:
+  id: cc-by-4.0
+  statedAt: https://commons.wikimedia.org/wiki/File:Mac_mini_2024_M4.jpg
+  statement: "I, the copyright holder of this work, hereby publish it under the following license:
+    This file is licensed under the Creative Commons Attribution 4.0 International license."
+  url: https://creativecommons.org/licenses/by/4.0/
+sourcePageUrl: https://commons.wikimedia.org/wiki/File:Mac_mini_2024_M4.jpg
+title: Mac mini 2024 M4.jpg
+transform:
+  fit: crop
+  note: The photograph is taller than 4:3, so the frame loses table above and below rather than
+    gaining margin at the sides. The crop keeps the whole machine.
+  preset: image-v1
+  region:
+    height: 1593
+    width: 2124
+    x: 0
+    y: 96
+  sourceHeight: 1785
+  sourceWidth: 2125

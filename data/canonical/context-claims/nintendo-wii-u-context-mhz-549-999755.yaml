@@ -1,0 +1,20 @@
+id: nintendo-wii-u:context-mhz-549-999755
+subject:
+  kind: system
+  id: nintendo-wii-u
+  configurationId: retail
+label: Frequency
+quantity:
+  state: value
+  value: '549.999755'
+  unit: MHz
+  significantDigits: 9
+provenance: independent
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - digitalfoundry-wii-u-clocks-2012
+extractIds:
+  - df-wii-u:clocks
+evidenceLevel: reported

@@ -1,0 +1,43 @@
+accessedDate: 2026-08-17
+alt: A black Sega Master System photographed against white from the front left, a cartridge slot and
+  a card slot on its upper deck, with the control pad and its cable lying in front.
+attribution: Photograph by Evan-Amos, released into the public domain by its author, via Wikimedia Commons.
+canonical:
+  byteLength: 33127
+  format: avif
+  height: 960
+  sha256: 716d06fe7239c192e059cda80807b8d08dcdc210866379b95240489ab3a44527
+  width: 1280
+caption: A Sega Master System with the cartridge slot and card slot on its upper deck, shown with
+  the control pad.
+creator: Evan-Amos
+creatorType: person
+editorialStatus: approved
+id: sega-master-system-console
+original:
+  byteLength: 2605285
+  height: 2200
+  mediaType: image/jpeg
+  sha256: 080e905777c5726cc0ae69258c909544ffe277b131ac01386fe2ec29f359f426
+  width: 4000
+originalUrl: https://upload.wikimedia.org/wikipedia/commons/8/88/Sega-Master-System-Set.jpg
+publisher: Wikimedia Commons
+rights:
+  id: pd-self
+  statedAt: https://commons.wikimedia.org/wiki/File:Sega-Master-System-Set.jpg
+  statement: "I, the copyright holder of this work, release this work into the public domain. This
+    applies worldwide. In some countries this may not be legally possible; if so: I grant anyone the
+    right to use this work for any purpose, without any conditions, unless such conditions are
+    required by law."
+  url: https://commons.wikimedia.org/wiki/Template:PD-self
+sourcePageUrl: https://commons.wikimedia.org/wiki/File:Sega-Master-System-Set.jpg
+title: Sega-Master-System-Set.jpg
+transform:
+  background: "#ffffff"
+  fit: pad
+  note: The photograph is wider than 4:3 and the machine reaches both ends of it, so no crop keeps the
+    whole subject. The declared margin is the same white as the backdrop the photograph was taken
+    against, which is why it cannot be seen; it is recorded because it is there.
+  preset: image-v1
+  sourceHeight: 2200
+  sourceWidth: 4000

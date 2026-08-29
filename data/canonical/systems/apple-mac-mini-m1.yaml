@@ -1,0 +1,105 @@
+id: apple-mac-mini-m1
+slug: apple-mac-mini-m1
+name: Apple Mac mini (M1, 2020)
+manufacturer: Apple
+type: personal-computer
+family: apple-macintosh
+releaseDate: 2020-11
+region: Worldwide
+summary: >-
+  {{measurement:apple-m1:transistor-count}} on
+  {{measurement:apple-m1:process-node}}, with processor and graphics cores
+  sharing {{measurement:apple-mac-mini-m1:8gb:memory-capacity}} or
+  {{measurement:apple-mac-mini-m1:16gb:memory-capacity}} of unified memory. The
+  computer is rated at
+  {{measurement:apple-mac-mini-m1:rated-power-consumption}}. Its performance and
+  efficiency cores retain separate clock records.
+description: >-
+  This record continues a line the catalog has drawn since the Apollo Guidance
+  Computer. The oldest machines here are described almost entirely by time: a
+  memory cycle in microseconds, an addition in milliseconds. Home computers are
+  described by frequency. Consoles add floating-point rates beside the
+  frequency, then stop giving the frequency. The M1 has separate clocks for its
+  performance and efficiency cores, rather than one CPU-wide rate.
+
+
+  Apple gives a transistor count, a process node, a core count split into two
+  kinds of core, and a graphics throughput figure. Only the first two are
+  properly comparable with anything else in the catalog. A process node can be
+  displayed, but node names stopped being physical dimensions long before this
+  one, so the metric forbids ratios between them.
+
+
+  The memory is unified, as the PlayStation 4's is, and fitted at manufacture.
+  Two configurations were sold, {{context:apple-mac-mini-m1:context-gib-8}} and
+  {{context:apple-mac-mini-m1:context-gib-16}}, and neither could be changed
+  afterwards.
+configurations:
+  - id: 8gb
+    label: 8 GB unified memory
+    entries:
+      - componentId: apple-m1
+        role: main-cpu
+        count: 1
+        shared: false
+        notes:
+          Four performance cores and four efficiency cores with separate clock
+          records.
+        measurementIds:
+          - apple-mac-mini-m1:cpu-clock-frequency-performance-cores
+          - apple-mac-mini-m1:cpu-clock-frequency-efficiency-cores
+          - apple-mac-mini-m1:cpu-clock-frequency
+      - componentId: apple-m1-gpu
+        role: gpu
+        count: 1
+        shared: false
+        measurementIds:
+          - apple-mac-mini-m1:gpu-clock-frequency
+      - componentId: apple-m1-unified-memory
+        role: unified-memory
+        count: 1
+        shared: true
+        measurementIds:
+          - apple-mac-mini-m1:8gb:memory-capacity
+  - id: 16gb
+    label: 16 GB unified memory
+    entries:
+      - componentId: apple-m1
+        role: main-cpu
+        count: 1
+        shared: false
+        notes:
+          Four performance cores and four efficiency cores with separate clock
+          records.
+        measurementIds:
+          - apple-mac-mini-m1:cpu-clock-frequency-performance-cores
+          - apple-mac-mini-m1:cpu-clock-frequency-efficiency-cores
+          - apple-mac-mini-m1:cpu-clock-frequency
+      - componentId: apple-m1-gpu
+        role: gpu
+        count: 1
+        shared: false
+        measurementIds:
+          - apple-mac-mini-m1:gpu-clock-frequency
+      - componentId: apple-m1-unified-memory
+        role: unified-memory
+        count: 1
+        shared: true
+        measurementIds:
+          - apple-mac-mini-m1:16gb:memory-capacity
+notes: >-
+  The release date is the date of the cited announcement. The Neural Engine's 11
+  trillion operations per second is not recorded: the catalog has no metric for
+  it, the operations are not floating-point, and inventing one for a single
+  record would leave it comparable with nothing. Storage configurations are not
+  recorded either. The catalog had no storage metric when this record was
+  written, and it gained one with the iPhone. Filling this machine's in is a
+  change for whoever next revisits it, not a side effect of another record. No
+  derived claim compares this machine's graphics throughput with the PlayStation
+  4's because both figures are provisional and they were obtained by different
+  methods. The ratio formula would refuse it twice over.
+sourceIds:
+  - apple-m1-announcement-2020
+  - apple-mac-mini-m1-tech-specs
+  - notebookcheck-apple-m1-gpu
+editorialStatus: approved

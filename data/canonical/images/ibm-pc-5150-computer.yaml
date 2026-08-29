@@ -1,0 +1,48 @@
+accessedDate: 2026-08-17
+alt: "An IBM Personal Computer on a museum plinth: a wide beige system unit with two diskette
+  drives, a monochrome monitor standing on top of it and the keyboard in front."
+attribution: Photograph by The wub, licensed CC BY-SA 4.0, via Wikimedia Commons.
+canonical:
+  byteLength: 59270
+  format: avif
+  height: 960
+  sha256: 866d67334ab24f6fe3df7bef4030ef4a6dda9c8983cde99a5a794d2a77e79ff2
+  width: 1280
+caption: An IBM Personal Computer in the Computer History Museum, fitted with two diskette drives
+  and the 5151 monochrome display. This record describes the
+  {{measurement:ibm-pc-5150-ram:capacity}} base machine, which was sold with neither.
+creator: The wub
+creatorType: person
+editorialStatus: approved
+id: ibm-pc-5150-computer
+original:
+  byteLength: 3815393
+  height: 2956
+  mediaType: image/jpeg
+  sha256: 0eb2a1aaf47a55005318e7e10f5825e8c8b7561fe2dec3ff742d687444fee6ec
+  width: 4729
+originalUrl: https://upload.wikimedia.org/wikipedia/commons/4/40/IBM_PC%2C_1981%2C_Computer_History_Museum.jpg
+publisher: Wikimedia Commons
+rights:
+  id: cc-by-sa-4.0
+  statedAt: https://commons.wikimedia.org/wiki/File:IBM_PC,_1981,_Computer_History_Museum.jpg
+  statement: "I, the copyright holder of this work, hereby publish it under the following license:
+    This file is licensed under the Creative Commons Attribution-Share Alike 4.0 International
+    license."
+  url: https://creativecommons.org/licenses/by-sa/4.0/
+sourcePageUrl: https://commons.wikimedia.org/wiki/File:IBM_PC,_1981,_Computer_History_Museum.jpg
+title: IBM PC, 1981, Computer History Museum.jpg
+transform:
+  fit: crop
+  note: The photograph is wider than 4:3 and the exhibit stands clear of its right edge, so the frame
+    is narrowed from that side rather than padded against a museum interior no margin color would
+    match. The crop keeps the left 3941 pixels, which is the whole machine; what it loses is the end
+    of the museum's caption card.
+  preset: image-v1
+  region:
+    height: 2955
+    width: 3940
+    x: 0
+    y: 0
+  sourceHeight: 2956
+  sourceWidth: 4729

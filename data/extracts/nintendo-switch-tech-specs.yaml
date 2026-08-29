@@ -1,0 +1,15 @@
+- extract: CPU/GPU | NVIDIA Custom Tegra processor
+  extractHash: 871d620b3046641893600792b017172f4eb951616183c8f09cbb9bb5ab7b11a7
+  id: nintendo-switch:tech-specs:cpu-gpu
+  locator: Nintendo Switch console (HAC-001(-01)) table, 'CPU/GPU' row
+  notes: >-
+    The whole of what Nintendo publishes about this console's processor and
+    graphics: a supplier and a product family, no frequency for either part, and
+    no separate row for the two operating modes the machine actually has. The
+    same table has no memory row at all, which is why the capacity is recorded
+    from independent reporting instead. This record is cited by the figures that
+    stay unknown, so a reader arrives at the sentence that is missing rather
+    than at a document that never existed.
+  sourceId: nintendo-switch-tech-specs
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-15

@@ -1,0 +1,17 @@
+id: ps5-gpu:context-ghz-2-23
+subject:
+  kind: component
+  id: ps5-gpu
+label: Frequency
+quantity:
+  state: value
+  value: '2.23'
+  unit: GHz
+  significantDigits: 3
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - scei-ps5-hardware-specs-2020
+evidenceLevel: confirmed

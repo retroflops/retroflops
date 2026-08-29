@@ -1,0 +1,18 @@
+- extract: >-
+    型番	HST-3210
+
+    使用電源	AC100V±10%　50/60Hz
+
+    消費電力	約15W
+  extractHash: c83f43711a26dd8e215b4e52b910a744625939bf81cada345dc8895bc6caeb42
+  id: sega-saturn:spec-table:power
+  locator: Specifications table, 型番, 使用電源 and 消費電力 rows
+  notes: >-
+    消費電力 is "power consumption" and 約15W is "approximately 15 W". 使用電源
+    is transcribed with it because it settles what kind of figure this is: the
+    console takes AC mains directly, so 15 W is the machine's own stated
+    consumption and not the rating of an external adapter. The wide space in the
+    使用電源 value is the ideographic space the page uses.
+  sourceId: sega-hardware-encyclopedia-saturn
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-13

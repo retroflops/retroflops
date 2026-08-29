@@ -1,0 +1,12 @@
+id: sinclair-zx-spectrum-technical-data
+title: ZX Spectrum technical data
+publisher: Sinclair Research Ltd
+url: https://rk.nvg.ntnu.no/sinclair/computers/zxspectrum/spec_technical.htm
+archiveUrl: https://web.archive.org/web/20250801000000/https://rk.nvg.ntnu.no/sinclair/computers/zxspectrum/spec_technical.htm
+publishedDate: "1982"
+accessedDate: 2026-08-25
+locator: Technical data, processor and memory lines
+extract: Z80A microprocessor running at 3.5 MHz. 16K-byte ROM. 48K-byte RAM.
+tier: A
+sourceType: vendor-documentation
+editorialStatus: provisional

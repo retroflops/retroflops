@@ -1,0 +1,39 @@
+accessedDate: 2026-08-17
+alt: A beige Macintosh 128K standing on a white plinth, its small screen above a diskette slot, with
+  the coiled-cable keyboard in front of it and a single-button mouse to the right.
+attribution: Photograph by Benoît Prieur, dedicated to the public domain under CC0 1.0, via Wikimedia Commons.
+canonical:
+  byteLength: 35649
+  format: avif
+  height: 960
+  sha256: f989eaf316968fc8cdf95d397543fdf5dae7a0955651d4061c6460cda8e53d05
+  width: 1280
+caption: A Macintosh 128K in the Apple Museum in Prague, with the keyboard and mouse it was sold with.
+creator: Benoît Prieur
+creatorType: person
+editorialStatus: approved
+id: apple-macintosh-128k-computer
+original:
+  byteLength: 3738825
+  height: 3024
+  mediaType: image/jpeg
+  sha256: 583593156119dc2c5c8020bcbfe32bcc91503f0b72ca8c9a1f2f6ae7289d2732
+  width: 4032
+originalUrl: https://upload.wikimedia.org/wikipedia/commons/f/f5/Apple_Museum_%28Prague%29_Macintosh_128K_%281984%29_-_2.jpg
+publisher: Wikimedia Commons
+rights:
+  id: cc0-1.0
+  statedAt: https://commons.wikimedia.org/wiki/File:Apple_Museum_(Prague)_Macintosh_128K_(1984)_-_2.jpg
+  statement: "I, the copyright holder of this work, hereby publish it under the following license:
+    This file is made available under the Creative Commons CC0 1.0 Universal Public Domain
+    Dedication."
+  url: https://creativecommons.org/publicdomain/zero/1.0/
+sourcePageUrl: https://commons.wikimedia.org/wiki/File:Apple_Museum_(Prague)_Macintosh_128K_(1984)_-_2.jpg
+title: Apple Museum (Prague) Macintosh 128K (1984) - 2.jpg
+transform:
+  fit: exact
+  note: The photograph is already 4:3, so the reduction takes the whole frame and nothing is cut or
+    added.
+  preset: image-v1
+  sourceHeight: 3024
+  sourceWidth: 4032

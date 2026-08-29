@@ -1,0 +1,15 @@
+id: c64-system-ram
+slug: c64-system-ram
+kind: memory
+name: Commodore 64 system RAM
+manufacturer: Commodore Business Machines
+architecture: Dynamic RAM
+introducedDate: '1982'
+memoryType: Dynamic RAM
+summary:
+  '{{measurement:c64-system-ram:capacity}} of dynamic RAM filling the entire
+  sixteen-bit address space, with ROM and I/O banked over the top of it rather
+  than beside it.'
+sourceIds:
+  - c64-programmers-reference-guide
+editorialStatus: approved

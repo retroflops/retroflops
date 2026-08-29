@@ -1,0 +1,77 @@
+id: atari-800
+slug: atari-800
+name: Atari 800
+manufacturer: Atari
+type: home-computer
+releaseDate: 1979-11
+region: Worldwide
+summary: >-
+  An Atari {{context:atari-800-6502:context-bit-8}} computer whose 6502 clock
+  follows PAL or NTSC video timing.
+description: >-
+  PAL and NTSC are configurations of the same Atari 800, not different systems.
+  The record retains their distinct CPU clocks while keeping RAM and ROM as
+  separate memory roles; only writable RAM enters the whole-system total.
+configurations:
+  - id: ntsc-48k
+    label: NTSC, 48 KiB RAM
+    region: North America
+    entries:
+      - componentId: atari-800-6502
+        role: main-cpu
+        count: 1
+        shared: false
+        measurementIds:
+          - atari-800:ntsc:clock-frequency
+      - componentId: atari-800-antic-gtia
+        role: gpu
+        count: 1
+        shared: false
+        measurementIds:
+          - atari-800:gpu-clock-frequency
+      - componentId: atari-800-ram
+        role: system-memory
+        count: 1
+        shared: true
+        measurementIds:
+          - atari-800-ram:capacity
+      - componentId: atari-800-rom
+        role: system-memory
+        count: 1
+        shared: true
+        notes: Read-only operating-system ROM.
+        measurementIds:
+          - atari-800-rom:capacity
+  - id: pal-48k
+    label: PAL, 48 KiB RAM
+    region: Europe
+    entries:
+      - componentId: atari-800-6502
+        role: main-cpu
+        count: 1
+        shared: false
+        measurementIds:
+          - atari-800:pal:clock-frequency
+      - componentId: atari-800-antic-gtia
+        role: gpu
+        count: 1
+        shared: false
+        measurementIds:
+          - atari-800:gpu-clock-frequency
+      - componentId: atari-800-ram
+        role: system-memory
+        count: 1
+        shared: true
+        measurementIds:
+          - atari-800-ram:capacity
+      - componentId: atari-800-rom
+        role: system-memory
+        count: 1
+        shared: true
+        measurementIds:
+          - atari-800-rom:capacity
+imageIds:
+  - atari-800-computer
+sourceIds:
+  - atari-800-technical-reference-notes
+editorialStatus: provisional

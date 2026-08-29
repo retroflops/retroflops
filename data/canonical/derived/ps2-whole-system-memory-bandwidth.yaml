@@ -1,0 +1,26 @@
+id: sony-playstation-2:whole-system-memory-bandwidth
+formula:
+  id: sum
+  version: '1'
+  expression: a + b + …
+inputMeasurementIds:
+  - ps2-main-rdram:bandwidth
+exclusions:
+  - measurementId: ps2-gs-edram:bandwidth
+    label: 48 GB/s inside the Graphics Synthesizer
+    reason:
+      the drawing chip’s own embedded memory, which the processor cannot read or
+      write
+result:
+  state: value
+  value: '3200000000'
+  unit: B/s
+  significantDigits: 10
+rounding: none
+caveat: >-
+  Adds 1 memory-bandwidth figure obtained by theoretical-peak. Left out:
+  {{measurement:ps2-gs-edram:bandwidth}} (the drawing chip’s own embedded
+  memory, which the processor cannot read or write). A total is only as
+  trustworthy as the decision about what belongs in it, so both the terms and
+  the exclusions are named records.
+editorialStatus: approved

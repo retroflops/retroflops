@@ -1,0 +1,14 @@
+id: msx-ram
+slug: msx-ram
+kind: memory
+name: MSX system RAM
+manufacturer: MSX standard
+architecture: Dynamic RAM
+introducedDate: '1983'
+memoryType: Dynamic RAM
+summary:
+  '{{context:msx-ram:context-kib-64}} writable RAM in the selected MSX
+  configuration.'
+sourceIds:
+  - msx-technical-data-book
+editorialStatus: provisional

@@ -1,0 +1,77 @@
+---
+// SPDX-FileCopyrightText: 2026 Wojciech Polak
+// SPDX-License-Identifier: MIT
+
+import BaseLayout from '~/layouts/base-layout.astro';
+import { getCatalog } from '~/lib/catalog';
+import { methodLabel } from '~/lib/display';
+import { route } from '~/lib/paths';
+import { timelineSeries } from '~/lib/timeline';
+
+const series = timelineSeries(getCatalog());
+---
+
+<BaseLayout
+  title="Timeline"
+  description="One metric and one comparability group over time, each with a chart, its data table and a text summary."
+>
+  <header class="page-header stack">
+    <p class="page-header__eyebrow">Visualization</p>
+    <h1>Timeline</h1>
+    <p class="lede prose">
+      Each chart names its metric and device scope, then plots one comparability group against each
+      machine's release date. The cards group related metrics together.
+    </p>
+  </header>
+
+  <section class="stack" aria-labelledby="series">
+    <h2 id="series">Series</h2>
+    <p class="prose meta">
+      A series needs figures from at least three machines. Two points can only draw a line. Read the
+      rest of the catalog's groups on the profiles and in <a href={route('/compare/')}>Compare</a>.
+    </p>
+    <ul class="card-grid">
+      {
+        series.map((entry) => (
+          <li class="card stack">
+            <p class="card__eyebrow">
+              {entry.scope} · {methodLabel(entry.method)}
+            </p>
+            <h3>
+              <a href={route(`/timeline/${entry.slug}/`)}>{entry.label}</a>
+            </h3>
+            <p class="card__summary">{entry.summary}</p>
+            <p class="meta">
+              <span class="numeric">{entry.points.length}</span> figures ·{' '}
+              <span class="numeric">
+                {new Set(entry.points.map((point) => point.systemSlug)).size}
+              </span>{' '}
+              machines · plotted in {entry.unitLabel}
+              {entry.absences.length > 0 && (
+                <>
+                  {' '}
+                  · <span class="numeric">{entry.absences.length}</span> recorded with no value
+                </>
+              )}
+            </p>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+
+  <section class="prose stack" aria-labelledby="rules">
+    <h2 id="rules">How to read these charts</h2>
+    <p>
+      Each chart holds one comparability group: one metric, one device scope, one method and, where
+      it applies, one benchmark version. Mixing groups on an axis would assert the comparison this
+      project refuses to assert, so the charts are narrow on purpose and there are several of them
+      rather than one.
+    </p>
+    <p>
+      A logarithmic axis is offered only for a strictly positive ratio scale. Metrics such as a
+      process node do not have one because equal ratios mean nothing. Every chart ships its data
+      table and a generated summary, so the drawing is the optional part.
+    </p>
+  </section>
+</BaseLayout>

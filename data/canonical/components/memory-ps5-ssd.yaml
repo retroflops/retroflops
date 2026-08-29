@@ -1,0 +1,20 @@
+id: ps5-ssd
+slug: ps5-ssd
+kind: memory
+name: PlayStation 5 internal SSD
+manufacturer: Sony Interactive Entertainment
+memoryType: NAND flash SSD
+introducedDate: '2020'
+summary:
+  825 gigabytes of solid-state storage, the first fitted drive in a PlayStation
+  whose capacity Sony states as a headline figure rather than a disc format.
+notes:
+  'Fitted in the `storage` role, not as system memory.
+  {{context:ps5-ssd:context-gb-825}} is read decimally: it is not a power of
+  two, and a binary reading would quietly turn it into a different number. The
+  {{context:ps5-ssd:context-gb-s-5-5}} read bandwidth Sony states beside it is
+  not recorded, because a storage transfer rate is not the memory bandwidth
+  metric and the catalog has no metric of its own for it.'
+sourceIds:
+  - scei-ps5-hardware-specs-2020
+editorialStatus: provisional

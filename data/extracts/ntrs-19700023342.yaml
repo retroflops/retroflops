@@ -1,0 +1,70 @@
+- id: ntrs-19700023342:table-5
+  sourceId: ntrs-19700023342
+  locator: page 25, table 5 "Computer characteristics"
+  extract: >-
+    Table 5. Computer Characteristics
+
+    Type: Stored program, general purpose, serial, fixed-point, binary
+
+    Clock: 2.048 MHz clock, 4 clocks per bit, 512 kilobits per second
+
+    Speed: Add-subtract and multiply-divide, simultaneously
+
+    Add time, accuracy: 82 µs, 26 bit
+
+    Multiply time, accuracy: 328 µs, 24 bit
+
+    Divide time, accuracy: 656 µs, 24 bit
+
+    Memory: Random access toroidal core
+
+    Storage Capacity: Up to a maximum of 32,768 28-bit words in 4096 word
+    modules
+
+    Word Length: Memory word 28 bits
+
+    Weight [kg]: 35 (4 memory modules)
+
+    Power [W]: 137.0 (4 memory modules)
+  extractHash: 839c96db54187a253e112b27a1105598b9e6d2b4da384379765d45c9f1d8b62b
+  transcribedOn: 2026-07-28
+  transcribedBy: RetroFlops editorial
+  notes: >-
+    Transcribed from the text layer of the scanned NTRS PDF, which misreads µs
+    as "ps" throughout the speed rows and "Clock" as "ClDck"; both are corrected
+    here. The mult-hold, input/output, component count, reliability, packaging
+    and volume rows are omitted as they are not used by this dataset. A footnote
+    marks the component-count and reliability rows, not these, as estimated
+    values.
+- id: ntrs-19700023342:page-25:data-word
+  sourceId: ntrs-19700023342
+  locator: page 25, paragraph introducing table 5
+  extract: >-
+    Data words of 28 bits (25 magnitude bits, 1 sign bit, and 2 parity bits) are
+    used in computation. The memory is arranged so that one data word or two
+    instructions (each instruction then contains a parity bit) may occupy one
+    28-bit memory word.
+  extractHash: 7771c78e28ada1b88f2e354f35e9654b7c9e8dd1678171bc49342d4704054ba3
+  transcribedOn: 2026-07-28
+  transcribedBy: RetroFlops editorial
+  notes: >-
+    The scan renders "28 bits" as "28 bite"; corrected here. This is the basis
+    for recording the processor's data word as 26 bits with two further parity
+    bits, against a 28-bit memory word.
+- id: ntrs-19700023342:page-26:memory-module
+  sourceId: ntrs-19700023342
+  locator: page 26, first paragraph of the memory description
+  extract: >-
+    Each memory module consists of fourteen 128 x 64 magnetic core planes plus
+    the required drive and sensing circuits. The basic module contains 4096
+    nonredundant 28-bit words. For flexibility in memory size, the number of
+    modules may vary from one to eight. With eight memory modules operating in
+    simplex, the computer has a 32,768-word memory capacity, which is equivalent
+    to the basic memory capability of the IBM 7090 commercial machine.
+  extractHash: 0572cc8a4e90a44729b9d7002d5e5f9336963ebf8c04139994d26c79e18dced7
+  transcribedOn: 2026-07-28
+  transcribedBy: RetroFlops editorial
+  notes: >-
+    Establishes both the per-module capacity and the maximum, and states that
+    the maximum applies to eight modules operating in simplex rather than in the
+    duplex redundancy mode described alongside it.

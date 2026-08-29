@@ -1,0 +1,28 @@
+accessedDate: 2026-08-13
+editorialStatus: approved
+fetch:
+  byteLength: 87700
+  contentType: text/html
+  fetchedAt: 2026-08-13T18:08:04Z
+  httpStatus: 200
+  sha256: d8f73644dd0e4c64b262f09edc8bcd5c8d22e1cb327827f6b66447e653f91f2c
+  url: https://www.nintendo.com/es-es/Hardware/La-historia-de-Nintendo/Nintendo-GameCube/Especificaciones-Tecnicas/Especificaciones-Tecnicas-627134.html
+id: nintendo-gamecube-tech-specs
+license: Copyright Nintendo. Quoted here under short-extract fair use for
+  verification of the figures cited.
+locator: >-
+  Especificaciones Técnicas table: 'Ancho de Banda de la Memoria Principal' and
+  'Alimentación' rows
+publisher: Nintendo
+sourceType: vendor-documentation
+tier: A
+title: Nintendo GameCube — Especificaciones Técnicas
+url: https://www.nintendo.com/es-es/Hardware/La-historia-de-Nintendo/Nintendo-GameCube/Especificaciones-Tecnicas/Especificaciones-Tecnicas-627134.html
+usageNote: >-
+  Nintendo's Spanish-language hardware-history section still carries the full
+  GameCube specification table that the English pages dropped. It is the
+  manufacturer's own document, and it is the reason the console's main-memory
+  bandwidth no longer rests on technical journalism. The same table states a
+  10,5 GFLOPS figure that explicitly totals the MPU, Geometry Engine and
+  hardware lighting and names no precision, which is why the console's FP32 row
+  stays unknown.

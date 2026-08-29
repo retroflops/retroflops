@@ -1,0 +1,159 @@
+---
+// SPDX-FileCopyrightText: 2026 Wojciech Polak
+// SPDX-License-Identifier: MIT
+
+import { getCollection } from 'astro:content';
+
+import ComparisonBuilder from '~/islands/comparison-builder';
+import BaseLayout from '~/layouts/base-layout.astro';
+import { getCatalog } from '~/lib/catalog';
+import { COMPARE_MAX_SUBJECTS, COMPARE_MIN_SUBJECTS, compareOptions } from '~/lib/compare';
+import { route } from '~/lib/paths';
+import { presetAvailability, presetComparison } from '~/lib/presets';
+
+const presets = (await getCollection('presets')).toSorted((a, b) => a.data.order - b.data.order);
+
+/**
+ * Each preset is resolved here as well as on its own page, so the counts shown
+ * next to it are the comparison's own and a preset that stops resolving fails
+ * this build too rather than only the page nobody visited.
+ */
+const cards = presets.map((preset) => ({
+  preset,
+  comparison: presetComparison(preset.data, preset.id),
+  availability: presetAvailability(preset.data),
+}));
+const catalogCards = cards.filter((card) => card.availability.availability === 'catalog');
+const researchCards = cards.filter((card) => card.availability.availability === 'research');
+
+/**
+ * The builder's options are computed here rather than fetched, so choosing
+ * records costs no request. Only assembling a comparison needs the figures, and
+ * the island fetches the published export for that.
+ */
+const options = compareOptions(getCatalog());
+---
+
+<BaseLayout
+  title="Compare"
+  description="Editorially approved comparisons of two to four systems, with every multiplier shown alongside its formula, inputs and sources."
+>
+  <header class="page-header stack">
+    <p class="page-header__eyebrow">Comparison</p>
+    <h1>Compare</h1>
+    <p class="lede prose">
+      Two to four records side by side, one comparability group at a time. A multiplier appears only
+      where the rules allow one, and where they do not, the reason is written out.
+    </p>
+  </header>
+
+  {
+    /*
+    client:only, as on Explore: a server-rendered builder would appear for readers
+    without JavaScript and do nothing. What they get instead is the prepared
+    comparisons below, which are complete pages rather than a degraded control.
+  */
+  }
+  {
+    /*
+    The slot reserves the height the builder's panel occupies, so the prepared
+    comparisons below do not jump down the page when the island mounts. Only
+    when scripts are running: without them the builder never arrives, and an
+    empty box above the noscript paragraph would promise a control that is not
+    coming.
+  */
+  }
+  <div class="builder-slot">
+    <ComparisonBuilder
+      options={options}
+      catalogUrl={route('/data/catalog-v1.json')}
+      summaryUrl={route('/data/catalog-summary-v1.json')}
+      client:only="preact"
+    />
+  </div>
+  <noscript>
+    <p class="prose">
+      Building your own comparison needs JavaScript, because the number of possible combinations
+      cannot be pre-rendered. The prepared comparisons below are complete static pages, and every
+      figure in them also appears on the
+      <a href={route('/explore/')}>profile pages</a>, which need no scripts either.
+    </p>
+  </noscript>
+
+  <section class="stack" aria-labelledby="presets">
+    <h2 id="presets">Prepared comparisons</h2>
+    <p class="prose meta">
+      Each of these was chosen for what it demonstrates about the data, not for a result. They
+      render completely without JavaScript.
+    </p>
+    <ul class="card-grid">
+      {
+        catalogCards.map(({ preset, comparison }) => (
+          <li class="card stack">
+            <p class="card__eyebrow">
+              {comparison.subjects.length} records ·{' '}
+              <span class="numeric">{comparison.ratioCount}</span>
+              {comparison.ratioCount === 1 ? ' multiplier' : ' multipliers'}
+            </p>
+            <h3>
+              <a href={route(`/compare/${preset.id}/`)}>{preset.data.title}</a>
+            </h3>
+            <p class="card__summary">{preset.data.summary}</p>
+            <p class="meta">{comparison.subjects.map((subject) => subject.name).join(' · ')}</p>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+
+  {
+    researchCards.length > 0 && (
+      <section class="stack" aria-labelledby="research-examples">
+        <h2 id="research-examples">Methodology examples</h2>
+        <p class="prose meta">
+          These pages explain what happens when a comparison includes a preserved source trail but
+          no numeric measurement. They are public, but stay out of search and ordinary catalog
+          discovery.
+        </p>
+        <ul class="card-grid">
+          {researchCards.map(({ preset, availability }) => (
+            <li class="card stack" data-pagefind-ignore>
+              <p class="card__eyebrow">
+                Research example · {availability.catalogRecordCount} catalog records ·{' '}
+                {availability.researchRecordCount} research record
+                {availability.researchRecordCount === 1 ? '' : 's'}
+              </p>
+              <h3>
+                <a href={route(`/compare/${preset.id}/`)}>{preset.data.title}</a>
+              </h3>
+              <p class="card__summary">{preset.data.summary}</p>
+            </li>
+          ))}
+        </ul>
+      </section>
+    )
+  }
+
+  <section class="prose stack" aria-labelledby="rules">
+    <h2 id="rules">How a comparison is put together</h2>
+    <p>
+      A comparison holds between {COMPARE_MIN_SUBJECTS} and {COMPARE_MAX_SUBJECTS} records. They are either
+      whole systems or components, never a mix, because a machine and one of its parts answer different
+      questions. Figures from the machine and from the parts fitted to it are both shown, since a console's
+      clock is recorded against the console while a workstation's benchmark result is recorded against
+      its processor.
+    </p>
+    <p>
+      Every row is one comparability group: one metric, one method, one benchmark version and one
+      device scope. Two figures obtained differently are two rows and never two columns of one row,
+      however similar they look. Sections group like with like. Nothing combines across them, so
+      there is no total or overall score.
+    </p>
+    <p>
+      Multipliers are measured against the first record and computed by the same versioned formula
+      that produces the catalog's published derived claims, so a comparison assembled here and one
+      recorded in the data are the same arithmetic under the same rules.
+      <a href={route('/methodology/03-derived-claims/')}>Read how derived claims work</a>.
+    </p>
+  </section>
+</BaseLayout>

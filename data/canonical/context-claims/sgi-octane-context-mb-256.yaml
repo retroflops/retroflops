@@ -1,0 +1,18 @@
+id: sgi-octane:context-mb-256
+subject:
+  kind: system
+  id: sgi-octane
+label: Capacity
+quantity:
+  state: value
+  value: '256'
+  unit: MB
+  significantDigits: 3
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - spec-cpu95-octane-int
+  - spec-cpu95-octane-fp
+evidenceLevel: confirmed

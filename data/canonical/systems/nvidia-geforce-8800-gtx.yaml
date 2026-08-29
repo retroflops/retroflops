@@ -1,0 +1,42 @@
+id: nvidia-geforce-8800-gtx
+slug: nvidia-geforce-8800-gtx
+name: NVIDIA GeForce 8800 GTX
+manufacturer: NVIDIA
+type: accelerator
+family: nvidia-geforce
+releaseDate: 2006-11
+region: Worldwide
+summary: >-
+  NVIDIA GeForce 8800 GTX:
+  {{measurement:nvidia-geforce-8800-gtx-memory:capacity}} of GDDR3,
+  {{measurement:nvidia-geforce-8800-gtx-memory:bandwidth}} peak bandwidth, and
+  {{measurement:nvidia-g80:peak-fp32-rate}} FP32.
+description: >-
+  The G80 replaced separate pixel and vertex units with a single pool of
+  general-purpose shaders. That is what made the card programmable enough for
+  general computation, and CUDA followed within a year.
+configurations:
+  - id: reference-card
+    label: Reference card
+    releaseDate: 2006-11
+    entries:
+      - componentId: nvidia-g80
+        role: gpu
+        count: 1
+        shared: false
+        notes: Reference-card graphics clock.
+        measurementIds:
+          - nvidia-g80:clock-frequency-base
+      - componentId: nvidia-geforce-8800-gtx-memory
+        role: video-memory
+        count: 1
+        shared: false
+        measurementIds:
+          - nvidia-geforce-8800-gtx-memory:capacity
+sourceIds:
+  - nvidia-geforce-8800-gtx-product-brief
+  - fau-geforce-8800-gtx-cuda-comparison
+editorialStatus: provisional
+notes: >-
+  This accelerator’s whole-system memory is its fitted frame buffer; host memory
+  is excluded. Partner cards may differ from this reference configuration.

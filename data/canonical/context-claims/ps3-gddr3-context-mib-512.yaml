@@ -1,0 +1,18 @@
+id: ps3-gddr3:context-mib-512
+subject:
+  kind: component
+  id: ps3-gddr3
+label: Capacity
+quantity:
+  state: value
+  value: '512'
+  unit: MiB
+  significantDigits: 3
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - scei-ps3-specifications-2005
+  - scei-ps3-launch-2006
+evidenceLevel: confirmed

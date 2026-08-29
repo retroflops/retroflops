@@ -1,0 +1,19 @@
+id: valve-steam-deck:context-mt-s-6400
+subject:
+  kind: system
+  id: valve-steam-deck
+label: Rate
+quantity:
+  state: value
+  value: '6400'
+  unit: MT/s
+  significantDigits: 4
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - valve-steam-deck-tech-specs
+extractIds:
+  - steam-deck:tech:ram
+evidenceLevel: confirmed

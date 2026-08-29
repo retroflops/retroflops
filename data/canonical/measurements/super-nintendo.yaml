@@ -1,0 +1,306 @@
+- caveat: >-
+    One of three rates this processor runs at. The 65816 takes a memory cycle at
+    about 3.58, 2.68 or {{context:snes-5a22:context-mhz-1-79}} depending on
+    which region it is addressing, so a single number describes the machine only
+    once a region is named, and Nintendo names none. This is the middle rate,
+    which is what the manufacturer chose to publish.
+  comparabilityGroup: clock-frequency|cpu|nominal-clock
+  conditions: As stated by Nintendo, without naming the memory region the rate applies to.
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - nintendo-snes:specs:cpu
+  id: super-nintendo:cpu-clock-frequency
+  method: nominal-clock
+  metric: clock-frequency
+  normalized:
+    value: "2680000"
+    unit: Hz
+    significantDigits: 3
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 3
+    state: value
+    unit: MHz
+    value: "2.68"
+  scope: cpu
+  sourceIds:
+    - nintendo-snes-tech-specs
+  status: vendor-rated
+  subject:
+    configurationId: ntsc
+    id: super-nintendo
+    kind: system
+  evidenceLevel: confirmed
+- caveat: >-
+    Nintendo states this in bits — 1 Mbit — which is how the parts were sold and
+    how this page differs from the same section's Nintendo Entertainment System
+    table.
+  comparabilityGroup: memory-capacity|memory|design-capacity
+  conditions: Work RAM addressable by the processor.
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - nintendo-snes:specs:memory
+  id: snes-ram:capacity
+  method: design-capacity
+  metric: memory-capacity
+  normalized:
+    value: "131072"
+    unit: B
+    significantDigits: 3
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 3
+    state: value
+    unit: KiB
+    value: "128"
+  scope: memory
+  sourceIds:
+    - nintendo-snes-tech-specs
+  status: vendor-rated
+  subject:
+    id: snes-ram
+    kind: component
+  evidenceLevel: confirmed
+- caveat: >-
+    Stated by Nintendo as 0.5 Mbit, beside the work memory in the same row. It
+    belongs to the picture processors rather than to the processor, and it is a
+    term of the machine's memory.
+  comparabilityGroup: memory-capacity|memory|design-capacity
+  conditions: Video RAM addressable by the picture processors.
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - nintendo-snes:specs:memory
+  id: snes-video-ram:capacity
+  method: design-capacity
+  metric: memory-capacity
+  normalized:
+    value: "65536"
+    unit: B
+    significantDigits: 2
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 2
+    state: value
+    unit: KiB
+    value: "64"
+  scope: memory
+  sourceIds:
+    - nintendo-snes-tech-specs
+  status: vendor-rated
+  subject:
+    id: snes-video-ram
+    kind: component
+  evidenceLevel: confirmed
+- caveat: >-
+    Unknown rather than not-applicable: the picture processors are clocked, and
+    the vendor names their width instead of their rate.
+  comparabilityGroup: clock-frequency|gpu|nominal-clock
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - nintendo-snes:specs:memory
+  id: super-nintendo:gpu-clock-frequency
+  method: nominal-clock
+  metric: clock-frequency
+  provenance: vendor
+  quantity:
+    note: >-
+      Nintendo's table has a Graphics Processor row and puts only "16-bit" in it
+      — a data width, not a frequency.
+    state: unknown
+  unknownAudit:
+    reviewedOn: 2026-08-25
+    routesChecked:
+      - vendor-documentation
+      - independent-analysis
+      - community-source
+    outcome: no-published-candidate
+    summary: >-
+      Nintendo names the graphics processor's data width but supplies no
+      graphics-clock frequency.
+  scope: gpu
+  sourceIds:
+    - nintendo-snes-tech-specs
+  status: vendor-rated
+  subject:
+    id: super-nintendo
+    kind: system
+- caveat: >-
+    The vendor page is a consumer specification rather than a hardware manual;
+    capacities and a cartridge range are as far as it goes into memory.
+  comparabilityGroup: memory-bandwidth|memory|theoretical-peak
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - nintendo-snes:specs:memory
+  id: super-nintendo:memory-bandwidth
+  method: theoretical-peak
+  metric: memory-bandwidth
+  provenance: vendor
+  quantity:
+    note: >-
+      Nintendo's table states memory capacities in bits and no transfer rate,
+      bus width or timing.
+    state: unknown
+  unknownAudit:
+    reviewedOn: 2026-08-25
+    routesChecked:
+      - vendor-documentation
+      - independent-analysis
+      - community-source
+    outcome: no-compatible-candidate
+    summary: >-
+      The reviewed specifications give memory capacities but no transfer rate,
+      bus width, or timing for a comparable bandwidth value.
+  scope: memory
+  sourceIds:
+    - nintendo-snes-tech-specs
+  status: vendor-rated
+  subject:
+    id: super-nintendo
+    kind: system
+- caveat: >-
+    Not-applicable rather than unknown: this is a fact about the architecture,
+    not about what Nintendo published.
+  comparabilityGroup: peak-fp32-rate|cpu|theoretical-peak
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - nintendo-snes:specs:memory
+  id: snes-5a22:peak-fp32-rate
+  method: theoretical-peak
+  metric: peak-fp32-rate
+  provenance: vendor
+  quantity:
+    note: This console CPU has no integrated floating-point execution unit.
+    state: not-applicable
+  scope: cpu
+  sourceIds:
+    - nintendo-snes-tech-specs
+  status: vendor-rated
+  subject:
+    id: snes-5a22
+    kind: component
+- caveat: >-
+    Not-applicable for the same architectural reason as the processor, and
+    recorded separately because these are separate parts.
+  comparabilityGroup: peak-fp32-rate|gpu|theoretical-peak
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - nintendo-snes:specs:memory
+  id: snes-ppu:peak-fp32-rate
+  method: theoretical-peak
+  metric: peak-fp32-rate
+  provenance: vendor
+  quantity:
+    note: >-
+      This is a tile, sprite or scanline graphics unit, not a floating-point
+      processor; it executes no FP32 operations.
+    state: not-applicable
+  scope: gpu
+  sourceIds:
+    - nintendo-snes-tech-specs
+  status: vendor-rated
+  subject:
+    id: snes-ppu
+    kind: component
+- caveat: >-
+    The console predates the European ecodesign disclosures that give this
+    catalog the Switch's rating, and its specification page states nothing
+    electrical.
+  comparabilityGroup: rated-power-consumption|whole-system|rated-power
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - nintendo-snes:specs:memory
+  id: super-nintendo:rated-power-consumption
+  method: rated-power
+  metric: rated-power-consumption
+  provenance: vendor
+  quantity:
+    note: >-
+      Nintendo's table states dimensions, video and audio outputs and no
+      electrical figure of any kind.
+    state: unknown
+  unknownAudit:
+    reviewedOn: 2026-08-25
+    routesChecked:
+      - vendor-documentation
+      - independent-analysis
+      - community-source
+    outcome: no-published-candidate
+    summary: >-
+      The reviewed Nintendo page includes no electrical figure for this console.
+  scope: whole-system
+  sourceIds:
+    - nintendo-snes-tech-specs
+  status: vendor-rated
+  subject:
+    id: super-nintendo
+    kind: system
+- caveat: >-
+    Nintendo states a range across the format's whole life rather than a
+    capacity, so the question stays open while the bounds are on the record. It
+    is the only vendor statement this catalog has about cartridge size on any
+    machine.
+  comparabilityGroup: storage-capacity|storage|design-capacity
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - nintendo-snes:specs:memory
+  id: super-nintendo:cartridge-storage-capacity
+  method: design-capacity
+  metric: storage-capacity
+  provenance: vendor
+  quantity:
+    note: >-
+      Nintendo's specification table gives "Cart size: 2 Mbit - 48 Mbit", which
+      is the range the format spanned and not the capacity of a cartridge.
+    state: not-applicable
+  scope: storage
+  sourceIds:
+    - nintendo-snes-tech-specs
+  status: vendor-rated
+  subject:
+    id: super-nintendo
+    kind: system
+- caveat: >-
+    Adds 2 memory-capacity figures obtained by design-capacity. Left out:
+    removable game-cartridge ROM (removable program storage, not memory the
+    console can write to). A total is only as trustworthy as the decision about
+    what belongs in it, so both the terms and the exclusions are named records.
+  comparabilityGroup: memory-capacity|whole-system|design-capacity
+  derivedFrom: super-nintendo:whole-system-memory
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - nintendo-snes:specs:memory
+  id: super-nintendo:whole-system-memory-capacity
+  method: design-capacity
+  metric: memory-capacity
+  normalized:
+    value: "196608"
+    unit: B
+    significantDigits: 6
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 6
+    state: value
+    unit: B
+    value: "196608"
+  scope: whole-system
+  sourceIds:
+    - nintendo-snes-tech-specs
+  status: derived
+  subject:
+    id: super-nintendo
+    kind: system
+  evidenceLevel: confirmed

@@ -1,0 +1,17 @@
+id: raspberry-pi-5-bcm2712:context-unit-4
+subject:
+  kind: component
+  id: raspberry-pi-5-bcm2712
+label: Core count
+quantity:
+  state: value
+  value: '4'
+  unit: unit
+  significantDigits: 1
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - raspberry-pi-5-product-brief
+evidenceLevel: confirmed

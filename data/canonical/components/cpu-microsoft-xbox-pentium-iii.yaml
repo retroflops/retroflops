@@ -1,0 +1,13 @@
+editorialStatus: provisional
+id: microsoft-xbox-pentium-iii
+slug: microsoft-xbox-pentium-iii
+kind: cpu
+name: Intel Pentium III
+manufacturer: Intel
+architecture: Pentium III (Coppermine)
+introducedDate: '2001'
+instructionSet: IA-32
+instructionSetFamily: x86
+summary: The Microsoft Xbox main processor.
+sourceIds:
+  - microsoft-xbox-hardware-specification

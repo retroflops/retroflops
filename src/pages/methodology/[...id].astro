@@ -1,0 +1,159 @@
+---
+// SPDX-FileCopyrightText: 2026 Wojciech Polak
+// SPDX-License-Identifier: MIT
+
+import { getCollection, render } from 'astro:content';
+
+import BaseLayout from '~/layouts/base-layout.astro';
+import { route } from '~/lib/paths';
+import { breadcrumbList, methodologyArticle } from '~/lib/structured-data';
+
+export async function getStaticPaths() {
+  const pages = (await getCollection('methodology')).toSorted(
+    (a, b) => a.data.order - b.data.order,
+  );
+  return pages.map((page, index) => ({
+    params: { id: page.id },
+    props: {
+      page,
+      previous: pages[index - 1],
+      next: pages[index + 1],
+    },
+  }));
+}
+
+const { page, previous, next } = Astro.props;
+const { Content } = await render(page);
+
+const absolute = (path: string): string => new URL(route(path), Astro.site ?? Astro.url).href;
+const structuredData = [
+  methodologyArticle(page.data.title, page.data.summary, `/methodology/${page.id}/`, absolute),
+  breadcrumbList(
+    [
+      { name: 'RetroFlops', path: '/' },
+      { name: 'Methodology', path: '/methodology/' },
+      { name: page.data.title, path: `/methodology/${page.id}/` },
+    ],
+    absolute,
+  ),
+];
+---
+
+<BaseLayout title={page.data.title} description={page.data.summary} structuredData={structuredData}>
+  <header class="page-header stack">
+    <p class="page-header__eyebrow">
+      <a href={route('/methodology/')}>Methodology</a>
+    </p>
+    <h1>{page.data.title}</h1>
+    <p class="lede prose">{page.data.summary}</p>
+  </header>
+
+  <article class="prose methodology-body">
+    <Content />
+  </article>
+
+  <nav class="methodology-nav" aria-label="Methodology pages">
+    {
+      previous !== undefined && (
+        <a class="methodology-nav__link" href={route(`/methodology/${previous.id}/`)}>
+          <span class="meta">Previous</span>
+          {previous.data.title}
+        </a>
+      )
+    }
+    {
+      next !== undefined && (
+        <a
+          class="methodology-nav__link methodology-nav__link--next"
+          href={route(`/methodology/${next.id}/`)}
+        >
+          <span class="meta">Next</span>
+          {next.data.title}
+        </a>
+      )
+    }
+  </nav>
+</BaseLayout>
+
+<style>
+  /*
+   * The Markdown already opens with its own h1, which would duplicate the page
+   * header. Hiding it keeps one heading per page without editing the source
+   * files, which are also read outside the site.
+   */
+  .methodology-body :global(h1:first-child) {
+    display: none;
+  }
+
+  .methodology-body :global(h2) {
+    margin-block-start: var(--space-l);
+  }
+
+  .methodology-body :global(h3) {
+    margin-block-start: var(--space-m);
+  }
+
+  .methodology-body :global(p),
+  .methodology-body :global(ul),
+  .methodology-body :global(ol) {
+    margin-block-start: var(--space-s);
+  }
+
+  .methodology-body :global(li + li) {
+    margin-block-start: var(--space-3xs);
+  }
+
+  /* Wide reference tables scroll inside themselves, never the page. */
+  .methodology-body :global(table) {
+    display: block;
+    overflow-x: auto;
+    border-collapse: collapse;
+    margin-block-start: var(--space-s);
+    font-size: var(--step--1);
+  }
+
+  .methodology-body :global(th),
+  .methodology-body :global(td) {
+    vertical-align: top;
+    padding: var(--space-2xs) var(--space-s);
+    border-block-end: var(--border-hairline);
+    text-align: start;
+  }
+
+  .methodology-body :global(thead th) {
+    border-block-end: 2px solid var(--border-strong);
+    font-family: var(--font-mono);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  .methodology-body :global(code) {
+    background-color: var(--surface-sunken);
+    padding: 0 var(--space-3xs);
+    border-radius: var(--radius-s);
+  }
+
+  .methodology-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-s);
+    justify-content: space-between;
+    border-block-start: 2px solid var(--border-strong);
+    padding-block-start: var(--space-s);
+  }
+
+  .methodology-nav__link {
+    min-block-size: var(--target-min);
+    max-inline-size: 22rem;
+    text-decoration: none;
+  }
+
+  .methodology-nav__link:hover {
+    text-decoration: underline;
+  }
+
+  .methodology-nav__link--next {
+    margin-inline-start: auto;
+    text-align: end;
+  }
+</style>

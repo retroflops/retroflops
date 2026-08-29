@@ -1,0 +1,11 @@
+editorialStatus: provisional
+id: microsoft-xbox-360-xenos
+slug: microsoft-xbox-360-xenos
+kind: gpu
+name: ATI Xenos
+manufacturer: ATI
+architecture: Xenos
+introducedDate: '2005'
+summary: The graphics processor fitted to the Microsoft Xbox 360.
+sourceIds:
+  - microsoft-xbox-360-hardware-overview

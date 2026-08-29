@@ -1,0 +1,38 @@
+accessedDate: 2026-08-17
+alt: "Two Silicon Graphics Octane workstations side by side on a carpet: upright teal cases with a
+  curved seam down the front, the left one lettered 'silicon graphics octane' and the right one
+  'OCTANE'."
+attribution: Photograph by unicron1bot, licensed CC BY 2.0, via Wikimedia Commons.
+canonical:
+  byteLength: 48826
+  format: avif
+  height: 960
+  sha256: 1ddfa8d378c8c9d38b7d866c8260b76506124fd96f8d985b47a37dc002df5f20
+  width: 1280
+caption: Two Silicon Graphics Octanes, showing the earlier and the later front livery of the same machine.
+creator: unicron1bot
+creatorType: person
+editorialStatus: approved
+id: sgi-octane-workstation
+original:
+  byteLength: 3046592
+  height: 3120
+  mediaType: image/jpeg
+  sha256: 5cb146dd228d158b386b359d4078b1991068f48b23f17aec7934e91b1c11425d
+  width: 4160
+originalUrl: https://upload.wikimedia.org/wikipedia/commons/f/f9/Silicon_Graphics_Octane_%28new_and_old_design%29.jpg
+publisher: Wikimedia Commons
+rights:
+  id: cc-by-2.0
+  statedAt: https://commons.wikimedia.org/wiki/File:Silicon_Graphics_Octane_(new_and_old_design).jpg
+  statement: This file is licensed under the Creative Commons Attribution 2.0 Generic license.
+  url: https://creativecommons.org/licenses/by/2.0/
+sourcePageUrl: https://commons.wikimedia.org/wiki/File:Silicon_Graphics_Octane_(new_and_old_design).jpg
+title: Silicon Graphics Octane (new and old design).jpg
+transform:
+  fit: exact
+  note: The photograph is already 4:3, so the reduction takes the whole frame and nothing is cut or
+    added.
+  preset: image-v1
+  sourceHeight: 3120
+  sourceWidth: 4160

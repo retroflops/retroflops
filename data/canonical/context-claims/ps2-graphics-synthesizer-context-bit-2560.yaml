@@ -1,0 +1,18 @@
+id: ps2-graphics-synthesizer:context-bit-2560
+subject:
+  kind: component
+  id: ps2-graphics-synthesizer
+label: Width
+quantity:
+  state: value
+  value: '2560'
+  unit: bit
+  significantDigits: 4
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - scei-ps2-specifications-1999
+  - scei-ee-gs-single-chip-2003
+evidenceLevel: confirmed

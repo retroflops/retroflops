@@ -1,0 +1,11 @@
+architecture: Static RAM
+editorialStatus: provisional
+id: atari-2600-ram
+kind: memory
+manufacturer: Atari
+memoryType: Static RAM
+name: Atari 2600 RIOT RAM
+slug: atari-2600-ram
+sourceIds:
+  - atari-2600-stella-programming-guide
+summary: '{{context:atari-2600-ram:context-b-128}} of writable scratch memory.'

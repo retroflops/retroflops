@@ -1,0 +1,20 @@
+id: n64-rdram
+slug: n64-rdram
+kind: memory
+name: Nintendo 64 main memory (RDRAM)
+manufacturer: NEC
+architecture: RDRAM
+introducedDate: '1996'
+memoryType: RDRAM, 9-bit bytes
+summary: >-
+  {{measurement:n64-rdram:capacity}} of RDRAM, used in parallel by the CPU, the
+  RSP, the RDP and the I/O interfaces, so one pool serves everything a
+  contemporary machine would have split between system and video memory.
+notes: >-
+  The ninth bit per byte is used by the graphics hardware rather than for
+  parity. Because every engine contends for the same memory, capacity and
+  bandwidth here are shared in a way the PlayStation's split main memory and
+  VRAM are not.
+sourceIds:
+  - n64-programming-manual
+editorialStatus: approved

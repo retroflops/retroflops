@@ -1,0 +1,29 @@
+accessedDate: 2026-08-04
+author: Alfred Aburto, Naval Ocean Systems Center
+editorialStatus: approved
+fetch:
+  byteLength: 82087
+  contentType: text/html; charset=UTF-8
+  fetchedAt: 2026-08-04T09:41:37Z
+  httpStatus: 200
+  sha256: 067ed29fa2ebf509e7a3599474367702a46aea3d305b6830dbb422af79831b46
+  url: https://www.netlib.org/performance/html/dhrystone.data.col0.html
+id: netlib-pds-dhrystone
+license: No license is stated by Netlib or by the collection's compiler. Quoted
+  here under short-extract fair use for verification of the figures cited, on
+  the assumption of no granted rights rather than of permission.
+locator: Results table, column headings "MIPS V1.1" and "MIPS V2.1", and row 328
+publisher: Netlib (University of Tennessee and Oak Ridge National Laboratory)
+sourceType: independent-analysis
+tier: B
+title: "PDS: The Performance Database Server — Dhrystone"
+url: https://www.netlib.org/performance/html/dhrystone.data.col0.html
+usageNote: >-
+  Dhrystone has no governing body and therefore no official result list; this
+  collection, compiled by Aburto and hosted by Netlib since the 1980s, is the
+  nearest thing to one. It is treated as tier B rather than as an official
+  result for exactly that reason, so a figure taken from it alone stays
+  provisional. Its value here is the column headings: the table separates
+  version 1.1 from version 2.1 by construction, which is what makes a row
+  citable at all under a metric that refuses a Dhrystone figure without a
+  version.

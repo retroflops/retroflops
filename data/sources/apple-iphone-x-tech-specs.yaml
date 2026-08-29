@@ -1,0 +1,23 @@
+accessedDate: 2026-08-13
+editorialStatus: approved
+fetch:
+  byteLength: 1191562
+  contentType: text/html;charset=utf-8
+  fetchedAt: 2026-08-13T15:24:26Z
+  httpStatus: 200
+  sha256: 7e3bf756e29384f5fc548934945c73e18de33473bbebaf30820ce2deda926593
+  url: https://support.apple.com/en-us/111864
+id: apple-iphone-x-tech-specs
+license: Copyright Apple Inc. Quoted here under short-extract fair use for
+  verification of the cited specifications.
+locator: Chip and Power and Battery sections
+publishedDate: "2017"
+publisher: Apple Inc.
+sourceType: vendor-documentation
+tier: A
+title: Apple iPhone X — Technical Specifications
+url: https://support.apple.com/en-us/111864
+usageNote: >-
+  Apple states the chip identification and retail technical details, while
+  deliberately not filling undocumented clock, DRAM, bandwidth, FP32 or
+  whole-system power fields.

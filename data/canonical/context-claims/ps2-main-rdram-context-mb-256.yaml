@@ -1,0 +1,19 @@
+id: ps2-main-rdram:context-mb-256
+subject:
+  kind: component
+  id: ps2-main-rdram
+label: Capacity
+quantity:
+  state: value
+  value: '256'
+  unit: MB
+  significantDigits: 3
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - scei-ps2-specifications-1999
+extractIds:
+  - scei-ps2-1999:main-memory
+evidenceLevel: confirmed

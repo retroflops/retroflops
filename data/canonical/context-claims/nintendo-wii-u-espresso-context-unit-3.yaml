@@ -1,0 +1,18 @@
+id: nintendo-wii-u-espresso:context-unit-3
+subject:
+  kind: component
+  id: nintendo-wii-u-espresso
+label: Core count
+quantity:
+  state: value
+  value: '3'
+  unit: unit
+  significantDigits: 1
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - nintendo-wii-u-tech-specs
+  - digitalfoundry-wii-u-clocks-2012
+evidenceLevel: confirmed

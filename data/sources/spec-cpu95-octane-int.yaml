@@ -1,0 +1,26 @@
+accessedDate: 2026-07-29
+editorialStatus: approved
+fetch:
+  byteLength: 3507
+  contentType: text/plain; charset=UTF-8
+  fetchedAt: 2026-07-29T07:18:18Z
+  httpStatus: 200
+  sha256: 1fc934d4539410571521e9a9852fdbc26435d71d9023552bc06e104308223492
+  url: https://www.spec.org/cpu95/results/res98q1/cpu95-980206-02410.asc
+id: spec-cpu95-octane-int
+locator: >-
+  Result cpu95-980206-02410: CINT95 summary, tester, hardware and software
+  sections
+publisher: Standard Performance Evaluation Corporation
+sourceType: official-benchmark-result
+tier: A
+title: "SPEC CPU95 published result: Silicon Graphics Octane (SPECint95)"
+url: https://www.spec.org/cpu95/results/res98q1/cpu95-980206-02410.asc
+publishedDate: 1998-02
+usageNote: >-
+  Quotation is subject to the SPEC Fair Use Rules,
+  https://www.spec.org/products/fairuse/. SPEC and the benchmark names are
+  trademarks of the Standard Performance Evaluation Corporation. This record
+  reproduces the summary figures and the configuration they were obtained on,
+  not the benchmark suite or its results database.
+license: Copyright Standard Performance Evaluation Corporation.

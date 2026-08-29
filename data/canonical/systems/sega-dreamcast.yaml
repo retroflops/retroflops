@@ -1,0 +1,87 @@
+id: sega-dreamcast
+slug: sega-dreamcast
+name: Sega Dreamcast
+manufacturer: SEGA Enterprises
+type: console
+family: sega-console
+releaseDate: 1998-11
+region: Worldwide
+summary: >-
+  A {{measurement:sega-dreamcast:cpu-clock-frequency}} SH-4 with a
+  floating-point unit and a published FLOPS figure, plus a
+  {{measurement:sega-dreamcast:gpu-clock-frequency}} PowerVR2 graphics chip. Its
+  separate memory pools provide {{measurement:dreamcast-main-ram:capacity}} of
+  main RAM, {{measurement:dreamcast-texture-ram:capacity}} of texture RAM and
+  {{measurement:dreamcast-audio-ram:capacity}} of audio RAM.
+description: >-
+  The Dreamcast is the first console here with a published floating-point rate
+  and instruction rate for its processor. Sega's outline gives both for the
+  SH-4. The PlayStation reference gives neither, and the Nintendo 64's is too
+  damaged to read either figure. It is also the first console here whose
+  processor has an IEEE 754 floating-point unit.
+
+
+  Its memory is the opposite of the Nintendo 64's. Where that machine shares one
+  {{context:sega-dreamcast:context-mib-4}} pool between processor, geometry and
+  rasterizer, the Dreamcast keeps {{measurement:dreamcast-main-ram:capacity}} of
+  main memory, {{measurement:dreamcast-texture-ram:capacity}} of texture memory
+  and {{measurement:dreamcast-audio-ram:capacity}} of audio memory apart. The
+  specification states explicitly that the SH-4 does not share texture or audio
+  data with main memory. These are separate budgets; none can be spent on
+  another's work.
+configurations:
+  - id: retail
+    label: Retail console
+    entries:
+      - componentId: hitachi-sh4
+        role: main-cpu
+        count: 1
+        shared: false
+        notes: >-
+          Internal clock. The external bus runs at
+          {{measurement:sega-dreamcast:gpu-clock-frequency}} and peripherals at
+          {{context:hitachi-sh4:context-mhz-50}}.
+        measurementIds:
+          - sega-dreamcast:cpu-clock-frequency
+      - componentId: dreamcast-holly
+        role: gpu
+        count: 1
+        shared: false
+        measurementIds:
+          - sega-dreamcast:gpu-clock-frequency
+      - componentId: dreamcast-main-ram
+        role: system-memory
+        count: 1
+        shared: false
+        notes: >-
+          {{context:dreamcast-main-ram:context-bit-64}} bus at
+          {{measurement:sega-dreamcast:gpu-clock-frequency}}, directly connected
+          to the SH-4.
+        measurementIds:
+          - dreamcast-main-ram:capacity
+      - componentId: dreamcast-texture-ram
+        role: video-memory
+        count: 1
+        shared: false
+        measurementIds:
+          - dreamcast-texture-ram:capacity
+      - componentId: dreamcast-audio-ram
+        role: system-memory
+        count: 1
+        shared: false
+        notes: Belongs to the AICA audio chip.
+        measurementIds:
+          - dreamcast-audio-ram:capacity
+notes: >-
+  The release date is editorial context; the cited outline is dated September
+  1999 and does not date the launch. Sega's polygon-performance figures (3
+  million per second at peak, 1.5 million visible) are not recorded as
+  measurements: the catalog has no polygon-rate metric, and adding one for a
+  single console would produce a figure nothing else could be compared against.
+  The expansion maxima quoted in the specification describe development
+  hardware, not retail machines.
+imageIds:
+  - sega-dreamcast-console
+sourceIds:
+  - dreamcast-hardware-spec
+editorialStatus: approved

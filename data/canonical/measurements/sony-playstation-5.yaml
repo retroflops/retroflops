@@ -1,0 +1,338 @@
+- caveat: >-
+    Not-applicable rather than unknown. The PlayStation 4 has a nominal clock
+    that Sony declines to state; this machine does not have one. "Variable
+    frequency" is a design statement, so a fixed specified frequency is a
+    quantity the hardware lacks, and the figure Sony does give is recorded
+    beside this one under a method of its own.
+  comparabilityGroup: clock-frequency|cpu|nominal-clock
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - scei-ps5-2020:processor
+  id: sony-playstation-5:cpu-clock-frequency
+  method: nominal-clock
+  metric: clock-frequency
+  provenance: vendor
+  quantity:
+    note: >-
+      Sony specifies the processor as running at a variable frequency with a
+      ceiling. There is no fixed frequency to state, which is a fact about the
+      machine rather than a gap in the sources.
+    state: not-applicable
+  scope: cpu
+  sourceIds:
+    - scei-ps5-hardware-specs-2020
+  status: vendor-rated
+  subject:
+    configurationId: launch
+    id: sony-playstation-5
+    kind: system
+- caveat: >-
+    A ceiling, not a rate the machine holds: Sony's words are "Variable
+    frequency, up to 3.5 GHz", and how often the processor reaches it depends on
+    what the graphics engine is drawing at the same time. It shares a
+    comparability group with the GeForce cards' boost clocks, which are the same
+    kind of claim, and shares none with the fixed clocks of the four
+    PlayStations before it. Provisional because the only document that states it
+    went up eight months before the console shipped and has been edited since.
+  comparabilityGroup: clock-frequency|cpu|peak-clock
+  conditions: Eight Zen {{context:sony-playstation-5:context-unit-2-2}} cores at a
+    variable frequency, per Sony's specification table of March 2020.
+  editorialStatus: provisional
+  evidenceStage: pre-launch
+  extractIds:
+    - scei-ps5-2020:processor
+  id: sony-playstation-5:cpu-peak-clock
+  method: peak-clock
+  metric: clock-frequency
+  normalized:
+    value: "3500000000"
+    unit: Hz
+    significantDigits: 2
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 2
+    state: value
+    unit: GHz
+    value: "3.5"
+  scope: cpu
+  sourceIds:
+    - scei-ps5-hardware-specs-2020
+  status: vendor-rated
+  subject:
+    configurationId: launch
+    id: sony-playstation-5
+    kind: system
+  evidenceLevel: confirmed
+- caveat: >-
+    Not-applicable for the same reason as the processor's, and recorded
+    separately because the two frequencies vary independently: on this machine
+    the graphics engine and the cores share a power budget, so neither ceiling
+    implies the other is being reached.
+  comparabilityGroup: clock-frequency|gpu|nominal-clock
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - scei-ps5-2020:graphics
+  id: sony-playstation-5:gpu-clock-frequency
+  method: nominal-clock
+  metric: clock-frequency
+  provenance: vendor
+  quantity:
+    note: >-
+      Sony specifies the graphics engine as running at a variable frequency with
+      a ceiling, so it has no fixed nominal clock either.
+    state: not-applicable
+  scope: gpu
+  sourceIds:
+    - scei-ps5-hardware-specs-2020
+  status: vendor-rated
+  subject:
+    configurationId: launch
+    id: sony-playstation-5
+    kind: system
+- caveat: >-
+    "Variable frequency, up to 2.23 GHz", printed in the same cell as the
+    teraflops figure it is meant to explain, but with no compute-unit count
+    beside it, so the two cannot be checked against each other. Provisional on
+    the same grounds as every other figure from this table.
+  comparabilityGroup: clock-frequency|gpu|peak-clock
+  conditions: The RDNA 2 graphics engine at a variable frequency, per Sony's
+    specification table of March 2020.
+  editorialStatus: provisional
+  evidenceStage: pre-launch
+  extractIds:
+    - scei-ps5-2020:graphics
+  id: sony-playstation-5:gpu-peak-clock
+  method: peak-clock
+  metric: clock-frequency
+  normalized:
+    value: "2230000000"
+    unit: Hz
+    significantDigits: 3
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 3
+    state: value
+    unit: GHz
+    value: "2.23"
+  scope: gpu
+  sourceIds:
+    - scei-ps5-hardware-specs-2020
+  status: vendor-rated
+  subject:
+    configurationId: launch
+    id: sony-playstation-5
+    kind: system
+  evidenceLevel: confirmed
+- caveat: >-
+    Recorded as single precision, which the source does not state: the same
+    editorial reading the PlayStation 3's and PlayStation 4's figures carry, and
+    the same reason for holding it provisional. It is also a rate quoted at a
+    frequency the machine reaches rather than holds, and with no compute-unit
+    count to check it against.
+  comparabilityGroup: peak-fp32-rate|gpu|theoretical-peak
+  conditions: The RDNA 2 graphics engine at its ceiling frequency of
+    {{context:ps5-gpu:context-ghz-2-23}}, per Sony's specification table of
+    March 2020.
+  editorialStatus: provisional
+  evidenceStage: pre-launch
+  extractIds:
+    - scei-ps5-2020:graphics
+  id: ps5-gpu:peak-fp32-rate
+  method: theoretical-peak
+  metric: peak-fp32-rate
+  normalized:
+    value: "10300000000000"
+    unit: FLOP/s
+    significantDigits: 3
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 3
+    state: value
+    unit: TFLOP/s
+    value: "10.3"
+  scope: gpu
+  sourceIds:
+    - scei-ps5-hardware-specs-2020
+  status: vendor-rated
+  subject:
+    id: ps5-gpu
+    kind: component
+  evidenceLevel: confirmed
+- caveat: >-
+    Sony writes "GDDR6 16GB", meaning {{measurement:ps5-gddr6:capacity}}.
+    Recorded at whole-system scope rather than memory scope because it is the
+    machine's memory: like the PlayStation 4 and unlike the three consoles
+    before it, there is no second pool this figure excludes.
+  comparabilityGroup: memory-capacity|whole-system|design-capacity
+  conditions: Unified system memory, shared by the processor cores and the graphics engine.
+  editorialStatus: provisional
+  evidenceStage: pre-launch
+  extractIds:
+    - scei-ps5-2020:memory
+  id: ps5-gddr6:capacity
+  method: design-capacity
+  metric: memory-capacity
+  normalized:
+    value: "17179869184"
+    unit: B
+    significantDigits: 2
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 2
+    state: value
+    unit: GiB
+    value: "16"
+  scope: whole-system
+  sourceIds:
+    - scei-ps5-hardware-specs-2020
+  status: vendor-rated
+  subject:
+    id: ps5-gddr6
+    kind: component
+  evidenceLevel: confirmed
+- caveat: >-
+    A bus maximum, comparable with every other theoretical bandwidth in the
+    catalog and with none of the benchmarked ones. Stated eight months before
+    the console shipped, in a table that has been revised since.
+  comparabilityGroup: memory-bandwidth|memory|theoretical-peak
+  conditions: Bandwidth of the unified GDDR6 memory, per Sony's specification
+    table of March 2020.
+  editorialStatus: provisional
+  evidenceStage: pre-launch
+  extractIds:
+    - scei-ps5-2020:memory
+  id: ps5-gddr6:bandwidth
+  method: theoretical-peak
+  metric: memory-bandwidth
+  normalized:
+    value: "448000000000"
+    unit: B/s
+    significantDigits: 3
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 3
+    state: value
+    unit: GB/s
+    value: "448"
+  scope: memory
+  sourceIds:
+    - scei-ps5-hardware-specs-2020
+  status: vendor-rated
+  subject:
+    id: ps5-gddr6
+    kind: component
+  evidenceLevel: confirmed
+- caveat: >-
+    Adds 1 memory-bandwidth figure obtained by theoretical-peak. Nothing in the
+    catalog is left out of it. A total is only as trustworthy as the decision
+    about what belongs in it, so both the terms and the exclusions are named
+    records.
+  comparabilityGroup: memory-bandwidth|whole-system|theoretical-peak
+  conditions: "One bus for everything: the processor cores and the graphics engine
+    share this memory rather than owning separate pools."
+  derivedFrom: sony-playstation-5:whole-system-memory-bandwidth
+  editorialStatus: provisional
+  evidenceStage: pre-launch
+  extractIds:
+    - scei-ps5-2020:memory
+  id: sony-playstation-5:whole-system-memory-bandwidth
+  method: theoretical-peak
+  metric: memory-bandwidth
+  normalized:
+    value: "448000000000"
+    unit: B/s
+    significantDigits: 3
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 3
+    state: value
+    unit: GB/s
+    value: "448"
+  rounding: none
+  scope: whole-system
+  sourceIds:
+    - scei-ps5-hardware-specs-2020
+  status: derived
+  subject:
+    id: sony-playstation-5
+    kind: system
+  evidenceLevel: confirmed
+- caveat: >-
+    Storage, not memory, and read decimally: 825 is not a power of two, and
+    reading it in the binary convention this catalog applies to memory would
+    silently turn it into a different number. The
+    {{context:ps5-ssd:context-gb-s-5-5}} read bandwidth Sony prints beside it is
+    a storage transfer rate and is not recorded as a memory bandwidth.
+  comparabilityGroup: storage-capacity|storage|design-capacity
+  conditions: The fitted internal solid-state drive of the launch console.
+  editorialStatus: provisional
+  evidenceStage: pre-launch
+  extractIds:
+    - scei-ps5-2020:storage
+  id: sony-playstation-5:storage-capacity
+  method: design-capacity
+  metric: storage-capacity
+  normalized:
+    value: "825000000000"
+    unit: B
+    significantDigits: 3
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 3
+    state: value
+    unit: GB
+    value: "825"
+  scope: storage
+  sourceIds:
+    - scei-ps5-hardware-specs-2020
+  status: vendor-rated
+  subject:
+    configurationId: launch
+    id: sony-playstation-5
+    kind: system
+  evidenceLevel: confirmed
+- caveat: >-
+    A nameplate maximum rather than a measured draw. Recorded from the safety
+    guide because the specification table Sony published for this console states
+    no power figure at all. Later PlayStation 5 revisions carry different
+    ratings.
+  comparabilityGroup: rated-power-consumption|whole-system|rated-power
+  conditions: Launch chassis CFI-1015A, electrical rating
+    {{context:sony-playstation-5:context-v-100}}–{{context:sony-playstation-5:context-v-240}},
+    {{context:sony-playstation-5:context-a-3-55}}–{{context:sony-playstation-5:context-a-1-5}}.
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - ps5-cfi-1015a:p7:rated-power
+  id: sony-playstation-5:rated-power-consumption
+  method: rated-power
+  metric: rated-power-consumption
+  normalized:
+    value: "350"
+    unit: W
+    significantDigits: 3
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 3
+    state: value
+    unit: W
+    value: "350"
+  scope: whole-system
+  sourceIds:
+    - sie-ps5-safety-guide-cfi-1015a
+  status: vendor-rated
+  subject:
+    configurationId: launch
+    id: sony-playstation-5
+    kind: system
+  evidenceLevel: confirmed

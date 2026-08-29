@@ -1,0 +1,26 @@
+id: apple-iphone-17-tech-specs
+title: Apple iPhone 17 — Technical Specifications
+publisher: Apple Inc.
+url: https://support.apple.com/en-us/125089
+publishedDate: '2025'
+accessedDate: 2026-08-26
+locator: Chip and Power and Battery sections
+extract: >-
+  A19 chip; 6-core CPU with 2 performance and 4 efficiency cores; 5-core GPU
+  with Neural Accelerators.
+tier: A
+sourceType: vendor-documentation
+editorialStatus: provisional
+license: Copyright Apple Inc. Quoted here under short-extract fair use for
+  verification of the cited specifications.
+usageNote: >-
+  Apple identifies the A19 and its CPU and GPU core counts, but does not state
+  the operating clocks, installed DRAM capacity, memory bandwidth, standalone
+  FP32 rate, or a whole-phone power rating.
+fetch:
+  url: https://support.apple.com/en-us/125089
+  fetchedAt: 2026-08-26T19:02:25Z
+  httpStatus: 200
+  contentType: text/html;charset=utf-8
+  byteLength: 222557
+  sha256: e0c8a9bdc340d91a47abb970d3ffcd60fb01620c70fbc12f8f2db000a640cc6f

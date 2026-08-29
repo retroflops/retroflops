@@ -1,0 +1,17 @@
+id: intel-8086:context-unit-1
+subject:
+  kind: component
+  id: intel-8086
+label: Core count
+quantity:
+  state: value
+  value: '1'
+  unit: unit
+  significantDigits: 1
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - intel-historical-x86-documentation
+evidenceLevel: confirmed

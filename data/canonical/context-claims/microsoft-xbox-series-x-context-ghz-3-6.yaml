@@ -1,0 +1,20 @@
+id: microsoft-xbox-series-x:context-ghz-3-6
+subject:
+  kind: system
+  id: microsoft-xbox-series-x
+  configurationId: retail
+label: Frequency
+quantity:
+  state: value
+  value: '3.6'
+  unit: GHz
+  significantDigits: 2
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - xbox-wire-series-x-tech-2020
+extractIds:
+  - xbox-series-x-tech:specs:cpu
+evidenceLevel: confirmed

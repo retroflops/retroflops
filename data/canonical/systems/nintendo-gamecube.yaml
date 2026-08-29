@@ -1,0 +1,50 @@
+editorialStatus: approved
+id: nintendo-gamecube
+slug: nintendo-gamecube
+name: Nintendo GameCube
+manufacturer: Nintendo
+type: console
+family: nintendo-home-console
+releaseDate: 2001-09
+region: Japan
+summary: >-
+  Nintendo GameCube, represented with its retail processor, graphics and
+  installed writable memory.
+description: >-
+  The GameCube record separates the Gekko processor, Flipper graphics, and
+  installed memory, so a clock or capacity does not become a console-wide claim.
+configurations:
+  - id: retail
+    label: Retail hardware
+    entries:
+      - componentId: nintendo-gamecube-gekko
+        role: main-cpu
+        count: 1
+        shared: false
+        measurementIds:
+          - nintendo-gamecube:retail:cpu-clock-frequency
+      - componentId: nintendo-gamecube-flipper
+        role: gpu
+        count: 1
+        shared: false
+        measurementIds:
+          - nintendo-gamecube:retail:gpu-clock-frequency
+      - componentId: nintendo-gamecube-ram
+        role: system-memory
+        count: 1
+        shared: false
+        measurementIds:
+          - nintendo-gamecube-ram:capacity
+      - componentId: nintendo-gamecube-sound-ram
+        role: system-memory
+        count: 1
+        shared: false
+        notes: >-
+          Dedicated to audio, and separate from the main
+          {{context:nintendo-gamecube-sound-ram:context-mib-24}}.
+        measurementIds:
+          - nintendo-gamecube-sound-ram:capacity
+imageIds:
+  - nintendo-gamecube-console
+sourceIds:
+  - nintendo-gamecube-tech-specs

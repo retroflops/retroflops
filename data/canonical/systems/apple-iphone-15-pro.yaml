@@ -1,0 +1,48 @@
+id: apple-iphone-15-pro
+slug: apple-iphone-15-pro
+name: Apple iPhone 15 Pro
+manufacturer: Apple
+type: smartphone
+family: apple-iphone
+releaseDate: 2023-09-22
+region: Worldwide
+summary: >-
+  Apple A17 Pro at {{measurement:apple-iphone-15-pro:cpu-clock-frequency}}, a
+  {{context:apple-iphone-15-pro-cpu:context-unit-6}}-core GPU, and
+  {{measurement:apple-iphone-15-pro:whole-system-memory-capacity}} of RAM.
+description: >-
+  Apple names the A17 Pro and its Apple-designed GPU for the iPhone 15 Pro. The
+  technical specification omits several of those details; the catalog labels
+  independently reported and community-sourced figures by evidence level.
+configurations:
+  - id: retail
+    label: Retail hardware
+    entries:
+      - componentId: apple-iphone-15-pro-cpu
+        role: main-cpu
+        count: 1
+        shared: false
+        measurementIds:
+          - apple-iphone-15-pro:cpu-clock-frequency
+      - componentId: apple-iphone-15-pro-gpu
+        role: gpu
+        count: 1
+        shared: false
+        measurementIds:
+          - apple-iphone-15-pro:gpu-clock-frequency
+      - componentId: apple-iphone-15-pro-memory
+        role: unified-memory
+        count: 1
+        shared: true
+        measurementIds:
+          - apple-iphone-15-pro:whole-system-memory-capacity
+notes: >-
+  Storage capacities and charging-adapter limits are deliberately not
+  substituted for working memory or whole-system power.
+sourceIds:
+  - apple-iphone-15-pro-tech-specs
+  - geekbench-iphone-15-pro-result-111108
+  - macrumors-iphone-15-pro-geekbench-ram
+  - the-apple-wiki-a17-pro
+  - cpu-monkey-apple-a17-pro
+editorialStatus: approved

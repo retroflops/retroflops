@@ -1,0 +1,14 @@
+editorialStatus: approved
+id: nintendo-wii-u-espresso
+slug: nintendo-wii-u-espresso
+kind: cpu
+name: IBM Espresso
+manufacturer: IBM
+architecture: PowerPC-derived
+introducedDate: '2012'
+instructionSet: PowerPC
+instructionSetFamily: power
+summary: The Nintendo Wii U main processor.
+sourceIds:
+  - nintendo-wii-u-tech-specs
+  - digitalfoundry-wii-u-clocks-2012

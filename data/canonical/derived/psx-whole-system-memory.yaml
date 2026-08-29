@@ -1,0 +1,25 @@
+id: sony-playstation:whole-system-memory
+formula:
+  id: sum
+  version: '1'
+  expression: a + b + …
+inputMeasurementIds:
+  - psx-main-ram:capacity
+exclusions:
+  - measurementId: psx-vram:capacity
+    label: 1 MiB of video memory
+    reason:
+      owned by the drawing processor and not part of the CPU’s working store
+result:
+  state: value
+  value: '2097152'
+  unit: B
+  significantDigits: 7
+rounding: none
+caveat: >-
+  Adds 1 memory-capacity figure obtained by design-capacity. Left out:
+  {{measurement:psx-vram:capacity}} (owned by the drawing processor and not part
+  of the CPU’s working store). A total is only as trustworthy as the decision
+  about what belongs in it, so both the terms and the exclusions are named
+  records.
+editorialStatus: approved

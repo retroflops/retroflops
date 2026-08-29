@@ -1,0 +1,88 @@
+id: apple-iphone-5s
+slug: apple-iphone-5s
+name: Apple iPhone 5s
+manufacturer: Apple
+type: smartphone
+family: apple-iphone
+releaseDate: 2013-09-20
+region: Worldwide
+summary: >-
+  The A7 doubled the processor's word size, taking phones there a year before
+  the rest of the industry followed. Touch ID and a separate motion coprocessor
+  arrived with it.
+description: >-
+  Moving on word size ahead of the market caught competitors flat, and
+  Qualcomm's answer did not ship until the following year. Touch ID mattered as
+  much commercially: it made a passcode something people would actually set.
+imageIds:
+  - apple-iphone-5s-phone
+configurations:
+  - id: 16gb
+    label: 16 GB model
+    entries:
+      - componentId: apple-iphone-5s-cpu
+        role: main-cpu
+        count: 1
+        shared: false
+        measurementIds:
+          - apple-iphone-5s:cpu-clock-frequency
+      - componentId: apple-iphone-5s-gpu
+        role: gpu
+        count: 1
+        shared: false
+        measurementIds:
+          - apple-iphone-5s:gpu-clock-frequency
+      - componentId: apple-iphone-5s-memory
+        role: unified-memory
+        count: 1
+        shared: true
+        measurementIds:
+          - apple-iphone-5s:whole-system-memory-capacity
+  - id: 32gb
+    label: 32 GB model
+    entries:
+      - componentId: apple-iphone-5s-cpu
+        role: main-cpu
+        count: 1
+        shared: false
+        measurementIds:
+          - apple-iphone-5s:cpu-clock-frequency
+      - componentId: apple-iphone-5s-gpu
+        role: gpu
+        count: 1
+        shared: false
+        measurementIds:
+          - apple-iphone-5s:gpu-clock-frequency
+      - componentId: apple-iphone-5s-memory
+        role: unified-memory
+        count: 1
+        shared: true
+        measurementIds:
+          - apple-iphone-5s:whole-system-memory-capacity
+  - id: 64gb
+    label: 64 GB model
+    entries:
+      - componentId: apple-iphone-5s-cpu
+        role: main-cpu
+        count: 1
+        shared: false
+        measurementIds:
+          - apple-iphone-5s:cpu-clock-frequency
+      - componentId: apple-iphone-5s-gpu
+        role: gpu
+        count: 1
+        shared: false
+        measurementIds:
+          - apple-iphone-5s:gpu-clock-frequency
+      - componentId: apple-iphone-5s-memory
+        role: unified-memory
+        count: 1
+        shared: true
+        measurementIds:
+          - apple-iphone-5s:whole-system-memory-capacity
+notes: >-
+  Flash capacity and charger ratings are recorded as the quantities they are,
+  and never stand in for working memory or whole-system power.
+sourceIds:
+  - apple-iphone-5s-tech-specs
+editorialStatus: approved

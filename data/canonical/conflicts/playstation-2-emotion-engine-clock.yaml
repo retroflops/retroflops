@@ -1,0 +1,47 @@
+id: playstation-2:emotion-engine-clock-frequency
+subject:
+  kind: system
+  id: sony-playstation-2
+  configurationId: retail
+metric: clock-frequency
+candidates:
+  - quantity:
+      state: value
+      value: '294.912'
+      unit: MHz
+      significantDigits: 6
+    sourceIds:
+      - scei-ee-gs-single-chip-2003
+    evidence:
+      '"New Semiconductor Specification" table, 2003-04-21: "Clock frequency:
+      294.912MHz". Issued three years after launch, describing shipping silicon.'
+  - quantity:
+      state: value
+      value: '300'
+      unit: MHz
+      significantDigits: 1
+    sourceIds:
+      - scei-ps2-specifications-1999
+    evidence:
+      "次世代プレイステーション概要仕様書, 1999-03-02: クロック周波数
+      ３００ＭＨｚ. Issued a year before launch, in the release that first
+      disclosed the console's specifications."
+decision:
+  outcome: accepted
+  candidateIndex: 0
+  rationale:
+    The two figures are the same clock stated to different precision rather than
+    a disagreement about the hardware.
+    {{measurement:sony-playstation-2:cpu-clock-frequency}} is
+    {{context:sony-playstation-2:context-mhz-36-864}} — the PlayStation 2's
+    audio-derived reference — multiplied by eight, and it is what the console's
+    other clocks divide down from;
+    {{context:sony-playstation-2:context-mhz-300}} is not a frequency any
+    crystal in the machine produces. The 1999 release rounds elsewhere in the
+    same table, giving the input/output processor as "33.8/37.5 MHz" where the
+    lower figure is the original PlayStation's
+    {{context:sony-playstation-2:context-mhz-33-8688}}, so a round "300" in a
+    pre-launch announcement is what that document does with a number, not what
+    Sony built. The later release is also the one describing hardware that
+    shipped rather than hardware still a year away.
+  decidedOn: 2026-07-29

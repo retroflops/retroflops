@@ -1,0 +1,47 @@
+id: apple-iphone-12
+slug: apple-iphone-12
+name: Apple iPhone 12
+manufacturer: Apple
+type: smartphone
+family: apple-iphone
+releaseDate: 2020-10-23
+region: Worldwide
+summary: >-
+  Apple A14 Bionic at {{measurement:apple-iphone-12:cpu-clock-frequency}}, an
+  Apple-designed {{context:apple-iphone-12:context-unit-4}}-core GPU, and
+  {{measurement:apple-iphone-12:whole-system-memory-capacity}} of RAM.
+description: >-
+  The iPhone 12 carries the A14 Bionic and an Apple-designed GPU. Apple's
+  published specification omits several of those details; the catalog records
+  independently reported figures with their evidence level.
+configurations:
+  - id: retail
+    label: Retail hardware
+    entries:
+      - componentId: apple-iphone-12-cpu
+        role: main-cpu
+        count: 1
+        shared: false
+        measurementIds:
+          - apple-iphone-12:cpu-clock-frequency
+      - componentId: apple-iphone-12-gpu
+        role: gpu
+        count: 1
+        shared: false
+        measurementIds:
+          - apple-iphone-12:gpu-clock-frequency
+      - componentId: apple-iphone-12-memory
+        role: unified-memory
+        count: 1
+        shared: true
+        measurementIds:
+          - apple-iphone-12:whole-system-memory-capacity
+notes: >-
+  Storage capacities and charging-adapter limits are deliberately not
+  substituted for working memory or whole-system power.
+sourceIds:
+  - apple-iphone-12-tech-specs
+  - itmedia-iphone-12-a14-geekbench
+  - ifixit-iphone-12-teardown
+  - phonedb-apple-a14
+editorialStatus: approved

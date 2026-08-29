@@ -1,0 +1,20 @@
+id: nintendo-entertainment-system:context-mhz-1-77
+subject:
+  kind: system
+  id: nintendo-entertainment-system
+  configurationId: ntsc
+label: Frequency
+quantity:
+  state: value
+  value: '1.77'
+  unit: MHz
+  significantDigits: 3
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - nintendo-nes-tech-specs
+extractIds:
+  - nintendo-nes:specs:cpu
+evidenceLevel: confirmed

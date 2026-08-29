@@ -1,0 +1,20 @@
+id: wikipedia-pc-engine-specifications
+title: TurboGrafx-16
+publisher: Wikipedia contributors
+accessedDate: 2026-08-26
+locator: Infobox, Memory row, and the hardware paragraph
+extract: >-
+  It includes 8 KB of RAM, 64 KB of Video RAM, and the ability to [...]
+tier: C
+sourceType: wiki
+url: https://en.wikipedia.org/wiki/TurboGrafx-16
+editorialStatus: provisional
+usageNote: >-
+  Tier C community article used only for the provisional work-RAM capacity.
+fetch:
+  url: https://en.wikipedia.org/wiki/TurboGrafx-16
+  fetchedAt: 2026-08-26T09:41:47Z
+  httpStatus: 200
+  contentType: text/html; charset=UTF-8
+  byteLength: 382248
+  sha256: a9e3a42b1483c39cbe52fda62242e1fcc36be0fd3c5ec827e440c770ba132c8a

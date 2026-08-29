@@ -1,0 +1,9 @@
+- extract: >-
+    Splash (24 MB of 1T-SRAM) and a new memory chip, MEM2, which includes 64 MB
+    of GDDR3 SDRAM.
+  id: copetti-wii-architecture:main-memory
+  locator: Main-memory discussion, MEM1 and MEM2 paragraphs
+  sourceId: copetti-wii-architecture
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-25
+  extractHash: 49c91f73e526ed84ded3827300bb5df06644e270735b8989956c09a647a7a307

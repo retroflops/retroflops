@@ -1,0 +1,174 @@
+- caveat: >-
+    Nintendo does not publish the CPU clock; TechPowerUp reports the docked
+    operating point.
+  comparabilityGroup: clock-frequency|cpu|nominal-clock
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: nintendo-switch-2:docked:cpu-clock-frequency
+  method: nominal-clock
+  metric: clock-frequency
+  normalized:
+    value: "1101000000"
+    unit: Hz
+    significantDigits: 4
+    unitRegistry: units-v1
+  provenance: independent
+  quantity:
+    significantDigits: 4
+    state: value
+    unit: GHz
+    value: '1.101'
+  scope: cpu
+  sourceIds:
+    - techpowerup-switch-2-specs
+  status: measured
+  subject:
+    configurationId: docked
+    id: nintendo-switch-2
+    kind: system
+  evidenceLevel: reported
+- caveat: >-
+    Nintendo does not publish the GPU clock; TechPowerUp reports the docked
+    operating point.
+  comparabilityGroup: clock-frequency|gpu|nominal-clock
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: nintendo-switch-2:docked:gpu-clock-frequency
+  method: nominal-clock
+  metric: clock-frequency
+  normalized:
+    value: "1007000000"
+    unit: Hz
+    significantDigits: 4
+    unitRegistry: units-v1
+  provenance: independent
+  quantity:
+    significantDigits: 4
+    state: value
+    unit: MHz
+    value: '1007'
+  scope: gpu
+  sourceIds:
+    - techpowerup-switch-2-specs
+  status: measured
+  subject:
+    configurationId: docked
+    id: nintendo-switch-2
+    kind: system
+  evidenceLevel: reported
+- caveat: >-
+    TechPowerUp reports the installed LPDDR5X capacity; Nintendo's public table
+    names only storage capacity.
+  comparabilityGroup: memory-capacity|whole-system|design-capacity
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: nintendo-switch-2:whole-system-memory-capacity
+  method: design-capacity
+  metric: memory-capacity
+  normalized:
+    value: "12000000000"
+    unit: B
+    significantDigits: 2
+    unitRegistry: units-v1
+  provenance: independent
+  quantity:
+    significantDigits: 2
+    state: value
+    unit: GB
+    value: '12'
+  scope: whole-system
+  sourceIds:
+    - techpowerup-switch-2-specs
+  status: measured
+  subject:
+    id: nintendo-switch-2
+    kind: system
+  evidenceLevel: reported
+- caveat: >-
+    TechPowerUp reports the docked LPDDR5X transfer-rate ceiling; it is not an
+    achieved workload rate.
+  comparabilityGroup: memory-bandwidth|whole-system|theoretical-peak
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: nintendo-switch-2:docked:whole-system-memory-bandwidth
+  method: theoretical-peak
+  metric: memory-bandwidth
+  normalized:
+    value: "102400000000"
+    unit: B/s
+    significantDigits: 4
+    unitRegistry: units-v1
+  provenance: independent
+  quantity:
+    significantDigits: 4
+    state: value
+    unit: GB/s
+    value: '102.4'
+  scope: whole-system
+  sourceIds:
+    - techpowerup-switch-2-specs
+  status: theoretical
+  subject:
+    configurationId: docked
+    id: nintendo-switch-2
+    kind: system
+  evidenceLevel: reported
+- caveat: >-
+    TechPowerUp reports this docked GPU FP32 theoretical peak; it does not
+    include tensor or ray-tracing work.
+  comparabilityGroup: peak-fp32-rate|gpu|theoretical-peak
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: nintendo-switch-2:docked:peak-fp32-rate
+  method: theoretical-peak
+  metric: peak-fp32-rate
+  normalized:
+    value: "3072000000000"
+    unit: FLOP/s
+    significantDigits: 4
+    unitRegistry: units-v1
+  provenance: independent
+  quantity:
+    significantDigits: 4
+    state: value
+    unit: TFLOP/s
+    value: '3.072'
+  scope: gpu
+  sourceIds:
+    - techpowerup-switch-2-specs
+  status: theoretical
+  subject:
+    configurationId: docked
+    id: nintendo-switch-2
+    kind: system
+  evidenceLevel: reported
+- caveat: >-
+    Nintendo publishes battery and charger information, not a whole-console
+    power rating.
+  comparabilityGroup: rated-power-consumption|whole-system|rated-power
+  editorialStatus: approved
+  evidenceStage: shipped
+  id: nintendo-switch-2:rated-power-consumption
+  method: rated-power
+  metric: rated-power-consumption
+  provenance: vendor
+  quantity:
+    note: Nintendo's public technical table has no whole-console power rating.
+    state: unknown
+  unknownAudit:
+    reviewedOn: 2026-08-26
+    routesChecked:
+      - vendor-documentation
+      - independent-analysis
+      - community-source
+    outcome: no-compatible-candidate
+    summary: >-
+      Nintendo states a battery capacity and charging information, not a
+      whole-console power rating.
+  scope: whole-system
+  sourceIds:
+    - nintendo-switch-2-tech-specs
+  status: vendor-rated
+  subject:
+    id: nintendo-switch-2
+    kind: system

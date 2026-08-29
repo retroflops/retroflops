@@ -1,0 +1,40 @@
+- extract: >-
+    New Semiconductor Specification
+
+    EE: 128bit RISC
+
+    GS: Parallel rendering processor with embedded DRAM
+
+    Process: 90 nanometer
+
+    Total number of transistors: 53.5 MTr.
+
+    Embedded DRAM: 4MB
+
+    Clock frequency: 294.912MHz
+
+    Power consumption: 8Watts (initial power consumption was 37Watts two chips
+    total)
+
+    Die size: 86mm2 (initial die size was 413 mm2 two chips total)
+  extractHash: 33e8cde92a9544566303f039b8f8dae6df7c9ad724d5a8733e63f3b038dfb87f
+  id: scei-2003:specification-table
+  locator: '"New Semiconductor Specification" table at the foot of the release'
+  notes: >-
+    The table describes the 90 nm chip that merges the Emotion Engine and the
+    Graphics Synthesizer, so the process, transistor, power and die-size figures
+    belong to that part rather than to a launch console; the parenthesized
+    "initial" figures are the release's own statement of what the original two
+    chips drew and measured. The unlabeled "Clock frequency" row is read as the
+    Emotion Engine's: the Graphics Synthesizer's clock is 150 MHz by Sony's own
+    1999 specification, and 294.912 MHz is what the 1999 release rounded to 300
+    MHz. The "Memory size: 0.19μm2" and "Metal layer: 5" rows are omitted as
+    fabrication detail, and "Package: 536pin EBGA" with them.
+  sourceId: scei-ee-gs-single-chip-2003
+  transcribed:
+    significantDigits: 6
+    state: value
+    unit: MHz
+    value: '294.912'
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-07-29

@@ -1,0 +1,28 @@
+accessedDate: 2026-08-16
+editorialStatus: approved
+fetch:
+  byteLength: 424920
+  contentType: text/html;charset=utf-8
+  fetchedAt: 2026-08-16T17:44:54Z
+  httpStatus: 200
+  sha256: bfb2001ad632a82e2d48cb00a3bd7df7a8cd8e66332828e49b6ce2a9b5c5777e
+  url: https://www.intel.com/content/www/us/en/products/sku/236773/intel-core-i9-processor-14900k-36m-cache-up-to-6-00-ghz/specifications.html
+id: intel-core-i9-14900k-specifications
+license: Copyright Intel Corporation; cited for verification under short-extract
+  fair use.
+locator: >-
+  Memory Specifications: Memory Types, Max # of Memory Channels and Max Memory
+  Bandwidth rows; Processor Graphics: Graphics Base Frequency, Graphics Max
+  Dynamic Frequency and Execution Units rows
+publisher: Intel Corporation
+sourceType: vendor-documentation
+tier: A
+title: Intel® Core™ i9 processor 14900K (36M Cache, up to 6.00 GHz) — Specifications
+url: https://www.intel.com/content/www/us/en/products/sku/236773/intel-core-i9-processor-14900k-36m-cache-up-to-6-00-ghz/specifications.html
+usageNote: >-
+  A living product record with no publication date and no revision, so a figure
+  taken from it is a figure as of the day it was read. Its Max Memory Bandwidth
+  is the rating of the processor's memory interface at the fastest memory type
+  it supports, not a measurement of traffic and not a property of any fitted
+  module; the same page lists a slower DDR4 option that the rating does not
+  describe.

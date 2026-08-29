@@ -1,0 +1,23 @@
+id: sony-playstation-4:context-mhz-111
+subject:
+  kind: system
+  id: sony-playstation-4
+  configurationId: launch
+label: Frequency
+quantity:
+  state: value
+  value: '111'
+  unit: MHz
+  significantDigits: 3
+provenance: independent
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - digitalfoundry-ps4-pro-review
+  - computerbase-ps4-pro-test
+extractIds:
+  - df-ps4-pro:spec-table
+  - df-ps4-pro:downclock
+  - computerbase-ps4-pro:clocks
+evidenceLevel: confirmed

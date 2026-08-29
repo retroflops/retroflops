@@ -1,0 +1,238 @@
+- caveat: >-
+    Provisional on the sourcing, and on an unusual chain the publication
+    describes openly: the frequency was read out of the shipped console by a
+    hacker and reported by one technical publication, which put it in its own
+    headline. Nintendo has published nothing to check it against. It is recorded
+    to two decimal places because the six the reading carries describe one
+    machine on one day rather than the console.
+  comparabilityGroup: clock-frequency|cpu|nominal-clock
+  conditions: The three PowerPC 750-derived cores of the shipped console.
+  editorialStatus: provisional
+  evidenceStage: shipped
+  extractIds:
+    - df-wii-u:clocks
+  id: nintendo-wii-u:retail:cpu-clock-frequency-independent
+  method: nominal-clock
+  metric: clock-frequency
+  normalized:
+    value: "1240000000"
+    unit: Hz
+    significantDigits: 3
+    unitRegistry: units-v1
+  provenance: independent
+  quantity:
+    significantDigits: 3
+    state: value
+    unit: GHz
+    value: "1.24"
+  rounding: half-up
+  scope: cpu
+  sourceIds:
+    - digitalfoundry-wii-u-clocks-2012
+  status: vendor-rated
+  subject:
+    configurationId: retail
+    id: nintendo-wii-u
+    kind: system
+  evidenceLevel: reported
+- caveat: >-
+    From the same reading and the same single publication as the processor
+    clock, and provisional for the same reason. The reading gives
+    {{context:nintendo-wii-u:context-mhz-549-999755}};
+    {{measurement:nintendo-wii-u:retail:gpu-clock-frequency-independent}} is
+    what the publication states in its headline and all this figure is entitled
+    to claim.
+  comparabilityGroup: clock-frequency|gpu|nominal-clock
+  conditions: The AMD-designed graphics core of the shipped console.
+  editorialStatus: provisional
+  evidenceStage: shipped
+  extractIds:
+    - df-wii-u:clocks
+  id: nintendo-wii-u:retail:gpu-clock-frequency-independent
+  method: nominal-clock
+  metric: clock-frequency
+  normalized:
+    value: "550000000"
+    unit: Hz
+    significantDigits: 3
+    unitRegistry: units-v1
+  provenance: independent
+  quantity:
+    significantDigits: 3
+    state: value
+    unit: MHz
+    value: "550"
+  rounding: half-up
+  scope: gpu
+  sourceIds:
+    - digitalfoundry-wii-u-clocks-2012
+  status: vendor-rated
+  subject:
+    configurationId: retail
+    id: nintendo-wii-u
+    kind: system
+  evidenceLevel: reported
+- caveat: >-
+    Not Nintendo's figure: its specification table has no memory row at all, and
+    lists only the console's flash storage. One technical publication states the
+    capacity together with the four parts it is made of, which is one source
+    short of approval.
+  comparabilityGroup: memory-capacity|memory|design-capacity
+  conditions: Four DDR3-1600 modules as fitted to the shipped console.
+  editorialStatus: provisional
+  evidenceStage: shipped
+  extractIds:
+    - df-wii-u:review:ram
+  id: nintendo-wii-u-ram:capacity
+  method: design-capacity
+  metric: memory-capacity
+  normalized:
+    value: "2147483648"
+    unit: B
+    significantDigits: 1
+    unitRegistry: units-v1
+  provenance: independent
+  quantity:
+    significantDigits: 1
+    state: value
+    unit: GiB
+    value: "2"
+  scope: memory
+  sourceIds:
+    - digitalfoundry-wii-u-review
+  status: vendor-rated
+  subject:
+    id: nintendo-wii-u-ram
+    kind: component
+  evidenceLevel: reported
+- caveat: >-
+    Digital Foundry states this as the console's installed DDR3 capacity and
+    identifies the four fitted modules.
+  comparabilityGroup: memory-capacity|whole-system|design-capacity
+  editorialStatus: provisional
+  evidenceStage: shipped
+  extractIds:
+    - df-wii-u:review:ram
+  id: nintendo-wii-u:whole-system-memory-capacity
+  method: design-capacity
+  metric: memory-capacity
+  normalized:
+    value: "2147483648"
+    unit: B
+    significantDigits: 10
+    unitRegistry: units-v1
+  provenance: independent
+  quantity:
+    significantDigits: 10
+    state: value
+    unit: B
+    value: "2147483648"
+  rounding: none
+  scope: whole-system
+  sourceIds:
+    - digitalfoundry-wii-u-review
+  status: vendor-rated
+  subject:
+    id: nintendo-wii-u
+    kind: system
+  evidenceLevel: reported
+- caveat: >-
+    Nintendo's specification table has no memory row at all. Wikipedia states
+    {{measurement:nintendo-wii-u:memory-bandwidth}} as the maximum bandwidth of
+    the console's main memory, which the catalog carries as rumored.
+  comparabilityGroup: memory-bandwidth|memory|theoretical-peak
+  editorialStatus: provisional
+  evidenceStage: shipped
+  extractIds:
+    - nintendo-wii-u:specs:cpu-gpu
+  id: nintendo-wii-u:memory-bandwidth
+  method: theoretical-peak
+  metric: memory-bandwidth
+  provenance: community
+  quantity:
+    state: value
+    value: "12.8"
+    unit: GB/s
+    significantDigits: 3
+  scope: memory
+  sourceIds:
+    - nintendo-wii-u-tech-specs
+    - wikipedia-wii-u-specifications
+  status: theoretical
+  subject:
+    id: nintendo-wii-u
+    kind: system
+  evidenceLevel: rumored
+  normalized:
+    value: "12800000000"
+    unit: B/s
+    significantDigits: 3
+    unitRegistry: units-v1
+- caveat: >-
+    Nintendo has never published a floating-point rate for this console at any
+    precision, and the graphics frequency such a rate would be built from is not
+    Nintendo's either.
+  comparabilityGroup: peak-fp32-rate|gpu|theoretical-peak
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - nintendo-wii-u:specs:cpu-gpu
+  id: nintendo-wii-u:peak-fp32-rate
+  method: theoretical-peak
+  metric: peak-fp32-rate
+  provenance: vendor
+  quantity:
+    note: >-
+      Nintendo's specification table states no floating-point rate, and names no
+      precision anywhere.
+    state: unknown
+  unknownAudit:
+    reviewedOn: 2026-08-25
+    routesChecked:
+      - vendor-documentation
+      - independent-analysis
+      - community-source
+    outcome: no-compatible-candidate
+    summary: Nintendo's specification table provides no compatible published value.
+  scope: gpu
+  sourceIds:
+    - nintendo-wii-u-tech-specs
+  status: theoretical
+  subject:
+    id: nintendo-wii-u
+    kind: system
+- caveat: >-
+    The console predates the European ecodesign disclosures that give this
+    catalog the Switch's rating, and Nintendo's specification table states no
+    electrical figure of any kind. The wattages that circulate are supply
+    ratings and metered draws from third parties, which are two other quantities
+    again.
+  comparabilityGroup: rated-power-consumption|whole-system|rated-power
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - nintendo-wii-u:specs:cpu-gpu
+  id: nintendo-wii-u:rated-power-consumption
+  method: rated-power
+  metric: rated-power-consumption
+  provenance: vendor
+  quantity:
+    note: >-
+      Nintendo's specification table states dimensions, mass, storage, ports and
+      video output, and no power rating.
+    state: unknown
+  unknownAudit:
+    reviewedOn: 2026-08-25
+    routesChecked:
+      - vendor-documentation
+      - independent-analysis
+      - community-source
+    outcome: no-compatible-candidate
+    summary: Nintendo's specification table provides no compatible published value.
+  scope: whole-system
+  sourceIds:
+    - nintendo-wii-u-tech-specs
+  status: vendor-rated
+  subject:
+    id: nintendo-wii-u
+    kind: system

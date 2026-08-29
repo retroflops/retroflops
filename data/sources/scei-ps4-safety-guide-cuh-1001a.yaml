@@ -1,0 +1,25 @@
+accessedDate: 2026-08-13
+editorialStatus: approved
+fetch:
+  byteLength: 594595
+  contentType: application/pdf
+  fetchedAt: 2026-08-13T18:08:04Z
+  httpStatus: 200
+  sha256: d3f714cc0196fc0173b6bbe317514870741fb6be0b8e1f39eb706c07df5732e5
+  url: https://manuals.playstation.net/document/pdf/CUH-1001A-1.5_3.pdf
+id: scei-ps4-safety-guide-cuh-1001a
+license: Copyright Sony Computer Entertainment Inc. Quoted here under
+  short-extract fair use for verification of the figure cited.
+locator: Specifications table, p. 11, 'Maximum rated power' row
+publishedDate: "2013"
+publisher: Sony Computer Entertainment Inc.
+sourceType: technical-manual
+tier: A
+title: PlayStation®4 Safety Guide — CUH-1001A
+url: https://manuals.playstation.net/document/pdf/CUH-1001A-1.5_3.pdf
+usageNote: >-
+  The safety guide, not the press release, is where Sony states a console's
+  electrical rating. Sony's launch announcements describe the PlayStation 4 by
+  architecture and core count and give no wattage at all; this document gives
+  one, and it is model-coded, so the figure belongs to the CUH-1001A chassis and
+  not to later revisions.

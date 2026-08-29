@@ -1,0 +1,19 @@
+id: nintendo-gamecube:context-mb-16
+subject:
+  kind: system
+  id: nintendo-gamecube
+label: Capacity
+quantity:
+  state: value
+  value: '16'
+  unit: MB
+  significantDigits: 2
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - nintendo-gamecube-tech-specs
+extractIds:
+  - gamecube-specs:main-memory-bandwidth
+evidenceLevel: confirmed

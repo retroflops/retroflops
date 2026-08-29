@@ -1,0 +1,20 @@
+id: wikipedia-nintendo-ds-specifications
+title: Nintendo DS
+publisher: Wikipedia contributors
+accessedDate: 2026-08-26
+locator: Infobox, CPU row
+extract: >-
+  CPU 67 MHz ARM946E-S 33 MHz ARM7TDMI
+tier: C
+sourceType: wiki
+url: https://en.wikipedia.org/wiki/Nintendo_DS
+editorialStatus: provisional
+usageNote: >-
+  Tier C community article used only for the provisional clock of the console main processor.
+fetch:
+  url: https://en.wikipedia.org/wiki/Nintendo_DS
+  fetchedAt: 2026-08-26T10:14:03Z
+  httpStatus: 200
+  contentType: text/html; charset=UTF-8
+  byteLength: 730833
+  sha256: 3fa356b3bf23c7170ad3e362b2f62aefcfc1603d712b66dde30e457d35f1c8ac

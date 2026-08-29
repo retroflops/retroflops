@@ -1,0 +1,18 @@
+id: sony-playstation-4:context-mib-4
+subject:
+  kind: system
+  id: sony-playstation-4
+label: Capacity
+quantity:
+  state: value
+  value: '4'
+  unit: MiB
+  significantDigits: 1
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - scei-ps4-introduction-2013
+  - scea-ps4-launch-2013
+evidenceLevel: confirmed

@@ -1,0 +1,18 @@
+id: psx-vram
+slug: psx-vram
+kind: memory
+name: PlayStation video memory
+manufacturer: Sony Computer Entertainment
+architecture: Dual-ported VRAM
+introducedDate: '1994'
+memoryType: Dual-ported video RAM
+summary:
+  '{{measurement:psx-vram:capacity}} of video memory holding the frame buffer,
+  texture pages and color lookup tables. Separate from main memory and reachable
+  by the GPU rather than shared with the CPU.'
+notes:
+  Dual-ported, so the GPU can draw into it while the display is reading from it.
+  Transfers between it and main memory go by DMA.
+sourceIds:
+  - psx-hardware-reference
+editorialStatus: approved

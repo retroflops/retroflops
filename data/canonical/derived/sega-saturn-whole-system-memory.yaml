@@ -1,0 +1,27 @@
+id: sega-saturn:whole-system-memory
+formula:
+  id: sum
+  version: '1'
+  expression: a + b + …
+inputMeasurementIds:
+  - sega-saturn-ram:capacity
+  - sega-saturn-video-ram:capacity
+  - sega-saturn-sound-ram:capacity
+  - sega-saturn-cd-buffer-ram:capacity
+  - sega-saturn-backup-ram:capacity
+exclusions:
+  - measurementId: sega-saturn-ipl-rom:capacity
+    label: 512 KiB of IPL ROM
+    reason: boot firmware, not memory the console can write to
+result:
+  state: value
+  value: '4751360'
+  unit: B
+  significantDigits: 7
+rounding: none
+caveat: >-
+  Adds 5 memory-capacity figures obtained by design-capacity. Left out:
+  {{measurement:sega-saturn-ipl-rom:capacity}} (boot firmware, not memory the
+  console can write to). A total is only as trustworthy as the decision about
+  what belongs in it, so both the terms and the exclusions are named records.
+editorialStatus: approved

@@ -1,0 +1,20 @@
+id: wikipedia-acorn-archimedes
+title: Acorn Archimedes
+publisher: Wikipedia contributors
+accessedDate: 2026-08-26
+locator: History section, first models paragraph
+extract: >-
+  The first Archimedes models, featuring a 32-bit ARM2 RISC CPU running at 8 MHz, provided a significant upgrade from Acorn's previous machines
+tier: C
+sourceType: wiki
+url: https://en.wikipedia.org/wiki/Acorn_Archimedes
+editorialStatus: provisional
+usageNote: >-
+  Tier C community article used only for the provisional processor clock of the A310.
+fetch:
+  url: https://en.wikipedia.org/wiki/Acorn_Archimedes
+  fetchedAt: 2026-08-26T10:31:32Z
+  httpStatus: 200
+  contentType: text/html; charset=UTF-8
+  byteLength: 1571959
+  sha256: b90d47eb9134a3164f784a13b4be8b1aa3a3fe94c18187c1d46cd6abffd93ffa

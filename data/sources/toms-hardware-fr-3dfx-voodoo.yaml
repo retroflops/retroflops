@@ -1,0 +1,20 @@
+id: toms-hardware-fr-3dfx-voodoo
+title: "3dfx: de la Voodoo au Rampage en images"
+publisher: Tom's Hardware France
+publishedDate: 2013-07-30
+accessedDate: 2026-08-25
+locator: Voodoo Graphics specification table, frequency row
+extract: 3dfx Voodoo Graphics, 50 MHz.
+tier: B
+sourceType: independent-analysis
+url: https://www.tomshardware.fr/3dfx-de-la-voodoo-au-rampage-en-images/
+usageNote: >-
+  Independent retrospective. It agrees with Hardware.fr on the 50 MHz graphics
+  clock.
+fetch:
+  url: https://www.tomshardware.fr/3dfx-de-la-voodoo-au-rampage-en-images/
+  fetchedAt: 2026-08-25T06:04:50Z
+  httpStatus: 200
+  contentType: text/html; charset=UTF-8
+  byteLength: 271317
+  sha256: 979347e73022fae3a9657fc436be142c15d6936ae63e269b102e37397aeb2098

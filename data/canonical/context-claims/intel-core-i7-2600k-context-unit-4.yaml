@@ -1,0 +1,17 @@
+id: intel-core-i7-2600k:context-unit-4
+subject:
+  kind: component
+  id: intel-core-i7-2600k
+label: Core count
+quantity:
+  state: value
+  value: '4'
+  unit: unit
+  significantDigits: 1
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - intel-core-i7-2600k-specifications
+evidenceLevel: confirmed

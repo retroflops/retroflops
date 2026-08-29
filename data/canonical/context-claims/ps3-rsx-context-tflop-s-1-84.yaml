@@ -1,0 +1,19 @@
+id: ps3-rsx:context-tflop-s-1-84
+subject:
+  kind: component
+  id: ps3-rsx
+label: Rate
+quantity:
+  state: value
+  value: '1.84'
+  unit: TFLOP/s
+  significantDigits: 3
+provenance: vendor
+evidenceStage: pre-launch
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - scei-ps3-specifications-2005
+extractIds:
+  - scei-ps3-2005:gpu
+evidenceLevel: confirmed

@@ -1,0 +1,23 @@
+accessedDate: 2026-08-13
+editorialStatus: approved
+fetch:
+  byteLength: 1206695
+  contentType: text/html;charset=utf-8
+  fetchedAt: 2026-08-13T15:24:18Z
+  httpStatus: 200
+  sha256: cb7e30117825cbe526387767b74cacc53fcb00bf95358d411a0c7b901ab570a7
+  url: https://support.apple.com/en-us/111876
+id: apple-iphone-12-tech-specs
+license: Copyright Apple Inc. Quoted here under short-extract fair use for
+  verification of the cited specifications.
+locator: Chip and Power and Battery sections
+publishedDate: "2020"
+publisher: Apple Inc.
+sourceType: vendor-documentation
+tier: A
+title: Apple iPhone 12 — Technical Specifications
+url: https://support.apple.com/en-us/111876
+usageNote: >-
+  Apple states the chip identification and retail technical details, while
+  deliberately not filling undocumented clock, DRAM, bandwidth, FP32 or
+  whole-system power fields.

@@ -1,0 +1,11 @@
+architecture: 65C816 derivative
+editorialStatus: approved
+id: snes-5a22
+instructionSet: 65C816 derivative
+kind: cpu
+manufacturer: Ricoh
+name: Ricoh 5A22
+slug: snes-5a22
+sourceIds:
+  - nintendo-snes-tech-specs
+summary: The Super Nintendo CPU, whose clock varies with memory area.

@@ -1,0 +1,47 @@
+id: apple-iphone-3gs
+slug: apple-iphone-3gs
+name: Apple iPhone 3GS
+manufacturer: Apple
+type: smartphone
+family: apple-iphone
+releaseDate: 2009-06-19
+region: Worldwide
+summary: >-
+  The S was for speed. Samsung's S5PC100 and PowerVR SGX535 graphics in the body
+  of the 3G, plus a compass and the first iPhone that could record video.
+description: >-
+  Apple's specification for the 3GS names the chip and lists what the phone was
+  sold in, and gives no clock, no installed memory and no power rating. Apple
+  has never published those for any iPhone; the figures this catalog holds for
+  the first-generation phone came from a teardown.
+imageIds:
+  - apple-iphone-3gs-phone
+configurations:
+  - id: retail
+    label: Retail hardware
+    entries:
+      - componentId: apple-iphone-3gs-cpu
+        role: main-cpu
+        count: 1
+        shared: false
+        measurementIds:
+          - apple-iphone-3gs:cpu-clock-frequency
+      - componentId: apple-iphone-3gs-gpu
+        role: gpu
+        count: 1
+        shared: false
+        measurementIds:
+          - apple-iphone-3gs:gpu-clock-frequency
+      - componentId: apple-iphone-3gs-memory
+        role: unified-memory
+        count: 1
+        shared: true
+        measurementIds:
+          - apple-iphone-3gs:whole-system-memory-capacity
+notes: >-
+  Flash capacity and charger ratings are recorded as the quantities they are,
+  and never stand in for working memory or whole-system power.
+sourceIds:
+  - apple-iphone-3gs-tech-specs
+  - anandtech-iphone-hardware-2009
+editorialStatus: approved

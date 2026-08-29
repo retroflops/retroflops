@@ -1,0 +1,193 @@
+---
+// SPDX-FileCopyrightText: 2026 Wojciech Polak
+// SPDX-License-Identifier: MIT
+
+import BaseLayout from '~/layouts/base-layout.astro';
+import { getCatalog } from '~/lib/catalog';
+import { formatPartialDate, humaniseIdentifier, metricLabel } from '~/lib/display';
+import { route } from '~/lib/paths';
+import { breadcrumbList, sourceArticle } from '~/lib/structured-data';
+
+export function getStaticPaths() {
+  return getCatalog().sources.map((source) => ({ params: { id: source.id }, props: { source } }));
+}
+
+const { source } = Astro.props;
+const catalog = getCatalog();
+
+const measurements = catalog.measurements.filter((measurement) =>
+  measurement.sourceIds.includes(source.id),
+);
+const systems = catalog.systems.filter((system) => system.sourceIds.includes(source.id));
+const components = catalog.components.filter((component) =>
+  component.sourceIds.includes(source.id),
+);
+
+const TIER_NOTES = {
+  A: 'Vendor documentation, a government document, a technical manual or an official benchmark result. One tier A source is sufficient to publish a figure.',
+  B: 'A high-quality independent analysis. Two agreeing tier B sources are needed to publish a figure.',
+  C: 'A wiki, encyclopedia or aggregator. Used for discovery only, never as evidence for a published figure.',
+} as const;
+
+const absolute = (path: string): string => new URL(route(path), Astro.site ?? Astro.url).href;
+const structuredData = [
+  sourceArticle(source, absolute),
+  breadcrumbList(
+    [
+      { name: 'RetroFlops', path: '/' },
+      { name: source.title, path: `/sources/${source.id}/` },
+    ],
+    absolute,
+  ),
+];
+---
+
+<BaseLayout
+  title={source.title}
+  description={`Source record: ${source.title}, ${source.publisher}.`}
+  structuredData={structuredData}
+>
+  <header class="page-header stack">
+    <p class="page-header__eyebrow">Source · tier {source.tier}</p>
+    <h1 class="wrap-anywhere">{source.title}</h1>
+    <p class="lede prose">{source.publisher}</p>
+  </header>
+
+  <section class="stack" aria-labelledby="record">
+    <h2 id="record">The record</h2>
+    <dl class="detail-list">
+      {
+        source.author !== undefined && (
+          <div>
+            <dt>Author</dt>
+            <dd>{source.author}</dd>
+          </div>
+        )
+      }
+      <div>
+        <dt>Type</dt>
+        <dd>{humaniseIdentifier(source.sourceType)}</dd>
+      </div>
+      <div>
+        <dt>Tier</dt>
+        <dd>{source.tier}: {TIER_NOTES[source.tier]}</dd>
+      </div>
+      <div>
+        <dt>Locator</dt>
+        <dd>{source.locator}</dd>
+      </div>
+      {
+        source.publishedDate !== undefined && (
+          <div>
+            <dt>Published</dt>
+            <dd>{formatPartialDate(source.publishedDate)}</dd>
+          </div>
+        )
+      }
+      <div>
+        <dt>Consulted</dt>
+        <dd>{source.accessedDate}</dd>
+      </div>
+      {
+        source.url !== undefined && (
+          <div>
+            <dt>{source.urlStatus === 'known-unavailable' ? 'Original address' : 'Address'}</dt>
+            <dd>
+              <a class="wrap-anywhere" href={source.url} rel="external nofollow">
+                {source.url}
+              </a>
+              {source.urlStatus === 'known-unavailable' && (
+                <span class="meta"> No longer available.</span>
+              )}
+            </dd>
+          </div>
+        )
+      }
+      {
+        source.archiveUrl !== undefined && (
+          <div>
+            <dt>Archive</dt>
+            <dd>
+              <a class="wrap-anywhere" href={source.archiveUrl} rel="external nofollow">
+                {source.archiveUrl}
+              </a>
+            </dd>
+          </div>
+        )
+      }
+      {
+        source.fetch !== undefined && (
+          <div>
+            <dt>Retrieved</dt>
+            <dd>
+              <span class="numeric">{source.fetch.byteLength}</span> bytes,
+              <span class="numeric"> SHA-256 {source.fetch.sha256.slice(0, 16)}…</span>
+              <span class="meta">
+                Recorded by the pipeline as evidence of what was downloaded, never as a fact about
+                the hardware.
+              </span>
+            </dd>
+          </div>
+        )
+      }
+      {
+        source.license !== undefined && (
+          <div>
+            <dt>License</dt>
+            <dd>{source.license}</dd>
+          </div>
+        )
+      }
+      {
+        source.usageNote !== undefined && (
+          <div>
+            <dt>Usage</dt>
+            <dd>{source.usageNote}</dd>
+          </div>
+        )
+      }
+    </dl>
+  </section>
+
+  {
+    measurements.length > 0 && (
+      <section class="stack" aria-labelledby="cites">
+        <h2 id="cites">Figures citing this source</h2>
+        <ul class="link-list">
+          {measurements.map((measurement) => (
+            <li>
+              <span>{metricLabel(measurement.metric)}</span>
+              <span class="meta">
+                {measurement.subject.kind} · {measurement.subject.id}
+              </span>
+            </li>
+          ))}
+        </ul>
+      </section>
+    )
+  }
+
+  {
+    (systems.length > 0 || components.length > 0) && (
+      <section class="stack" aria-labelledby="records">
+        <h2 id="records">Records built on it</h2>
+        <ul class="link-list">
+          {systems.map((system) => (
+            <li>
+              <a href={route(`/systems/${system.slug}/`)}>{system.name}</a>
+              <span class="meta">system</span>
+            </li>
+          ))}
+          {components.map((component) => (
+            <li>
+              <a href={route(`/components/${component.kind}/${component.slug}/`)}>
+                {component.name}
+              </a>
+              <span class="meta">{component.kind}</span>
+            </li>
+          ))}
+        </ul>
+      </section>
+    )
+  }
+</BaseLayout>

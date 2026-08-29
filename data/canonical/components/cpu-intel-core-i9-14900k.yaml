@@ -1,0 +1,22 @@
+id: intel-core-i9-14900k
+slug: intel-core-i9-14900k
+kind: cpu
+name: Intel Core i9-14900K
+manufacturer: Intel
+architecture: Raptor Lake Refresh
+introducedDate: 2023-10
+instructionSet: Intel 64
+instructionSetFamily: x86
+summary:
+  An eight-performance-core plus sixteen-efficiency-core desktop processor, with
+  {{measurement:intel-core-i9-14900k:thermal-design-power}} processor base power
+  and up to {{context:intel-core-i9-14900k:context-w-253}} maximum turbo power.
+notes:
+  The {{context:intel-core-i9-14900k:context-unit-2}} core types have separate
+  base and turbo frequencies. This catalog's single base and peak CPU rows
+  describe the performance-core figures and say so in their conditions; they
+  must not be read as a frequency of all
+  {{context:intel-core-i9-14900k:context-unit-24}} cores.
+sourceIds:
+  - intel-desktop-processor-reference
+editorialStatus: provisional

@@ -1,0 +1,24 @@
+accessedDate: 2026-08-04
+editorialStatus: approved
+fetch:
+  byteLength: 14254
+  contentType: text/html
+  fetchedAt: 2026-08-04T09:40:54Z
+  httpStatus: 200
+  sha256: 79d4032de7a800ac4c3bc0c738fea19f1813958053b9a3836dc1326f2a862954
+  url: https://www.7-cpu.com/cpu/Apple_M1.html
+id: 7cpu-apple-m1
+license: Copyright 7-CPU. Quoted here under short-extract fair use for
+  verification of the figures cited.
+locator: Opening line, and the reported clock rates in the 7-Zip benchmark logs below it
+publishedDate: "2021"
+publisher: 7-CPU
+sourceType: independent-analysis
+tier: B
+title: "7-CPU: Apple M1"
+url: https://www.7-cpu.com/cpu/Apple_M1.html
+usageNote: >-
+  A measurement site rather than a review: it publishes cache latencies and the
+  frequencies its own runs reported, which is why it states both of the M1's
+  clocks in one line. The second of the two independent sources the sourcing
+  policy requires where the manufacturer publishes none.

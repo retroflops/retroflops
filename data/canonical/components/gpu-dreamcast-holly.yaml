@@ -1,0 +1,21 @@
+id: dreamcast-holly
+slug: dreamcast-holly
+kind: gpu
+name: NEC HOLLY (PowerVR2)
+manufacturer: NEC / VideoLogic
+architecture: PowerVR2
+introducedDate: '1998'
+summary:
+  The Dreamcast's image-drawing VLSI at
+  {{context:dreamcast-holly:context-mhz-100}}, built around a PowerVR2 core with
+  its own texture memory.
+notes:
+  It reads a display list the SH-4 builds in main memory and draws from its own
+  texture pool, so the two chips do not contend for one memory the way the
+  Nintendo 64's do. Sega quotes 3 million polygons per second at peak and 1.5
+  million visible; neither is recorded as a measurement, because the catalog has
+  no polygon-rate metric and inventing one for a single record would leave it
+  uncomparable with everything else.
+sourceIds:
+  - dreamcast-hardware-spec
+editorialStatus: approved

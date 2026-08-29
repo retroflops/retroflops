@@ -1,0 +1,19 @@
+id: n64-rcp
+slug: n64-rcp
+kind: gpu
+name: Reality Coprocessor (RCP)
+manufacturer: Silicon Graphics / Nintendo
+architecture: Reality Coprocessor
+introducedDate: '1996'
+summary:
+  "Two engines in one part: the RSP, a microcode-programmable signal processor
+  that runs geometry and audio, and the RDP, the graphics pipeline that
+  rasterizes. The RCP also carries the console's I/O interfaces."
+notes:
+  "The RSP being microcode-programmable is what separates this from the
+  PlayStation's fixed-function split: the geometry stage is software, so what
+  the machine does with a triangle is not fixed in silicon. Both engines read
+  main memory directly, alongside the CPU."
+sourceIds:
+  - n64-programming-manual
+editorialStatus: approved

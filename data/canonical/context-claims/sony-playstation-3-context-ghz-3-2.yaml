@@ -1,0 +1,18 @@
+id: sony-playstation-3:context-ghz-3-2
+subject:
+  kind: system
+  id: sony-playstation-3
+label: Frequency
+quantity:
+  state: value
+  value: '3.2'
+  unit: GHz
+  significantDigits: 2
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - scei-ps3-specifications-2005
+  - scei-ps3-launch-2006
+evidenceLevel: confirmed

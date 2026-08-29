@@ -1,0 +1,28 @@
+- extract: >-
+    General
+
+    Power requirements: 120 V AC, 60 Hz
+
+    Power consumption: 79 W
+
+    Console dimensions (approx.): 301 x 78 x 182 mm (w/h/d)
+
+    Console weight (approx.): 2.2 kg
+  extractHash: 06f2ff7d37aa7c3ac405fdd5fe41b2d64ce515109ad0305219ecb5df221e1013
+  id: scea-ps2-manual:power
+  locator: '"Specifications", General section'
+  notes: >-
+    The scan lays each item out as a label followed by its value on the next
+    line; the pairs are rejoined here with a colon. The imperial equivalents
+    printed beside the metric figures are omitted, as the optical character
+    recognition mangles them ("4 lb 14 02" for 4 lb 14 oz). This is a rating for
+    the SCPH-39001 revision of the console, not a measurement under any stated
+    workload.
+  sourceId: scea-ps2-scph-39001-manual
+  transcribed:
+    significantDigits: 2
+    state: value
+    unit: W
+    value: '79'
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-07-29

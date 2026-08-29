@@ -1,0 +1,17 @@
+id: pc-display-adapter
+slug: pc-display-adapter
+kind: gpu
+name: IBM PC display adapter
+manufacturer: IBM
+architecture: MDA/CGA-era display adapter
+introducedDate: '1981'
+summary:
+  'A display adapter for the original IBM PC family: it generates text and
+  raster video but has no programmable floating-point shading hardware.'
+notes:
+  The representative PCs use period-appropriate display adapters rather than
+  treating the CPU as a graphics device. Individual board clock grades are
+  deliberately not collapsed into a fictitious single GPU clock.
+sourceIds:
+  - intel-historical-x86-documentation
+editorialStatus: provisional

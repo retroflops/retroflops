@@ -1,0 +1,23 @@
+accessedDate: 2026-08-13
+editorialStatus: approved
+fetch:
+  byteLength: 1212558
+  contentType: text/html;charset=utf-8
+  fetchedAt: 2026-08-13T15:24:20Z
+  httpStatus: 200
+  sha256: 5afa3071077d9a1a10fd729a0ae05878d6737a5b4b8a633e2c08aae4c7432865
+  url: https://support.apple.com/en-us/125090
+id: apple-iphone-17-pro-tech-specs
+license: Copyright Apple Inc. Quoted here under short-extract fair use for
+  verification of the cited specifications.
+locator: Chip and Power and Battery sections
+publishedDate: "2025"
+publisher: Apple Inc.
+sourceType: vendor-documentation
+tier: A
+title: Apple iPhone 17 Pro — Technical Specifications
+url: https://support.apple.com/en-us/125090
+usageNote: >-
+  Apple states the chip identification and retail technical details, while
+  deliberately not filling undocumented clock, DRAM, bandwidth, FP32 or
+  whole-system power fields.

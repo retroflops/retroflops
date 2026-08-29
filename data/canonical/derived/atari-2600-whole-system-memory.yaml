@@ -1,0 +1,24 @@
+caveat: >-
+  Adds 1 memory-capacity figure obtained by design-capacity. Left out:
+  {{measurement:atari-2600:cartridge-storage-capacity}} (removable program
+  storage, not memory the console can write to). A total is only as trustworthy
+  as the decision about what belongs in it, so both the terms and the exclusions
+  are named records.
+editorialStatus: approved
+exclusions:
+  - label: removable game-cartridge ROM
+    measurementId: atari-2600:cartridge-storage-capacity
+    reason: removable program storage, not memory the console can write to
+formula:
+  expression: a
+  id: sum
+  version: '1'
+id: atari-2600:whole-system-memory
+inputMeasurementIds:
+  - atari-2600-ram:capacity
+result:
+  state: value
+  value: '128'
+  unit: B
+  significantDigits: 3
+rounding: none

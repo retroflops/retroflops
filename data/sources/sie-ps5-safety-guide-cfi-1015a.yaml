@@ -1,0 +1,26 @@
+accessedDate: 2026-08-13
+editorialStatus: approved
+fetch:
+  byteLength: 616929
+  contentType: application/pdf
+  fetchedAt: 2026-08-13T18:08:04Z
+  httpStatus: 200
+  sha256: ad1de4facf6d25aa4c03a4991641057c3a650c821cb23df502d32370fbff74be
+  url: https://manuals.playstation.net/document/pdf/CFI-1015A-1.0_2.pdf
+id: sie-ps5-safety-guide-cfi-1015a
+license: Copyright Sony Interactive Entertainment Inc. Quoted here under
+  short-extract fair use for verification of the figure cited.
+locator: Specifications table, p. 7, 'Maximum rated power' row
+publishedDate: "2020"
+publisher: Sony Interactive Entertainment Inc.
+sourceType: technical-manual
+tier: A
+title: PlayStation®5 Safety Guide — CFI-1015A
+url: https://manuals.playstation.net/document/pdf/CFI-1015A-1.0_2.pdf
+usageNote: >-
+  The counterpart to the PlayStation 4 safety guide, and the answer to a
+  question the PlayStation 5 specification table does not touch. The same table
+  also gives the console's electrical rating as 100-240 V, 3.55-1.5 A, and
+  describes the GPU as '10 TFLOPS' with no precision named — a figure that is
+  neither the 10.28 nor the 10.3 the specification blog has carried, and that is
+  not usable as an FP32 rate.

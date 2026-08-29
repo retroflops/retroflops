@@ -1,0 +1,17 @@
+id: valve-steam-deck-zen-2:context-bit-64
+subject:
+  kind: component
+  id: valve-steam-deck-zen-2
+label: Word size
+quantity:
+  state: value
+  value: '64'
+  unit: bit
+  significantDigits: 2
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - valve-steam-deck-tech-specs
+evidenceLevel: confirmed

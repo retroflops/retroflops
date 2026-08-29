@@ -1,0 +1,30 @@
+accessedDate: 2026-08-15
+author: Richard Leadbetter
+editorialStatus: approved
+fetch:
+  byteLength: 100614
+  contentType: text/html; charset=UTF-8
+  fetchedAt: 2026-08-15T18:09:58Z
+  httpStatus: 200
+  sha256: 38ea41bcb224147c1979b816206c6753639ff61859f275cb78a86c503d37b815
+  url: https://www.digitalfoundry.net/articles/digitalfoundry-xbox-one-cpu-speed-increased-in-production-hardware
+id: digitalfoundry-xbox-one-clocks-2013
+license: Copyright Digital Foundry. Quoted here under short-extract fair use for
+  verification of the figures cited.
+locator: >-
+  Opening paragraphs, and the quoted remarks from Microsoft on the graphics
+  frequency
+publishedDate: 2013-09-04
+publisher: Digital Foundry
+sourceType: independent-analysis
+tier: B
+title: Xbox One CPU speed increased by 9.375 per cent
+url: https://www.digitalfoundry.net/articles/digitalfoundry-xbox-one-cpu-speed-increased-in-production-hardware
+usageNote: >-
+  Both of this console's frequencies passed into public record through
+  statements Microsoft made at conferences rather than through any specification
+  page, and this article carries both: the processor figure attributed to a
+  Microsoft vice president speaking at an investor conference, the graphics
+  figure as a direct quotation. The numbers are therefore Microsoft's, and the
+  tier is the publication's — which is the ordinary case for a console whose
+  maker published no specification document at all.

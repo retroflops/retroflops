@@ -1,0 +1,28 @@
+accessedDate: 2026-08-15
+editorialStatus: approved
+fetch:
+  byteLength: 17772
+  contentType: text/html
+  fetchedAt: 2026-08-15T17:55:51Z
+  httpStatus: 200
+  sha256: 74bb5bb29329ea64e5db932cb104063886bf9f1c1f400b57dc5a8b5f063335f1
+  url: https://web.archive.org/web/20141228181800id_/http://www.nintendo.co.jp/wiiu/hardware/specs/index.html
+id: nintendo-wii-u-tech-specs
+license: Copyright Nintendo. Quoted here under short-extract fair use for
+  verification of the figures cited.
+locator: 本体の主な仕様 / Wii U Console Tech Specs table, CPU and GPU rows
+publishedDate: 2012-12
+publisher: Nintendo
+sourceType: vendor-documentation
+tier: A
+title: 本体の主な仕様 — Wii U (Wii U Console Tech Specs)
+url: https://web.archive.org/web/20141228181800id_/http://www.nintendo.co.jp/wiiu/hardware/specs/index.html
+usageNote: >-
+  Nintendo's own specification table for this console, in Japanese, and no
+  longer hosted at its original address — the capture is cited because the
+  document is Nintendo's, not the archive's. It is used mostly for what it
+  withholds. The processor and graphics rows name a supplier and an architecture
+  family and no frequency for either, and the table has no main-memory row at
+  all: the storage figure it does give is the console's flash, which is a
+  different quantity. The English-language Nintendo sites never carried an
+  equivalent table.

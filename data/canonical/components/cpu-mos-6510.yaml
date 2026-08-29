@@ -1,0 +1,23 @@
+id: mos-6510
+slug: mos-6510
+kind: cpu
+name: MOS Technology 6510
+manufacturer: MOS Technology
+architecture: MOS 6502
+introducedDate: '1982'
+instructionSet: MOS 6502
+instructionSetFamily: mos-6502
+summary:
+  A 6502 with an on-chip eight-bit bidirectional I/O port. Internally identical
+  to the 6502 for software compatibility; the extra port is what lets the
+  Commodore 64 bank ROM and I/O in and out of a
+  {{context:mos-6510:context-bit-16}} address space.
+notes:
+  56 instructions, thirteen addressing modes, decimal and binary arithmetic, an
+  eight-bit data bus and a sixteen-bit address bus. The part is rated for
+  {{context:mos-6510:context-mhz-1}} and {{context:mos-6510:context-mhz-2}}
+  operation, which is a speed grade rather than the rate any particular machine
+  clocks it at.
+sourceIds:
+  - c64-programmers-reference-guide
+editorialStatus: approved

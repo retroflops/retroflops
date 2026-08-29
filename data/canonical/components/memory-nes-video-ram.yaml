@@ -1,0 +1,13 @@
+architecture: Static RAM
+editorialStatus: approved
+id: nes-video-ram
+kind: memory
+manufacturer: Nintendo
+memoryType: Static RAM
+name: Nintendo Entertainment System video RAM
+slug: nes-video-ram
+sourceIds:
+  - nintendo-nes-tech-specs
+summary:
+  '{{measurement:nes-video-ram:capacity}} of writable memory attached to the
+  picture processor.'

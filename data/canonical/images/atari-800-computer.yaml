@@ -1,0 +1,44 @@
+accessedDate: 2026-08-17
+alt: A beige Atari 800 photographed against white at an angle, a ridged cartridge lid along the top
+  of the case and a column of four function keys, three of them yellow, to the right of the
+  keyboard.
+attribution: Photograph by Evan-Amos, released into the public domain by its author, via Wikimedia Commons.
+canonical:
+  byteLength: 33782
+  format: avif
+  height: 960
+  sha256: 2ae6dd53b307125d3bb33b05abc74b52afd95573e1a93e669b1c171fd6622030
+  width: 1280
+caption: An Atari 800 with its cartridge lid closed. The four joystick ports along the front edge
+  and the cartridge doors on top are the machine as it was sold.
+creator: Evan-Amos
+creatorType: person
+editorialStatus: approved
+id: atari-800-computer
+original:
+  byteLength: 4578401
+  height: 3000
+  mediaType: image/jpeg
+  sha256: 6d5098baf10741af8559846e02b8f2f88f38694408f6abc3b55d1be57e7910b1
+  width: 4590
+originalUrl: https://upload.wikimedia.org/wikipedia/commons/1/10/Atari-800-Computer-FL.jpg
+publisher: Wikimedia Commons
+rights:
+  id: pd-self
+  statedAt: https://commons.wikimedia.org/wiki/File:Atari-800-Computer-FL.jpg
+  statement: "I, the copyright holder of this work, release this work into the public domain. This
+    applies worldwide. In some countries this may not be legally possible; if so: I grant anyone the
+    right to use this work for any purpose, without any conditions, unless such conditions are
+    required by law."
+  url: https://commons.wikimedia.org/wiki/Template:PD-self
+sourcePageUrl: https://commons.wikimedia.org/wiki/File:Atari-800-Computer-FL.jpg
+title: Atari-800-Computer-FL.jpg
+transform:
+  background: "#ffffff"
+  fit: pad
+  note: The photograph is wider than 4:3 and the machine reaches both ends of it, so no crop keeps the
+    whole subject. The declared margin is the same white as the backdrop the photograph was taken
+    against, which is why it cannot be seen; it is recorded because it is there.
+  preset: image-v1
+  sourceHeight: 3000
+  sourceWidth: 4590

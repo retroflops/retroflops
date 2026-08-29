@@ -1,0 +1,20 @@
+id: wikipedia-apple-a9
+title: Apple A9
+publisher: Wikipedia contributors
+accessedDate: 2026-08-26
+locator: Infobox and Design section
+extract: >-
+  Max. CPU clock rate 1.85 GHz (iPhone 6s, iPhone 6s Plus, iPhone SE) [...] The A9 also features a custom PowerVR Series7XT @ 650 MHz GPU, featuring 6x custom shader cores
+tier: C
+sourceType: wiki
+url: https://en.wikipedia.org/wiki/Apple_A9
+editorialStatus: provisional
+usageNote: >-
+  Tier C community article used only for the provisional processor and graphics clocks of the iPhone 6s.
+fetch:
+  url: https://en.wikipedia.org/wiki/Apple_A9
+  fetchedAt: 2026-08-26T10:20:34Z
+  httpStatus: 200
+  contentType: text/html; charset=UTF-8
+  byteLength: 266135
+  sha256: 7b322e2b14ca37684c8b01feac59a643a5ad792cfb56fb76cabe5ba35e3121f0

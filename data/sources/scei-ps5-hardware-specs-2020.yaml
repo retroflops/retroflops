@@ -1,0 +1,27 @@
+accessedDate: 2026-08-03
+editorialStatus: approved
+fetch:
+  byteLength: 168716
+  contentType: text/html; charset=UTF-8
+  fetchedAt: 2026-08-03T21:20:59Z
+  httpStatus: 200
+  sha256: b9ec02b6cd5cb78a6e64f8e3f4fe1ffdf44c9f3497ef92e4154c32569ba935b5
+  url: https://blog.playstation.com/2020/03/18/unveiling-new-details-of-playstation-5-hardware-technical-specs/
+id: scei-ps5-hardware-specs-2020
+license: Copyright Sony Interactive Entertainment. Quoted here under
+  short-extract fair use for verification of the figures cited.
+locator: Specification table at the foot of the article
+publishedDate: 2020-03-18
+publisher: Sony Interactive Entertainment
+sourceType: vendor-documentation
+tier: A
+title: "Unveiling New Details of PlayStation 5: Hardware Technical Specs [UPDATED]"
+url: https://blog.playstation.com/2020/03/18/unveiling-new-details-of-playstation-5-hardware-technical-specs/
+usageNote: >-
+  The only specification table Sony has published for the PlayStation 5, and it
+  was published eight months before the console shipped. Its own headline says
+  [UPDATED] and the table has been edited since — the graphics rate now reads
+  10.3 TFLOPS where the March 2020 article read 10.28, and the compute-unit
+  count is gone — so it is treated throughout as a pre-launch document that is
+  still being revised, which is what holds every figure taken from it
+  provisional.

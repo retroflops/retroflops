@@ -1,0 +1,17 @@
+id: amiga-ocs:context-mb-1
+subject:
+  kind: component
+  id: amiga-ocs
+label: Capacity
+quantity:
+  state: value
+  value: '1'
+  unit: MB
+  significantDigits: 1
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - amiga-hardware-reference-manual
+evidenceLevel: confirmed

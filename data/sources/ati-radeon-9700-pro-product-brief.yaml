@@ -1,0 +1,23 @@
+accessedDate: 2026-08-13
+editorialStatus: approved
+extract: >-
+  Radeon 9700 Pro reference design: 325 MHz engine clock; 128 MB DDR memory;
+  19.8 GB/s memory bandwidth. The source states neither a general FP32 FLOPS
+  peak nor a board-power rating.
+fetch:
+  byteLength: 32734
+  contentType: text/html
+  fetchedAt: 2026-08-13T14:52:37Z
+  finalUrl: https://web.archive.org/web/20030715195140/http://www.ati.com/products/radeon9700/radeon9700pro/index.html
+  httpStatus: 200
+  sha256: a554d4b633477bf2624dc37129b8170f7a5134207330ad855c5f0140417e57d2
+  url: https://web.archive.org/web/20030101000000/http://www.ati.com/products/radeon9700/radeon9700pro/index.html
+id: ati-radeon-9700-pro-product-brief
+license: Copyright retained by the publisher. Short extracts are recorded solely
+  to verify the cited specifications.
+locator: Reference-card specification table and architecture summary
+publisher: ATI Technologies Inc.
+sourceType: vendor-documentation
+tier: A
+title: ATI Radeon 9700 Pro — reference specifications
+url: https://web.archive.org/web/20030101000000/http://www.ati.com/products/radeon9700/radeon9700pro/index.html

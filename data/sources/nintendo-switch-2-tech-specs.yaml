@@ -1,0 +1,22 @@
+id: nintendo-switch-2-tech-specs
+title: Nintendo Switch 2 Tech Specs
+publisher: Nintendo
+url: https://www.nintendo.com/us/gaming-systems/switch-2/tech-specs/
+accessedDate: 2026-08-26
+locator: Nintendo Switch 2 technical-specification table
+tier: A
+sourceType: vendor-documentation
+editorialStatus: provisional
+license: Copyright Nintendo. Quoted here under short-extract fair use for
+  verification of the cited specifications.
+usageNote: >-
+  Nintendo identifies a custom NVIDIA processor and states the shipped screen,
+  storage, and battery facts, but publishes no processor clocks, working-memory
+  capacity, transfer rate, or floating-point rate.
+fetch:
+  url: https://www.nintendo.com/us/gaming-systems/switch-2/tech-specs/
+  fetchedAt: 2026-08-26T19:26:53Z
+  httpStatus: 200
+  contentType: text/html; charset=utf-8
+  byteLength: 311916
+  sha256: 57fbe5ea8d0871f3ac82c2d32d06d31954c4824b6a3e8d4f6c242d2b8c9d484e

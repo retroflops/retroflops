@@ -1,0 +1,14 @@
+id: macintosh-128k-rom
+slug: macintosh-128k-rom
+kind: memory
+name: Macintosh 128K ROM
+manufacturer: Apple Computer
+architecture: Mask ROM
+introducedDate: '1984'
+memoryType: Mask ROM
+summary:
+  '{{measurement:macintosh-128k-rom:capacity}} read-only Macintosh Toolbox
+  firmware.'
+sourceIds:
+  - macintosh-128k-technical-reference
+editorialStatus: provisional

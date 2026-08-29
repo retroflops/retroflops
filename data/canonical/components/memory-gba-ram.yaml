@@ -1,0 +1,13 @@
+architecture: EWRAM and IWRAM
+editorialStatus: provisional
+id: gba-ram
+kind: memory
+manufacturer: Nintendo
+memoryType: Static RAM
+name: Game Boy Advance writable RAM
+slug: gba-ram
+sourceIds:
+  - game-boy-advance-technical-manual
+summary:
+  '{{context:gba-ram:context-kib-288}} total writable main and internal work
+  RAM.'

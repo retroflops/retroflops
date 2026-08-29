@@ -1,0 +1,57 @@
+configurations:
+  - entries:
+      - componentId: nes-2a03
+        count: 1
+        role: main-cpu
+        shared: false
+        measurementIds:
+          - nintendo-entertainment-system:cpu-clock-frequency
+      - componentId: nes-ppu
+        count: 1
+        role: gpu
+        shared: false
+        measurementIds:
+          - nintendo-entertainment-system:gpu-clock-frequency
+      - componentId: nes-ram
+        count: 1
+        role: system-memory
+        shared: false
+        measurementIds:
+          - nes-ram:capacity
+      - componentId: nes-video-ram
+        role: video-memory
+        count: 1
+        shared: false
+        notes: >-
+          Attached to the picture processor; the CPU reaches it only through the
+          PPU ports.
+        measurementIds:
+          - nes-video-ram:capacity
+    id: ntsc
+    label: NTSC retail console
+    region: North America
+editorialStatus: approved
+id: nintendo-entertainment-system
+manufacturer: Nintendo
+name: Nintendo Entertainment System
+aliases:
+  - NES
+notes: >-
+  Cartridge ROM is removable storage and is excluded from every whole-system
+  memory total in this catalog.
+region: North America
+releaseDate: 1985-10
+slug: nintendo-entertainment-system
+imageIds:
+  - nintendo-entertainment-system-console
+sourceIds:
+  - nintendo-nes-tech-specs
+summary: >-
+  An NTSC {{measurement:nintendo-entertainment-system:cpu-clock-frequency}} 2A03
+  with {{measurement:nes-ram:capacity}} work RAM and a tile-and-sprite PPU.
+description: >-
+  This is the North American retail NES configuration, built around Nintendo's
+  2A03 and its separate picture processor. It belongs here as the console that
+  carried Nintendo's cartridge hardware into the North American home market.
+type: console
+family: nintendo-home-console

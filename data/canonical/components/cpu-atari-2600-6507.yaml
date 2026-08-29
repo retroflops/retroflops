@@ -1,0 +1,12 @@
+architecture: MOS 6502
+editorialStatus: provisional
+id: atari-2600-6507
+instructionSet: MOS 6502
+instructionSetFamily: mos-6502
+kind: cpu
+manufacturer: MOS Technology
+name: MOS Technology 6507
+slug: atari-2600-6507
+sourceIds:
+  - atari-2600-stella-programming-guide
+summary: Cost-reduced 6502 with a thirteen-bit address bus.

@@ -1,0 +1,32 @@
+- extract: >-
+    商品名：PLAYSTATION®3
+
+    CPU：Cell プロセッサ
+
+    GPU：RSX®
+
+    メモリ：256MB XDR Main RAM, 256MB GDDR3 VRAM
+
+    外形寸法：約325×98×274mm（幅×高さ×奥行き）（突起物含まず）
+
+    質量：約5kg
+  extractHash: 2d15a6fe7f1c1e6530db1b4f89bb4cc84f976b9afe8e63d6748c79705b38f60a
+  id: scei-ps3-2006:specification
+  locator: page 3 of 3, <PLAYSTATION®3> specification table
+  notes: >-
+    In English: product name PLAYSTATION 3; CPU, Cell processor; GPU, RSX;
+    memory, 256MB XDR Main RAM, 256MB GDDR3 VRAM; external dimensions
+    approximately 325 × 98 × 274 mm (width × height × depth, excluding
+    projections); mass approximately 5 kg. This is the specification of the
+    console Sony launched, and what it leaves out is the point: it names the two
+    processors without a clock for either, and states no floating-point figure
+    at all. The rows for storage, ports, communications and optical drive are
+    omitted here as outside the catalog's model.
+  sourceId: scei-ps3-launch-2006
+  transcribed:
+    significantDigits: 3
+    state: value
+    unit: MiB
+    value: '256'
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-07-29

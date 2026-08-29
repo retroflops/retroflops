@@ -1,0 +1,11 @@
+architecture: Dynamic RAM
+editorialStatus: provisional
+id: nintendo-ds-ram
+kind: memory
+manufacturer: Nintendo
+memoryType: Dynamic RAM
+name: Nintendo DS main RAM
+slug: nintendo-ds-ram
+sourceIds:
+  - nintendo-ds-technical-reference
+summary: '{{context:nintendo-ds-ram:context-mib-4}} writable main RAM.'

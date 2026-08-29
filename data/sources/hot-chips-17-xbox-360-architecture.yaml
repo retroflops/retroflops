@@ -1,0 +1,26 @@
+accessedDate: 2026-08-13
+author: Jeff Andrews and Nick Baker, Xbox Semiconductor Technology Group, Microsoft
+editorialStatus: approved
+fetch:
+  byteLength: 269250
+  contentType: application/pdf
+  fetchedAt: 2026-08-13T18:08:04Z
+  httpStatus: 200
+  sha256: f1c47d60f439032b207984b6316ab61a7ebc4ed66fa85d3b0ed77d62d609d906
+  url: https://old.hotchips.org/wp-content/uploads/hc_archives/hc17/3_Tue/HC17.S8/HC17.S8T4.pdf
+id: hot-chips-17-xbox-360-architecture
+license: Copyright Microsoft / Hot Chips. Quoted here under short-extract fair
+  use for verification of the figure cited.
+locator: Slide 4, 'Hardware Designed for Games'
+publishedDate: 2005-08
+publisher: Hot Chips 17 (IEEE Technical Committee on Microprocessors and Microcomputers)
+sourceType: independent-analysis
+tier: B
+title: Xbox 360 System Architecture (Hot Chips 17)
+url: https://old.hotchips.org/wp-content/uploads/hc_archives/hc17/3_Tue/HC17.S8/HC17.S8T4.pdf
+usageNote: >-
+  Written by Microsoft's own silicon engineers but published as a conference
+  presentation, so it is held at tier B rather than treated as vendor
+  documentation. Slide 10, 'GPU Specs', quantifies the graphics processor in
+  shader instructions per second, fill rate and triangle rate and states no
+  floating-point rate, which is why the console's FP32 row stays unknown.

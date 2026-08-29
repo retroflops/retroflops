@@ -1,0 +1,24 @@
+accessedDate: 2026-08-13
+editorialStatus: approved
+fetch:
+  byteLength: 151407
+  contentType: text/html
+  fetchedAt: 2026-08-13T18:15:25Z
+  finalUrl: https://www.nintendo.com/it-it/Assistenza/Console-precedenti/Set-Adattatore-AC-DC-alimentatore-per-il-Game-Boy-Advance--619486.html
+  httpStatus: 200
+  sha256: b85356bd99a50e2f3c5103c91997ae4176d44ef982b141f972a4410116a246d4
+  url: https://www.nintendo.com/it-it/Assistenza/Game-Boy-Advance/Accessori/Set-Adattatore-AC-DC-alimentatore-per-il-Game-Boy-Advance-/Set-Adattatore-AC-DC-alimentatore-per-il-Game-Boy-Advance--619486.html
+id: nintendo-gba-ac-adapter-set
+license: Copyright Nintendo. Quoted here under short-extract fair use for
+  verification of the figure cited.
+locator: AC-DC adapter technical specifications, Power in and Power out lines
+publisher: Nintendo
+sourceType: vendor-documentation
+tier: A
+title: Set Adattatore AC-DC (alimentatore per il Game Boy Advance)
+url: https://www.nintendo.com/it-it/Assistenza/Game-Boy-Advance/Accessori/Set-Adattatore-AC-DC-alimentatore-per-il-Game-Boy-Advance-/Set-Adattatore-AC-DC-alimentatore-per-il-Game-Boy-Advance--619486.html
+usageNote: >-
+  Cited for an absence. Nintendo rates this adapter, and the page is explicit
+  that it is an accessory bought separately for a handheld that ships running on
+  two AA cells. A rating for a power source most units never used is not the
+  machine's rated consumption, so the figure is recorded as the near miss it is.

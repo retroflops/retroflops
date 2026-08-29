@@ -1,0 +1,19 @@
+id: sony-playstation-3:context-gb-60
+subject:
+  kind: system
+  id: sony-playstation-3
+label: Capacity
+quantity:
+  state: value
+  value: '60'
+  unit: GB
+  significantDigits: 2
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - scei-ps3-cecha01-manual
+extractIds:
+  - scei-ps3-cecha01:power
+evidenceLevel: confirmed

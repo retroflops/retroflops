@@ -1,0 +1,18 @@
+id: ps2-emotion-engine:context-bit-64
+subject:
+  kind: component
+  id: ps2-emotion-engine
+label: Word size
+quantity:
+  state: value
+  value: '64'
+  unit: bit
+  significantDigits: 2
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - scei-ps2-specifications-1999
+  - scei-ee-gs-single-chip-2003
+evidenceLevel: confirmed

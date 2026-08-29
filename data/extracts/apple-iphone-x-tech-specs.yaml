@@ -1,0 +1,11 @@
+- extract: '64GB 256GB'
+  extractHash: 4d6c0c54157d28042632b510b3ed507387e58a13c8541f68600b2f8a601af953
+  id: apple-iphone-x-tech-specs:capacity
+  locator: Capacity section
+  notes: >-
+    Apple lists the flash capacities the phone was sold in and nothing about the
+    memory it runs programs in. The two are different quantities and are kept in
+    different metrics; this is the number printed on the box.
+  sourceId: apple-iphone-x-tech-specs
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-24

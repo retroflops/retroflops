@@ -1,0 +1,24 @@
+id: anandtech-iphone-3gs-gpu-2009
+title: The iPhone 3GS Hardware Exposed & Analyzed
+publisher: AnandTech
+author: Anand Lal Shimpi
+publishedDate: 2009-06-10
+accessedDate: 2026-08-25
+url: https://web.archive.org/web/20131220060523id_/http://www.anandtech.com/show/2782/3
+archiveUrl: https://web.archive.org/web/20131220060523/http://www.anandtech.com/show/2782/3
+locator: Page 3, PowerVR SGX discussion
+extract: The iPhone 3GS, I believe, uses the 520.
+tier: B
+sourceType: independent-analysis
+license: Copyright AnandTech. Quoted here under short-extract fair use for verification.
+usageNote: >-
+  AnandTech no longer serves this article to automated clients. This Wayback
+  capture returns the 2009 article bytes without archive navigation.
+fetch:
+  url: https://web.archive.org/web/20131220060523id_/http://www.anandtech.com/show/2782/3
+  finalUrl: https://web.archive.org/web/20131217041134id_/http://www.anandtech.com/show/2782/3
+  fetchedAt: 2026-08-25T14:43:29Z
+  httpStatus: 200
+  contentType: text/html; charset=utf-8
+  byteLength: 74228
+  sha256: f58ecb35cbedf420879dc64473c1c5676a07480ac81c07fdd7637648a6826d12

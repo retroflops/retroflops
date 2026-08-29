@@ -1,0 +1,20 @@
+id: sega-dreamcast:whole-system-memory-bandwidth
+formula:
+  id: sum
+  version: '1'
+  expression: a + b + …
+inputMeasurementIds:
+  - dreamcast-main-ram:bandwidth
+exclusions: []
+result:
+  state: value
+  value: '800000000'
+  unit: B/s
+  significantDigits: 9
+rounding: none
+caveat: >-
+  Adds 1 memory-bandwidth figure obtained by theoretical-peak. Nothing in the
+  catalog is left out of it. A total is only as trustworthy as the decision
+  about what belongs in it, so both the terms and the exclusions are named
+  records.
+editorialStatus: approved

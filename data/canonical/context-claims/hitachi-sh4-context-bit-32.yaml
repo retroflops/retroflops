@@ -1,0 +1,17 @@
+id: hitachi-sh4:context-bit-32
+subject:
+  kind: component
+  id: hitachi-sh4
+label: Word size
+quantity:
+  state: value
+  value: '32'
+  unit: bit
+  significantDigits: 2
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - dreamcast-hardware-spec
+evidenceLevel: confirmed

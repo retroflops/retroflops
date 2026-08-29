@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2278 512" width="2278" height="512" role="img"
+  aria-labelledby="logo-title">
+  <title id="logo-title">RetroFlops</title>
+
+  <!--
+    The master artwork. Every icon, social image and favicon this repository
+    ships is composed from the definitions below by `pnpm brand:icons`; nothing
+    downstream redraws a curve, so the mark and the wordmark can never drift
+    apart. Edit this file, run the generator, commit what it wrote.
+
+    One stencil alphabet serves both: the R and F of the mark are the same
+    glyphs as the R and F of the word, set heavier. Each glyph is drawn on a
+    56 x 80 ink box with a 12-unit stroke and square caps, advancing 68 units,
+    so the letters can be laid out by translation alone.
+  -->
+
+  <defs>
+    <path id="glyph-r" d="M6 74V6H32A14 14 0 0 1 32 34H6M34 40L50 74" />
+    <path id="glyph-e" d="M50 6H6V74H50M6 40H40" />
+    <path id="glyph-t" d="M6 6H50M28 6V74" />
+    <path id="glyph-o"
+      d="M6 22A16 16 0 0 1 22 6H34A16 16 0 0 1 50 22V58A16 16 0 0 1 34 74H22A16 16 0 0 1 6 58Z" />
+    <path id="glyph-f" d="M6 74V6H50M6 40H40" />
+    <path id="glyph-l" d="M6 6V74H50" />
+    <path id="glyph-p" d="M6 74V6H32A14 14 0 0 1 32 34H6" />
+    <path id="glyph-s" d="M50 6H20A14 14 0 0 0 20 34H30A20 20 0 0 1 30 74H6" />
+
+    <rect id="tile" width="512" height="512" rx="72" ry="72" fill="#1c1e1d" />
+    <rect id="plate" width="512" height="512" fill="#1c1e1d" />
+
+    <!--
+      The mark: R and F inside a 512 square, the phosphor letter first. The
+      group is scaled by 3 and stroked at 16, so the stroke lands at 48 device
+      units — 1.5 px at a 16 px favicon, which is the thinnest line that still
+      survives that size.
+    -->
+    <g id="mark" transform="translate(70 136) scale(3)" fill="none" stroke-width="16"
+      stroke-linecap="square" stroke-linejoin="miter">
+      <use href="#glyph-r" stroke="#16a862" />
+      <use href="#glyph-f" x="68" stroke="#f4f0e6" />
+    </g>
+
+    <!-- RETROFLOPS, ink box 668 x 80, drawn in the inherited text color. -->
+    <g id="wordmark" fill="none" stroke="currentColor" stroke-width="12" stroke-linecap="square"
+      stroke-linejoin="miter">
+      <use href="#glyph-r" />
+      <use href="#glyph-e" x="68" />
+      <use href="#glyph-t" x="136" />
+      <use href="#glyph-r" x="204" />
+      <use href="#glyph-o" x="272" />
+      <use href="#glyph-f" x="340" />
+      <use href="#glyph-l" x="408" />
+      <use href="#glyph-o" x="476" />
+      <use href="#glyph-p" x="544" />
+      <use href="#glyph-s" x="612" />
+    </g>
+  </defs>
+
+  <!-- The horizontal lockup: tile, then the word at half the tile's cap height. -->
+  <use href="#tile" />
+  <use href="#mark" />
+  <g color="#1c1e1d">
+    <use href="#wordmark" transform="translate(608 156) scale(2.5)" />
+  </g>
+</svg>

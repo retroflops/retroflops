@@ -1,0 +1,44 @@
+id: nvidia-geforce-rtx-4090
+slug: nvidia-geforce-rtx-4090
+name: NVIDIA GeForce RTX 4090
+manufacturer: NVIDIA
+type: accelerator
+family: nvidia-geforce
+releaseDate: 2022-10
+region: Worldwide
+summary: >-
+  NVIDIA GeForce RTX 4090:
+  {{measurement:nvidia-geforce-rtx-4090-memory:capacity}} of GDDR6X,
+  {{measurement:nvidia-geforce-rtx-4090-memory:bandwidth}} peak bandwidth, and
+  {{measurement:nvidia-ad102:peak-fp32-rate}} FP32.
+description: >-
+  The reference GeForce RTX 4090 keeps its AD102 FP32 peak, GDDR6X bandwidth,
+  and card power in separate measurements rather than treating them as one
+  score.
+configurations:
+  - id: reference-card
+    label: Reference card
+    releaseDate: 2022-10
+    entries:
+      - componentId: nvidia-ad102
+        role: gpu
+        count: 1
+        shared: false
+        notes: >-
+          The lower declared clock; the separately named upper clock is recorded
+          as a peak-clock measurement.
+        measurementIds:
+          - nvidia-ad102:clock-frequency-base
+          - nvidia-ad102:clock-frequency-boost
+      - componentId: nvidia-geforce-rtx-4090-memory
+        role: video-memory
+        count: 1
+        shared: false
+        measurementIds:
+          - nvidia-geforce-rtx-4090-memory:capacity
+sourceIds:
+  - nvidia-geforce-rtx-4090-product-specifications
+editorialStatus: approved
+notes: >-
+  This accelerator’s whole-system memory is its fitted frame buffer; host memory
+  is excluded. Partner cards may differ from this reference configuration.

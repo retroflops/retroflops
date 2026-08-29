@@ -1,0 +1,19 @@
+- extract: >-
+    The Samsung chips used on our unit are 5ns parts that run at 200MHz DDR
+    offering the effective bandwidth of a 400MHz solution. When combined with
+    NVIDIA's 128-bit TwinBank memory architecture this offers a total of 6.4GB/s
+    of memory bandwidth that is to be shared between the IGP and the CPU.
+  extractHash: 788518271d0ebc428258e2b753933b6be1138251814017b6073d29192c6c03c3
+  id: anandtech-xbox:memory-bandwidth-galore
+  locator: >-
+    'Memory Bandwidth Galore' section, paragraph on the 128-bit TwinBank memory
+    architecture
+  notes: >-
+    Read from the Wayback capture of 8 March 2016, the original address having
+    gone with AnandTech's closure. The article reaches the figure from the
+    memory parts found in a retail console rather than from a specification
+    sheet, and the following paragraph calls these peak theoretical numbers that
+    will never be reached in practice.
+  sourceId: anandtech-xbox-memory-bandwidth-2001
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-13

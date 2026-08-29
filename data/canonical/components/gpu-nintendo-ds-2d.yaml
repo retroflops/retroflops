@@ -1,0 +1,10 @@
+architecture: Tile and sprite graphics engines
+editorialStatus: provisional
+id: nintendo-ds-2d
+kind: gpu
+manufacturer: Nintendo
+name: Nintendo DS 2D engines
+slug: nintendo-ds-2d
+sourceIds:
+  - nintendo-ds-technical-reference
+summary: The Nintendo DS's paired tile and sprite display engines.

@@ -1,0 +1,26 @@
+- extract: >-
+    13.3 D.C. Specifications / Table 13.2. Intel486™ DX Microprocessor DC
+    Parametric Values (for PGA Package) / Symbol Parameter ... Icc Power Supply
+    Current (50 MHz) / Power Supply Current (33 MHz) / Power Supply Current (25
+    MHz) ... NOTES: ... 3. Typical supply current: 550 mA @ 25 MHz / 700 mA @ 33
+    MHz / 800 mA @ 50 MHz
+  extractHash: 5d441ba956ec809f555cba996880ab15480cce11d3da0a885d0aa8b3bb7984ea
+  id: intel-486dx-datasheet:supply-current-33mhz
+  locator:
+    Section 13.3 "D.C. Specifications", Table 13.2, page 192, Icc rows and note
+    3
+  notes: >-
+    Transcribed to establish an absence. The parameter Intel specifies for this
+    part is supply current in milliamps; the page states no wattage and no
+    thermal-design figure, and the Absolute Maximum Ratings above it give
+    temperatures and voltages only. The maximum Icc values could not be
+    transcribed at all: this is an optically-recognized scan whose Min/Max/Unit
+    columns have detached from their rows, so the text layer carries the units
+    and the notes while the maxima stay in the image. Note 3's typical currents
+    are the only numbers on the page that survive as text, and 700 mA at 33 MHz
+    times a 5 V supply is 3.5 W typical — which is a reader's multiplication,
+    not a figure Intel published, and is recorded here only to show how far a
+    period wattage is from being stated.
+  sourceId: intel-486dx-datasheet
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-16

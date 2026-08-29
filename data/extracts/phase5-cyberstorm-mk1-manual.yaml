@@ -1,0 +1,14 @@
+id: cyberstorm-mk1:4-1:clock-jumpers
+sourceId: phase5-cyberstorm-mk1-manual
+locator: Chapter 4, page 5, "Installing the CYBERSTORM Accelerator Card"
+extract: >-
+  The jumpers should be set to position a) for a synchronous CYBERSTORM 68040/25
+  MHz or CYBERSTORM 68060/50 MHz on EXT and to b) for an asynchronous CYBERSTORM
+  68040/40 MHz on INT.
+extractHash: 5c2636bdfe8236ea84d4b4dd483fbd94fb660992734d6885424c3aa87013468a
+transcribedOn: 2026-08-26
+transcribedBy: RetroFlops editorial
+notes: >-
+  This is a third-party accelerator instruction, not Commodore documentation.
+  The 68060 clock belongs only to the named synchronous CYBERSTORM
+  configuration.

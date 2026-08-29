@@ -1,0 +1,29 @@
+id: ps2-emotion-engine
+slug: ps2-emotion-engine
+kind: cpu
+name: Emotion Engine
+manufacturer: Sony Computer Entertainment / Toshiba
+architecture: MIPS III with 128-bit multimedia extensions and two vector units
+introducedDate: 1999-03
+instructionSet:
+  MIPS III (partly MIPS IV) plus a 128-bit parallel multimedia instruction set
+instructionSetFamily: mips
+summary:
+  "Sony and Toshiba's {{context:ps2-emotion-engine:context-bit-128}} CPU for the
+  PlayStation 2: a superscalar MIPS core with
+  {{context:ps2-emotion-engine:context-kb-16}} of instruction cache,
+  {{context:ps2-emotion-engine:context-kb-8}} of data cache and
+  {{context:ps2-emotion-engine:context-kb-16}} of scratchpad, flanked by two
+  vector units carrying nine floating-point multiply-add units between them."
+notes:
+  '"128-bit" describes the register and bus width used by the multimedia
+  instructions, not the address or integer word size, which are
+  {{context:ps2-emotion-engine:context-bit-64}}. The floating-point capacity
+  Sony quotes belongs to the whole chip — the FPU coprocessor plus the two
+  vector units — rather than to the core alone, which is why the peak FP32
+  figure is recorded against the component and not against any one of its
+  blocks.'
+sourceIds:
+  - scei-ps2-specifications-1999
+  - scei-ee-gs-single-chip-2003
+editorialStatus: approved

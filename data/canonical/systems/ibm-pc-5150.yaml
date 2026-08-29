@@ -1,0 +1,52 @@
+id: ibm-pc-5150
+slug: ibm-pc-5150
+name: IBM Personal Computer 5150
+manufacturer: IBM
+type: personal-computer
+releaseDate: 1981-08
+region: United States
+summary: >-
+  IBM's original PC: an 8088 at {{measurement:ibm-pc-5150:clock-frequency}} and
+  a selected {{measurement:ibm-pc-5150-ram:capacity}} base-memory configuration.
+description: >-
+  The 5150's BIOS and Cassette BASIC live in ROM, so the record keeps the
+  read-only capacity separate from base RAM and excludes it from whole-system
+  writable memory.
+configurations:
+  - id: base-16k
+    label: Original 16 KiB base configuration
+    region: United States
+    entries:
+      - componentId: ibm-pc-5150-8088
+        role: main-cpu
+        count: 1
+        shared: false
+        measurementIds:
+          - ibm-pc-5150:clock-frequency
+      - componentId: ibm-pc-5150-video
+        role: gpu
+        count: 1
+        shared: false
+        notes:
+          Representative display-adapter option; the system board has no fixed
+          GPU.
+        measurementIds:
+          - ibm-pc-5150:gpu-clock-frequency
+      - componentId: ibm-pc-5150-ram
+        role: system-memory
+        count: 1
+        shared: false
+        measurementIds:
+          - ibm-pc-5150-ram:capacity
+      - componentId: ibm-pc-5150-rom
+        role: system-memory
+        count: 1
+        shared: false
+        notes: Read-only BIOS and Cassette BASIC ROM.
+        measurementIds:
+          - ibm-pc-5150-rom:capacity
+imageIds:
+  - ibm-pc-5150-computer
+sourceIds:
+  - ibm-pc-technical-reference
+editorialStatus: approved

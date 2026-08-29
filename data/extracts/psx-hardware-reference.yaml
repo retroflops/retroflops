@@ -1,0 +1,75 @@
+- extract: >-
+    The PlayStation uses a customized CPU based on the R3000A, which is a 32-bit
+    RISC CPU. The specifications are as below. [...] Table 2-1: CPU
+    Specifications
+
+    System Clock: 33.8688 MHz
+
+    Bus Width: 32 bit
+
+    I cache: 4KB
+
+    D cache: 1KB (Scratch Pad)
+
+    Endian: Little
+  extractHash: 5b3c83476217ab38ed9dfa35a942020f68e947ab284470d18f67462d5257d2dd
+  id: psx-hw:table-2-1:cpu
+  locator: chapter 2 "CPU and its peripherals", table 2-1 "CPU specifications"
+  notes: >-
+    The ellipsis marks an omitted sentence explaining that the PlayStation's D
+    cache is called a Scratch Pad. The scan lays the table out as a column of
+    item names followed by a column of values; the pairs are rejoined here with
+    a colon.
+  sourceId: psx-hardware-reference
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-07-29
+- extract: >-
+    There is 2 MB of main memory installed in the PlayStation. However, a TLB,
+    which is the virtual memory management device for the R3000 CPU, is not
+    mounted. Therefore, the relationship between the physical address and the
+    logic address of the memory space is always fixed.
+  extractHash: 5afcafdda3b61a33989facdfc0c52911b5b20fcd93d5e8b49cc10e000aab0e71
+  id: psx-hw:ch2:main-memory
+  locator: chapter 2 "CPU and its peripherals", "Memory" section
+  notes: >-
+    "2 MB" here means 2 MiB. The absence of a TLB is kept in the extract because
+    it is why the console's memory map is fixed rather than virtual, which bears
+    on what the 2 MB is actually available for.
+  sourceId: psx-hardware-reference
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-07-29
+- extract: >-
+    In the PlayStation there is the GPU, the graphics drawing processor, and the
+    GTE, geometry transform engine. The GPU is equipped with a CRTC function for
+    screen display and a polygon and sprite high-speed drawing function for the
+    frame buffer. The GTE carries out high speed calculation of coordinate data
+    and light source data as the CPU coprocessor [...] The GPU has 1 MB of video
+    memory (VRAM).
+  extractHash: 63bb7ed29a0c67dd9dbe7571be12a7fde6aee157dd16b306f284800b883b542e
+  id: psx-hw:ch3:gpu-vram
+  locator: chapter 3 "Graphics system", "Overview" and "Frame buffer" sections
+  notes: >-
+    The ellipsis marks the "Frame Buffer" section heading between the two
+    passages. "1 MB" means 1 MiB. The GTE is a coprocessor on the CPU side
+    rather than part of the GPU, which is why the drawing and geometry halves of
+    the graphics system are described separately.
+  sourceId: psx-hardware-reference
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-07-29
+- extract: >-
+    The GTE executes coordinate transformation and light source calculation as a
+    coprocessor to the CPU, for example fixed-point format matrix and vector
+    operations, at high speed by a parallel processing mechanism.
+  extractHash: 91a8cfd757f6cac7d2b0d95c43f44b61ae947422873dde7d0d8611e43947ab58
+  id: psx-hw:ch1:gte-fixed-point
+  locator: chapter 1 "Overview", "Graphics system" section
+  notes: >-
+    Transcribed with no value: the sentence carries no figure and settles a
+    question no figure could. The console's geometry engine works in fixed-point
+    format, stated by the manufacturer's own developer reference, which is the
+    citation a not-applicable floating-point rate needs. Until this sentence was
+    read the record held nothing at all for that quantity, because absent
+    evidence is not evidence of absence.
+  sourceId: psx-hardware-reference
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-04

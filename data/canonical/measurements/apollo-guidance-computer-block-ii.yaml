@@ -1,0 +1,376 @@
+- comparabilityGroup: clock-frequency|cpu|nominal-clock
+  conditions: Master oscillator rate, stated by the report as 2.048 megapulses per second.
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - ntrs-19760016247:page-29:clock
+  id: agc-block-ii:clock-frequency
+  method: nominal-clock
+  metric: clock-frequency
+  normalized:
+    value: "2048000"
+    unit: Hz
+    significantDigits: 4
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 4
+    state: value
+    unit: MHz
+    value: "2.048"
+  scope: cpu
+  sourceIds:
+    - ntrs-19760016247
+  status: vendor-rated
+  subject:
+    id: agc-block-ii
+    kind: component
+  evidenceLevel: confirmed
+- caveat: >-
+    The report gives {{measurement:agc-block-ii:memory-cycle-time}} both in
+    table I and in the running text. Twelve pulses of
+    {{context:agc-block-ii:context-us-0-977}} would be
+    {{context:agc-block-ii:context-us-11-724}}; the rounded figure the report
+    states is the one recorded.
+  comparabilityGroup: memory-cycle-time|cpu|nominal-cycle-time
+  conditions: Twelve time pulses of {{context:agc-block-ii:context-us-0-977}}.
+    Fixed and erasable memory share one cycle time.
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - ntrs-19760016247:page-29:memory-cycle
+    - ntrs-19760016247:table-1
+  id: agc-block-ii:memory-cycle-time
+  method: nominal-cycle-time
+  metric: memory-cycle-time
+  normalized:
+    value: "0.0000117"
+    unit: s
+    significantDigits: 3
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 3
+    state: value
+    unit: us
+    value: "11.7"
+  scope: cpu
+  sourceIds:
+    - ntrs-19760016247
+  status: vendor-rated
+  subject:
+    id: agc-block-ii
+    kind: component
+  evidenceLevel: confirmed
+- comparabilityGroup: instruction-execution-time|cpu|add-instruction
+  conditions: "Single-precision addition: two
+    {{measurement:agc-block-ii:memory-cycle-time}} memory cycles."
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - ntrs-19760016247:table-1
+  id: agc-block-ii:addition-time
+  method: add-instruction
+  metric: instruction-execution-time
+  normalized:
+    value: "0.0000234"
+    unit: s
+    significantDigits: 3
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 3
+    state: value
+    unit: us
+    value: "23.4"
+  scope: cpu
+  sourceIds:
+    - ntrs-19760016247
+  status: vendor-rated
+  subject:
+    id: agc-block-ii
+    kind: component
+  evidenceLevel: confirmed
+- caveat: >-
+    Not comparable with the addition time: a different instruction is a
+    different comparability group, and the ratio between them describes this
+    machine's order code rather than its speed.
+  comparabilityGroup: instruction-execution-time|cpu|multiply-instruction
+  conditions: Four {{measurement:agc-block-ii:memory-cycle-time}} memory cycles.
+    Block I took {{context:agc-block-ii:context-us-117}} for the same operation.
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - ntrs-19760016247:table-1
+  id: agc-block-ii:multiplication-time
+  method: multiply-instruction
+  metric: instruction-execution-time
+  normalized:
+    value: "0.0000468"
+    unit: s
+    significantDigits: 3
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 3
+    state: value
+    unit: us
+    value: "46.8"
+  scope: cpu
+  sourceIds:
+    - ntrs-19760016247
+  status: vendor-rated
+  subject:
+    id: agc-block-ii
+    kind: component
+  evidenceLevel: confirmed
+- caveat: >-
+    A word is {{context:agc-core-rope:context-bit-15}} plus parity. Converting
+    this capacity to bytes needs the word width and is published as a derived
+    claim, never as a unit conversion.
+  comparabilityGroup: memory-capacity-words|memory|design-capacity
+  conditions: Six rope modules; total fixed read-only capacity of the Block II computer.
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - ntrs-19760016247:table-1
+    - ntrs-19760016247:page-25:memory
+  id: agc-core-rope:capacity
+  method: design-capacity
+  metric: memory-capacity-words
+  normalized:
+    value: "36864"
+    unit: word
+    significantDigits: 5
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 5
+    state: value
+    unit: word
+    value: "36864"
+  scope: memory
+  sourceIds:
+    - ntrs-19760016247
+  status: vendor-rated
+  subject:
+    id: agc-core-rope
+    kind: component
+  evidenceLevel: confirmed
+- caveat: >-
+    The first eight locations are central and special registers rather than
+    general storage.
+  comparabilityGroup: memory-capacity-words|memory|design-capacity
+  conditions: Coincident-current ferrite core array wired in 32 by 64 planes.
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - ntrs-19760016247:table-1
+    - ntrs-19760016247:page-25:memory
+  id: agc-erasable-core:capacity
+  method: design-capacity
+  metric: memory-capacity-words
+  normalized:
+    value: "2048"
+    unit: word
+    significantDigits: 4
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 4
+    state: value
+    unit: word
+    value: "2048"
+  scope: memory
+  sourceIds:
+    - ntrs-19760016247
+  status: vendor-rated
+  subject:
+    id: agc-erasable-core
+    kind: component
+  evidenceLevel: confirmed
+- caveat: >-
+    A design figure for the whole unit, not a measured draw under a stated
+    workload and not a cooling-design target. It is not comparable with a
+    component TDP in either direction.
+  comparabilityGroup: rated-power-consumption|whole-system|rated-power
+  conditions: Complete computer including memory, power supply and packaging.
+    Block I drew {{context:apollo-guidance-computer-block-ii:context-w-100-2}}.
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - ntrs-19760016247:table-1
+  id: apollo-guidance-computer-block-ii:rated-power
+  method: rated-power
+  metric: rated-power-consumption
+  normalized:
+    value: "70"
+    unit: W
+    significantDigits: 2
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 2
+    state: value
+    unit: W
+    value: "70"
+  scope: whole-system
+  sourceIds:
+    - ntrs-19760016247
+  status: vendor-rated
+  subject:
+    configurationId: block-ii
+    id: apollo-guidance-computer-block-ii
+    kind: system
+  evidenceLevel: confirmed
+- comparabilityGroup: system-power-draw|whole-system|wall-measurement
+  editorialStatus: approved
+  evidenceStage: shipped
+  id: apollo-guidance-computer-block-ii:system-power-draw
+  method: wall-measurement
+  metric: system-power-draw
+  provenance: vendor
+  quantity:
+    note: >-
+      No measured draw under a stated workload has been found in an acceptable
+      source. The {{measurement:apollo-guidance-computer-block-ii:rated-power}}
+      design rating is recorded separately and is a different quantity.
+    state: unknown
+  unknownAudit:
+    reviewedOn: 2026-08-25
+    routesChecked:
+      - vendor-documentation
+      - independent-analysis
+      - community-source
+    outcome: no-published-candidate
+    summary: >-
+      No workload-qualified system power measurement is present in the checked
+      material.
+  scope: whole-system
+  sourceIds:
+    - ntrs-19760016247
+  status: measured
+  subject:
+    configurationId: block-ii
+    id: apollo-guidance-computer-block-ii
+    kind: system
+- comparabilityGroup: peak-fp32-rate|cpu|theoretical-peak
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - ntrs-19760016247:page-26:central-section
+    - ntrs-19760016247:table-1
+  id: agc-block-ii:peak-fp32-rate
+  method: theoretical-peak
+  metric: peak-fp32-rate
+  provenance: vendor
+  quantity:
+    note: >-
+      The AGC has no floating-point hardware. Its arithmetic unit is a
+      one's-complement fixed-point adder with shifting gates, so there is no
+      rate to state — the question does not apply.
+    state: not-applicable
+  scope: cpu
+  sourceIds:
+    - ntrs-19760016247
+  status: vendor-rated
+  subject:
+    id: agc-block-ii
+    kind: component
+- comparabilityGroup: peak-fp64-rate|cpu|theoretical-peak
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - ntrs-19760016247:page-26:central-section
+    - ntrs-19760016247:table-1
+  id: agc-block-ii:peak-fp64-rate
+  method: theoretical-peak
+  metric: peak-fp64-rate
+  provenance: vendor
+  quantity:
+    note: >-
+      No floating-point hardware. The double-precision instructions in the Block
+      II order code operate on pairs of {{context:agc-block-ii:context-bit-15}}
+      fixed-point words, which is not double-precision floating point.
+    state: not-applicable
+  scope: cpu
+  sourceIds:
+    - ntrs-19760016247
+  status: vendor-rated
+  subject:
+    id: agc-block-ii
+    kind: component
+- caveat: >-
+    Adds 1 memory-capacity-words figure obtained by design-capacity. Left out:
+    {{measurement:agc-core-rope:capacity}} of fixed rope memory (woven at
+    manufacture and unwritable in flight, so it is storage the machine reads
+    from rather than memory it works in). A total is only as trustworthy as the
+    decision about what belongs in it, so both the terms and the exclusions are
+    named records.
+  comparabilityGroup: memory-capacity-words|whole-system|design-capacity
+  conditions: The erasable core memory. The {{measurement:agc-core-rope:capacity}}
+    of fixed rope memory are excluded and named on the claim.
+  derivedFrom: apollo-guidance-computer-block-ii:whole-system-memory-capacity
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - ntrs-19760016247:page-25:memory
+  id: apollo-guidance-computer-block-ii:whole-system-memory-capacity
+  method: design-capacity
+  metric: memory-capacity-words
+  normalized:
+    value: "2048"
+    unit: word
+    significantDigits: 4
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 4
+    state: value
+    unit: word
+    value: "2048"
+  rounding: none
+  scope: whole-system
+  sourceIds:
+    - ntrs-19760016247
+  status: derived
+  subject:
+    id: apollo-guidance-computer-block-ii
+    kind: system
+  evidenceLevel: confirmed
+- caveat: >-
+    Unknown, and the absence says something about the era rather than about the
+    document. A machine whose timing is quoted as an 11.7 microsecond memory
+    cycle is being described in the unit that mattered; bytes per second is a
+    later question, and multiplying the cycle time by the word length to answer
+    it would be this project’s arithmetic rather than the report’s.
+  comparabilityGroup: memory-bandwidth|memory|theoretical-peak
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - ntrs-19760016247:page-29:memory-cycle
+  id: apollo-guidance-computer-block-ii:memory-bandwidth
+  method: theoretical-peak
+  metric: memory-bandwidth
+  provenance: vendor
+  quantity:
+    note: >-
+      The report describes the memory by cycle time and word length rather than
+      by a transfer rate, which is how core-memory machines were specified.
+    state: unknown
+  unknownAudit:
+    reviewedOn: 2026-08-25
+    routesChecked:
+      - vendor-documentation
+      - independent-analysis
+      - community-source
+    outcome: no-compatible-candidate
+    summary: The checked report provides cycle time and word length, not a bandwidth
+      value.
+  scope: memory
+  sourceIds:
+    - ntrs-19760016247
+  status: vendor-rated
+  subject:
+    id: apollo-guidance-computer-block-ii
+    kind: system

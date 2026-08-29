@@ -1,0 +1,17 @@
+id: dreamcast-main-ram:context-bit-64
+subject:
+  kind: component
+  id: dreamcast-main-ram
+label: Word size
+quantity:
+  state: value
+  value: '64'
+  unit: bit
+  significantDigits: 2
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - dreamcast-hardware-spec
+evidenceLevel: confirmed

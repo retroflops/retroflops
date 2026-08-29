@@ -1,0 +1,45 @@
+accessedDate: 2026-08-17
+alt: "A Palit GeForce RTX 5090 GameRock seen face on against pale gray: three black fans set into a
+  shroud patterned with wavy blue, copper and white lines, with the mounting bracket standing out at
+  one end."
+attribution: Photograph by PantheraLeo1359531, licensed CC BY 4.0, via Wikimedia Commons.
+canonical:
+  byteLength: 72011
+  format: avif
+  height: 960
+  sha256: d0dce11fb96ea8e62e23f09a9f79475885677921dd7959cda81e85a29b0ed22a
+  width: 1280
+caption: A Palit GeForce RTX 5090 GameRock. It is a partner card; the frequencies and memory figures
+  in this record are NVIDIA's for the reference design.
+creator: PantheraLeo1359531
+creatorType: person
+editorialStatus: approved
+id: nvidia-geforce-rtx-5090-card
+original:
+  byteLength: 278170376
+  height: 6336
+  mediaType: image/png
+  sha256: 8649fe041871dc527bde38773b21e7d75a6c2bb3bda34614849f7a55ba132633
+  width: 9504
+originalUrl: https://upload.wikimedia.org/wikipedia/commons/0/08/Palit_GeForce_RTX_5090_Gamerock_20250530_HOF3913_RAW-Export.png
+publisher: Wikimedia Commons
+rights:
+  id: cc-by-4.0
+  statedAt: https://commons.wikimedia.org/wiki/File:Palit_GeForce_RTX_5090_Gamerock_20250530_HOF3913_RAW-Export.png
+  statement: "I, the copyright holder of this work, hereby publish it under the following license:
+    This file is licensed under the Creative Commons Attribution 4.0 International license."
+  url: https://creativecommons.org/licenses/by/4.0/
+sourcePageUrl: https://commons.wikimedia.org/wiki/File:Palit_GeForce_RTX_5090_Gamerock_20250530_HOF3913_RAW-Export.png
+title: Palit GeForce RTX 5090 Gamerock 20250530 HOF3913 RAW-Export.png
+transform:
+  fit: crop
+  note: A centered crop off the long edges of a 3:2 original. The card stands clear of both ends of
+    the frame, so the crop takes only the studio backdrop beside it.
+  preset: image-v1
+  region:
+    height: 6336
+    width: 8448
+    x: 528
+    y: 0
+  sourceHeight: 6336
+  sourceWidth: 9504

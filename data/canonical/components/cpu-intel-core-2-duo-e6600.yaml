@@ -1,0 +1,17 @@
+id: intel-core-2-duo-e6600
+slug: intel-core-2-duo-e6600
+kind: cpu
+name: Intel Core 2 Duo E6600
+manufacturer: Intel
+architecture: Core
+introducedDate: 2006-07
+instructionSet: Intel 64
+instructionSetFamily: x86
+summary:
+  A {{context:intel-core-2-duo-e6600:context-unit-2}}-core
+  {{context:intel-core-2-duo-e6600:context-bit-64}} Core 2 desktop processor
+  rated at {{context:intel-core-2-duo-e6600:context-ghz-2-40}}, chosen as the
+  first Core-era desktop point in the line.
+sourceIds:
+  - intel-historical-x86-documentation
+editorialStatus: provisional

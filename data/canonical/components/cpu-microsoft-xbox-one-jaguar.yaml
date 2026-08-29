@@ -1,0 +1,14 @@
+editorialStatus: approved
+id: microsoft-xbox-one-jaguar
+slug: microsoft-xbox-one-jaguar
+kind: cpu
+name: AMD Jaguar
+manufacturer: AMD
+architecture: Jaguar
+introducedDate: '2013'
+instructionSet: x86-64
+instructionSetFamily: x86
+summary: The Microsoft Xbox One main processor.
+sourceIds:
+  - digitalfoundry-xbox-one-clocks-2013
+  - computerbase-xbox-one-test

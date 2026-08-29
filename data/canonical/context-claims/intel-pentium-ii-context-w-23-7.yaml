@@ -1,0 +1,17 @@
+id: intel-pentium-ii:context-w-23-7
+subject:
+  kind: component
+  id: intel-pentium-ii
+label: Contextual value
+quantity:
+  state: value
+  value: '23.7'
+  unit: W
+  significantDigits: 3
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - intel-pentium-ii-datasheet
+evidenceLevel: confirmed

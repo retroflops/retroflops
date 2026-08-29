@@ -1,0 +1,24 @@
+accessedDate: 2026-08-24
+author: Gerhard Lenerz
+editorialStatus: provisional
+id: sgistuff-octane-linpack
+locator: Linpack table, SGI Octane R10000/250MHz row
+publisher: SGIStuff, archived by IRIX Network
+sourceType: independent-analysis
+tier: B
+title: "SGIStuff benchmark results: SGI Octane R10000/250MHz LINPACK run"
+url: https://archive.irixnet.org/sgistuff/funstuff/benchmarks/index.html
+license: No license statement survives on the archived page. The short table row
+  is quoted for verification only.
+usageNote: >-
+  The page states that its figures come from benchmark binaries run on real
+  systems and excludes marketing figures. It identifies the machine, processor,
+  operating system, compiler flags and result, but it does not record a date or
+  a LINPACK variant. The result is therefore provisional.
+fetch:
+  url: https://archive.irixnet.org/sgistuff/funstuff/benchmarks/index.html
+  fetchedAt: 2026-08-24T08:00:20Z
+  httpStatus: 200
+  contentType: text/html
+  byteLength: 69448
+  sha256: 657504c3f6d80e31ded6ed3afd4111a45215822f0d4ae37474fc22a228ac0bcc

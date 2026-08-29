@@ -1,0 +1,457 @@
+{
+  "$comment": "Hosts data:fetch may contact. Adding one is a reviewed change, not a side effect of adding a source. Every entry must be HTTPS and should be as narrow as the source allows.",
+  "entries": [
+    {
+      "host": "msxtop.msxall.com",
+      "pathPrefix": "/mts/wp-content/uploads/2022/11/MTS3-Complete-English.pdf",
+      "note": "Fixed public MSX Top Secret 3 PDF, used with MSXInfo for the standard MSX clock."
+    },
+    {
+      "host": "www.msxinfo.net",
+      "pathPrefix": "/msx-specifications/",
+      "note": "MSX Information Network specification page, used as a second independent confirmation of the standard MSX clock."
+    },
+    {
+      "host": "makeclassicgames.dev",
+      "pathPrefix": "/pdfs/PCE.pdf",
+      "note": "Fixed PC Engine technical overview PDF, used with a hardware-history source for the HuC6280 clock."
+    },
+    {
+      "host": "cdn.hackaday.io",
+      "pathPrefix": "/files/1649347056536256/History%20of%20Video%20Games-Four%20Decades%20of%20Video%20Entertainment.pdf",
+      "note": "Fixed public hardware-history PDF, used as a second PC Engine clock source."
+    },
+    {
+      "host": "marcan.st",
+      "pathPrefix": "/uploads/25c3_console_hacking/",
+      "note": "Marcan's public 25C3 Wii security presentation, pinned to the asset directory used for independent hardware-memory analysis."
+    },
+    {
+      "host": "www.copetti.org",
+      "pathPrefix": "/writings/consoles/wii/",
+      "note": "Rodrigo Copetti's technical Wii architecture analysis, pinned to the exact public article used as a second independent memory confirmation."
+    },
+    {
+      "host": "www.nintendo.com",
+      "pathPrefix": "/eu/media/downloads/support_1/wii_21/Wii_HW_MAN_RVK_UKV_300_NFRP_1_2012.pdf",
+      "note": "Nintendo Europe's public PDF of the RVL-001 Wii Operations Manual. Pinned to the manual asset for a vendor specification reading."
+    },
+    {
+      "host": "www.6502.org",
+      "pathPrefix": "/documents/datasheets/mos/mos_6532_riot.pdf",
+      "redirectHosts": ["6502.org"],
+      "note": "Fixed MOS Technology 6532 RIOT datasheet mirror. The mirror is the custodian; MOS authored the component datasheet used for the Atari 2600 RAM capacity."
+    },
+    {
+      "host": "www.atarimania.com",
+      "pathPrefix": "/2600/files/vcs_domestic_field_service_manual.pdf",
+      "note": "Atarimania's fixed scan of Atari's 2600/2600A domestic field service manual. The site is the custodian; Atari authored the manual."
+    },
+    {
+      "host": "csassets.nintendo.com",
+      "pathPrefix": "/noaext/image/private/t_KA_PDF/WiiOpMn_EN_setup",
+      "note": "Nintendo of America's public PDF delivery path for the Wii RVL-001 Operations Manual. Pinned to the manual asset, which is the cited vendor document."
+    },
+    {
+      "host": "www.tomshardware.com",
+      "pathPrefix": "/picturestory/464-nvidia-graphics-cards.html",
+      "note": "Tom's Hardware's graphics-card history, pinned to the exact GeForce 256 specification table used as a second independent confirmation of its core clock."
+    },
+    {
+      "host": "www.computerbase.de",
+      "pathPrefix": "/artikel/grafikkarten/die-erste-nvidia-geforce-retro.73458/",
+      "note": "ComputerBase's retrospective technical review of the GeForce 256, pinned to the exact article used as the second independent confirmation of its core clock."
+    },
+    {
+      "host": "en.wikipedia.org",
+      "pathPrefix": "/wiki/GeForce_256",
+      "note": "Wikipedia's GeForce 256 specification table, pinned as a Tier C community source for the SDR and DDR reference configurations."
+    },
+    {
+      "host": "www.hardware.fr",
+      "pathPrefix": "/articles/420-3/",
+      "note": "Hardware.fr's technical history of the original 3dfx Voodoo Graphics, pinned to the exact article used for its graphics-clock figure."
+    },
+    {
+      "host": "www.tomshardware.fr",
+      "pathPrefix": "/3dfx-de-la-voodoo-au-rampage-en-images/",
+      "note": "Tom's Hardware France retrospective on 3dfx cards, pinned to the exact Voodoo Graphics article used as the second independent confirmation of the clock figure."
+    },
+    {
+      "host": "ntrs.nasa.gov",
+      "pathPrefix": "/api/citations/",
+      "note": "NASA Technical Reports Server. Primary evidence for Apollo Guidance Computer and Saturn LVDC figures."
+    },
+    {
+      "host": "download.bls.gov",
+      "pathPrefix": "/pub/time.series/cu/",
+      "note": "U.S. Bureau of Labor Statistics CPI time-series files. The CPI-U snapshot used to express the catalog's U.S. launch prices in July 2026 dollars is fetched here and frozen by hash."
+    },
+    {
+      "host": "www.spec.org",
+      "pathPrefix": "/",
+      "note": "Published SPEC CPU results. Quotation is subject to the SPEC Fair Use Rules, recorded on each source's usageNote."
+    },
+    {
+      "host": "web.archive.org",
+      "pathPrefix": "/web/",
+      "note": "Wayback captures, used when a primary source is no longer hosted at its original address."
+    },
+    {
+      "host": "www.ifixit.com",
+      "pathPrefix": "/News/5317/iphone-5s-teardown-completed",
+      "note": "iFixit's fixed iPhone 5s teardown report, used as independent evidence for installed RAM."
+    },
+    {
+      "host": "www.ifixit.com",
+      "pathPrefix": "/News/7390/iphone-6s",
+      "note": "iFixit's fixed iPhone 6s teardown report, used as independent evidence for installed RAM."
+    },
+    {
+      "host": "www.ifixit.com",
+      "pathPrefix": "/News/9415/teardown-iphone-x",
+      "note": "iFixit's fixed iPhone X teardown report, used as independent evidence for installed RAM."
+    },
+    {
+      "host": "archive.org",
+      "pathPrefix": "/download/",
+      "redirectHosts": [".archive.org"],
+      "note": "Internet Archive item files. Scans of vendor documentation whose publishers no longer host it — Commodore manuals and similar. The archive is the custodian, not the author: the tier is decided by who wrote the document. Download URLs redirect to a per-item storage node such as dn760008.eu.archive.org, so any host under archive.org is permitted as a redirect target."
+    },
+    {
+      "host": "www.minuszerodegrees.net",
+      "pathPrefix": "/manuals/IBM_5150_Technical_Reference_6025005_AUG81.pdf",
+      "note": "Mirror of IBM's first-edition 5150 Technical Reference, pinned to the exact manual file. The mirror is the custodian; IBM wrote the manual and determines its tier."
+    },
+    {
+      "host": "segaretro.org",
+      "pathPrefix": "/images/",
+      "note": "Sega Retro's file store, which holds scans of Sega's own service manuals. The wiki around them is an enthusiast encyclopedia and is not cited; only the uploaded documents are, on the same principle as the Internet Archive — the site is the custodian, not the author, and the tier follows whoever wrote the document. A service manual carries a specification page and a power rating that Sega published nowhere else.",
+      "$comment": "Pinned to the file store rather than the wiki, so an article can never become a citation by accident."
+    },
+    {
+      "host": "datasheets.chipdb.org",
+      "pathPrefix": "/Intel/x86/",
+      "note": "chipdb's mirror of Intel processor datasheets, pinned to the x86 directory. Same principle as the Internet Archive and Sega Retro: the site is the custodian, not the author, and the tier follows Intel. Each file kept here carries Intel's own order number and date on its cover, which is what makes the mirrored copy checkable — and these datasheets are where the pre-2000 parts state a thermal figure at all, Intel's own servers having stopped serving them.",
+      "$comment": "Pinned to the datasheet directory: nothing else on this host is cited."
+    },
+    {
+      "host": "download.intel.com",
+      "pathPrefix": "/design/Pentium4/datashts/",
+      "note": "Intel's own legacy download host, pinned to the Pentium 4 datasheet directory. This is the earliest x86 part in the catalog whose datasheet prints a column headed Thermal Design Power."
+    },
+    {
+      "host": "www.intel.com",
+      "pathPrefix": "/content/www/us/en/products/sku/",
+      "note": "Intel's per-processor specification records. These are living pages with no revision and no date, so what is fetched is the specification as of the day of the fetch; the accessed date on each source is the whole of its provenance. Pinned to the per-SKU path rather than the product tree, so a marketing page can never become a citation.",
+      "$comment": "The English-language path is pinned because the same record is served per region and a figure should not depend on which one was fetched."
+    },
+    {
+      "host": "cdrdv2-public.intel.com",
+      "pathPrefix": "/",
+      "note": "Intel's public document delivery host, which serves the quick reference guides and the export-compliance matrices by numeric identifier. There is no meaningful path to pin to: the identifier is the whole address."
+    },
+    {
+      "host": "www.bitsavers.org",
+      "pathPrefix": "/components/",
+      "note": "Bitsavers' component documentation archive, pinned to the datasheet and databook directory. Custodian rather than author, as with the Internet Archive. Many of these files are image-only scans whose text layer is unreliable, so a figure read from one belongs in a research record with a note about what the scan did and did not render.",
+      "$comment": "Pinned to /components/ so the software and systems archives do not become citable by accident."
+    },
+    {
+      "host": "8bs.com",
+      "pathPrefix": "/othrdnld/manuals/archi/A500TechRef-pdf.zip",
+      "note": "8BS's fixed download of Acorn's A500/R200 Technical Reference Manual. The archive is the custodian; Acorn authored the manual."
+    },
+    {
+      "host": "www.commodore.ca",
+      "pathPrefix": "/manuals/",
+      "note": "Commodore manual mirror, used for the chapter-split scans of the Commodore 64 Programmer's Reference Guide."
+    },
+    {
+      "host": "sonyinteractive.com",
+      "pathPrefix": "/en/press-releases/",
+      "note": "Sony Interactive Entertainment's own press-release archive, still serving releases issued under the Sony Computer Entertainment name. Vendor statements about vendor hardware."
+    },
+    {
+      "host": "www.apple.com",
+      "pathPrefix": "/newsroom/",
+      "note": "Apple's own press releases. Vendor statements about vendor hardware, and for Apple Silicon the only place a transistor count or a graphics throughput figure is published at all."
+    },
+    {
+      "host": "www.nvidia.com",
+      "pathPrefix": "/en-us/data-center/",
+      "note": "NVIDIA's data-center product pages, which carry the published specification table for each accelerator. Pinned to the English-language data-center section rather than the whole site."
+    },
+    {
+      "host": "www.nvidia.com",
+      "pathPrefix": "/en-us/geforce/",
+      "note": "NVIDIA's consumer graphics section: the current product pages and the dated GeForce articles that carry a card's launch specification table. A separate entry from the data-center one because it is a separate part of the site — the accelerator entry never opened a path to the GeForce cards."
+    },
+    {
+      "host": "international.download.nvidia.com",
+      "pathPrefix": "/geforce-com/international/pdfs/",
+      "note": "NVIDIA's own download host for GeForce architecture whitepapers. Pinned to the PDF directory: these documents carry the specification tables the product pages stopped printing, and nothing else under this host is cited."
+    },
+    {
+      "host": "images.nvidia.com",
+      "pathPrefix": "/aem-dam/Solutions/geforce/",
+      "note": "The later home of the same GeForce whitepapers; NVIDIA moved the series to this host without moving the older documents. Pinned to the GeForce solutions directory."
+    },
+    {
+      "host": "images.nvidia.com",
+      "pathPrefix": "/content/geforce-gtx/",
+      "note": "NVIDIA's legacy GeForce whitepapers, pinned to the historical GeForce asset directory used for the GeForce 6 and GeForce 8 architecture documents."
+    },
+    {
+      "host": "www.amd.com",
+      "pathPrefix": "/en/products/graphics/desktops/radeon/7000-series/",
+      "note": "AMD's Radeon 7000-series product specifications, pinned to the desktop graphics product path."
+    },
+    {
+      "host": "blog.playstation.com",
+      "pathPrefix": "/2020/",
+      "note": "Sony Interactive Entertainment's own editorial site, and the only place Sony published a PlayStation 5 specification table. Vendor statements about vendor hardware, pinned to the year the specification was published."
+    },
+    {
+      "host": "support.apple.com",
+      "pathPrefix": "/en-us/",
+      "note": "Apple's technical specification pages, one per model. The English-language path is pinned because the same document is served per region and the figures should not depend on which one was fetched."
+    },
+    {
+      "host": "www.notebookcheck.net",
+      "pathPrefix": "/Apple-A19-Processor-Benchmarks-and-Specs.1127048.0.html",
+      "note": "Notebookcheck's fixed Apple A19 analysis, used as independent evidence for the iPhone 17's reported CPU, GPU, and memory specifications."
+    },
+    {
+      "host": "www.techpowerup.com",
+      "pathPrefix": "/336766/final-nintendo-switch-2-specifications-surface-cpu-gpu-memory-and-system-reservation",
+      "note": "TechPowerUp's fixed Switch 2 hardware analysis, used for reported processor, graphics, and memory figures Nintendo's own table omits."
+    },
+    {
+      "host": "www.techmonitor.ai",
+      "pathPrefix": "/hardware/motorola_finally_ready_with_68040_samples_volume_in_july",
+      "note": "Contemporary periodical report of Motorola's 68040 launch performance claims, pinned to the one article used for the 25 MHz part's peak floating-point rate."
+    },
+    {
+      "host": "www.nintendo.com",
+      "pathPrefix": "/us/gaming-systems/switch-2/tech-specs/",
+      "note": "Nintendo of America's Switch 2 technical-specification page. It establishes the shipped console and records the vendor's published hardware facts and omissions."
+    },
+    {
+      "host": "www.retromaniek.pl",
+      "pathPrefix": "/wp-content/uploads/2019/04/Commodore-Amiga-4000-User-Guide.pdf",
+      "note": "Fixed scan of Commodore's Amiga 4000 User Guide. The host is a custodian; Commodore authored the technical manual cited for the stock A4000 configuration."
+    },
+    {
+      "host": "amiga.resource.cx",
+      "pathPrefix": "/manual/CS_Mk1.pdf",
+      "note": "Fixed scan of phase 5 digital products' CYBERSTORM accelerator manual, cited only for the documented 68060 configuration installed in an Amiga 4000 CPU slot."
+    },
+    {
+      "host": "sonyinteractive.com",
+      "pathPrefix": "/uploads/",
+      "note": "Attachments to the same press-release archive. The 1999-era Japanese releases are PDFs under this path rather than pages under /en/press-releases/."
+    },
+    {
+      "host": "www.digitalfoundry.net",
+      "pathPrefix": "/articles/",
+      "note": "Digital Foundry's technical analyses (formerly published under eurogamer.net, which redirects here). Independent hardware journalism, tier B: used where a manufacturer publishes no figure at all, as with the PlayStation 4's clocks."
+    },
+    {
+      "host": "www.7-cpu.com",
+      "pathPrefix": "/cpu/",
+      "note": "7-CPU's per-processor measurement pages: cache latencies, and the frequencies the parts were observed to hold while being measured. Tier B, and the second source for figures Apple never published."
+    },
+    {
+      "host": "www.netlib.org",
+      "pathPrefix": "/performance/",
+      "note": "The Performance Database Server, which is where Dhrystone and LINPACK results have been collected since the 1980s. Pinned to the performance database rather than to netlib's software archive."
+    },
+    {
+      "host": "archive.irixnet.org",
+      "pathPrefix": "/sgistuff/funstuff/benchmarks/",
+      "note": "IRIX Network's archival copy of SGIStuff's benchmark tables, pinned to the one page of runs on real SGI systems. The original site identifies Gerhard Lenerz as its maintainer; this source remains tier B because it is an independently reported run, not an official benchmark submission."
+    },
+    {
+      "host": "www.hitachi.com",
+      "pathPrefix": "/New/cnews/",
+      "note": "Hitachi's own press-release archive, still serving the 1997 releases that specify the SH-4. Vendor statements about vendor hardware."
+    },
+    {
+      "host": "www.computerbase.de",
+      "pathPrefix": "/",
+      "note": "ComputerBase, independent German hardware press. Tier B, and used as the second source a figure needs when no vendor document states it."
+    },
+    {
+      "host": "www.nintendo.com",
+      "pathPrefix": "/es-es/Hardware/",
+      "note": "Nintendo's Spanish-language hardware-history section, which still carries the full per-console specification tables the English pages dropped. Pinned to the hardware history rather than the store."
+    },
+    {
+      "host": "mgba-emu.github.io",
+      "pathPrefix": "/gbatek/",
+      "note": "GBATEK's public Nintendo DS technical reference, pinned to the documentation tree. It replaces a non-public SDK copy with a citable independent technical reference."
+    },
+    {
+      "host": "www.nintendo.com",
+      "pathPrefix": "/en-gb/Corporate/Consumer-Information/Eco-design/",
+      "note": "Nintendo's European ecodesign disclosures. A separate entry from the hardware-history one because it is a separate kind of document: these pages exist to satisfy regulation and state electrical ratings the product pages never give."
+    },
+    {
+      "host": "manuals.playstation.net",
+      "pathPrefix": "/document/pdf/",
+      "note": "Sony's own manual host, serving the model-coded safety guides. These are where Sony states a console's maximum rated power; its press releases never do."
+    },
+    {
+      "host": "news.xbox.com",
+      "pathPrefix": "/en-us/2020/",
+      "note": "Xbox Wire, Microsoft's own editorial site, pinned to the year the Xbox Series X specification and its companion glossary were published."
+    },
+    {
+      "host": "www.steamdeck.com",
+      "pathPrefix": "/en/tech/",
+      "note": "Valve's Steam Deck specification pages, one per model. The path is pinned per model because the LCD and OLED pages state different memory transfer rates."
+    },
+    {
+      "host": "old.hotchips.org",
+      "pathPrefix": "/wp-content/uploads/hc_archives/",
+      "note": "The Hot Chips symposium's own archive of presentation decks. Conference papers, tier B even when a vendor's engineers wrote them, and often the only place a console's silicon is described at register level."
+    },
+    {
+      "host": "www.beyond3d.com",
+      "pathPrefix": "/content/articles/",
+      "note": "Beyond3D's technical articles. Tier B, and used as the second source a figure needs when the first is a conference deck rather than vendor documentation."
+    },
+    {
+      "host": "www.nintendo.com",
+      "pathPrefix": "/it-it/Assistenza/",
+      "note": "Nintendo's Italian support pages, which still carry per-accessory technical specifications — including electrical ratings for adapters the other regional sites describe only in prose."
+    },
+    {
+      "host": "datasheets.raspberrypi.com",
+      "pathPrefix": "/rpi5/",
+      "redirectHosts": ["pip.raspberrypi.com", "pip-assets.raspberrypi.com"],
+      "note": "Raspberry Pi Ltd's product-brief PDF directory for Raspberry Pi 5 hardware specifications."
+    },
+    {
+      "host": "www.nintendo.com",
+      "pathPrefix": "/en-gb/Hardware/Nintendo-History/",
+      "note": "Nintendo's English-language hardware-history section, the counterpart of the Spanish one already listed. It carries per-console 'Technical Details' pages for the Nintendo Entertainment System, the Super Nintendo, the Nintendo 64, the GameCube and the Pokémon mini, and for nothing later — which is itself the answer to what Nintendo published about its newer machines."
+    },
+    {
+      "host": "www.nintendo.com",
+      "pathPrefix": "/us/gaming-systems/switch/tech-specs/",
+      "note": "Nintendo of America's technical specification page for the Nintendo Switch. A separate entry from the European ones because it is the only Nintendo document that states this console's specification at all, and it is cited mostly for what it does not say: it names the processor only as a custom NVIDIA Tegra part and gives no frequency and no memory capacity, while stating storage, battery and measured power. Pinned to the one page."
+    },
+    {
+      "host": "upload.wikimedia.org",
+      "pathPrefix": "/wikipedia/commons/",
+      "note": "Wikimedia Commons' file store, pinned to the Commons namespace. The only entry here that serves photographs rather than documents: an image record names a file under this host and `data:fetch` retrieves exactly that file. Commons is the custodian, and the license is the photographer's, stated on the file's own description page and quoted in the image record. Nothing under this host is ever cited as evidence for a figure."
+    },
+    {
+      "host": "en.wikipedia.org",
+      "pathPrefix": "/wiki/Nintendo_Entertainment_System",
+      "note": "Wikipedia specification section for the NES, pinned as a Tier C community source for the picture processor clock."
+    },
+    {
+      "host": "en.wikipedia.org",
+      "pathPrefix": "/wiki/Master_System",
+      "note": "Wikipedia specification section for the Sega Master System, pinned as a Tier C community source for its processor and video clocks."
+    },
+    {
+      "host": "en.wikipedia.org",
+      "pathPrefix": "/wiki/TurboGrafx-16",
+      "note": "Wikipedia specification section for the PC Engine, pinned as a Tier C community source for its video and memory figures."
+    },
+    {
+      "host": "en.wikipedia.org",
+      "pathPrefix": "/wiki/Game_Boy_Advance",
+      "note": "Wikipedia specification section for the Game Boy Advance, pinned as a Tier C community source for its graphics and memory figures."
+    },
+    {
+      "host": "en.wikipedia.org",
+      "pathPrefix": "/wiki/Sega_Saturn",
+      "note": "Wikipedia specification section for the Sega Saturn, pinned as a Tier C community source for its video display processor clocks."
+    },
+    {
+      "host": "en.wikipedia.org",
+      "pathPrefix": "/wiki/Xbox_360",
+      "note": "Wikipedia specification section for the Xbox 360, pinned as a Tier C community source for its graphics throughput and power rating."
+    },
+    {
+      "host": "en.wikipedia.org",
+      "pathPrefix": "/wiki/Xbox_One",
+      "note": "Wikipedia specification section for the Xbox One, pinned as a Tier C community source for its graphics throughput and power rating."
+    },
+    {
+      "host": "en.wikipedia.org",
+      "pathPrefix": "/wiki/Wii_U",
+      "note": "Wikipedia specification section for the Wii U, pinned as a Tier C community source for its graphics, memory and power figures."
+    },
+    {
+      "host": "en.wikipedia.org",
+      "pathPrefix": "/wiki/Wii",
+      "note": "Wikipedia specification section for the Wii, pinned as a Tier C community source for its processor, graphics, memory and power figures."
+    },
+    {
+      "host": "en.wikipedia.org",
+      "pathPrefix": "/wiki/Nintendo_Switch",
+      "note": "Wikipedia specification section for the Nintendo Switch, pinned as a Tier C community source for its graphics throughput and memory bandwidth."
+    },
+    {
+      "host": "en.wikipedia.org",
+      "pathPrefix": "/wiki/Nintendo_DS",
+      "note": "Wikipedia specification section for the Nintendo DS, pinned as a Tier C community source for its processor clocks and power figures."
+    },
+    {
+      "host": "en.wikipedia.org",
+      "pathPrefix": "/wiki/Apple_A7",
+      "note": "Wikipedia article on the Apple A7, pinned as a Tier C community source for the processor and graphics figures of the iPhone 5s."
+    },
+    {
+      "host": "en.wikipedia.org",
+      "pathPrefix": "/wiki/Apple_A9",
+      "note": "Wikipedia article on the Apple A9, pinned as a Tier C community source for the processor and graphics figures of the iPhone 6s."
+    },
+    {
+      "host": "en.wikipedia.org",
+      "pathPrefix": "/wiki/Apple_A11",
+      "note": "Wikipedia article on the Apple A11, pinned as a Tier C community source for the processor and graphics figures of the iPhone X."
+    },
+    {
+      "host": "en.wikipedia.org",
+      "pathPrefix": "/wiki/Apple_A19",
+      "note": "Wikipedia article on the Apple A19, pinned as a Tier C community source for the memory and graphics figures of the iPhone 17 Pro."
+    },
+    {
+      "host": "en.wikipedia.org",
+      "pathPrefix": "/wiki/Voodoo_Graphics",
+      "note": "Wikipedia article on the 3dfx Voodoo Graphics, pinned as a Tier C community source for its memory and fill-rate figures."
+    },
+    {
+      "host": "en.wikipedia.org",
+      "pathPrefix": "/wiki/GeForce_500_series",
+      "note": "Wikipedia article on the GeForce 500 series, pinned as a Tier C community source for the throughput and power rating of the GTX 580."
+    },
+    {
+      "host": "en.wikipedia.org",
+      "pathPrefix": "/wiki/Conroe_(microprocessor)",
+      "note": "Wikipedia article on the Conroe processors, pinned as a Tier C community source for the clock and thermal rating of the Core 2 Duo E6600."
+    },
+    {
+      "host": "en.wikipedia.org",
+      "pathPrefix": "/wiki/Acorn_Archimedes",
+      "note": "Wikipedia article on the Acorn Archimedes, pinned as a Tier C community source for its clocks and memory figures."
+    },
+    {
+      "host": "en.wikipedia.org",
+      "pathPrefix": "/wiki/Atari_2600",
+      "note": "Wikipedia article on the Atari 2600, pinned as a Tier C community source for its clocks and power figures."
+    },
+    {
+      "host": "en.wikipedia.org",
+      "pathPrefix": "/wiki/Atari_8-bit_computers",
+      "note": "Wikipedia article on the Atari 8-bit computers, pinned as a Tier C community source for the clocks and memory of the Atari 800."
+    }
+  ]
+}

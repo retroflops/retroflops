@@ -1,0 +1,43 @@
+id: sony-playstation-4:gpu-clock-from-peak-fp32
+formula:
+  id: clock-from-peak-fp32
+  version: '1'
+  expression: peak FP32 ÷ (lanes × FLOP per lane per clock)
+inputMeasurementIds:
+  - ps4-gpu:peak-fp32-rate
+constants:
+  - id: lanes
+    label: lanes
+    value: '1152'
+    reason:
+      "Eighteen compute units, which Sony states, at sixty-four lanes each. The
+      lane count per unit is not Sony's: ComputerBase gives the PlayStation 4
+      Pro's thirty-six compute units as 2,304 ALUs while naming the base
+      console's eighteen in the same sentence, which is sixty-four per unit
+      either way."
+    sourceIds:
+      - scei-ps4-introduction-2013
+      - computerbase-ps4-pro-test
+  - id: flops-per-lane-per-clock
+    label: floating-point operations per lane per clock
+    value: '2'
+    reason:
+      'The universal convention for a single-precision peak: one fused
+      multiply-add per lane per clock, counted as two operations. It is the same
+      convention NVIDIA states in the GeForce whitepapers this catalog already
+      cites, and every vendor rate here assumes it.'
+    sourceIds:
+      - nvidia-gtx-1080-whitepaper
+result:
+  state: value
+  value: '799000000'
+  unit: Hz
+  significantDigits: 3
+rounding: half-up
+caveat: >-
+  Divides a published single-precision peak by lanes × floating-point operations
+  per lane per clock, so it is what the vendor’s own figure implies rather than
+  a frequency anybody stated. Reported to 3 significant digits — the precision
+  of the published rate. Both constants are assumptions about the architecture,
+  cited on this claim: get either wrong and the answer scales with it.
+editorialStatus: provisional

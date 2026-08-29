@@ -1,0 +1,19 @@
+id: dreamcast-main-ram
+slug: dreamcast-main-ram
+kind: memory
+name: Dreamcast main memory
+manufacturer: SEGA Enterprises
+architecture: SDRAM
+introducedDate: '1998'
+memoryType: SDRAM
+summary:
+  '{{measurement:dreamcast-main-ram:capacity}} of SDRAM connected directly to
+  the SH-4 across a {{context:dreamcast-main-ram:context-bit-64}} bus at
+  {{context:dreamcast-main-ram:context-mhz-100}}, holding game state and the
+  display lists the graphics chip reads.'
+notes:
+  Explicitly not shared with texture or audio data. Development hardware could
+  carry {{context:dreamcast-main-ram:context-mib-32}}; the retail figure is 16.
+sourceIds:
+  - dreamcast-hardware-spec
+editorialStatus: approved

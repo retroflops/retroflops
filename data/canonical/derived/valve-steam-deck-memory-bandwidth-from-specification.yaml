@@ -1,0 +1,29 @@
+id: valve-steam-deck:memory-bandwidth-from-specification
+formula:
+  id: memory-bandwidth-from-transfer-rate
+  version: '1'
+  expression: transfer rate × bus width ÷ 8 bits per byte
+inputMeasurementIds:
+  - valve-steam-deck:memory-transfer-rate
+  - valve-steam-deck:memory-bus-width
+result:
+  state: value
+  value: '88000000000'
+  unit: B/s
+  significantDigits: 2
+rounding: half-up
+caveat: >-
+  Multiplies a published transfer rate by the recorded interface width and
+  divides by the recorded bits-per-byte constant. That is how a memory
+  specification is read when the maker states the rate and the width but no
+  bandwidth. It is the bus at its peak: refresh, bus turnaround and contention
+  between the parts sharing the memory all take some of it back, and no workload
+  sees the whole figure. Reported to 2 significant digits — the precision of the
+  transfer rate, since the width is exact.
+editorialStatus: approved
+notes: >-
+  Valve's tech page is unusually forthcoming — it names the FP32 precision of
+  its graphics rate, which almost no maker does — and still gives memory as a
+  rate and a channel count with no bandwidth. That is not an omission but the
+  convention: a memory specification states what the parts are, and the
+  bandwidth is left as arithmetic for the reader.

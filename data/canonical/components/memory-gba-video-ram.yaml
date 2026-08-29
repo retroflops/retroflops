@@ -1,0 +1,13 @@
+architecture: Video RAM
+editorialStatus: provisional
+id: gba-video-ram
+kind: memory
+manufacturer: Nintendo
+memoryType: Video RAM inside the system on a chip
+name: Game Boy Advance video RAM
+slug: gba-video-ram
+sourceIds:
+  - game-boy-advance-technical-manual
+summary:
+  '{{measurement:gba-video-ram:capacity}} of memory the picture processor draws
+  from, counted with the object attribute and palette memory beside it.'

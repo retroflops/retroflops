@@ -1,0 +1,7 @@
+- extract: 3dfx Voodoo Graphics, 50 MHz.
+  id: toms-hardware-fr-3dfx-voodoo:clock
+  locator: Voodoo Graphics specification table, frequency row
+  sourceId: toms-hardware-fr-3dfx-voodoo
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-25
+  extractHash: a7c726b319762cd3612c1dc664ec729fe8ef7e13ec1eb6ae7b83195633c9f30c

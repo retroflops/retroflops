@@ -1,0 +1,19 @@
+id: zx-spectrum-48k-manual
+title: Sinclair ZX Spectrum 48 K Service Manual
+publisher: THORN (EMI) DATATECH LTD
+url: https://archive.org/download/en-sinclair-zx-spectrum-48-k-service-manual/EN%20-%20Sinclair%20Zx%20Spectrum%2048K%20Service%20Manual.pdf
+publishedDate: 1984-05
+accessedDate: 2026-08-22
+locator: System Description, General Description, PDF p. 4
+extract: 16k or 48k bytes of dynamic RAM memory.
+tier: A
+sourceType: technical-manual
+editorialStatus: provisional
+fetch:
+  url: https://archive.org/download/en-sinclair-zx-spectrum-48-k-service-manual/EN%20-%20Sinclair%20Zx%20Spectrum%2048K%20Service%20Manual.pdf
+  finalUrl: https://dn760102.eu.archive.org/0/items/en-sinclair-zx-spectrum-48-k-service-manual/EN%20-%20Sinclair%20Zx%20Spectrum%2048K%20Service%20Manual.pdf
+  fetchedAt: 2026-08-24T18:59:36Z
+  httpStatus: 200
+  contentType: application/pdf
+  byteLength: 654097
+  sha256: 10e7bcf240954b9c7364060fb7155f222ba4d2f613670bd69b405727287db33a

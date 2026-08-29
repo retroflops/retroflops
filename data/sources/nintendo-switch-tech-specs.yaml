@@ -1,0 +1,25 @@
+accessedDate: 2026-08-15
+editorialStatus: approved
+fetch:
+  byteLength: 297311
+  contentType: text/html; charset=utf-8
+  fetchedAt: 2026-08-15T09:41:38Z
+  httpStatus: 200
+  sha256: 332719dd6cdf2ac6af2df0f54ea28bf1dce82e3caf07b85b55dee745cd568a09
+  url: https://www.nintendo.com/us/gaming-systems/switch/tech-specs/
+id: nintendo-switch-tech-specs
+license: Copyright Nintendo. Quoted here under short-extract fair use for
+  verification of the figures cited.
+locator: Nintendo Switch console (HAC-001(-01)) specification table
+publisher: Nintendo
+sourceType: vendor-documentation
+tier: A
+title: Nintendo Switch — Technical Specs
+url: https://www.nintendo.com/us/gaming-systems/switch/tech-specs/
+usageNote: >-
+  The only specification Nintendo publishes for this console, and it is cited
+  here mostly for its silences. The CPU/GPU row reads "NVIDIA Custom Tegra
+  processor" and stops: no frequency for either part, and no memory capacity
+  anywhere on the page. Storage, battery and measured power consumption are
+  stated. The page carries several models in separate tables and only the
+  HAC-001(-01) console is read onto this record.

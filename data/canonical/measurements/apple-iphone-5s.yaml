@@ -1,0 +1,280 @@
+- caveat: >-
+    Apple names the chip and states no frequency. Wikipedia gives
+    {{measurement:apple-iphone-5s:cpu-clock-frequency}} for the variant of the
+    processor that shipped in this phone, and the catalog carries it as rumored.
+  comparabilityGroup: clock-frequency|cpu|nominal-clock
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: apple-iphone-5s:cpu-clock-frequency
+  method: nominal-clock
+  metric: clock-frequency
+  provenance: community
+  quantity:
+    state: value
+    value: "1.3"
+    unit: GHz
+    significantDigits: 2
+  scope: cpu
+  sourceIds:
+    - apple-iphone-5s-tech-specs
+    - ifixit-iphone-5s-teardown-2013
+    - wikipedia-apple-a7
+  status: vendor-rated
+  subject:
+    id: apple-iphone-5s
+    kind: system
+  evidenceLevel: rumored
+  normalized:
+    value: "1300000000"
+    unit: Hz
+    significantDigits: 2
+    unitRegistry: units-v1
+- caveat: Apple gives no GPU operating frequency in the cited technical specification.
+  comparabilityGroup: clock-frequency|gpu|nominal-clock
+  editorialStatus: approved
+  evidenceStage: shipped
+  id: apple-iphone-5s:gpu-clock-frequency
+  method: nominal-clock
+  metric: clock-frequency
+  provenance: vendor
+  quantity:
+    note: Apple gives no GPU operating frequency in the cited technical
+      specification.
+    state: unknown
+  unknownAudit:
+    reviewedOn: 2026-08-25
+    routesChecked:
+      - vendor-documentation
+      - independent-analysis
+      - community-source
+    outcome: no-published-candidate
+    summary: >-
+      Apple publishes no GPU clock, and the checked iFixit teardown gives no GPU
+      frequency.
+  scope: gpu
+  sourceIds:
+    - apple-iphone-5s-tech-specs
+    - ifixit-iphone-5s-teardown-2013
+  status: vendor-rated
+  subject:
+    id: apple-iphone-5s
+    kind: system
+- caveat: >-
+    iFixit reports {{measurement:apple-iphone-5s:whole-system-memory-capacity}}
+    in the A7. Apple lists flash storage rather than working memory.
+  comparabilityGroup: memory-capacity|whole-system|design-capacity
+  editorialStatus: provisional
+  evidenceStage: shipped
+  extractIds:
+    - ifixit-iphone-5s-teardown-2013:installed-memory
+  id: apple-iphone-5s:whole-system-memory-capacity
+  method: design-capacity
+  metric: memory-capacity
+  provenance: vendor
+  quantity:
+    significantDigits: 1
+    state: value
+    unit: GiB
+    value: '1'
+  scope: whole-system
+  sourceIds:
+    - ifixit-iphone-5s-teardown-2013
+  status: measured
+  subject:
+    id: apple-iphone-5s
+    kind: system
+  evidenceLevel: reported
+  normalized:
+    value: "1073741824"
+    unit: B
+    significantDigits: 1
+    unitRegistry: units-v1
+- caveat: >-
+    Apple publishes neither a memory-interface width nor a memory transfer rate
+    for this phone.
+  comparabilityGroup: memory-bandwidth|whole-system|theoretical-peak
+  editorialStatus: approved
+  evidenceStage: shipped
+  id: apple-iphone-5s:whole-system-memory-bandwidth
+  method: theoretical-peak
+  metric: memory-bandwidth
+  provenance: vendor
+  quantity:
+    note: >-
+      Apple publishes neither a memory-interface width nor a memory transfer
+      rate for this phone.
+    state: unknown
+  unknownAudit:
+    reviewedOn: 2026-08-25
+    routesChecked:
+      - vendor-documentation
+      - independent-analysis
+      - community-source
+    outcome: no-compatible-candidate
+    summary: >-
+      Apple gives no memory-interface rate, and the checked iFixit teardown
+      names no interface details from which to derive bandwidth.
+  scope: whole-system
+  sourceIds:
+    - apple-iphone-5s-tech-specs
+    - ifixit-iphone-5s-teardown-2013
+  status: vendor-rated
+  subject:
+    id: apple-iphone-5s
+    kind: system
+- caveat: Apple publishes no standalone FP32 throughput figure for this phone GPU.
+  comparabilityGroup: peak-fp32-rate|gpu|theoretical-peak
+  editorialStatus: approved
+  evidenceStage: shipped
+  id: apple-iphone-5s:peak-fp32-rate
+  method: theoretical-peak
+  metric: peak-fp32-rate
+  provenance: vendor
+  quantity:
+    note: Apple publishes no standalone FP32 throughput figure for this phone GPU.
+    state: unknown
+  unknownAudit:
+    reviewedOn: 2026-08-25
+    routesChecked:
+      - vendor-documentation
+      - independent-analysis
+      - community-source
+    outcome: no-published-candidate
+    summary: >-
+      Apple publishes no FP32 rate, and the checked iFixit teardown gives no GPU
+      throughput figure.
+  scope: gpu
+  sourceIds:
+    - apple-iphone-5s-tech-specs
+    - ifixit-iphone-5s-teardown-2013
+  status: vendor-rated
+  subject:
+    id: apple-iphone-5s
+    kind: system
+- caveat: Battery-life durations and charging limits are not a whole-system power
+    rating.
+  comparabilityGroup: rated-power-consumption|whole-system|rated-power
+  editorialStatus: approved
+  evidenceStage: shipped
+  id: apple-iphone-5s:rated-power-consumption
+  method: rated-power
+  metric: rated-power-consumption
+  provenance: vendor
+  quantity:
+    note: Battery-life durations and charging limits are not a whole-system power
+      rating.
+    state: unknown
+  unknownAudit:
+    reviewedOn: 2026-08-25
+    routesChecked:
+      - vendor-documentation
+      - independent-analysis
+      - community-source
+    outcome: no-compatible-candidate
+    summary: >-
+      Apple gives battery-life durations rather than a whole-phone power rating,
+      and the checked iFixit teardown provides no compatible rating.
+  scope: whole-system
+  sourceIds:
+    - apple-iphone-5s-tech-specs
+    - ifixit-iphone-5s-teardown-2013
+  status: vendor-rated
+  subject:
+    id: apple-iphone-5s
+    kind: system
+- caveat: >-
+    Storage, not memory. Apple states flash capacity decimally, the way makers
+    of flash and disk do, and this catalog reads it that way.
+  comparabilityGroup: storage-capacity|storage|design-capacity
+  conditions: One of the flash capacities Apple lists for this phone.
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - apple-iphone-5s-tech-specs:capacity
+  id: apple-iphone-5s:storage-capacity-16gb
+  method: design-capacity
+  metric: storage-capacity
+  provenance: vendor
+  quantity:
+    significantDigits: 2
+    state: value
+    unit: GB
+    value: "16"
+  scope: storage
+  sourceIds:
+    - apple-iphone-5s-tech-specs
+  status: vendor-rated
+  subject:
+    configurationId: 16gb
+    id: apple-iphone-5s
+    kind: system
+  normalized:
+    value: "16000000000"
+    unit: B
+    significantDigits: 2
+    unitRegistry: units-v1
+  evidenceLevel: confirmed
+- caveat: >-
+    Storage, not memory. Apple states flash capacity decimally, the way makers
+    of flash and disk do, and this catalog reads it that way.
+  comparabilityGroup: storage-capacity|storage|design-capacity
+  conditions: One of the flash capacities Apple lists for this phone.
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - apple-iphone-5s-tech-specs:capacity
+  id: apple-iphone-5s:storage-capacity-32gb
+  method: design-capacity
+  metric: storage-capacity
+  provenance: vendor
+  quantity:
+    significantDigits: 2
+    state: value
+    unit: GB
+    value: "32"
+  scope: storage
+  sourceIds:
+    - apple-iphone-5s-tech-specs
+  status: vendor-rated
+  subject:
+    configurationId: 32gb
+    id: apple-iphone-5s
+    kind: system
+  normalized:
+    value: "32000000000"
+    unit: B
+    significantDigits: 2
+    unitRegistry: units-v1
+  evidenceLevel: confirmed
+- caveat: >-
+    Storage, not memory. Apple states flash capacity decimally, the way makers
+    of flash and disk do, and this catalog reads it that way.
+  comparabilityGroup: storage-capacity|storage|design-capacity
+  conditions: One of the flash capacities Apple lists for this phone.
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - apple-iphone-5s-tech-specs:capacity
+  id: apple-iphone-5s:storage-capacity-64gb
+  method: design-capacity
+  metric: storage-capacity
+  provenance: vendor
+  quantity:
+    significantDigits: 2
+    state: value
+    unit: GB
+    value: "64"
+  scope: storage
+  sourceIds:
+    - apple-iphone-5s-tech-specs
+  status: vendor-rated
+  subject:
+    configurationId: 64gb
+    id: apple-iphone-5s
+    kind: system
+  normalized:
+    value: "64000000000"
+    unit: B
+    significantDigits: 2
+    unitRegistry: units-v1
+  evidenceLevel: confirmed

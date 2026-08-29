@@ -1,0 +1,42 @@
+accessedDate: 2026-08-17
+alt: A gray Sony PlayStation photographed against white, its round disc lid closed on the top of the
+  case, with the original controller lying to its left and a memory card in the second front slot.
+attribution: Photograph by Evan-Amos, released into the public domain by its author, via Wikimedia Commons.
+canonical:
+  byteLength: 17528
+  format: avif
+  height: 960
+  sha256: cec671eda04d8a8b286a0b0a80959e40c77616b91c923e5515f935297fcb9385
+  width: 1280
+caption: The first PlayStation model, the Japanese SCPH-1000, shown with a controller and a memory card.
+creator: Evan-Amos
+creatorType: person
+editorialStatus: approved
+id: sony-playstation-scph-1000
+original:
+  byteLength: 4090782
+  height: 2400
+  mediaType: image/jpeg
+  sha256: cfad08ac7d6c60f4b9bf2922ae5a3ea4eef7a8c25045dc4f3f00d7746b2768f5
+  width: 5520
+originalUrl: https://upload.wikimedia.org/wikipedia/commons/6/60/PlayStation-SCPH-1000-with-Controller.jpg
+publisher: Wikimedia Commons
+rights:
+  id: pd-self
+  statedAt: https://commons.wikimedia.org/wiki/File:PlayStation-SCPH-1000-with-Controller.jpg
+  statement: "I, the copyright holder of this work, release this work into the public domain. This
+    applies worldwide. In some countries this may not be legally possible; if so: I grant anyone the
+    right to use this work for any purpose, without any conditions, unless such conditions are
+    required by law."
+  url: https://commons.wikimedia.org/wiki/Template:PD-self
+sourcePageUrl: https://commons.wikimedia.org/wiki/File:PlayStation-SCPH-1000-with-Controller.jpg
+title: PlayStation-SCPH-1000-with-Controller.jpg
+transform:
+  background: "#ffffff"
+  fit: pad
+  note: The photograph is wider than 4:3 and the machine reaches both ends of it, so no crop keeps the
+    whole subject. The declared margin is the same white as the backdrop the photograph was taken
+    against, which is why it cannot be seen; it is recorded because it is there.
+  preset: image-v1
+  sourceHeight: 2400
+  sourceWidth: 5520

@@ -1,0 +1,49 @@
+id: amstrad-cpc-464
+slug: amstrad-cpc-464
+name: Amstrad CPC 464
+manufacturer: Amstrad
+type: home-computer
+releaseDate: 1984-06
+region: United Kingdom
+summary: >-
+  A Z80A home computer sold as a complete set, with Locomotive BASIC in ROM, a
+  cassette deck built into the keyboard and its own monitor.
+description: >-
+  Amstrad sold the CPC as one box at a time when rivals expected the buyer to
+  supply a television and a tape recorder. The monitor carried the power supply
+  for the whole machine, so the two parts were not separable.
+configurations:
+  - id: pal
+    label: PAL retail machine
+    region: Europe
+    entries:
+      - componentId: amstrad-cpc464-z80a
+        role: main-cpu
+        count: 1
+        shared: false
+        measurementIds:
+          - amstrad-cpc-464:clock-frequency
+      - componentId: amstrad-cpc464-gate-array
+        role: gpu
+        count: 1
+        shared: false
+        measurementIds:
+          - amstrad-cpc-464:gpu-clock-frequency
+      - componentId: amstrad-cpc464-ram
+        role: system-memory
+        count: 1
+        shared: true
+        measurementIds:
+          - amstrad-cpc464-ram:capacity
+      - componentId: amstrad-cpc464-rom
+        role: system-memory
+        count: 1
+        shared: true
+        notes: Read-only firmware and BASIC ROM.
+        measurementIds:
+          - amstrad-cpc464-rom:capacity
+imageIds:
+  - amstrad-cpc-464-computer
+sourceIds:
+  - amstrad-cpc464-user-instructions
+editorialStatus: provisional

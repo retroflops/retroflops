@@ -1,0 +1,24 @@
+id: techpowerup-switch-2-specs
+title: >-
+  Final Nintendo Switch 2 specifications surface: CPU, GPU, memory, and system
+  reservation
+publisher: TechPowerUp
+url: https://www.techpowerup.com/336766/final-nintendo-switch-2-specifications-surface-cpu-gpu-memory-and-system-reservation
+publishedDate: '2025-05-14'
+accessedDate: 2026-08-26
+locator: CPU, graphics, and memory specification sections
+tier: B
+sourceType: independent-analysis
+editorialStatus: provisional
+license: Copyright TechPowerUp. Quoted under short-extract fair use for
+  verification of the cited specifications.
+usageNote: >-
+  Independent reporting of the Switch 2 processor, graphics, and memory figures
+  that Nintendo's public technical table does not disclose.
+fetch:
+  url: https://www.techpowerup.com/336766/final-nintendo-switch-2-specifications-surface-cpu-gpu-memory-and-system-reservation
+  fetchedAt: 2026-08-26T19:26:56Z
+  httpStatus: 200
+  contentType: text/html; charset=UTF-8
+  byteLength: 83185
+  sha256: 6219d6f977a70c0e97afe094993bff27d3b208ca2682fa6ef2b6da80e35d4d32

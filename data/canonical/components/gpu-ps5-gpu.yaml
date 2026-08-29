@@ -1,0 +1,20 @@
+id: ps5-gpu
+slug: ps5-gpu
+kind: gpu
+name: PlayStation 5 custom processor (GPU section)
+manufacturer: Sony Interactive Entertainment / AMD
+architecture: RDNA 2
+introducedDate: '2020'
+summary:
+  An RDNA 2 graphics engine with ray-tracing acceleration, rated at
+  {{measurement:ps5-gpu:peak-fp32-rate}} at a variable frequency of up to
+  {{context:ps5-gpu:context-ghz-2-23}}.
+notes:
+  No compute-unit count is recorded. Sony's table gave one when it was published
+  in March 2020 and does not give one now, and the figure this record can cite
+  is the figure the document currently states. Without it the teraflops rate
+  cannot be checked against the frequency it is printed beside — the same gap
+  the PlayStation 4's record has, for the opposite reason.
+sourceIds:
+  - scei-ps5-hardware-specs-2020
+editorialStatus: provisional

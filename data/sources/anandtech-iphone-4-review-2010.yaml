@@ -1,0 +1,27 @@
+id: anandtech-iphone-4-review-2010
+title: "Apple's iPhone 4: Thoroughly Reviewed"
+publisher: AnandTech
+author: Brian Klug and Anand Lal Shimpi
+publishedDate: 2010-06-30
+accessedDate: 2026-08-25
+url: https://web.archive.org/web/20131220060523id_/http://www.anandtech.com/show/3794/the-iphone-4-review
+archiveUrl: https://web.archive.org/web/20131220060523/http://www.anandtech.com/show/3794/the-iphone-4-review
+locator: Introduction and physical-comparison table
+extract: >-
+  The new SoC is built on a 45nm process and features 512MB of memory on the
+  package. Apple hasn't made CPU clock speed public, but I'm guessing around
+  800MHz.
+tier: B
+sourceType: independent-analysis
+license: Copyright AnandTech. Quoted here under short-extract fair use for verification.
+usageNote: >-
+  AnandTech no longer serves this article to automated clients. This Wayback
+  capture returns the 2010 article bytes without archive navigation.
+fetch:
+  url: https://web.archive.org/web/20131220060523id_/http://www.anandtech.com/show/3794/the-iphone-4-review
+  finalUrl: https://web.archive.org/web/20131221103147id_/http://www.anandtech.com/show/3794/the-iphone-4-review
+  fetchedAt: 2026-08-25T14:47:05Z
+  httpStatus: 200
+  contentType: text/html; charset=utf-8
+  byteLength: 84676
+  sha256: 3942d567199d4b066fedf193853c72fcbe5f2bbce92f3c5b7ceee7625f2fb87b

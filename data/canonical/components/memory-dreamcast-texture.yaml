@@ -1,0 +1,18 @@
+id: dreamcast-texture-ram
+slug: dreamcast-texture-ram
+kind: memory
+name: Dreamcast texture memory
+manufacturer: SEGA Enterprises
+architecture: Graphics SDRAM
+introducedDate: '1998'
+memoryType: SDRAM attached to HOLLY
+summary:
+  '{{measurement:dreamcast-texture-ram:capacity}} of memory belonging to the
+  graphics chip, holding textures and frame buffers.'
+notes:
+  Separate from main memory, so texture budget and game-state budget are
+  independent. Development hardware could carry
+  {{context:dreamcast-texture-ram:context-mib-16}}.
+sourceIds:
+  - dreamcast-hardware-spec
+editorialStatus: approved

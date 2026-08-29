@@ -1,0 +1,17 @@
+id: amstrad-cpc464-z80a:context-bit-8
+subject:
+  kind: component
+  id: amstrad-cpc464-z80a
+label: Word size
+quantity:
+  state: value
+  value: '8'
+  unit: bit
+  significantDigits: 1
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - amstrad-cpc464-user-instructions
+evidenceLevel: confirmed

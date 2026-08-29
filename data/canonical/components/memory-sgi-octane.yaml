@@ -1,0 +1,18 @@
+id: sgi-octane-memory
+slug: sgi-octane-memory
+kind: memory
+name: SGI Octane main memory
+manufacturer: Silicon Graphics, Inc.
+summary:
+  'The installed memory of the two Octanes SGI submitted to SPEC:
+  {{context:sgi-octane-memory:context-mib-128}} in the single-processor machine,
+  {{context:sgi-octane-memory:context-mib-256}} in the two-processor one.'
+notes:
+  No memory technology is recorded. A SPEC result reports what was fitted and
+  how much of it, not what kind, and the catalog does not fill that in from
+  elsewhere. The capacity is a property of the submitted configuration rather
+  than of the model, which is why it varies between the two.
+sourceIds:
+  - spec-cpu95-octane-int
+  - spec-cpu95-octane-fp
+editorialStatus: approved

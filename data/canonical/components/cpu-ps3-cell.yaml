@@ -1,0 +1,23 @@
+id: ps3-cell
+slug: ps3-cell
+kind: cpu
+name: Cell Broadband Engine
+manufacturer: Sony Computer Entertainment / IBM / Toshiba
+architecture: One PowerPC core with a VMX unit, plus eight SPE co-processors
+introducedDate: '2005'
+instructionSet: PowerPC with VMX, alongside the SPE instruction set
+instructionSetFamily: power
+summary: >-
+  A PowerPC core surrounded by eight SPE vector co-processors, of which the
+  PlayStation 3 uses seven. Sony's specification counts the eighth as
+  redundancy.
+notes: >-
+  The "cores" field records the single PowerPC core, because the SPEs do not run
+  the same instruction set and cannot be counted alongside it. Whether the chip
+  is one processor or nine is a question the catalog's data model declines to
+  answer, and the answer would change the meaning of every per-core figure
+  attached to it.
+sourceIds:
+  - scei-ps3-specifications-2005
+  - scei-ps3-launch-2006
+editorialStatus: approved

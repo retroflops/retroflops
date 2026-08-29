@@ -1,0 +1,41 @@
+editorialStatus: approved
+id: microsoft-xbox-series-x
+slug: microsoft-xbox-series-x
+name: Microsoft Xbox Series X
+manufacturer: Microsoft
+type: console
+family: microsoft-xbox
+releaseDate: 2020-11
+region: Worldwide
+summary: >-
+  Microsoft Xbox Series X, represented with its retail processor, graphics and
+  installed writable memory.
+description: >-
+  The Series X links its Zen 2 processor, RDNA 2 graphics, and installed memory
+  separately, preserving the scope of each hardware measurement.
+imageIds:
+  - microsoft-xbox-series-x-console
+configurations:
+  - id: retail
+    label: Retail hardware
+    entries:
+      - componentId: microsoft-xbox-series-x-zen-2
+        role: main-cpu
+        count: 1
+        shared: false
+        measurementIds:
+          - microsoft-xbox-series-x:retail:cpu-clock-frequency
+      - componentId: microsoft-xbox-series-x-rdna2
+        role: gpu
+        count: 1
+        shared: false
+        measurementIds:
+          - microsoft-xbox-series-x:retail:gpu-clock-frequency
+      - componentId: microsoft-xbox-series-x-ram
+        role: unified-memory
+        count: 1
+        shared: true
+        measurementIds:
+          - microsoft-xbox-series-x-ram:capacity
+sourceIds:
+  - xbox-wire-series-x-tech-2020

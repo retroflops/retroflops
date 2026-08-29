@@ -1,0 +1,17 @@
+id: agc-core-rope:context-word-24576
+subject:
+  kind: component
+  id: agc-core-rope
+label: Capacity
+quantity:
+  state: value
+  value: '24576'
+  unit: word
+  significantDigits: 5
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - ntrs-19760016247
+evidenceLevel: confirmed

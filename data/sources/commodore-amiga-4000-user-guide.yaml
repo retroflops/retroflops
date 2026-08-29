@@ -1,0 +1,28 @@
+id: commodore-amiga-4000-user-guide
+title: Commodore Amiga 4000 User Guide
+publisher: Commodore Business Machines
+url: https://www.retromaniek.pl/wp-content/uploads/2019/04/Commodore-Amiga-4000-User-Guide.pdf
+publishedDate: '1992'
+accessedDate: 2026-08-26
+locator: Introduction, pages xi–xii; Chapter 3, pages 3-1–3-2; Appendix A
+extract: >-
+  Motorola 68040 series microprocessor running at 25 MHz, on a removable
+  processor module; AA custom chipset; up to 2 MB 32-bit Chip memory; up to 16
+  MB 32-bit Fast memory.
+tier: A
+sourceType: technical-manual
+editorialStatus: provisional
+license: Copyright Commodore Business Machines. Quoted under short-extract fair
+  use for verification of the cited specifications.
+usageNote: >-
+  The manual documents the shipped 68040 processor module and the motherboard's
+  memory options. It does not establish one fixed RAM configuration, a chipset
+  clock, a transfer rate, a floating-point throughput, or a whole-system power
+  rating.
+fetch:
+  url: https://www.retromaniek.pl/wp-content/uploads/2019/04/Commodore-Amiga-4000-User-Guide.pdf
+  fetchedAt: 2026-08-26T19:02:26Z
+  httpStatus: 200
+  contentType: application/pdf
+  byteLength: 3982698
+  sha256: c485274f8272b4c3f1543ec1b8980344f0d8bac28ec3cec6f36df76fa33e54fe

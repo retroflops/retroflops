@@ -1,0 +1,17 @@
+id: gba-ram:context-kib-288
+subject:
+  kind: component
+  id: gba-ram
+label: Capacity
+quantity:
+  state: value
+  value: '288'
+  unit: KiB
+  significantDigits: 3
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - game-boy-advance-technical-manual
+evidenceLevel: reported

@@ -1,0 +1,257 @@
+- caveat: >-
+    The manual notes these rates can vary with an external system clock, such as
+    from a genlock board. The figure describes the processor only; the custom
+    chips do much of the machine's work in parallel with it.
+  comparabilityGroup: clock-frequency|cpu|nominal-clock
+  conditions: PAL machines with the stock system clock, derived from the
+    {{context:motorola-68000:context-mhz-28-37516}} base crystal.
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - amiga-hrm:p2:68000
+  id: amiga-500:pal:clock-frequency
+  method: nominal-clock
+  metric: clock-frequency
+  normalized:
+    value: "7093790"
+    unit: Hz
+    significantDigits: 6
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 6
+    state: value
+    unit: MHz
+    value: "7.09379"
+  scope: cpu
+  sourceIds:
+    - amiga-hardware-reference-manual
+  status: vendor-rated
+  subject:
+    configurationId: pal
+    id: amiga-500
+    kind: system
+  evidenceLevel: confirmed
+- comparabilityGroup: clock-frequency|cpu|nominal-clock
+  conditions: NTSC machines with the stock system clock, derived from the
+    {{context:motorola-68000:context-mhz-28-63636}} base crystal.
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - amiga-hrm:p2:68000
+  id: amiga-500:ntsc:clock-frequency
+  method: nominal-clock
+  metric: clock-frequency
+  normalized:
+    value: "7159090"
+    unit: Hz
+    significantDigits: 6
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 6
+    state: value
+    unit: MHz
+    value: "7.15909"
+  scope: cpu
+  sourceIds:
+    - amiga-hardware-reference-manual
+  status: vendor-rated
+  subject:
+    configurationId: ntsc
+    id: amiga-500
+    kind: system
+  evidenceLevel: confirmed
+- caveat: >-
+    Chip memory only: what the custom chips can reach. It is not the machine's
+    total RAM, and the two are not interchangeable: Fast memory is invisible to
+    the graphics and audio hardware.
+  comparabilityGroup: memory-capacity|memory|design-capacity
+  conditions: Chip memory in a base Amiga 500, per table 1-1. The maximum with a
+    later Agnus is {{context:amiga-500-chip-ram:context-mib-1}}.
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - amiga-hrm:p5:table-1-1
+    - amiga-hrm:p3:chip-memory
+  id: amiga-500-chip-ram:capacity
+  method: design-capacity
+  metric: memory-capacity
+  normalized:
+    value: "524288"
+    unit: B
+    significantDigits: 3
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 3
+    state: value
+    unit: KiB
+    value: "512"
+  scope: memory
+  sourceIds:
+    - amiga-hardware-reference-manual
+  status: vendor-rated
+  subject:
+    id: amiga-500-chip-ram
+    kind: component
+  evidenceLevel: confirmed
+- caveat: >-
+    The third edition dates from 1991, and its base Amiga 500 is a later machine
+    than the {{measurement:amiga-500-chip-ram:capacity}} one sold in 1987. Chip
+    memory is a subset of this figure, not an addition to it.
+  comparabilityGroup: memory-capacity|whole-system|design-capacity
+  conditions: Total RAM of the base model in the manual's third edition. The
+    maximum is {{context:amiga-500:context-mib-9}}.
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - amiga-hrm:p5:table-1-1
+  id: amiga-500:total-memory-capacity
+  method: design-capacity
+  metric: memory-capacity
+  normalized:
+    value: "1048576"
+    unit: B
+    significantDigits: 1
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 1
+    state: value
+    unit: MiB
+    value: "1"
+  scope: whole-system
+  sourceIds:
+    - amiga-hardware-reference-manual
+  status: vendor-rated
+  subject:
+    id: amiga-500
+    kind: system
+  evidenceLevel: confirmed
+- comparabilityGroup: peak-fp32-rate|cpu|theoretical-peak
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - amiga-hrm:p2:68000
+  id: motorola-68000:peak-fp32-rate
+  method: theoretical-peak
+  metric: peak-fp32-rate
+  provenance: vendor
+  quantity:
+    note: >-
+      The 68000 has no floating-point hardware on the die. Floating point
+      requires a separate 68881 or 68882 coprocessor, which the Amiga 500 does
+      not have, so any floating-point rate would describe software running on an
+      integer ALU.
+    state: not-applicable
+  scope: cpu
+  sourceIds:
+    - amiga-hardware-reference-manual
+  status: vendor-rated
+  subject:
+    id: motorola-68000
+    kind: component
+- caveat: >-
+    Unknown rather than not-applicable. The Commodore 64’s manual names a single
+    video dot clock, while the Amiga’s names several clocks the display hardware
+    runs from and leaves which one is "the chipset’s" to the reader. Picking one
+    would be this project answering a question the document declines to.
+  comparabilityGroup: clock-frequency|gpu|nominal-clock
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - amiga-hrm:glossary:base-crystal
+  id: amiga-500:gpu-clock-frequency
+  method: nominal-clock
+  metric: clock-frequency
+  provenance: vendor
+  quantity:
+    note: >-
+      The Hardware Reference Manual describes the custom chips by the clocks the
+      bus carries them — a {{context:amiga-500:context-mhz-7-16}} system clock,
+      a {{context:amiga-500:context-mhz-3-58}} color clock — and never gives the
+      chipset a frequency of its own.
+    state: unknown
+  unknownAudit:
+    reviewedOn: 2026-08-25
+    routesChecked:
+      - vendor-documentation
+      - independent-analysis
+      - community-source
+    outcome: no-published-candidate
+    summary: The checked manual provides no separate chipset clock.
+  scope: gpu
+  sourceIds:
+    - amiga-hardware-reference-manual
+  status: vendor-rated
+  subject:
+    id: amiga-500
+    kind: system
+- caveat: >-
+    Unknown, not not-applicable. What the manual gives instead is more useful
+    than a rate and less summarizable: Chip memory is the pool the display
+    hardware can see, and the cycles it takes are cycles the processor does not
+    get.
+  comparabilityGroup: memory-bandwidth|memory|theoretical-peak
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - amiga-hrm:p3:chip-memory
+  id: amiga-500:memory-bandwidth
+  method: theoretical-peak
+  metric: memory-bandwidth
+  provenance: vendor
+  quantity:
+    note: >-
+      The manual states which parts of memory the custom chips can reach and how
+      bus cycles are shared between them, and states no transfer rate.
+    state: unknown
+  unknownAudit:
+    reviewedOn: 2026-08-25
+    routesChecked:
+      - vendor-documentation
+      - independent-analysis
+      - community-source
+    outcome: no-compatible-candidate
+    summary: The checked manual provides no memory transfer rate.
+  scope: memory
+  sourceIds:
+    - amiga-hardware-reference-manual
+  status: vendor-rated
+  subject:
+    id: amiga-500
+    kind: system
+- caveat: >-
+    The Amiga 1200 states 23 watts because its service manual has a
+    specification table. No such table has been found for the A500 in a source
+    this catalog accepts, so the question stays open rather than being answered
+    from an enthusiast page.
+  comparabilityGroup: rated-power-consumption|whole-system|rated-power
+  editorialStatus: approved
+  evidenceStage: shipped
+  id: amiga-500:rated-power-consumption
+  method: rated-power
+  metric: rated-power-consumption
+  provenance: vendor
+  quantity:
+    note: >-
+      The Hardware Reference Manual is a programming document and rates no power
+      for the machine; the supply figures in it are for expansion cards drawing
+      from the bus.
+    state: unknown
+  unknownAudit:
+    reviewedOn: 2026-08-25
+    routesChecked:
+      - vendor-documentation
+      - independent-analysis
+      - community-source
+    outcome: no-published-candidate
+    summary: The checked programming manual provides no whole-system power rating.
+  scope: whole-system
+  sourceIds:
+    - amiga-hardware-reference-manual
+  status: vendor-rated
+  subject:
+    id: amiga-500
+    kind: system

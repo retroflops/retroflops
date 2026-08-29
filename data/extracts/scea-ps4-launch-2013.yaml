@@ -1,0 +1,45 @@
+- extract: >-
+    Its supercharged PC architecture – including an enhanced Graphics Processing
+    Unit (GPU) and 8GB of GDDR5 unified system memory – is designed to ease game
+    creation and deliver a dramatic increase in the richness of content
+    available on the platform.
+  extractHash: 5ee0ea5af36ecab6dd67cfdb603e3dd2410504f6d960886899ed7b3b16c9eb66
+  id: scea-ps4-2013:launch-architecture
+  locator: paragraph describing the system architecture
+  notes: >-
+    Issued on the day the console went on sale, and this sentence is the whole
+    of its hardware description. It restates the memory and nothing else: no
+    core count, no compute-unit count, no teraflops, no clock. The same thing
+    happened at the PlayStation 3's launch seven years earlier, which is why the
+    memory capacity is the only approved figure on either record.
+  sourceId: scea-ps4-launch-2013
+  transcribed:
+    significantDigits: 1
+    state: value
+    unit: GiB
+    value: '8'
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-07-29
+- extract: >-
+    The PS4 system is now available in the United States and Canada at a
+    suggested retail price of USD $399 and CAD $399, arriving with a lineup of
+    over 20 first- and third-party games, including exclusive titles like Knack™
+    and Killzone™ Shadow Fall.
+  extractHash: 9f2af5fa2d6f34b4685549f8278653f0cd449bfe82d9c2e664d3222c6d6daa2a
+  id: scea-ps4-2013:price
+  locator: Opening paragraph, sentence announcing availability
+  notes: >-
+    Two currencies with the same numeral, which is a coincidence of pricing
+    policy and not a conversion; only the US dollar figure is recorded, because
+    the catalog has no Canadian dollar unit and adding one to hold an identical
+    numeral would invite exactly the cross-currency comparison the price rules
+    forbid. “Now available” dates the figure to the day the console went on
+    sale.
+  sourceId: scea-ps4-launch-2013
+  transcribed:
+    significantDigits: 3
+    state: value
+    unit: USD
+    value: '399'
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-04

@@ -1,0 +1,26 @@
+accessedDate: 2026-07-29
+editorialStatus: approved
+fetch:
+  byteLength: 3522
+  contentType: text/plain; charset=UTF-8
+  fetchedAt: 2026-07-29T07:18:17Z
+  httpStatus: 200
+  sha256: d8d3f01f24d96a7c5e648172381b667098c232c24404d4efedad0bd92e31df3f
+  url: https://www.spec.org/cpu95/results/res98q2/cpu95-980413-02594.asc
+id: spec-cpu95-octane-fp
+locator: >-
+  Result cpu95-980413-02594: CFP95 summary, tester, hardware and software
+  sections
+publisher: Standard Performance Evaluation Corporation
+sourceType: official-benchmark-result
+tier: A
+title: "SPEC CPU95 published result: Silicon Graphics Octane (SPECfp95)"
+url: https://www.spec.org/cpu95/results/res98q2/cpu95-980413-02594.asc
+publishedDate: 1998-04
+usageNote: >-
+  Quotation is subject to the SPEC Fair Use Rules,
+  https://www.spec.org/products/fairuse/. SPEC and the benchmark names are
+  trademarks of the Standard Performance Evaluation Corporation. This record
+  reproduces the summary figures and the configuration they were obtained on,
+  not the benchmark suite or its results database.
+license: Copyright Standard Performance Evaluation Corporation.

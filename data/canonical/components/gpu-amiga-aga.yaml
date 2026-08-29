@@ -1,0 +1,19 @@
+id: amiga-aga
+slug: amiga-aga
+kind: gpu
+name: Amiga AGA chipset (Alice, Lisa, Paula)
+manufacturer: Commodore Business Machines
+architecture: Amiga AGA
+introducedDate: '1992'
+summary:
+  "The Advanced Graphics Architecture, called the AA chipset in Commodore's own
+  service documentation: a multichip coprocessor system handling video,
+  graphics, sound and DMA."
+notes:
+  Alice replaces Agnus with a {{context:amiga-aga:context-bit-32}} memory
+  interface, Lisa replaces Denise with a much wider palette. Paula carries over
+  from the Original Chip Set and is not modeled here, because the catalog
+  records processors, graphics and memory only.
+sourceIds:
+  - amiga-1200-service-manual
+editorialStatus: approved

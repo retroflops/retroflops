@@ -1,0 +1,46 @@
+accessedDate: 2026-08-17
+alt: A gray Commodore Amiga 1200 on a wooden table, a wedge-shaped keyboard case with a numeric pad,
+  the Amiga name molded into the top right and an A 1200 HD badge at the left.
+attribution: Photograph by Werner Ziegelwanger, marked as a public domain work by its author, via
+  Wikimedia Commons.
+canonical:
+  byteLength: 75498
+  format: avif
+  height: 960
+  sha256: f0e13e8a2c202dcff25880b4f18ab33d35799fea67e0a066a6021b4f8d16f51a
+  width: 1280
+caption: A Commodore Amiga 1200. The badge marks it as the model with a hard disk fitted; this
+  record describes the {{context:amiga-1200:context-mb-2}} machine as sold.
+creator: Werner Ziegelwanger
+creatorType: person
+editorialStatus: approved
+id: amiga-1200-computer
+original:
+  byteLength: 12576289
+  height: 3632
+  mediaType: image/jpeg
+  sha256: 508ef434f5d438642b552c5beee4d18f821a2c1c19cf233da1df60c5c76bcd61
+  width: 5456
+originalUrl: https://upload.wikimedia.org/wikipedia/commons/c/c7/Amiga_1200_%2831761275757%29.jpg
+publisher: Wikimedia Commons
+rights:
+  id: public-domain-mark-1.0
+  statedAt: https://commons.wikimedia.org/wiki/File:Amiga_1200_(31761275757).jpg
+  statement: This work has been released into the public domain by the author on Flickr, where the
+    author has declared it as a "Public Domain Work" and tagged it with the Creative Commons Public
+    Domain Mark.
+  url: https://creativecommons.org/publicdomain/mark/1.0/
+sourcePageUrl: https://commons.wikimedia.org/wiki/File:Amiga_1200_(31761275757).jpg
+title: Amiga 1200 (31761275757).jpg
+transform:
+  fit: crop
+  note: The photograph is wider than 4:3 on a wooden table, so the frame is narrowed centrally rather
+    than padded with a color the table does not have.
+  preset: image-v1
+  region:
+    height: 3630
+    width: 4840
+    x: 308
+    y: 1
+  sourceHeight: 3632
+  sourceWidth: 5456

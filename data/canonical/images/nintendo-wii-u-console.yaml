@@ -1,0 +1,42 @@
+accessedDate: 2026-08-17
+alt: A white Wii U GamePad, its screen switched off, standing in front of the white Wii U console,
+  which lies flat behind it with the disc slot facing forward.
+attribution: Photograph by Takimata, licensed CC BY-SA 3.0, via Wikimedia Commons.
+canonical:
+  byteLength: 17017
+  format: avif
+  height: 960
+  sha256: edcfd90852f1e7fcb553f02eff2e74b3d1b186d6832c9839ff44fca0fac127fd
+  width: 1280
+caption: The Wii U with its GamePad. The GamePad’s screen is switched off.
+creator: Takimata
+creatorType: person
+editorialStatus: approved
+id: nintendo-wii-u-console
+original:
+  byteLength: 1265857
+  height: 2142
+  mediaType: image/jpeg
+  sha256: e0c9d55c99b49184925fa2a3fe1f9a6f369c071402b76aa716406c67f2f2556c
+  width: 3213
+originalUrl: https://upload.wikimedia.org/wikipedia/commons/8/81/Wii_U_Console_and_Gamepad.jpg
+publisher: Wikimedia Commons
+rights:
+  id: cc-by-sa-3.0
+  statedAt: https://commons.wikimedia.org/wiki/File:Wii_U_Console_and_Gamepad.jpg
+  statement: This file is licensed under the Creative Commons Attribution-Share Alike 3.0 Unported license.
+  url: https://creativecommons.org/licenses/by-sa/3.0/
+sourcePageUrl: https://commons.wikimedia.org/wiki/File:Wii_U_Console_and_Gamepad.jpg
+title: Wii U Console and Gamepad.jpg
+transform:
+  fit: crop
+  note: The photograph is 3:2 against a plain studio background rather than a white one, so it reaches
+    4:3 by a centered crop of the full height. Nothing of either the console or the GamePad is lost.
+  preset: image-v1
+  region:
+    height: 2142
+    width: 2856
+    x: 179
+    y: 0
+  sourceHeight: 2142
+  sourceWidth: 3213

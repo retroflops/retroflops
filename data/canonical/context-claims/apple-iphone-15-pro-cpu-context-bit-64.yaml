@@ -1,0 +1,17 @@
+id: apple-iphone-15-pro-cpu:context-bit-64
+subject:
+  kind: component
+  id: apple-iphone-15-pro-cpu
+label: Word size
+quantity:
+  state: value
+  value: '64'
+  unit: bit
+  significantDigits: 2
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - apple-iphone-15-pro-tech-specs
+evidenceLevel: confirmed

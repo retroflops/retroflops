@@ -1,0 +1,20 @@
+id: computerbase-geforce-256
+title: "Die erste Nvidia GeForce: Retro"
+publisher: ComputerBase
+publishedDate: 2020-10-11
+accessedDate: 2026-08-25
+locator: Specifications table, "120 MHz GPU-Takt" row
+extract: 120 MHz GPU-Takt mit einer Füllrate von 480 MT/s.
+tier: B
+sourceType: independent-analysis
+url: https://www.computerbase.de/artikel/grafikkarten/die-erste-nvidia-geforce-retro.73458/
+usageNote: >-
+  Independent retrospective technical review. It agrees with the contemporary
+  AnandTech review on the 120 MHz core clock.
+fetch:
+  url: https://www.computerbase.de/artikel/grafikkarten/die-erste-nvidia-geforce-retro.73458/
+  fetchedAt: 2026-08-25T06:04:40Z
+  httpStatus: 200
+  contentType: text/html; charset=UTF-8
+  byteLength: 72788
+  sha256: f2930f80199b6db2b62e977775f596ec3bbdd6b2d27921793926e1b2ff1d3773

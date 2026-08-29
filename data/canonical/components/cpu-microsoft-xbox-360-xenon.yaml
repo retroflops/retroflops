@@ -1,0 +1,13 @@
+editorialStatus: provisional
+id: microsoft-xbox-360-xenon
+slug: microsoft-xbox-360-xenon
+kind: cpu
+name: IBM Xenon
+manufacturer: IBM
+architecture: PowerPC-derived
+introducedDate: '2005'
+instructionSet: PowerPC
+instructionSetFamily: power
+summary: The Microsoft Xbox 360 main processor.
+sourceIds:
+  - microsoft-xbox-360-hardware-overview

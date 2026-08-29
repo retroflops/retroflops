@@ -1,0 +1,42 @@
+accessedDate: 2026-08-17
+alt: "A cream Acorn Archimedes A310 photographed against white: a flat system box with a floppy
+  slot, a separate keyboard in front of it and a three-button mouse to the right."
+attribution: Photograph by mikkohoo, licensed CC BY-SA 4.0, via Wikimedia Commons.
+canonical:
+  byteLength: 35857
+  format: avif
+  height: 960
+  sha256: 7393eb59328a9c4e3f49a50612fa95bb63f98a9a5d6a5c3f240b7ea029ffddab
+  width: 1280
+caption: An Acorn Archimedes A310, the first machine built around Acorn's own ARM processor, with
+  its keyboard and three-button mouse.
+creator: mikkohoo
+creatorType: person
+editorialStatus: approved
+id: acorn-archimedes-a310-computer
+original:
+  byteLength: 1001410
+  height: 2520
+  mediaType: image/jpeg
+  sha256: 693727e3b85312c52a08ca22516a93c29908d43b1b27833017723f161514adc0
+  width: 3776
+originalUrl: https://upload.wikimedia.org/wikipedia/commons/b/bc/Acorn_Archimedes_A310_with_mouse_and_keyboard.jpg
+publisher: Wikimedia Commons
+rights:
+  id: cc-by-sa-4.0
+  statedAt: https://commons.wikimedia.org/wiki/File:Acorn_Archimedes_A310_with_mouse_and_keyboard.jpg
+  statement: "I, the copyright holder of this work, hereby publish it under the following license:
+    This file is licensed under the Creative Commons Attribution-Share Alike 4.0 International
+    license."
+  url: https://creativecommons.org/licenses/by-sa/4.0/
+sourcePageUrl: https://commons.wikimedia.org/wiki/File:Acorn_Archimedes_A310_with_mouse_and_keyboard.jpg
+title: Acorn Archimedes A310 with mouse and keyboard.jpg
+transform:
+  background: "#ffffff"
+  fit: pad
+  note: The photograph is wider than 4:3 and the machine reaches both ends of it, so no crop keeps the
+    whole subject. The declared margin is the same white as the backdrop the photograph was taken
+    against, which is why it cannot be seen; it is recorded because it is there.
+  preset: image-v1
+  sourceHeight: 2520
+  sourceWidth: 3776

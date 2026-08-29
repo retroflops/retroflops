@@ -1,0 +1,30 @@
+id: sega-dreamcast:whole-system-memory
+formula:
+  id: sum
+  version: '1'
+  expression: a + b + …
+inputMeasurementIds:
+  - dreamcast-main-ram:capacity
+exclusions:
+  - measurementId: dreamcast-texture-ram:capacity
+    label: 8 MiB of texture memory
+    reason: attached to the graphics processor rather than to the CPU
+  - measurementId: dreamcast-audio-ram:capacity
+    label: 2 MiB of sound memory
+    reason:
+      the sound processor’s own store, reachable only across the peripheral bus
+result:
+  state: value
+  value: '16777216'
+  unit: B
+  significantDigits: 8
+rounding: none
+caveat: >-
+  Adds 1 memory-capacity figure obtained by design-capacity. Left out:
+  {{measurement:dreamcast-texture-ram:capacity}} (attached to the graphics
+  processor rather than to the CPU);
+  {{measurement:dreamcast-audio-ram:capacity}} (the sound processor’s own store,
+  reachable only across the peripheral bus). A total is only as trustworthy as
+  the decision about what belongs in it, so both the terms and the exclusions
+  are named records.
+editorialStatus: approved

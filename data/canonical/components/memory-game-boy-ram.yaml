@@ -1,0 +1,11 @@
+architecture: Static RAM
+editorialStatus: provisional
+id: game-boy-ram
+kind: memory
+manufacturer: Nintendo
+memoryType: Static RAM
+name: Game Boy work RAM
+slug: game-boy-ram
+sourceIds:
+  - game-boy-cpu-manual
+summary: '{{context:game-boy-ram:context-kib-8}} writable work RAM.'

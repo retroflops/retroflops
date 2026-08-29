@@ -1,0 +1,54 @@
+- caveat: >-
+    This figure remains provisional until the cited source is corroborated for
+    the exact configuration.
+  comparabilityGroup: clock-frequency|gpu|nominal-clock
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: vga-compatible-adapter:clock-frequency
+  method: nominal-clock
+  metric: clock-frequency
+  provenance: vendor
+  quantity:
+    note: >-
+      VGA compatibility is a display standard, not a single graphics processor
+      or clock rate.
+    state: unknown
+  unknownAudit:
+    reviewedOn: 2026-08-25
+    routesChecked:
+      - vendor-documentation
+      - independent-analysis
+      - community-source
+    outcome: no-compatible-candidate
+    summary: >-
+      No configuration-specific compatible graphics-clock value is present in
+      the checked material.
+  scope: gpu
+  sourceIds:
+    - intel-historical-x86-documentation
+  status: vendor-rated
+  subject:
+    id: vga-compatible-adapter
+    kind: component
+- caveat: >-
+    This figure remains provisional until the cited source is corroborated for
+    the exact configuration.
+  comparabilityGroup: peak-fp32-rate|gpu|theoretical-peak
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: vga-compatible-adapter:peak-fp32-rate
+  method: theoretical-peak
+  metric: peak-fp32-rate
+  provenance: vendor
+  quantity:
+    note: >-
+      The represented VGA raster controller class has no programmable
+      floating-point shading hardware.
+    state: not-applicable
+  scope: gpu
+  sourceIds:
+    - intel-historical-x86-documentation
+  status: vendor-rated
+  subject:
+    id: vga-compatible-adapter
+    kind: component

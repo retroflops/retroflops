@@ -1,0 +1,64 @@
+- extract: >-
+    ABSOLUTE MAXIMUM RATINGS* / Ambient Temperature Under Bias .... 0°C to +70°C
+    / Storage Temperature ........... −65°C to +150°C / Voltage on Any Pin with
+    Respect to Ground ............. −1.0V to +7V / Power Dissipation
+    ........................ 3.3W — *WARNING: Stressing the device beyond the
+    "Absolute Maximum Ratings" may cause permanent damage. These are stress
+    ratings only. Operation beyond the "Operating Conditions" is not recommended
+  extractHash: b2be0df01f98141ccf08f4a8ee42b608bdfd85f611e0bf9304f6d21b35e5b379
+  id: intel-80286-datasheet:absolute-maximum-power-dissipation
+  locator: >-
+    Printed page 2-99 (PDF page 40 of 56), ABSOLUTE MAXIMUM RATINGS block and
+    the warning printed beside it
+  notes: >-
+    Transcribed to record that the wattage exists and cannot be used. This is
+    the one period x86 datasheet in the catalog that prints watts for a part
+    whose thermal design power is being asked about, and it prints them as a
+    stress rating the document itself disclaims in the adjoining paragraph. The
+    number is also not independent of the supply current in the table below it:
+    600 mA at the 5.25 V top of the tolerance is 3.15 W, so 3.3 W is that same
+    ceiling rounded up rather than a separately characterized cooling target.
+    Read by rendering the page at 200 dpi, the file having no text layer.
+  sourceId: intel-80286-datasheet
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-16
+- extract: >-
+    D.C. CHARACTERISTICS (VCC = 5V ±5%, TCASE = 0°C to +85°C)* / Symbol
+    Parameter Min Max Unit Test Condition / ICC Supply Current (0°C Turn On) 600
+    mA (Note 1) — NOTES: 1. CL = 100 pF. Tested at maximum frequency without
+    resistive loads on the outputs.
+  extractHash: 32bf0f70316552c979cca5ee26399a34c17fc993b923ef1caa70b59abb83419a
+  id: intel-80286-datasheet:supply-current
+  locator: >-
+    Printed page 2-99 (PDF page 40 of 56), first D.C. CHARACTERISTICS table, Icc
+    row and note 1
+  notes: >-
+    The operating specification Intel actually gives for this processor's
+    consumption, and it is a current rather than a power. The condition is a
+    turn-on figure at 0°C with a 100 pF load, tested at the part's maximum
+    frequency — so it is the worst case of a cold start, not a figure describing
+    a machine at work. Read by rendering the page at 200 dpi.
+  sourceId: intel-80286-datasheet
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-16
+- extract: >-
+    A.C. CHARACTERISTICS (VCC = 5V ±5%, TCASE = 0°C to +85°C)* / 8 MHz | 10 MHz
+    | 12.5 MHz / Symbol Parameter -8 Min -8 Max -10 Min -10 Max -12 Min -12 Max
+    Unit Test Condition / 1 System Clock (CLK) Period 62 250 50 250 40 250 ns
+  extractHash: 2f00039e92ff146260e45c526e837d9e9510ff8a7c75d57ee60663ff0dd8f6e4
+  id: intel-80286-datasheet:speed-grades
+  locator: >-
+    Printed page 2-100 (PDF page 41 of 56), A.C. CHARACTERISTICS table header
+    and row 1
+  notes: >-
+    Transcribed because it bears on a figure the catalog already states. Intel's
+    grades in this revision are 8, 10 and 12.5 MHz, sold as the 80286-8, -10 and
+    -12; the cover names exactly those three parts. The catalog's representative
+    machine is described as a 12 MHz 80286, which is not a grade Intel offered
+    here — the likeliest explanation is that the -12 suffix was read as a
+    frequency. The clock periods confirm the reading: the -12 column's 40 ns
+    minimum is a 25 MHz CLK input, which the 80286 halves internally to 12.5
+    MHz. Read by rendering the page at 200 dpi.
+  sourceId: intel-80286-datasheet
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-16

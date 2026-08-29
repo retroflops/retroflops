@@ -1,0 +1,2483 @@
+@import './tokens.css';
+@import './reset.css';
+
+/*
+ * Reserving the scrollbar's space on every page stops the layout jumping
+ * sideways between a short page and a long one. The shift is most obvious
+ * exactly where this site sends readers, between a profile and the index it
+ * came from.
+ */
+html {
+  scrollbar-gutter: stable;
+  /*
+   * Room for the pinned header, so an anchor jump or the skip link's own
+   * scroll never parks its destination behind the bar. The offset is zero
+   * wherever the header is not pinned, which leaves those cases as they were.
+   */
+  scroll-padding-block-start: var(--sticky-offset);
+}
+
+body {
+  /*
+   * `svh`, not `vh`: on mobile browsers `vh` is the viewport with the address
+   * bar retracted, so a footer pinned with it sits under the chrome until the
+   * reader scrolls. The small viewport is the one that is always visible.
+   */
+  min-block-size: 100svh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--surface-page);
+  /* Faint technical grid, drawn from the paper tones so text stays legible. */
+  background-image:
+    linear-gradient(to right, var(--raster-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--raster-line) 1px, transparent 1px);
+  background-size: 32px 32px;
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  font-size: var(--step-0);
+  line-height: var(--leading-normal);
+}
+
+/*
+ * Animation here is decoration, such as a skip link sliding in or a details panel
+ * opening. None of it carries meaning, so all of it goes when a reader has
+ * asked for less motion, rather than being merely shortened.
+ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+h1,
+h2,
+h3,
+h4 {
+  line-height: var(--leading-tight);
+  text-wrap: balance;
+  font-weight: 650;
+  letter-spacing: -0.01em;
+}
+
+h1 {
+  font-size: var(--step-4);
+}
+
+h2 {
+  font-size: var(--step-2);
+}
+
+h3 {
+  font-size: var(--step-1);
+}
+
+p,
+li {
+  text-wrap: pretty;
+}
+
+a {
+  color: var(--text-accent);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+}
+
+a:hover {
+  color: var(--color-phosphor-bright);
+}
+
+:focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 2px;
+  border-radius: var(--radius-s);
+}
+
+code,
+kbd,
+samp,
+.numeric {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Long device names, units and source URLs must never widen the layout. */
+.wrap-anywhere {
+  overflow-wrap: anywhere;
+}
+
+/* Layout primitives */
+
+.container {
+  inline-size: 100%;
+  max-inline-size: var(--content-max);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.prose {
+  max-inline-size: var(--prose-max);
+}
+
+.stack > * + * {
+  margin-block-start: var(--space-s);
+}
+
+.stack-l > * + * {
+  margin-block-start: var(--space-l);
+}
+
+/* Skip link: visible only once focused, and always above site chrome. */
+
+.skip-link {
+  position: absolute;
+  inset-block-start: var(--space-2xs);
+  inset-inline-start: var(--space-2xs);
+  z-index: 100;
+  padding: var(--space-2xs) var(--space-s);
+  background-color: var(--surface-raised);
+  border: 2px solid var(--text-accent);
+  border-radius: var(--radius-m);
+  color: var(--text-primary);
+  text-decoration: none;
+  transform: translateY(calc(-100% - var(--space-l)));
+  transition: transform var(--duration-fast) var(--easing-standard);
+}
+
+/* Uses :focus, not :focus-visible, so the link reveals itself for any focus route. */
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+/* Site chrome */
+
+.site-header {
+  /* The containing block for the menu panel, which hangs below the bar. */
+  position: relative;
+  z-index: 20;
+  border-block-end: var(--border-hairline);
+  background-color: var(--surface-raised);
+  padding-block: var(--space-2xs);
+  padding-inline-start: env(safe-area-inset-left);
+  padding-inline-end: env(safe-area-inset-right);
+}
+
+.site-header__inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2xs) var(--space-m);
+}
+
+.site-header__brand {
+  font-family: var(--font-mono);
+  font-size: var(--step-1);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  text-decoration: none;
+}
+
+.site-header__brand span {
+  color: var(--text-accent);
+}
+
+/*
+ * The header, pinned.
+ *
+ * `sticky` rather than `fixed`: the header is a flex item of the body column
+ * and the containing block for the menu panel that hangs off it, and taking it
+ * out of flow would cost both. Sticky keeps its box where it is and its
+ * `position: relative` job with it.
+ *
+ * Not on a short viewport, though. The bar is a touch target tall, and at 400%
+ * zoom or on a phone held sideways that is a quarter of everything the reader
+ * has. Below 32rem of viewport height it scrolls away as it always did. That
+ * is also why every offset below reads `--sticky-offset` rather than the height
+ * itself: the covered distance is zero exactly when the bar is not covering
+ * anything.
+ */
+@media (min-height: 32rem) {
+  :root {
+    --sticky-offset: var(--header-height);
+  }
+
+  .site-header {
+    position: sticky;
+    inset-block-start: 0;
+  }
+}
+
+/*
+ * Content passing behind the bar should read as behind it, and a hairline alone
+ * does not say that once the page is in motion. The shadow is a scrolled state
+ * rather than a transition, so it is switched, not eased.
+ */
+@keyframes site-header-lift {
+  from {
+    box-shadow: none;
+  }
+
+  to {
+    box-shadow: var(--shadow-floating);
+  }
+}
+
+@supports (animation-timeline: scroll(root block)) and (animation-range: 100vh 100%) {
+  @media (min-height: 32rem) {
+    .site-header {
+      animation: site-header-lift steps(1, end) both;
+      animation-range: 0 var(--space-s);
+    }
+
+    /*
+     * Keep this longhand on a distinct selector, for the reason `.to-top`
+     * spells out below: the minifier otherwise folds it into the shorthand's
+     * timeline slot, which not every target understands.
+     */
+    header.site-header {
+      animation-timeline: scroll(root block);
+    }
+  }
+}
+
+/* The shadow marks a position, not a movement, so reduced motion keeps it. */
+@media (prefers-reduced-motion: reduce) {
+  @supports (animation-timeline: scroll(root block)) and (animation-range: 100vh 100%) {
+    @media (min-height: 32rem) {
+      .site-header {
+        animation-duration: auto !important;
+      }
+    }
+  }
+}
+
+/*
+ * The menu, collapsed.
+ *
+ * A `<details>` rather than a scripted button, because the navigation of a site
+ * that renders without JavaScript cannot be the one thing that needs it. The
+ * panel hangs off the header rather than pushing the page down, so opening the
+ * menu never moves the heading a reader was looking at.
+ */
+.site-menu__toggle {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2xs);
+  min-block-size: var(--target-min);
+  padding-inline: var(--space-2xs);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-m);
+  color: var(--text-secondary);
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  cursor: pointer;
+  /* The disclosure triangle is replaced by the bars, in both marker syntaxes. */
+  list-style: none;
+}
+
+.site-menu__toggle::-webkit-details-marker {
+  display: none;
+}
+
+.site-menu[open] .site-menu__toggle {
+  border-color: var(--text-accent);
+  color: var(--text-accent);
+}
+
+/* Three rules rather than a glyph, so the icon does not depend on a font. */
+.site-menu__bars {
+  position: relative;
+  display: block;
+  inline-size: 1.1rem;
+  block-size: 2px;
+  background-color: currentcolor;
+}
+
+.site-menu__bars::before,
+.site-menu__bars::after {
+  content: '';
+  position: absolute;
+  inset-inline: 0;
+  block-size: 2px;
+  background-color: currentcolor;
+}
+
+.site-menu__bars::before {
+  inset-block-start: -6px;
+}
+
+.site-menu__bars::after {
+  inset-block-start: 6px;
+}
+
+.site-nav {
+  position: absolute;
+  inset-inline: 0;
+  inset-block-start: 100%;
+  /* The panel lies over the page, so its lower edge has to be as definite as
+   * the header's own. */
+  border-block-end: 2px solid var(--border-strong);
+  background-color: var(--surface-raised);
+  box-shadow: var(--shadow-floating);
+  padding-inline: var(--gutter);
+  padding-block: var(--space-2xs);
+}
+
+.site-nav ul {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.site-nav li + li {
+  border-block-start: var(--border-hairline);
+}
+
+.site-nav a {
+  display: flex;
+  align-items: center;
+  min-block-size: var(--target-min);
+  color: var(--text-secondary);
+  text-decoration: none;
+}
+
+.site-nav a:hover,
+.site-nav a[aria-current='page'] {
+  color: var(--text-accent);
+  text-decoration: underline;
+}
+
+/*
+ * The menu, open for good.
+ *
+ * From 40rem the five destinations fit on the bar, so the disclosure stops
+ * being one: the toggle goes and the panel is forced open with
+ * `::details-content`. That pseudo-element is what a browser hides a closed
+ * `<details>` with, so the whole rule is guarded on supporting it. Where it is
+ * not supported the header keeps the working disclosure instead of silently
+ * losing its navigation.
+ */
+@supports selector(::details-content) {
+  @media (min-width: 40rem) {
+    .site-menu__toggle {
+      display: none;
+    }
+
+    .site-menu::details-content {
+      content-visibility: visible;
+    }
+
+    .site-nav {
+      position: static;
+      border-block-end: 0;
+      box-shadow: none;
+      padding: 0;
+    }
+
+    .site-nav ul {
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: var(--space-3xs) var(--space-s);
+    }
+
+    .site-nav li + li {
+      border-block-start: 0;
+    }
+
+    .site-nav a {
+      padding-inline: var(--space-2xs);
+    }
+  }
+}
+
+/* Grows to fill a short page, so the footer sits at the bottom rather than mid-screen. */
+.site-main {
+  flex: 1 0 auto;
+  padding-block: var(--space-m) var(--space-xl);
+}
+
+@media (min-width: 40rem) {
+  .site-main {
+    padding-block-start: var(--space-xl);
+  }
+}
+
+/*
+ * A page that opens with a breadcrumb needs none of that top padding: the trail
+ * is chrome rather than content, and its crumbs already sit in 44 px targets
+ * that carry their own air above the heading.
+ */
+.site-main:has(.breadcrumb:first-child) {
+  padding-block-start: var(--space-2xs);
+}
+
+.site-footer {
+  margin-block-start: var(--space-2xl);
+  border-block-start: var(--border-hairline);
+  background-color: var(--surface-sunken);
+  padding-block: var(--space-m);
+  padding-block-end: calc(var(--space-m) + env(safe-area-inset-bottom));
+  color: var(--text-secondary);
+  font-size: var(--step--1);
+}
+
+.site-footer p + p {
+  margin-block-start: var(--space-2xs);
+}
+
+/*
+ * The GitHub link. The anchor stays inline rather than becoming a flex
+ * container: an inline-flex box takes its baseline from its first item, and a
+ * replaced element like an SVG has none, so the whole link would ride above
+ * the separators beside it. `text-bottom` sits the mark on the text's own
+ * content box, which is what the icon was drawn for.
+ *
+ * The underline moves to the label so it does not run under the mark; the
+ * label is also what names the link, which is why there is no `aria-label`.
+ */
+.site-footer__gh {
+  text-decoration: none;
+}
+
+.site-footer__gh-mark {
+  /*
+   * The reset gives every `svg` `display: block`, which is right for the
+   * photographs it was written for and wrong for an icon sitting in a line of
+   * text. A block box would put the label on its own line.
+   */
+  display: inline-block;
+  vertical-align: text-bottom;
+  margin-inline-end: 0.3em;
+}
+
+.site-footer__gh-label {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+}
+
+/*
+ * The color stays `--text-secondary`, inherited from `.site-footer`, rather
+ * than dropping to `--text-muted`: muted text does not reach 4.5:1 on a sunken
+ * surface, and this line is not the exception.
+ */
+.site-footer__legal {
+  margin-block-start: var(--space-2xs);
+  text-wrap: pretty;
+}
+
+/*
+ * Which build this page came from. It inherits the same `--text-secondary` for
+ * the same contrast reason, and it is the last line because it is the one a
+ * reader wants only when reporting something about the others.
+ */
+.site-footer__build {
+  margin-block-start: var(--space-2xs);
+}
+
+/*
+ * Back to top.
+ *
+ * The plain anchor is the fallback for browsers without scroll-driven
+ * animations. They keep a useful route to the header, but get no false progress
+ * indicator. Browsers that understand the timeline replace its border with the
+ * progress ring and hide it until the first viewport has passed.
+ */
+@property --scroll-progress {
+  syntax: '<angle>';
+  inherits: false;
+  initial-value: 0turn;
+}
+
+.to-top {
+  position: fixed;
+  inset-block-end: calc(var(--space-s) + env(safe-area-inset-bottom));
+  inset-inline-end: calc(var(--space-s) + env(safe-area-inset-right));
+  z-index: 30;
+  display: grid;
+  place-items: center;
+  inline-size: var(--target-min);
+  block-size: var(--target-min);
+  border: 2px solid var(--border-strong);
+  border-radius: 50%;
+  background-color: var(--surface-raised);
+  color: var(--text-secondary);
+  font-size: var(--step-1);
+  line-height: 1;
+  text-decoration: none;
+  box-shadow: var(--shadow-control);
+}
+
+.to-top:hover {
+  border-color: var(--text-accent);
+  color: var(--text-accent);
+}
+
+@keyframes to-top-reveal {
+  from {
+    visibility: hidden;
+    opacity: 0;
+  }
+
+  to {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+@keyframes to-top-progress {
+  from {
+    --scroll-progress: 0turn;
+  }
+
+  to {
+    --scroll-progress: 1turn;
+  }
+}
+
+@supports (animation-timeline: scroll(root block)) and (animation-range: 100vh 100%) {
+  .to-top {
+    --to-top-progress-color: var(--text-accent);
+
+    border-color: transparent;
+    background:
+      linear-gradient(var(--surface-raised), var(--surface-raised)) padding-box,
+      conic-gradient(
+          var(--to-top-progress-color) var(--scroll-progress),
+          var(--border-strong) 0turn
+        )
+        border-box;
+    visibility: hidden;
+    opacity: 0;
+    animation:
+      to-top-reveal steps(1, end) both,
+      to-top-progress linear both;
+    animation-range:
+      100vh calc(100vh + 1px),
+      normal;
+  }
+
+  /*
+   * Keep this longhand on a distinct selector. The production CSS minifier
+   * otherwise folds it into the animation shorthand, whose timeline slot is
+   * newer than the standalone property and not understood by every target.
+   */
+  a.to-top {
+    animation-timeline: scroll(root block), scroll(root block);
+  }
+
+  .to-top:hover {
+    --to-top-progress-color: var(--color-phosphor-bright);
+
+    border-color: transparent;
+  }
+}
+
+/*
+ * The ring follows the reader's own scrolling instead of moving after it. Keep
+ * that state under reduced motion, including the one-pixel visibility switch.
+ */
+@media (prefers-reduced-motion: reduce) {
+  @supports (animation-timeline: scroll(root block)) and (animation-range: 100vh 100%) {
+    .to-top {
+      animation-duration: auto, auto !important;
+    }
+  }
+}
+
+/* Page furniture */
+
+.page-header {
+  border-block-end: 2px solid var(--border-strong);
+  padding-block-end: var(--space-s);
+}
+
+.page-header__eyebrow {
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+}
+
+.lede {
+  font-size: var(--step-1);
+  color: var(--text-secondary);
+}
+
+.author-note {
+  border-inline-start: 4px solid var(--color-phosphor);
+  background: var(--surface-raised);
+  padding: var(--space-m);
+}
+
+/*
+ * Horizontal overflow is allowed only inside explicitly marked containers, and
+ * a marked one must also be focusable. A region that scrolls has to scroll
+ * without a pointer. No table claims this any more: below the width its columns
+ * need, a table restacks into cards instead. It stays the sanctioned marker for
+ * anything that cannot.
+ */
+.scroll-x {
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+}
+
+/*
+ * Breadcrumb and family navigation.
+ *
+ * The trail wraps rather than scrolls. A breadcrumb is four items and the
+ * longest of them is a machine's full name, so at 320 px it becomes two or
+ * three lines. That is the only behavior that does not put a
+ * scrollbar under the page heading.
+ *
+ * The separator is a pseudo-element rather than a character in the markup, so
+ * a screen reader reads four names and not four names and three slashes.
+ */
+.breadcrumb ol {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0 var(--space-2xs);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: var(--step--1);
+}
+
+.breadcrumb li + li::before {
+  content: '›';
+  margin-inline-end: var(--space-2xs);
+  color: var(--text-muted);
+}
+
+/* The trail's own links are small, so they get the target height explicitly. */
+.breadcrumb a {
+  display: inline-flex;
+  align-items: center;
+  min-block-size: var(--target-min);
+}
+
+.breadcrumb [aria-current='page'] {
+  color: var(--text-muted);
+}
+
+/*
+ * The family navbox, at the foot of a record page.
+ *
+ * Delimited by its rule rather than by a fill, and that is a contrast decision
+ * rather than a taste one. Every row here carries a `.meta` line in
+ * `--text-muted`, which clears 4.5:1 on the page but reaches only 4.07:1 on the
+ * sunken paper. The palette comment above the accents describes the same trap,
+ * sprung by muted text this time instead of accented text. Nothing else on the
+ * site puts muted text on a sunken surface, and this does not become the first.
+ *
+ * A machine that belongs to no family renders none of this, and its page ends
+ * where it always did.
+ */
+.family-nav {
+  border: var(--border-hairline);
+  padding: var(--space-s);
+}
+
+.family-nav h2 {
+  font-size: var(--step-0);
+  margin-block-end: var(--space-2xs);
+}
+
+/*
+ * `anywhere` rather than `break-word`: "Super Nintendo Entertainment System" in
+ * a 320 px column has to be allowed to break inside a word, or it sets the
+ * page's minimum width and everything else scrolls sideways with it.
+ */
+.family-nav li > :first-child {
+  display: inline-flex;
+  align-items: center;
+  min-block-size: var(--target-min);
+  overflow-wrap: anywhere;
+}
+
+.family-nav__current {
+  color: var(--text-muted);
+}
+
+.family-nav__all {
+  margin-block-start: var(--space-2xs);
+  font-size: var(--step--1);
+}
+
+/*
+ * A profile's opening block: the machine's name and facts, and its photograph.
+ *
+ * One column until there is room for two. A profile with no photograph has one
+ * grid child and reads exactly as it did before images existed. The absence
+ * leaves no gap to explain.
+ */
+.system-hero {
+  display: grid;
+  gap: var(--space-m);
+  align-items: start;
+}
+
+.system-hero__text > * + * {
+  margin-block-start: var(--space-s);
+}
+
+/*
+ * Two columns once the lede still has a readable measure beside a photograph
+ * worth looking at, which is a good deal wider than the 640 px at which two
+ * columns first become possible. `:has()` keeps the rule off a profile with no
+ * photograph, whose single child would otherwise be squeezed into the text
+ * column for no reason.
+ */
+@media (min-width: 56rem) {
+  .system-hero:has(.system-photo) {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 24rem);
+    gap: var(--space-l);
+  }
+}
+
+.system-photo {
+  margin: 0;
+  display: grid;
+  gap: var(--space-2xs);
+}
+
+/*
+ * The intrinsic size is carried by the attributes, and the aspect ratio is
+ * restated here so the space is reserved before the bytes arrive whatever a
+ * stylesheet does to the width.
+ */
+.system-photo img {
+  inline-size: 100%;
+  block-size: auto;
+  aspect-ratio: 4 / 3;
+  background-color: var(--surface-sunken);
+  border: 1px solid var(--border-subtle);
+}
+
+.system-photo figcaption p {
+  margin: 0;
+  font-size: var(--step--1);
+  color: var(--text-secondary);
+}
+
+.system-photo figcaption .meta {
+  margin-block-start: var(--space-3xs);
+}
+
+/* Record furniture */
+
+/* A row of short facts under a page heading. Wraps rather than scrolls. */
+.fact-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2xs) var(--space-l);
+  margin: 0;
+  padding-block-start: var(--space-2xs);
+}
+
+.fact-row dt,
+.detail-list dt {
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+}
+
+.fact-row dd,
+.detail-list dd {
+  margin: 0;
+}
+
+.detail-list {
+  display: grid;
+  gap: var(--space-s);
+  margin: 0;
+}
+
+.detail-list dd {
+  max-inline-size: var(--prose-max);
+}
+
+.meta {
+  display: block;
+  font-size: var(--step--1);
+  color: var(--text-muted);
+}
+
+.cell-note {
+  display: block;
+  margin-block-start: var(--space-3xs);
+  font-size: var(--step--1);
+  font-weight: 400;
+  color: var(--text-muted);
+  white-space: normal;
+}
+
+.badge {
+  display: inline-block;
+  margin-inline-start: var(--space-2xs);
+  padding: 0 var(--space-3xs);
+  border-radius: var(--radius-s);
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.badge--provisional {
+  background-color: var(--color-amber-wash);
+  color: var(--color-amber);
+}
+
+.badge--accepted {
+  background-color: var(--color-phosphor-wash);
+  color: var(--text-accent);
+}
+
+.badge--confirmed {
+  background-color: var(--color-phosphor-wash);
+  color: var(--color-phosphor);
+}
+
+.badge--reported {
+  background-color: var(--color-amber-wash);
+  color: var(--color-amber);
+}
+
+.badge--rumored {
+  background-color: color-mix(in srgb, var(--color-crimson) 12%, transparent);
+  color: var(--color-crimson);
+}
+
+/*
+ * The frame every wide table sits in.
+ *
+ * It exists to be a query container: a table asks how much room it has been
+ * given and lays itself out accordingly, rather than asking how wide the window
+ * is. The comparison table uses the same arrangement. Below the width its
+ * columns need, a table stops being a table, so the frame never has to scroll
+ * and is not a scroll region.
+ */
+.table-frame {
+  container-type: inline-size;
+}
+
+/* Configuration table: same conventions as the measurement table. */
+
+.config-table {
+  inline-size: 100%;
+  min-inline-size: 38rem;
+  border-collapse: collapse;
+}
+
+.config-table th,
+.config-table td {
+  vertical-align: top;
+  padding: var(--space-xs) var(--space-s);
+  border-block-end: var(--border-hairline);
+  text-align: start;
+}
+
+.config-table thead th {
+  background-color: var(--surface-raised);
+  border-block-end: 2px solid var(--border-strong);
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-secondary);
+}
+
+.config-table td.numeric {
+  white-space: nowrap;
+}
+
+.config-value {
+  display: block;
+}
+
+/*
+ * Matches `.config-table td.is-absent` and the measurement table's own absent
+ * cells. A documented absence belongs in the column beside the figures it sits
+ * among, but set apart from them: at full weight in a numeric cell, "unknown"
+ * reads as the measurement rather than as its absence.
+ */
+.config-value.is-absent {
+  font-style: italic;
+  font-size: var(--step--1);
+  color: var(--text-muted);
+}
+
+.config-value + .config-value {
+  margin-block-start: var(--space-2xs);
+}
+
+/*
+ * One card per row below the width the columns need, on the same terms as the
+ * measurement table: a label the cell carries itself, and no sideways scroll.
+ * Here the values are short, a role, a count or a clock, so the label sits
+ * beside the value rather than above it.
+ */
+@container (max-width: 46rem) {
+  .config-table {
+    min-inline-size: 0;
+  }
+
+  .config-table,
+  .config-table tbody,
+  .config-table tr,
+  .config-table th,
+  .config-table td {
+    display: block;
+  }
+
+  .config-table thead {
+    display: none;
+  }
+
+  .config-table tbody tr {
+    border: var(--border-hairline);
+    padding: var(--space-xs);
+  }
+
+  .config-table tbody tr + tr {
+    margin-block-start: var(--space-s);
+  }
+
+  .config-table tbody th {
+    padding: 0;
+    border-block-end: 0;
+    font-size: var(--step-1);
+  }
+
+  .config-table tbody td {
+    display: grid;
+    grid-template-columns: 5.5rem minmax(0, 1fr);
+    column-gap: var(--space-2xs);
+    margin-block-start: var(--space-2xs);
+    padding: 0;
+    border-block-end: 0;
+  }
+
+  /*
+   * A cell may hold more than its value, such as a note, badge or list of sources.
+   * None of those belong under the label. Everything but the label lives in
+   * the value column.
+   */
+  .config-table tbody td > * {
+    grid-column: 2;
+  }
+
+  .config-table tbody td::before {
+    content: attr(data-label);
+    font-family: var(--font-mono);
+    font-size: var(--step--1);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--text-muted);
+  }
+
+  /* A number that had a column to itself now shares a line, and may wrap. */
+  .config-table td.numeric {
+    white-space: normal;
+  }
+
+  /*
+   * A list of sources inside a card is not a column of table rows: the rules
+   * that separated one cell's citations from the next one's read as stray lines
+   * once the cell has a border of its own.
+   */
+  .config-table tbody td .link-list li {
+    padding-block: 0;
+    border-block-end: 0;
+  }
+
+  .config-table tbody td .link-list li + li {
+    margin-block-start: var(--space-3xs);
+  }
+}
+
+/* Lists of records and sources */
+
+.link-list,
+.source-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.link-list li,
+.source-list li {
+  padding-block: var(--space-2xs);
+  border-block-end: var(--border-hairline);
+}
+
+.source-list .meta {
+  max-inline-size: var(--prose-max);
+}
+
+/*
+ * Catalog cards. `minmax(0, 1fr)` rather than `auto-fit` alone so a long
+ * device name cannot widen a column past its share of the row.
+ */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(20rem, 100%), 1fr));
+  gap: var(--space-s);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.card {
+  border: var(--border-hairline);
+  background-color: var(--surface-raised);
+  padding: var(--space-s);
+}
+
+.card h3 {
+  font-size: var(--step-1);
+}
+
+.card h3 a {
+  text-decoration: none;
+}
+
+.card h3 a:hover {
+  text-decoration: underline;
+}
+
+.card__eyebrow {
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+}
+
+.card__summary {
+  font-size: var(--step--1);
+  color: var(--text-secondary);
+}
+
+/* Visually hidden, still read by assistive technology. */
+.visually-hidden {
+  position: absolute;
+  inline-size: 1px;
+  block-size: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* Search */
+
+.search {
+  max-inline-size: 40rem;
+}
+
+/* Label, input and the status line the island renders once it has hydrated. */
+.js .search-slot {
+  min-block-size: 6.5rem;
+}
+
+.search__label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+}
+
+.search__input {
+  inline-size: 100%;
+  min-block-size: var(--target-min);
+  margin-block-start: var(--space-2xs);
+  padding: var(--space-2xs) var(--space-s);
+  border: 2px solid var(--border-strong);
+  border-radius: var(--radius-m);
+  background-color: var(--surface-raised);
+  color: var(--text-primary);
+  font: inherit;
+}
+
+.search__input:focus-visible {
+  border-color: var(--focus-ring);
+}
+
+.search__status {
+  display: block;
+  margin-block-start: var(--space-2xs);
+  min-block-size: 1.5em;
+  font-size: var(--step--1);
+  color: var(--text-secondary);
+}
+
+.search__results {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-block-start: var(--border-hairline);
+}
+
+.search__results li {
+  padding-block: var(--space-2xs);
+  border-block-end: var(--border-hairline);
+}
+
+.search__results a {
+  display: inline-block;
+  min-block-size: calc(var(--target-min) / 2);
+}
+
+.search__excerpt {
+  display: block;
+  font-size: var(--step--1);
+  color: var(--text-secondary);
+}
+
+.search__excerpt mark {
+  background-color: var(--color-phosphor-wash);
+  color: inherit;
+  font-weight: 650;
+}
+
+/* Explore filters */
+
+.filters {
+  border: var(--border-hairline);
+  background-color: var(--surface-raised);
+  padding: var(--space-s);
+}
+
+/*
+ * The panel is a disclosure below the two-column breakpoint and a standing
+ * sidebar above it. The summary is hidden rather than removed on wide screens,
+ * where the island holds the details open, so the same markup serves both.
+ */
+.filters__summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-s);
+  min-block-size: var(--target-min);
+  padding-block: var(--space-2xs);
+  color: var(--text-accent);
+  font-size: var(--step--1);
+  cursor: pointer;
+}
+
+.filters__summary-count:not(:empty) {
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-m);
+  padding-inline: var(--space-2xs);
+  color: var(--text-secondary);
+}
+
+@media (min-width: 60rem) {
+  .filters__summary {
+    display: none;
+  }
+}
+
+/*
+ * The panel sits above the list at narrow widths, so any change in its height
+ * pushes the whole catalog down under the reader's finger.
+ *
+ * A fixed two-row grid is what makes that impossible: the heading and the count
+ * stack in one column, the clear button occupies the other across both rows, and
+ * neither the length of the count nor the presence of the button can move a
+ * single pixel. A flex row could not promise that. It wrapped as soon as the
+ * count grew from "61 records" to "14 of 61 records" at 320 px.
+ */
+.filters__header {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-areas:
+    'title clear'
+    'count clear';
+  align-items: center;
+  column-gap: var(--space-s);
+  border-block-end: var(--border-hairline);
+  padding-block-end: var(--space-2xs);
+}
+
+.filters__title {
+  grid-area: title;
+}
+
+.filters__count {
+  grid-area: count;
+}
+
+.filters__clear {
+  grid-area: clear;
+}
+
+.filters__title {
+  font-size: var(--step-1);
+}
+
+/*
+ * Sized to its text rather than growing to fill: a 12rem basis pushed the clear
+ * button onto a second row at phone widths, which made the header and the
+ * whole panel half again as tall for no reason.
+ */
+.filters__count {
+  display: block;
+  flex: 0 1 auto;
+  min-inline-size: 0;
+  font-size: var(--step--1);
+  color: var(--text-secondary);
+}
+
+/*
+ * Hidden, not removed, and not disabled. Hiding keeps the button's space so the
+ * layout never moves, while taking it out of the tab order and the
+ * accessibility tree. A disabled button would keep neither promise and would
+ * put a dead control in front of a reader who has not filtered anything yet.
+ */
+.filters__clear--idle {
+  visibility: hidden;
+}
+
+.filters__clear {
+  min-block-size: var(--target-min);
+  padding-inline: var(--space-s);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-m);
+  background-color: var(--surface-page);
+  color: var(--text-primary);
+  font: inherit;
+  font-size: var(--step--1);
+  cursor: pointer;
+}
+
+.filters__clear:hover {
+  border-color: var(--text-accent);
+  color: var(--text-accent);
+}
+
+.filters__groups {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(14rem, 100%), 1fr));
+  gap: var(--space-s);
+  margin-block-start: var(--space-s);
+}
+
+.filters__group {
+  min-inline-size: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.filters__group legend {
+  padding: 0;
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+}
+
+.filters__note {
+  font-size: var(--step--1);
+  color: var(--text-muted);
+}
+
+.filters__group ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/*
+ * The whole row is the target, so the hit area clears 44 px without the
+ * checkbox itself having to be oversized.
+ */
+.filters__option {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2xs);
+  min-block-size: var(--target-min);
+  cursor: pointer;
+}
+
+.filters__option input {
+  inline-size: 1.1rem;
+  block-size: 1.1rem;
+  accent-color: var(--color-phosphor);
+}
+
+.filters__option span:first-of-type {
+  flex: 1 1 auto;
+  min-inline-size: 0;
+  overflow-wrap: anywhere;
+}
+
+.filters__option-count {
+  font-size: var(--step--1);
+  color: var(--text-muted);
+}
+
+/* Compare
+ *
+ * Two layouts from one markup, switched on the container's width rather than the
+ * viewport's, so the same block works in a full-width page and in a narrower
+ * column. Stacked is the default: every figure carries the name of the record it
+ * belongs to, which is what makes the reflow safe to do at all.
+ *
+ * Above the threshold the table becomes a grid whose columns are the records.
+ * Compare never shrinks four columns into illegibility and never scrolls
+ * sideways. Below the threshold it stops being a table instead.
+ */
+
+.cmp {
+  container-type: inline-size;
+}
+
+.cmp-problems {
+  border: var(--border-hairline);
+  border-inline-start: 3px solid var(--color-amber);
+  background-color: var(--color-amber-wash);
+  padding: var(--space-s);
+}
+
+.cmp-problems p {
+  max-inline-size: var(--prose-max);
+  font-size: var(--step--1);
+}
+
+.cmp-block {
+  border-block-start: 2px solid var(--border-strong);
+  padding-block-start: var(--space-s);
+}
+
+/*
+ * The metric heading stays put while a long comparison scrolls past, so a figure
+ * is never read without knowing which quantity it is.
+ */
+.cmp-block__title {
+  position: sticky;
+  inset-block-start: var(--sticky-offset);
+  z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--space-2xs) var(--space-s);
+  margin-block-end: var(--space-2xs);
+  padding-block: var(--space-2xs);
+  background-color: var(--surface-page);
+}
+
+.cmp-block__qualifier {
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  color: var(--text-muted);
+}
+
+.cmp-block__warning {
+  max-inline-size: var(--prose-max);
+  border-inline-start: 3px solid var(--color-amber);
+  padding-inline-start: var(--space-2xs);
+  font-size: var(--step--1);
+  color: var(--text-secondary);
+}
+
+.cmp-table {
+  inline-size: 100%;
+  border-collapse: collapse;
+  text-align: start;
+}
+
+/* Stacked layout: the column headers are redundant, each cell names its record. */
+.cmp-table thead {
+  display: none;
+}
+
+.cmp-table,
+.cmp-table tbody,
+.cmp-table tr,
+.cmp-table th,
+.cmp-table td {
+  display: block;
+}
+
+.cmp-table tbody tr + tr {
+  margin-block-start: var(--space-s);
+}
+
+.cmp-table tbody th {
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  font-weight: 650;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-secondary);
+  padding-block: var(--space-2xs);
+}
+
+.cmp-table__benchmark,
+.cmp-table__variant {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0;
+  color: var(--text-muted);
+}
+
+/*
+ * A logarithmic row must say so where the bars are. Read as linear, a log bar
+ * understates the gap by orders of magnitude, so the label is not decoration.
+ */
+.cmp-table__scale {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  font-weight: 400;
+  text-transform: lowercase;
+  letter-spacing: 0;
+  color: var(--color-amber);
+}
+
+.cmp-cell {
+  padding-block: var(--space-2xs);
+  border-block-start: var(--border-hairline);
+}
+
+.cmp-cell__for {
+  display: block;
+  font-size: var(--step--1);
+  font-weight: 650;
+  color: var(--text-secondary);
+}
+
+.cmp-figure {
+  display: block;
+}
+
+.cmp-figure + .cmp-figure {
+  margin-block-start: var(--space-2xs);
+}
+
+/* The value and the two labels without which the value is ambiguous. */
+.cmp-figure__line {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--space-3xs) var(--space-2xs);
+}
+
+.cmp-figure__value {
+  font-size: var(--step-1);
+}
+
+.cmp-figure__part {
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  color: var(--text-muted);
+}
+
+.cmp-figure__absent {
+  display: block;
+  font-style: italic;
+  color: var(--text-muted);
+}
+
+.cmp-figure__note,
+.cmp-figure__marker {
+  display: block;
+  max-inline-size: 34rem;
+  font-size: var(--step--1);
+  color: var(--text-secondary);
+}
+
+/* An absence recorded beside a value: a note about the evidence, not a figure. */
+.cmp-figure__marker {
+  margin-block-start: var(--space-3xs);
+  font-style: italic;
+  color: var(--text-muted);
+}
+
+/* Bars
+ *
+ * A length, drawn in CSS so that the preset pages, which ship no JavaScript,
+ * show them too. The bar carries no number and is hidden from assistive
+ * technology: the figure above it is the same information stated exactly, which
+ * is how the timeline chart settled the same question.
+ *
+ * The baseline is a rule across every bar in the row, never a color. Color
+ * would have to encode magnitude to be read, and length is already doing that.
+ */
+.cmp-bar {
+  position: relative;
+  display: block;
+  max-inline-size: 22rem;
+  block-size: 0.55rem;
+  margin-block-start: var(--space-3xs);
+  border: var(--border-hairline);
+  background-color: var(--surface-sunken);
+}
+
+.cmp-bar__fill {
+  display: block;
+  block-size: 100%;
+  /* Never nothing: a figure that is recorded still has to be visible. */
+  inline-size: max(2px, var(--cmp-bar, 0%));
+  background-color: var(--color-phosphor);
+}
+
+/* Hatched, not absent: the figure is recorded but not accepted. */
+.cmp-bar--provisional .cmp-bar__fill {
+  background-color: transparent;
+  background-image: repeating-linear-gradient(
+    45deg,
+    var(--color-phosphor) 0 2px,
+    transparent 2px 5px
+  );
+}
+
+.cmp-bar__baseline {
+  position: absolute;
+  inset-block: -2px;
+  inset-inline-start: var(--cmp-baseline, 0%);
+  inline-size: 0;
+  border-inline-start: 2px solid var(--text-primary);
+}
+
+/* The breakdown under a cell: one expander, holding everything but the value. */
+.cmp-detail {
+  margin-block-start: var(--space-2xs);
+  border: var(--border-hairline);
+  background-color: var(--color-phosphor-wash);
+}
+
+.cmp-detail > summary {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--space-2xs);
+  min-block-size: var(--target-min);
+  padding: var(--space-2xs) var(--space-xs);
+  cursor: pointer;
+}
+
+.cmp-detail__ratio {
+  font-size: var(--step-1);
+  font-weight: 650;
+  color: var(--text-accent);
+}
+
+.cmp-detail__label {
+  font-size: var(--step--1);
+  color: var(--text-secondary);
+}
+
+.cmp-detail__baseline,
+.cmp-detail__refusal {
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+
+/* Nothing became invisible; this says what is one click away. */
+.cmp-detail__flag {
+  border: 1px solid var(--color-amber);
+  padding-inline: var(--space-3xs);
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  letter-spacing: 0.06em;
+  color: var(--color-amber);
+}
+
+.cmp-detail__body {
+  display: grid;
+  gap: var(--space-3xs);
+  margin: 0;
+  padding: 0 var(--space-xs) var(--space-2xs);
+  font-size: var(--step--1);
+}
+
+.cmp-detail__body dt {
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+}
+
+.cmp-detail__body dd {
+  margin: 0;
+  color: var(--text-secondary);
+}
+
+.cmp-detail__body ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.cmp-detail__caveat {
+  display: block;
+  max-inline-size: var(--prose-max);
+  margin-block-start: var(--space-3xs);
+  border-inline-start: 3px solid var(--color-amber);
+  padding-inline-start: var(--space-2xs);
+}
+
+/* One control, offered only where something is listening for it. */
+.cmp-expand {
+  justify-self: start;
+  min-block-size: var(--target-min);
+  padding-inline: var(--space-s);
+  border: var(--border-hairline);
+  background-color: var(--surface-raised);
+  color: var(--text-secondary);
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  cursor: pointer;
+}
+
+.cmp-expand[aria-pressed='true'] {
+  border-color: var(--text-accent);
+  background-color: var(--color-phosphor-wash);
+  color: var(--text-accent);
+}
+
+/*
+ * Columnar layout, gated on how many columns there are.
+ *
+ * Roughly 14rem per record is where a figure still holds its value, unit and
+ * multiplier without breaking a line mid-number, so two columns turn on at
+ * 44rem, three at 56rem and four at 67rem.
+ *
+ * Those are container widths, and the content column is capped at 72rem with
+ * gutters, so the widest this container ever gets is 68rem. That cap is what
+ * translates the thresholds into viewports: three columns from about 960 px,
+ * four from about 1140 px, and no further change however wide the screen. That
+ * keeps text width fixed on larger screens.
+ *
+ * Below its own threshold a comparison stops being a table rather than shrinking
+ * into illegibility or scrolling sideways.
+ *
+ * The rules are written once and switched on by the column-count class, because
+ * a container query cannot compute its own condition.
+ */
+@container (min-width: 44rem) {
+  .cmp-table {
+    display: grid;
+    grid-template-columns: minmax(7rem, 0.7fr) repeat(var(--cmp-columns, 2), minmax(0, 1fr));
+    column-gap: var(--space-s);
+  }
+
+  .cmp-table thead,
+  .cmp-table tbody,
+  .cmp-table tr {
+    display: grid;
+    grid-column: 1 / -1;
+    grid-template-columns: subgrid;
+  }
+
+  .cmp-table thead {
+    position: sticky;
+    inset-block-start: var(--sticky-offset);
+    z-index: 2;
+    background-color: var(--surface-page);
+    border-block-end: 2px solid var(--border-strong);
+  }
+
+  .cmp-table th,
+  .cmp-table td {
+    display: block;
+    padding-block: var(--space-2xs);
+  }
+
+  .cmp-table thead th {
+    font-family: var(--font-mono);
+    font-size: var(--step--1);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--text-secondary);
+  }
+
+  .cmp-table tbody tr + tr {
+    margin-block-start: 0;
+  }
+
+  .cmp-table tbody tr + tr .cmp-cell,
+  .cmp-table tbody tr + tr th {
+    border-block-start: var(--border-hairline);
+  }
+
+  /* The record's name is in the column header, so the per-cell label goes. */
+  .cmp-cell__for {
+    display: none;
+  }
+}
+
+/*
+ * Back to stacked where the columns would be too narrow to read.
+ *
+ * Written as a reversal rather than three copies of the columnar rules: the
+ * question "do these columns fit?" has one answer per column count, and only the
+ * answer changes.
+ */
+@container (min-width: 44rem) and (max-width: 55.999rem) {
+  .cmp-table--3,
+  .cmp-table--4 {
+    display: block;
+  }
+
+  .cmp-table--3 thead,
+  .cmp-table--4 thead {
+    display: none;
+  }
+
+  .cmp-table--3 tbody,
+  .cmp-table--3 tr,
+  .cmp-table--3 th,
+  .cmp-table--3 td,
+  .cmp-table--4 tbody,
+  .cmp-table--4 tr,
+  .cmp-table--4 th,
+  .cmp-table--4 td {
+    display: block;
+  }
+
+  .cmp-table--3 tbody tr + tr,
+  .cmp-table--4 tbody tr + tr {
+    margin-block-start: var(--space-s);
+  }
+
+  .cmp-table--3 .cmp-cell__for,
+  .cmp-table--4 .cmp-cell__for {
+    display: block;
+  }
+}
+
+@container (min-width: 56rem) and (max-width: 66.999rem) {
+  .cmp-table--4 {
+    display: block;
+  }
+
+  .cmp-table--4 thead {
+    display: none;
+  }
+
+  .cmp-table--4 tbody,
+  .cmp-table--4 tr,
+  .cmp-table--4 th,
+  .cmp-table--4 td {
+    display: block;
+  }
+
+  .cmp-table--4 tbody tr + tr {
+    margin-block-start: var(--space-s);
+  }
+
+  .cmp-table--4 .cmp-cell__for {
+    display: block;
+  }
+}
+
+/* At a glance
+ *
+ * The catalog card borrows the comparison table's layout: the same grid, column
+ * thresholds and fallback to stacked cards. A reader
+ * meets one shape of table on the page and the card cannot drift out of step
+ * with the sections below it.
+ *
+ * What it adds is a full-width line under each question: why a row has no bars,
+ * where the row is accounted for, and the catalog axis.
+ */
+
+.glance-table {
+  border-block-start: 2px solid var(--border-strong);
+}
+
+.glance__meta {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0;
+  color: var(--text-muted);
+}
+
+.glance__aside {
+  padding-block: var(--space-2xs);
+}
+
+.glance-table tbody tr.glance__aside-row {
+  margin-block-start: var(--space-3xs);
+}
+
+.glance__mismatch,
+.glance__link {
+  max-inline-size: var(--prose-max);
+  font-size: var(--step--1);
+  color: var(--text-secondary);
+}
+
+.glance__mismatch {
+  border-inline-start: 3px solid var(--color-amber);
+  padding-inline-start: var(--space-2xs);
+}
+
+/*
+ * The axis is folded away, on the same frame every other disclosure in a
+ * comparison uses. Its summary carries no figure: it says what opening will
+ * show, which keeps it one line whether two records are compared or four.
+ */
+/*
+ * Centered rather than baseline-aligned, unlike the cell expanders: those line up
+ * a large ratio against a small label and need a shared baseline, while this
+ * summary is one run of text beside a caret that has no baseline of its own.
+ * Aligned on one, it hangs below the line it belongs to.
+ */
+.glance-axis-detail > summary {
+  align-items: center;
+  font-size: var(--step--1);
+  color: var(--text-secondary);
+}
+
+/*
+ * A drawn caret, because a flex summary renders no disclosure marker and this
+ * one is a plain sentence: the cell expanders carry a ratio that reads as a
+ * control on its own, and a line of prose does not. Borders rather than a glyph,
+ * on the same reasoning as the menu icon. It must not depend on a font. It
+ * does not animate, so there is nothing for reduced motion to ask about.
+ *
+ * Inline rather than a flex item, and hung off the label: sitting in the flow it
+ * keeps to the first line of a sentence that wraps, and it takes its vertical
+ * place from the baseline the words are set on.
+ */
+.glance-axis-detail__label::before {
+  content: '';
+  display: inline-block;
+  inline-size: 0;
+  block-size: 0;
+  margin-inline-end: 0.6ch;
+  border-block: 0.3rem solid transparent;
+  border-inline-start: 0.42rem solid currentcolor;
+  vertical-align: 0.04em;
+}
+
+.glance-axis-detail[open] .glance-axis-detail__label::before {
+  rotate: 90deg;
+}
+
+.glance-axis-detail > .glance-axis {
+  margin-block-start: 0;
+  padding: 0 var(--space-xs) var(--space-2xs);
+}
+
+/*
+ * The catalog axis: the compared machines and their immediate neighbors on
+ * this question, every one of them named. The track is a picture of positions
+ * the labels beneath already state, so it is hidden from assistive technology
+ * while the names, the figures and the ranks stay ordinary text.
+ */
+.glance-axis {
+  display: grid;
+  gap: var(--space-3xs);
+  margin-block-start: var(--space-2xs);
+}
+
+.glance-axis__track {
+  position: relative;
+  display: block;
+  block-size: 0.85rem;
+  border: var(--border-hairline);
+  border-inline: 2px solid var(--border-strong);
+  background-color: var(--surface-sunken);
+}
+
+.glance-axis__mark {
+  position: absolute;
+  inset-block: 2px;
+  inset-inline-start: var(--cmp-at, 0%);
+  inline-size: 0;
+  border-inline-start: 2px solid var(--text-muted);
+}
+
+/* Taller and heavier, so the distinction survives without color. */
+.glance-axis__mark.is-compared {
+  inset-block: 0;
+  border-inline-start: 4px solid var(--text-accent);
+}
+
+/*
+ * The names, in the order they sit on the track. Not floated above their own
+ * marks: a machine name is long enough that six of them anchored to six
+ * positions overlap at any width a table cell has.
+ */
+/*
+ * Set as running text rather than as flex items. As flex items, an entry whose
+ * name wrapped indented its own second line and left its separator stranded at
+ * the end of the row, which on a phone is most of them.
+ */
+.glance-axis__legend {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: var(--step--1);
+  color: var(--text-muted);
+}
+
+.glance-axis__entry {
+  display: inline;
+}
+
+/* A separator that belongs between the names rather than to either of them. */
+.glance-axis__entry:not(:last-child)::after {
+  content: ' · ';
+  color: var(--border-strong);
+}
+
+.glance-axis__figure {
+  margin-inline-end: 0.5ch;
+  color: var(--text-secondary);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.glance-axis__entry.is-compared {
+  color: var(--text-accent);
+  font-weight: 600;
+}
+
+.glance-axis__entry.is-compared .glance-axis__figure {
+  color: inherit;
+}
+
+/* One line per compared machine: four of them run together read as a wall. */
+.glance-axis__standings {
+  display: grid;
+  gap: var(--space-3xs);
+  max-inline-size: var(--prose-max);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: var(--step--1);
+  color: var(--text-secondary);
+}
+
+.glance-axis__standings b {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.glance-axis__scale {
+  font-size: var(--step--1);
+  color: var(--text-muted);
+}
+
+@container (min-width: 44rem) {
+  /* The line under a question spans the whole card, not one column of it. */
+  .glance__aside {
+    grid-column: 1 / -1;
+  }
+}
+
+/* Compare builder
+ *
+ * The selection lives in the query string, so the address bar is the shareable
+ * artifact and this panel is only a way of editing it.
+ */
+
+/*
+ * The builder's panel is a little over 30rem tall at every width the catalog
+ * has been measured at. Its options list is capped and scrolls, so this is
+ * the height the page holds for it before it mounts.
+ */
+.js .builder-slot {
+  min-block-size: 31rem;
+}
+
+.builder__panel {
+  border: var(--border-hairline);
+  background-color: var(--surface-raised);
+  padding: var(--space-s);
+}
+
+.builder__header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--space-2xs) var(--space-s);
+}
+
+.builder__title {
+  font-size: var(--step-1);
+}
+
+.builder__count {
+  flex: 1 1 auto;
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  color: var(--text-secondary);
+}
+
+.builder__clear,
+.builder__chip button {
+  min-block-size: var(--target-min);
+  padding-inline: var(--space-2xs);
+  border: var(--border-hairline);
+  background-color: var(--surface-page);
+  color: var(--text-secondary);
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  cursor: pointer;
+}
+
+.builder__clear:hover,
+.builder__chip button:hover:not(:disabled) {
+  border-color: var(--border-strong);
+  color: var(--text-primary);
+}
+
+/* Disabled at the ends rather than hidden, so the panel never changes height. */
+.builder__chip button:disabled {
+  color: var(--text-muted);
+  cursor: not-allowed;
+}
+
+/*
+ * Numbered, because the number is the column. The list markers are off because
+ * the chips are a control, not prose. The position is drawn as its own badge.
+ */
+.builder__chosen {
+  display: grid;
+  gap: var(--space-2xs);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: chosen;
+}
+
+.builder__chip {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2xs);
+  border: var(--border-hairline);
+  border-inline-start: 3px solid var(--text-accent);
+  background-color: var(--surface-page);
+  padding: var(--space-3xs) var(--space-2xs);
+  counter-increment: chosen;
+}
+
+.builder__chip::before {
+  content: counter(chosen);
+  min-inline-size: 1.4rem;
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  font-weight: 650;
+  text-align: center;
+  color: var(--text-accent);
+}
+
+.builder__chip-name {
+  flex: 1 1 12rem;
+  min-inline-size: 0;
+  overflow-wrap: anywhere;
+  font-weight: 650;
+}
+
+.builder__chip-role {
+  margin-inline-start: var(--space-2xs);
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-accent);
+}
+
+.builder__variant select,
+.builder__search input {
+  min-block-size: var(--target-min);
+  max-inline-size: 100%;
+  border: var(--border-hairline);
+  background-color: var(--surface-page);
+  color: var(--text-primary);
+  font: inherit;
+  font-size: var(--step--1);
+  padding-inline: var(--space-2xs);
+}
+
+/* The native cancellation affordance varies by browser; the builder supplies one consistently. */
+.builder__search input::-webkit-search-cancel-button {
+  appearance: none;
+}
+
+/*
+ * An unresolved variant, marked where the remedy is. A record shipping in
+ * several variants with none chosen states its clock twice, so every multiplier
+ * against it is refused far below, in prose, where the reader cannot act on it.
+ */
+.builder__variant--any select {
+  border-color: var(--color-amber);
+  background-color: var(--color-amber-wash);
+}
+
+.builder__search {
+  display: grid;
+  gap: var(--space-3xs);
+}
+
+.builder__search > label {
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+}
+
+.builder__search-control {
+  position: relative;
+}
+
+.builder__search-control input {
+  inline-size: 100%;
+  padding-inline-end: calc(var(--target-min) + var(--space-2xs));
+}
+
+.builder__search-clear {
+  position: absolute;
+  inset-block: 0;
+  inset-inline-end: 0;
+  inline-size: var(--target-min);
+  border: 0;
+  background: transparent;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  font-size: var(--step-1);
+  line-height: 1;
+  cursor: pointer;
+}
+
+.builder__search-clear:hover {
+  color: var(--text-primary);
+}
+
+/* How much the current selection has in common. Informs; never disables. */
+.builder__shared {
+  display: block;
+  max-inline-size: var(--prose-max);
+  border-inline-start: 3px solid var(--color-phosphor);
+  padding-inline-start: var(--space-2xs);
+  font-size: var(--step--1);
+  color: var(--text-secondary);
+}
+
+.builder__note {
+  max-inline-size: var(--prose-max);
+  border-inline-start: 3px solid var(--color-amber);
+  padding-inline-start: var(--space-2xs);
+  font-size: var(--step--1);
+  color: var(--text-secondary);
+}
+
+/*
+ * A tall scrolling list rather than a long page: the records are a control, and
+ * the comparison underneath is the content. Scrolling is vertical and inside the
+ * list, never the page sideways.
+ */
+.builder__options {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 15rem), 1fr));
+  gap: 0 var(--space-s);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  max-block-size: 21rem;
+  overflow-y: auto;
+  border-block: var(--border-hairline);
+}
+
+/* The whole row is the target, as on Explore, so the 44 px minimum is met
+ * without an oversized checkbox. The checkbox occupies its own track: a long
+ * name and its context can wrap, but never into the checkbox's column. */
+.builder__option {
+  display: grid;
+  grid-template-columns: 1.1rem minmax(0, 1fr);
+  column-gap: var(--space-2xs);
+  align-items: start;
+  min-block-size: var(--target-min);
+  padding-block: var(--space-3xs);
+  cursor: pointer;
+}
+
+.builder__option input {
+  grid-row: 1 / span 2;
+  margin-block-start: 0.2em;
+  inline-size: 1.1rem;
+  block-size: 1.1rem;
+  accent-color: var(--color-phosphor);
+}
+
+.builder__option input:disabled {
+  cursor: not-allowed;
+}
+
+.builder__option:has(input:disabled) {
+  color: var(--text-muted);
+  cursor: not-allowed;
+}
+
+.builder__option-name {
+  grid-column: 2;
+  min-inline-size: 0;
+  overflow-wrap: anywhere;
+  font-size: var(--step--1);
+}
+
+.builder__option-context {
+  grid-column: 2;
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  color: var(--text-muted);
+}
+
+.builder__status {
+  max-inline-size: var(--prose-max);
+  font-size: var(--step--1);
+  color: var(--text-secondary);
+}
+
+.builder__status--error {
+  border-inline-start: 3px solid var(--color-crimson);
+  padding-inline-start: var(--space-2xs);
+}
+
+/* Timeline chart
+ *
+ * The chart is the optional part of its page: the summary and the data table are
+ * static HTML, and this is a picture of the same figures.
+ */
+
+.chart {
+  container-type: inline-size;
+}
+
+.chart__scale {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2xs);
+}
+
+.chart__scale-button {
+  min-block-size: var(--target-min);
+  padding-inline: var(--space-s);
+  border: var(--border-hairline);
+  background-color: var(--surface-raised);
+  color: var(--text-secondary);
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  letter-spacing: 0.04em;
+  cursor: pointer;
+}
+
+.chart__scale-button:hover {
+  border-color: var(--border-strong);
+  color: var(--text-primary);
+}
+
+/* The pressed state carries the choice, so it never relies on color alone. */
+.chart__scale-button[aria-pressed='true'] {
+  border-color: var(--text-accent);
+  background-color: var(--color-phosphor-wash);
+  color: var(--text-accent);
+  font-weight: 650;
+}
+
+.chart__plot {
+  overflow: hidden;
+  border: var(--border-hairline);
+  background-color: var(--surface-raised);
+  padding: var(--space-2xs);
+}
+
+.chart__plot svg {
+  max-inline-size: 100%;
+  block-size: auto;
+}
+
+/*
+ * The label Plot draws for the point nearest the pointer. Only its colors are
+ * set here: the box is sized at draw time from the font the mark was told
+ * about, so overriding the family in CSS would leave the text outside its own
+ * frame.
+ */
+.chart__plot g[aria-label='tip'] path {
+  fill: var(--surface-raised);
+  stroke: var(--border-strong);
+}
+
+.chart__plot g[aria-label='tip'] text {
+  fill: var(--text-primary);
+}
+
+.chart__caption,
+.chart__status {
+  max-inline-size: var(--prose-max);
+  font-size: var(--step--1);
+  color: var(--text-secondary);
+}
+
+/* A table cell holding a recorded absence rather than a figure. */
+.config-table td.is-absent {
+  font-style: italic;
+  color: var(--text-muted);
+}
+
+/*
+ * Explore's name filter. It narrows the list the reader is already looking at,
+ * which is a different job from site-wide search. Site-wide search has an index behind it
+ * and lives on the home page.
+ */
+.filters__query {
+  display: grid;
+  gap: var(--space-3xs);
+  margin-block-start: var(--space-s);
+}
+
+.filters__query > span {
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+}
+
+.filters__query input {
+  min-block-size: var(--target-min);
+  max-inline-size: 22rem;
+  border: var(--border-hairline);
+  background-color: var(--surface-page);
+  color: var(--text-primary);
+  font: inherit;
+  font-size: var(--step--1);
+  padding-inline: var(--space-2xs);
+}
+
+/* A compact account of the data states, not a performance graphic. */
+.data-ledger {
+  border: var(--border-hairline);
+  background: var(--surface-raised);
+  padding: var(--space-m);
+}
+
+.data-ledger__bar {
+  display: flex;
+  min-block-size: 0.75rem;
+  overflow: hidden;
+  border: var(--border-hairline);
+}
+
+.data-ledger__bar > span {
+  min-inline-size: 0.35rem;
+}
+
+.data-ledger__value {
+  background: var(--color-phosphor);
+}
+
+.data-ledger__unknown {
+  background: var(--color-amber);
+}
+
+.data-ledger__na {
+  background: var(--text-muted);
+}
+
+/*
+ * Hatched rather than solid, because this segment is the only one measuring
+ * unfinished work here rather than a property of the published record.
+ */
+.data-ledger__unverified {
+  background: repeating-linear-gradient(45deg, var(--text-muted) 0 2px, transparent 2px 5px);
+}
+
+.research-notice {
+  border-inline-start: 4px solid var(--color-amber);
+  background: var(--surface-raised);
+  padding: var(--space-s) var(--space-m);
+}
+
+/*
+ * Explore's two-column layout.
+ *
+ * From 60rem the filters sit beside the list and stay put while it scrolls, so a
+ * reader sees the list change as they narrow it. Below that everything is one
+ * column and the panel comes first, which is also the reading order in the
+ * markup. The layout changes, the sequence does not.
+ */
+.explore {
+  display: grid;
+  gap: var(--space-l);
+}
+
+.explore__results {
+  min-inline-size: 0;
+}
+
+/*
+ * Space for a panel that does not exist yet.
+ *
+ * The filter island is client-only, so at narrow widths it arrives after the
+ * first paint and pushes the catalog down the page. Reserving the collapsed
+ * panel's height keeps the list where it was drawn. The reservation is on
+ * `.js`, so a reader whose browser runs no scripts gets no empty box.
+ */
+.js .explore__panel {
+  min-block-size: 9rem;
+}
+
+@media (min-width: 60rem) {
+  .explore {
+    grid-template-columns: minmax(14rem, 18rem) minmax(0, 1fr);
+    align-items: start;
+    gap: var(--space-xl);
+  }
+
+  .explore__panel {
+    position: sticky;
+    /*
+     * Below the header, with the same air it would have had on its own, and
+     * capped so a long facet list scrolls inside the panel rather than the
+     * page. Both breakpoints are read here: the panel pins on width, the
+     * header on height, and where only the panel pins the offset is zero.
+     */
+    inset-block-start: calc(var(--sticky-offset) + var(--space-s));
+    max-block-size: calc(100svh - var(--sticky-offset) - var(--space-xl));
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+}

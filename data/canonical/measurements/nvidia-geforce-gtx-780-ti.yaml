@@ -1,0 +1,193 @@
+- caveat: >-
+    The lower declared clock. The separately named upper clock is a different
+    quantity and uses peak-clock.
+  comparabilityGroup: clock-frequency|gpu|nominal-clock
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: nvidia-gk110b:clock-frequency-base
+  method: nominal-clock
+  metric: clock-frequency
+  normalized:
+    value: "875000000"
+    unit: Hz
+    significantDigits: 3
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 3
+    state: value
+    unit: MHz
+    value: "875"
+  scope: gpu
+  sourceIds:
+    - nvidia-geforce-gtx-780-ti-product-brief
+  status: vendor-rated
+  subject:
+    id: nvidia-gk110b
+    kind: component
+  evidenceLevel: confirmed
+- caveat: The vendor’s upper boost clock, distinct from the nominal clock.
+  comparabilityGroup: clock-frequency|gpu|peak-clock
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: nvidia-gk110b:clock-frequency-boost
+  method: peak-clock
+  metric: clock-frequency
+  normalized:
+    value: "928000000"
+    unit: Hz
+    significantDigits: 3
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 3
+    state: value
+    unit: MHz
+    value: "928"
+  scope: gpu
+  sourceIds:
+    - nvidia-geforce-gtx-780-ti-product-brief
+  status: vendor-rated
+  subject:
+    id: nvidia-gk110b
+    kind: component
+  evidenceLevel: confirmed
+- caveat: The frame buffer fitted to the reference accelerator; host memory is
+    excluded.
+  comparabilityGroup: memory-capacity|whole-system|design-capacity
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: nvidia-geforce-gtx-780-ti-memory:capacity
+  method: design-capacity
+  metric: memory-capacity
+  normalized:
+    value: "3221225472"
+    unit: B
+    significantDigits: 1
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 1
+    state: value
+    unit: GiB
+    value: "3"
+  scope: whole-system
+  sourceIds:
+    - nvidia-geforce-gtx-780-ti-product-brief
+  status: vendor-rated
+  subject:
+    id: nvidia-geforce-gtx-780-ti-memory
+    kind: component
+  evidenceLevel: confirmed
+- caveat: >-
+    Vendor-stated maximum transfer rate of this memory interface, not a
+    benchmarked application result.
+  comparabilityGroup: memory-bandwidth|memory|theoretical-peak
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: nvidia-geforce-gtx-780-ti-memory:bandwidth
+  method: theoretical-peak
+  metric: memory-bandwidth
+  normalized:
+    value: "336000000000"
+    unit: B/s
+    significantDigits: 3
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 3
+    state: value
+    unit: GB/s
+    value: "336"
+  scope: memory
+  sourceIds:
+    - nvidia-geforce-gtx-780-ti-product-brief
+  status: theoretical
+  subject:
+    id: nvidia-geforce-gtx-780-ti-memory
+    kind: component
+  evidenceLevel: confirmed
+- caveat: Adds the one fitted frame-buffer bandwidth. No host memory is included.
+  comparabilityGroup: memory-bandwidth|whole-system|theoretical-peak
+  derivedFrom: nvidia-geforce-gtx-780-ti:whole-system-memory-bandwidth
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: nvidia-geforce-gtx-780-ti:whole-system-memory-bandwidth
+  method: theoretical-peak
+  metric: memory-bandwidth
+  normalized:
+    value: "336000000000"
+    unit: B/s
+    significantDigits: 3
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 3
+    state: value
+    unit: GB/s
+    value: "336"
+  rounding: none
+  scope: whole-system
+  sourceIds:
+    - nvidia-geforce-gtx-780-ti-product-brief
+  status: derived
+  subject:
+    id: nvidia-geforce-gtx-780-ti
+    kind: system
+  evidenceLevel: confirmed
+- caveat: NVIDIA's reference-card page does not state an explicitly labelled FP32 peak.
+  comparabilityGroup: peak-fp32-rate|gpu|theoretical-peak
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: nvidia-gk110b:peak-fp32-rate
+  method: theoretical-peak
+  metric: peak-fp32-rate
+  provenance: vendor
+  quantity:
+    note: >-
+      The page gives CUDA-core and clock figures but no explicitly labelled
+      single-precision throughput.
+    state: unknown
+  unknownAudit:
+    reviewedOn: 2026-08-25
+    routesChecked:
+      - vendor-documentation
+      - independent-analysis
+      - community-source
+    outcome: no-compatible-candidate
+    summary: The cited material provides no explicitly labelled FP32 throughput.
+  scope: gpu
+  sourceIds:
+    - nvidia-geforce-gtx-780-ti-product-brief
+  status: theoretical
+  subject:
+    id: nvidia-gk110b
+    kind: component
+- caveat: >-
+    NVIDIA labels this a graphics-card power rating for its reference design,
+    not a measured draw or a thermal-design target.
+  comparabilityGroup: rated-power-consumption|gpu|rated-power
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: nvidia-gk110b:rated-power-consumption
+  method: rated-power
+  metric: rated-power-consumption
+  normalized:
+    value: "250"
+    unit: W
+    significantDigits: 3
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 3
+    state: value
+    unit: W
+    value: "250"
+  scope: gpu
+  sourceIds:
+    - nvidia-geforce-gtx-780-ti-product-brief
+  status: vendor-rated
+  subject:
+    id: nvidia-gk110b
+    kind: component
+  evidenceLevel: confirmed

@@ -1,0 +1,17 @@
+id: mos-6510:context-mhz-2
+subject:
+  kind: component
+  id: mos-6510
+label: Frequency
+quantity:
+  state: value
+  value: '2'
+  unit: MHz
+  significantDigits: 1
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - c64-programmers-reference-guide
+evidenceLevel: confirmed

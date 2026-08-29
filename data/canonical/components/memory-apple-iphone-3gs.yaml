@@ -1,0 +1,15 @@
+id: apple-iphone-3gs-memory
+slug: apple-iphone-3gs-memory
+kind: memory
+name: Apple iPhone 3GS unified memory
+manufacturer: Apple
+memoryType: Unified mobile DRAM
+summary:
+  The working memory pool used by the Apple iPhone 3GS; Apple does not state its
+  installed capacity.
+notes:
+  Flash storage is a separate medium and is not a substitute for working memory.
+sourceIds:
+  - apple-iphone-3gs-tech-specs
+  - anandtech-iphone-hardware-2009
+editorialStatus: approved

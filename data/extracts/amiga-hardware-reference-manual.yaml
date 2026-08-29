@@ -1,0 +1,73 @@
+- extract: >-
+    When the Amiga is operating in an NTSC environment, the base crystal
+    frequency is 28.63636 MHz. [...] Under PAL, the base Amiga crystal frequency
+    is 28.37516 MHz.
+  extractHash: 4b44424f78847d8557b42d0ae74b6ef5d4ddea2b772562cc89a11b13814f50c4
+  id: amiga-hrm:glossary:base-crystal
+  locator: glossary, entries "NTSC" and "PAL"
+  notes: >-
+    Two separate glossary entries, joined here with an ellipsis because they
+    state the two halves of one fact. The scan renders "crystal" as "crytal" in
+    the NTSC entry and "MHz" as "Mhz" in the PAL entry; both corrected. These
+    are the crystals every Amiga clock divides down from, which is what makes
+    them useful for checking a clock figure quoted elsewhere: 28.37516 ÷ 4 is
+    the Amiga 500's PAL clock and ÷ 2 is the Amiga 1200's.
+  sourceId: amiga-hardware-reference-manual
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-07-29
+- extract: >-
+    The Motorola MC68000 microprocessor is the CPU used in the A1000, the A500,
+    and the A2000. The 68000 is a 16/32-bit microprocessor; internal registers
+    are 32 bits wide, while the data bus and ALU are 16 bits. The 68000's system
+    clock speed is 7.15909 MHz on NTSC systems (USA) or 7.09379 MHz on PAL
+    systems (Europe). These speeds can vary when using an external system clock,
+    such as from a genlock board.
+  extractHash: ad430cf62a76f4d9fa3806c0626a5f7601e3d8c13b6b51011e0aaf8ab5bd35f0
+  id: amiga-hrm:p2:68000
+  locator: page 2, "The MC68000 and the Amiga custom chips"
+  notes: >-
+    Both clock figures are stated to six significant digits. The manual's own
+    caveat about an external system clock is kept, because it is the reason
+    these are the stock rates rather than the only possible ones.
+  sourceId: amiga-hardware-reference-manual
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-07-29
+- extract: >-
+    The memory shared between the Amiga's CPU and the custom chips is called
+    Chip memory. The more Chip memory the Amiga has, the more graphics, audio,
+    and I/O data it can operate on without the CPU being involved. All Amigas
+    can access at least 512K of Chip memory.
+  extractHash: 866592a80b66d06a12816de493021d7b8b368fb3870be84a27383c67d117ac91
+  id: amiga-hrm:p3:chip-memory
+  locator: page 3, definition of Chip memory
+  notes: >-
+    Establishes that Chip memory is shared between the processor and the custom
+    chips, which is why the Amiga's chip RAM and total RAM are recorded as
+    separate figures rather than one memory capacity.
+  sourceId: amiga-hardware-reference-manual
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-07-29
+- extract: >-
+    Table 1-1: Summary of Amiga Memory Configurations
+
+    Chip RAM (base model) / Maximum Chip RAM / Total RAM (base model) / Maximum
+    Total RAM
+
+    Amiga 1000: 256K / 512K / 256K / 9 MB
+
+    Amiga 500: 512K / 1 MB / 1 MB / 9 MB
+
+    Amiga 2000: 512K / 1 MB / 1 MB / 9 MB
+
+    Amiga 3000: 1 MB / 2 MB / 2 MB / over 1 GB
+  extractHash: 89a25867494c809d806c1fab564163b607e272c4986417c9f6d4b190e3badbdc
+  id: amiga-hrm:p5:table-1-1
+  locator: page 5, table 1-1 "Summary of Amiga memory configurations"
+  notes: >-
+    The scan renders the four column headings across two wrapped lines and loses
+    their alignment; they are restated here in order. This is the third edition,
+    published in 1991, so its "base model" Amiga 500 is a later machine than the
+    512K one sold in 1987.
+  sourceId: amiga-hardware-reference-manual
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-07-29

@@ -1,0 +1,23 @@
+accessedDate: 2026-07-29
+editorialStatus: approved
+fetch:
+  byteLength: 288812
+  contentType: text/html; charset=UTF-8
+  fetchedAt: 2026-07-29T17:35:18Z
+  httpStatus: 200
+  sha256: 4418e7ed74d1b4e4724aa3eb580a7657b0046e18190b80b8968ead59b1e8d8b1
+  url: https://www.nvidia.com/en-us/data-center/h100/
+id: nvidia-h100-product-specifications
+license: Copyright NVIDIA Corporation. Quoted here under short-extract fair use
+  for verification of the figures cited.
+locator: '"Product Specifications" table, H100 SXM column'
+publisher: NVIDIA Corporation
+sourceType: vendor-documentation
+tier: A
+title: NVIDIA H100 Tensor Core GPU — Product Specifications
+url: https://www.nvidia.com/en-us/data-center/h100/
+usageNote: >-
+  A living product page rather than a dated document: NVIDIA revises it as the
+  product line changes, and it carries no publication date. The figures cited
+  here are pinned by the research record's extract hash, and a change upstream
+  is reported by data:fetch rather than adopted.

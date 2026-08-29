@@ -1,0 +1,11 @@
+editorialStatus: provisional
+id: nintendo-wii-hollywood
+slug: nintendo-wii-hollywood
+kind: gpu
+name: ATI Hollywood
+manufacturer: ATI / Nintendo
+architecture: Hollywood
+introducedDate: '2006'
+summary: The graphics processor fitted to the Nintendo Wii.
+sourceIds:
+  - nintendo-wii-hardware-overview

@@ -1,0 +1,41 @@
+accessedDate: 2026-08-26
+alt: >-
+  A white Apple iPhone 17 shown upright from the rear, with its two cameras at
+  the upper left.
+attribution: Photograph by Ahmad Ali Karim, released CC0, via Wikimedia Commons.
+canonical:
+  format: avif
+  width: 1280
+  height: 960
+  byteLength: 8165
+  sha256: 7c540458d73b230993f7b2dd4c0f2a7e5ee8bf8f7f3e40e46654e18a5dfd75c8
+caption: A white iPhone 17 at its September 2025 launch event in Kuala Lumpur.
+creator: Ahmad Ali Karim
+creatorType: person
+editorialStatus: provisional
+id: apple-iphone-17-phone
+original:
+  sha256: e21afd513eede83788841160ff837cc8b548edd82d528928737a8d855704bdc5
+  byteLength: 5415345
+  width: 4160
+  height: 6240
+  mediaType: image/jpeg
+originalUrl: https://upload.wikimedia.org/wikipedia/commons/8/8f/White_iPhone_17.jpg
+publisher: Wikimedia Commons
+rights:
+  id: cc0-1.0
+  statedAt: https://commons.wikimedia.org/wiki/File:White_iPhone_17.jpg
+  statement: This file is made available under the Creative Commons CC0 1.0
+    Universal Public Domain Dedication.
+  url: https://creativecommons.org/publicdomain/zero/1.0/
+sourcePageUrl: https://commons.wikimedia.org/wiki/File:White_iPhone_17.jpg
+title: White iPhone 17.jpg
+transform:
+  background: '#3b2b1e'
+  fit: pad
+  note: >-
+    The upright photograph leaves no 4:3 crop that keeps the whole phone, so
+    dark-brown margins extend its blurred event backdrop.
+  preset: image-v1
+  sourceHeight: 6240
+  sourceWidth: 4160

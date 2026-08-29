@@ -1,0 +1,44 @@
+accessedDate: 2026-08-17
+alt: "An EVGA GeForce GTX 580 seen from above on a wooden table: a black shroud printed with the
+  EVGA logo and the model name, a radial fan at one end, and the PCI Express edge connector along
+  the bottom."
+attribution: Photograph by TheStriker, licensed CC BY-SA 4.0, via Wikimedia Commons.
+canonical:
+  byteLength: 86394
+  format: avif
+  height: 960
+  sha256: 2633de993d839bad76402e7434a1e46c100355d99351220cb1914af3f2c39f9a
+  width: 1280
+caption: An EVGA GeForce GTX 580, a partner card on NVIDIA's reference design. The dust and
+  scratches are the condition of this card, not a modification of it.
+creator: TheStriker
+creatorType: person
+editorialStatus: approved
+id: nvidia-geforce-gtx-580-card
+original:
+  byteLength: 1853761
+  height: 1910
+  mediaType: image/jpeg
+  sha256: 5691c14c8eb3f57d30d165a956db7ad262138cc8ec11964e8d54f4cfaa15cab8
+  width: 4031
+originalUrl: https://upload.wikimedia.org/wikipedia/commons/2/23/EVGAGeforceGTX580.jpg
+publisher: Wikimedia Commons
+rights:
+  id: cc-by-sa-4.0
+  statedAt: https://commons.wikimedia.org/wiki/File:EVGAGeforceGTX580.jpg
+  statement: "I, the copyright holder of this work, hereby publish it under the following license:
+    This file is licensed under the Creative Commons Attribution-Share Alike 4.0 International
+    license."
+  url: https://creativecommons.org/licenses/by-sa/4.0/
+sourcePageUrl: https://commons.wikimedia.org/wiki/File:EVGAGeforceGTX580.jpg
+title: EVGAGeforceGTX580.jpg
+transform:
+  background: "#905015"
+  fit: pad
+  note: The photograph is more than twice as wide as it is tall and the card runs nearly the full
+    width, so no 4:3 crop keeps it whole. The margin is a flat wood tone sampled from the table the
+    card lies on; unlike a white studio backdrop the join can be seen, which is the price of not
+    cutting the card.
+  preset: image-v1
+  sourceHeight: 1910
+  sourceWidth: 4031

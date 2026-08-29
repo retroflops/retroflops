@@ -1,0 +1,27 @@
+id: notebookcheck-apple-a19
+title: Apple A19 Processor — Benchmarks and Specs
+publisher: Notebookcheck Publishing GmbH
+author: Klaus Hinum
+url: https://www.notebookcheck.net/Apple-A19-Processor-Benchmarks-and-Specs.1127048.0.html
+publishedDate: 2026-01-08
+accessedDate: 2026-08-26
+locator: Architecture and Apple iPhone 17 rows
+extract: >-
+  The Apple A19 integrates six CPU cores with two performance cores at up to
+  4.26 GHz and four efficiency cores at up to 2.6 GHz. The iPhone 17 row lists 8
+  GB RAM; the LPDDR5X-8533 controller is stated at up to 68.26 GB/s.
+tier: B
+sourceType: independent-analysis
+editorialStatus: provisional
+license: Copyright Notebookcheck Publishing GmbH. Quoted under short-extract fair use.
+usageNote: >-
+  This independent analysis reports the A19 specifications and identifies the
+  regular iPhone 17 configuration. Apple does not publish these clocks, DRAM
+  capacity, or interface bandwidth itself.
+fetch:
+  url: https://www.notebookcheck.net/Apple-A19-Processor-Benchmarks-and-Specs.1127048.0.html
+  fetchedAt: 2026-08-26T19:03:38Z
+  httpStatus: 200
+  contentType: text/html; charset=utf-8
+  byteLength: 330757
+  sha256: 90ab5dd3f5634878d5575fcae923b9165beb307de28760a2d932e537c6360da0

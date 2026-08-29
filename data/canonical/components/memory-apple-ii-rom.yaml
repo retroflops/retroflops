@@ -1,0 +1,12 @@
+id: apple-ii-rom
+slug: apple-ii-rom
+kind: memory
+name: Apple II firmware ROM
+manufacturer: Apple Computer
+architecture: Mask ROM
+introducedDate: '1977'
+memoryType: Mask ROM
+summary: Read-only monitor and Integer BASIC firmware.
+sourceIds:
+  - apple-ii-reference-manual
+editorialStatus: approved

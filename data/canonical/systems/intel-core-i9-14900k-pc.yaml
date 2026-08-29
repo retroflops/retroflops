@@ -1,0 +1,47 @@
+id: intel-core-i9-14900k-pc
+slug: intel-core-i9-14900k-pc
+name: Intel Core i9-14900K PC
+manufacturer: PC industry
+type: personal-computer
+family: reference-pc
+releaseDate: 2023-10
+region: Worldwide
+summary: >-
+  A representative Core i9-14900K desktop configuration with
+  {{measurement:intel-core-i9-14900k-pc:whole-system-memory-capacity}} of DDR5
+  SDRAM and integrated UHD Graphics 770.
+configurations:
+  - id: reference
+    label: P-core 3.2 GHz base / 6.0 GHz turbo reference configuration
+    entries:
+      - componentId: intel-core-i9-14900k
+        role: main-cpu
+        count: 1
+        shared: false
+        notes: >-
+          P-core base frequency; the E-core base frequency is
+          {{context:intel-core-i9-14900k:context-ghz-2-4}}.
+        measurementIds:
+          - intel-core-i9-14900k:clock-frequency
+          - intel-core-i9-14900k:peak-clock
+      - componentId: intel-integrated-graphics
+        role: gpu
+        count: 1
+        shared: true
+        measurementIds:
+          - intel-integrated-graphics:clock-frequency
+      - componentId: pc-ddr5-sdram
+        role: system-memory
+        count: 1
+        shared: true
+        measurementIds:
+          - intel-core-i9-14900k-pc:whole-system-memory-capacity
+sourceIds:
+  - intel-desktop-processor-reference
+editorialStatus: provisional
+notes: >-
+  This entry has no photograph, and that is a decision rather than a gap: it
+  describes a processor in a typical machine of its era rather than a model
+  anybody sold, so there is no object to photograph. A picture of some
+  particular case would attach a claim about that computer to a record which
+  deliberately makes none.

@@ -1,0 +1,26 @@
+accessedDate: 2026-08-03
+editorialStatus: approved
+fetch:
+  byteLength: 8283392
+  contentType: application/pdf
+  fetchedAt: 2026-08-03T21:20:48Z
+  httpStatus: 200
+  sha256: 906ff2a409d7a7e4cbc56f5d3a179d574120d19aaba99520670e1a0c064595fa
+  url: https://images.nvidia.com/aem-dam/Solutions/geforce/blackwell/nvidia-rtx-blackwell-gpu-architecture.pdf
+id: nvidia-rtx-blackwell-whitepaper
+license: Copyright NVIDIA Corporation. Quoted here under short-extract fair use
+  for verification of the figures cited.
+locator: >-
+  Appendix A "Blackwell GB202 GPU", Table 3 "GeForce RTX 5090 vs GeForce RTX
+  4090 vs GeForce RTX 3090 Specs", RTX 5090 column
+publishedDate: "2025"
+publisher: NVIDIA Corporation
+sourceType: vendor-documentation
+tier: A
+title: NVIDIA RTX Blackwell GPU Architecture Whitepaper
+url: https://images.nvidia.com/aem-dam/Solutions/geforce/blackwell/nvidia-rtx-blackwell-gpu-architecture.pdf
+usageNote: >-
+  The document the product page is missing. Its appendix names the precision of
+  every rate it publishes — "Peak FP32 TFLOPS (non-Tensor)" — and states the
+  memory bandwidth the specification table omits, which is why the card's
+  headline figures are read from here and not from the page that sells it.

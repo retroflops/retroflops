@@ -1,0 +1,19 @@
+id: microsoft-xbox-360:context-bit-32
+subject:
+  kind: system
+  id: microsoft-xbox-360
+label: Width
+quantity:
+  state: value
+  value: '32'
+  unit: bit
+  significantDigits: 2
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - hot-chips-17-xbox-360-architecture
+extractIds:
+  - hc17-xbox360:slide10:gpu-specs
+evidenceLevel: reported

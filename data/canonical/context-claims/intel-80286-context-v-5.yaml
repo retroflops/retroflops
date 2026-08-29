@@ -1,0 +1,17 @@
+id: intel-80286:context-v-5
+subject:
+  kind: component
+  id: intel-80286
+label: Contextual value
+quantity:
+  state: value
+  value: '5'
+  unit: V
+  significantDigits: 1
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - intel-80286-datasheet
+evidenceLevel: confirmed

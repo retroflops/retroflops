@@ -1,0 +1,20 @@
+id: wikipedia-apple-a7
+title: Apple A7
+publisher: Wikipedia contributors
+accessedDate: 2026-08-26
+locator: Design section, first paragraph
+extract: >-
+  Apple uses the APL0698 variant of the A7 chip, running at 1.3 GHz, in the iPhone 5S, iPad Mini 2 [...]
+tier: C
+sourceType: wiki
+url: https://en.wikipedia.org/wiki/Apple_A7
+editorialStatus: provisional
+usageNote: >-
+  Tier C community article used only for the provisional processor clock of the iPhone 5s.
+fetch:
+  url: https://en.wikipedia.org/wiki/Apple_A7
+  fetchedAt: 2026-08-26T10:20:34Z
+  httpStatus: 200
+  contentType: text/html; charset=UTF-8
+  byteLength: 299854
+  sha256: 460dd1a323e43d36c4a25c838a1152a34f610fa5e2bf56d550b3d70ecc76e3c8

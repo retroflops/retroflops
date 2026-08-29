@@ -1,0 +1,26 @@
+id: sony-playstation-3:whole-system-memory-bandwidth
+formula:
+  id: sum
+  version: '1'
+  expression: a + b + …
+inputMeasurementIds:
+  - ps3-xdr:bandwidth
+exclusions:
+  - measurementId: ps3-gddr3:bandwidth
+    label: 22.4 GB/s of video memory
+    reason:
+      the RSX’s own pool, reached by the processor only across a separate
+      interface
+result:
+  state: value
+  value: '25600000000'
+  unit: B/s
+  significantDigits: 11
+rounding: none
+caveat: >-
+  Adds 1 memory-bandwidth figure obtained by theoretical-peak. Left out:
+  {{measurement:ps3-gddr3:bandwidth}} (the RSX’s own pool, reached by the
+  processor only across a separate interface). A total is only as trustworthy as
+  the decision about what belongs in it, so both the terms and the exclusions
+  are named records.
+editorialStatus: provisional

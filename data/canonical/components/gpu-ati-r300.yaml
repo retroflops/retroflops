@@ -1,0 +1,14 @@
+id: ati-r300
+slug: ati-r300
+kind: gpu
+name: ATI Technologies R300 (ATI Radeon 9700 Pro)
+manufacturer: ATI Technologies
+architecture: R300
+introducedDate: 2002-08
+summary:
+  ATI Radeon 9700 Pro graphics processor, represented by vendor reference-card
+  specifications.
+notes: Programmable shading hardware, but no cited vendor FP32 peak in FLOP/s.
+sourceIds:
+  - ati-radeon-9700-pro-product-brief
+editorialStatus: approved

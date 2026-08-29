@@ -1,0 +1,241 @@
+- caveat: The Amstrad technical specification lists the Z80A clock.
+  comparabilityGroup: clock-frequency|cpu|nominal-clock
+  editorialStatus: provisional
+  evidenceStage: shipped
+  extractIds:
+    - amstrad-cpc464-user-instructions:cpu-clock
+  id: amstrad-cpc-464:clock-frequency
+  method: nominal-clock
+  metric: clock-frequency
+  provenance: vendor
+  quantity:
+    significantDigits: 1
+    state: value
+    unit: MHz
+    value: "4"
+  scope: cpu
+  sourceIds:
+    - amstrad-cpc464-user-instructions
+  status: vendor-rated
+  subject:
+    configurationId: pal
+    id: amstrad-cpc-464
+    kind: system
+  normalized:
+    value: "4000000"
+    unit: Hz
+    significantDigits: 1
+    unitRegistry: units-v1
+  evidenceLevel: confirmed
+- caveat: The Amstrad technical specification lists the fitted RAM capacity.
+  comparabilityGroup: memory-capacity|memory|design-capacity
+  editorialStatus: provisional
+  evidenceStage: shipped
+  extractIds:
+    - amstrad-cpc464-user-instructions:ram-capacity
+  id: amstrad-cpc464-ram:capacity
+  method: design-capacity
+  metric: memory-capacity
+  provenance: vendor
+  quantity:
+    significantDigits: 2
+    state: value
+    unit: KiB
+    value: "64"
+  scope: memory
+  sourceIds:
+    - amstrad-cpc464-user-instructions
+  status: vendor-rated
+  subject:
+    id: amstrad-cpc464-ram
+    kind: component
+  normalized:
+    value: "65536"
+    unit: B
+    significantDigits: 2
+    unitRegistry: units-v1
+  evidenceLevel: confirmed
+- caveat: The verified user-guide record does not expose a page-level ROM quotation.
+  comparabilityGroup: memory-capacity|memory|design-capacity
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: amstrad-cpc464-rom:capacity
+  method: design-capacity
+  metric: memory-capacity
+  provenance: vendor
+  quantity:
+    note: No page-level ROM figure has been verified in the cited guide.
+    state: unknown
+  unknownAudit:
+    reviewedOn: 2026-08-25
+    routesChecked:
+      - vendor-documentation
+      - independent-analysis
+      - community-source
+    outcome: no-published-candidate
+    summary: The checked guide has no page-level ROM capacity value.
+  scope: memory
+  sourceIds:
+    - amstrad-cpc464-user-instructions
+  status: vendor-rated
+  subject:
+    id: amstrad-cpc464-rom
+    kind: component
+- caveat: >-
+    No whole-system memory total can be supported while the verified source
+    provides no RAM figure.
+  comparabilityGroup: memory-capacity|whole-system|design-capacity
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: amstrad-cpc-464:whole-system-memory-capacity
+  method: design-capacity
+  metric: memory-capacity
+  provenance: vendor
+  quantity:
+    note: No whole-system total can be derived without a verified RAM figure.
+    state: unknown
+  unknownAudit:
+    reviewedOn: 2026-08-25
+    routesChecked:
+      - vendor-documentation
+      - independent-analysis
+      - community-source
+    outcome: no-compatible-candidate
+    summary: A whole-system total cannot be derived from the checked material.
+  scope: whole-system
+  sourceIds:
+    - amstrad-cpc464-user-instructions
+  status: vendor-rated
+  subject:
+    id: amstrad-cpc-464
+    kind: system
+- caveat: >-
+    The user guide provides no page-level graphics-clock figure suitable for
+    this record.
+  comparabilityGroup: clock-frequency|gpu|nominal-clock
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: amstrad-cpc-464:gpu-clock-frequency
+  method: nominal-clock
+  metric: clock-frequency
+  provenance: vendor
+  quantity:
+    note: No accepted graphics-clock figure was located in the user guide.
+    state: unknown
+  unknownAudit:
+    reviewedOn: 2026-08-25
+    routesChecked:
+      - vendor-documentation
+      - independent-analysis
+      - community-source
+    outcome: no-published-candidate
+    summary: The checked guide provides no compatible graphics-clock value.
+  scope: gpu
+  sourceIds:
+    - amstrad-cpc464-user-instructions
+  status: vendor-rated
+  subject:
+    id: amstrad-cpc-464
+    kind: system
+- caveat: >-
+    The user guide provides no memory transfer-rate figure from which bandwidth
+    can be stated.
+  comparabilityGroup: memory-bandwidth|memory|theoretical-peak
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: amstrad-cpc-464:memory-bandwidth
+  method: theoretical-peak
+  metric: memory-bandwidth
+  provenance: vendor
+  quantity:
+    note: No accepted memory transfer-rate figure was located in the user guide.
+    state: unknown
+  unknownAudit:
+    reviewedOn: 2026-08-25
+    routesChecked:
+      - vendor-documentation
+      - independent-analysis
+      - community-source
+    outcome: no-compatible-candidate
+    summary: The checked guide provides no memory transfer rate.
+  scope: memory
+  sourceIds:
+    - amstrad-cpc464-user-instructions
+  status: vendor-rated
+  subject:
+    id: amstrad-cpc-464
+    kind: system
+- caveat: >-
+    Provisional record for amstrad-cpc464-z80a:peak-fp32-rate: the cited primary
+    manual is registered, but its page-level transcription and independent
+    review are still pending.
+  comparabilityGroup: peak-fp32-rate|cpu|theoretical-peak
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: amstrad-cpc464-z80a:peak-fp32-rate
+  method: theoretical-peak
+  metric: peak-fp32-rate
+  provenance: vendor
+  quantity:
+    note: The Z80A contains no floating-point hardware.
+    state: not-applicable
+  scope: cpu
+  sourceIds:
+    - amstrad-cpc464-user-instructions
+  status: vendor-rated
+  subject:
+    id: amstrad-cpc464-z80a
+    kind: component
+- comparabilityGroup: sustained-fp40-rate|whole-system|benchmark-run
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: amstrad-cpc-464:sustained-fp40-rate
+  method: benchmark-run
+  metric: sustained-fp40-rate
+  provenance: independent
+  quantity:
+    note: >-
+      A Locomotive BASIC result needs a named reproducible benchmark before it
+      can be stated.
+    state: unknown
+  unknownAudit:
+    reviewedOn: 2026-08-25
+    routesChecked:
+      - vendor-documentation
+      - independent-analysis
+      - community-source
+    outcome: no-compatible-candidate
+    summary: No named reproducible benchmark result is present in the checked material.
+  scope: whole-system
+  sourceIds:
+    - amstrad-cpc464-user-instructions
+  status: measured
+  subject:
+    id: amstrad-cpc-464
+    kind: system
+- caveat: The user guide provides no whole-system power rating.
+  comparabilityGroup: rated-power-consumption|whole-system|rated-power
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: amstrad-cpc-464:rated-power-consumption
+  method: rated-power
+  metric: rated-power-consumption
+  provenance: vendor
+  quantity:
+    note: No accepted whole-system power rating was located in the user guide.
+    state: unknown
+  unknownAudit:
+    reviewedOn: 2026-08-25
+    routesChecked:
+      - vendor-documentation
+      - independent-analysis
+      - community-source
+    outcome: no-published-candidate
+    summary: The checked guide provides no whole-system power rating.
+  scope: whole-system
+  sourceIds:
+    - amstrad-cpc464-user-instructions
+  status: vendor-rated
+  subject:
+    id: amstrad-cpc-464
+    kind: system

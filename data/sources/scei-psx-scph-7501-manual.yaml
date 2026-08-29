@@ -1,0 +1,21 @@
+accessedDate: 2026-08-04
+archiveUrl: https://archive.org/details/ps-scph-7501
+editorialStatus: approved
+fetch:
+  byteLength: 101223
+  contentType: text/plain; charset=utf-8
+  fetchedAt: 2026-08-04T15:04:44Z
+  finalUrl: https://dn711106.ca.archive.org/0/items/ps-scph-7501/PS_SCPH-7501_djvu.txt
+  httpStatus: 200
+  sha256: af0ce5bcb30b5f127f3dbfca845f7c82f95b3725ae75e289b1b4684b0fce68b7
+  url: https://archive.org/download/ps-scph-7501/PS_SCPH-7501_djvu.txt
+id: scei-psx-scph-7501-manual
+license: Copyright Sony Interactive Entertainment Inc. Quoted here under
+  short-extract fair use for verification of the figures cited.
+locator: '"Specifications", General section'
+publishedDate: "1998"
+publisher: Sony Computer Entertainment America
+sourceType: vendor-documentation
+tier: A
+title: PlayStation Instruction Manual (SCPH-7501)
+url: https://archive.org/download/ps-scph-7501/PS_SCPH-7501_djvu.txt

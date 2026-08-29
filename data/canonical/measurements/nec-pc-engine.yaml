@@ -1,0 +1,280 @@
+- caveat: The HuC6280 can switch speed; this is the cited high-speed PC Engine mode.
+  comparabilityGroup: clock-frequency|cpu|nominal-clock
+  editorialStatus: provisional
+  evidenceStage: shipped
+  extractIds:
+    - makeclassicgames-pc-engine-specs:cpu-clock
+    - history-video-games-pc-engine:cpu-clock
+  id: nec-pc-engine:cpu-clock-frequency
+  method: nominal-clock
+  metric: clock-frequency
+  provenance: vendor
+  quantity:
+    significantDigits: 3
+    state: value
+    unit: MHz
+    value: "7.16"
+  scope: cpu
+  sourceIds:
+    - makeclassicgames-pc-engine-specs
+    - history-video-games-pc-engine
+  status: vendor-rated
+  subject:
+    configurationId: japan
+    id: nec-pc-engine
+    kind: system
+  normalized:
+    value: "7160000"
+    unit: Hz
+    significantDigits: 3
+    unitRegistry: units-v1
+  evidenceLevel: confirmed
+- caveat: >-
+    NEC's verified system outline states no RAM capacity. Wikipedia gives
+    {{measurement:pc-engine-ram:capacity}} of work RAM, which is separate from
+    the video RAM the console also carries and which the catalog records
+    separately.
+  comparabilityGroup: memory-capacity|memory|design-capacity
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: pc-engine-ram:capacity
+  method: design-capacity
+  metric: memory-capacity
+  provenance: community
+  quantity:
+    state: value
+    value: "8"
+    unit: KiB
+    significantDigits: 1
+  scope: memory
+  sourceIds:
+    - nec-pc-engine-technical-manual
+    - wikipedia-pc-engine-specifications
+  status: vendor-rated
+  subject:
+    id: pc-engine-ram
+    kind: component
+  evidenceLevel: rumored
+  normalized:
+    value: "8192"
+    unit: B
+    significantDigits: 1
+    unitRegistry: units-v1
+- caveat: >-
+    The system-outline manual describes the VDC and VCE roles but gives no
+    graphics-clock frequency.
+  comparabilityGroup: clock-frequency|gpu|nominal-clock
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: nec-pc-engine:gpu-clock-frequency
+  method: nominal-clock
+  metric: clock-frequency
+  provenance: vendor
+  quantity:
+    note: The reviewed system-outline manual gives no graphics clock.
+    state: unknown
+  unknownAudit:
+    reviewedOn: 2026-08-25
+    routesChecked:
+      - vendor-documentation
+      - independent-analysis
+      - community-source
+    outcome: no-published-candidate
+    summary: >-
+      The checked system outline names the VDC and VCE but states no
+      graphics-clock frequency.
+  scope: gpu
+  sourceIds:
+    - nec-pc-engine-technical-manual
+  status: vendor-rated
+  subject:
+    id: nec-pc-engine
+    kind: system
+- caveat: >-
+    The system-outline manual describes VRAM use with the VDC but gives no bus
+    width or transfer rate.
+  comparabilityGroup: memory-bandwidth|memory|theoretical-peak
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: nec-pc-engine:memory-bandwidth
+  method: theoretical-peak
+  metric: memory-bandwidth
+  provenance: vendor
+  quantity:
+    note: The reviewed system-outline manual gives no memory bandwidth or bus width.
+    state: unknown
+  unknownAudit:
+    reviewedOn: 2026-08-25
+    routesChecked:
+      - vendor-documentation
+      - independent-analysis
+      - community-source
+    outcome: no-compatible-candidate
+    summary: >-
+      The checked documentation gives no transfer rate or bus terms for a
+      comparable memory-bandwidth value.
+  scope: memory
+  sourceIds:
+    - nec-pc-engine-technical-manual
+  status: vendor-rated
+  subject:
+    id: nec-pc-engine
+    kind: system
+- caveat: >-
+    Provisional record for nec-pc-engine: the cited primary manual is
+    registered, but its page-level transcription and independent review are
+    still pending.
+  comparabilityGroup: peak-fp32-rate|cpu|theoretical-peak
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: pc-engine-huc6280:peak-fp32-rate
+  method: theoretical-peak
+  metric: peak-fp32-rate
+  provenance: vendor
+  quantity:
+    note: This console CPU has no integrated floating-point execution unit.
+    state: not-applicable
+  scope: cpu
+  sourceIds:
+    - nec-pc-engine-technical-manual
+  status: vendor-rated
+  subject:
+    id: pc-engine-huc6280
+    kind: component
+- caveat: >-
+    Provisional record for nec-pc-engine: the cited primary manual is
+    registered, but its page-level transcription and independent review are
+    still pending.
+  comparabilityGroup: peak-fp32-rate|gpu|theoretical-peak
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: pc-engine-vdc:peak-fp32-rate
+  method: theoretical-peak
+  metric: peak-fp32-rate
+  provenance: vendor
+  quantity:
+    note: >-
+      This is a tile, sprite or scanline graphics unit, not a floating-point
+      processor; it executes no FP32 operations.
+    state: not-applicable
+  scope: gpu
+  sourceIds:
+    - nec-pc-engine-technical-manual
+  status: vendor-rated
+  subject:
+    id: pc-engine-vdc
+    kind: component
+- caveat: >-
+    The system-outline manual states an IC supply requirement, not a power
+    rating for the retail console.
+  comparabilityGroup: rated-power-consumption|whole-system|rated-power
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: nec-pc-engine:rated-power-consumption
+  method: rated-power
+  metric: rated-power-consumption
+  provenance: vendor
+  quantity:
+    note: The reviewed system-outline manual gives no whole-system power rating.
+    state: unknown
+  unknownAudit:
+    reviewedOn: 2026-08-25
+    routesChecked:
+      - vendor-documentation
+      - independent-analysis
+      - community-source
+    outcome: no-published-candidate
+    summary: >-
+      The manual gives IC supply requirements, not a power rating for the retail
+      console.
+  scope: whole-system
+  sourceIds:
+    - nec-pc-engine-technical-manual
+  status: vendor-rated
+  subject:
+    id: nec-pc-engine
+    kind: system
+- comparabilityGroup: storage-capacity|storage|design-capacity
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: nec-pc-engine:cartridge-storage-capacity
+  method: design-capacity
+  metric: storage-capacity
+  provenance: vendor
+  quantity:
+    note: >-
+      Game cartridges are removable media and their ROM capacity varies by
+      title; no cartridge capacity is part of the base console.
+    state: not-applicable
+  scope: storage
+  sourceIds:
+    - nec-pc-engine-technical-manual
+  status: vendor-rated
+  subject:
+    id: nec-pc-engine
+    kind: system
+- caveat: >-
+    Both terms of the total are rumored. The catalog displays a rumored figure
+    but does not compute with one, so the total waits for a document that states
+    a capacity outright.
+  comparabilityGroup: memory-capacity|whole-system|design-capacity
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: nec-pc-engine:whole-system-memory-capacity
+  method: design-capacity
+  metric: memory-capacity
+  provenance: vendor
+  quantity:
+    note: >-
+      The console's work RAM and video RAM are both known only from tier C
+      material. Adding them would rest a new number on that material, which this
+      catalog does not do.
+    state: unknown
+  unknownAudit:
+    reviewedOn: 2026-08-26
+    routesChecked:
+      - vendor-documentation
+      - independent-analysis
+      - community-source
+    outcome: no-compatible-candidate
+    summary: >-
+      Both fitted capacities are published only in tier C material, which may be
+      recorded but may not be summed.
+  scope: whole-system
+  sourceIds:
+    - nec-pc-engine-technical-manual
+  status: vendor-rated
+  subject:
+    id: nec-pc-engine
+    kind: system
+- caveat: >-
+    NEC's verified system outline states no video-RAM capacity. Wikipedia's
+    infobox and hardware paragraph both give
+    {{measurement:pc-engine-video-ram:capacity}}, and the catalog carries it as
+    rumored until an NEC document states it.
+  comparabilityGroup: memory-capacity|memory|design-capacity
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: pc-engine-video-ram:capacity
+  method: design-capacity
+  metric: memory-capacity
+  provenance: community
+  quantity:
+    state: value
+    value: "64"
+    unit: KiB
+    significantDigits: 2
+  scope: memory
+  sourceIds:
+    - nec-pc-engine-technical-manual
+    - wikipedia-pc-engine-specifications
+  status: vendor-rated
+  subject:
+    id: pc-engine-video-ram
+    kind: component
+  evidenceLevel: rumored
+  normalized:
+    value: "65536"
+    unit: B
+    significantDigits: 2
+    unitRegistry: units-v1

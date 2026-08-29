@@ -1,0 +1,11 @@
+editorialStatus: provisional
+id: microsoft-xbox-nv2a
+slug: microsoft-xbox-nv2a
+kind: gpu
+name: NVIDIA NV2A
+manufacturer: NVIDIA
+architecture: NV2A
+introducedDate: '2001'
+summary: The graphics processor fitted to the Microsoft Xbox.
+sourceIds:
+  - microsoft-xbox-hardware-specification

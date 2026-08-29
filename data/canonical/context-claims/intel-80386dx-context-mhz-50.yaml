@@ -1,0 +1,17 @@
+id: intel-80386dx:context-mhz-50
+subject:
+  kind: component
+  id: intel-80386dx
+label: Frequency
+quantity:
+  state: value
+  value: '50'
+  unit: MHz
+  significantDigits: 2
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - intel-386dx-datasheet
+evidenceLevel: confirmed

@@ -1,0 +1,40 @@
+- extract: >-
+    Memory Types Up to DDR5 5600 MT/s | Up to DDR4 3200 MT/s / Max # of Memory
+    Channels 2 / Max Memory Bandwidth 89.6 GB/s
+  extractHash: 7792ce4736286c7fd1490a617929113b32928edbf0c8d6b0923e2ae20ebdea2a
+  id: intel-core-i9-14900k-specifications:max-memory-bandwidth
+  locator: >-
+    Memory Specifications section, Memory Types, Max # of Memory Channels and
+    Max Memory Bandwidth rows
+  notes: >-
+    The three rows sit together and only make sense together: 89.6 GB/s is two
+    channels of DDR5-5600 at eight bytes a transfer, so the rating describes the
+    faster of the two memory types the page lists and not the DDR4-3200
+    alternative. Read from the live page, which carries no revision or date of
+    its own. The catalog's DDR5-5600 reading is the one Intel's own arithmetic
+    supports; a machine populated below that grade reaches less.
+  sourceId: intel-core-i9-14900k-specifications
+  transcribed:
+    significantDigits: 3
+    state: value
+    unit: GB/s
+    value: '89.6'
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-16
+- extract: >-
+    Graphics Base Frequency 300 MHz / Graphics Max Dynamic Frequency 1.65 GHz /
+    Execution Units 32
+  extractHash: 6ce2c68b4bb70c484287f12ccfc96b6eaeaa9bbbc6ce996a9b943502da5342ab
+  id: intel-core-i9-14900k-specifications:graphics-frequencies
+  locator: >-
+    Processor Graphics section, Graphics Base Frequency, Graphics Max Dynamic
+    Frequency and Execution Units rows
+  notes: >-
+    Transcribed for a negative result rather than a figure: this part's UHD
+    Graphics 770 is specified at 300 MHz base and 1.65 GHz maximum dynamic,
+    against 850 MHz and 1.35 GHz for the Intel HD Graphics 3000 on the i7-2600K
+    page. The two cannot be one component's clock. The page states an
+    execution-unit count and no floating-point rate at any precision.
+  sourceId: intel-core-i9-14900k-specifications
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-16

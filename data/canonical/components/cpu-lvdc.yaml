@@ -1,0 +1,23 @@
+id: lvdc
+slug: lvdc
+kind: cpu
+name: Saturn Launch Vehicle Digital Computer
+manufacturer: IBM Federal Systems Division
+architecture: LVDC
+introducedDate: '1966'
+instructionSet: LVDC
+summary:
+  A stored-program, general-purpose, serial, fixed-point binary computer built
+  from triple-redundant logic, with ultrasonic glass delay lines standing in for
+  arithmetic registers. It flew the Saturn launch vehicle from lift-off to
+  orbit.
+notes:
+  The {{context:lvdc:context-bit-26}} data word is 25 magnitude bits plus a sign
+  bit; two further parity bits bring the {{context:lvdc:context-bit-28}} memory
+  word. Two instructions fit in one memory word. Being serial, it clocks four
+  times per bit, giving 512 kilobits per second from a
+  {{measurement:lvdc:clock-frequency}} clock. Triple modular redundancy divides
+  each of three identical logic channels into seven voted modules.
+sourceIds:
+  - ntrs-19700023342
+editorialStatus: approved

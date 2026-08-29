@@ -1,0 +1,17 @@
+id: apollo-guidance-computer-block-ii:context-kg-39-4
+subject:
+  kind: system
+  id: apollo-guidance-computer-block-ii
+label: Contextual value
+quantity:
+  state: value
+  value: '39.4'
+  unit: kg
+  significantDigits: 3
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - ntrs-19760016247
+evidenceLevel: confirmed

@@ -1,0 +1,12 @@
+architecture: MOS 6502 derivative
+editorialStatus: approved
+id: nes-2a03
+instructionSet: MOS 6502 derivative
+instructionSetFamily: mos-6502
+kind: cpu
+manufacturer: Ricoh
+name: Ricoh 2A03
+slug: nes-2a03
+sourceIds:
+  - nintendo-nes-tech-specs
+summary: The NES CPU and audio processor.

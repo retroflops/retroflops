@@ -1,0 +1,13 @@
+id: acorn-archimedes-arm2
+slug: acorn-archimedes-arm2
+kind: cpu
+name: Acorn ARM2
+manufacturer: Acorn Computers
+architecture: ARM2
+introducedDate: '1986'
+instructionSet: ARM
+instructionSetFamily: arm
+summary: The three-micrometer ARM2 at the start of the ARM lineage.
+sourceIds:
+  - acorn-archimedes-technical-reference
+editorialStatus: provisional

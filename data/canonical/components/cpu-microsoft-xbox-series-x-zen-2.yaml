@@ -1,0 +1,13 @@
+editorialStatus: approved
+id: microsoft-xbox-series-x-zen-2
+slug: microsoft-xbox-series-x-zen-2
+kind: cpu
+name: AMD Zen 2
+manufacturer: AMD
+architecture: Zen 2
+introducedDate: '2020'
+instructionSet: x86-64
+instructionSetFamily: x86
+summary: The Microsoft Xbox Series X main processor.
+sourceIds:
+  - xbox-wire-series-x-tech-2020

@@ -1,0 +1,14 @@
+id: pc-ddr-sdram
+slug: pc-ddr-sdram
+kind: memory
+name: PC DDR SDRAM
+manufacturer: PC industry
+architecture: Double-data-rate synchronous dynamic RAM
+introducedDate: '2000'
+memoryType: DDR SDRAM
+summary:
+  Double-data-rate synchronous main memory used by representative Pentium 4,
+  Core 2 and Core i7 PCs.
+sourceIds:
+  - intel-core-i7-2600k-specifications
+editorialStatus: provisional

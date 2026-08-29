@@ -1,0 +1,43 @@
+accessedDate: 2026-08-17
+alt: A black Sega Saturn photographed against white, a circular disc lid recessed into the top of
+  the case, with the first-model control pad lying in front of it.
+attribution: Photograph by Evan-Amos, released into the public domain by its author, via Wikimedia Commons.
+canonical:
+  byteLength: 26031
+  format: avif
+  height: 960
+  sha256: 4d18285fdda4bb385d032517ab07ffbf75991aa0e1647ef43f05b3cd5ee546bf
+  width: 1280
+caption: A first-generation Sega Saturn in the black case sold outside Japan, with the Model 1
+  control pad. This record’s figures come from Sega’s service manual for the PAL console.
+creator: Evan-Amos
+creatorType: person
+editorialStatus: approved
+id: sega-saturn-console
+original:
+  byteLength: 2308968
+  height: 2280
+  mediaType: image/jpeg
+  sha256: c098d15ca4e9827a7569aafceca17b009d65def01b450d45801e83b8851a1dad
+  width: 4120
+originalUrl: https://upload.wikimedia.org/wikipedia/commons/a/a8/Sega-Saturn-Console-Set-Mk1.jpg
+publisher: Wikimedia Commons
+rights:
+  id: pd-self
+  statedAt: https://commons.wikimedia.org/wiki/File:Sega-Saturn-Console-Set-Mk1.jpg
+  statement: "I, the copyright holder of this work, release this work into the public domain. This
+    applies worldwide. In some countries this may not be legally possible; if so: I grant anyone the
+    right to use this work for any purpose, without any conditions, unless such conditions are
+    required by law."
+  url: https://commons.wikimedia.org/wiki/Template:PD-self
+sourcePageUrl: https://commons.wikimedia.org/wiki/File:Sega-Saturn-Console-Set-Mk1.jpg
+title: Sega-Saturn-Console-Set-Mk1.jpg
+transform:
+  background: "#ffffff"
+  fit: pad
+  note: The photograph is wider than 4:3 and the machine reaches both ends of it, so no crop keeps the
+    whole subject. The declared margin is the same white as the backdrop the photograph was taken
+    against, which is why it cannot be seen; it is recorded because it is there.
+  preset: image-v1
+  sourceHeight: 2280
+  sourceWidth: 4120

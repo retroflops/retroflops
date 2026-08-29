@@ -1,0 +1,33 @@
+accessedDate: 2026-08-16
+editorialStatus: approved
+fetch:
+  byteLength: 914295
+  contentType: application/pdf
+  fetchedAt: 2026-08-16T17:44:56Z
+  httpStatus: 200
+  sha256: a8f1ee02a082fd3c6147c37534ccaff221bae70e1a194e73311af3e77b40fcda
+  url: https://datasheets.chipdb.org/Intel/x86/Pentium%20II/24333503.PDF
+id: intel-pentium-ii-datasheet
+license: Copyright Intel Corporation; cited for verification under short-extract
+  fair use.
+locator: >-
+  Table 20, "Pentium® II Processor Thermal Design Specification", page 43, 300
+  MHz row
+publishedDate: 1998-01
+publisher: Intel Corporation
+sourceType: vendor-documentation
+tier: A
+title: >-
+  Pentium® II Processor at 233 MHz, 266 MHz, 300 MHz, and 333 MHz Datasheet
+  (Order Number 243335-003)
+url: https://datasheets.chipdb.org/Intel/x86/Pentium%20II/24333503.PDF
+usageNote: >-
+  Two things travel with any quotation from this table. It separates Max
+  Processor Power from Max Thermal Plate Power, which are different quantities
+  for the same part, and each row carries a stepping footnote — the 300 MHz
+  row's note 4 restricts the specification to CPU ID 63x. The mirrored copy is a
+  pre-publication revision, stamped "INTEL CONFIDENTIAL (until publication
+  date)" on its cover and "INTEL SECRET" on its pages; it is Intel's own
+  document under Intel's own order number, but it is the draft rather than the
+  released print. Retrieved from chipdb's Intel datasheet mirror, custodian
+  rather than author.

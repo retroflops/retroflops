@@ -1,0 +1,11 @@
+id: macintosh-128k-video
+slug: macintosh-128k-video
+kind: gpu
+name: Macintosh video subsystem
+manufacturer: Apple Computer
+architecture: Integrated monochrome display logic
+introducedDate: '1984'
+summary: Integrated monochrome display hardware sharing system memory.
+sourceIds:
+  - macintosh-128k-technical-reference
+editorialStatus: provisional

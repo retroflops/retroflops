@@ -1,0 +1,14 @@
+id: apple-iphone-17-gpu
+slug: apple-iphone-17-gpu
+kind: gpu
+name: Apple iPhone 17 GPU
+manufacturer: Apple
+architecture: Apple-designed five-core GPU
+introducedDate: '2025'
+summary: The graphics section integrated with the Apple A19 in iPhone 17.
+notes: >-
+  Apple identifies the graphics-core count but does not publish a graphics clock
+  or a standalone FP32 peak.
+sourceIds:
+  - apple-iphone-17-tech-specs
+editorialStatus: approved

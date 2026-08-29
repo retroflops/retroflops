@@ -1,0 +1,18 @@
+id: nvidia-gb202:context-unit-176
+subject:
+  kind: component
+  id: nvidia-gb202
+label: Render-output-unit count
+quantity:
+  state: value
+  value: '176'
+  unit: unit
+  significantDigits: 3
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - nvidia-rtx-blackwell-whitepaper
+  - nvidia-rtx-5090-product-specifications
+evidenceLevel: confirmed

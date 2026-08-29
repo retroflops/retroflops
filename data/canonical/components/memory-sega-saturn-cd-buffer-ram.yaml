@@ -1,0 +1,13 @@
+architecture: DRAM
+editorialStatus: approved
+id: sega-saturn-cd-buffer-ram
+kind: memory
+manufacturer: Sega
+memoryType: DRAM
+name: Sega Saturn CD buffer RAM
+slug: sega-saturn-cd-buffer-ram
+sourceIds:
+  - sega-saturn-service-manual
+summary:
+  '{{measurement:sega-saturn-cd-buffer-ram:capacity}} buffering the compact-disc
+  drive.'

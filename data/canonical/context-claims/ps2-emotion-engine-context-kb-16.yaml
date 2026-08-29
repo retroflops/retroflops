@@ -1,0 +1,19 @@
+id: ps2-emotion-engine:context-kb-16
+subject:
+  kind: component
+  id: ps2-emotion-engine
+label: Capacity
+quantity:
+  state: value
+  value: '16'
+  unit: kB
+  significantDigits: 2
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - scei-ps2-specifications-1999
+  - scei-ee-gs-single-chip-2003
+  - scea-ps2-scph-39001-manual
+evidenceLevel: confirmed

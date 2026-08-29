@@ -1,0 +1,472 @@
+---
+// SPDX-FileCopyrightText: 2026 Wojciech Polak
+// SPDX-License-Identifier: MIT
+
+/**
+ * The catalog's central table: one row per figure, and every row carries the
+ * things this project refuses to publish a number without: how it was
+ * obtained, how confident it is, and where it came from.
+ *
+ * Renders as a plain table with no JavaScript. Horizontal scrolling is confined
+ * to the marked container, never the page.
+ */
+import type { Measurement, Source } from '~/lib/data/schema';
+import {
+  attributionNote,
+  evidenceLabel,
+  formatQuantity,
+  measurementLabel,
+  methodLabel,
+  PROVISIONAL_EXPLAINER,
+  PROVISIONAL_EXPLAINER_PATH,
+  statusLabel,
+} from '~/lib/display';
+import { route } from '~/lib/paths';
+
+interface Props {
+  measurements: readonly Measurement[];
+  sources: readonly Source[];
+  /** Table caption, read by screen readers and shown above the table. */
+  caption: string;
+  /** Research profiles need their absence evidence open on first render. */
+  openAbsences?: boolean;
+}
+
+const { measurements, sources, caption, openAbsences = false } = Astro.props;
+
+const hasProvisional = measurements.some(
+  (measurement) => measurement.editorialStatus === 'provisional',
+);
+
+const rows = measurements.map((measurement) => ({
+  measurement,
+  quantity: formatQuantity(measurement.quantity),
+  citations: measurement.sourceIds.map((id) => ({
+    id,
+    title: sources.find((source) => source.id === id)?.title ?? id,
+  })),
+}));
+const valueRows = rows.filter(({ quantity }) => !quantity.absent);
+
+/*
+ * "Documented absences" means exactly that: the catalog asked, read a source and
+ * found it silent, or established that the quantity does not exist here. Both
+ * are findings about the machine, and both belong on its profile.
+ *
+ * An `unverified` figure is neither. It says a document is cited and nobody here
+ * has opened it, which is a fact about this project's queue and tells a reader
+ * nothing about the hardware they came to read about. Those records stay in the
+ * export and in the research inventories, where the people who can close them
+ * will look, and off the profile.
+ */
+const absenceRows = rows.filter(
+  ({ measurement, quantity }) => quantity.absent && measurement.quantity.state !== 'unverified',
+);
+---
+
+{
+  valueRows.length > 0 && (
+    <figure class="measurement-table stack">
+      <figcaption>{caption}</figcaption>
+      {hasProvisional && (
+        <p class="measurement-table__legend">
+          <span class="badge badge--provisional">provisional</span> {PROVISIONAL_EXPLAINER}{' '}
+          <a href={route(PROVISIONAL_EXPLAINER_PATH)}>How records are judged</a>.
+        </p>
+      )}
+      <div class="table-frame">
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">Metric</th>
+              <th scope="col">Value</th>
+              <th scope="col">Evidence</th>
+              <th scope="col">Basis</th>
+              <th scope="col">Method</th>
+              <th scope="col">Source</th>
+            </tr>
+          </thead>
+          <tbody>
+            {valueRows.map(({ measurement, quantity, citations }) => (
+              <tr>
+                <th scope="row">
+                  <span class="measurement-table__metric">
+                    {measurementLabel(measurement.metric, measurement.benchmark)}
+                  </span>
+                  <span class="measurement-table__scope">
+                    {measurement.subject.part === undefined
+                      ? measurement.scope
+                      : `${measurement.scope} · ${measurement.subject.part.replaceAll('-', ' ')}`}
+                  </span>
+                  {measurement.editorialStatus === 'provisional' && (
+                    <span class="badge badge--provisional">provisional</span>
+                  )}
+                </th>
+                <td class:list={['numeric', quantity.absent && 'is-absent']}>
+                  {quantity.text}
+                  {quantity.note !== undefined && (
+                    <span class="measurement-table__note">{quantity.note}</span>
+                  )}
+                </td>
+                <td data-label="Evidence">
+                  {measurement.evidenceLevel !== undefined && (
+                    <span class={`badge badge--${measurement.evidenceLevel}`}>
+                      {evidenceLabel(measurement.evidenceLevel)}
+                    </span>
+                  )}
+                </td>
+                <td data-label="Basis">{statusLabel(measurement.status)}</td>
+                <td data-label="Method">
+                  {methodLabel(measurement.method)}
+                  <span class="measurement-table__note">
+                    {attributionNote(
+                      measurement.provenance,
+                      measurement.evidenceStage,
+                      measurement.status,
+                    )}
+                  </span>
+                  {measurement.benchmark !== undefined && (
+                    <span class="measurement-table__note">
+                      {measurement.benchmark.id} {measurement.benchmark.version}
+                      {measurement.benchmark.variant !== undefined &&
+                        `, ${measurement.benchmark.variant}`}
+                    </span>
+                  )}
+                  {measurement.conditions !== undefined && (
+                    <span class="measurement-table__note">{measurement.conditions}</span>
+                  )}
+                  {measurement.caveat !== undefined && (
+                    <span class="measurement-table__caveat">{measurement.caveat}</span>
+                  )}
+                </td>
+                <td data-label="Source">
+                  <ul class="measurement-table__sources">
+                    {citations.map((citation) => (
+                      <li>
+                        <a class="wrap-anywhere" href={route(`/sources/${citation.id}/`)}>
+                          {citation.title}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </figure>
+  )
+}
+
+{
+  absenceRows.length > 0 && (
+    <details class="measurement-table measurement-table--absences" open={openAbsences}>
+      <summary>
+        {absenceRows.length} documented {absenceRows.length === 1 ? 'absence' : 'absences'}
+      </summary>
+      <figure class="stack">
+        <figcaption>{caption}: documented absences</figcaption>
+        <div class="table-frame">
+          <table>
+            <thead>
+              <tr>
+                <th scope="col">Metric</th>
+                <th scope="col">Value</th>
+                <th scope="col">Evidence</th>
+                <th scope="col">Basis</th>
+                <th scope="col">Method</th>
+                <th scope="col">Source</th>
+              </tr>
+            </thead>
+            <tbody>
+              {absenceRows.map(({ measurement, quantity, citations }) => (
+                <tr>
+                  <th scope="row">
+                    <span class="measurement-table__metric">
+                      {measurementLabel(measurement.metric, measurement.benchmark)}
+                    </span>
+                    <span class="measurement-table__scope">
+                      {measurement.subject.part === undefined
+                        ? measurement.scope
+                        : `${measurement.scope} · ${measurement.subject.part.replaceAll('-', ' ')}`}
+                    </span>
+                    {measurement.editorialStatus === 'provisional' && (
+                      <span class="badge badge--provisional">provisional</span>
+                    )}
+                  </th>
+                  <td class:list={['numeric', 'is-absent']}>
+                    {quantity.text}
+                    {quantity.note !== undefined && (
+                      <span class="measurement-table__note">{quantity.note}</span>
+                    )}
+                  </td>
+                  <td data-label="Evidence">Not stated</td>
+                  <td data-label="Basis">{statusLabel(measurement.status)}</td>
+                  <td data-label="Method">
+                    {methodLabel(measurement.method)}
+                    <span class="measurement-table__note">
+                      {attributionNote(
+                        measurement.provenance,
+                        measurement.evidenceStage,
+                        measurement.status,
+                      )}
+                    </span>
+                    {measurement.benchmark !== undefined && (
+                      <span class="measurement-table__note">
+                        {measurement.benchmark.id} {measurement.benchmark.version}
+                        {measurement.benchmark.variant !== undefined &&
+                          `, ${measurement.benchmark.variant}`}
+                      </span>
+                    )}
+                    {measurement.conditions !== undefined && (
+                      <span class="measurement-table__note">{measurement.conditions}</span>
+                    )}
+                    {measurement.caveat !== undefined && (
+                      <span class="measurement-table__caveat">{measurement.caveat}</span>
+                    )}
+                  </td>
+                  <td data-label="Source">
+                    <ul class="measurement-table__sources">
+                      {citations.map((citation) => (
+                        <li>
+                          <a class="wrap-anywhere" href={route(`/sources/${citation.id}/`)}>
+                            {citation.title}
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </figure>
+    </details>
+  )
+}
+
+<style>
+  .measurement-table--absences {
+    border-block-start: var(--border-hairline);
+    padding-block-start: var(--space-s);
+  }
+
+  .measurement-table--absences summary {
+    min-block-size: var(--target-min);
+    cursor: pointer;
+    color: var(--text-secondary);
+  }
+
+  .measurement-table__legend {
+    max-inline-size: var(--prose-max);
+    font-size: var(--step--1);
+    color: var(--text-secondary);
+  }
+
+  .measurement-table figcaption,
+  figcaption {
+    font-family: var(--font-mono);
+    font-size: var(--step--1);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-muted);
+  }
+
+  table {
+    inline-size: 100%;
+    min-inline-size: 54rem;
+    border-collapse: collapse;
+    text-align: start;
+  }
+
+  th,
+  td {
+    vertical-align: top;
+    padding: var(--space-xs) var(--space-s);
+    border-block-end: var(--border-hairline);
+    text-align: start;
+  }
+
+  thead th {
+    position: sticky;
+    inset-block-start: var(--sticky-offset);
+    background-color: var(--surface-raised);
+    border-block-end: 2px solid var(--border-strong);
+    font-family: var(--font-mono);
+    font-size: var(--step--1);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--text-secondary);
+  }
+
+  tbody th {
+    font-weight: 650;
+    inline-size: 16%;
+  }
+
+  .measurement-table__metric {
+    display: block;
+  }
+
+  .measurement-table__scope {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: var(--step--1);
+    font-weight: 400;
+    color: var(--text-muted);
+  }
+
+  /*
+   * The figure column, sized by what a figure needs rather than by the longest
+   * one in the table.
+   *
+   * `nowrap` here made the whole cell unbreakable, so one 26-character count of
+   * transistors set the width of every value column below it and left the
+   * method column with what was over, a hundred and fifty pixels of prose
+   * ribbon, and rows four times taller than they had to be. The figure itself
+   * is already held together by the no-break spaces it is written with, which
+   * bind the digit groups and a unit symbol and leave a unit spelled as a word
+   * free to wrap. That is the same rule at the width of a character rather than
+   * of a cell, and it is the one that belongs here.
+   */
+  td.numeric {
+    font-size: var(--step-1);
+  }
+
+  td.is-absent {
+    font-size: var(--step-0);
+    font-style: italic;
+    color: var(--text-muted);
+    white-space: normal;
+  }
+
+  /*
+   * Method is the wide column and has to say so.
+   *
+   * It holds every sentence in the row: how the figure was obtained, who
+   * stated it, the conditions and the caveat. A table laying itself out by
+   * content alone hands the leftovers to whichever column asks for the least.
+   * A stated share is what keeps the prose columns from being the ones that pay
+   * for the others: the figure, the evidence and the basis are each a word or a
+   * number wide and take what they need, and the three columns of prose divide
+   * the rest in the proportion they are read in.
+   *
+   * The column of source titles needs its share stated twice over, because a
+   * title may break anywhere. Left to ask for what it needs, it asks for one
+   * character and is given about that much, and "Whitepaper" came out as two
+   * lines of five letters.
+   */
+  td[data-label='Method'] {
+    inline-size: 28%;
+  }
+
+  td[data-label='Source'] {
+    inline-size: 15%;
+  }
+
+  .measurement-table__note,
+  .measurement-table__caveat {
+    display: block;
+    max-inline-size: 32rem;
+    margin-block-start: var(--space-3xs);
+    font-size: var(--step--1);
+    font-style: normal;
+    color: var(--text-secondary);
+    white-space: normal;
+  }
+
+  .measurement-table__caveat {
+    border-inline-start: 3px solid var(--color-amber);
+    padding-inline-start: var(--space-2xs);
+    color: var(--text-secondary);
+  }
+
+  .measurement-table__sources {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-size: var(--step--1);
+    max-inline-size: 18rem;
+  }
+
+  .measurement-table__sources li + li {
+    margin-block-start: var(--space-3xs);
+  }
+
+  /*
+   * Below the width the table needs, one card per figure.
+   *
+   * Five columns in 44rem could only be read on a phone by scrolling sideways,
+   * and every row was as tall as its longest cell, four hundred pixels of
+   * mostly empty space with the method and the source off the screen. Stacked,
+   * a row is as tall as what it says, and nothing is out of sight.
+   *
+   * The threshold is above the table's own minimum, so the two states cannot
+   * meet in a width where the table is a table and still does not fit. Both
+   * numbers are what six columns of this content measure, and the pair moved
+   * up together once it turned out they never had been: at 46rem the table
+   * stayed a table down to widths where it stuck out of its own frame.
+   */
+  @container (max-width: 56rem) {
+    table {
+      min-inline-size: 0;
+    }
+
+    table,
+    tbody,
+    tr,
+    th,
+    td {
+      display: block;
+    }
+
+    /* Each cell names its own column, so the header row has nothing to add. */
+    thead {
+      display: none;
+    }
+
+    tbody tr {
+      border: var(--border-hairline);
+      padding: var(--space-xs);
+    }
+
+    tbody tr + tr {
+      margin-block-start: var(--space-s);
+    }
+
+    tbody th,
+    tbody td {
+      inline-size: auto;
+      padding: 0;
+      border-block-end: 0;
+    }
+
+    /* The figure is the reason for the card, and keeps its prominence. */
+    td.numeric {
+      margin-block-start: var(--space-2xs);
+      white-space: normal;
+    }
+
+    td[data-label] {
+      margin-block-start: var(--space-2xs);
+    }
+
+    td[data-label]::before {
+      content: attr(data-label);
+      display: block;
+      font-family: var(--font-mono);
+      font-size: var(--step--1);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--text-muted);
+    }
+
+    .measurement-table__note,
+    .measurement-table__caveat,
+    .measurement-table__sources {
+      max-inline-size: none;
+    }
+  }
+</style>

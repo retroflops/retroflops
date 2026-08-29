@@ -1,0 +1,87 @@
+editorialStatus: approved
+id: sega-saturn
+slug: sega-saturn
+name: Sega Saturn
+manufacturer: SEGA Enterprises
+type: console
+family: sega-console
+releaseDate: 1994-11
+region: Japan
+summary: >-
+  Sega Saturn, represented with its retail processor, graphics and installed
+  writable memory.
+description: >-
+  Two SH-2 processors run at the same nominal frequency. Their count is recorded
+  in the retail configuration; the catalog does not turn two clocks into a
+  fictional {{context:sega-saturn:context-mhz-57-2}} processor. The figures come
+  from Sega's service manual for the PAL console, model MK-80200-50, which is
+  the only Sega specification for this machine the project has retrieved.
+configurations:
+  - id: retail
+    label: PAL retail console (MK-80200-50)
+    entries:
+      - componentId: sega-saturn-sh2
+        role: main-cpu
+        count: 2
+        shared: false
+        notes: >-
+          Two SH2 processors at one frequency, not one at twice it. The rate is
+          the PAL console's; Sega published no equivalent document for the
+          Japanese machine that this catalog has found.
+        measurementIds:
+          - sega-saturn:retail:cpu-clock-frequency
+      - componentId: sega-saturn-vdp
+        role: gpu
+        count: 2
+        shared: false
+        measurementIds:
+          - sega-saturn:retail:gpu-clock-frequency
+      - componentId: sega-saturn-ram
+        role: system-memory
+        count: 1
+        shared: false
+        measurementIds:
+          - sega-saturn-ram:capacity
+      - componentId: sega-saturn-video-ram
+        role: video-memory
+        count: 1
+        shared: false
+        notes: Attached to the two video display processors.
+        measurementIds:
+          - sega-saturn-video-ram:capacity
+      - componentId: sega-saturn-sound-ram
+        role: system-memory
+        count: 1
+        shared: false
+        notes: Belongs to the sound processor.
+        measurementIds:
+          - sega-saturn-sound-ram:capacity
+      - componentId: sega-saturn-cd-buffer-ram
+        role: system-memory
+        count: 1
+        shared: false
+        notes:
+          Buffers the compact-disc drive. The buffer is memory; the disc it
+          fills is not.
+        measurementIds:
+          - sega-saturn-cd-buffer-ram:capacity
+      - componentId: sega-saturn-backup-ram
+        role: system-memory
+        count: 1
+        shared: false
+        notes: Battery-backed, and the only memory here that survives power off.
+        measurementIds:
+          - sega-saturn-backup-ram:capacity
+      - componentId: sega-saturn-ipl-rom
+        role: system-memory
+        count: 1
+        shared: false
+        notes:
+          Boot firmware. Fitted to the machine, but left out of its memory
+          total.
+        measurementIds:
+          - sega-saturn-ipl-rom:capacity
+imageIds:
+  - sega-saturn-console
+sourceIds:
+  - sega-saturn-service-manual

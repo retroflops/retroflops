@@ -1,0 +1,19 @@
+id: iphone-mbx-lite
+slug: iphone-mbx-lite
+kind: gpu
+name: PowerVR MBX Lite (iPhone)
+manufacturer: Imagination Technologies
+architecture: PowerVR MBX
+introducedDate: '2007'
+summary:
+  The phone's graphics core, on the same package as the processor and the
+  memory, and the one part of the machine for which nobody has published a
+  frequency at all.
+notes:
+  The independent analysis that established the processor's clock says outright
+  that it does not have this core's, and guesses. A guess is not a figure, so
+  the graphics clock is recorded as unknown and the guess is quoted only as
+  evidence that the absence is real.
+sourceIds:
+  - anandtech-iphone-hardware-2009
+editorialStatus: provisional

@@ -1,0 +1,40 @@
+accessedDate: 2026-08-17
+alt: A black ZX Spectrum photographed against white at an angle, its gray rubber keys printed with
+  several commands each and a rainbow flash across the bottom right corner.
+attribution: Photograph by ccwoodcock, licensed CC BY 2.0, via Wikimedia Commons.
+canonical:
+  byteLength: 39095
+  format: avif
+  height: 960
+  sha256: baea3a7af0fa580f88d59dc32c84863defc958be282343122aea557fea9629a5
+  width: 1280
+caption: A rubber-keyed ZX Spectrum. Each key carries a whole BASIC keyword, which is how a
+  {{context:zx-spectrum-48k:context-kib-16}} ROM was typed at.
+creator: ccwoodcock
+creatorType: person
+editorialStatus: approved
+id: zx-spectrum-48k-computer
+original:
+  byteLength: 1540326
+  height: 1916
+  mediaType: image/jpeg
+  sha256: 92fbaaaf02483add9115de89bc19ad020760b57942e8df4a258ff33959cfba29
+  width: 3012
+originalUrl: https://upload.wikimedia.org/wikipedia/commons/b/bd/Sinclair_ZX_Spectrum_%287091646959%29.jpg
+publisher: Wikimedia Commons
+rights:
+  id: cc-by-2.0
+  statedAt: https://commons.wikimedia.org/wiki/File:Sinclair_ZX_Spectrum_(7091646959).jpg
+  statement: This file is licensed under the Creative Commons Attribution 2.0 Generic license.
+  url: https://creativecommons.org/licenses/by/2.0/
+sourcePageUrl: https://commons.wikimedia.org/wiki/File:Sinclair_ZX_Spectrum_(7091646959).jpg
+title: Sinclair ZX Spectrum (7091646959).jpg
+transform:
+  background: "#ffffff"
+  fit: pad
+  note: The photograph is wider than 4:3 and the machine reaches both ends of it, so no crop keeps the
+    whole subject. The declared margin is the same white as the backdrop the photograph was taken
+    against, which is why it cannot be seen; it is recorded because it is there.
+  preset: image-v1
+  sourceHeight: 1916
+  sourceWidth: 3012

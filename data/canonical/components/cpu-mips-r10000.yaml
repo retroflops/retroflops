@@ -1,0 +1,24 @@
+id: mips-r10000
+slug: mips-r10000
+kind: cpu
+name: MIPS R10000
+manufacturer: MIPS Technologies
+architecture: MIPS IV
+introducedDate: '1996'
+instructionSet: MIPS IV
+instructionSetFamily: mips
+summary: >-
+  A four-way superscalar, out-of-order {{context:mips-r10000:context-bit-64}}
+  processor with an on-die floating-point unit. It is the first machine in this
+  catalog where asking for a floating-point rate makes sense at all.
+notes: >-
+  The SPEC result files list the floating-point unit separately as a "MIPS
+  R10010 Floating Point Chip", which is how SGI reported the on-die FPU
+  revision. Caches in the Octane configurations recorded here are
+  {{context:mips-r10000:context-kb-32}} instruction plus
+  {{context:mips-r10000:context-kb-32}} data on chip, with
+  {{context:mips-r10000:context-mb-1}} of unified secondary cache.
+sourceIds:
+  - spec-cpu95-octane-int
+  - spec-cpu95-octane-fp
+editorialStatus: approved

@@ -1,0 +1,31 @@
+accessedDate: 2026-08-16
+editorialStatus: approved
+fetch:
+  byteLength: 1007276
+  contentType: application/pdf
+  fetchedAt: 2026-08-16T17:44:56Z
+  httpStatus: 200
+  sha256: 2f1d1d0a23c3e2d036f1b32c39bbbe7aef1cd6078837c996b655a2c41a748a71
+  url: https://datasheets.chipdb.org/Intel/x86/Pentium/24199710.PDF
+id: intel-pentium-datasheet
+license: Copyright Intel Corporation; cited for verification under short-extract
+  fair use.
+locator: >-
+  Table 12, "Power Dissipation Requirements for Thermal Solution Design", page
+  31, Active Power Dissipation rows
+publishedDate: 1997-06
+publisher: Intel Corporation
+sourceType: vendor-documentation
+tier: A
+title: >-
+  Pentium® Processor 75/90/100/120/133/150/166/200 Datasheet (Order Number
+  241997-010)
+url: https://datasheets.chipdb.org/Intel/x86/Pentium/24199710.PDF
+usageNote: >-
+  This datasheet predates Intel's "thermal design power" wording. It states a
+  typical in-system dissipation and a maximum active power dissipation that
+  systems must be designed to remove, and the maximum is defined by note 2 as a
+  worst-case instruction mix rather than a reproducible benchmark. Retrieved
+  from chipdb's Intel datasheet mirror, which is the custodian, not the author:
+  the tier follows Intel, and the copy carries Intel's own order number and June
+  1997 date.

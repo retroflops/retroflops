@@ -1,0 +1,13 @@
+architecture: Video RAM
+editorialStatus: provisional
+id: master-system-video-ram
+kind: memory
+manufacturer: Sega
+memoryType: Video RAM attached to the VDP
+name: Sega Master System video RAM
+slug: master-system-video-ram
+sourceIds:
+  - sega-8bit-service-manual
+summary:
+  '{{measurement:master-system-video-ram:capacity}} of memory attached to the
+  video display processor, holding tiles, sprite tables and the name table.'

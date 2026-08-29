@@ -1,0 +1,16 @@
+- extract: >-
+    Power in: corrente alternata 230V / 50Hz
+
+    Power out: corrente continua 3V, 300 mA
+  extractHash: ba252c06624483a9e916c79852d50805fafb7690db76d01f8dc95c901521de73
+  id: nintendo-gba-adapter:tech-specs:output
+  locator: AC-DC adapter technical specifications, Power in and Power out lines
+  notes: >-
+    Transcribed with no value. "Power in: alternating current 230V / 50Hz. Power
+    out: direct current 3V, 300 mA." The product of the output pair is 0.9 W,
+    but it rates an optional accessory rather than the handheld, which ships
+    running on two AA cells — so it describes what one way of powering the
+    machine can supply, not what the machine was specified to draw.
+  sourceId: nintendo-gba-ac-adapter-set
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-13

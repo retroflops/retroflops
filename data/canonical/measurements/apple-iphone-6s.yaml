@@ -1,0 +1,313 @@
+- caveat: >-
+    Apple names the chip and states no frequency. Wikipedia gives
+    {{measurement:apple-iphone-6s:cpu-clock-frequency}} for the processor as it
+    runs in this phone, and the catalog carries it as rumored.
+  comparabilityGroup: clock-frequency|cpu|nominal-clock
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: apple-iphone-6s:cpu-clock-frequency
+  method: nominal-clock
+  metric: clock-frequency
+  provenance: community
+  quantity:
+    state: value
+    value: "1.85"
+    unit: GHz
+    significantDigits: 3
+  scope: cpu
+  sourceIds:
+    - apple-iphone-6s-tech-specs
+    - ifixit-iphone-6s-teardown-2015
+    - wikipedia-apple-a9
+  status: vendor-rated
+  subject:
+    id: apple-iphone-6s
+    kind: system
+  evidenceLevel: rumored
+  normalized:
+    value: "1850000000"
+    unit: Hz
+    significantDigits: 3
+    unitRegistry: units-v1
+- caveat: >-
+    Apple states no graphics frequency. Wikipedia gives
+    {{measurement:apple-iphone-6s:gpu-clock-frequency}} for the six-core
+    graphics block of this chip, and the catalog carries it as rumored.
+  comparabilityGroup: clock-frequency|gpu|nominal-clock
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: apple-iphone-6s:gpu-clock-frequency
+  method: nominal-clock
+  metric: clock-frequency
+  provenance: community
+  quantity:
+    state: value
+    value: "650"
+    unit: MHz
+    significantDigits: 3
+  scope: gpu
+  sourceIds:
+    - apple-iphone-6s-tech-specs
+    - ifixit-iphone-6s-teardown-2015
+    - wikipedia-apple-a9
+  status: vendor-rated
+  subject:
+    id: apple-iphone-6s
+    kind: system
+  evidenceLevel: rumored
+  normalized:
+    value: "650000000"
+    unit: Hz
+    significantDigits: 3
+    unitRegistry: units-v1
+- caveat: >-
+    iFixit reports {{measurement:apple-iphone-6s:whole-system-memory-capacity}}
+    in the A9. Apple lists flash storage rather than working memory.
+  comparabilityGroup: memory-capacity|whole-system|design-capacity
+  editorialStatus: provisional
+  evidenceStage: shipped
+  extractIds:
+    - ifixit-iphone-6s-teardown-2015:installed-memory
+  id: apple-iphone-6s:whole-system-memory-capacity
+  method: design-capacity
+  metric: memory-capacity
+  provenance: vendor
+  quantity:
+    significantDigits: 1
+    state: value
+    unit: GiB
+    value: '2'
+  scope: whole-system
+  sourceIds:
+    - ifixit-iphone-6s-teardown-2015
+  status: measured
+  subject:
+    id: apple-iphone-6s
+    kind: system
+  evidenceLevel: reported
+  normalized:
+    value: "2147483648"
+    unit: B
+    significantDigits: 1
+    unitRegistry: units-v1
+- caveat: >-
+    Apple publishes neither a memory-interface width nor a memory transfer rate
+    for this phone.
+  comparabilityGroup: memory-bandwidth|whole-system|theoretical-peak
+  editorialStatus: approved
+  evidenceStage: shipped
+  id: apple-iphone-6s:whole-system-memory-bandwidth
+  method: theoretical-peak
+  metric: memory-bandwidth
+  provenance: vendor
+  quantity:
+    note: >-
+      Apple publishes neither a memory-interface width nor a memory transfer
+      rate for this phone.
+    state: unknown
+  unknownAudit:
+    reviewedOn: 2026-08-25
+    routesChecked:
+      - vendor-documentation
+      - independent-analysis
+      - community-source
+    outcome: no-compatible-candidate
+    summary: >-
+      Apple gives no memory-interface rate, and the checked iFixit teardown
+      names no interface details from which to derive bandwidth.
+  scope: whole-system
+  sourceIds:
+    - apple-iphone-6s-tech-specs
+    - ifixit-iphone-6s-teardown-2015
+  status: vendor-rated
+  subject:
+    id: apple-iphone-6s
+    kind: system
+- caveat: Apple publishes no standalone FP32 throughput figure for this phone GPU.
+  comparabilityGroup: peak-fp32-rate|gpu|theoretical-peak
+  editorialStatus: approved
+  evidenceStage: shipped
+  id: apple-iphone-6s:peak-fp32-rate
+  method: theoretical-peak
+  metric: peak-fp32-rate
+  provenance: vendor
+  quantity:
+    note: Apple publishes no standalone FP32 throughput figure for this phone GPU.
+    state: unknown
+  unknownAudit:
+    reviewedOn: 2026-08-25
+    routesChecked:
+      - vendor-documentation
+      - independent-analysis
+      - community-source
+    outcome: no-published-candidate
+    summary: >-
+      Apple publishes no FP32 rate, and the checked iFixit teardown gives no GPU
+      throughput figure.
+  scope: gpu
+  sourceIds:
+    - apple-iphone-6s-tech-specs
+    - ifixit-iphone-6s-teardown-2015
+  status: vendor-rated
+  subject:
+    id: apple-iphone-6s
+    kind: system
+- caveat: Battery-life durations and charging limits are not a whole-system power
+    rating.
+  comparabilityGroup: rated-power-consumption|whole-system|rated-power
+  editorialStatus: approved
+  evidenceStage: shipped
+  id: apple-iphone-6s:rated-power-consumption
+  method: rated-power
+  metric: rated-power-consumption
+  provenance: vendor
+  quantity:
+    note: Battery-life durations and charging limits are not a whole-system power
+      rating.
+    state: unknown
+  unknownAudit:
+    reviewedOn: 2026-08-25
+    routesChecked:
+      - vendor-documentation
+      - independent-analysis
+      - community-source
+    outcome: no-compatible-candidate
+    summary: >-
+      Apple gives battery-life durations rather than a whole-phone power rating,
+      and the checked iFixit teardown provides no compatible rating.
+  scope: whole-system
+  sourceIds:
+    - apple-iphone-6s-tech-specs
+    - ifixit-iphone-6s-teardown-2015
+  status: vendor-rated
+  subject:
+    id: apple-iphone-6s
+    kind: system
+- caveat: >-
+    Storage, not memory. Apple states flash capacity decimally, the way makers
+    of flash and disk do, and this catalog reads it that way.
+  comparabilityGroup: storage-capacity|storage|design-capacity
+  conditions: One of the flash capacities Apple lists for this phone.
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - apple-iphone-6s-tech-specs:capacity
+  id: apple-iphone-6s:storage-capacity-16gb
+  method: design-capacity
+  metric: storage-capacity
+  provenance: vendor
+  quantity:
+    significantDigits: 2
+    state: value
+    unit: GB
+    value: "16"
+  scope: storage
+  sourceIds:
+    - apple-iphone-6s-tech-specs
+  status: vendor-rated
+  subject:
+    configurationId: 16gb
+    id: apple-iphone-6s
+    kind: system
+  normalized:
+    value: "16000000000"
+    unit: B
+    significantDigits: 2
+    unitRegistry: units-v1
+  evidenceLevel: confirmed
+- caveat: >-
+    Storage, not memory. Apple states flash capacity decimally, the way makers
+    of flash and disk do, and this catalog reads it that way.
+  comparabilityGroup: storage-capacity|storage|design-capacity
+  conditions: One of the flash capacities Apple lists for this phone.
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - apple-iphone-6s-tech-specs:capacity
+  id: apple-iphone-6s:storage-capacity-32gb
+  method: design-capacity
+  metric: storage-capacity
+  provenance: vendor
+  quantity:
+    significantDigits: 2
+    state: value
+    unit: GB
+    value: "32"
+  scope: storage
+  sourceIds:
+    - apple-iphone-6s-tech-specs
+  status: vendor-rated
+  subject:
+    configurationId: 32gb
+    id: apple-iphone-6s
+    kind: system
+  normalized:
+    value: "32000000000"
+    unit: B
+    significantDigits: 2
+    unitRegistry: units-v1
+  evidenceLevel: confirmed
+- caveat: >-
+    Storage, not memory. Apple states flash capacity decimally, the way makers
+    of flash and disk do, and this catalog reads it that way.
+  comparabilityGroup: storage-capacity|storage|design-capacity
+  conditions: One of the flash capacities Apple lists for this phone.
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - apple-iphone-6s-tech-specs:capacity
+  id: apple-iphone-6s:storage-capacity-64gb
+  method: design-capacity
+  metric: storage-capacity
+  provenance: vendor
+  quantity:
+    significantDigits: 2
+    state: value
+    unit: GB
+    value: "64"
+  scope: storage
+  sourceIds:
+    - apple-iphone-6s-tech-specs
+  status: vendor-rated
+  subject:
+    configurationId: 64gb
+    id: apple-iphone-6s
+    kind: system
+  normalized:
+    value: "64000000000"
+    unit: B
+    significantDigits: 2
+    unitRegistry: units-v1
+  evidenceLevel: confirmed
+- caveat: >-
+    Storage, not memory. Apple states flash capacity decimally, the way makers
+    of flash and disk do, and this catalog reads it that way.
+  comparabilityGroup: storage-capacity|storage|design-capacity
+  conditions: One of the flash capacities Apple lists for this phone.
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - apple-iphone-6s-tech-specs:capacity
+  id: apple-iphone-6s:storage-capacity-128gb
+  method: design-capacity
+  metric: storage-capacity
+  provenance: vendor
+  quantity:
+    significantDigits: 3
+    state: value
+    unit: GB
+    value: "128"
+  scope: storage
+  sourceIds:
+    - apple-iphone-6s-tech-specs
+  status: vendor-rated
+  subject:
+    configurationId: 128gb
+    id: apple-iphone-6s
+    kind: system
+  normalized:
+    value: "128000000000"
+    unit: B
+    significantDigits: 3
+    unitRegistry: units-v1
+  evidenceLevel: confirmed

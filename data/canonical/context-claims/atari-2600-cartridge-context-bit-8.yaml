@@ -1,0 +1,17 @@
+id: atari-2600-cartridge:context-bit-8
+subject:
+  kind: component
+  id: atari-2600-cartridge
+label: Word size
+quantity:
+  state: value
+  value: '8'
+  unit: bit
+  significantDigits: 1
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - atari-2600-stella-programming-guide
+evidenceLevel: reported

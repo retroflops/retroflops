@@ -1,0 +1,17 @@
+id: motorola-68000:context-mhz-28-63636
+subject:
+  kind: component
+  id: motorola-68000
+label: Frequency
+quantity:
+  state: value
+  value: '28.63636'
+  unit: MHz
+  significantDigits: 7
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - amiga-hardware-reference-manual
+evidenceLevel: confirmed

@@ -1,0 +1,10 @@
+architecture: Tile and sprite picture processing unit
+editorialStatus: approved
+id: nes-ppu
+kind: gpu
+manufacturer: Ricoh
+name: Ricoh 2C02 PPU
+slug: nes-ppu
+sourceIds:
+  - nintendo-nes-tech-specs
+summary: The NES picture processing unit, built for tiles and sprites.

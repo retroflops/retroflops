@@ -1,0 +1,20 @@
+id: sony-playstation-2:context-v-120
+subject:
+  kind: system
+  id: sony-playstation-2
+  configurationId: retail
+label: Contextual value
+quantity:
+  state: value
+  value: '120'
+  unit: V
+  significantDigits: 3
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - scea-ps2-scph-39001-manual
+extractIds:
+  - scea-ps2-manual:power
+evidenceLevel: confirmed

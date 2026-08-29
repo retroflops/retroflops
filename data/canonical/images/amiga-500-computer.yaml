@@ -1,0 +1,40 @@
+accessedDate: 2026-08-17
+alt: A gray Commodore Amiga 500 seen from above, a full keyboard with a numeric pad in a
+  wedge-shaped case, the Amiga name molded into the top right.
+attribution: Photograph by Vacant0, licensed CC BY-SA 4.0, via Wikimedia Commons.
+canonical:
+  byteLength: 68246
+  format: avif
+  height: 960
+  sha256: 4683a8cf9cdf1c130d810f845781918ecc230102559e0f827dd389a139c8b687
+  width: 1280
+caption: A Commodore Amiga 500 in the Yandex Museum in Belgrade. The case holds the processor, the
+  custom chipset and a 3.5-inch drive behind the keyboard.
+creator: Vacant0
+creatorType: person
+editorialStatus: approved
+id: amiga-500-computer
+original:
+  byteLength: 8651794
+  height: 4284
+  mediaType: image/jpeg
+  sha256: ffb0d7d3d5b65d6e4fe1a3d0d2563903b31fd5269f484ddf807f5da39dc69400
+  width: 5712
+originalUrl: https://upload.wikimedia.org/wikipedia/commons/6/66/Yandex_Museum%2C_Belgrade_-_Amiga_500.jpg
+publisher: Wikimedia Commons
+rights:
+  id: cc-by-sa-4.0
+  statedAt: https://commons.wikimedia.org/wiki/File:Yandex_Museum,_Belgrade_-_Amiga_500.jpg
+  statement: "I, the copyright holder of this work, hereby publish it under the following license:
+    This file is licensed under the Creative Commons Attribution-Share Alike 4.0 International
+    license."
+  url: https://creativecommons.org/licenses/by-sa/4.0/
+sourcePageUrl: https://commons.wikimedia.org/wiki/File:Yandex_Museum,_Belgrade_-_Amiga_500.jpg
+title: Yandex Museum, Belgrade - Amiga 500.jpg
+transform:
+  fit: exact
+  note: The photograph is already 4:3, so the reduction takes the whole frame and nothing is cut or
+    added.
+  preset: image-v1
+  sourceHeight: 4284
+  sourceWidth: 5712

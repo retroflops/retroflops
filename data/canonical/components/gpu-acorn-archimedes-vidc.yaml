@@ -1,0 +1,11 @@
+id: acorn-archimedes-vidc
+slug: acorn-archimedes-vidc
+kind: gpu
+name: Acorn VIDC
+manufacturer: Acorn Computers
+architecture: Video and sound controller
+introducedDate: '1987'
+summary: The Archimedes video and sound controller.
+sourceIds:
+  - acorn-archimedes-technical-reference
+editorialStatus: provisional

@@ -1,0 +1,20 @@
+id: wikipedia-voodoo-graphics
+title: Voodoo Graphics
+publisher: Wikipedia contributors
+accessedDate: 2026-08-26
+locator: Voodoo Graphics section, hardware paragraph
+extract: >-
+  The card consisted of a DAC, a frame buffer processor and a texture mapping unit, along with 4 MB of EDO DRAM. The RAM and graphics processors operated at 50 MHz.
+tier: C
+sourceType: wiki
+url: https://en.wikipedia.org/wiki/Voodoo_Graphics
+editorialStatus: provisional
+usageNote: >-
+  Tier C community article used only for the provisional memory capacity of the card.
+fetch:
+  url: https://en.wikipedia.org/wiki/Voodoo_Graphics
+  fetchedAt: 2026-08-26T10:25:45Z
+  httpStatus: 200
+  contentType: text/html; charset=UTF-8
+  byteLength: 443815
+  sha256: 79c11d91c8ff476579f192275644bf81811adfb2310e98bfb13d7ca725aead42

@@ -1,0 +1,79 @@
+id: amiga-4000
+slug: amiga-4000
+name: Commodore Amiga 4000
+manufacturer: Commodore Business Machines
+type: home-computer
+family: commodore-amiga
+releaseDate: 1992-10
+region: Worldwide
+summary: >-
+  A modular AGA Amiga with a standard 68040 processor at
+  {{measurement:amiga-4000:standard:cpu-clock-frequency}}, Chip memory shared
+  with the custom chipset, and a CPU slot that later accepted 68060 accelerator
+  cards.
+description: >-
+  The A4000 moved the Amiga architecture into an expandable desktop case. Its
+  stock processor module is a 68040. The CyberStorm configuration records a
+  later accelerator that replaces that module with a 68060, so it belongs beside
+  the standard configuration but is not presented as a Commodore shipping
+  variant. The manual describes changeable Chip and Fast RAM rather than one
+  fixed memory loadout.
+configurations:
+  - id: standard
+    label: Standard 68040
+    entries:
+      - componentId: motorola-68040
+        role: main-cpu
+        count: 1
+        shared: false
+        measurementIds:
+          - amiga-4000:standard:cpu-clock-frequency
+          - amiga-4000:standard:peak-fp32-rate
+      - componentId: amiga-aga
+        role: gpu
+        count: 1
+        shared: false
+        measurementIds:
+          - amiga-4000:gpu-clock-frequency
+      - componentId: amiga-4000-chip-ram
+        role: system-memory
+        count: 1
+        shared: true
+        measurementIds:
+          - amiga-4000-chip-ram:capacity
+  - id: cyberstorm-68060
+    label: CYBERSTORM 68060 accelerator
+    entries:
+      - componentId: motorola-68060
+        role: main-cpu
+        count: 1
+        shared: false
+        notes: >-
+          The CYBERSTORM card replaces the original processor module in the
+          A4000 CPU slot.
+        measurementIds:
+          - amiga-4000:cyberstorm-68060:cpu-clock-frequency
+      - componentId: amiga-aga
+        role: gpu
+        count: 1
+        shared: false
+        measurementIds:
+          - amiga-4000:gpu-clock-frequency
+      - componentId: amiga-4000-chip-ram
+        role: system-memory
+        count: 1
+        shared: true
+        measurementIds:
+          - amiga-4000-chip-ram:capacity
+notes: >-
+  The manual calls the chipset AA, the name Commodore used for Advanced Graphics
+  Architecture. It gives memory capacities as configurable options; the catalog
+  keeps Chip RAM separate from Fast RAM so the shared graphics-memory limit does
+  not disappear inside an invented total.
+imageIds:
+  - amiga-4000-computer
+sourceIds:
+  - commodore-amiga-4000-user-guide
+  - phase5-cyberstorm-mk1-manual
+  - techmonitor-motorola-68040-launch
+editorialStatus: approved

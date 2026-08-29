@@ -1,0 +1,15 @@
+id: intel-pentium-4
+slug: intel-pentium-4
+kind: cpu
+name: Intel Pentium 4
+manufacturer: Intel
+architecture: NetBurst
+introducedDate: 2000-11
+instructionSet: IA-32 with SSE2
+instructionSetFamily: x86
+summary:
+  Intel's NetBurst desktop processor, selected here in its
+  {{measurement:intel-pentium-4:clock-frequency}} single-core configuration.
+sourceIds:
+  - intel-historical-x86-documentation
+editorialStatus: provisional

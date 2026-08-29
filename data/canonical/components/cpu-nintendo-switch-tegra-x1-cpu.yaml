@@ -1,0 +1,14 @@
+editorialStatus: approved
+id: nintendo-switch-tegra-x1-cpu
+slug: nintendo-switch-tegra-x1-cpu
+kind: cpu
+name: NVIDIA Tegra X1 CPU
+manufacturer: NVIDIA
+architecture: ARM Cortex-A57
+introducedDate: '2017'
+instructionSet: ARMv8-A
+instructionSetFamily: arm
+summary: The Nintendo Switch main processor.
+sourceIds:
+  - nintendo-switch-tech-specs
+  - digitalfoundry-switch-clocks-2016

@@ -1,0 +1,18 @@
+id: intel-integrated-graphics:context-mhz-850
+subject:
+  kind: component
+  id: intel-integrated-graphics
+label: Frequency
+quantity:
+  state: value
+  value: '850'
+  unit: MHz
+  significantDigits: 3
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - intel-core-i7-2600k-specifications
+  - intel-core-i9-14900k-specifications
+evidenceLevel: confirmed

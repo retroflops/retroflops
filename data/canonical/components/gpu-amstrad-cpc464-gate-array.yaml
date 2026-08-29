@@ -1,0 +1,11 @@
+id: amstrad-cpc464-gate-array
+slug: amstrad-cpc464-gate-array
+kind: gpu
+name: Amstrad CPC gate array
+manufacturer: Amstrad
+architecture: Gate array
+introducedDate: '1984'
+summary: Display control and palette logic paired with the CRTC.
+sourceIds:
+  - amstrad-cpc464-user-instructions
+editorialStatus: provisional

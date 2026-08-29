@@ -1,0 +1,40 @@
+- extract: >-
+    Microsoft has revealed that the Xbox One final production hardware features
+    a 9.375 per cent increase to CPU speed, with the eight-core AMD processor
+    now running at 1.75GHz - 150MHz faster than the beta hardware.
+  extractHash: 9ece130b12f56483b052a7e99685953d278ad9799c3f658da5b8e91779e2c4b8
+  id: df-xbox-one:cpu-clock
+  locator: Opening paragraph
+  notes: >-
+    The figure is a Microsoft disclosure — the article attributes it to a
+    corporate vice president speaking at an investor conference — reported by a
+    technical publication. It describes production hardware and supersedes the
+    1.6 GHz of the development kits, which is why the earlier figure is not
+    carried anywhere in this catalog.
+  sourceId: digitalfoundry-xbox-one-clocks-2013
+  transcribed:
+    significantDigits: 3
+    state: value
+    unit: GHz
+    value: '1.75'
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-15
+- extract: >-
+    It's actually been really good news for us, and an example of that is we've
+    tweaked up the clock speed on our GPU from 800MHz to 853MHz.
+  extractHash: 426c75f8b1aefe50824fb9c643cf236c5667c238bfe718f76d897c4d37ae62e3
+  id: df-xbox-one:gpu-clock
+  locator: Quoted remarks from Microsoft on the graphics frequency
+  notes: >-
+    Microsoft's own words, quoted. The console's graphics frequency has no
+    vendor specification page behind it; this sentence, spoken at a conference
+    and reproduced here, is the closest thing to one that exists. The 800 MHz it
+    replaces belonged to pre-production hardware.
+  sourceId: digitalfoundry-xbox-one-clocks-2013
+  transcribed:
+    significantDigits: 3
+    state: value
+    unit: MHz
+    value: '853'
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-15

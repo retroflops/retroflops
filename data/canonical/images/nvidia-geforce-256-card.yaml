@@ -1,0 +1,44 @@
+accessedDate: 2026-08-17
+alt: "A VisionTek GeForce 256 DDR card photographed against white: a green AGP board with a black
+  fan over the graphics processor, memory chips grouped around it, and DVI, video and VGA sockets on
+  the bracket."
+attribution: Photograph by Hyins, released into the public domain by its author, via Wikimedia Commons.
+canonical:
+  byteLength: 164415
+  format: avif
+  height: 960
+  sha256: ea819b4d7032a246e44e83ce7bc8d2a10f70ecc7838c81ec8f083ff0a0685eab
+  width: 1280
+caption: A VisionTek GeForce 256 DDR, one of the retail cards built to NVIDIA's reference design —
+  the DDR memory this record's figures describe.
+creator: Hyins
+creatorType: person
+editorialStatus: approved
+id: nvidia-geforce-256-card
+original:
+  byteLength: 1327223
+  height: 1216
+  mediaType: image/jpeg
+  sha256: 722f5959a57e0472b6e420f66426b3df7fc0a3043fc9d2e7a7f82f2fcc591eb2
+  width: 2048
+originalUrl: https://upload.wikimedia.org/wikipedia/commons/e/e1/VisionTek_GeForce_256.jpg
+publisher: Wikimedia Commons
+rights:
+  id: pd-self
+  statedAt: https://commons.wikimedia.org/wiki/File:VisionTek_GeForce_256.jpg
+  statement: "I, the copyright holder of this work, release this work into the public domain. This
+    applies worldwide. In some countries this may not be legally possible; if so: I grant anyone the
+    right to use this work for any purpose, without any conditions, unless such conditions are
+    required by law."
+  url: https://commons.wikimedia.org/wiki/Template:PD-self
+sourcePageUrl: https://commons.wikimedia.org/wiki/File:VisionTek_GeForce_256.jpg
+title: VisionTek GeForce 256.jpg
+transform:
+  background: "#ffffff"
+  fit: pad
+  note: The photograph is wider than 4:3 and the machine reaches both ends of it, so no crop keeps the
+    whole subject. The declared margin is the same white as the backdrop the photograph was taken
+    against, which is why it cannot be seen; it is recorded because it is there.
+  preset: image-v1
+  sourceHeight: 1216
+  sourceWidth: 2048

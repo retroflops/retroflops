@@ -1,0 +1,20 @@
+accessedDate: 2026-08-13
+editorialStatus: approved
+fetch:
+  byteLength: 1095537
+  contentType: application/pdf
+  fetchedAt: 2026-08-13T15:26:40Z
+  finalUrl: https://pip-assets.raspberrypi.com/categories/892-raspberry-pi-5/documents/RP-008348-DS-6-raspberry-pi-5-product-brief.pdf
+  httpStatus: 200
+  sha256: 10583c80f867e05af185742bb0f80448458c606a32dd3dbefbbcfca480b59ead
+  url: https://datasheets.raspberrypi.com/rpi5/raspberry-pi-5-product-brief.pdf
+id: raspberry-pi-5-product-brief
+license: Copyright Raspberry Pi Ltd. Quoted here under short-extract fair use
+  for verification of the cited specifications.
+locator: Page 2, Overview; page 3, Specification
+publishedDate: 2023-09
+publisher: Raspberry Pi Ltd
+sourceType: vendor-documentation
+tier: A
+title: Raspberry Pi 5 Product Brief
+url: https://datasheets.raspberrypi.com/rpi5/raspberry-pi-5-product-brief.pdf

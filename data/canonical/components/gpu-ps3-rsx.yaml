@@ -1,0 +1,19 @@
+id: ps3-rsx
+slug: ps3-rsx
+kind: gpu
+name: RSX Reality Synthesizer
+manufacturer: NVIDIA / Sony Computer Entertainment
+architecture: Programmable parallel shader pipelines
+introducedDate: '2005'
+summary:
+  "The PlayStation 3's graphics processor, and the part of the console Sony
+  described least: a clock and a floating-point figure in the 2005 announcement,
+  and neither in the 2006 launch specification."
+notes:
+  Sony gives no shader-unit count and no operations-per-cycle figure, so its 1.8
+  TFLOPS claim cannot be checked against the clock it is quoted beside. Both
+  figures are held provisional for that reason.
+sourceIds:
+  - scei-ps3-specifications-2005
+  - scei-ps3-launch-2006
+editorialStatus: approved

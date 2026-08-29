@@ -1,0 +1,16 @@
+id: intel-pentium
+slug: intel-pentium
+kind: cpu
+name: Intel Pentium
+manufacturer: Intel
+architecture: P5
+introducedDate: 1993-03
+instructionSet: IA-32
+instructionSetFamily: x86
+summary:
+  The first Intel processor sold as Pentium, a superscalar
+  {{context:intel-pentium:context-bit-32}} x86 design with integrated
+  floating-point hardware.
+sourceIds:
+  - intel-historical-x86-documentation
+editorialStatus: provisional

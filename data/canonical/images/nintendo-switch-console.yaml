@@ -1,0 +1,42 @@
+accessedDate: 2026-08-17
+alt: A Nintendo Switch seated in its black dock and photographed against white, with a pair of blue
+  and red Joy-Con controllers clipped into a black grip standing to the left.
+attribution: Photograph by Evan-Amos, released into the public domain by its author, via Wikimedia Commons.
+canonical:
+  byteLength: 17233
+  format: avif
+  height: 960
+  sha256: 1db6d8c5de9c91a774299d1da96a10728f5a33493c7b9ff870f0539b18ed2ea3
+  width: 1280
+caption: A Nintendo Switch in its dock, with the Joy-Con pair held in the grip that came with it.
+creator: Evan-Amos
+creatorType: person
+editorialStatus: approved
+id: nintendo-switch-console
+original:
+  byteLength: 3414283
+  height: 2800
+  mediaType: image/jpeg
+  sha256: 489aa714bb0ffbdfeef9570d17799af28fa90120ed7ab5fb395a365f71e6b8b0
+  width: 4900
+originalUrl: https://upload.wikimedia.org/wikipedia/commons/7/76/Nintendo-Switch-Console-Docked-wJoyConRB.jpg
+publisher: Wikimedia Commons
+rights:
+  id: pd-self
+  statedAt: https://commons.wikimedia.org/wiki/File:Nintendo-Switch-Console-Docked-wJoyConRB.jpg
+  statement: "I, the copyright holder of this work, release this work into the public domain. This
+    applies worldwide. In some countries this may not be legally possible; if so: I grant anyone the
+    right to use this work for any purpose, without any conditions, unless such conditions are
+    required by law."
+  url: https://commons.wikimedia.org/wiki/Template:PD-self
+sourcePageUrl: https://commons.wikimedia.org/wiki/File:Nintendo-Switch-Console-Docked-wJoyConRB.jpg
+title: Nintendo-Switch-Console-Docked-wJoyConRB.jpg
+transform:
+  background: "#ffffff"
+  fit: pad
+  note: The photograph is wider than 4:3 and the machine reaches both ends of it, so no crop keeps the
+    whole subject. The declared margin is the same white as the backdrop the photograph was taken
+    against, which is why it cannot be seen; it is recorded because it is there.
+  preset: image-v1
+  sourceHeight: 2800
+  sourceWidth: 4900

@@ -1,0 +1,20 @@
+id: mos-vic-ii
+slug: mos-vic-ii
+kind: gpu
+name: MOS Technology VIC-II (6566/6567/6569)
+manufacturer: MOS Technology
+architecture: VIC-II
+introducedDate: '1982'
+summary:
+  "The Commodore 64's video interface chip, and its clock master: the whole
+  machine runs at whatever the video standard divides down to. It generates the
+  display, fetches its own data from memory and drives the sprites Commodore
+  called movable object blocks."
+notes:
+  The 6566 has thirteen fully decoded addresses for a static bus; the 6567
+  multiplexes them for direct connection to 64K dynamic RAM. The 6569 is the PAL
+  part. Bus mastering during raster fetches steals cycles from the processor, so
+  the two chips share the memory bus rather than running independently.
+sourceIds:
+  - c64-programmers-reference-guide
+editorialStatus: approved

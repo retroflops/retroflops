@@ -1,0 +1,26 @@
+- extract: >-
+    The Floating-Point unit consists of the following functional units: add
+    unit, multiply unit, divide unit, square-root unit.
+
+    The add unit performs floating-point add and subtract, compare, and
+    conversion operations. Except for Convert Integer To Single-Precision
+    (float), all operations have a 2-cycle latency and a 1-cycle repeat rate.
+
+    The multiply unit performs single-precision or double-precision
+    multiplication with a 2-cycle latency and a 1-cycle repeat rate.
+  extractHash: c1619c1995411681fa5b0ff2de6d3778e7296ebe51fd5be020f2f179eeec79c3
+  id: mips-r10000:floating-point-units
+  locator: Chapter 15, "Floating-Point Unit", opening section, p. 301
+  notes: >-
+    The list of functional units is printed as four bullets and is rejoined here
+    into one sentence. Two things in this passage are what a floating-point peak
+    needs and nothing else in the manual states: that the adder and the
+    multiplier are separate units, and that each accepts a new operation every
+    cycle. The divide and square-root units are named for completeness and take
+    no part in a peak — the manual gives them repeat rates of twenty to forty
+    cycles. Note also that the multiplier's rate is the same for single and
+    double precision, so a peak computed from this passage is the same figure at
+    both.
+  sourceId: mips-r10000-users-manual
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-04

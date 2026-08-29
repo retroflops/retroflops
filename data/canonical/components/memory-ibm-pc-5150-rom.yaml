@@ -1,0 +1,12 @@
+id: ibm-pc-5150-rom
+slug: ibm-pc-5150-rom
+kind: memory
+name: IBM PC 5150 firmware ROM
+manufacturer: IBM
+architecture: Mask ROM
+introducedDate: '1981'
+memoryType: Mask ROM
+summary: Read-only BIOS and Cassette BASIC firmware.
+sourceIds:
+  - ibm-pc-technical-reference
+editorialStatus: approved

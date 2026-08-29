@@ -1,0 +1,52 @@
+id: apple-iphone-17-pro
+slug: apple-iphone-17-pro
+name: Apple iPhone 17 Pro
+manufacturer: Apple
+type: smartphone
+family: apple-iphone
+releaseDate: 2025-09-19
+region: Worldwide
+summary: >-
+  An A19 Pro phone with a
+  {{measurement:apple-iphone-17-pro:cpu-clock-frequency}} CPU, an Apple-designed
+  {{context:apple-iphone-17-pro-cpu:context-unit-6}}-core GPU, and
+  {{measurement:apple-iphone-17-pro:whole-system-memory-capacity}} of LPDDR5X
+  memory.
+description: >-
+  The A19 Pro combines its processor, six-core graphics and unified memory in
+  one package. Teardown and benchmark records fill in the clock and memory that
+  Apple's retail specification omits. Published memory-bandwidth and graphics
+  clock figures remain labeled by their weaker evidence.
+configurations:
+  - id: retail
+    label: Retail hardware
+    entries:
+      - componentId: apple-iphone-17-pro-cpu
+        role: main-cpu
+        count: 1
+        shared: false
+        measurementIds:
+          - apple-iphone-17-pro:cpu-clock-frequency
+      - componentId: apple-iphone-17-pro-gpu
+        role: gpu
+        count: 1
+        shared: false
+        measurementIds:
+          - apple-iphone-17-pro:gpu-clock-frequency
+      - componentId: apple-iphone-17-pro-memory
+        role: unified-memory
+        count: 1
+        shared: true
+        measurementIds:
+          - apple-iphone-17-pro:whole-system-memory-capacity
+notes: >-
+  Storage capacities and charging-adapter limits are deliberately not
+  substituted for working memory or whole-system power.
+sourceIds:
+  - apple-iphone-17-pro-tech-specs
+  - geekbench-iphone-17-pro-result-69588
+  - ifixit-iphone-17-pro-chip-id
+  - notebookcheck-iphone-17-pro-review
+  - the-apple-wiki-a19-pro
+  - wikipedia-apple-a19
+editorialStatus: approved

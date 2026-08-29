@@ -1,0 +1,16 @@
+id: nvidia-gf110
+slug: nvidia-gf110
+kind: gpu
+name: NVIDIA Fermi (NVIDIA GeForce GTX 580)
+manufacturer: NVIDIA
+architecture: Fermi
+introducedDate: 2010-11
+summary:
+  NVIDIA GeForce GTX 580 graphics processor, represented by vendor
+  reference-card specifications.
+notes:
+  The general-shader FP32 peak is separate from tensor, AI and ray-tracing
+  rates.
+sourceIds:
+  - nvidia-geforce-gtx-580-product-brief
+editorialStatus: provisional

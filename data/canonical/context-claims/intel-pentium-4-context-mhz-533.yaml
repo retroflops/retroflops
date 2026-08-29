@@ -1,0 +1,17 @@
+id: intel-pentium-4:context-mhz-533
+subject:
+  kind: component
+  id: intel-pentium-4
+label: Frequency
+quantity:
+  state: value
+  value: '533'
+  unit: MHz
+  significantDigits: 3
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - intel-pentium-4-datasheet
+evidenceLevel: confirmed

@@ -1,0 +1,17 @@
+id: lvdc-core-memory:context-bit-28
+subject:
+  kind: component
+  id: lvdc-core-memory
+label: Word size
+quantity:
+  state: value
+  value: '28'
+  unit: bit
+  significantDigits: 2
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - ntrs-19700023342
+evidenceLevel: confirmed

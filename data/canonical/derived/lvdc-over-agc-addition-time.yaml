@@ -1,0 +1,19 @@
+id: lvdc-over-agc:addition-time
+formula:
+  id: ratio
+  version: '1'
+  expression: a ÷ b
+inputMeasurementIds:
+  - lvdc:addition-time
+  - agc-block-ii:addition-time
+result:
+  state: value
+  value: '3.5'
+  unit: unit
+  significantDigits: 2
+rounding: half-up
+caveat: >-
+  Compares instruction-execution-time at cpu scope, obtained by add-instruction.
+  Valid only within this comparability group, and reported to 2 significant
+  digits — the precision of the least precise input.
+editorialStatus: approved

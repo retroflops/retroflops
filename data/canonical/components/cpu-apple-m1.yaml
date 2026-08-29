@@ -1,0 +1,26 @@
+id: apple-m1
+slug: apple-m1
+kind: cpu
+name: Apple M1
+manufacturer: Apple
+architecture: Arm64, four performance cores and four efficiency cores
+introducedDate: 2020-11
+instructionSet: Arm64
+instructionSetFamily: arm
+summary: >-
+  {{measurement:apple-m1:transistor-count}} on a
+  {{measurement:apple-m1:process-node}} die carrying processor cores, graphics
+  cores, a neural engine and a memory controller. Apple's description states no
+  clock frequency.
+notes:
+  The {{context:apple-m1:context-unit-8}} cores are four performance cores and
+  four efficiency cores, so "eight cores" describes two different things counted
+  together and no per-core figure would mean the same for both halves. The
+  transistor count and the process node are recorded here because the catalog's
+  metrics allow only `cpu` and `gpu` scope for them, but they belong to the
+  whole die, graphics and neural engine included; both figures say so in their
+  caveats.
+sourceIds:
+  - apple-m1-announcement-2020
+  - apple-mac-mini-m1-tech-specs
+editorialStatus: approved

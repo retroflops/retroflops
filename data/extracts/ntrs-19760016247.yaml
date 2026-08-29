@@ -1,0 +1,96 @@
+- id: ntrs-19760016247:table-1
+  sourceId: ntrs-19760016247
+  locator: page 26, table I "Computer characteristics"
+  extract: >-
+    TABLE I.- COMPUTER CHARACTERISTICS
+
+    Performance characteristic / Block I / Block II
+
+    Word length, bits: 15 plus parity / 15 plus parity
+
+    Number system: 1's complement / 1's complement
+
+    Fixed-memory registers, words: 24 576 / 36 864
+
+    Erasable-memory registers, words: 1024 / 2048
+
+    Number of normal instructions: 11 / 34
+
+    Memory-cycle time, µsec: 11.7 / 11.7
+
+    Addition time, µsec: 23.4 / 23.4
+
+    Multiplication time, µsec: 117 / 46.8
+
+    Weight, kg (lb): 39.4 (87) / 31.7 (70)
+
+    Power consumption, W: 100 / 70
+  extractHash: cf7959f5956550a9a403f6f4ddc3aa24d689b894afd42249da5c012ad2b6910d
+  transcribedOn: 2026-07-28
+  transcribedBy: RetroFlops editorial
+  notes: >-
+    Transcribed from the text layer of the scanned NTRS PDF. The table lists
+    Block I and Block II side by side; the second value in each row is Block II.
+    Dot leaders between the row label and its values are collapsed to a colon,
+    and the rows not used by this dataset (involuntary instructions, interrupt
+    options, counters, interface circuits, double-precision addition time, logic
+    gates, volume) are omitted.
+- id: ntrs-19760016247:page-25:memory
+  sourceId: ntrs-19760016247
+  locator: page 25, "Electrical" subsection, first paragraph
+  extract: >-
+    The AGC has three principal sections as shown in figure 9. The first is a
+    memory, the fixed (read only) portion of which has 36 864 words and the
+    erasable portion of which has 2048 words.
+  extractHash: e8e34c4f1853bf370a3280138d266f40d58e76a350481be839bca269967ec9e2
+  transcribedOn: 2026-07-28
+  transcribedBy: RetroFlops editorial
+  notes: >-
+    Corroborates the fixed- and erasable-memory rows of table I from the running
+    text of the same report.
+- id: ntrs-19760016247:page-29:clock
+  sourceId: ntrs-19760016247
+  locator: page 29, "Sequence generator" subsection, final paragraph
+  extract: >-
+    The clock section of the AGC consists of a ring counter, a scaler, a
+    time-pulse generator, and circuits to generate subphases of the time pulses
+    using the 2.048-megapulse oscillator as the primary source of timing pulses.
+    The spacecraft reference signal of 1.024 megapulses/sec is obtained by
+    dividing the 2.048-megapulse oscillator output in a single-stage scaler.
+  extractHash: ef35edf79b198672b1b8b0d483f98797d6844f376f359fdd6c7d757958817d81
+  transcribedOn: 2026-07-28
+  transcribedBy: RetroFlops editorial
+  notes: >-
+    The report states the oscillator rate as "megapulses" rather than megahertz.
+    It is the AGC master clock; the 1.024 MHz spacecraft reference is derived
+    from it by a single divide-by-two stage.
+- id: ntrs-19760016247:page-29:memory-cycle
+  sourceId: ntrs-19760016247
+  locator: page 29, "Sequence generator" subsection, final paragraph
+  extract: >-
+    A divide-by-12 circuit generates the 12 separate pulses of 0.977-microsecond
+    duration that occur sequentially within a memory-cycle time of 11.7
+    microseconds.
+  extractHash: 027e49a649f9c12283b4cc8d67ebd5765f2bdeaf875e6fe1ebb83488e8368045
+  transcribedOn: 2026-07-28
+  transcribedBy: RetroFlops editorial
+  notes: >-
+    Twelve time pulses of 0.977 µs give 11.724 µs; the report rounds the
+    memory-cycle time to 11.7 µs here and in table I, so 11.7 is the figure
+    recorded.
+- id: ntrs-19760016247:page-26:central-section
+  sourceId: ntrs-19760016247
+  locator: page 26, "Central section" subsection
+  extract: >-
+    It contains the address register (S), the memory bank registers mentioned
+    previously, a block of addressable registers called "central and special
+    registers" (to be discussed subsequently), an arithmetic unit, and an
+    instruction decoder register (SQ). The arithmetic unit is an adder with
+    shifting gates and control logic.
+  extractHash: 093589eacaee78b48ce540bd8dc284f97e0861580831a13df339ae4e14fca86a
+  transcribedOn: 2026-07-28
+  transcribedBy: RetroFlops editorial
+  notes: >-
+    Evidence that the AGC arithmetic unit is a fixed-point one's-complement
+    adder with no floating-point hardware, which is why the floating-point
+    metrics are recorded as not-applicable rather than as unknown.

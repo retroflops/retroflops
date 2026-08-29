@@ -1,0 +1,23 @@
+id: bbc-micro-model-b:whole-system-memory
+formula:
+  id: sum
+  version: '1'
+  expression: a + b + …
+inputMeasurementIds:
+  - bbc-micro-ram:capacity
+exclusions:
+  - measurementId: bbc-micro-rom:capacity
+    label: 32 KiB of MOS and BASIC ROM
+    reason: read-only firmware, not memory the machine can write to
+result:
+  state: value
+  value: '32768'
+  unit: B
+  significantDigits: 5
+rounding: none
+caveat: >-
+  Adds 1 memory-capacity figure obtained by design-capacity. Left out:
+  {{measurement:bbc-micro-rom:capacity}} (read-only firmware, not memory the
+  machine can write to). A total is only as trustworthy as the decision about
+  what belongs in it, so both the terms and the exclusions are named records.
+editorialStatus: approved

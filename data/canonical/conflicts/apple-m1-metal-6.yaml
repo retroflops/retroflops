@@ -1,0 +1,38 @@
+id: apple-m1-gpu:geekbench-compute-6-metal
+subject:
+  kind: component
+  id: apple-m1-gpu
+metric: geekbench-compute-score
+candidates:
+  - quantity:
+      state: value
+      value: '31387'
+      unit: score
+      significantDigits: 5
+    sourceIds:
+      - geekbench-metal-benchmark-chart-2026-07-18
+    evidence: 'Device and Score table, row "Apple M1": 31387.'
+  - quantity:
+      state: value
+      value: '32442'
+      unit: score
+      significantDigits: 5
+    sourceIds:
+      - geekbench-metal-benchmark-chart-2026-07-18
+    evidence: 'Device and Score table, row "Apple M1 GPU": 32442.'
+decision:
+  outcome: accepted
+  candidateIndex: 0
+  rationale:
+    'The chart keys its rows on the string a driver reports, so one product
+    reaches it under several names with several averages. The rule this catalog
+    applies, here and in every later round: take the row that names the product
+    as its maker names it, and treat a string carrying tokens the maker does not
+    use — a “GPU” suffix, a die designation, another company’s prefix — as the
+    driver’s name rather than the product’s. Apple sells a processor called the
+    M1 and nothing called the “Apple M1 GPU”, so the unsuffixed row is the
+    product’s. The two averages differ by three percent, which is what splitting
+    one population of uploads across two labels does to a mean; neither is more
+    measured than the other, and taking the higher one because it is higher
+    would be the whole reason this ledger exists.'
+  decidedOn: 2026-08-18

@@ -1,0 +1,24 @@
+id: sony-playstation-2:whole-system-memory
+formula:
+  id: sum
+  version: '1'
+  expression: a + b + …
+inputMeasurementIds:
+  - ps2-main-rdram:capacity
+exclusions:
+  - measurementId: ps2-gs-edram:capacity
+    label: 4 MiB embedded in the Graphics Synthesizer
+    reason: on the drawing chip’s own die and unreachable from the processor
+result:
+  state: value
+  value: '33554432'
+  unit: B
+  significantDigits: 8
+rounding: none
+caveat: >-
+  Adds 1 memory-capacity figure obtained by design-capacity. Left out:
+  {{measurement:ps2-gs-edram:capacity}} (on the drawing chip’s own die and
+  unreachable from the processor). A total is only as trustworthy as the
+  decision about what belongs in it, so both the terms and the exclusions are
+  named records.
+editorialStatus: approved

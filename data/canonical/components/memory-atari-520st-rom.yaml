@@ -1,0 +1,12 @@
+id: atari-520st-rom
+slug: atari-520st-rom
+kind: memory
+name: Atari 520ST TOS ROM
+manufacturer: Atari
+architecture: Mask ROM
+introducedDate: '1985'
+memoryType: Mask ROM
+summary: '{{measurement:atari-520st-rom:capacity}} read-only TOS firmware.'
+sourceIds:
+  - atari-st-field-service-manual
+editorialStatus: provisional

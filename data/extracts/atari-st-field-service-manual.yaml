@@ -1,0 +1,29 @@
+- extract: microprocessor, running at 8 MHz.
+  extractHash: e9672047285b12ad5a7b2a606cb47a2462bf65aafab72543eaf692c116abf51d
+  id: atari-st-service:cpu-clock
+  locator: Theory of Operation, Main System, Microprocessing Unit
+  sourceId: atari-st-field-service-manual
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-22
+- extract: 192 kbytes of ROM.
+  extractHash: 5557bc1b665d217143f0d943ac0b3907510226b3b751eb6f82bdedc98955f297
+  id: atari-st-service:rom-capacity
+  locator: Theory of Operation, Main System, Main Memory
+  sourceId: atari-st-field-service-manual
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-22
+- extract: 512 kbytes.
+  extractHash: 1ceed5e96e4dc727190c6dc0cd77037f086224727da61a8aa9049a3d8f479d0d
+  id: atari-st-service:520st-ram-capacity
+  locator: Theory of Operation, Main System, Main Memory
+  notes: The manual attributes this capacity to the 520ST's sixteen RAM chips.
+  sourceId: atari-st-field-service-manual
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-22
+- extract: 'Max. power in: 36 W.'
+  id: atari-st-service:520st-max-power-in
+  locator: Introduction, Power supply
+  sourceId: atari-st-field-service-manual
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-24
+  extractHash: 117b83af341d67669f485c49874e25f54ff38954f4a3ccc5b28a9d25328f9355

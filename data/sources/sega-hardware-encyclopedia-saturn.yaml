@@ -1,0 +1,19 @@
+accessedDate: 2026-08-13
+editorialStatus: approved
+id: sega-hardware-encyclopedia-saturn
+license: Copyright SEGA CORPORATION. The site's own notice prohibits
+  reproduction or reprinting without the copyright holder's permission; the
+  figure is verified here from a short extract rather than by reproducing the
+  page.
+locator: Specifications table, 消費電力 (power consumption) row
+publisher: SEGA CORPORATION
+sourceType: vendor-documentation
+tier: A
+title: セガハード大百科 — セガサターン (Sega Hardware Encyclopedia — Sega Saturn)
+url: https://www.sega.jp/history/hard/segasaturn/index.html
+usageNote: >-
+  The same retrospective hardware series as the Mega Drive page. The Saturn
+  entry is the stronger of the two for this metric because the console takes
+  mains power directly — the table gives 使用電源 AC100V±10% 50/60Hz beside the
+  consumption row — so the figure is the machine's own consumption and not the
+  rating of an external adapter.

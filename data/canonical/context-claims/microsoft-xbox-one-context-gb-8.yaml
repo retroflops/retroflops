@@ -1,0 +1,19 @@
+id: microsoft-xbox-one:context-gb-8
+subject:
+  kind: system
+  id: microsoft-xbox-one
+label: Capacity
+quantity:
+  state: value
+  value: '8'
+  unit: GB
+  significantDigits: 1
+provenance: independent
+evidenceStage: shipped
+status: theoretical
+editorialStatus: provisional
+sourceIds:
+  - hot-chips-25-xbox-one-soc
+extractIds:
+  - hc25-xbox-one:slide4:ddr3-bandwidth
+evidenceLevel: reported

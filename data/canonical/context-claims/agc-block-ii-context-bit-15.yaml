@@ -1,0 +1,17 @@
+id: agc-block-ii:context-bit-15
+subject:
+  kind: component
+  id: agc-block-ii
+label: Word size
+quantity:
+  state: value
+  value: '15'
+  unit: bit
+  significantDigits: 2
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - ntrs-19760016247
+evidenceLevel: confirmed

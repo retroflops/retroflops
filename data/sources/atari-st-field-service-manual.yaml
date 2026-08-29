@@ -1,0 +1,18 @@
+id: atari-st-field-service-manual
+title: Atari 520 ST 1040 ST Service Manual
+publisher: Atari
+url: https://archive.org/download/atari520st1040stservicemanual/Atari%20520ST%201040ST%20Service%20Manual.pdf
+accessedDate: 2026-08-22
+locator: Theory of Operation, Main System, Microprocessing Unit and Main Memory
+extract: Computer field service manual
+tier: B
+sourceType: technical-manual
+editorialStatus: provisional
+fetch:
+  url: https://archive.org/download/atari520st1040stservicemanual/Atari%20520ST%201040ST%20Service%20Manual.pdf
+  finalUrl: https://ia601606.us.archive.org/24/items/atari520st1040stservicemanual/Atari%20520ST%201040ST%20Service%20Manual.pdf
+  fetchedAt: 2026-08-24T18:59:14Z
+  httpStatus: 200
+  contentType: application/pdf
+  byteLength: 67331843
+  sha256: 2bb10c3c2d0080dfc21d7cab0c5cfd3ad0411793ab533ea715b8f500a66c1da3

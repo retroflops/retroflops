@@ -1,0 +1,14 @@
+- extract: Z80A processor running at 4MHz.
+  id: amstrad-cpc464-user-instructions:cpu-clock
+  locator: Technical Specification, LS! CHIPS section
+  sourceId: amstrad-cpc464-user-instructions
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-25
+  extractHash: e40374d88fc92df844962c0b8dd51929aaabb04788d6c34abb7eafd12a01025d
+- extract: 64K bytes of RAM (over 42K available to user).
+  id: amstrad-cpc464-user-instructions:ram-capacity
+  locator: Technical Specification, LS! CHIPS section
+  sourceId: amstrad-cpc464-user-instructions
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-25
+  extractHash: 258283d40dbebd49a3a664bd0df0abb04921ef27de700c41bc8d49ede860f3cb

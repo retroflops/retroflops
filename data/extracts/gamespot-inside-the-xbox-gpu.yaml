@@ -1,0 +1,16 @@
+- extract: >-
+    The memory in the console is 200MHz double-data rate (DDR) SDRAM, which
+    provides a maximum of 6.4GB per second of throughput to both the CPU and
+    graphics chip.
+  extractHash: e6758498fbe8e73d0f8eeaa99f2e335f16dcc5cb6400f244e798b9313f94ba21
+  id: gamespot-xbox-gpu:memory-throughput
+  locator:
+    Body text, paragraph on the NV2A's bandwidth to the shared 64MB of memory
+  notes: >-
+    "Maximum" makes this a theoretical peak rather than an achieved rate. The
+    next sentence adds that the CPU can take up to 1GB per second of the shared
+    total, which is why the figure is recorded as a whole-machine bandwidth and
+    not as either part's.
+  sourceId: gamespot-inside-the-xbox-gpu
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-13

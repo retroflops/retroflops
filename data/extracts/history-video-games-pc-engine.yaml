@@ -1,0 +1,9 @@
+- extract: >-
+    CPU: 8-bit HuC6280A, a modified 65SC02, running at 1.79 or 7.16 MHz,
+    switchable by software.
+  id: history-video-games-pc-engine:cpu-clock
+  locator: TurboGrafx-16 technical specifications paragraph
+  sourceId: history-video-games-pc-engine
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-25
+  extractHash: 77ddb147d23585eef6983724596d90dc46d12efb45fecfdf1fbb56b1429dab8c

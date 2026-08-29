@@ -1,0 +1,42 @@
+accessedDate: 2026-08-17
+alt: A black Sony PlayStation 4 lying flat and photographed against white, its slanted body split
+  between a gloss half and a matte half, with a controller standing in front of it.
+attribution: Photograph by Evan-Amos, released into the public domain by its author, via Wikimedia Commons.
+canonical:
+  byteLength: 15439
+  format: avif
+  height: 960
+  sha256: eb8ca049146d1a809cd6d37c4da0b972b15c145a023d288bceaf3bd361ec943d
+  width: 1280
+caption: A launch-model PlayStation 4 with its controller.
+creator: Evan-Amos
+creatorType: person
+editorialStatus: approved
+id: sony-playstation-4-console
+original:
+  byteLength: 4504621
+  height: 3000
+  mediaType: image/jpeg
+  sha256: c79c13ed5be88fa3b91bb835920df6a5c0f8299317e19242311db0510ce364a4
+  width: 6000
+originalUrl: https://upload.wikimedia.org/wikipedia/commons/7/7e/PS4-Console-wDS4.jpg
+publisher: Wikimedia Commons
+rights:
+  id: pd-self
+  statedAt: https://commons.wikimedia.org/wiki/File:PS4-Console-wDS4.jpg
+  statement: "I, the copyright holder of this work, release this work into the public domain. This
+    applies worldwide. In some countries this may not be legally possible; if so: I grant anyone the
+    right to use this work for any purpose, without any conditions, unless such conditions are
+    required by law."
+  url: https://commons.wikimedia.org/wiki/Template:PD-self
+sourcePageUrl: https://commons.wikimedia.org/wiki/File:PS4-Console-wDS4.jpg
+title: PS4-Console-wDS4.jpg
+transform:
+  background: "#ffffff"
+  fit: pad
+  note: The photograph is wider than 4:3 and the machine reaches both ends of it, so no crop keeps the
+    whole subject. The declared margin is the same white as the backdrop the photograph was taken
+    against, which is why it cannot be seen; it is recorded because it is there.
+  preset: image-v1
+  sourceHeight: 3000
+  sourceWidth: 6000

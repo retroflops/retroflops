@@ -1,0 +1,17 @@
+id: iphone-s5l8900:context-mhz-667
+subject:
+  kind: component
+  id: iphone-s5l8900
+label: Frequency
+quantity:
+  state: value
+  value: '667'
+  unit: MHz
+  significantDigits: 3
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - anandtech-iphone-hardware-2009
+evidenceLevel: reported

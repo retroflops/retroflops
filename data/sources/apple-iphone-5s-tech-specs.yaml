@@ -1,0 +1,23 @@
+accessedDate: 2026-08-13
+editorialStatus: approved
+fetch:
+  byteLength: 1181473
+  contentType: text/html;charset=utf-8
+  fetchedAt: 2026-08-13T15:24:23Z
+  httpStatus: 200
+  sha256: 198fb52456a25b4025e467fa1a1353289e17a4856a438c2e220eea3d6fef3c1d
+  url: https://support.apple.com/en-us/111973
+id: apple-iphone-5s-tech-specs
+license: Copyright Apple Inc. Quoted here under short-extract fair use for
+  verification of the cited specifications.
+locator: Chip and Power and Battery sections
+publishedDate: "2013"
+publisher: Apple Inc.
+sourceType: vendor-documentation
+tier: A
+title: Apple iPhone 5s — Technical Specifications
+url: https://support.apple.com/en-us/111973
+usageNote: >-
+  Apple states the chip identification and retail technical details, while
+  deliberately not filling undocumented clock, DRAM, bandwidth, FP32 or
+  whole-system power fields.

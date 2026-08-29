@@ -1,0 +1,20 @@
+id: n64-rdram:context-mib-2
+subject:
+  kind: component
+  id: n64-rdram
+label: Capacity
+quantity:
+  state: value
+  value: '2'
+  unit: MiB
+  significantDigits: 1
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - n64-programming-manual
+extractIds:
+  - n64-pm:p49:main-memory
+  - n64-pm:p47:shared-main-memory
+evidenceLevel: confirmed

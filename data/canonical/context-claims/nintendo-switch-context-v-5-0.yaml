@@ -1,0 +1,19 @@
+id: nintendo-switch:context-v-5-0
+subject:
+  kind: system
+  id: nintendo-switch
+label: Contextual value
+quantity:
+  state: value
+  value: '5.0'
+  unit: V
+  significantDigits: 2
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - nintendo-ecodesign-accessories-part-3
+extractIds:
+  - nintendo-ecodesign:hac-002:output
+evidenceLevel: confirmed

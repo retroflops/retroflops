@@ -1,0 +1,14 @@
+architecture: Motorola 68000
+editorialStatus: provisional
+id: mega-drive-68000
+instructionSet: Motorola 68000
+instructionSetFamily: motorola-68000
+kind: cpu
+manufacturer: Motorola
+name: Motorola 68000
+slug: mega-drive-68000
+sourceIds:
+  - sega-mega-drive-service-manual
+summary:
+  The Mega Drive's main processor; its audio Z80 is modeled as a separate role
+  in the prose, not a summed clock.

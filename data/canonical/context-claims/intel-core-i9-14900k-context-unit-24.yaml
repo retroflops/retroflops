@@ -1,0 +1,17 @@
+id: intel-core-i9-14900k:context-unit-24
+subject:
+  kind: component
+  id: intel-core-i9-14900k
+label: Core count
+quantity:
+  state: value
+  value: '24'
+  unit: unit
+  significantDigits: 2
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - intel-desktop-processor-reference
+evidenceLevel: confirmed

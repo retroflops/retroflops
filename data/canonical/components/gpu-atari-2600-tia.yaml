@@ -1,0 +1,10 @@
+architecture: Sprite and playfield generator
+editorialStatus: provisional
+id: atari-2600-tia
+kind: gpu
+manufacturer: Atari
+name: Television Interface Adapter
+slug: atari-2600-tia
+sourceIds:
+  - atari-2600-stella-programming-guide
+summary: Scanline-driven display and audio controller without a frame buffer.

@@ -1,0 +1,58 @@
+- extract: >-
+    Power: 120 V AC, 60 Hz
+
+    Power consumption: Approx. 380 W
+
+    External dimensions (excluding maximum projecting part): Approx. 325 × 98 ×
+    274 mm (12.8 × 3.86 × 10.79 in) (width × height × length)
+
+    Mass: Approx. 5 kg (11.02 lb)
+  extractHash: b497dfa8b8b783c21d6d87eedb6028613d9163774d5fd6ec7bad8a1500467d0f
+  id: scei-ps3-cecha01:power
+  locator: '"Specifications", PlayStation 3 system section, page 20'
+  notes: >-
+    The scan lays each item out as a label followed by its value on the next
+    line; the pairs are rejoined here with a colon. The dimensions and mass are
+    transcribed alongside the power because they are the check that this is the
+    launched console: they are the same 325 × 98 × 274 mm and 5 kg that Sony's
+    own launch release of May 2006 states, and that release names no wattage.
+    "Approx." is Sony's word and is why the figure is read as two significant
+    digits.
+  sourceId: scei-ps3-cecha01-manual
+  transcribed:
+    significantDigits: 2
+    state: value
+    unit: W
+    value: '380'
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-04
+- extract: >-
+    CPU: Cell Broadband Engine™
+
+    GPU: RSX™
+
+    Memory: 256 MB XDR Main RAM, 256 MB GDDR3 VRAM
+
+    Hard disk: 2.5" Serial ATA
+  extractHash: 3c062d4dab4f50de6d7099f73285eb36c2099b57debf0101668eb949b9461817
+  id: scei-ps3-cecha01:processors-and-memory
+  locator: >-
+    "Specifications", PlayStation 3 system section, page 20, CPU, GPU, Memory
+    and Hard disk rows
+  notes: >-
+    Transcribed for what it does not say. This is the specification printed in
+    the box of the console that shipped, and it names both processors without a
+    frequency for either and both memories without a transfer rate for either —
+    so the clocks and bandwidths on this record still rest only on the
+    announcement of May 2005 and stay provisional. The hard-disk row states an
+    interface and no capacity. The two memory capacities are the third Sony
+    document to state them and the first written for a buyer holding the
+    machine.
+  sourceId: scei-ps3-cecha01-manual
+  transcribed:
+    significantDigits: 3
+    state: value
+    unit: MiB
+    value: '256'
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-04

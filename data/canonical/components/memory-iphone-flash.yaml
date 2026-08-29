@@ -1,0 +1,20 @@
+id: iphone-flash
+slug: iphone-flash
+kind: memory
+name: Apple iPhone flash storage
+manufacturer: Apple (system)
+memoryType: NAND flash
+introducedDate: '2007'
+summary: >-
+  The four or eight gigabytes the phone was sold by, where programs and music
+  are kept, not where they run.
+notes: >-
+  Apple names the capacity and not the supplier, so the manufacturer is recorded
+  as the firm that fitted it. Fitted in the `storage` role rather than as system
+  memory: it is a different quantity from the
+  {{context:iphone-flash:context-mib-128}} the machine actually runs in, and the
+  whole point of recording both is that a reader can see the difference.
+sourceIds:
+  - apple-iphone-retail-launch-2007
+  - apple-iphone-announcement-2007
+editorialStatus: approved

@@ -1,0 +1,76 @@
+id: saturn-lvdc
+slug: saturn-lvdc
+name: Saturn Launch Vehicle Digital Computer
+manufacturer: IBM Federal Systems Division
+type: guidance-computer
+releaseDate: '1966'
+region: United States
+summary: >-
+  The computer in the Saturn instrument unit: a liquid-cooled, triple-redundant
+  serial machine that navigated, guided and controlled the launch vehicle from
+  lift-off through orbital insertion and translunar injection.
+description: >-
+  Where the Apollo Guidance Computer flew the spacecraft, the LVDC flew the
+  rocket. It is a serial fixed-point machine clocked at
+  {{measurement:lvdc:clock-frequency}}, taking four clocks per bit for a 512
+  kilobit per second rate, with ultrasonic glass delay lines used as serial
+  arithmetic registers and as dynamic storage for the instruction counter.
+  Reliability came from redundancy rather than from margin: triple modular
+  redundancy runs three identical logic channels divided into seven voted
+  modules each, at the cost of roughly 3.4 times as many components as a simplex
+  system, and memory modules could be run in duplex. Magnesium-lithium frames
+  are liquid-cooled to keep the electronics at a low operating temperature. Each
+  toroidal-core module stores {{measurement:lvdc-core-memory:module-capacity}};
+  each word is {{context:lvdc-core-memory:context-bit-28}} wide.
+configurations:
+  - id: four-module
+    label: Four memory modules
+    region: United States
+    entries:
+      - componentId: lvdc
+        role: main-cpu
+        count: 1
+        shared: false
+        measurementIds:
+          - lvdc:clock-frequency
+      - componentId: lvdc-core-memory
+        role: system-memory
+        count: 4
+        shared: false
+        notes: Capacity is per module.
+        measurementIds:
+          - lvdc-core-memory:module-capacity
+    notes: >-
+      The configuration the report's weight and power figures describe:
+      {{context:saturn-lvdc:context-kg-35}} and
+      {{measurement:saturn-lvdc:rated-power}}.
+  - id: eight-module
+    label: Eight memory modules, simplex (maximum capacity)
+    region: United States
+    entries:
+      - componentId: lvdc
+        role: main-cpu
+        count: 1
+        shared: false
+        measurementIds:
+          - lvdc:clock-frequency
+      - componentId: lvdc-core-memory
+        role: system-memory
+        count: 8
+        shared: false
+        notes: >-
+          Capacity is per module. Eight in simplex give the stated
+          {{measurement:saturn-lvdc:max-memory-capacity}} maximum.
+        measurementIds:
+          - saturn-lvdc:max-memory-capacity
+    notes: >-
+      The report gives no weight or power figure for this configuration, so
+      neither is recorded against it.
+notes: >-
+  The release date is editorial context. The LVDC first flew on a Saturn IB in
+  1966, but the cited report does not carry that figure; it documents the
+  computer as flown for Apollo. Every measurement attached to this system comes
+  from the report.
+sourceIds:
+  - ntrs-19700023342
+editorialStatus: approved

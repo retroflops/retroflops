@@ -1,0 +1,29 @@
+accessedDate: 2026-08-15
+author: Frank Hüber
+editorialStatus: approved
+fetch:
+  byteLength: 66008
+  contentType: text/html; charset=UTF-8
+  fetchedAt: 2026-08-15T18:09:57Z
+  httpStatus: 200
+  sha256: 257f31b32f5efe614d18e7297c6fa80233039b122462980522f07e3110e05508
+  url: https://www.computerbase.de/artikel/gaming/microsoft-xbox-one-test.2311/
+id: computerbase-xbox-one-test
+license: Copyright ComputerBase. Quoted here under short-extract fair use for
+  verification of the figures cited.
+locator: >-
+  "Technische Daten" section: the clock-rate paragraph, the memory paragraph and
+  the console comparison table
+publishedDate: 2013-11-21
+publisher: ComputerBase
+sourceType: independent-analysis
+tier: B
+title: "Microsoft Xbox One im Test: Das leisten Hardware und Betriebssystem"
+url: https://www.computerbase.de/artikel/gaming/microsoft-xbox-one-test.2311/
+usageNote: >-
+  A review of retail hardware published the day before the German launch, and
+  the second source for this console's frequencies and memory capacity — it
+  states both clocks in prose and repeats the processor one in a table comparing
+  three consoles. It is deliberately not the source for a power rating: the
+  review meters the console's draw, which is a different quantity from the
+  rating this catalog records as unknown.

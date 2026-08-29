@@ -1,0 +1,7 @@
+- extract: 32BIT RISC CPU 16MHz
+  extractHash: 610f6c026027d93c900db9d9ce27a6ba3484e8d32823602622e69c2785e53322
+  id: agb-programming-manual:cpu-clock
+  locator: Introduction, PDF p. 3
+  sourceId: game-boy-advance-technical-manual
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-22

@@ -1,0 +1,11 @@
+id: msx-vdp
+slug: msx-vdp
+kind: gpu
+name: Texas Instruments TMS9918A VDP
+manufacturer: Texas Instruments
+architecture: Video display processor
+introducedDate: '1979'
+summary: The video display processor required by the first MSX standard.
+sourceIds:
+  - msx-technical-data-book
+editorialStatus: provisional

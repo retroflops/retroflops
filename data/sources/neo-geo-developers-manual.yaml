@@ -1,0 +1,19 @@
+accessedDate: 2026-08-22
+editorialStatus: provisional
+id: neo-geo-developers-manual
+locator: Neo-Geo Specification, Hardware-1 and Hardware-2
+publisher: SNK
+sourceType: technical-manual
+tier: B
+title: Neo-Geo Hardware Specification
+url: https://archive.org/download/NeoGeoProgrammersGuide/NeoGeoProgrammersGuide.pdf
+publishedDate: 1989-12-01
+extract: Neo-Geo Hardware Specification
+fetch:
+  url: https://archive.org/download/NeoGeoProgrammersGuide/NeoGeoProgrammersGuide.pdf
+  finalUrl: https://dn760102.eu.archive.org/0/items/NeoGeoProgrammersGuide/NeoGeoProgrammersGuide.pdf
+  fetchedAt: 2026-08-24T18:59:30Z
+  httpStatus: 200
+  contentType: application/pdf
+  byteLength: 5885883
+  sha256: 910f0f02cafdbf19188bff88053c9427243d087a7aabc2e715e3bc8a1182f111

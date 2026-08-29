@@ -1,0 +1,13 @@
+editorialStatus: approved
+id: microsoft-xbox-one-ram
+slug: microsoft-xbox-one-ram
+kind: memory
+name: Microsoft Xbox One unified memory
+manufacturer: Microsoft
+architecture: DDR3
+introducedDate: '2013'
+memoryType: DDR3
+summary: '{{measurement:microsoft-xbox-one-ram:capacity}} of installed DDR3.'
+sourceIds:
+  - digitalfoundry-xbox-one-clocks-2013
+  - computerbase-xbox-one-test

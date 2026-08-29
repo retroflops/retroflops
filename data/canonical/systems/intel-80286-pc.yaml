@@ -1,0 +1,46 @@
+id: intel-80286-pc
+slug: intel-80286-pc
+name: Intel 80286 PC
+manufacturer: PC industry
+type: personal-computer
+family: reference-pc
+releaseDate: '1982'
+region: Worldwide
+summary: >-
+  A representative {{measurement:intel-80286:clock-frequency}} 80286 desktop
+  configuration with {{measurement:intel-80286-pc:whole-system-memory-capacity}}
+  of DRAM and a period display adapter.
+configurations:
+  - id: reference
+    label: 12.5 MHz reference configuration
+    entries:
+      - componentId: intel-80286
+        role: main-cpu
+        count: 1
+        shared: false
+        measurementIds:
+          - intel-80286:clock-frequency
+          - intel-80286:peak-clock
+      - componentId: pc-display-adapter
+        role: gpu
+        count: 1
+        shared: false
+        measurementIds:
+          - pc-display-adapter:clock-frequency
+      - componentId: pc-early-dram
+        role: system-memory
+        count: 1
+        shared: false
+        measurementIds:
+          - intel-80286-pc:whole-system-memory-capacity
+sourceIds:
+  - intel-historical-x86-documentation
+  - intel-80286-datasheet
+  - intel-80286-80287-programmers-reference-manual
+editorialStatus: provisional
+notes: >-
+  This entry has no photograph, and that is a decision rather than a gap: it
+  describes a processor in a typical machine of its era rather than a model
+  anybody sold, so there is no object to photograph. A picture of some
+  particular case would attach a claim about that computer to a record which
+  deliberately makes none.

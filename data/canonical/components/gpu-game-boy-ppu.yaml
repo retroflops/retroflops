@@ -1,0 +1,10 @@
+architecture: Tile and sprite LCD controller
+editorialStatus: provisional
+id: game-boy-ppu
+kind: gpu
+manufacturer: Nintendo
+name: Game Boy LCD controller
+slug: game-boy-ppu
+sourceIds:
+  - game-boy-cpu-manual
+summary: The monochrome Game Boy tile and sprite display controller.

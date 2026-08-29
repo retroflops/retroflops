@@ -1,0 +1,11 @@
+editorialStatus: approved
+id: sega-saturn-vdp
+slug: sega-saturn-vdp
+kind: gpu
+name: Sega Saturn VDP1/VDP2 graphics system
+manufacturer: SEGA Enterprises
+architecture: VDP1 and VDP2
+introducedDate: '1994'
+summary: The graphics processor fitted to the Sega Saturn.
+sourceIds:
+  - sega-saturn-service-manual

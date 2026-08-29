@@ -1,0 +1,76 @@
+id: sony-playstation
+slug: sony-playstation
+name: Sony PlayStation
+aliases:
+  - PS1
+  - PSX
+manufacturer: Sony Computer Entertainment
+type: console
+family: sony-playstation
+releaseDate: 1994-12
+region: Worldwide
+summary: >-
+  A {{measurement:sony-playstation:clock-frequency}} customized R3000A with
+  {{measurement:psx-main-ram:capacity}} of main memory,
+  {{measurement:psx-vram:capacity}} of video memory, and the 3D work split
+  between a geometry coprocessor and a drawing processor.
+description: >-
+  The PlayStation divides its 3D work among components rather than leaving it
+  with the processor. Its CPU is a customized R3000A at
+  {{measurement:sony-playstation:clock-frequency}}. The GTE, a coprocessor
+  beside the integer core, handles coordinate transformation and lighting; a
+  separate GPU with its own memory handles drawing. No single component's
+  specification describes the console, so the record models four of them and
+  shows how the work is divided.
+
+
+  It is also the first console here. Consoles differ from the home computers
+  that precede them. The Commodore 64 and the Amigas take their clock from the
+  television standard, so PAL and NTSC machines run at different speeds. The
+  PlayStation's clock is the same everywhere, so it has one configuration rather
+  than two.
+configurations:
+  - id: retail
+    label: Retail console
+    entries:
+      - componentId: psx-r3000a
+        role: main-cpu
+        count: 1
+        shared: false
+        notes: >-
+          The same rate in every region; the console's clock is not derived from
+          the television standard.
+        measurementIds:
+          - sony-playstation:clock-frequency
+      - componentId: psx-gpu
+        role: gpu
+        count: 1
+        shared: false
+        measurementIds:
+          - sony-playstation:gpu-clock-frequency
+      - componentId: psx-main-ram
+        role: system-memory
+        count: 1
+        shared: false
+        measurementIds:
+          - psx-main-ram:capacity
+      - componentId: psx-vram
+        role: video-memory
+        count: 1
+        shared: false
+        notes:
+          Reachable by the GPU, not shared with the CPU. Transfers go by DMA.
+        measurementIds:
+          - psx-vram:capacity
+notes: >-
+  The release date is editorial context; the cited developer reference documents
+  the hardware without dating the launch. That reference is the August 1998
+  revision, four years after release, but it describes the same retail hardware.
+  No floating-point figure is recorded: the reference does not describe
+  floating-point hardware on this processor, and inferring its absence would be
+  a claim without a citation.
+imageIds:
+  - sony-playstation-scph-1000
+sourceIds:
+  - psx-hardware-reference
+editorialStatus: approved

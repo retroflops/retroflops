@@ -1,0 +1,19 @@
+id: sega-saturn:context-mips-25
+subject:
+  kind: system
+  id: sega-saturn
+label: Per-processor instruction rate
+quantity:
+  state: value
+  value: '25'
+  unit: MIPS
+  significantDigits: 2
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: approved
+sourceIds:
+  - sega-saturn-service-manual
+extractIds:
+  - sega-saturn-manual:cpu
+evidenceLevel: confirmed

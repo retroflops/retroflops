@@ -1,0 +1,17 @@
+id: atari-520st-rom:context-bit-16
+subject:
+  kind: component
+  id: atari-520st-rom
+label: Word size
+quantity:
+  state: value
+  value: '16'
+  unit: bit
+  significantDigits: 2
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - atari-st-field-service-manual
+evidenceLevel: reported

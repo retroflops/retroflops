@@ -1,0 +1,12 @@
+id: pc-ddr5-sdram
+slug: pc-ddr5-sdram
+kind: memory
+name: PC DDR5 SDRAM
+manufacturer: PC industry
+architecture: Double-data-rate 5 synchronous dynamic RAM
+introducedDate: '2020'
+memoryType: DDR5 SDRAM
+summary: DDR5 main memory in the representative Core i9-14900K configuration.
+sourceIds:
+  - intel-core-i9-14900k-specifications
+editorialStatus: provisional

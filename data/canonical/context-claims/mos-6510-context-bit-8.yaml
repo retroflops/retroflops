@@ -1,0 +1,17 @@
+id: mos-6510:context-bit-8
+subject:
+  kind: component
+  id: mos-6510
+label: Word size
+quantity:
+  state: value
+  value: '8'
+  unit: bit
+  significantDigits: 1
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - c64-programmers-reference-guide
+evidenceLevel: confirmed

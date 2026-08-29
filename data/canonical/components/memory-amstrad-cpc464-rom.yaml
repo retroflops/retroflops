@@ -1,0 +1,14 @@
+id: amstrad-cpc464-rom
+slug: amstrad-cpc464-rom
+kind: memory
+name: Amstrad CPC 464 ROM
+manufacturer: Amstrad
+architecture: Mask ROM
+introducedDate: '1984'
+memoryType: Mask ROM
+summary:
+  '{{context:amstrad-cpc464-rom:context-kib-32}} read-only firmware holding
+  AMSDOS and Locomotive BASIC.'
+sourceIds:
+  - amstrad-cpc464-user-instructions
+editorialStatus: provisional

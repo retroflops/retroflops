@@ -1,0 +1,11 @@
+architecture: LR35902
+editorialStatus: provisional
+id: game-boy-lr35902
+instructionSet: LR35902
+kind: cpu
+manufacturer: Sharp
+name: Sharp LR35902
+slug: game-boy-lr35902
+sourceIds:
+  - game-boy-cpu-manual
+summary: The original Game Boy's CPU.

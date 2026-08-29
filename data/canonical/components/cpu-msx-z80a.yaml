@@ -1,0 +1,12 @@
+id: msx-z80a
+slug: msx-z80a
+kind: cpu
+name: Zilog Z80A
+manufacturer: Zilog
+architecture: Z80
+introducedDate: '1976'
+instructionSet: Zilog Z80
+summary: The standard eight-bit MSX main processor.
+sourceIds:
+  - msx-technical-data-book
+editorialStatus: provisional

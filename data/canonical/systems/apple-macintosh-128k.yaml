@@ -1,0 +1,53 @@
+id: apple-macintosh-128k
+slug: apple-macintosh-128k
+name: Apple Macintosh 128K
+manufacturer: Apple Computer
+type: personal-computer
+family: apple-macintosh
+releaseDate: 1984-01
+region: United States
+summary: >-
+  The original Macintosh: a 68000, a built-in monochrome display, and a Toolbox
+  ROM holding the routines that drew the interface.
+description: >-
+  The compact Macintosh shares its small pool of memory with the monochrome
+  display, so the picture on screen and the program drawing it compete for the
+  same chips. Its Toolbox ROM holds the interface routines and cannot be written
+  to, which is why it is counted apart from working memory.
+configurations:
+  - id: retail
+    label: Original retail Macintosh
+    region: United States
+    entries:
+      - componentId: macintosh-128k-68000
+        role: main-cpu
+        count: 1
+        shared: false
+        measurementIds:
+          - apple-macintosh-128k:clock-frequency
+      - componentId: macintosh-128k-video
+        role: gpu
+        count: 1
+        shared: true
+        measurementIds:
+          - apple-macintosh-128k:gpu-clock-frequency
+      - componentId: macintosh-128k-ram
+        role: system-memory
+        count: 1
+        shared: true
+        notes: Shared with the display subsystem.
+        measurementIds:
+          - macintosh-128k-ram:capacity
+      - componentId: macintosh-128k-rom
+        role: system-memory
+        count: 1
+        shared: false
+        notes: Read-only Toolbox ROM.
+        measurementIds:
+          - macintosh-128k-rom:capacity
+imageIds:
+  - apple-macintosh-128k-computer
+sourceIds:
+  - macintosh-128k-technical-reference
+  - apple-guide-to-macintosh-family-hardware-1990
+editorialStatus: provisional

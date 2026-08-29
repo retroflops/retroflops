@@ -1,0 +1,17 @@
+id: master-system-ram:context-bit-8
+subject:
+  kind: component
+  id: master-system-ram
+label: Word size
+quantity:
+  state: value
+  value: '8'
+  unit: bit
+  significantDigits: 1
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - sega-8bit-service-manual
+evidenceLevel: reported

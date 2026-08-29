@@ -1,0 +1,15 @@
+editorialStatus: approved
+id: nintendo-gamecube-sound-ram
+slug: nintendo-gamecube-sound-ram
+kind: memory
+name: Nintendo GameCube sound memory
+manufacturer: Nintendo
+architecture: DRAM
+introducedDate: '2001'
+memoryType: DRAM
+summary:
+  '{{measurement:nintendo-gamecube-sound-ram:capacity}} of installed
+  {{context:nintendo-gamecube-sound-ram:context-mhz-81}} DRAM, dedicated to
+  audio.'
+sourceIds:
+  - nintendo-gamecube-tech-specs

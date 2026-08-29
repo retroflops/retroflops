@@ -1,0 +1,61 @@
+configurations:
+  - entries:
+      - componentId: snes-5a22
+        count: 1
+        notes: >-
+          Nintendo publishes this rate without naming a memory region; the
+          processor also runs a cycle at about
+          {{context:snes-5a22:context-mhz-3-58}} on fast regions and about
+          {{context:snes-5a22:context-mhz-1-79}} on the slowest.
+        role: main-cpu
+        shared: false
+        measurementIds:
+          - super-nintendo:cpu-clock-frequency
+      - componentId: snes-ppu
+        count: 2
+        notes: Two PPUs work together; their count is not a combined clock.
+        role: gpu
+        shared: false
+        measurementIds:
+          - super-nintendo:gpu-clock-frequency
+      - componentId: snes-ram
+        count: 1
+        role: system-memory
+        shared: false
+        measurementIds:
+          - snes-ram:capacity
+      - componentId: snes-video-ram
+        role: video-memory
+        count: 1
+        shared: false
+        notes: Attached to the picture processors.
+        measurementIds:
+          - snes-video-ram:capacity
+    id: ntsc
+    label: NTSC retail console
+    region: North America
+editorialStatus: approved
+id: super-nintendo
+manufacturer: Nintendo
+name: Super Nintendo Entertainment System
+aliases:
+  - SNES
+notes: >-
+  Game Pak ROM is removable storage and excluded from whole-system working
+  memory.
+region: North America
+releaseDate: 1991-08
+slug: super-nintendo
+imageIds:
+  - super-nintendo-console
+sourceIds:
+  - nintendo-snes-tech-specs
+summary: >-
+  A 65C816-derived console with {{measurement:snes-ram:capacity}} work RAM and
+  paired tile-and-sprite PPUs.
+description: >-
+  This entry is the North American Super Nintendo retail configuration. Its
+  paired picture processors and region-specific timing make it a useful point of
+  comparison within Nintendo's home-console line.
+type: console
+family: nintendo-home-console

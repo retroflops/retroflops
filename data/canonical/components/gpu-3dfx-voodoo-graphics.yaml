@@ -1,0 +1,16 @@
+id: 3dfx-voodoo-graphics
+slug: 3dfx-voodoo-graphics
+kind: gpu
+name: 3dfx Interactive Voodoo (3dfx Voodoo Graphics)
+manufacturer: 3dfx Interactive
+architecture: Voodoo
+introducedDate: 1996-11
+summary:
+  3dfx Voodoo Graphics graphics processor, represented by vendor reference-card
+  specifications.
+notes:
+  'A fixed-function raster pipeline: pixel and texel fill rates are applicable,
+  while a general programmable FP32 shader peak is not.'
+sourceIds:
+  - 3dfx-sst-1-data-book
+editorialStatus: provisional

@@ -1,0 +1,43 @@
+accessedDate: 2026-08-17
+alt: "A gold iPhone 5s propped up against its white retail box on a red background: a black glass
+  face with a round home button ringed in metal, and the charging port and speaker grilles along the
+  bottom edge. The screen is off."
+attribution: Photograph by Maurizio Pesce, licensed CC BY 2.0, via Wikimedia Commons.
+canonical:
+  byteLength: 18448
+  format: avif
+  height: 960
+  sha256: 65ccb93c422cda54275a81c1ee3b7b3ad58e2fe53ce579d6df28a2a7c5347a91
+  width: 1280
+caption: A gold iPhone 5s, switched off, standing against the box it was sold in.
+creator: Maurizio Pesce
+creatorType: person
+editorialStatus: approved
+id: apple-iphone-5s-phone
+original:
+  byteLength: 4647440
+  height: 3456
+  mediaType: image/jpeg
+  sha256: 3d50ba8c7523a17d56228c239f7b0e8869322c0153c949faaea60f986586b5f7
+  width: 5184
+originalUrl: https://upload.wikimedia.org/wikipedia/commons/b/be/Apple_iPhone_5s_%2815028878316%29.jpg
+publisher: Wikimedia Commons
+rights:
+  id: cc-by-2.0
+  statedAt: https://commons.wikimedia.org/wiki/File:Apple_iPhone_5s_(15028878316).jpg
+  statement: This file is licensed under the Creative Commons Attribution 2.0 Generic license.
+  url: https://creativecommons.org/licenses/by/2.0/
+sourcePageUrl: https://commons.wikimedia.org/wiki/File:Apple_iPhone_5s_(15028878316).jpg
+title: Apple iPhone 5s (15028878316).jpg
+transform:
+  fit: crop
+  note: A centered crop off the long edges of a 3:2 original. The phone stands at the right of the
+    frame and the crop keeps it whole; what it loses is the far end of the retail box behind it.
+  preset: image-v1
+  region:
+    height: 3456
+    width: 4608
+    x: 288
+    y: 0
+  sourceHeight: 3456
+  sourceWidth: 5184

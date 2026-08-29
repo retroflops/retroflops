@@ -1,0 +1,176 @@
+- caveat: >-
+    This figure remains provisional until the cited source is corroborated for
+    the exact configuration.
+  comparabilityGroup: clock-frequency|cpu|nominal-clock
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: intel-80486dx:clock-frequency
+  method: nominal-clock
+  metric: clock-frequency
+  normalized:
+    value: "33000000"
+    unit: Hz
+    significantDigits: 2
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 2
+    state: value
+    unit: MHz
+    value: "33"
+  scope: cpu
+  sourceIds:
+    - intel-historical-x86-documentation
+  status: vendor-rated
+  subject:
+    id: intel-80486dx
+    kind: component
+  evidenceLevel: confirmed
+- caveat: >-
+    This figure remains provisional until the cited source is corroborated for
+    the exact configuration.
+  comparabilityGroup: clock-frequency|cpu|peak-clock
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: intel-80486dx:peak-clock
+  method: peak-clock
+  metric: clock-frequency
+  provenance: vendor
+  quantity:
+    note: The 80486DX predates dynamic turbo modes.
+    state: not-applicable
+  scope: cpu
+  sourceIds:
+    - intel-historical-x86-documentation
+  status: vendor-rated
+  subject:
+    id: intel-80486dx
+    kind: component
+- benchmark:
+    id: dhrystone
+    version: "2.1"
+  caveat: >-
+    A named historic Dhrystone 2.1 result, normalized by the run clock; the
+    one-source result remains provisional.
+  comparabilityGroup: dhrystone-mips-per-mhz|cpu|benchmark-run|dhrystone@2.1
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: intel-80486dx:dhrystone-mips-per-mhz
+  method: benchmark-run
+  metric: dhrystone-mips-per-mhz
+  normalized:
+    value: "0.79"
+    unit: DMIPS/MHz
+    significantDigits: 2
+    unitRegistry: units-v1
+  provenance: independent
+  quantity:
+    significantDigits: 2
+    state: value
+    unit: DMIPS/MHz
+    value: "0.79"
+  scope: cpu
+  sourceIds:
+    - x86-dhrystone-results
+  status: measured
+  subject:
+    id: intel-80486dx
+    kind: component
+  evidenceLevel: reported
+- caveat: >-
+    This figure remains provisional until the cited source is corroborated for
+    the exact configuration.
+  comparabilityGroup: peak-fp32-rate|cpu|theoretical-peak
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: intel-80486dx:peak-fp32-rate
+  method: theoretical-peak
+  metric: peak-fp32-rate
+  provenance: vendor
+  quantity:
+    note: >-
+      The 80486DX integrates an x87 unit, but the cited documentation does not
+      state an FP32 peak rate in FLOP/s.
+    state: unknown
+  unknownAudit:
+    reviewedOn: 2026-08-25
+    routesChecked:
+      - vendor-documentation
+      - independent-analysis
+      - community-source
+    outcome: no-compatible-candidate
+    summary: The checked historical documentation provides no precision-qualified
+      FP32 rate.
+  scope: cpu
+  sourceIds:
+    - intel-historical-x86-documentation
+  status: vendor-rated
+  subject:
+    id: intel-80486dx
+    kind: component
+- caveat: >-
+    Checked against the part's own datasheet rather than against a general
+    history. Intel specified this processor electrically, not thermally, so
+    there is no figure to find: the maximum currents are on the page but not in
+    its text layer, the scan's columns having detached from their rows, and even
+    those are currents rather than a cooling-design target.
+  comparabilityGroup: thermal-design-power|cpu|rated-power
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: intel-80486dx:thermal-design-power
+  method: rated-power
+  metric: thermal-design-power
+  provenance: vendor
+  quantity:
+    note: >-
+      The absence is real and now documented. The datasheet's DC specifications
+      give supply current in milliamps — typically 700 mA at
+      {{measurement:intel-80486dx:clock-frequency}} — and state no wattage
+      anywhere; the Absolute Maximum Ratings beside them cover temperature and
+      voltage only. Multiplying current by the supply voltage would produce a
+      watt figure Intel never published, from a typical rather than a design
+      maximum.
+    state: unknown
+  unknownAudit:
+    reviewedOn: 2026-08-25
+    routesChecked:
+      - vendor-documentation
+      - independent-analysis
+      - community-source
+    outcome: no-published-candidate
+    summary: The checked datasheet provides no thermal-design-power value.
+  scope: cpu
+  sourceIds:
+    - intel-486dx-datasheet
+  status: vendor-rated
+  subject:
+    id: intel-80486dx
+    kind: component
+- caveat: >-
+    This figure remains provisional until the cited source is corroborated for
+    the exact configuration.
+  comparabilityGroup: memory-capacity|whole-system|design-capacity
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: intel-80486dx-pc:whole-system-memory-capacity
+  method: design-capacity
+  metric: memory-capacity
+  normalized:
+    value: "8388608"
+    unit: B
+    significantDigits: 1
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 1
+    state: value
+    unit: MiB
+    value: "8"
+  scope: whole-system
+  sourceIds:
+    - intel-historical-x86-documentation
+  status: vendor-rated
+  subject:
+    id: intel-80486dx-pc
+    kind: system
+  evidenceLevel: confirmed

@@ -1,0 +1,22 @@
+id: ps2-graphics-synthesizer
+slug: ps2-graphics-synthesizer
+kind: gpu
+name: Graphics Synthesizer
+manufacturer: Sony Computer Entertainment
+architecture: Parallel rendering processor with embedded DRAM
+introducedDate: 1999-03
+summary:
+  The PlayStation 2's rasterizer, notable for putting its frame buffer on the
+  same die as the pixel pipelines and reaching
+  {{context:ps2-graphics-synthesizer:context-gb-s-48}} across a
+  {{context:ps2-graphics-synthesizer:context-bit-2560}} internal bus.
+notes:
+  "It has no geometry stage of its own: transform and lighting run on the
+  Emotion Engine's vector units, and the Graphics Synthesizer receives
+  primitives that are already projected. Sony's drawing-rate figure of 75
+  million polygons per second is not recorded as a measurement, because the
+  catalog has no polygon-rate metric."
+sourceIds:
+  - scei-ps2-specifications-1999
+  - scei-ee-gs-single-chip-2003
+editorialStatus: approved

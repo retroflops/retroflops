@@ -1,0 +1,402 @@
+- caveat: >-
+    Provisional on the sourcing, not on the number. Digital Foundry states it as
+    confirmed for retail hardware three months before release, and Nintendo has
+    never contradicted it or published anything to compare it against. The
+    policy asks for two sources that state the figure; the second publication
+    reviewed here declines, recording instead that the frequencies were never
+    officially disclosed. So this waits, and meanwhile feeds no multiplier.
+  comparabilityGroup: clock-frequency|cpu|nominal-clock
+  conditions: The four Cortex-A57 cores of the shipped console, which run at the
+    same rate in both modes.
+  editorialStatus: provisional
+  evidenceStage: shipped
+  extractIds:
+    - df-switch:cpu-clock
+    - computerbase-switch:clocks-undisclosed
+  id: nintendo-switch:docked:cpu-clock-frequency-independent
+  method: nominal-clock
+  metric: clock-frequency
+  normalized:
+    value: "1020000000"
+    unit: Hz
+    significantDigits: 3
+    unitRegistry: units-v1
+  provenance: independent
+  quantity:
+    significantDigits: 3
+    state: value
+    unit: GHz
+    value: "1.02"
+  rounding: none
+  scope: cpu
+  sourceIds:
+    - digitalfoundry-switch-clocks-2016
+    - computerbase-switch-test
+  status: vendor-rated
+  subject:
+    configurationId: docked
+    id: nintendo-switch
+    kind: system
+  evidenceLevel: confirmed
+- caveat: >-
+    The docked graphics frequency, provisional for the same reason as the
+    processor clock: one publication states it, the other says it was never
+    officially disclosed. The figure is the ceiling the dock's power budget
+    permits, not a rate the console reaches only in bursts.
+  comparabilityGroup: clock-frequency|gpu|nominal-clock
+  conditions: The 256 Maxwell cores of the shipped console, docked.
+  editorialStatus: provisional
+  evidenceStage: shipped
+  extractIds:
+    - df-switch:gpu-clocks
+    - computerbase-switch:clocks-undisclosed
+  id: nintendo-switch:docked:gpu-clock-frequency-independent
+  method: nominal-clock
+  metric: clock-frequency
+  normalized:
+    value: "768000000"
+    unit: Hz
+    significantDigits: 3
+    unitRegistry: units-v1
+  provenance: independent
+  quantity:
+    significantDigits: 3
+    state: value
+    unit: MHz
+    value: "768"
+  rounding: none
+  scope: gpu
+  sourceIds:
+    - digitalfoundry-switch-clocks-2016
+    - computerbase-switch-test
+  status: vendor-rated
+  subject:
+    configurationId: docked
+    id: nintendo-switch
+    kind: system
+  evidenceLevel: confirmed
+- caveat: >-
+    The same processor frequency as the docked configuration, and the point of
+    the sentence it is read from: the machine keeps its game logic running at
+    one rate whether or not it is on a television. Provisional on one stating
+    source.
+  comparabilityGroup: clock-frequency|cpu|nominal-clock
+  conditions: The four Cortex-A57 cores of the shipped console, undocked.
+  editorialStatus: provisional
+  evidenceStage: shipped
+  extractIds:
+    - df-switch:cpu-clock
+    - computerbase-switch:clocks-undisclosed
+  id: nintendo-switch:handheld:cpu-clock-frequency-independent
+  method: nominal-clock
+  metric: clock-frequency
+  normalized:
+    value: "1020000000"
+    unit: Hz
+    significantDigits: 3
+    unitRegistry: units-v1
+  provenance: independent
+  quantity:
+    significantDigits: 3
+    state: value
+    unit: GHz
+    value: "1.02"
+  rounding: none
+  scope: cpu
+  sourceIds:
+    - digitalfoundry-switch-clocks-2016
+    - computerbase-switch-test
+  status: vendor-rated
+  subject:
+    configurationId: handheld
+    id: nintendo-switch
+    kind: system
+  evidenceLevel: confirmed
+- caveat: >-
+    Two fifths of the docked frequency, from the same sentence that gives the
+    docked one, and provisional on the same single stating source. The two
+    graphics rates are what separate this machine's two configurations; nothing
+    else in the catalog's record of it differs between them.
+  comparabilityGroup: clock-frequency|gpu|nominal-clock
+  conditions: The 256 Maxwell cores of the shipped console, undocked, in its
+    default power mode.
+  editorialStatus: provisional
+  evidenceStage: shipped
+  extractIds:
+    - df-switch:gpu-clocks
+    - computerbase-switch:clocks-undisclosed
+  id: nintendo-switch:handheld:gpu-clock-frequency-independent
+  method: nominal-clock
+  metric: clock-frequency
+  normalized:
+    value: "307200000"
+    unit: Hz
+    significantDigits: 4
+    unitRegistry: units-v1
+  provenance: independent
+  quantity:
+    significantDigits: 4
+    state: value
+    unit: MHz
+    value: "307.2"
+  rounding: none
+  scope: gpu
+  sourceIds:
+    - digitalfoundry-switch-clocks-2016
+    - computerbase-switch-test
+  status: vendor-rated
+  subject:
+    configurationId: handheld
+    id: nintendo-switch
+    kind: system
+  evidenceLevel: confirmed
+- caveat: >-
+    Not Nintendo's figure: the specification page has no memory row at all. Two
+    independent publications state the same capacity: one reproducing the
+    developer specification it spends the article questioning row by row, and
+    letting this row stand, the other stating it outright while reviewing the
+    shipped console.
+  comparabilityGroup: memory-capacity|memory|design-capacity
+  conditions: The LPDDR4 shared between the processor and the graphics units of
+    the shipped console.
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - df-switch:leaked-spec-memory
+    - computerbase-switch:ram
+  id: nintendo-switch-ram:capacity
+  method: design-capacity
+  metric: memory-capacity
+  normalized:
+    value: "4294967296"
+    unit: B
+    significantDigits: 1
+    unitRegistry: units-v1
+  provenance: independent
+  quantity:
+    significantDigits: 1
+    state: value
+    unit: GiB
+    value: "4"
+  scope: memory
+  sourceIds:
+    - digitalfoundry-switch-clocks-2016
+    - computerbase-switch-test
+  status: vendor-rated
+  subject:
+    id: nintendo-switch-ram
+    kind: component
+  evidenceLevel: confirmed
+- caveat: >-
+    Adds 1 memory-capacity figure obtained by design-capacity. Nothing in the
+    catalog is left out of it. A total is only as trustworthy as the decision
+    about what belongs in it, so both the terms and the exclusions are named
+    records.
+  comparabilityGroup: memory-capacity|whole-system|design-capacity
+  derivedFrom: nintendo-switch:whole-system-memory
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - df-switch:leaked-spec-memory
+    - computerbase-switch:ram
+  id: nintendo-switch:whole-system-memory-capacity
+  method: design-capacity
+  metric: memory-capacity
+  normalized:
+    value: "4294967296"
+    unit: B
+    significantDigits: 10
+    unitRegistry: units-v1
+  provenance: independent
+  quantity:
+    significantDigits: 10
+    state: value
+    unit: B
+    value: "4294967296"
+  rounding: none
+  scope: whole-system
+  sourceIds:
+    - digitalfoundry-switch-clocks-2016
+    - computerbase-switch-test
+  status: derived
+  subject:
+    id: nintendo-switch
+    kind: system
+  evidenceLevel: confirmed
+- caveat: >-
+    Nintendo publishes no memory figure of any kind for this console — not a
+    capacity, not a width, not a rate — so there is nothing here to state or to
+    compute from.
+  comparabilityGroup: memory-bandwidth|memory|theoretical-peak
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - nintendo-switch:tech-specs:cpu-gpu
+  id: nintendo-switch:memory-bandwidth
+  method: theoretical-peak
+  metric: memory-bandwidth
+  provenance: vendor
+  quantity:
+    note: >-
+      Nintendo's technical specification page has no memory row, so it states
+      neither a bandwidth nor the transfer rate and bus width one could be
+      computed from.
+    state: unknown
+  unknownAudit:
+    reviewedOn: 2026-08-25
+    routesChecked:
+      - vendor-documentation
+      - independent-analysis
+      - community-source
+    outcome: no-compatible-candidate
+    summary: Nintendo's technical specification page provides no compatible
+      published value.
+  scope: memory
+  sourceIds:
+    - nintendo-switch-tech-specs
+  status: theoretical
+  subject:
+    id: nintendo-switch
+    kind: system
+- caveat: >-
+    Nintendo publishes no floating-point rate at any precision. Wikipedia states
+    {{measurement:nintendo-switch:peak-fp32-rate}} as the theoretical peak of
+    the docked console, which is the higher of its two graphics clocks; the
+    handheld mode runs slower. The figure names no precision and no vendor
+    stands behind it, so it is rumored.
+  comparabilityGroup: peak-fp32-rate|gpu|theoretical-peak
+  editorialStatus: provisional
+  evidenceStage: shipped
+  extractIds:
+    - nintendo-switch:tech-specs:cpu-gpu
+  id: nintendo-switch:peak-fp32-rate
+  method: theoretical-peak
+  metric: peak-fp32-rate
+  provenance: community
+  quantity:
+    state: value
+    value: "393"
+    unit: GFLOP/s
+    significantDigits: 3
+  scope: gpu
+  sourceIds:
+    - nintendo-switch-tech-specs
+    - wikipedia-nintendo-switch-specifications
+  status: theoretical
+  subject:
+    id: nintendo-switch
+    kind: system
+  evidenceLevel: rumored
+  normalized:
+    value: "393000000000"
+    unit: FLOP/s
+    significantDigits: 3
+    unitRegistry: units-v1
+- caveat: >-
+    The higher of the HAC-002 adapter's two output modes, from Nintendo's
+    ecodesign disclosure. The {{context:nintendo-switch:context-v-5-0}} mode
+    exists for charging and cannot power the dock, so the
+    {{measurement:nintendo-switch:supply-voltage}} pair is the one that
+    describes the console running.
+  comparabilityGroup: supply-voltage|whole-system|nameplate-rating
+  conditions: HAC-002 adapter, {{measurement:nintendo-switch:supply-voltage}}
+    output mode. The same adapter also offers a
+    {{context:nintendo-switch:context-v-5-0}} mode at
+    {{context:nintendo-switch:context-a-1-5}}, which is not recorded here.
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - nintendo-ecodesign:hac-002:output
+  id: nintendo-switch:supply-voltage
+  method: nameplate-rating
+  metric: supply-voltage
+  normalized:
+    value: "15"
+    unit: V
+    significantDigits: 3
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 3
+    state: value
+    unit: V
+    value: "15.0"
+  scope: whole-system
+  sourceIds:
+    - nintendo-ecodesign-accessories-part-3
+  status: vendor-rated
+  subject:
+    id: nintendo-switch
+    kind: system
+  evidenceLevel: confirmed
+- caveat: >-
+    The current Nintendo lists beside the
+    {{measurement:nintendo-switch:supply-voltage}} mode. The rows are read
+    pairwise: the {{context:nintendo-switch:context-a-1-5}} figure belongs to
+    the {{context:nintendo-switch:context-v-5-0}} mode.
+  comparabilityGroup: supply-current|whole-system|nameplate-rating
+  conditions: HAC-002 adapter, {{measurement:nintendo-switch:supply-voltage}} output mode.
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - nintendo-ecodesign:hac-002:output
+  id: nintendo-switch:supply-current
+  method: nameplate-rating
+  metric: supply-current
+  normalized:
+    value: "2.6"
+    unit: A
+    significantDigits: 2
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 2
+    state: value
+    unit: A
+    value: "2.6"
+  scope: whole-system
+  sourceIds:
+    - nintendo-ecodesign-accessories-part-3
+  status: vendor-rated
+  subject:
+    id: nintendo-switch
+    kind: system
+  evidenceLevel: confirmed
+- caveat: >-
+    Nintendo rates the adapter and never the console. The product of that rating
+    is {{measurement:nintendo-switch:rated-power-consumption}}, and the gap
+    between a rating and a machine is unusually visible here: Nintendo's own
+    consoles disclosure reports about {{context:nintendo-switch:context-w-7}}
+    while actively gaming. The figure is reported because it is what the maker
+    published, not because the console draws it.
+  comparabilityGroup: rated-power-consumption|whole-system|rated-power
+  conditions: HAC-002 adapter at its rated
+    {{measurement:nintendo-switch:supply-voltage}} output.
+  derivedFrom: nintendo-switch:supply-power
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - nintendo-ecodesign:hac-002:output
+  id: nintendo-switch:rated-power-consumption
+  method: rated-power
+  metric: rated-power-consumption
+  normalized:
+    value: "39"
+    unit: W
+    significantDigits: 2
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 2
+    state: value
+    unit: W
+    value: "39"
+  rounding: half-up
+  scope: whole-system
+  sourceIds:
+    - nintendo-ecodesign-accessories-part-3
+  status: derived
+  subject:
+    id: nintendo-switch
+    kind: system
+  evidenceLevel: confirmed

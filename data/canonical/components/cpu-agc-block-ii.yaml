@@ -1,0 +1,21 @@
+id: agc-block-ii
+slug: agc-block-ii
+kind: cpu
+name: Apollo Guidance Computer Block II processor
+manufacturer: MIT Instrumentation Laboratory / Raytheon
+architecture: AGC Block II
+introducedDate: '1966'
+instructionSet: AGC Block II
+summary:
+  A one's-complement fixed-point processor built entirely from a single type of
+  integrated-circuit NOR gate. Its {{context:agc-block-ii:context-bit-15}} word
+  carries a sixteenth parity bit, and every instruction lasts a whole number of
+  {{measurement:agc-block-ii:memory-cycle-time}} memory cycles.
+notes:
+  "The Block II order code has 34 normal instructions against Block I's 11, and
+  multiplication is 2.5 times faster than Block I at the same memory-cycle time.
+  There is no floating-point hardware: the arithmetic unit is an adder with
+  shifting gates."
+sourceIds:
+  - ntrs-19760016247
+editorialStatus: approved

@@ -1,0 +1,23 @@
+id: wikipedia-intel-conroe
+title: Conroe (microprocessor)
+publisher: Wikipedia contributors
+accessedDate: 2026-08-26
+locator: Conroe section, higher-end models paragraph
+extract: >-
+  The higher end Conroe processors are the E6600 (2.4 GHz) and E6700 (2.67 GHz) Core 2
+  Duo models. The family has a 1066 MHz front-side bus, 4 MB shared L2 cache, and 65
+  watts TDP.
+tier: C
+sourceType: wiki
+url: https://en.wikipedia.org/wiki/Conroe_(microprocessor)
+editorialStatus: provisional
+usageNote: >-
+  Tier C community article used only for the provisional clock and thermal rating of
+  the Core 2 Duo E6600.
+fetch:
+  url: https://en.wikipedia.org/wiki/Conroe_(microprocessor)
+  fetchedAt: 2026-08-26T10:28:55Z
+  httpStatus: 200
+  contentType: text/html; charset=UTF-8
+  byteLength: 158111
+  sha256: 259b57570226327a80b42622f929c099412293a18963ad24f89f122a5f180add

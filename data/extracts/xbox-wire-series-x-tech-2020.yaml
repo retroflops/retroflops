@@ -1,0 +1,50 @@
+- extract: CPU | 8x Cores @ 3.8 GHz (3.6 GHz w/ SMT) Custom Zen 2 CPU
+  extractHash: 1099731e6cc0a32031d4ac6d855a6a3d5387c34b3ba4d76d6786f6069326b945
+  id: xbox-series-x-tech:specs:cpu
+  locator: Xbox Series X full system specifications table, 'CPU' row
+  notes: >-
+    Microsoft states two frequencies for one processor, chosen by whether
+    simultaneous multithreading is on. They are not a range and not a boost: a
+    developer picks the mode. The catalog records 3.8 GHz and names the 3.6 GHz
+    mode in the caveat, because the two are the same silicon under two
+    configurations rather than two claims about one.
+  sourceId: xbox-wire-series-x-tech-2020
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-15
+- extract: GPU | 12 TFLOPS, 52 CUs @ 1.825 GHz Custom RDNA 2 GPU
+  extractHash: cca2a26e41f6bf9c997890659d200f5b2156d555b5a320cc89fd890be737c89e
+  id: xbox-series-x-tech:specs:gpu
+  locator: Xbox Series X full system specifications table, 'GPU' row
+  notes: >-
+    The frequency is fixed rather than a ceiling, which is the design difference
+    Microsoft drew against the PlayStation 5's variable clock and the reason
+    this is a nominal-clock figure. The 12 TFLOPS in the same row names no
+    precision; the catalog's FP32 rate is cited to the glossary published the
+    same day, which does.
+  sourceId: xbox-wire-series-x-tech-2020
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-15
+- extract: Memory | 16 GB GDDR6 w/ 320b bus
+  extractHash: fbd793aa2da2f1331054f72d75c653839f701eae16a762d59a0fd10b608ca5a4
+  id: xbox-series-x-tech:specs:memory
+  locator: Xbox Series X full system specifications table, 'Memory' row
+  notes: >-
+    The capacity of the whole console, which the next row then splits into a 10
+    GB and a 6 GB region running at different rates. The bus width belongs to
+    the same row and is the term the two bandwidths are built from.
+  sourceId: xbox-wire-series-x-tech-2020
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-15
+- extract: Memory Bandwidth | 10GB @ 560 GB/s, 6GB @ 336 GB/s
+  extractHash: 241ab5077d961d95abb6c69365377d5b4f65dc568d05d7671c6222b282c05560
+  id: xbox-series-x-tech:specs:memory-bandwidth
+  locator:
+    Xbox Series X full system specifications table, 'Memory Bandwidth' row
+  notes: >-
+    One row, two rates, because the console's 16 GB of GDDR6 is partitioned. The
+    catalog records the 560 GB/s figure as the machine's memory bandwidth and
+    carries the 336 GB/s partition in the caveat rather than averaging the two
+    into a number that describes neither region.
+  sourceId: xbox-wire-series-x-tech-2020
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-13

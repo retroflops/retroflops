@@ -1,0 +1,17 @@
+id: nvidia-h100-memory
+slug: nvidia-h100-memory
+kind: memory
+name: NVIDIA H100 (SXM) GPU memory
+manufacturer: NVIDIA
+summary: >-
+  Eighty gibibytes on the accelerator module, reachable at
+  {{measurement:nvidia-h100-memory:bandwidth}}. That is seventy times the
+  bandwidth of the PlayStation 2's embedded frame buffer, which held the record
+  in this catalog for two decades.
+notes: >-
+  No memory type is recorded: NVIDIA's specification table names the capacity
+  and the bandwidth and not the technology, and naming it here would be a fact
+  from somewhere else.
+sourceIds:
+  - nvidia-h100-product-specifications
+editorialStatus: approved

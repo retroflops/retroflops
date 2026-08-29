@@ -1,0 +1,81 @@
+id: apollo-guidance-computer-block-ii
+slug: apollo-guidance-computer-block-ii
+name: Apollo Guidance Computer (Block II)
+manufacturer: MIT Instrumentation Laboratory / Raytheon
+type: guidance-computer
+releaseDate: '1966'
+region: United States
+summary: >-
+  The computer that flew Apollo. A
+  {{context:apollo-guidance-computer-block-ii:context-kg-31-7}},
+  {{context:apollo-guidance-computer-block-ii:context-w-70}} machine with
+  {{measurement:agc-erasable-core:capacity}} of erasable memory and
+  {{measurement:agc-core-rope:capacity}} of woven read-only rope, carried by
+  both the command module and the lunar module.
+description: >-
+  Block II is the flight configuration of the Apollo Guidance Computer,
+  developed from Block I after the experience of the early program showed that
+  both fixed and erasable memory had to grow. The rope memory went from 24 576
+  to {{measurement:agc-core-rope:capacity}} and the erasable memory doubled to
+  2048; the order code grew from 11 normal instructions to 34. A change from
+  high-power to low-power micrologic cut power consumption from
+  {{context:apollo-guidance-computer-block-ii:context-w-100}} to
+  {{context:apollo-guidance-computer-block-ii:context-w-70}} and weight from
+  {{context:apollo-guidance-computer-block-ii:context-kg-39-4}} to
+  {{context:apollo-guidance-computer-block-ii:context-kg-31-7}} while adding
+  roughly a third more logic gates. The memory-cycle time stayed at
+  {{measurement:agc-block-ii:memory-cycle-time}}, but multiplication became 2.5
+  times faster. Both memories are addressable by any instruction: there is no
+  hierarchical distinction between them beyond the inability of a program to
+  change the fixed part.
+imageIds:
+  - apollo-guidance-computer-unit
+configurations:
+  - id: block-ii
+    label: Block II flight configuration
+    region: United States
+    releaseDate: '1966'
+    entries:
+      - componentId: agc-block-ii
+        role: main-cpu
+        count: 1
+        shared: false
+        notes: >-
+          Master oscillator; the {{context:agc-block-ii:context-mhz-1-024}}
+          spacecraft reference is derived from it by a single divide-by-two
+          stage.
+        measurementIds:
+          - agc-block-ii:clock-frequency
+      - componentId: agc-core-rope
+        role: system-memory
+        count: 6
+        shared: false
+        notes: >-
+          Six rope modules of {{context:agc-core-rope:context-word-6144}} each.
+          The capacity given is the total across all six.
+        measurementIds:
+          - agc-core-rope:capacity
+      - componentId: agc-erasable-core
+        role: system-memory
+        count: 1
+        shared: false
+        notes: >-
+          The first eight locations are central and special registers rather
+          than general storage.
+        measurementIds:
+          - agc-erasable-core:capacity
+    notes: >-
+      The command module and lunar module carried the same computer hardware;
+      they differed in the rope modules fitted, which held different mission
+      programs.
+notes: >-
+  Recorded as a system in its own right rather than as a component, because it
+  is a complete computer with its own power, packaging and display keyboard, and
+  because its published weight and power figures describe the whole unit. The
+  release date is editorial context for when the Block II configuration entered
+  the program; it is not a figure carried by the cited report, which traces the
+  Block I to Block II change without dating it. Every measurement attached to
+  this system comes from the report.
+sourceIds:
+  - ntrs-19760016247
+editorialStatus: approved

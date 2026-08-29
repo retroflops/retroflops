@@ -1,0 +1,18 @@
+id: apple-iphone-3gs-cpu:context-bit-32
+subject:
+  kind: component
+  id: apple-iphone-3gs-cpu
+label: Word size
+quantity:
+  state: value
+  value: '32'
+  unit: bit
+  significantDigits: 2
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - apple-iphone-3gs-tech-specs
+  - anandtech-iphone-hardware-2009
+evidenceLevel: confirmed

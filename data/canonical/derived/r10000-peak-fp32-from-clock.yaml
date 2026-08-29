@@ -1,0 +1,51 @@
+id: mips-r10000:peak-fp32-from-clock
+formula:
+  id: peak-fp32-from-clock
+  version: '1'
+  expression: clock × issue slots × FLOP per slot per clock
+inputMeasurementIds:
+  - sgi-octane:1x:clock-frequency
+constants:
+  - id: issue-slots
+    label: floating-point issue slots
+    value: '2'
+    reason:
+      'The adder and the multiplier are separate functional units and the manual
+      gives each a one-cycle repeat rate, so two floating-point operations can
+      start on every cycle. The divide and square-root units are excluded: the
+      same passage gives them repeat rates of twenty to forty cycles, so they
+      cannot contribute to a per-cycle peak.'
+    sourceIds:
+      - mips-r10000-users-manual
+  - id: flops-per-slot-per-clock
+    label: floating-point operations per slot per clock
+    value: '1'
+    reason:
+      'One operation per unit per cycle, which is what a one-cycle repeat rate
+      means. Deliberately not the two-per-lane convention used for a fused
+      multiply-add on later graphics hardware: this manual describes an adder
+      and a multiplier as separate units issuing separately, and counting each
+      as two would double the answer on an assumption the document does not
+      support.'
+    sourceIds:
+      - mips-r10000-users-manual
+result:
+  state: value
+  value: '500000000'
+  unit: FLOP/s
+  significantDigits: 3
+rounding: half-up
+caveat: >-
+  Multiplies a published clock by floating-point issue slots × floating-point
+  operations per slot per clock, so it is what the documented hardware implies
+  rather than a rate anybody published. Reported to 3 significant digits — the
+  precision of the clock, since the counts are exact. It is a peak in the
+  strictest sense: it assumes every unit is fed on every cycle and nothing ever
+  stalls, which no real program achieves. Both constants are assumptions about
+  the architecture, cited on this claim.
+editorialStatus: approved
+notes: >-
+  The R10000 is the first processor in this catalog documented well enough for a
+  floating-point peak to be computed rather than quoted, and the last era in
+  which nobody thought to publish one: a processor of 1996 was described by what
+  its units retire per cycle, because a rate was not yet a selling point.

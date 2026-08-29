@@ -1,0 +1,13 @@
+id: nvidia-geforce-gtx-780-ti-memory
+slug: nvidia-geforce-gtx-780-ti-memory
+kind: memory
+name: NVIDIA GeForce GTX 780 Ti frame buffer
+manufacturer: NVIDIA
+memoryType: GDDR5
+introducedDate: 2013-11
+summary:
+  '{{measurement:nvidia-geforce-gtx-780-ti-memory:capacity}} of GDDR5 with
+  {{measurement:nvidia-geforce-gtx-780-ti-memory:bandwidth}} peak bandwidth.'
+sourceIds:
+  - nvidia-geforce-gtx-780-ti-product-brief
+editorialStatus: provisional

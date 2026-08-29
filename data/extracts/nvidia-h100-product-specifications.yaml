@@ -1,0 +1,39 @@
+- extract: >-
+    Product Specifications — H100 SXM
+
+    FP64: 34 teraFLOPS
+
+    FP64 Tensor Core: 67 teraFLOPS
+
+    FP32: 67 teraFLOPS
+
+    TF32 Tensor Core*: 989 teraFLOPS
+
+    FP16 Tensor Core*: 1,979 teraFLOPS
+
+    GPU Memory: 80GB
+
+    GPU Memory Bandwidth: 3.35TB/s
+
+    Max Thermal Design Power (TDP): Up to 700W (configurable)
+
+    * With sparsity
+  extractHash: 3a9dc37f76c244baa622675dbd3f6db56138641160922a549e126b5053992004
+  id: nvidia-h100:product-specifications
+  locator: '"Product Specifications" table, H100 SXM column'
+  notes: >-
+    The table has a column for the H100 SXM and one for the H100 NVL; only the
+    SXM column is transcribed, and each row label is rejoined with its value by
+    a colon. The BFLOAT16, FP8 and INT8 rows are omitted as formats the catalog
+    has no metric for, and the asterisk footnote is kept because it changes what
+    four of these figures mean. What makes this table unlike every other vendor
+    figure in the catalog is the first column: each rate names the precision it
+    was measured in.
+  sourceId: nvidia-h100-product-specifications
+  transcribed:
+    significantDigits: 2
+    state: value
+    unit: TFLOP/s
+    value: '34'
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-07-29

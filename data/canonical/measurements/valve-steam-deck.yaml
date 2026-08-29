@@ -1,0 +1,304 @@
+- caveat: >-
+    The published ceiling of a range Valve states as
+    {{context:valve-steam-deck:context-ghz-2-4}}–{{measurement:valve-steam-deck:retail:cpu-clock-frequency}},
+    not a rate the processor holds. The same line gives the processor's own
+    floating-point capability as up to 448 GFlops, which is a different part
+    from the graphics rate this catalog records.
+  comparabilityGroup: clock-frequency|cpu|peak-clock
+  conditions: Zen 2, {{context:valve-steam-deck-zen-2:context-unit-4}} cores and
+    {{context:valve-steam-deck:context-unit-8}} threads, at the top of its
+    published range.
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - steam-deck:tech:cpu
+  id: valve-steam-deck:retail:cpu-clock-frequency
+  method: peak-clock
+  metric: clock-frequency
+  normalized:
+    value: "3500000000"
+    unit: Hz
+    significantDigits: 2
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 2
+    state: value
+    unit: GHz
+    value: "3.5"
+  scope: cpu
+  sourceIds:
+    - valve-steam-deck-tech-specs
+  status: vendor-rated
+  subject:
+    configurationId: retail
+    id: valve-steam-deck
+    kind: system
+  evidenceLevel: confirmed
+- caveat: >-
+    Valve states this frequency beside the compute-unit count and the
+    floating-point rate derived from both, so it is the ceiling the
+    {{context:valve-steam-deck:context-tflop-s-1-6}} figure assumes rather than
+    an independent claim.
+  comparabilityGroup: clock-frequency|gpu|peak-clock
+  conditions: LCD model, 8 RDNA {{context:valve-steam-deck:context-unit-2}} compute units.
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - steam-deck:tech:gpu-fp32
+  id: valve-steam-deck:retail:gpu-clock-frequency
+  method: peak-clock
+  metric: clock-frequency
+  normalized:
+    value: "1600000000"
+    unit: Hz
+    significantDigits: 2
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 2
+    state: value
+    unit: GHz
+    value: "1.6"
+  scope: gpu
+  sourceIds:
+    - valve-steam-deck-tech-specs
+  status: vendor-rated
+  subject:
+    configurationId: retail
+    id: valve-steam-deck
+    kind: system
+  evidenceLevel: confirmed
+- caveat: >-
+    Valve writes "16 GB" of a memory part, which is the binary quantity in the
+    way memory has always been sold; it is recorded as such rather than
+    converted to the decimal prefix the letters would otherwise mean.
+  comparabilityGroup: memory-capacity|memory|design-capacity
+  conditions: On-board LPDDR5 as fitted to the LCD model.
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - steam-deck:tech:ram
+  id: valve-steam-deck-ram:capacity
+  method: design-capacity
+  metric: memory-capacity
+  normalized:
+    value: "17179869184"
+    unit: B
+    significantDigits: 2
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 2
+    state: value
+    unit: GiB
+    value: "16"
+  scope: memory
+  sourceIds:
+    - valve-steam-deck-tech-specs
+  status: vendor-rated
+  subject:
+    id: valve-steam-deck-ram
+    kind: component
+  evidenceLevel: confirmed
+- caveat: >-
+    Adds 1 memory-capacity figure obtained by design-capacity. Nothing in the
+    catalog is left out of it. A total is only as trustworthy as the decision
+    about what belongs in it, so both the terms and the exclusions are named
+    records.
+  comparabilityGroup: memory-capacity|whole-system|design-capacity
+  derivedFrom: valve-steam-deck:whole-system-memory
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - steam-deck:tech:ram
+  id: valve-steam-deck:whole-system-memory-capacity
+  method: design-capacity
+  metric: memory-capacity
+  normalized:
+    value: "17179869184"
+    unit: B
+    significantDigits: 11
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 11
+    state: value
+    unit: B
+    value: "17179869184"
+  rounding: none
+  scope: whole-system
+  sourceIds:
+    - valve-steam-deck-tech-specs
+  status: derived
+  subject:
+    id: valve-steam-deck
+    kind: system
+  evidenceLevel: confirmed
+- caveat: >-
+    One of the few consumer machines whose maker states a floating-point rate
+    and its precision together. It is the GPU's rate; Valve gives the CPU's FP32
+    capability separately as up to 448 GFlops.
+  comparabilityGroup: peak-fp32-rate|gpu|theoretical-peak
+  conditions: LCD model, 8 RDNA {{context:valve-steam-deck:context-unit-2-2}}
+    compute units at up to {{context:valve-steam-deck:context-ghz-1-6}}.
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - steam-deck:tech:gpu-fp32
+  id: valve-steam-deck:peak-fp32-rate
+  method: theoretical-peak
+  metric: peak-fp32-rate
+  normalized:
+    value: "1600000000000"
+    unit: FLOP/s
+    significantDigits: 2
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 2
+    state: value
+    unit: TFLOP/s
+    value: "1.6"
+  scope: gpu
+  sourceIds:
+    - valve-steam-deck-tech-specs
+  status: vendor-rated
+  subject:
+    id: valve-steam-deck
+    kind: system
+  evidenceLevel: confirmed
+- caveat: >-
+    A supply rating stated in watts by Valve, not a measured draw. The APU's own
+    {{context:valve-steam-deck:context-w-4}}–{{context:valve-steam-deck:context-w-15}}
+    operating window is a different quantity for a different part and is not
+    recorded here.
+  comparabilityGroup: rated-power-consumption|whole-system|rated-power
+  conditions: Bundled USB Type-C PD3.0 power supply.
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - steam-deck:tech:power-supply
+  id: valve-steam-deck:rated-power-consumption
+  method: rated-power
+  metric: rated-power-consumption
+  normalized:
+    value: "45"
+    unit: W
+    significantDigits: 2
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 2
+    state: value
+    unit: W
+    value: "45"
+  scope: whole-system
+  sourceIds:
+    - valve-steam-deck-tech-specs
+  status: vendor-rated
+  subject:
+    id: valve-steam-deck
+    kind: system
+  evidenceLevel: confirmed
+- caveat: >-
+    A speed grade rather than a measurement, so it is exact as written. The OLED
+    model's page states {{context:valve-steam-deck:context-mt-s-6400}}, which is
+    why that page cannot be read onto this machine.
+  comparabilityGroup: memory-transfer-rate|memory|nominal-transfer-rate
+  conditions: "{{context:valve-steam-deck:context-gb-16}} of on-board LPDDR5 as
+    fitted to the LCD model."
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - steam-deck:tech:ram
+  id: valve-steam-deck:memory-transfer-rate
+  method: nominal-transfer-rate
+  metric: memory-transfer-rate
+  normalized:
+    value: "5500000000"
+    unit: T/s
+    significantDigits: 4
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 4
+    state: value
+    unit: MT/s
+    value: "5500"
+  scope: memory
+  sourceIds:
+    - valve-steam-deck-tech-specs
+  status: vendor-rated
+  subject:
+    id: valve-steam-deck
+    kind: system
+  evidenceLevel: confirmed
+- caveat: >-
+    Valve states the interface as quad
+    {{context:valve-steam-deck:context-bit-32}} channels. The width recorded
+    here is those four channels stated together, which is the same fact in the
+    unit this metric uses rather than an inference about the hardware.
+  comparabilityGroup: memory-bus-width|memory|design-capacity
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - steam-deck:tech:ram
+  id: valve-steam-deck:memory-bus-width
+  method: design-capacity
+  metric: memory-bus-width
+  normalized:
+    value: "128"
+    unit: bit
+    significantDigits: 3
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 3
+    state: value
+    unit: bit
+    value: "128"
+  scope: memory
+  sourceIds:
+    - valve-steam-deck-tech-specs
+  status: vendor-rated
+  subject:
+    id: valve-steam-deck
+    kind: system
+  evidenceLevel: confirmed
+- caveat: >-
+    Valve publishes the transfer rate and the channel geometry and no bandwidth,
+    so this is the arithmetic between them rather than a figure anybody stated.
+    It is the bus at its peak, shared between the processor and the graphics
+    units on the same chip, so no single part of the machine ever sees all of
+    it.
+  comparabilityGroup: memory-bandwidth|memory|theoretical-peak
+  conditions: LPDDR5 at its rated transfer rate across the full interface.
+  derivedFrom: valve-steam-deck:memory-bandwidth-from-specification
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - steam-deck:tech:ram
+  id: valve-steam-deck:memory-bandwidth
+  method: theoretical-peak
+  metric: memory-bandwidth
+  normalized:
+    value: "88000000000"
+    unit: B/s
+    significantDigits: 2
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 2
+    state: value
+    unit: GB/s
+    value: "88"
+  rounding: half-up
+  scope: memory
+  sourceIds:
+    - valve-steam-deck-tech-specs
+  status: derived
+  subject:
+    id: valve-steam-deck
+    kind: system
+  evidenceLevel: confirmed

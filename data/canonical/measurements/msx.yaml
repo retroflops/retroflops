@@ -1,0 +1,241 @@
+- caveat: The catalog records the standard MSX clock, not later turbo modes.
+  comparabilityGroup: clock-frequency|cpu|nominal-clock
+  editorialStatus: provisional
+  evidenceStage: shipped
+  extractIds:
+    - msx-top-secret-3:cpu-clock
+    - msxinfo-standard-specifications:cpu-clock
+  id: msx:clock-frequency
+  method: nominal-clock
+  metric: clock-frequency
+  provenance: vendor
+  quantity:
+    significantDigits: 3
+    state: value
+    unit: MHz
+    value: "3.58"
+  scope: cpu
+  sourceIds:
+    - msx-top-secret-3
+    - msxinfo-standard-specifications
+  status: vendor-rated
+  subject:
+    configurationId: msx1-64k
+    id: msx
+    kind: system
+  normalized:
+    value: "3580000"
+    unit: Hz
+    significantDigits: 3
+    unitRegistry: units-v1
+  evidenceLevel: confirmed
+- caveat: The verified book record does not expose a page-level RAM quotation.
+  comparabilityGroup: memory-capacity|memory|design-capacity
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: msx-ram:capacity
+  method: design-capacity
+  metric: memory-capacity
+  provenance: vendor
+  quantity:
+    note: No page-level RAM figure has been verified in the cited book.
+    state: unknown
+  unknownAudit:
+    reviewedOn: 2026-08-25
+    routesChecked:
+      - vendor-documentation
+      - independent-analysis
+      - community-source
+    outcome: no-published-candidate
+    summary: The checked data book has no page-level compatible value.
+  scope: memory
+  sourceIds:
+    - msx-technical-data-book
+  status: vendor-rated
+  subject:
+    id: msx-ram
+    kind: component
+- caveat: The verified book record does not expose a page-level ROM quotation.
+  comparabilityGroup: memory-capacity|memory|design-capacity
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: msx-rom:capacity
+  method: design-capacity
+  metric: memory-capacity
+  provenance: vendor
+  quantity:
+    note: No page-level ROM figure has been verified in the cited book.
+    state: unknown
+  unknownAudit:
+    reviewedOn: 2026-08-25
+    routesChecked:
+      - vendor-documentation
+      - independent-analysis
+      - community-source
+    outcome: no-published-candidate
+    summary: The checked data book has no page-level compatible value.
+  scope: memory
+  sourceIds:
+    - msx-technical-data-book
+  status: vendor-rated
+  subject:
+    id: msx-rom
+    kind: component
+- caveat: >-
+    No whole-system memory total can be supported while the verified source
+    provides no RAM figure.
+  comparabilityGroup: memory-capacity|whole-system|design-capacity
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: msx:whole-system-memory-capacity
+  method: design-capacity
+  metric: memory-capacity
+  provenance: vendor
+  quantity:
+    note: No whole-system total can be derived without a verified RAM figure.
+    state: unknown
+  unknownAudit:
+    reviewedOn: 2026-08-25
+    routesChecked:
+      - vendor-documentation
+      - independent-analysis
+      - community-source
+    outcome: no-compatible-candidate
+    summary: A whole-system total cannot be derived from the checked material.
+  scope: whole-system
+  sourceIds:
+    - msx-technical-data-book
+  status: vendor-rated
+  subject:
+    id: msx
+    kind: system
+- caveat: >-
+    The technical data book provides no page-level graphics-clock figure
+    suitable for this record.
+  comparabilityGroup: clock-frequency|gpu|nominal-clock
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: msx:gpu-clock-frequency
+  method: nominal-clock
+  metric: clock-frequency
+  provenance: vendor
+  quantity:
+    note: No accepted graphics-clock figure was located in the data book.
+    state: unknown
+  unknownAudit:
+    reviewedOn: 2026-08-25
+    routesChecked:
+      - vendor-documentation
+      - independent-analysis
+      - community-source
+    outcome: no-published-candidate
+    summary: The checked data book provides no compatible graphics-clock value.
+  scope: gpu
+  sourceIds:
+    - msx-technical-data-book
+  status: vendor-rated
+  subject:
+    id: msx
+    kind: system
+- caveat: >-
+    The technical data book provides no memory transfer-rate figure from which
+    bandwidth can be stated.
+  comparabilityGroup: memory-bandwidth|memory|theoretical-peak
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: msx:memory-bandwidth
+  method: theoretical-peak
+  metric: memory-bandwidth
+  provenance: vendor
+  quantity:
+    note: No accepted memory transfer-rate figure was located in the data book.
+    state: unknown
+  unknownAudit:
+    reviewedOn: 2026-08-25
+    routesChecked:
+      - vendor-documentation
+      - independent-analysis
+      - community-source
+    outcome: no-compatible-candidate
+    summary: The checked data book provides no memory transfer rate.
+  scope: memory
+  sourceIds:
+    - msx-technical-data-book
+  status: vendor-rated
+  subject:
+    id: msx
+    kind: system
+- caveat: >-
+    Provisional record for msx-z80a:peak-fp32-rate: the cited primary manual is
+    registered, but its page-level transcription and independent review are
+    still pending.
+  comparabilityGroup: peak-fp32-rate|cpu|theoretical-peak
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: msx-z80a:peak-fp32-rate
+  method: theoretical-peak
+  metric: peak-fp32-rate
+  provenance: vendor
+  quantity:
+    note: The Z80A contains no floating-point hardware.
+    state: not-applicable
+  scope: cpu
+  sourceIds:
+    - msx-technical-data-book
+  status: vendor-rated
+  subject:
+    id: msx-z80a
+    kind: component
+- comparabilityGroup: sustained-fp40-rate|whole-system|benchmark-run
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: msx:sustained-fp40-rate
+  method: benchmark-run
+  metric: sustained-fp40-rate
+  provenance: independent
+  quantity:
+    note: >-
+      A ROM BASIC result must name its benchmark and five-byte format before it
+      can be stated.
+    state: unknown
+  unknownAudit:
+    reviewedOn: 2026-08-25
+    routesChecked:
+      - vendor-documentation
+      - independent-analysis
+      - community-source
+    outcome: no-compatible-candidate
+    summary: No named reproducible benchmark result is present in the checked material.
+  scope: whole-system
+  sourceIds:
+    - msx-technical-data-book
+  status: measured
+  subject:
+    id: msx
+    kind: system
+- caveat: The technical data book provides no whole-system power rating.
+  comparabilityGroup: rated-power-consumption|whole-system|rated-power
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: msx:rated-power-consumption
+  method: rated-power
+  metric: rated-power-consumption
+  provenance: vendor
+  quantity:
+    note: No accepted whole-system power rating was located in the data book.
+    state: unknown
+  unknownAudit:
+    reviewedOn: 2026-08-25
+    routesChecked:
+      - vendor-documentation
+      - independent-analysis
+      - community-source
+    outcome: no-published-candidate
+    summary: The checked data book provides no whole-system power rating.
+  scope: whole-system
+  sourceIds:
+    - msx-technical-data-book
+  status: vendor-rated
+  subject:
+    id: msx
+    kind: system

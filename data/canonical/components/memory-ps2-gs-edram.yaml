@@ -1,0 +1,19 @@
+id: ps2-gs-edram
+slug: ps2-gs-edram
+kind: memory
+name: Graphics Synthesizer embedded DRAM
+manufacturer: Sony Computer Entertainment
+memoryType: Embedded DRAM
+summary:
+  Four mebibytes of DRAM on the Graphics Synthesizer die, holding the frame
+  buffer, Z buffer and textures behind a {{measurement:ps2-gs-edram:bus-width}}
+  bus.
+notes:
+  The capacity and the bandwidth are the two halves of the same design decision.
+  Putting the frame buffer on the die bought a bus no external memory of the era
+  could match, and cost the console the room to hold large textures — which is
+  why PlayStation 2 titles stream texture data from main memory during drawing.
+sourceIds:
+  - scei-ps2-specifications-1999
+  - scei-ee-gs-single-chip-2003
+editorialStatus: approved

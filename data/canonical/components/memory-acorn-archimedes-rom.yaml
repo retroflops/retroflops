@@ -1,0 +1,13 @@
+id: acorn-archimedes-rom
+slug: acorn-archimedes-rom
+kind: memory
+name: Acorn Archimedes ROM
+manufacturer: Acorn Computers
+architecture: Mask ROM
+introducedDate: '1987'
+memoryType: Mask ROM
+summary:
+  '{{context:acorn-archimedes-rom:context-kib-512}} read-only RISC OS firmware.'
+sourceIds:
+  - acorn-archimedes-technical-reference
+editorialStatus: provisional

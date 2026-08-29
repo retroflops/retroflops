@@ -1,0 +1,29 @@
+- id: a4000-ug:xi:features
+  sourceId: commodore-amiga-4000-user-guide
+  locator: Introduction, pages xi–xii, "Features"
+  extract: >-
+    Motorola 68040 series microprocessor running at 25 MHz, on a removable
+    processor module. AA custom chipset. Up to 2 MB 32-bit Chip memory using
+    SIMMs. Up to 16 MB 32-bit Fast memory using SIMMs.
+  extractHash: 99d72235bb687d602fa54c72d1dcf80706a8d83d969124bb09f66d6c98aa09c8
+  transcribedOn: 2026-08-26
+  transcribedBy: RetroFlops editorial
+  notes: >-
+    The scan's introductory feature list is transcribed as sentences. This list
+    establishes the stock processor module and the motherboard memory limits,
+    not a fixed retail Fast-RAM configuration.
+- id: a4000-ug:4-4:chip-ram
+  sourceId: commodore-amiga-4000-user-guide
+  locator: Chapter 4, page 4-4, "Chip RAM SIMMs"
+  extract: >-
+    An Amiga with one megabyte of Chip RAM can be upgraded to two megabytes by
+    changing the SIMM in the Chip RAM socket to a larger module. One-megabyte
+    Chip RAM systems have a 1 MB module. By removing this module and inserting a
+    2 MB module, Chip RAM increases to 2 megabytes.
+  extractHash: e2099c3c2ecffd5e83a6cfa645fcde89601ee177c311fd56051356c6a6596e1a
+  transcribedOn: 2026-08-26
+  transcribedBy: RetroFlops editorial
+  notes: >-
+    The guide describes memory as configurable. This extract supports the
+    two-MiB Chip-RAM configuration and does not claim that every A4000 shipped
+    with it.

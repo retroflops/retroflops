@@ -1,0 +1,238 @@
+- caveat: >-
+    The lower declared clock. The separately named upper clock is a different
+    quantity and uses peak-clock.
+  comparabilityGroup: clock-frequency|gpu|nominal-clock
+  editorialStatus: approved
+  evidenceStage: shipped
+  id: amd-navi31:clock-frequency-base
+  method: nominal-clock
+  metric: clock-frequency
+  normalized:
+    value: "2300000000"
+    unit: Hz
+    significantDigits: 2
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 2
+    state: value
+    unit: MHz
+    value: "2300"
+  scope: gpu
+  sourceIds:
+    - amd-radeon-rx-7900-xtx-product-specifications
+  status: vendor-rated
+  subject:
+    id: amd-navi31
+    kind: component
+  evidenceLevel: confirmed
+- caveat: >-
+    AMD calls this the boost clock. Its separate game clock is a nominal-clock
+    measurement.
+  comparabilityGroup: clock-frequency|gpu|peak-clock
+  editorialStatus: approved
+  evidenceStage: shipped
+  id: amd-navi31:clock-frequency-boost
+  method: peak-clock
+  metric: clock-frequency
+  normalized:
+    value: "2500000000"
+    unit: Hz
+    significantDigits: 2
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 2
+    state: value
+    unit: MHz
+    value: "2500"
+  scope: gpu
+  sourceIds:
+    - amd-radeon-rx-7900-xtx-product-specifications
+  status: vendor-rated
+  subject:
+    id: amd-navi31
+    kind: component
+  evidenceLevel: confirmed
+- caveat: The frame buffer fitted to the reference accelerator; host memory is
+    excluded.
+  comparabilityGroup: memory-capacity|whole-system|design-capacity
+  editorialStatus: approved
+  evidenceStage: shipped
+  id: amd-radeon-rx-7900-xtx-memory:capacity
+  method: design-capacity
+  metric: memory-capacity
+  normalized:
+    value: "25769803776"
+    unit: B
+    significantDigits: 2
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 2
+    state: value
+    unit: GiB
+    value: "24"
+  scope: whole-system
+  sourceIds:
+    - amd-radeon-rx-7900-xtx-product-specifications
+  status: vendor-rated
+  subject:
+    id: amd-radeon-rx-7900-xtx-memory
+    kind: component
+  evidenceLevel: confirmed
+- caveat: >-
+    Vendor-stated maximum transfer rate of this memory interface, not a
+    benchmarked application result.
+  comparabilityGroup: memory-bandwidth|memory|theoretical-peak
+  editorialStatus: approved
+  evidenceStage: shipped
+  id: amd-radeon-rx-7900-xtx-memory:bandwidth
+  method: theoretical-peak
+  metric: memory-bandwidth
+  normalized:
+    value: "960000000000"
+    unit: B/s
+    significantDigits: 3
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 3
+    state: value
+    unit: GB/s
+    value: "960"
+  scope: memory
+  sourceIds:
+    - amd-radeon-rx-7900-xtx-product-specifications
+  status: theoretical
+  subject:
+    id: amd-radeon-rx-7900-xtx-memory
+    kind: component
+  evidenceLevel: confirmed
+- caveat: Adds the one fitted frame-buffer bandwidth. No host memory is included.
+  comparabilityGroup: memory-bandwidth|whole-system|theoretical-peak
+  derivedFrom: amd-radeon-rx-7900-xtx:whole-system-memory-bandwidth
+  editorialStatus: approved
+  evidenceStage: shipped
+  id: amd-radeon-rx-7900-xtx:whole-system-memory-bandwidth
+  method: theoretical-peak
+  metric: memory-bandwidth
+  normalized:
+    value: "960000000000"
+    unit: B/s
+    significantDigits: 3
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 3
+    state: value
+    unit: GB/s
+    value: "960"
+  rounding: none
+  scope: whole-system
+  sourceIds:
+    - amd-radeon-rx-7900-xtx-product-specifications
+  status: derived
+  subject:
+    id: amd-radeon-rx-7900-xtx
+    kind: system
+  evidenceLevel: confirmed
+- caveat: >-
+    AMD’s 61.42 TFLOPS uses 12,288 stream processors × two FP32 operations per
+    cycle × the {{measurement:amd-navi31:clock-frequency-boost}} boost clock,
+    never the {{measurement:amd-navi31:clock-frequency-base}} game clock.
+  comparabilityGroup: peak-fp32-rate|gpu|theoretical-peak
+  conditions: 12,288 stream processors × 2 FP32 operations per cycle ×
+    {{measurement:amd-navi31:clock-frequency-boost}} boost clock.
+  editorialStatus: approved
+  evidenceStage: shipped
+  id: amd-navi31:peak-fp32-rate
+  method: theoretical-peak
+  metric: peak-fp32-rate
+  normalized:
+    value: "61420000000000"
+    unit: FLOP/s
+    significantDigits: 4
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 4
+    state: value
+    unit: TFLOP/s
+    value: "61.42"
+  scope: gpu
+  sourceIds:
+    - amd-radeon-rx-7900-xtx-product-specifications
+  status: theoretical
+  subject:
+    id: amd-navi31
+    kind: component
+  evidenceLevel: confirmed
+- caveat: The vendor’s board-power rating, not a measured system draw.
+  comparabilityGroup: rated-power-consumption|gpu|rated-power
+  editorialStatus: approved
+  evidenceStage: shipped
+  id: amd-navi31:rated-power-consumption
+  method: rated-power
+  metric: rated-power-consumption
+  normalized:
+    value: "355"
+    unit: W
+    significantDigits: 3
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 3
+    state: value
+    unit: W
+    value: "355"
+  scope: gpu
+  sourceIds:
+    - amd-radeon-rx-7900-xtx-product-specifications
+  status: vendor-rated
+  subject:
+    id: amd-navi31
+    kind: component
+  evidenceLevel: confirmed
+- asOf: 2026-08-18
+  benchmark:
+    id: geekbench-compute
+    variant: opencl
+    version: "7"
+  caveat: >-
+    A dated capture of the benchmark publisher’s rolling average for this
+    graphics processor, read from the 25 July 2026 OpenCL chart. Version 7
+    calibrates a compute result against a baseline of 100,000, so it may be
+    compared only with another Geekbench 7 OpenCL figure from this curation
+    round, never with a Metal figure, an earlier version or a processor score.
+    The chart also lists this processor under “Radeon RX 7900 XTX”, at 212 610;
+    the row naming the product as its maker does was taken, and the disagreement
+    is recorded in the conflict ledger.
+  comparabilityGroup: geekbench-compute-score|gpu|benchmark-chart-average|geekbench-compute@7:opencl
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - geekbench-opencl-chart-2026-07-25:rx-7900-xtx
+    - geekbench-opencl-chart-2026-07-25:what-the-figures-are
+  id: amd-navi31:geekbench-compute-7-opencl
+  method: benchmark-chart-average
+  metric: geekbench-compute-score
+  normalized:
+    value: "208566"
+    unit: score
+    significantDigits: 6
+    unitRegistry: units-v1
+  provenance: independent
+  quantity:
+    significantDigits: 6
+    state: value
+    unit: score
+    value: "208566"
+  scope: gpu
+  sourceIds:
+    - geekbench-opencl-benchmark-chart-2026-07-25
+  status: measured
+  subject:
+    id: amd-navi31
+    kind: component
+  evidenceLevel: confirmed

@@ -1,0 +1,17 @@
+id: sony-playstation-5:context-unit-2
+subject:
+  kind: system
+  id: sony-playstation-5
+label: Count
+quantity:
+  state: value
+  value: '2'
+  unit: unit
+  significantDigits: 1
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - scei-ps5-hardware-specs-2020
+evidenceLevel: confirmed

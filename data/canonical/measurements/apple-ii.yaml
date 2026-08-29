@@ -1,0 +1,250 @@
+- comparabilityGroup: clock-frequency|cpu|nominal-clock
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - apple-ii-reference-manual:cpu-clock
+  id: apple-ii:clock-frequency
+  method: nominal-clock
+  metric: clock-frequency
+  normalized:
+    value: "1023000"
+    unit: Hz
+    significantDigits: 4
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 4
+    state: value
+    unit: MHz
+    value: "1.023"
+  scope: cpu
+  sourceIds:
+    - apple-ii-reference-manual
+  status: vendor-rated
+  subject:
+    configurationId: ram-unspecified
+    id: apple-ii
+    kind: system
+  evidenceLevel: confirmed
+- comparabilityGroup: memory-capacity|memory|design-capacity
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - apple-ii-reference-manual:memory-configuration
+  id: apple-ii-ram:capacity
+  method: design-capacity
+  metric: memory-capacity
+  provenance: vendor
+  quantity:
+    note: >-
+      The January 1978 manual leaves fitted RAM dependent on the purchased
+      configuration and does not state one universal capacity.
+    state: unknown
+  unknownAudit:
+    reviewedOn: 2026-08-25
+    routesChecked:
+      - vendor-documentation
+      - independent-analysis
+      - community-source
+    outcome: no-compatible-candidate
+    summary: The checked reference manual provides no universal comparable value.
+  scope: memory
+  sourceIds:
+    - apple-ii-reference-manual
+  status: vendor-rated
+  subject:
+    id: apple-ii-ram
+    kind: component
+- comparabilityGroup: memory-capacity|memory|design-capacity
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - apple-ii-reference-manual:memory-configuration
+  id: apple-ii-rom:capacity
+  method: design-capacity
+  metric: memory-capacity
+  normalized:
+    value: "8192"
+    unit: B
+    significantDigits: 1
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 1
+    state: value
+    unit: KiB
+    value: "8"
+  scope: memory
+  sourceIds:
+    - apple-ii-reference-manual
+  status: vendor-rated
+  subject:
+    id: apple-ii-rom
+    kind: component
+  evidenceLevel: confirmed
+- comparabilityGroup: clock-frequency|gpu|nominal-clock
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - apple-ii-reference-manual:video-reference
+  id: apple-ii:gpu-clock-frequency
+  method: nominal-clock
+  metric: clock-frequency
+  provenance: vendor
+  quantity:
+    note: >-
+      The reference manual describes several display timing signals but does not
+      state one frequency for a graphics processor.
+    state: unknown
+  unknownAudit:
+    reviewedOn: 2026-08-25
+    routesChecked:
+      - vendor-documentation
+      - independent-analysis
+      - community-source
+    outcome: no-published-candidate
+    summary: The checked reference manual provides no compatible published value.
+  scope: gpu
+  sourceIds:
+    - apple-ii-reference-manual
+  status: vendor-rated
+  subject:
+    id: apple-ii
+    kind: system
+- comparabilityGroup: memory-capacity|whole-system|design-capacity
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - apple-ii-reference-manual:memory-configuration
+  id: apple-ii:whole-system-memory-capacity
+  method: design-capacity
+  metric: memory-capacity
+  provenance: vendor
+  quantity:
+    note: >-
+      The January 1978 manual leaves fitted RAM dependent on the purchased
+      configuration, so it does not support one whole-system writable-memory
+      capacity.
+    state: unknown
+  unknownAudit:
+    reviewedOn: 2026-08-25
+    routesChecked:
+      - vendor-documentation
+      - independent-analysis
+      - community-source
+    outcome: no-compatible-candidate
+    summary: The checked reference manual provides no universal comparable value.
+  scope: whole-system
+  sourceIds:
+    - apple-ii-reference-manual
+  status: vendor-rated
+  subject:
+    id: apple-ii
+    kind: system
+- comparabilityGroup: memory-bandwidth|memory|theoretical-peak
+  editorialStatus: approved
+  evidenceStage: shipped
+  id: apple-ii:memory-bandwidth
+  method: theoretical-peak
+  metric: memory-bandwidth
+  provenance: vendor
+  quantity:
+    note: The reference manual specifies memory organization, not a transfer-rate
+      figure.
+    state: unknown
+  unknownAudit:
+    reviewedOn: 2026-08-25
+    routesChecked:
+      - vendor-documentation
+      - independent-analysis
+      - community-source
+    outcome: no-compatible-candidate
+    summary: The checked reference manual provides no compatible published value.
+  scope: memory
+  sourceIds:
+    - apple-ii-reference-manual
+  status: vendor-rated
+  subject:
+    id: apple-ii
+    kind: system
+- comparabilityGroup: peak-fp32-rate|cpu|theoretical-peak
+  editorialStatus: approved
+  evidenceStage: shipped
+  id: apple-ii-6502:peak-fp32-rate
+  method: theoretical-peak
+  metric: peak-fp32-rate
+  provenance: vendor
+  quantity:
+    note: >-
+      The manual documents software floating point but does not explicitly state
+      whether the Apple II configuration has floating-point hardware.
+    state: unknown
+  unknownAudit:
+    reviewedOn: 2026-08-25
+    routesChecked:
+      - vendor-documentation
+      - independent-analysis
+      - community-source
+    outcome: no-compatible-candidate
+    summary: No named reproducible benchmark result is present in the checked material.
+  scope: cpu
+  sourceIds:
+    - apple-ii-reference-manual
+  status: vendor-rated
+  subject:
+    id: apple-ii-6502
+    kind: component
+- comparabilityGroup: sustained-fp40-rate|whole-system|benchmark-run
+  editorialStatus: approved
+  evidenceStage: shipped
+  id: apple-ii:sustained-fp40-rate
+  method: benchmark-run
+  metric: sustained-fp40-rate
+  provenance: independent
+  quantity:
+    note: >-
+      The ROM format is outside FP32 and FP64; no named, reproducible benchmark
+      run has yet been admitted.
+    state: unknown
+  unknownAudit:
+    reviewedOn: 2026-08-25
+    routesChecked:
+      - vendor-documentation
+      - independent-analysis
+      - community-source
+    outcome: no-compatible-candidate
+    summary: The checked reference manual provides no comparable power rating.
+  scope: whole-system
+  sourceIds:
+    - apple-ii-reference-manual
+  status: measured
+  subject:
+    id: apple-ii
+    kind: system
+- comparabilityGroup: rated-power-consumption|whole-system|rated-power
+  editorialStatus: approved
+  evidenceStage: shipped
+  id: apple-ii:rated-power-consumption
+  method: rated-power
+  metric: rated-power-consumption
+  provenance: vendor
+  quantity:
+    note: >-
+      The manual gives power-supply limits and a minimum-load condition, not a
+      comparable whole-system consumption rating.
+    state: unknown
+  unknownAudit:
+    reviewedOn: 2026-08-25
+    routesChecked:
+      - vendor-documentation
+      - independent-analysis
+      - community-source
+    outcome: no-compatible-candidate
+    summary: The checked reference manual provides no comparable power rating.
+  scope: whole-system
+  sourceIds:
+    - apple-ii-reference-manual
+  status: vendor-rated
+  subject:
+    id: apple-ii
+    kind: system

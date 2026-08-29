@@ -1,0 +1,17 @@
+id: microsoft-xbox-pentium-iii:context-bit-32
+subject:
+  kind: component
+  id: microsoft-xbox-pentium-iii
+label: Word size
+quantity:
+  state: value
+  value: '32'
+  unit: bit
+  significantDigits: 2
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - microsoft-xbox-hardware-specification
+evidenceLevel: confirmed

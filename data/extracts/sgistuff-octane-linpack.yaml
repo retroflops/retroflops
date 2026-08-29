@@ -1,0 +1,15 @@
+- extract: >-
+    System                       CPU               OS           Kflops       Compiler
+
+    SGI Octane                   R10000/250Mhz     IRIX 6.4     100306       cc
+    -Ofast -mips4
+  extractHash: acf18a38017f4401e6dabc90b8dfcfe5af4efbde26a5373cb30bfff532c8f16a
+  id: sgistuff-octane-linpack:octane-r10000-250mhz
+  locator: Linpack table, SGI Octane R10000/250MHz row
+  notes: >-
+    The table names the program only as Linpack. It gives neither a revision nor
+    a floating-point precision, so its kFLOP/s result cannot be classified as
+    FP64.
+  sourceId: sgistuff-octane-linpack
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-24

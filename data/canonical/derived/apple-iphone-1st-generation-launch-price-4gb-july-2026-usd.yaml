@@ -1,0 +1,32 @@
+id: apple-iphone-1st-generation:launch-price-4gb-july-2026-usd
+formula:
+  id: price-adjusted-by-cpi
+  version: '1'
+  expression: nominal price × target CPI-U ÷ launch CPI-U
+inputMeasurementIds:
+  - apple-iphone-1st-generation:launch-price-4gb
+constants:
+  - id: target-cpi-u
+    label: CPI-U for July 2026
+    value: '333.918'
+    reason: The target month in the frozen CPI-U snapshot.
+    sourceIds:
+      - bls-cpi-u-july-2026
+  - id: launch-cpi-u
+    label: CPI-U for June 2007
+    value: '208.352'
+    reason: The month the iPhone went on sale in the United States.
+    sourceIds:
+      - bls-cpi-u-july-2026
+result:
+  state: value
+  value: '800'
+  unit: USD
+  significantDigits: 3
+rounding: half-up
+caveat: >-
+  Multiplies the nominal U.S. list price by CPI-U for July 2026 and divides by
+  CPI-U for June 2007. The original price remains the cited launch figure. CPI-U
+  adjusts for U.S. consumer prices; it does not convert currencies or markets.
+  Reported to 3 significant digits, the precision of the nominal price.
+editorialStatus: approved

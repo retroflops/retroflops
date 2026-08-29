@@ -1,0 +1,163 @@
+---
+// SPDX-FileCopyrightText: 2026 Wojciech Polak
+// SPDX-License-Identifier: MIT
+
+/**
+ * A computed comparison, shown with everything needed to check it: the formula
+ * and its version, both inputs with their own figures, the rounding rule and
+ * the generated caveat.
+ *
+ * Nothing here is written by hand except the formula's expression. If a reader
+ * cannot reproduce the result from what this card shows, the card is wrong.
+ */
+import { getMeasurementById } from '~/lib/catalog';
+import type { DerivedClaim } from '~/lib/data/schema';
+import { formatClaimResult, formatQuantity, metricLabel } from '~/lib/display';
+
+interface Props {
+  claim: DerivedClaim;
+}
+
+const { claim } = Astro.props;
+
+const inputs = claim.inputMeasurementIds.map((id) => {
+  const measurement = getMeasurementById(id);
+  return {
+    id,
+    label: measurement === undefined ? id : metricLabel(measurement.metric),
+    subject: measurement?.subject.id ?? '',
+    figure: measurement === undefined ? undefined : formatQuantity(measurement.quantity),
+  };
+});
+---
+
+<article class="derived-claim stack">
+  <p class="derived-claim__result numeric">{formatClaimResult(claim.result)}</p>
+
+  <dl class="derived-claim__facts">
+    <div>
+      <dt>Formula</dt>
+      <dd>
+        <code>{claim.formula.expression}</code>
+        <span class="derived-claim__version">{claim.formula.id} v{claim.formula.version}</span>
+      </dd>
+    </div>
+    <div>
+      <dt>Inputs</dt>
+      <dd>
+        <ul>
+          {
+            inputs.map((input) => (
+              <li>
+                <span class="derived-claim__subject">{input.subject}</span>
+                <span>
+                  {input.label}: <span class="numeric">{input.figure?.text ?? input.id}</span>
+                </span>
+              </li>
+            ))
+          }
+        </ul>
+      </dd>
+    </div>
+    {
+      (claim.constants ?? []).length > 0 && (
+        <div>
+          <dt>Constants</dt>
+          <dd>
+            <ul>
+              {(claim.constants ?? []).map((constant) => (
+                <li>
+                  <span>
+                    {constant.label}: <span class="numeric">{constant.value}</span>
+                  </span>
+                  <span class="derived-claim__reason">{constant.reason}</span>
+                </li>
+              ))}
+            </ul>
+          </dd>
+        </div>
+      )
+    }
+    <div>
+      <dt>Rounding</dt>
+      <dd>
+        {claim.rounding}
+        {
+          claim.result.state === 'value' &&
+            `, ${claim.result.significantDigits} significant digit${claim.result.significantDigits === 1 ? '' : 's'}`
+        }
+      </dd>
+    </div>
+  </dl>
+
+  <p class="derived-claim__caveat">{claim.caveat}</p>
+</article>
+
+<style>
+  .derived-claim {
+    border: var(--border-hairline);
+    border-inline-start: 3px solid var(--text-accent);
+    background-color: var(--surface-raised);
+    padding: var(--space-s);
+  }
+
+  .derived-claim__result {
+    font-size: var(--step-3);
+    font-weight: 650;
+    color: var(--text-accent);
+  }
+
+  .derived-claim__facts {
+    display: grid;
+    gap: var(--space-xs);
+    margin: 0;
+  }
+
+  .derived-claim__facts dt {
+    font-family: var(--font-mono);
+    font-size: var(--step--1);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--text-muted);
+  }
+
+  .derived-claim__facts dd {
+    margin: 0;
+  }
+
+  .derived-claim__facts ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .derived-claim__facts li {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3xs) var(--space-2xs);
+  }
+
+  .derived-claim__subject,
+  .derived-claim__version {
+    font-family: var(--font-mono);
+    font-size: var(--step--1);
+    color: var(--text-muted);
+  }
+
+  .derived-claim__version {
+    margin-inline-start: var(--space-2xs);
+  }
+
+  .derived-claim__reason {
+    flex-basis: 100%;
+    max-inline-size: var(--prose-max);
+    font-size: var(--step--1);
+    color: var(--text-secondary);
+  }
+
+  .derived-claim__caveat {
+    max-inline-size: var(--prose-max);
+    font-size: var(--step--1);
+    color: var(--text-secondary);
+  }
+</style>

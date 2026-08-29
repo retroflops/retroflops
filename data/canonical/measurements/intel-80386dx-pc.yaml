@@ -1,0 +1,166 @@
+- caveat: >-
+    This figure remains provisional until the cited source is corroborated for
+    the exact configuration.
+  comparabilityGroup: clock-frequency|cpu|nominal-clock
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: intel-80386dx:clock-frequency
+  method: nominal-clock
+  metric: clock-frequency
+  normalized:
+    value: "25000000"
+    unit: Hz
+    significantDigits: 2
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 2
+    state: value
+    unit: MHz
+    value: "25"
+  scope: cpu
+  sourceIds:
+    - intel-historical-x86-documentation
+  status: vendor-rated
+  subject:
+    id: intel-80386dx
+    kind: component
+  evidenceLevel: confirmed
+- caveat: >-
+    This figure remains provisional until the cited source is corroborated for
+    the exact configuration.
+  comparabilityGroup: clock-frequency|cpu|peak-clock
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: intel-80386dx:peak-clock
+  method: peak-clock
+  metric: clock-frequency
+  provenance: vendor
+  quantity:
+    note: The 80386DX predates dynamic turbo modes.
+    state: not-applicable
+  scope: cpu
+  sourceIds:
+    - intel-historical-x86-documentation
+  status: vendor-rated
+  subject:
+    id: intel-80386dx
+    kind: component
+- benchmark:
+    id: dhrystone
+    version: "2.1"
+  caveat: >-
+    A named historic Dhrystone 2.1 result, normalized by the run clock; the
+    one-source result remains provisional.
+  comparabilityGroup: dhrystone-mips-per-mhz|cpu|benchmark-run|dhrystone@2.1
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: intel-80386dx:dhrystone-mips-per-mhz
+  method: benchmark-run
+  metric: dhrystone-mips-per-mhz
+  normalized:
+    value: "0.31"
+    unit: DMIPS/MHz
+    significantDigits: 2
+    unitRegistry: units-v1
+  provenance: independent
+  quantity:
+    significantDigits: 2
+    state: value
+    unit: DMIPS/MHz
+    value: "0.31"
+  scope: cpu
+  sourceIds:
+    - x86-dhrystone-results
+  status: measured
+  subject:
+    id: intel-80386dx
+    kind: component
+  evidenceLevel: reported
+- caveat: >-
+    This figure remains provisional until the cited source is corroborated for
+    the exact configuration.
+  comparabilityGroup: peak-fp32-rate|cpu|theoretical-peak
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: intel-80386dx:peak-fp32-rate
+  method: theoretical-peak
+  metric: peak-fp32-rate
+  provenance: vendor
+  quantity:
+    note: >-
+      The 80386DX has no integrated floating-point unit; an 80387 would be a
+      separate coprocessor.
+    state: not-applicable
+  scope: cpu
+  sourceIds:
+    - intel-historical-x86-documentation
+  status: vendor-rated
+  subject:
+    id: intel-80386dx
+    kind: component
+- caveat: >-
+    Checked against the part's own datasheet rather than against a general
+    history. What Intel published for this generation is an electrical limit,
+    not a thermal-design target, and the two are different quantities however
+    similar the arithmetic looks.
+  comparabilityGroup: thermal-design-power|cpu|rated-power
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: intel-80386dx:thermal-design-power
+  method: rated-power
+  metric: thermal-design-power
+  provenance: vendor
+  quantity:
+    note: >-
+      The absence is real and now documented. The datasheet's DC characteristics
+      specify a supply current for each speed grade — 320 mA maximum against 240
+      mA typical for the {{measurement:intel-80386dx:clock-frequency}} part —
+      and no power figure. The current is quoted against a
+      {{context:intel-80386dx:context-mhz-50}} CLK2 input, which is twice the
+      processor's own frequency, so even the inputs to an unauthorized
+      derivation are easy to misread.
+    state: unknown
+  unknownAudit:
+    reviewedOn: 2026-08-25
+    routesChecked:
+      - vendor-documentation
+      - independent-analysis
+      - community-source
+    outcome: no-published-candidate
+    summary: The checked datasheet provides no thermal-design-power value.
+  scope: cpu
+  sourceIds:
+    - intel-386dx-datasheet
+  status: vendor-rated
+  subject:
+    id: intel-80386dx
+    kind: component
+- caveat: >-
+    This figure remains provisional until the cited source is corroborated for
+    the exact configuration.
+  comparabilityGroup: memory-capacity|whole-system|design-capacity
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: intel-80386dx-pc:whole-system-memory-capacity
+  method: design-capacity
+  metric: memory-capacity
+  normalized:
+    value: "4194304"
+    unit: B
+    significantDigits: 1
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 1
+    state: value
+    unit: MiB
+    value: "4"
+  scope: whole-system
+  sourceIds:
+    - intel-historical-x86-documentation
+  status: vendor-rated
+  subject:
+    id: intel-80386dx-pc
+    kind: system
+  evidenceLevel: confirmed

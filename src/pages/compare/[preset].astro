@@ -1,0 +1,120 @@
+---
+// SPDX-FileCopyrightText: 2026 Wojciech Polak
+// SPDX-License-Identifier: MIT
+
+/**
+ * An editorially approved comparison, rendered whole at build time.
+ *
+ * This route is the reason Compare works without JavaScript: the comparison, its
+ * multipliers and every refusal are in the HTML, and the interactive selector on
+ * `/compare/` is an addition to it rather than the only way in.
+ */
+import { getCollection, render } from 'astro:content';
+
+import ComparisonView from '~/components/comparison-view';
+import BaseLayout from '~/layouts/base-layout.astro';
+import { route } from '~/lib/paths';
+import { presetAvailability, presetComparison, presetQuery } from '~/lib/presets';
+import { breadcrumbList, comparisonArticle } from '~/lib/structured-data';
+
+export async function getStaticPaths() {
+  const presets = (await getCollection('presets')).toSorted((a, b) => a.data.order - b.data.order);
+  return presets.map((preset) => ({ params: { preset: preset.id }, props: { preset } }));
+}
+
+const { preset } = Astro.props;
+const { Content } = await render(preset);
+
+const comparison = presetComparison(preset.data, preset.id);
+const availability = presetAvailability(preset.data);
+const researchNames = comparison.subjects
+  .filter((subject) => availability.researchSlugs.includes(subject.slug))
+  .map((subject) => subject.name);
+const path = `/compare/${preset.id}/`;
+
+const absolute = (target: string): string => new URL(route(target), Astro.site ?? Astro.url).href;
+const structuredData = [
+  comparisonArticle(preset.data.title, preset.data.summary, path, absolute),
+  breadcrumbList(
+    [
+      { name: 'RetroFlops', path: '/' },
+      { name: 'Compare', path: '/compare/' },
+      { name: preset.data.title, path },
+    ],
+    absolute,
+  ),
+];
+---
+
+<BaseLayout
+  title={preset.data.title}
+  description={preset.data.summary}
+  structuredData={structuredData}
+  noindex={availability.availability === 'research'}
+>
+  <header class="page-header stack">
+    <p class="page-header__eyebrow">
+      <a href={route('/compare/')}>Compare</a>
+    </p>
+    <h1>{preset.data.title}</h1>
+    <p class="lede prose">{preset.data.summary}</p>
+    {
+      availability.availability === 'research' && (
+        <aside class="research-notice prose" aria-label="Research example notice">
+          <p>
+            <strong>Research example.</strong> {researchNames.join(', ')} preserves a source trail,
+            but has no numeric measurement. It cannot establish a multiplier baseline.
+          </p>
+        </aside>
+      )
+    }
+    <ul class="link-list">
+      {
+        comparison.subjects.map((subject) => (
+          <li>
+            <a href={route(subject.path)}>{subject.name}</a>
+            <span class="meta">
+              {subject.context}
+              {subject.configuration !== undefined && ` · ${subject.configuration.label}`}
+            </span>
+          </li>
+        ))
+      }
+    </ul>
+  </header>
+
+  <section class="stack" aria-labelledby="reading">
+    <h2 id="reading">What this comparison shows</h2>
+    <div class="prose preset-prose">
+      <Content />
+    </div>
+  </section>
+
+  <ComparisonView comparison={comparison} />
+
+  <section class="stack" aria-labelledby="rebuild">
+    <h2 id="rebuild">Change it</h2>
+    <p class="prose">
+      This preset is a starting point, not a fixed set.
+      <a href={route(`/compare/${presetQuery(preset.data)}`)}>
+        Open it in the comparison builder
+      </a>
+      to swap a record in or out. The builder needs JavaScript; this page does not.
+    </p>
+  </section>
+</BaseLayout>
+
+<style>
+  /*
+   * The Markdown opens with its own h1, which this page's header already states.
+   * Hiding it keeps one h1 per page without editing files that are also read
+   * outside the site. The methodology pages use the same arrangement.
+   */
+  .preset-prose :global(h1) {
+    display: none;
+  }
+
+  .preset-prose :global(p + p) {
+    margin-block-start: var(--space-s);
+  }
+</style>

@@ -1,0 +1,22 @@
+id: toms-hardware-geforce-256
+title: "13 Years of Nvidia Graphics Cards"
+publisher: Tom's Hardware
+publishedDate: 2012-10-01
+accessedDate: 2026-08-25
+locator: >-
+  GeForce: The First GPU, GeForce 256 specification table, Chip clock frequency
+  row
+extract: Chip clock frequency, 120 MHz.
+tier: B
+sourceType: independent-analysis
+url: https://www.tomshardware.com/picturestory/464-nvidia-graphics-cards.html
+usageNote: >-
+  Independent graphics-card history. It agrees with ComputerBase on the 120 MHz
+  core clock for both SDR and DDR GeForce 256 variants.
+fetch:
+  url: https://www.tomshardware.com/picturestory/464-nvidia-graphics-cards.html
+  fetchedAt: 2026-08-25T06:05:41Z
+  httpStatus: 200
+  contentType: text/html; charset=utf-8
+  byteLength: 2164241
+  sha256: fb72fa6657f11ef54e9b9954e49c81da1f74b77d4f865ea4c5d97fbaeab8d16d

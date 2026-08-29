@@ -1,0 +1,19 @@
+id: microsoft-xbox-series-x:context-gb-16
+subject:
+  kind: system
+  id: microsoft-xbox-series-x
+label: Capacity
+quantity:
+  state: value
+  value: '16'
+  unit: GB
+  significantDigits: 2
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - xbox-wire-series-x-tech-2020
+extractIds:
+  - xbox-series-x-tech:specs:memory-bandwidth
+evidenceLevel: confirmed

@@ -1,0 +1,23 @@
+accessedDate: 2026-07-29
+editorialStatus: approved
+fetch:
+  byteLength: 48182
+  contentType: text/plain; charset=utf-8
+  fetchedAt: 2026-07-29T07:44:48Z
+  finalUrl: https://dn760009.eu.archive.org/0/items/SCE-Hardware-Aug1998/Hardware_djvu.txt
+  httpStatus: 200
+  sha256: 94e9176810380464083b3027bef9b573103054bdeed44fda5c9de20194dfdab6
+  url: https://archive.org/download/SCE-Hardware-Aug1998/Hardware_djvu.txt
+id: psx-hardware-reference
+locator: >-
+  Chapter 2 "CPU and its peripherals", table 2-1 and the Memory section; chapter
+  3 "Graphics system", Overview and Frame buffer
+publisher: Sony Computer Entertainment
+sourceType: technical-manual
+tier: A
+title: PlayStation Hardware — PlayStation Developer Reference Series
+url: https://archive.org/download/SCE-Hardware-Aug1998/Hardware_djvu.txt
+publishedDate: 1998-08
+archiveUrl: https://archive.org/details/SCE-Hardware-Aug1998
+license: Copyright Sony Computer Entertainment Inc. Quoted here under
+  short-extract fair use for verification of the figures cited.

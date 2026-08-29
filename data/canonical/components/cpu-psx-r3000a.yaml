@@ -1,0 +1,24 @@
+id: psx-r3000a
+slug: psx-r3000a
+kind: cpu
+name: PlayStation CPU (customized MIPS R3000A)
+manufacturer: Sony Computer Entertainment / LSI Logic
+architecture: MIPS I
+introducedDate: '1994'
+instructionSet: MIPS I
+instructionSetFamily: mips
+summary:
+  'A {{context:psx-r3000a:context-bit-32}} RISC processor based on the R3000A,
+  customized for the console: no memory management unit, and the GTE geometry
+  coprocessor sitting alongside the integer core.'
+notes:
+  '{{context:psx-r3000a:context-kib-4}} of instruction cache; the
+  {{context:psx-r3000a:context-kib-1}} data cache is used as a directly
+  addressed Scratch Pad rather than as a conventional cache, and the reference
+  manual names it that way. No TLB is fitted, so the physical and logical memory
+  maps are permanently fixed. The cited reference does not describe
+  floating-point hardware, so no floating-point figure is recorded for this
+  processor.'
+sourceIds:
+  - psx-hardware-reference
+editorialStatus: approved

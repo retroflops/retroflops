@@ -1,0 +1,17 @@
+id: iphone-dram:context-gb-4
+subject:
+  kind: component
+  id: iphone-dram
+label: Capacity
+quantity:
+  state: value
+  value: '4'
+  unit: GB
+  significantDigits: 1
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - anandtech-iphone-hardware-2009
+evidenceLevel: reported

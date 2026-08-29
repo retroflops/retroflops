@@ -1,0 +1,49 @@
+accessedDate: 2026-08-17
+alt: "A PlayStation 5 standing upright on its stand on a wooden table: two curved white side panels
+  around a narrower black center, a disc slot low on the front, and the white DualSense controller
+  resting against the base."
+attribution: Photograph by Howardcorn33, dedicated to the public domain under CC0 1.0, via Wikimedia Commons.
+canonical:
+  byteLength: 13638
+  format: avif
+  height: 960
+  sha256: 847a2073ab3176c26cb94cb208934fb314f99c2f8a8d53a4737931deaf7b0b92
+  width: 1280
+caption: A launch PlayStation 5, the disc edition, on its vertical stand with a DualSense controller
+  — the model this record describes rather than the later Slim.
+creator: Howardcorn33
+creatorType: person
+editorialStatus: approved
+id: sony-playstation-5-console
+notes: The file page also carries a grayscale, background-removed derivative of this photograph,
+  which is the version most articles use. The record points at the original, because a knockout is a
+  decision about the picture rather than about the object.
+original:
+  byteLength: 4094852
+  height: 3872
+  mediaType: image/jpeg
+  sha256: e2bf364e4e3831897a223e0d1a115cd40beaf72173f431c814cd3cb44c15e1e3
+  width: 2592
+originalUrl: https://upload.wikimedia.org/wikipedia/commons/1/1b/Playstation_5_base_edition_with_controller_%28original%29.jpg
+publisher: Wikimedia Commons
+rights:
+  id: cc0-1.0
+  statedAt: https://commons.wikimedia.org/wiki/File:Playstation_5_base_edition_with_controller_(original).jpg
+  statement: "I, the copyright holder of this work, hereby publish it under the following license:
+    This file is made available under the Creative Commons CC0 1.0 Universal Public Domain
+    Dedication."
+  url: https://creativecommons.org/publicdomain/zero/1.0/
+sourcePageUrl: https://commons.wikimedia.org/wiki/File:Playstation_5_base_edition_with_controller_(original).jpg
+title: Playstation 5 base edition with controller (original).jpg
+transform:
+  background: "#7d7570"
+  fit: pad
+  note: "The original is a portrait photograph and the console stands the full height of it with its
+    controller in front, so no 4:3 crop keeps the machine whole — and a crop may not take the
+    controller either. The recipe therefore pads: the photograph lands in the middle of the frame at
+    its own proportions and the margin is a flat tone sampled from the surface the console stands
+    on. It is the shape of the object rather than a failure of the picture; every photograph of
+    these two consoles is portrait, because both are tall boxes."
+  preset: image-v1
+  sourceHeight: 3872
+  sourceWidth: 2592

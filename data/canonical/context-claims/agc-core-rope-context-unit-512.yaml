@@ -1,0 +1,17 @@
+id: agc-core-rope:context-unit-512
+subject:
+  kind: component
+  id: agc-core-rope
+label: Count
+quantity:
+  state: value
+  value: '512'
+  unit: unit
+  significantDigits: 3
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - ntrs-19760016247
+evidenceLevel: confirmed

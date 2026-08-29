@@ -1,0 +1,18 @@
+id: nintendo-switch-tegra-x1-cpu:context-bit-64
+subject:
+  kind: component
+  id: nintendo-switch-tegra-x1-cpu
+label: Word size
+quantity:
+  state: value
+  value: '64'
+  unit: bit
+  significantDigits: 2
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - nintendo-switch-tech-specs
+  - digitalfoundry-switch-clocks-2016
+evidenceLevel: confirmed

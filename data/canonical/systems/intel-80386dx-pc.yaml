@@ -1,0 +1,45 @@
+id: intel-80386dx-pc
+slug: intel-80386dx-pc
+name: Intel 80386DX PC
+manufacturer: PC industry
+type: personal-computer
+family: reference-pc
+releaseDate: '1985'
+region: Worldwide
+summary: >-
+  A representative {{measurement:intel-80386dx:clock-frequency}} 80386DX desktop
+  configuration with
+  {{measurement:intel-80386dx-pc:whole-system-memory-capacity}} of DRAM and
+  VGA-compatible graphics.
+configurations:
+  - id: reference
+    label: 25 MHz reference configuration
+    entries:
+      - componentId: intel-80386dx
+        role: main-cpu
+        count: 1
+        shared: false
+        measurementIds:
+          - intel-80386dx:clock-frequency
+          - intel-80386dx:peak-clock
+      - componentId: vga-compatible-adapter
+        role: gpu
+        count: 1
+        shared: false
+        measurementIds:
+          - vga-compatible-adapter:clock-frequency
+      - componentId: pc-32bit-dram
+        role: system-memory
+        count: 1
+        shared: false
+        measurementIds:
+          - intel-80386dx-pc:whole-system-memory-capacity
+sourceIds:
+  - intel-historical-x86-documentation
+editorialStatus: provisional
+notes: >-
+  This entry has no photograph, and that is a decision rather than a gap: it
+  describes a processor in a typical machine of its era rather than a model
+  anybody sold, so there is no object to photograph. A picture of some
+  particular case would attach a claim about that computer to a record which
+  deliberately makes none.

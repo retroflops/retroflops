@@ -1,0 +1,41 @@
+id: nvidia-geforce-gtx-580
+slug: nvidia-geforce-gtx-580
+name: NVIDIA GeForce GTX 580
+manufacturer: NVIDIA
+type: accelerator
+family: nvidia-geforce
+releaseDate: 2010-11
+region: Worldwide
+summary: >-
+  NVIDIA GeForce GTX 580: {{measurement:nvidia-geforce-gtx-580-memory:capacity}}
+  of GDDR5 and {{measurement:nvidia-geforce-gtx-580-memory:bandwidth}} peak
+  bandwidth.
+description: >-
+  NVIDIA's surviving launch table supplies clocks, memory and bandwidth. It does
+  not state an explicitly labelled FP32 peak or a numeric board-power rating.
+imageIds:
+  - nvidia-geforce-gtx-580-card
+configurations:
+  - id: reference-card
+    label: Reference card
+    releaseDate: 2010-11
+    entries:
+      - componentId: nvidia-gf110
+        role: gpu
+        count: 1
+        shared: false
+        notes: Reference-card graphics clock.
+        measurementIds:
+          - nvidia-gf110:clock-frequency-base
+      - componentId: nvidia-geforce-gtx-580-memory
+        role: video-memory
+        count: 1
+        shared: false
+        measurementIds:
+          - nvidia-geforce-gtx-580-memory:capacity
+sourceIds:
+  - nvidia-geforce-gtx-580-product-brief
+editorialStatus: provisional
+notes: >-
+  This accelerator’s whole-system memory is its fitted frame buffer; host memory
+  is excluded. Partner cards may differ from this reference configuration.

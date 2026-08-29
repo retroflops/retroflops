@@ -1,0 +1,42 @@
+accessedDate: 2026-08-17
+alt: "A Sapphire Radeon RX 7900 XTX at an angle against white: a black three-fan shroud with a
+  silver stripe along its spine, a finned heatsink beneath it, the bracket at the left and gold PCI
+  Express contacts below."
+attribution: Photograph by Geni, licensed CC BY-SA 4.0, via Wikimedia Commons.
+canonical:
+  byteLength: 35607
+  format: avif
+  height: 960
+  sha256: 7bad4de24040f3c4cd4a7e69ad77e449b51d7aa0045f3bb277ec72fcc00cdce8
+  width: 1280
+caption: A Sapphire Radeon RX 7900 XTX, a partner card built to AMD's reference specification.
+creator: Geni
+creatorType: person
+editorialStatus: approved
+id: amd-radeon-rx-7900-xtx-card
+original:
+  byteLength: 3475297
+  height: 3728
+  mediaType: image/jpeg
+  sha256: 72e1a1be03b999a8e1ab8ec2a925e6b40d0e64a6f67385c37b765a1f36be36fb
+  width: 5956
+originalUrl: https://upload.wikimedia.org/wikipedia/commons/a/a8/Sapphire_AMD_Radeon_RX_7900_XTX.jpg
+publisher: Wikimedia Commons
+rights:
+  id: cc-by-sa-4.0
+  statedAt: https://commons.wikimedia.org/wiki/File:Sapphire_AMD_Radeon_RX_7900_XTX.jpg
+  statement: "I, the copyright holder of this work, hereby publish it under the following license:
+    This file is licensed under the Creative Commons Attribution-Share Alike 4.0 International
+    license."
+  url: https://creativecommons.org/licenses/by-sa/4.0/
+sourcePageUrl: https://commons.wikimedia.org/wiki/File:Sapphire_AMD_Radeon_RX_7900_XTX.jpg
+title: Sapphire AMD Radeon RX 7900 XTX.jpg
+transform:
+  background: "#ffffff"
+  fit: pad
+  note: The photograph is wider than 4:3 and the machine reaches both ends of it, so no crop keeps the
+    whole subject. The declared margin is the same white as the backdrop the photograph was taken
+    against, which is why it cannot be seen; it is recorded because it is there.
+  preset: image-v1
+  sourceHeight: 3728
+  sourceWidth: 5956

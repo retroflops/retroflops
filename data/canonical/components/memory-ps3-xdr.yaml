@@ -1,0 +1,13 @@
+id: ps3-xdr
+slug: ps3-xdr
+kind: memory
+name: PlayStation 3 main memory (XDR DRAM)
+manufacturer: Rambus (interface) / Sony Computer Entertainment (system)
+memoryType: XDR DRAM
+summary: >-
+  {{measurement:ps3-xdr:capacity}} of Rambus XDR attached to the Cell processor,
+  carrying the PlayStation 2's Direct RDRAM strategy forward a generation.
+sourceIds:
+  - scei-ps3-specifications-2005
+  - scei-ps3-launch-2006
+editorialStatus: approved

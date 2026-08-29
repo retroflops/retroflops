@@ -1,0 +1,19 @@
+id: microsoft-xbox-one:context-gb-s-204
+subject:
+  kind: system
+  id: microsoft-xbox-one
+label: Rate
+quantity:
+  state: value
+  value: '204'
+  unit: GB/s
+  significantDigits: 3
+provenance: independent
+evidenceStage: shipped
+status: theoretical
+editorialStatus: provisional
+sourceIds:
+  - hot-chips-25-xbox-one-soc
+extractIds:
+  - hc25-xbox-one:slide4:ddr3-bandwidth
+evidenceLevel: reported

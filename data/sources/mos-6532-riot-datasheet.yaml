@@ -1,0 +1,21 @@
+id: mos-6532-riot-datasheet
+title: "6532 RAM-I/O-Timer (RIOT) Data Sheet"
+publisher: MOS Technology, Inc.
+publishedDate: "1976"
+accessedDate: 2026-08-25
+locator: Features and functional-block diagram, 128 × 8 static RAM
+extract: 128 × 8 static RAM.
+tier: A
+sourceType: vendor-documentation
+url: https://www.6502.org/documents/datasheets/mos/mos_6532_riot.pdf
+usageNote: >-
+  MOS's component datasheet. The Atari field service manual identifies the
+  fitted 6532 RAM-I/O chip; this datasheet states its on-chip RAM capacity.
+fetch:
+  url: https://www.6502.org/documents/datasheets/mos/mos_6532_riot.pdf
+  finalUrl: https://6502.org/documents/datasheets/mos/mos_6532_riot.pdf
+  fetchedAt: 2026-08-25T06:09:01Z
+  httpStatus: 200
+  contentType: application/pdf
+  byteLength: 5371185
+  sha256: a48e7f8a5b39070d68bea90f7d36b4756c701d1b00f213031a93eab6f1057ce4

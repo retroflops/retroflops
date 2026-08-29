@@ -1,0 +1,20 @@
+id: wikipedia-xbox-one-specifications
+title: Xbox One
+publisher: Wikipedia contributors
+accessedDate: 2026-08-26
+locator: Hardware section, graphics paragraph
+extract: >-
+  Xbox One [...] 12 compute units [...] running at 853 MHz providing an estimated peak theoretical power of 1.31 TFLOPS.
+tier: C
+sourceType: wiki
+url: https://en.wikipedia.org/wiki/Xbox_One
+editorialStatus: provisional
+usageNote: >-
+  Tier C community article used only for the provisional graphics throughput of the launch console.
+fetch:
+  url: https://en.wikipedia.org/wiki/Xbox_One
+  fetchedAt: 2026-08-26T10:14:00Z
+  httpStatus: 200
+  contentType: text/html; charset=UTF-8
+  byteLength: 1502024
+  sha256: b9e51981a7c71ed302e0ec226e8371356b91a15c2f3f00ff98c2577f9473de8d

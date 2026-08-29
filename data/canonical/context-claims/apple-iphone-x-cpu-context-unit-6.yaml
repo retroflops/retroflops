@@ -1,0 +1,17 @@
+id: apple-iphone-x-cpu:context-unit-6
+subject:
+  kind: component
+  id: apple-iphone-x-cpu
+label: Core count
+quantity:
+  state: value
+  value: '6'
+  unit: unit
+  significantDigits: 1
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - apple-iphone-x-tech-specs
+evidenceLevel: confirmed

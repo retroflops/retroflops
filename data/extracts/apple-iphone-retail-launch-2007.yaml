@@ -1,0 +1,22 @@
+- extract: >-
+    Pricing and Availability iPhone goes on sale in the US on June 29, 2007 at
+    6:00 p.m. local time through Apple’s retail stores and AT&T’s select retail
+    stores. Apple’s online store will be taking orders for iPhone beginning at
+    6:00 p.m. PDT. iPhone will be available in a 4GB model for $499 (US) and an
+    8GB model for $599 (US), and will work with either a PC or Mac®.
+  extractHash: e896f58730dc2cdf27567ffd03f957d31b638485b3b5a25b8118e93fc0ca1c76
+  id: apple-iphone-2007:retail-launch
+  locator: Section "Pricing and Availability"
+  notes: >-
+    The same two capacities as the January announcement, restated the day before
+    the phone reached buyers. It is cited for the storage figures rather than
+    the announcement because it describes hardware that was already in the
+    shops, and it fixes the release date to the hour.
+  sourceId: apple-iphone-retail-launch-2007
+  transcribed:
+    significantDigits: 1
+    state: value
+    unit: GB
+    value: '8'
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-03

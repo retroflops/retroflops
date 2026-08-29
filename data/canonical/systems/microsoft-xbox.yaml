@@ -1,0 +1,41 @@
+editorialStatus: provisional
+id: microsoft-xbox
+slug: microsoft-xbox
+name: Microsoft Xbox
+manufacturer: Microsoft
+type: console
+family: microsoft-xbox
+releaseDate: 2001-11
+region: North America
+summary: >-
+  Microsoft Xbox, represented with its retail processor, graphics and installed
+  writable memory.
+description: >-
+  This record keeps processor, graphics and installed memory as distinct
+  components so that their quantities retain their own meaning.
+configurations:
+  - id: retail
+    label: Retail hardware
+    entries:
+      - componentId: microsoft-xbox-pentium-iii
+        role: main-cpu
+        count: 1
+        shared: false
+        measurementIds:
+          - microsoft-xbox:retail:cpu-clock-frequency
+      - componentId: microsoft-xbox-nv2a
+        role: gpu
+        count: 1
+        shared: false
+        measurementIds:
+          - microsoft-xbox:retail:gpu-clock-frequency
+      - componentId: microsoft-xbox-ram
+        role: unified-memory
+        count: 1
+        shared: true
+        measurementIds:
+          - microsoft-xbox-ram:capacity
+imageIds:
+  - microsoft-xbox-console
+sourceIds:
+  - microsoft-xbox-hardware-specification

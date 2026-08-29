@@ -1,0 +1,15 @@
+id: ifixit-iphone-17-pro-chip-id
+title: iPhone 17 Pro Chip ID
+publisher: iFixit
+author: Shahram Mokhtari and contributors
+url: https://www.ifixit.com/Guide/iPhone+17+Pro+Chip+ID/196117
+publishedDate: 2025-11-05
+accessedDate: 2026-08-25
+locator: Step 2, Processor Board, Inner Side
+extract: >-
+  Apple APL1V12/339S01837 A19 Pro hexa-core applications processor w/ GPU &
+  Neural Engine layered under a Samsung K3KLMLM0FM-HGGV 12 GB LPDDR5X SDRAM
+tier: B
+sourceType: independent-analysis
+editorialStatus: provisional
+license: Copyright iFixit. Quoted under short-extract fair use.

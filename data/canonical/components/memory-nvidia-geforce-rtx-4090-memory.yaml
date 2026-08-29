@@ -1,0 +1,13 @@
+id: nvidia-geforce-rtx-4090-memory
+slug: nvidia-geforce-rtx-4090-memory
+kind: memory
+name: NVIDIA GeForce RTX 4090 frame buffer
+manufacturer: NVIDIA
+memoryType: GDDR6X
+introducedDate: 2022-10
+summary:
+  '{{measurement:nvidia-geforce-rtx-4090-memory:capacity}} of GDDR6X with
+  {{measurement:nvidia-geforce-rtx-4090-memory:bandwidth}} peak bandwidth.'
+sourceIds:
+  - nvidia-geforce-rtx-4090-product-specifications
+editorialStatus: approved

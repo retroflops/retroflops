@@ -1,0 +1,13 @@
+id: apple-iphone-17-memory
+slug: apple-iphone-17-memory
+kind: memory
+name: Apple iPhone 17 unified memory
+manufacturer: Apple
+memoryType: Unified mobile DRAM
+summary: The working-memory pool used by the Apple iPhone 17.
+notes:
+  Flash storage is a separate medium and is not a substitute for working memory.
+sourceIds:
+  - apple-iphone-17-tech-specs
+  - notebookcheck-apple-a19
+editorialStatus: approved

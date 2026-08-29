@@ -1,0 +1,14 @@
+id: apple-iphone-6s-gpu
+slug: apple-iphone-6s-gpu
+kind: gpu
+name: Apple iPhone 6s GPU
+manufacturer: Apple
+architecture: PowerVR Series7XT GT7600
+introducedDate: '2015'
+summary: The graphics section integrated with the processor in Apple iPhone 6s.
+notes:
+  The cited Apple specification identifies the graphics configuration only where
+  Apple chose to disclose it; it supplies no graphics clock or FP32 peak.
+sourceIds:
+  - apple-iphone-6s-tech-specs
+editorialStatus: approved

@@ -1,0 +1,26 @@
+accessedDate: 2026-08-03
+editorialStatus: approved
+fetch:
+  byteLength: 3184765
+  contentType: application/pdf
+  fetchedAt: 2026-08-03T21:20:47Z
+  httpStatus: 200
+  sha256: 4329024604466005e5934e0d0d69abd01a7e03e6d661b82030736478a103f2ee
+  url: https://international.download.nvidia.com/geforce-com/international/pdfs/GeForce_GTX_1080_Whitepaper_FINAL.pdf
+id: nvidia-gtx-1080-whitepaper
+license: Copyright NVIDIA Corporation. Quoted here under short-extract fair use
+  for verification of the figures cited.
+locator: >-
+  "GeForce GTX 1080 GPU Architecture In-Depth", p. 9, comparison table and its
+  footnote
+publishedDate: "2016"
+publisher: NVIDIA Corporation
+sourceType: vendor-documentation
+tier: A
+title: NVIDIA GeForce GTX 1080 Whitepaper — Gaming Perfected
+url: https://international.download.nvidia.com/geforce-com/international/pdfs/GeForce_GTX_1080_Whitepaper_FINAL.pdf
+usageNote: >-
+  The architecture whitepaper, cited alongside the launch article because it is
+  the only NVIDIA document here that states a floating-point rate for this card,
+  and the only one that says what its footnote means: the rate is computed at
+  the boost clock rather than the base clock.

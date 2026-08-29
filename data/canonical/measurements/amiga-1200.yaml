@@ -1,0 +1,296 @@
+- caveat: >-
+    The same manual states {{context:motorola-68ec020:context-mhz-14-18}} in its
+    functional-specification section. The conflict ledger records why 14.19 was
+    accepted. Note also that this is roughly twice the Amiga 500's clock while
+    the machine is considerably more than twice as capable, because the data
+    path doubled as well.
+  comparabilityGroup: clock-frequency|cpu|nominal-clock
+  conditions: PAL machines. Half the
+    {{context:motorola-68ec020:context-mhz-28-37516}} PAL base crystal, which
+    gives {{context:amiga-1200:context-mhz-14-18758}} exactly.
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - a1200-sm:a-1:specifications
+  id: amiga-1200:pal:clock-frequency
+  method: nominal-clock
+  metric: clock-frequency
+  normalized:
+    value: "14190000"
+    unit: Hz
+    significantDigits: 4
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 4
+    state: value
+    unit: MHz
+    value: "14.19"
+  scope: cpu
+  sourceIds:
+    - amiga-1200-service-manual
+  status: vendor-rated
+  subject:
+    configurationId: pal
+    id: amiga-1200
+    kind: system
+  evidenceLevel: confirmed
+- caveat: >-
+    Both the appendix A table and the functional specification agree on this
+    figure once the scan's habit of reading 3 as 8 is corrected against the
+    crystal frequency.
+  comparabilityGroup: clock-frequency|cpu|nominal-clock
+  conditions: NTSC machines. Half the
+    {{context:motorola-68ec020:context-mhz-28-63636}} NTSC base crystal, which
+    gives {{context:amiga-1200:context-mhz-14-31818}} exactly.
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - a1200-sm:a-1:specifications
+    - a1200-sm:5-3:functional-specification
+  id: amiga-1200:ntsc:clock-frequency
+  method: nominal-clock
+  metric: clock-frequency
+  normalized:
+    value: "14320000"
+    unit: Hz
+    significantDigits: 4
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 4
+    state: value
+    unit: MHz
+    value: "14.32"
+  scope: cpu
+  sourceIds:
+    - amiga-1200-service-manual
+  status: vendor-rated
+  subject:
+    configurationId: ntsc
+    id: amiga-1200
+    kind: system
+  evidenceLevel: confirmed
+- caveat: >-
+    Chip memory only: what the AGA chipset can reach. Fast memory added in the
+    CPU slot or the PCMCIA slot is invisible to the graphics hardware and is not
+    counted here.
+  comparabilityGroup: memory-capacity|memory|design-capacity
+  conditions: The maximum Chip memory, which the manual records as the standard
+    configuration by the time it was written. Machines shipped with
+    {{context:amiga-1200-chip-ram:context-mb-1}} on the motherboard.
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - a1200-sm:a-1:specifications
+    - a1200-sm:5-3:functional-specification
+  id: amiga-1200-chip-ram:capacity
+  method: design-capacity
+  metric: memory-capacity
+  normalized:
+    value: "2097152"
+    unit: B
+    significantDigits: 1
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 1
+    state: value
+    unit: MiB
+    value: "2"
+  scope: memory
+  sourceIds:
+    - amiga-1200-service-manual
+  status: vendor-rated
+  subject:
+    id: amiga-1200-chip-ram
+    kind: component
+  evidenceLevel: confirmed
+- comparabilityGroup: memory-capacity|memory|design-capacity
+  conditions: Kickstart 3.0 mask ROM, organized as 128K by
+    {{context:amiga-1200-kickstart-rom:context-bit-32}}.
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - a1200-sm:a-1:specifications
+  id: amiga-1200-kickstart-rom:capacity
+  method: design-capacity
+  metric: memory-capacity
+  normalized:
+    value: "524288"
+    unit: B
+    significantDigits: 3
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 3
+    state: value
+    unit: KiB
+    value: "512"
+  scope: memory
+  sourceIds:
+    - amiga-1200-service-manual
+  status: vendor-rated
+  subject:
+    id: amiga-1200-kickstart-rom
+    kind: component
+  evidenceLevel: confirmed
+- comparabilityGroup: peak-fp32-rate|cpu|theoretical-peak
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - a1200-sm:a-1:specifications
+  id: motorola-68ec020:peak-fp32-rate
+  method: theoretical-peak
+  metric: peak-fp32-rate
+  provenance: vendor
+  quantity:
+    note: >-
+      No floating-point hardware on the die. The Amiga 1200 has a socket for a
+      68881 or 68882 coprocessor, but the manual records it as factory-installed
+      only, so a stock machine has none and any floating-point figure would
+      describe software on an integer ALU.
+    state: not-applicable
+  scope: cpu
+  sourceIds:
+    - amiga-1200-service-manual
+  status: vendor-rated
+  subject:
+    id: motorola-68ec020
+    kind: component
+- caveat: >-
+    Adds 1 memory-capacity figure obtained by design-capacity. Left out:
+    {{measurement:amiga-1200-kickstart-rom:capacity}} of Kickstart ROM
+    (read-only firmware, not memory the machine can write to). A total is only
+    as trustworthy as the decision about what belongs in it, so both the terms
+    and the exclusions are named records.
+  comparabilityGroup: memory-capacity|whole-system|design-capacity
+  conditions: Chip memory fitted to the base machine, which is all of its writable memory.
+  derivedFrom: amiga-1200:whole-system-memory
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - a1200-sm:a-1:specifications
+    - a1200-sm:5-3:functional-specification
+  id: amiga-1200:whole-system-memory-capacity
+  method: design-capacity
+  metric: memory-capacity
+  normalized:
+    value: "2097152"
+    unit: B
+    significantDigits: 1
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 1
+    state: value
+    unit: MiB
+    value: "2"
+  rounding: none
+  scope: whole-system
+  sourceIds:
+    - amiga-1200-service-manual
+  status: derived
+  subject:
+    id: amiga-1200
+    kind: system
+  evidenceLevel: confirmed
+- caveat: >-
+    A supply rating, not a draw: nothing here was measured, and the manual says
+    the A1200 shares the supply with the A600, so the figure describes what
+    Commodore fitted rather than what this machine uses. Comparable in kind with
+    the Apollo Guidance Computer’s {{context:amiga-1200:context-w-70}} and the
+    Mac mini’s {{context:amiga-1200:context-w-150}}, and with nothing anybody
+    put a meter on, which is why the metric forbids ratios.
+  comparabilityGroup: rated-power-consumption|whole-system|rated-power
+  conditions: The switching supply the machine ships with, from the technical
+    specification table.
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - amiga-1200-sm:appendix-a:power-supply
+  id: amiga-1200:rated-power-consumption
+  method: rated-power
+  metric: rated-power-consumption
+  normalized:
+    value: "23"
+    unit: W
+    significantDigits: 2
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 2
+    state: value
+    unit: W
+    value: "23"
+  scope: whole-system
+  sourceIds:
+    - amiga-1200-service-manual
+  status: vendor-rated
+  subject:
+    id: amiga-1200
+    kind: system
+  evidenceLevel: confirmed
+- caveat: >-
+    Unknown for the same reason as the Amiga 500’s, one generation later: the
+    documents describe the custom chips by what they can reach and how fast they
+    can be fed, never by a clock of their own.
+  comparabilityGroup: clock-frequency|gpu|nominal-clock
+  editorialStatus: approved
+  evidenceStage: shipped
+  id: amiga-1200:gpu-clock-frequency
+  method: nominal-clock
+  metric: clock-frequency
+  provenance: vendor
+  quantity:
+    note: >-
+      The service manual gives the processor clock and the crystal it is divided
+      from, and no frequency for the AGA chipset.
+    state: unknown
+  unknownAudit:
+    reviewedOn: 2026-08-25
+    routesChecked:
+      - vendor-documentation
+      - independent-analysis
+      - community-source
+    outcome: no-published-candidate
+    summary: The checked service manual provides no AGA chipset clock.
+  scope: gpu
+  sourceIds:
+    - amiga-1200-service-manual
+  status: vendor-rated
+  subject:
+    id: amiga-1200
+    kind: system
+- caveat: >-
+    Unknown. The A1200 widened the path to Chip memory to
+    {{context:motorola-68ec020:context-bit-32}}, which is the change that
+    mattered most for graphics on this machine, and it is recorded as a width
+    because a width is what the manual states.
+  comparabilityGroup: memory-bandwidth|memory|theoretical-peak
+  editorialStatus: approved
+  evidenceStage: shipped
+  id: amiga-1200:memory-bandwidth
+  method: theoretical-peak
+  metric: memory-bandwidth
+  provenance: vendor
+  quantity:
+    note: >-
+      The service manual states the data path width and the memory fitted, and
+      no transfer rate.
+    state: unknown
+  unknownAudit:
+    reviewedOn: 2026-08-25
+    routesChecked:
+      - vendor-documentation
+      - independent-analysis
+      - community-source
+    outcome: no-compatible-candidate
+    summary: The checked service manual provides no memory transfer rate.
+  scope: memory
+  sourceIds:
+    - amiga-1200-service-manual
+  status: vendor-rated
+  subject:
+    id: amiga-1200
+    kind: system

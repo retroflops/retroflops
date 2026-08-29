@@ -1,0 +1,21 @@
+accessedDate: 2026-07-29
+editorialStatus: approved
+fetch:
+  byteLength: 76127
+  contentType: text/html; charset=UTF-8
+  fetchedAt: 2026-07-29T16:56:40Z
+  httpStatus: 200
+  sha256: 24cb0b8ed78643abe58c507bf6028a32c13b56392710c9578d5d7d8ce79f8bc5
+  url: https://sonyinteractive.com/en/press-releases/2003/emotionengine-and-graphics-synthesizer-used-in-the-core-of-playstation-become-one-chip/
+id: scei-ee-gs-single-chip-2003
+license: Copyright Sony Interactive Entertainment Inc. Quoted here under
+  short-extract fair use for verification of the figures cited.
+locator: '"New Semiconductor Specification" table at the foot of the release'
+publishedDate: 2003-04-21
+publisher: Sony Computer Entertainment Inc.
+sourceType: vendor-documentation
+tier: A
+title: >-
+  EmotionEngine and Graphics Synthesizer Used In The Core Of PlayStation Become
+  One Chip
+url: https://sonyinteractive.com/en/press-releases/2003/emotionengine-and-graphics-synthesizer-used-in-the-core-of-playstation-become-one-chip/

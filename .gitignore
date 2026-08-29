@@ -1,0 +1,36 @@
+# build output
+dist/
+dist-pages/
+.astro/
+
+# end-to-end run output
+test-results/
+playwright-report/
+blob-report/
+.playwright/
+
+# dependencies
+node_modules/
+
+# data pipeline caches and generated artifacts
+.cache/
+data/cache/
+data/reports/
+public/data/
+
+# logs
+*.log
+npm-debug.log*
+pnpm-debug.log*
+
+# environment
+.env
+.env.production
+
+# editors and OS
+.idea/
+.vscode/
+.DS_Store
+
+# lighthouse run output
+.lighthouseci/

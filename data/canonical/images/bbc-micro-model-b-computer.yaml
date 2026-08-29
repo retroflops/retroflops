@@ -1,0 +1,43 @@
+accessedDate: 2026-08-17
+alt: A cream BBC Micro on a blue cloth, its black keyboard crossed by a row of red function keys and
+  the BBC owl badge at the top right of the case.
+attribution: Photograph by simon.inns, licensed CC BY 2.0, via Wikimedia Commons.
+canonical:
+  byteLength: 56446
+  format: avif
+  height: 960
+  sha256: 8f0670b25b37c9fc72eaddb9d451b49c60de9006d67ecbd2f03400837815b4de
+  width: 1280
+caption: A BBC Micro Model B. The red keys along the top are the ten user-programmable function keys
+  the machine was known for.
+creator: simon.inns
+creatorType: person
+editorialStatus: approved
+id: bbc-micro-model-b-computer
+original:
+  byteLength: 2257642
+  height: 3463
+  mediaType: image/jpeg
+  sha256: 2329615eda5436b6836132a4f08ba46be18ea30df990866d3c9ac69d9006ca91
+  width: 5195
+originalUrl: https://upload.wikimedia.org/wikipedia/commons/e/e7/Acorn_BBC_Micro.jpg
+publisher: Wikimedia Commons
+rights:
+  id: cc-by-2.0
+  statedAt: https://commons.wikimedia.org/wiki/File:Acorn_BBC_Micro.jpg
+  statement: This file is licensed under the Creative Commons Attribution 2.0 Generic license.
+  url: https://creativecommons.org/licenses/by/2.0/
+sourcePageUrl: https://commons.wikimedia.org/wiki/File:Acorn_BBC_Micro.jpg
+title: Acorn BBC Micro.jpg
+transform:
+  fit: crop
+  note: The photograph is wider than 4:3 over a plain blue cloth. The frame is narrowed centrally onto
+    the machine; padding would put white beside a blue backdrop.
+  preset: image-v1
+  region:
+    height: 3462
+    width: 4616
+    x: 290
+    y: 0
+  sourceHeight: 3463
+  sourceWidth: 5195

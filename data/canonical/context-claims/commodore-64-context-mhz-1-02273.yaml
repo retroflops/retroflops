@@ -1,0 +1,17 @@
+id: commodore-64:context-mhz-1-02273
+subject:
+  kind: system
+  id: commodore-64
+label: Frequency
+quantity:
+  state: value
+  value: '1.02273'
+  unit: MHz
+  significantDigits: 6
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - c64-programmers-reference-guide
+evidenceLevel: confirmed

@@ -1,0 +1,21 @@
+- extract: >-
+    Pricing & Availability iPhone will be available in the US in June 2007,
+    Europe in late 2007, and Asia in 2008, in a 4GB model for $499 (US) and an
+    8GB model for $599 (US), and will work with either a PC or Mac.
+  extractHash: a82fe457e7cb84fbefe83f733e13005411aa3150640354b5abe0769eae5c0d4a
+  id: apple-iphone-2007:announcement
+  locator: Section "Pricing & Availability"
+  notes: >-
+    The whole of what Apple said about the machine's numbers on the day it was
+    announced. There is no processor, no frequency, no memory: the two
+    capacities are storage, and they are the only quantities in the release.
+    Transcribed in decimal gigabytes as written, unlike a memory capacity, which
+    this catalog reads as binary — makers state flash decimally.
+  sourceId: apple-iphone-announcement-2007
+  transcribed:
+    significantDigits: 1
+    state: value
+    unit: GB
+    value: '4'
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-03

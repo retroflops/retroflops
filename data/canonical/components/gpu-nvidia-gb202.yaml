@@ -1,0 +1,24 @@
+id: nvidia-gb202
+slug: nvidia-gb202
+kind: gpu
+name: NVIDIA GB202 (GeForce RTX 5090)
+manufacturer: NVIDIA
+architecture: Blackwell
+introducedDate: 2025-01
+summary: >-
+  {{context:nvidia-gb202:context-unit-21760}} cores across 170 multiprocessors,
+  a {{measurement:nvidia-gb202:clock-frequency-base}} base and a
+  {{measurement:nvidia-gb202:clock-frequency-boost}} boost, and
+  {{measurement:nvidia-gb202:peak-fp32-rate}} of single precision. Nine years
+  separate it from the GeForce GTX 1080, and twelve times the rate.
+notes: >-
+  Two of the three headline rates NVIDIA prints for this card are not
+  floating-point rates at all: "3352 AI TOPS" counts low-precision tensor
+  operations and "318 TFLOPS" belongs to the ray-tracing engine. Neither is
+  recorded, because dividing either by anything the GeForce GTX 1080 states
+  would compare different units doing different arithmetic — which is the
+  mistake this catalog exists to make impossible.
+sourceIds:
+  - nvidia-rtx-blackwell-whitepaper
+  - nvidia-rtx-5090-product-specifications
+editorialStatus: approved

@@ -1,0 +1,19 @@
+id: intel-integrated-graphics
+slug: intel-integrated-graphics
+kind: gpu
+name: Intel integrated processor graphics
+manufacturer: Intel
+architecture: Integrated graphics
+introducedDate: '2006'
+summary:
+  Integrated graphics fitted to the representative Core 2, Sandy Bridge and
+  Raptor Lake desktop configurations.
+notes:
+  The three generations have different graphics implementations and dynamic
+  clocks. This deliberately broad component represents the fitted graphics role
+  while the system notes preserve the generation-specific configuration; no
+  comparable single clock is asserted for it.
+sourceIds:
+  - intel-core-i7-2600k-specifications
+  - intel-core-i9-14900k-specifications
+editorialStatus: provisional

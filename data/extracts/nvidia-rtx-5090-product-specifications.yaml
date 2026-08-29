@@ -1,0 +1,43 @@
+- extract: >-
+    GPU Engine Specs — NVIDIA CUDA® Cores: 21760
+
+    Shader Cores: Blackwell
+
+    Tensor Cores (AI): 5th Generation 3352 AI TOPS
+
+    Ray Tracing Cores: 4th Generation 318 TFLOPS
+
+    Boost Clock (GHz): 2.41
+
+    Base Clock (GHz): 2.01
+
+    Memory Specs — Standard Memory Config: 32 GB GDDR7
+
+    Memory Interface Width: 512-bit
+
+    Thermal and Power Specs — Maximum GPU Temperature (in C): 90
+
+    Total Graphics Power (W): 575
+
+    Required System Power (W): 1000
+  extractHash: 8b8c8f6b8165c49bd46b9cf5a878f42aefb3b9426716d47e0cf04903d4fe5192
+  id: nvidia-rtx-5090:product-specifications
+  locator: >-
+    Specification table, "GPU Engine Specs", "Memory Specs" and "Thermal and
+    Power Specs" sections
+  notes: >-
+    Each row label is rejoined with its value by a colon and the section
+    headings are kept, because they are what the two rate figures belong to.
+    Neither is a floating-point rate: "3352 AI TOPS" counts integer or
+    low-precision tensor operations and "318 TFLOPS" is the ray-tracing
+    engine's, so neither is recorded and neither may be divided by anything the
+    GeForce GTX 1080 states. The rows for display, dimensions and software
+    support are omitted.
+  sourceId: nvidia-rtx-5090-product-specifications
+  transcribed:
+    significantDigits: 3
+    state: value
+    unit: GHz
+    value: '2.01'
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-03

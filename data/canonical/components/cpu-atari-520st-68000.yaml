@@ -1,0 +1,13 @@
+id: atari-520st-68000
+slug: atari-520st-68000
+kind: cpu
+name: Motorola 68000
+manufacturer: Motorola
+architecture: Motorola 68000
+introducedDate: '1979'
+instructionSet: Motorola 68000
+instructionSetFamily: motorola-68000
+summary: Eight-megahertz 68000 main processor in the Atari 520ST.
+sourceIds:
+  - atari-st-field-service-manual
+editorialStatus: provisional

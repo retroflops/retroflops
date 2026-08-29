@@ -1,0 +1,13 @@
+editorialStatus: approved
+id: microsoft-xbox-series-x-ram
+slug: microsoft-xbox-series-x-ram
+kind: memory
+name: Microsoft Xbox Series X unified memory
+manufacturer: Microsoft
+architecture: GDDR6
+introducedDate: '2020'
+memoryType: GDDR6
+summary:
+  '{{measurement:microsoft-xbox-series-x-ram:capacity}} of installed GDDR6.'
+sourceIds:
+  - xbox-wire-series-x-tech-2020

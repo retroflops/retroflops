@@ -1,0 +1,374 @@
+- caveat: >-
+    The internal rate. Quoting it against a machine whose published clock is an
+    external bus rate would compare two different things.
+  comparabilityGroup: clock-frequency|cpu|nominal-clock
+  conditions: SH-4 internal clock. The external bus runs at
+    {{measurement:sega-dreamcast:gpu-clock-frequency}} and the peripheral clock
+    at {{context:hitachi-sh4:context-mhz-50}}, all derived from a
+    {{context:hitachi-sh4:context-mhz-33-3}} PLL output.
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - dc-hw:table-2-1:sh4
+  id: sega-dreamcast:cpu-clock-frequency
+  method: nominal-clock
+  metric: clock-frequency
+  normalized:
+    value: "200000000"
+    unit: Hz
+    significantDigits: 3
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 3
+    state: value
+    unit: MHz
+    value: "200"
+  scope: cpu
+  sourceIds:
+    - dreamcast-hardware-spec
+  status: vendor-rated
+  subject:
+    configurationId: retail
+    id: sega-dreamcast
+    kind: system
+  evidenceLevel: confirmed
+- comparabilityGroup: clock-frequency|gpu|nominal-clock
+  conditions: NEC HOLLY image-drawing VLSI, built around a PowerVR2 core.
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - dc-hw:1-2:system-specification
+  id: sega-dreamcast:gpu-clock-frequency
+  method: nominal-clock
+  metric: clock-frequency
+  normalized:
+    value: "100000000"
+    unit: Hz
+    significantDigits: 3
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 3
+    state: value
+    unit: MHz
+    value: "100"
+  scope: gpu
+  sourceIds:
+    - dreamcast-hardware-spec
+  status: vendor-rated
+  subject:
+    configurationId: retail
+    id: sega-dreamcast
+    kind: system
+  evidenceLevel: confirmed
+- caveat: >-
+    A vendor figure with no stated method. It is not a Dhrystone result and must
+    never be compared with one, and because no benchmark is named it is not
+    comparable with any other machine's instruction rate either, only with
+    figures obtained the same way, of which this dataset has none.
+  comparabilityGroup: native-instruction-rate|cpu|theoretical-peak
+  conditions: Stated by Sega as "360MIPS (core)" in the SH-4 features table, with
+    no benchmark named.
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - dc-hw:table-2-1:sh4
+  id: hitachi-sh4:native-instruction-rate
+  method: theoretical-peak
+  metric: native-instruction-rate
+  normalized:
+    value: "360000000"
+    unit: IPS
+    significantDigits: 3
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 3
+    state: value
+    unit: MIPS
+    value: "360"
+  scope: cpu
+  sourceIds:
+    - dreamcast-hardware-spec
+  status: vendor-rated
+  subject:
+    id: hitachi-sh4
+    kind: component
+  evidenceLevel: confirmed
+- caveat: >-
+    Held provisional because the source does not state a precision. The FPU row
+    directly above it offers both single and double IEEE 754, and a
+    floating-point rate without its precision is the single most common way
+    hardware comparisons go wrong. Recorded here as single precision on the
+    strength of the operation named, which is an editorial reading rather than a
+    citation, so the figure stays out of automatic multipliers until a source
+    states the precision outright.
+  comparabilityGroup: peak-fp32-rate|cpu|matrix-multiplication-peak
+  conditions: Stated as "1.4GFLOP (matrix multiplication)" in the SH-4 features table.
+  editorialStatus: provisional
+  evidenceStage: shipped
+  extractIds:
+    - dc-hw:table-2-1:sh4
+  id: hitachi-sh4:peak-fp32-rate
+  method: matrix-multiplication-peak
+  metric: peak-fp32-rate
+  normalized:
+    value: "1400000000"
+    unit: FLOP/s
+    significantDigits: 2
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 2
+    state: value
+    unit: GFLOP/s
+    value: "1.4"
+  scope: cpu
+  sourceIds:
+    - dreamcast-hardware-spec
+  status: vendor-rated
+  subject:
+    id: hitachi-sh4
+    kind: component
+  evidenceLevel: confirmed
+- caveat: >-
+    Main memory only. The console has a further
+    {{context:dreamcast-main-ram:context-mib-8}} of texture memory and
+    {{context:dreamcast-main-ram:context-mib-2}} of audio memory that this
+    figure excludes, and the specification states outright that the SH-4 does
+    not share texture or audio data with main memory.
+  comparabilityGroup: memory-capacity|memory|design-capacity
+  conditions: Base system space. SDRAM directly connected to the SH-4 on a
+    {{context:dreamcast-main-ram:context-bit-64}} bus.
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - dc-hw:2-3:main-memory
+    - dc-hw:1-2:system-specification
+  id: dreamcast-main-ram:capacity
+  method: design-capacity
+  metric: memory-capacity
+  normalized:
+    value: "16777216"
+    unit: B
+    significantDigits: 2
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 2
+    state: value
+    unit: MiB
+    value: "16"
+  scope: memory
+  sourceIds:
+    - dreamcast-hardware-spec
+  status: vendor-rated
+  subject:
+    id: dreamcast-main-ram
+    kind: component
+  evidenceLevel: confirmed
+- comparabilityGroup: memory-capacity|memory|design-capacity
+  conditions: Texture memory belonging to the graphics chip. Development hardware
+    could carry {{context:dreamcast-texture-ram:context-mib-16}}.
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - dc-hw:1-2:system-specification
+  id: dreamcast-texture-ram:capacity
+  method: design-capacity
+  metric: memory-capacity
+  normalized:
+    value: "8388608"
+    unit: B
+    significantDigits: 1
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 1
+    state: value
+    unit: MiB
+    value: "8"
+  scope: memory
+  sourceIds:
+    - dreamcast-hardware-spec
+  status: vendor-rated
+  subject:
+    id: dreamcast-texture-ram
+    kind: component
+  evidenceLevel: confirmed
+- comparabilityGroup: memory-capacity|memory|design-capacity
+  conditions: Audio memory belonging to the AICA chip. Development hardware could
+    carry {{context:dreamcast-audio-ram:context-mib-8}}.
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - dc-hw:1-2:system-specification
+  id: dreamcast-audio-ram:capacity
+  method: design-capacity
+  metric: memory-capacity
+  normalized:
+    value: "2097152"
+    unit: B
+    significantDigits: 1
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 1
+    state: value
+    unit: MiB
+    value: "2"
+  scope: memory
+  sourceIds:
+    - dreamcast-hardware-spec
+  status: vendor-rated
+  subject:
+    id: dreamcast-audio-ram
+    kind: component
+  evidenceLevel: confirmed
+- caveat: >-
+    A bus ceiling, not a measured throughput, and the source says so in as many
+    words. It describes main memory only; texture and audio memory have their
+    own paths.
+  comparabilityGroup: memory-bandwidth|memory|theoretical-peak
+  conditions: Maximum burst transfer on the
+    {{context:dreamcast-main-ram:context-bit-64}} main-memory bus at
+    {{context:dreamcast-main-ram:context-mhz-100}}. The specification calls it a
+    theoretical value.
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - dc-hw:2-3:main-memory
+  id: dreamcast-main-ram:bandwidth
+  method: theoretical-peak
+  metric: memory-bandwidth
+  normalized:
+    value: "800000000"
+    unit: B/s
+    significantDigits: 3
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 3
+    state: value
+    unit: MB/s
+    value: "800"
+  scope: memory
+  sourceIds:
+    - dreamcast-hardware-spec
+  status: theoretical
+  subject:
+    id: dreamcast-main-ram
+    kind: component
+  evidenceLevel: confirmed
+- caveat: >-
+    Adds 1 memory-capacity figure obtained by design-capacity. Left out:
+    {{measurement:dreamcast-texture-ram:capacity}} of texture memory (attached
+    to the graphics processor rather than to the CPU);
+    {{measurement:dreamcast-audio-ram:capacity}} of sound memory (the sound
+    processor’s own store, reachable only across the peripheral bus). A total is
+    only as trustworthy as the decision about what belongs in it, so both the
+    terms and the exclusions are named records.
+  comparabilityGroup: memory-capacity|whole-system|design-capacity
+  conditions: Main memory. The machine has three separate stores and only this one
+    is general.
+  derivedFrom: sega-dreamcast:whole-system-memory
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - dc-hw:2-3:main-memory
+    - dc-hw:1-2:system-specification
+  id: sega-dreamcast:whole-system-memory-capacity
+  method: design-capacity
+  metric: memory-capacity
+  normalized:
+    value: "16777216"
+    unit: B
+    significantDigits: 2
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 2
+    state: value
+    unit: MiB
+    value: "16"
+  rounding: none
+  scope: whole-system
+  sourceIds:
+    - dreamcast-hardware-spec
+  status: derived
+  subject:
+    id: sega-dreamcast
+    kind: system
+  evidenceLevel: confirmed
+- caveat: >-
+    Adds 1 memory-bandwidth figure obtained by theoretical-peak. Nothing in the
+    catalog is left out of it. A total is only as trustworthy as the decision
+    about what belongs in it, so both the terms and the exclusions are named
+    records.
+  comparabilityGroup: memory-bandwidth|whole-system|theoretical-peak
+  conditions: The bus to main memory. The texture and sound stores have bandwidths
+    of their own that no source consulted here states.
+  derivedFrom: sega-dreamcast:whole-system-memory-bandwidth
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - dc-hw:2-3:main-memory
+  id: sega-dreamcast:whole-system-memory-bandwidth
+  method: theoretical-peak
+  metric: memory-bandwidth
+  normalized:
+    value: "800000000"
+    unit: B/s
+    significantDigits: 3
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 3
+    state: value
+    unit: MB/s
+    value: "800"
+  rounding: none
+  scope: whole-system
+  sourceIds:
+    - dreamcast-hardware-spec
+  status: derived
+  subject:
+    id: sega-dreamcast
+    kind: system
+  evidenceLevel: confirmed
+- caveat: >-
+    The processor’s rating, not the console’s: Sega publishes no figure for the
+    machine, and this answers a narrower question than the Amiga 1200’s 23 watts
+    or the Mac mini’s 150 watts, which are whole-machine ratings. The scope
+    keeps them in separate rows for exactly that reason. "Typical" is the
+    manufacturer’s own hedge and nothing here was measured.
+  comparabilityGroup: rated-power-consumption|cpu|rated-power
+  conditions: The {{context:hitachi-sh4:context-mhz-200}} part, which is the speed
+    grade the console fits. Hitachi states it as typical.
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - hitachi-sh7750:power
+  id: hitachi-sh4:rated-power-consumption
+  method: rated-power
+  metric: rated-power-consumption
+  normalized:
+    value: "1.5"
+    unit: W
+    significantDigits: 2
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 2
+    state: value
+    unit: W
+    value: "1.5"
+  scope: cpu
+  sourceIds:
+    - hitachi-sh7750-announcement-1997
+  status: vendor-rated
+  subject:
+    id: hitachi-sh4
+    kind: component
+  evidenceLevel: confirmed

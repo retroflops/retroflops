@@ -1,0 +1,13 @@
+architecture: Static RAM
+editorialStatus: approved
+id: snes-video-ram
+kind: memory
+manufacturer: Nintendo
+memoryType: Static RAM
+name: Super Nintendo video RAM
+slug: snes-video-ram
+sourceIds:
+  - nintendo-snes-tech-specs
+summary:
+  '{{measurement:snes-video-ram:capacity}} of writable memory attached to the
+  picture processors.'

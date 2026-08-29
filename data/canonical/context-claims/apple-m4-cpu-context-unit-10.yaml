@@ -1,0 +1,17 @@
+id: apple-m4-cpu:context-unit-10
+subject:
+  kind: component
+  id: apple-m4-cpu
+label: Core count
+quantity:
+  state: value
+  value: '10'
+  unit: unit
+  significantDigits: 2
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - apple-mac-mini-m4-tech-specs
+evidenceLevel: confirmed

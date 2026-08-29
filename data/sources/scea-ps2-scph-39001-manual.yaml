@@ -1,0 +1,21 @@
+accessedDate: 2026-07-29
+archiveUrl: https://archive.org/details/scph-39001-n
+editorialStatus: approved
+fetch:
+  byteLength: 422679
+  contentType: text/plain; charset=utf-8
+  fetchedAt: 2026-07-29T16:56:40Z
+  finalUrl: https://dn721904.ca.archive.org/0/items/scph-39001-n/SCPH-39001N_djvu.txt
+  httpStatus: 200
+  sha256: 70c8b4caa6dec40a17f43684239c01af61785f69dbd8bc071aad88821a3fefec
+  url: https://archive.org/download/scph-39001-n/SCPH-39001N_djvu.txt
+id: scea-ps2-scph-39001-manual
+license: Copyright Sony Interactive Entertainment Inc. Quoted here under
+  short-extract fair use for verification of the figures cited.
+locator: '"Specifications", General section'
+publishedDate: "2002"
+publisher: Sony Computer Entertainment America
+sourceType: vendor-documentation
+tier: A
+title: PlayStation 2 Instruction Manual (SCPH-39001)
+url: https://archive.org/download/scph-39001-n/SCPH-39001N_djvu.txt

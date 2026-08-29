@@ -1,0 +1,13 @@
+id: ibm-pc-5150-8088
+slug: ibm-pc-5150-8088
+kind: cpu
+name: Intel 8088
+manufacturer: Intel
+architecture: x86
+introducedDate: '1979'
+instructionSet: Intel 8086
+instructionSetFamily: x86
+summary: Sixteen-bit x86 core with an eight-bit external data bus.
+sourceIds:
+  - ibm-pc-technical-reference
+editorialStatus: approved

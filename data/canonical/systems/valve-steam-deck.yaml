@@ -1,0 +1,41 @@
+editorialStatus: approved
+id: valve-steam-deck
+slug: valve-steam-deck
+name: Valve Steam Deck
+manufacturer: Valve
+type: handheld
+releaseDate: 2022-02
+region: Worldwide
+summary: >-
+  Valve Steam Deck, represented with its retail processor, graphics and
+  installed writable memory.
+description: >-
+  The quoted processor and graphics frequencies are published ceilings of
+  variable ranges, so they use peak-clock rather than pretending that either is
+  a fixed nominal rate.
+imageIds:
+  - valve-steam-deck-handheld
+configurations:
+  - id: retail
+    label: Retail hardware
+    entries:
+      - componentId: valve-steam-deck-zen-2
+        role: main-cpu
+        count: 1
+        shared: false
+        measurementIds:
+          - valve-steam-deck:retail:cpu-clock-frequency
+      - componentId: valve-steam-deck-rdna2
+        role: gpu
+        count: 1
+        shared: false
+        measurementIds:
+          - valve-steam-deck:retail:gpu-clock-frequency
+      - componentId: valve-steam-deck-ram
+        role: unified-memory
+        count: 1
+        shared: true
+        measurementIds:
+          - valve-steam-deck-ram:capacity
+sourceIds:
+  - valve-steam-deck-tech-specs

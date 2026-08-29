@@ -1,0 +1,42 @@
+accessedDate: 2026-08-17
+alt: "An Orchid Righteous 3D card photographed flat against white: a green board with two 3dfx chips
+  in the middle, memory chips in two columns down the right edge, VGA sockets and a pass-through
+  connector on the bracket, and the PCI edge connector along the bottom."
+attribution: Photograph by Trio3D, licensed CC BY-SA 3.0, via Wikimedia Commons.
+canonical:
+  byteLength: 166303
+  format: avif
+  height: 960
+  sha256: ffcc9cf58fbcc34844f021e008443ecdbd730d2c2266cf2763a8fb200b50f231
+  width: 1280
+caption: "An Orchid Righteous 3D, the first retail card built on 3dfx's Voodoo Graphics chipset. It
+  has no 2D circuitry at all: a pass-through cable carried the desktop from a separate graphics
+  card."
+creator: Trio3D
+creatorType: person
+editorialStatus: approved
+id: 3dfx-voodoo-graphics-card
+original:
+  byteLength: 2932685
+  height: 1158
+  mediaType: image/png
+  sha256: 8443a7691993c37a01d1f8bdc974e1a7f4d0779ceaeae96ce6cf080d12f80fd3
+  width: 1600
+originalUrl: https://upload.wikimedia.org/wikipedia/commons/d/d6/Orchid_Righteous_3D.png
+publisher: Wikimedia Commons
+rights:
+  id: cc-by-sa-3.0
+  statedAt: https://commons.wikimedia.org/wiki/File:Orchid_Righteous_3D.png
+  statement: This file is licensed under the Creative Commons Attribution-Share Alike 3.0 Unported license.
+  url: https://creativecommons.org/licenses/by-sa/3.0/
+sourcePageUrl: https://commons.wikimedia.org/wiki/File:Orchid_Righteous_3D.png
+title: Orchid Righteous 3D.png
+transform:
+  background: "#ffffff"
+  fit: pad
+  note: The photograph is wider than 4:3 and the board runs almost the full width of it, so no crop
+    keeps the card whole. The declared margin is the same white as the backdrop the card was
+    photographed against, which is why it cannot be seen.
+  preset: image-v1
+  sourceHeight: 1158
+  sourceWidth: 1600

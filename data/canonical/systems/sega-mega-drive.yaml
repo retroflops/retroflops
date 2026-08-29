@@ -1,0 +1,48 @@
+configurations:
+  - entries:
+      - componentId: mega-drive-68000
+        count: 1
+        notes: >-
+          The {{context:mega-drive-68000:context-mhz-3-58}} Z80 is an audio
+          coprocessor; its clock is not added to this one.
+        role: main-cpu
+        shared: false
+        measurementIds:
+          - sega-mega-drive:cpu-clock-frequency
+      - componentId: mega-drive-vdp
+        count: 1
+        role: gpu
+        shared: false
+        measurementIds:
+          - sega-mega-drive:gpu-clock-frequency
+      - componentId: mega-drive-ram
+        count: 1
+        role: system-memory
+        shared: false
+        measurementIds:
+          - mega-drive-ram:capacity
+    id: ntsc
+    label: NTSC retail console
+    region: Japan
+editorialStatus: provisional
+id: sega-mega-drive
+manufacturer: Sega
+name: Sega Mega Drive
+notes: Cartridge ROM remains removable storage and does not enter the RAM total.
+region: Japan
+releaseDate: 1988-10
+slug: sega-mega-drive
+imageIds:
+  - sega-mega-drive-console
+sourceIds:
+  - sega-mega-drive-service-manual
+summary: >-
+  A {{measurement:sega-mega-drive:cpu-clock-frequency}} 68000 console with
+  {{measurement:mega-drive-ram:capacity}} main RAM, a Z80 audio processor and a
+  tile-and-sprite VDP.
+description: >-
+  This is the original Japanese Mega Drive, not the later Mega Drive II. Its
+  68000-led design makes it Sega's direct counterpart to the contemporary
+  cartridge consoles in this catalog.
+type: console
+family: sega-console

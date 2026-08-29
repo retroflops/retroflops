@@ -1,0 +1,17 @@
+id: intel-core-i9-14900k:context-w-253
+subject:
+  kind: component
+  id: intel-core-i9-14900k
+label: Contextual value
+quantity:
+  state: value
+  value: '253'
+  unit: W
+  significantDigits: 3
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - intel-desktop-processor-reference
+evidenceLevel: confirmed

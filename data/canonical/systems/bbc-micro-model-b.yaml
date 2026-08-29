@@ -1,0 +1,49 @@
+id: bbc-micro-model-b
+slug: bbc-micro-model-b
+name: BBC Micro Model B
+manufacturer: Acorn Computers
+type: home-computer
+releaseDate: 1981-12
+region: United Kingdom
+summary: >-
+  A {{measurement:bbc-micro-model-b:clock-frequency}} 6502 home computer with
+  {{measurement:bbc-micro-ram:capacity}} RAM and the BBC Micro MOS/BASIC in ROM.
+description: >-
+  The Model B's writable RAM and its MOS/BASIC ROM are both addressable system
+  stores, but only the former belongs in the whole-system memory sum.
+configurations:
+  - id: retail
+    label: Retail Model B
+    region: United Kingdom
+    entries:
+      - componentId: bbc-micro-6502
+        role: main-cpu
+        count: 1
+        shared: false
+        measurementIds:
+          - bbc-micro-model-b:clock-frequency
+      - componentId: bbc-micro-video-ula
+        role: gpu
+        count: 1
+        shared: false
+        measurementIds:
+          - bbc-micro-model-b:gpu-clock-frequency
+      - componentId: bbc-micro-ram
+        role: system-memory
+        count: 1
+        shared: true
+        measurementIds:
+          - bbc-micro-ram:capacity
+      - componentId: bbc-micro-rom
+        role: system-memory
+        count: 1
+        shared: true
+        notes: Read-only MOS and BASIC firmware.
+        measurementIds:
+          - bbc-micro-rom:capacity
+imageIds:
+  - bbc-micro-model-b-computer
+sourceIds:
+  - bbc-micro-service-manual
+  - bbc-micro-information-sheet
+editorialStatus: approved

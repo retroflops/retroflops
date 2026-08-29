@@ -1,0 +1,49 @@
+id: nintendo-switch-2
+slug: nintendo-switch-2
+name: Nintendo Switch 2
+manufacturer: Nintendo
+type: console
+family: nintendo-home-console
+releaseDate: 2025-06-05
+region: Worldwide
+summary: >-
+  Nintendo's 2025 hybrid console, represented in docked mode with a custom
+  NVIDIA processor, {{measurement:nintendo-switch-2:docked:peak-fp32-rate}} of
+  GPU peak FP32 throughput, and
+  {{measurement:nintendo-switch-2:whole-system-memory-capacity}} of unified
+  memory.
+description: >-
+  Nintendo identifies a custom NVIDIA processor but does not publish the chip's
+  detailed clocks or memory interface. Independent hardware reporting supplies
+  those values, labeled reported; the record does not confuse the dock's power
+  supply rating with a console power rating.
+configurations:
+  - id: docked
+    label: Docked mode
+    entries:
+      - componentId: nvidia-t239-cpu
+        role: main-cpu
+        count: 1
+        shared: false
+        measurementIds:
+          - nintendo-switch-2:docked:cpu-clock-frequency
+      - componentId: nvidia-t239-gpu
+        role: gpu
+        count: 1
+        shared: false
+        measurementIds:
+          - nintendo-switch-2:docked:gpu-clock-frequency
+          - nintendo-switch-2:docked:peak-fp32-rate
+      - componentId: nintendo-switch-2-memory
+        role: unified-memory
+        count: 1
+        shared: true
+        measurementIds:
+          - nintendo-switch-2:whole-system-memory-capacity
+          - nintendo-switch-2:docked:whole-system-memory-bandwidth
+imageIds:
+  - nintendo-switch-2-console
+sourceIds:
+  - nintendo-switch-2-tech-specs
+  - techpowerup-switch-2-specs
+editorialStatus: approved

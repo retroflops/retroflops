@@ -1,0 +1,18 @@
+accessedDate: 2026-08-22
+editorialStatus: provisional
+id: sega-8bit-service-manual
+locator: Internet Archive item record and full scanned service manual
+publisher: Sega
+sourceType: technical-manual
+tier: B
+title: Sega Master System Service Manual (E)
+url: https://archive.org/download/Sega_Master_System_Service_Manual_E/Sega_Master_System_Service_Manual_E.cbr
+extract: Sega Master System Service Manual (E)
+fetch:
+  url: https://archive.org/download/Sega_Master_System_Service_Manual_E/Sega_Master_System_Service_Manual_E.cbr
+  finalUrl: https://dn790003.ca.archive.org/0/items/Sega_Master_System_Service_Manual_E/Sega_Master_System_Service_Manual_E.cbr
+  fetchedAt: 2026-08-24T18:59:33Z
+  httpStatus: 200
+  contentType: application/x-cbr
+  byteLength: 2595867
+  sha256: 1bb859d54c40861357b0c17c516bb8a7af0db92dfc4bcfabd89fce25b739336b

@@ -1,0 +1,14 @@
+- extract: 'Clock: 12 MHz.'
+  extractHash: dcfe58fddf67074e05db71c29c6efd9bbad1931d2f09f43ce7816cbd32670f6a
+  id: neo-geo-hardware:main-cpu-clock
+  locator: Neo-Geo Specification, Hardware-1
+  sourceId: neo-geo-developers-manual
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-22
+- extract: Work RAM / 64K Bytes.
+  extractHash: 4474bd593e0c2e62479c005d0bbe846ab3cc943888447cc119f579176c796b34
+  id: neo-geo-hardware:work-ram-capacity
+  locator: Neo-Geo Specification, Hardware-1
+  sourceId: neo-geo-developers-manual
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-22

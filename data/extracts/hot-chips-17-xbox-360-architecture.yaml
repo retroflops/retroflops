@@ -1,0 +1,34 @@
+- extract: >-
+    • 512 MB unified memory
+
+    – 700Mhz GDDR3: 22.4 GB/sec
+  extractHash: 377dab92fb5da68e346b31a7e9d42090b6171ca366b8aefaf84f532e8e837c28
+  id: hc17-xbox360:slide4:memory-bandwidth
+  locator: Slide 4, 'Hardware Designed for Games'
+  notes: >-
+    The same slide gives the 10 MB of embedded DRAM a separate 256 GB/sec
+    figure. That is a frame-buffer fill path rather than the console's memory
+    bandwidth, so 22.4 GB/s is the comparable figure and the eDRAM rate is not
+    merged into it.
+  sourceId: hot-chips-17-xbox-360-architecture
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-13
+- extract: >-
+    • 500 MHz graphics processor
+
+    – 48 parallel shader cores (ALUs); dynamically scheduled; 32bit IEEE FLP
+
+    – 24 billion shader instructions per second
+  extractHash: c45393d04cdcfda29960da305e559b16c831d5a047c7c2e1cc3c9497c6f5ab6f
+  id: hc17-xbox360:slide10:gpu-specs
+  locator: Slide 10, 'GPU Specs'
+  notes: >-
+    Transcribed with no value. Microsoft's engineers say the shader ALUs are
+    32-bit IEEE floating point and then quantify the processor in shader
+    instructions per second, fill rate, sample rate, triangle rate and texture
+    rate — never in floating-point operations per second. So the precision is
+    documented and the rate is not, which is exactly why the console's FP32 row
+    stays unknown rather than borrowing the circulating 240 GFLOPS figure.
+  sourceId: hot-chips-17-xbox-360-architecture
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-13

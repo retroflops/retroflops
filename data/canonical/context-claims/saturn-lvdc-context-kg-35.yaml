@@ -1,0 +1,18 @@
+id: saturn-lvdc:context-kg-35
+subject:
+  kind: system
+  id: saturn-lvdc
+  configurationId: four-module
+label: Contextual value
+quantity:
+  state: value
+  value: '35'
+  unit: kg
+  significantDigits: 2
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - ntrs-19700023342
+evidenceLevel: confirmed

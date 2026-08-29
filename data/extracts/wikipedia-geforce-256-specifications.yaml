@@ -1,0 +1,18 @@
+- id: wikipedia-geforce-256-specifications:sdr
+  sourceId: wikipedia-geforce-256-specifications
+  locator: Specifications table, GeForce 256 SDR row
+  extract: >-
+    GeForce 256 SDR: 120 MHz core, 166 MHz memory, 480 MPixels/s, 480 MTexels/s,
+    32 MB, 2.656 GB/s, SDR, 128 bit, and 960 MFLOPS FP32.
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-26
+  extractHash: 438c3e66e767d3ec23a2ebc98aeb4f357ba1c27cc9386389297833fc16e18e17
+- id: wikipedia-geforce-256-specifications:ddr
+  sourceId: wikipedia-geforce-256-specifications
+  locator: Specifications table, GeForce 256 DDR row
+  extract: >-
+    GeForce 256 DDR: 120 MHz core, 150 MHz memory, 480 MPixels/s, 480 MTexels/s,
+    32 MB, 4.800 GB/s, DDR, 128 bit, and 960 MFLOPS FP32.
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-26
+  extractHash: d3ecf71369bd87f4f18c54b22fa7774e9e202c27c669629d35c6ff6120335f56

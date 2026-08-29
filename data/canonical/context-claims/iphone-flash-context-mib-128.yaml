@@ -1,0 +1,18 @@
+id: iphone-flash:context-mib-128
+subject:
+  kind: component
+  id: iphone-flash
+label: Capacity
+quantity:
+  state: value
+  value: '128'
+  unit: MiB
+  significantDigits: 3
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - apple-iphone-retail-launch-2007
+  - apple-iphone-announcement-2007
+evidenceLevel: confirmed

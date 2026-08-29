@@ -1,0 +1,11 @@
+architecture: 65C02 derivative
+editorialStatus: provisional
+id: pc-engine-huc6280
+instructionSet: 65C02 derivative
+kind: cpu
+manufacturer: Hudson Soft
+name: Hudson Soft HuC6280
+slug: pc-engine-huc6280
+sourceIds:
+  - nec-pc-engine-technical-manual
+summary: The PC Engine main processor.

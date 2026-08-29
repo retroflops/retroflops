@@ -1,0 +1,20 @@
+id: amiga-1200:context-mhz-14-18758
+subject:
+  kind: system
+  id: amiga-1200
+  configurationId: pal
+label: Frequency
+quantity:
+  state: value
+  value: '14.18758'
+  unit: MHz
+  significantDigits: 7
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - amiga-1200-service-manual
+extractIds:
+  - a1200-sm:a-1:specifications
+evidenceLevel: confirmed

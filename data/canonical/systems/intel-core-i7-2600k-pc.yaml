@@ -1,0 +1,44 @@
+id: intel-core-i7-2600k-pc
+slug: intel-core-i7-2600k-pc
+name: Intel Core i7-2600K PC
+manufacturer: PC industry
+type: personal-computer
+family: reference-pc
+releaseDate: 2011-01
+region: Worldwide
+summary: >-
+  A representative Core i7-2600K desktop configuration with
+  {{measurement:intel-core-i7-2600k-pc:whole-system-memory-capacity}} of DDR3
+  SDRAM and Intel HD Graphics 3000.
+configurations:
+  - id: reference
+    label: 3.40 GHz base / 3.80 GHz turbo reference configuration
+    entries:
+      - componentId: intel-core-i7-2600k
+        role: main-cpu
+        count: 1
+        shared: false
+        measurementIds:
+          - intel-core-i7-2600k:clock-frequency
+          - intel-core-i7-2600k:peak-clock
+      - componentId: intel-integrated-graphics
+        role: gpu
+        count: 1
+        shared: true
+        measurementIds:
+          - intel-integrated-graphics:clock-frequency
+      - componentId: pc-ddr-sdram
+        role: system-memory
+        count: 1
+        shared: true
+        measurementIds:
+          - intel-core-i7-2600k-pc:whole-system-memory-capacity
+sourceIds:
+  - intel-core-i7-2600k-specifications
+editorialStatus: provisional
+notes: >-
+  This entry has no photograph, and that is a decision rather than a gap: it
+  describes a processor in a typical machine of its era rather than a model
+  anybody sold, so there is no object to photograph. A picture of some
+  particular case would attach a claim about that computer to a record which
+  deliberately makes none.

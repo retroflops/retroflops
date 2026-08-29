@@ -1,0 +1,21 @@
+id: nvidia-gp104:context-w-500
+subject:
+  kind: component
+  id: nvidia-gp104
+label: Contextual value
+quantity:
+  state: value
+  value: '500'
+  unit: W
+  significantDigits: 3
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - nvidia-gtx-1080-deep-dive-2016
+  - nvidia-gtx-1080-whitepaper
+extractIds:
+  - nvidia-gtx-1080:specifications
+  - nvidia-gtx-1080:whitepaper-table
+evidenceLevel: confirmed

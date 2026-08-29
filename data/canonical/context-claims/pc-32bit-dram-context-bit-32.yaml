@@ -1,0 +1,17 @@
+id: pc-32bit-dram:context-bit-32
+subject:
+  kind: component
+  id: pc-32bit-dram
+label: Word size
+quantity:
+  state: value
+  value: '32'
+  unit: bit
+  significantDigits: 2
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - intel-historical-x86-documentation
+evidenceLevel: confirmed

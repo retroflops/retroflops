@@ -1,0 +1,7 @@
+- extract: 4096KB Main RAM
+  id: gbatek-nds:main-ram
+  locator: NDS Reference, DS Technical Data, Internal Memory
+  sourceId: nintendo-ds-technical-reference
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-24
+  extractHash: 1776342d34d6a8f0c9bf5b25b2698c37b83f0751456ba1a4349c2a0cbc171d37

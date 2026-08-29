@@ -1,0 +1,15 @@
+id: amiga-4000-chip-ram
+slug: amiga-4000-chip-ram
+kind: memory
+name: Amiga 4000 Chip memory
+manufacturer: Commodore Business Machines
+architecture: Shared 32-bit dynamic RAM
+introducedDate: '1992'
+memoryType: 32-bit dynamic RAM shared between the CPU and custom chips
+summary: Memory shared by the Amiga 4000 processor and its AA custom chipset.
+notes: >-
+  The Amiga 4000 User Guide describes one or two MiB Chip RAM configurations.
+  Fast RAM is separate because the custom chips cannot access it.
+sourceIds:
+  - commodore-amiga-4000-user-guide
+editorialStatus: approved

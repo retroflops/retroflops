@@ -1,0 +1,21 @@
+accessedDate: 2026-08-13
+editorialStatus: approved
+fetch:
+  byteLength: 67062
+  contentType: text/html; charset=utf-8
+  fetchedAt: 2026-08-13T15:31:26Z
+  httpStatus: 200
+  sha256: 6e2e2b96fe1e13ce34e8543ff89fab46e8460bcde7e5ca5c1cbc0f28597d899a
+  url: https://web.archive.org/web/20260726060733id_/https://browser.geekbench.com/ios-benchmarks/
+id: geekbench-apple-iphone-17-pro-chart-2026-07-26
+license: Copyright Primate Labs Inc. Quoted here under short-extract fair use
+  for verification of the cited figure.
+locator: Single-Core and Multi-Core tables, row "iPhone 17 Pro — Apple A19 Pro"
+publisher: Primate Labs Inc.
+sourceType: official-benchmark-result
+tier: A
+title: Geekbench 6 iOS Benchmark Chart — 26 July 2026 capture
+url: https://web.archive.org/web/20260726060733id_/https://browser.geekbench.com/ios-benchmarks/
+usageNote: >-
+  A Wayback capture of Primate Labs' rolling chart. The measurements record the
+  capture date and are not current averages.

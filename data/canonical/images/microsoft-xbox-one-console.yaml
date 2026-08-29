@@ -1,0 +1,42 @@
+accessedDate: 2026-08-17
+alt: A black Microsoft Xbox One lying flat and photographed against white, half of its top surface
+  gloss and half ridged matte, with a slot-loading disc drive on the left of the front face.
+attribution: Photograph by Evan-Amos, released into the public domain by its author, via Wikimedia Commons.
+canonical:
+  byteLength: 17796
+  format: avif
+  height: 960
+  sha256: 5338a6fe9e066d0417d6a5c18aa59e7220e86e56492476dd309f651f4b4eadab
+  width: 1280
+caption: An original Xbox One, the launch design with the two-tone top.
+creator: Evan-Amos
+creatorType: person
+editorialStatus: approved
+id: microsoft-xbox-one-console
+original:
+  byteLength: 3273992
+  height: 3090
+  mediaType: image/jpeg
+  sha256: 0cf4ca07254a124bdaa97e229a2238d39d7bebc1db48dba9e24fed34835b876c
+  width: 4500
+originalUrl: https://upload.wikimedia.org/wikipedia/commons/8/85/Xbox-One-Console-FL.jpg
+publisher: Wikimedia Commons
+rights:
+  id: pd-self
+  statedAt: https://commons.wikimedia.org/wiki/File:Xbox-One-Console-FL.jpg
+  statement: "I, the copyright holder of this work, release this work into the public domain. This
+    applies worldwide. In some countries this may not be legally possible; if so: I grant anyone the
+    right to use this work for any purpose, without any conditions, unless such conditions are
+    required by law."
+  url: https://commons.wikimedia.org/wiki/Template:PD-self
+sourcePageUrl: https://commons.wikimedia.org/wiki/File:Xbox-One-Console-FL.jpg
+title: Xbox-One-Console-FL.jpg
+transform:
+  background: "#ffffff"
+  fit: pad
+  note: The photograph is wider than 4:3 and the machine reaches both ends of it, so no crop keeps the
+    whole subject. The declared margin is the same white as the backdrop the photograph was taken
+    against, which is why it cannot be seen; it is recorded because it is there.
+  preset: image-v1
+  sourceHeight: 3090
+  sourceWidth: 4500

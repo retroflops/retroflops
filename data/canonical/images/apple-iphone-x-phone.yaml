@@ -1,0 +1,46 @@
+accessedDate: 2026-08-17
+alt: "A space gray iPhone X seen face on against a pale surface: an all-glass front with the notch
+  at the top and no home button, and the headphone adapter, charging cable and power adapter it
+  shipped with laid out on either side. The screen is off."
+attribution: Photograph by Gregory Varnum, licensed CC BY-SA 4.0, via Wikimedia Commons.
+canonical:
+  byteLength: 31054
+  format: avif
+  height: 960
+  sha256: 4ae007501638e3759e186e0eced2e947b0ef2b2f9e1f7bbcc5f1d3697bf2d87d
+  width: 1280
+caption: A space gray iPhone X, switched off, with the accessories it was sold with on either side.
+creator: Gregory Varnum
+creatorType: person
+editorialStatus: approved
+id: apple-iphone-x-phone
+original:
+  byteLength: 994926
+  height: 2428
+  mediaType: image/jpeg
+  sha256: d3df6b20a8fa99d2736b5ef567726794f51928e63d0999935e9d526df1a36474
+  width: 3913
+originalUrl: https://upload.wikimedia.org/wikipedia/commons/5/55/Apple_iPhone_X_and_included_accessories_%288127%29.jpg
+publisher: Wikimedia Commons
+rights:
+  id: cc-by-sa-4.0
+  statedAt: https://commons.wikimedia.org/wiki/File:Apple_iPhone_X_and_included_accessories_(8127).jpg
+  statement: "I, the copyright holder of this work, hereby publish it under the following license:
+    This file is licensed under the Creative Commons Attribution-Share Alike 4.0 International
+    license."
+  url: https://creativecommons.org/licenses/by-sa/4.0/
+sourcePageUrl: https://commons.wikimedia.org/wiki/File:Apple_iPhone_X_and_included_accessories_(8127).jpg
+title: Apple iPhone X and included accessories (8127).jpg
+transform:
+  fit: crop
+  note: A centered crop off the long edges of a 5:3 original, one pixel short of its full height so
+    the rectangle is exactly 4:3. The phone is in the middle of the frame; what the crop narrows is
+    the row of accessories laid out beside it, which are not the machine.
+  preset: image-v1
+  region:
+    height: 2427
+    width: 3236
+    x: 338
+    y: 0
+  sourceHeight: 2428
+  sourceWidth: 3913

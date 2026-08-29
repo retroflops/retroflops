@@ -1,0 +1,43 @@
+accessedDate: 2026-08-17
+alt: "A first-generation Nintendo DS opened out on red cloth: a silver clamshell with one screen in
+  the lid and a second in the base, a cross-shaped pad at the left of the base, four buttons at the
+  right, and a wrist strap looped away to the side. Both screens are off."
+attribution: Photograph by Frédéric BISSON, licensed CC BY 2.0, via Wikimedia Commons.
+canonical:
+  byteLength: 38482
+  format: avif
+  height: 960
+  sha256: bf2cb74b8996337c160e911e915433e473e93560ea3a235e0f874aef8e8de7df
+  width: 1280
+caption: A first-generation Nintendo DS, opened, with both screens off.
+creator: Frédéric BISSON
+creatorType: person
+editorialStatus: approved
+id: nintendo-ds-handheld
+original:
+  byteLength: 6191379
+  height: 3264
+  mediaType: image/jpeg
+  sha256: 07f30ef4e098a91b902c134523dfb32f75b335bf0d18bcf53b260d332262fe99
+  width: 4912
+originalUrl: https://upload.wikimedia.org/wikipedia/commons/b/b9/Nintendo_DS_%2816485019949%29.jpg
+publisher: Wikimedia Commons
+rights:
+  id: cc-by-2.0
+  statedAt: https://commons.wikimedia.org/wiki/File:Nintendo_DS_(16485019949).jpg
+  statement: This file is licensed under the Creative Commons Attribution 2.0 Generic license.
+  url: https://creativecommons.org/licenses/by/2.0/
+sourcePageUrl: https://commons.wikimedia.org/wiki/File:Nintendo_DS_(16485019949).jpg
+title: Nintendo DS (16485019949).jpg
+transform:
+  fit: crop
+  note: A centered crop off the long edges of a 3:2 original. The console and its wrist strap stand
+    clear of both ends, so the crop takes only the cloth beside them.
+  preset: image-v1
+  region:
+    height: 3264
+    width: 4352
+    x: 280
+    y: 0
+  sourceHeight: 3264
+  sourceWidth: 4912

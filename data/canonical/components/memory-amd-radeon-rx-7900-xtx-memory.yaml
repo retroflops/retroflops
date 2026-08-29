@@ -1,0 +1,13 @@
+id: amd-radeon-rx-7900-xtx-memory
+slug: amd-radeon-rx-7900-xtx-memory
+kind: memory
+name: AMD Radeon RX 7900 XTX frame buffer
+manufacturer: AMD
+memoryType: GDDR6
+introducedDate: 2022-12
+summary:
+  '{{measurement:amd-radeon-rx-7900-xtx-memory:capacity}} of GDDR6 with
+  {{measurement:amd-radeon-rx-7900-xtx-memory:bandwidth}} peak bandwidth.'
+sourceIds:
+  - amd-radeon-rx-7900-xtx-product-specifications
+editorialStatus: approved

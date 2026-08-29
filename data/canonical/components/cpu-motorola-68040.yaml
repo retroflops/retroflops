@@ -1,0 +1,17 @@
+id: motorola-68040
+slug: motorola-68040
+kind: cpu
+name: Motorola MC68040
+manufacturer: Motorola
+architecture: Motorola 68040
+introducedDate: '1990'
+instructionSet: Motorola 68000
+instructionSetFamily: motorola-68000
+summary: The full 68040 processor fitted to the standard Amiga 4000 module.
+notes: >-
+  The A4000 guide specifies a 68040-series module. It distinguishes the full
+  68040 from the 68EC040 variant, which omits the floating-point unit and memory
+  management unit.
+sourceIds:
+  - commodore-amiga-4000-user-guide
+editorialStatus: approved

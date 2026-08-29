@@ -1,0 +1,145 @@
+- extract: >-
+    Welcome to the Geekbench Metal Benchmark Chart. The data on this chart is
+    calculated from Geekbench 6 results users have uploaded to the Geekbench
+    Browser. To make sure the results accurately reflect the average performance
+    of each GPU, the chart only includes GPUs with at least five unique results
+    in the Geekbench Browser.
+
+    This chart was last updated about 2 hours ago.
+  extractHash: 75195715b2c63c7dd43ade50b0e9929e44e8cddcc8a518e1c49fbc296fd6e6c0
+  id: geekbench-metal-chart-2026-07-18:what-the-figures-are
+  locator:
+    Introductory paragraph above the chart, and the line immediately below it
+  notes: >-
+    Transcribed with no value: this is the record that says what kind of number
+    the chart holds. An average over uploads of one graphics processor,
+    recomputed continuously — the page dates its own last update — so a figure
+    read from it is true of a day and of no other day. It also names the
+    version, which is half the benchmark identity these figures carry.
+  sourceId: geekbench-metal-benchmark-chart-2026-07-18
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-18
+- extract: >-
+    Geekbench 6 scores are calibrated against a baseline score of 2500 (which is
+    the score of an Intel Core i7-12700 performing the same task). Higher scores
+    are better, with double the score indicating double the performance.
+  extractHash: 930b84128b0e2ea11b1e9bef4749064deb651223d6961fa417510c2942b14b84
+  id: geekbench-metal-chart-2026-07-18:calibration
+  locator: Second paragraph above the chart
+  notes: >-
+    The baseline is why a compute score is a metric of its own rather than a
+    variant of the processor score. Version 6 calibrates both against 2500;
+    version 7 splits them, calibrating a compute result against 100,000 and a
+    processor result against 2,500, so the two scales are neither the same
+    quantity nor stable across versions.
+  sourceId: geekbench-metal-benchmark-chart-2026-07-18
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-18
+- extract: Apple M1 | 31387
+  extractHash: 4420948892b6a24387a8afa74ce9db965ac9eefc4576ce5bce041a675c15edb2
+  id: geekbench-metal-chart-2026-07-18:apple-m1
+  locator: Device and Score table, row "Apple M1"
+  notes: >-
+    The row whose device string is the product name as Apple writes it. The
+    chart also carries "Apple M1 GPU", transcribed separately, which is the same
+    processor under the string a driver reports.
+  sourceId: geekbench-metal-benchmark-chart-2026-07-18
+  transcribed:
+    significantDigits: 5
+    state: value
+    unit: score
+    value: '31387'
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-18
+- extract: Apple M1 GPU | 32442
+  extractHash: 844e00d11ecb8682d1a2cd6aa5106c3c0ed411c786625c0c0c5ed2124fd6b528
+  id: geekbench-metal-chart-2026-07-18:apple-m1-gpu-string
+  locator: Device and Score table, row "Apple M1 GPU"
+  notes: >-
+    The rival string for the same processor, kept as evidence for the conflict
+    record. Apple sells no product called "Apple M1 GPU".
+  sourceId: geekbench-metal-benchmark-chart-2026-07-18
+  transcribed:
+    significantDigits: 5
+    state: value
+    unit: score
+    value: '32442'
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-18
+- extract: Apple M4 | 54482
+  extractHash: fd9cdb4a195d18ed6b7bb958728e3c8b131ed3376202d1f579b1d932d76f258c
+  id: geekbench-metal-chart-2026-07-18:apple-m4
+  locator: Device and Score table, row "Apple M4"
+  notes: >-
+    As with the M1, the chart carries both "Apple M4" and "Apple M4 GPU"; this
+    is the row naming the product.
+  sourceId: geekbench-metal-benchmark-chart-2026-07-18
+  transcribed:
+    significantDigits: 5
+    state: value
+    unit: score
+    value: '54482'
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-18
+- extract: Apple M4 GPU | 54196
+  extractHash: 311b557d4e48a06f2914728d1c97097d0e442695f4dbb05f9967ea36fbda1533
+  id: geekbench-metal-chart-2026-07-18:apple-m4-gpu-string
+  locator: Device and Score table, row "Apple M4 GPU"
+  notes: >-
+    The rival string for the same processor, kept as evidence for the conflict
+    record.
+  sourceId: geekbench-metal-benchmark-chart-2026-07-18
+  transcribed:
+    significantDigits: 5
+    state: value
+    unit: score
+    value: '54196'
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-18
+- extract: Apple A14 GPU | 16049
+  extractHash: 1cb2881160cf4de589c2d1b2ed88a60ef374c0a6e95f94e8fafbcc7c8e88df37
+  id: geekbench-metal-chart-2026-07-18:apple-a14
+  locator: Device and Score table, row "Apple A14 GPU"
+  notes: >-
+    The A-series rows all carry the GPU suffix and have no unsuffixed twin, so
+    there is nothing to choose between. The row describes the graphics processor
+    of the A14 wherever it is fitted, not the iPhone 12 specifically.
+  sourceId: geekbench-metal-benchmark-chart-2026-07-18
+  transcribed:
+    significantDigits: 5
+    state: value
+    unit: score
+    value: '16049'
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-18
+- extract: Apple A17 Pro GPU | 26779
+  extractHash: f92d8e9784171f29ff9974e400dfbaf449b2c33b19ce5fff07a0f87666fc1710
+  id: geekbench-metal-chart-2026-07-18:apple-a17-pro
+  locator: Device and Score table, row "Apple A17 Pro GPU"
+  notes: >-
+    The graphics processor of the A17 Pro, which this catalog records as the
+    iPhone 15 Pro's.
+  sourceId: geekbench-metal-benchmark-chart-2026-07-18
+  transcribed:
+    significantDigits: 5
+    state: value
+    unit: score
+    value: '26779'
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-18
+- extract: Apple A19 Pro GPU | 44651
+  extractHash: 37a6edbb73b2c1085a30a2f8fcca561484ae219a452c99d2ba1d7508548b6b44
+  id: geekbench-metal-chart-2026-07-18:apple-a19-pro
+  locator: Device and Score table, row "Apple A19 Pro GPU"
+  notes: >-
+    The graphics processor of the A19 Pro, which this catalog records as the
+    iPhone 17 Pro's. The chart also lists a plain "Apple A19 GPU" at 36683,
+    which is a different processor rather than a different string for this one.
+  sourceId: geekbench-metal-benchmark-chart-2026-07-18
+  transcribed:
+    significantDigits: 5
+    state: value
+    unit: score
+    value: '44651'
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-18

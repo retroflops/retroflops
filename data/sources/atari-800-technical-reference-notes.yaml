@@ -1,0 +1,23 @@
+id: atari-800-technical-reference-notes
+title: >-
+  Atari 400/800 Technical Reference Notes: Operating System User's Manual,
+  Operating System Source Listing and Hardware Manual
+publisher: Atari, Inc.
+url: https://archive.org/download/atari-400-800-technical-reference-notes-operating-system-user-s-manual-operating/Atari_400-800_Technical_Reference_Notes-Operating_System_User_s_Manual-Operating_System_Source_Listing_and_Hardware_Manual_553_pages.pdf
+publishedDate: "1982"
+accessedDate: 2026-08-22
+locator: Hardware Manual sections II and III; Operating System User's Manual, section 1
+extract: >-
+  TECHNICAL REFERENCE NOTES ... includes: Operating System User's Manual ... and
+  Hardware Manual
+tier: B
+sourceType: technical-manual
+editorialStatus: provisional
+fetch:
+  url: https://archive.org/download/atari-400-800-technical-reference-notes-operating-system-user-s-manual-operating/Atari_400-800_Technical_Reference_Notes-Operating_System_User_s_Manual-Operating_System_Source_Listing_and_Hardware_Manual_553_pages.pdf
+  finalUrl: https://dn760009.eu.archive.org/0/items/atari-400-800-technical-reference-notes-operating-system-user-s-manual-operating/Atari_400-800_Technical_Reference_Notes-Operating_System_User_s_Manual-Operating_System_Source_Listing_and_Hardware_Manual_553_pages.pdf
+  fetchedAt: 2026-08-24T18:58:20Z
+  httpStatus: 200
+  contentType: application/pdf
+  byteLength: 21596247
+  sha256: 770699f31ccde17083bc62d109065f07df3294fa0b8c1d02e58384e708a62db1

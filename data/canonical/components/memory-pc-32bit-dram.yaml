@@ -1,0 +1,12 @@
+id: pc-32bit-dram
+slug: pc-32bit-dram
+kind: memory
+name: 32-bit PC dynamic RAM
+manufacturer: PC industry
+architecture: Dynamic RAM
+introducedDate: '1986'
+memoryType: DRAM
+summary: Dynamic main memory used by representative 80386DX and 80486DX PCs.
+sourceIds:
+  - intel-historical-x86-documentation
+editorialStatus: provisional

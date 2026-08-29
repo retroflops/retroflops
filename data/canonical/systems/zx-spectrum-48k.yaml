@@ -1,0 +1,52 @@
+id: zx-spectrum-48k
+slug: zx-spectrum-48k
+name: ZX Spectrum 48K
+manufacturer: Sinclair Research
+type: home-computer
+releaseDate: 1982-04
+region: United Kingdom
+summary: >-
+  A Z80A home computer with Sinclair BASIC in ROM and a ULA that drives the
+  display. Each key carries a whole BASIC keyword, so a program is typed in
+  rather than spelled out.
+description: >-
+  Sinclair pushed almost everything outside the processor into a single custom
+  chip, which is how the machine reached a price no rival matched. That chip
+  also pauses the processor while it reads video memory, and the resulting
+  contention is why one part of memory runs slower than the rest.
+configurations:
+  - id: pal
+    label: PAL 48K
+    region: Europe
+    entries:
+      - componentId: zx-spectrum-z80a
+        role: main-cpu
+        count: 1
+        shared: false
+        measurementIds:
+          - zx-spectrum-48k:clock-frequency
+      - componentId: zx-spectrum-ula
+        role: gpu
+        count: 1
+        shared: false
+        measurementIds:
+          - zx-spectrum-48k:gpu-clock-frequency
+      - componentId: zx-spectrum-ram
+        role: system-memory
+        count: 1
+        shared: true
+        measurementIds:
+          - zx-spectrum-ram:capacity
+      - componentId: zx-spectrum-rom
+        role: system-memory
+        count: 1
+        shared: true
+        notes: Read-only Sinclair BASIC ROM.
+        measurementIds:
+          - zx-spectrum-rom:capacity
+imageIds:
+  - zx-spectrum-48k-computer
+sourceIds:
+  - zx-spectrum-48k-manual
+  - sinclair-zx-spectrum-technical-data
+editorialStatus: provisional

@@ -1,0 +1,14 @@
+editorialStatus: approved
+id: nintendo-switch-ram
+slug: nintendo-switch-ram
+kind: memory
+name: Nintendo Switch unified memory
+manufacturer: Nintendo
+architecture: LPDDR4
+introducedDate: '2017'
+memoryType: LPDDR4
+summary: '{{measurement:nintendo-switch-ram:capacity}} of installed LPDDR4.'
+sourceIds:
+  - nintendo-switch-tech-specs
+  - digitalfoundry-switch-clocks-2016
+  - computerbase-switch-test

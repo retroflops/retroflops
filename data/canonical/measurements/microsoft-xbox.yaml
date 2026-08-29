@@ -1,0 +1,224 @@
+- caveat: Microsoft's retrospective specification identifies the CPU model and clock.
+  comparabilityGroup: clock-frequency|cpu|nominal-clock
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - original-xbox-specifications:cpu-clock
+  id: microsoft-xbox:retail:cpu-clock-frequency
+  method: nominal-clock
+  metric: clock-frequency
+  normalized:
+    value: "733000000"
+    unit: Hz
+    significantDigits: 3
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 3
+    state: value
+    unit: MHz
+    value: "733"
+  scope: cpu
+  sourceIds:
+    - microsoft-xbox-hardware-specification
+  status: vendor-rated
+  subject:
+    configurationId: retail
+    id: microsoft-xbox
+    kind: system
+  evidenceLevel: confirmed
+- caveat: Microsoft's retrospective specification gives the NV2A graphics clock.
+  comparabilityGroup: clock-frequency|gpu|nominal-clock
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - original-xbox-specifications:gpu-clock
+  id: microsoft-xbox:retail:gpu-clock-frequency
+  method: nominal-clock
+  metric: clock-frequency
+  normalized:
+    value: "233000000"
+    unit: Hz
+    significantDigits: 3
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 3
+    state: value
+    unit: MHz
+    value: "233"
+  scope: gpu
+  sourceIds:
+    - microsoft-xbox-hardware-specification
+  status: vendor-rated
+  subject:
+    configurationId: retail
+    id: microsoft-xbox
+    kind: system
+  evidenceLevel: confirmed
+- caveat: >-
+    Microsoft's retrospective specification identifies the
+    {{context:microsoft-xbox-ram:context-mb-64}} DDR main-memory configuration.
+  comparabilityGroup: memory-capacity|memory|design-capacity
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - original-xbox-specifications:main-memory
+  id: microsoft-xbox-ram:capacity
+  method: design-capacity
+  metric: memory-capacity
+  normalized:
+    value: "67108864"
+    unit: B
+    significantDigits: 2
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 2
+    state: value
+    unit: MiB
+    value: "64"
+  scope: memory
+  sourceIds:
+    - microsoft-xbox-hardware-specification
+  status: vendor-rated
+  subject:
+    id: microsoft-xbox-ram
+    kind: component
+  evidenceLevel: confirmed
+- caveat: >-
+    Adds 1 memory-capacity figure obtained by design-capacity. Nothing in the
+    catalog is left out of it. A total is only as trustworthy as the decision
+    about what belongs in it, so both the terms and the exclusions are named
+    records.
+  comparabilityGroup: memory-capacity|whole-system|design-capacity
+  derivedFrom: microsoft-xbox:whole-system-memory
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: microsoft-xbox:whole-system-memory-capacity
+  method: design-capacity
+  metric: memory-capacity
+  normalized:
+    value: "67108864"
+    unit: B
+    significantDigits: 8
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 8
+    state: value
+    unit: B
+    value: "67108864"
+  rounding: none
+  scope: whole-system
+  sourceIds:
+    - microsoft-xbox-hardware-specification
+  status: derived
+  subject:
+    id: microsoft-xbox
+    kind: system
+  evidenceLevel: confirmed
+- caveat: >-
+    A theoretical maximum for the whole machine, shared between processor and
+    graphics; both sources say the CPU can take about
+    {{context:microsoft-xbox:context-gb-s-1}} of it. Microsoft published no
+    bandwidth figure, so this rests on two independent analyses that reach the
+    same number by different routes: one from NVIDIA's stated design, one from
+    the memory parts found in a retail console.
+  comparabilityGroup: memory-bandwidth|memory|theoretical-peak
+  conditions: "{{context:microsoft-xbox-ram:context-mb-64}} unified DDR SDRAM at
+    {{context:microsoft-xbox:context-mhz-200}} DDR across NVIDIA's
+    {{context:microsoft-xbox:context-bit-128}} TwinBank interface, shared by CPU
+    and NV2A."
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - gamespot-xbox-gpu:memory-throughput
+    - anandtech-xbox:memory-bandwidth-galore
+  id: microsoft-xbox:memory-bandwidth
+  method: theoretical-peak
+  metric: memory-bandwidth
+  normalized:
+    value: "6400000000"
+    unit: B/s
+    significantDigits: 2
+    unitRegistry: units-v1
+  provenance: independent
+  quantity:
+    significantDigits: 2
+    state: value
+    unit: GB/s
+    value: "6.4"
+  scope: memory
+  sourceIds:
+    - gamespot-inside-the-xbox-gpu
+    - anandtech-xbox-memory-bandwidth-2001
+  status: theoretical
+  subject:
+    id: microsoft-xbox
+    kind: system
+  evidenceLevel: confirmed
+- caveat: >-
+    Provisional record for microsoft-xbox: the primary technical source is
+    registered, but page-level transcription and independent review are pending.
+  comparabilityGroup: peak-fp32-rate|gpu|theoretical-peak
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: microsoft-xbox:peak-fp32-rate
+  method: theoretical-peak
+  metric: peak-fp32-rate
+  provenance: vendor
+  quantity:
+    note: >-
+      The registered technical source does not yet provide a standalone GPU FP32
+      rate with a stated precision and method.
+    state: unknown
+  unknownAudit:
+    reviewedOn: 2026-08-25
+    routesChecked:
+      - vendor-documentation
+      - independent-analysis
+      - community-source
+    outcome: no-published-candidate
+    summary: >-
+      The checked technical material provides no standalone GPU FP32 rate with
+      stated precision and method.
+  scope: gpu
+  sourceIds:
+    - microsoft-xbox-hardware-specification
+  status: vendor-rated
+  subject:
+    id: microsoft-xbox
+    kind: system
+- caveat: >-
+    Provisional record for microsoft-xbox: the primary technical source is
+    registered, but page-level transcription and independent review are pending.
+  comparabilityGroup: rated-power-consumption|whole-system|rated-power
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: microsoft-xbox:rated-power-consumption
+  method: rated-power
+  metric: rated-power-consumption
+  provenance: vendor
+  quantity:
+    note: >-
+      The registered technical source does not yet provide a comparable
+      whole-system rated power figure.
+    state: unknown
+  unknownAudit:
+    reviewedOn: 2026-08-25
+    routesChecked:
+      - vendor-documentation
+      - independent-analysis
+      - community-source
+    outcome: no-published-candidate
+    summary: >-
+      The checked technical material provides no comparable whole-system rated
+      power figure.
+  scope: whole-system
+  sourceIds:
+    - microsoft-xbox-hardware-specification
+  status: vendor-rated
+  subject:
+    id: microsoft-xbox
+    kind: system

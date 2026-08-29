@@ -1,0 +1,13 @@
+id: nvidia-geforce-rtx-2080-ti-memory
+slug: nvidia-geforce-rtx-2080-ti-memory
+kind: memory
+name: NVIDIA GeForce RTX 2080 Ti frame buffer
+manufacturer: NVIDIA
+memoryType: GDDR6
+introducedDate: 2018-09
+summary:
+  '{{measurement:nvidia-geforce-rtx-2080-ti-memory:capacity}} of GDDR6 with
+  {{measurement:nvidia-geforce-rtx-2080-ti-memory:bandwidth}} peak bandwidth.'
+sourceIds:
+  - nvidia-geforce-rtx-2080-ti-product-specifications
+editorialStatus: approved

@@ -1,0 +1,50 @@
+accessedDate: 2026-08-17
+alt: "The Apollo Guidance Computer against a pale blue backdrop: a low rectangular metal case with a
+  ribbed lid and bolted flanges along its sides, and standing beside it the display and keyboard
+  unit, a panel of small caution lights beside blank display registers, with a square keypad below
+  them."
+attribution: Photograph by NASA, a work of the US federal government and therefore in the public
+  domain, via Wikimedia Commons.
+canonical:
+  byteLength: 55016
+  format: avif
+  height: 960
+  sha256: 2c10fed45896f81d3945dfbe935ded1f65d9a99c748ccf14a42c4feea86ea774
+  width: 1280
+caption: The Apollo Guidance Computer's main case, with the display and keyboard unit — the DSKY —
+  through which the crew worked it.
+creator: NASA
+creatorType: organization
+editorialStatus: approved
+id: apollo-guidance-computer-unit
+notes: NASA's own caption names the machine only as the Apollo Guidance Computer, without saying
+  which block, so the caption printed here does not claim one either. This record describes Block
+  II, and nothing in the photograph contradicts that; what is missing is a statement, which is a
+  different thing from a disagreement.
+original:
+  byteLength: 389795
+  height: 1854
+  mediaType: image/jpeg
+  sha256: c997320ff6a31200bb42610e3a6164c697be2deb5efa0930e043882308ebb943
+  width: 2709
+originalUrl: https://upload.wikimedia.org/wikipedia/commons/7/79/Agc_view.jpg
+publisher: Wikimedia Commons
+rights:
+  id: pd-us-government
+  statedAt: https://commons.wikimedia.org/wiki/File:Agc_view.jpg
+  statement: This file is in the public domain in the United States because it was solely created by
+    NASA. NASA copyright policy states that "NASA material is not protected by copyright unless
+    noted".
+  url: https://www.copyright.gov/title17/92chap1.html
+sourcePageUrl: https://commons.wikimedia.org/wiki/File:Agc_view.jpg
+title: Agc view.jpg
+transform:
+  background: "#8dbcd8"
+  fit: pad
+  note: The photograph is wider than 4:3 and both units reach toward the ends of the frame, so no crop
+    keeps them whole. The declared margin is sampled from the studio backdrop the photograph was
+    taken against, which is a gradient rather than a flat color, so the join is faint rather than
+    invisible.
+  preset: image-v1
+  sourceHeight: 1854
+  sourceWidth: 2709

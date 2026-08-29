@@ -1,0 +1,332 @@
+- caveat: Two independent technical reviews agree on the NV10 core-clock figure.
+  comparabilityGroup: clock-frequency|gpu|nominal-clock
+  editorialStatus: provisional
+  evidenceStage: shipped
+  extractIds:
+    - computerbase-geforce-256:core-clock
+    - toms-hardware-geforce-256:core-clock
+  id: nvidia-nv10:clock-frequency-base
+  method: nominal-clock
+  metric: clock-frequency
+  provenance: independent
+  quantity:
+    significantDigits: 3
+    state: value
+    unit: MHz
+    value: "120"
+  scope: gpu
+  sourceIds:
+    - computerbase-geforce-256
+    - toms-hardware-geforce-256
+  status: vendor-rated
+  subject:
+    id: nvidia-nv10
+    kind: component
+  normalized:
+    value: "120000000"
+    unit: Hz
+    significantDigits: 3
+    unitRegistry: units-v1
+  evidenceLevel: confirmed
+- caveat: Tier C table figure for the SDR reference frame buffer, not host memory.
+  comparabilityGroup: memory-capacity|whole-system|design-capacity
+  editorialStatus: provisional
+  evidenceStage: shipped
+  extractIds:
+    - wikipedia-geforce-256-specifications:sdr
+  id: nvidia-geforce-256:sdr-32mb:memory-capacity
+  method: design-capacity
+  metric: memory-capacity
+  provenance: community
+  quantity:
+    significantDigits: 2
+    state: value
+    unit: MiB
+    value: "32"
+  scope: whole-system
+  sourceIds:
+    - wikipedia-geforce-256-specifications
+  status: vendor-rated
+  subject:
+    configurationId: sdr-32mb
+    id: nvidia-geforce-256
+    kind: system
+  normalized:
+    value: "33554432"
+    unit: B
+    significantDigits: 2
+    unitRegistry: units-v1
+  evidenceLevel: rumored
+- caveat: >-
+    Tier C table figure for the SDR frame-buffer interface, not a measured
+    application result.
+  comparabilityGroup: memory-bandwidth|memory|theoretical-peak
+  editorialStatus: provisional
+  evidenceStage: shipped
+  extractIds:
+    - wikipedia-geforce-256-specifications:sdr
+  id: nvidia-geforce-256:sdr-32mb:memory-bandwidth
+  method: theoretical-peak
+  metric: memory-bandwidth
+  provenance: community
+  quantity:
+    significantDigits: 4
+    state: value
+    unit: GB/s
+    value: "2.656"
+  scope: memory
+  sourceIds:
+    - wikipedia-geforce-256-specifications
+  status: theoretical
+  subject:
+    configurationId: sdr-32mb
+    id: nvidia-geforce-256
+    kind: system
+  normalized:
+    value: "2656000000"
+    unit: B/s
+    significantDigits: 4
+    unitRegistry: units-v1
+  evidenceLevel: rumored
+- caveat: >-
+    The SDR configuration has one fitted frame buffer, so its whole-system
+    figure repeats the cited interface bandwidth.
+  comparabilityGroup: memory-bandwidth|whole-system|theoretical-peak
+  editorialStatus: provisional
+  evidenceStage: shipped
+  extractIds:
+    - wikipedia-geforce-256-specifications:sdr
+  id: nvidia-geforce-256:sdr-32mb:whole-system-memory-bandwidth
+  method: theoretical-peak
+  metric: memory-bandwidth
+  provenance: community
+  quantity:
+    significantDigits: 4
+    state: value
+    unit: GB/s
+    value: "2.656"
+  scope: whole-system
+  sourceIds:
+    - wikipedia-geforce-256-specifications
+  status: theoretical
+  subject:
+    configurationId: sdr-32mb
+    id: nvidia-geforce-256
+    kind: system
+  normalized:
+    value: "2656000000"
+    unit: B/s
+    significantDigits: 4
+    unitRegistry: units-v1
+  evidenceLevel: rumored
+- caveat: Tier C table figure for the DDR reference frame buffer, not host memory.
+  comparabilityGroup: memory-capacity|whole-system|design-capacity
+  editorialStatus: provisional
+  evidenceStage: shipped
+  extractIds:
+    - wikipedia-geforce-256-specifications:ddr
+  id: nvidia-geforce-256:ddr-32mb:memory-capacity
+  method: design-capacity
+  metric: memory-capacity
+  provenance: community
+  quantity:
+    significantDigits: 2
+    state: value
+    unit: MiB
+    value: "32"
+  scope: whole-system
+  sourceIds:
+    - wikipedia-geforce-256-specifications
+  status: vendor-rated
+  subject:
+    configurationId: ddr-32mb
+    id: nvidia-geforce-256
+    kind: system
+  normalized:
+    value: "33554432"
+    unit: B
+    significantDigits: 2
+    unitRegistry: units-v1
+  evidenceLevel: rumored
+- caveat: >-
+    Tier C table figure for the DDR frame-buffer interface, not a measured
+    application result.
+  comparabilityGroup: memory-bandwidth|memory|theoretical-peak
+  editorialStatus: provisional
+  evidenceStage: shipped
+  extractIds:
+    - wikipedia-geforce-256-specifications:ddr
+  id: nvidia-geforce-256:ddr-32mb:memory-bandwidth
+  method: theoretical-peak
+  metric: memory-bandwidth
+  provenance: community
+  quantity:
+    significantDigits: 4
+    state: value
+    unit: GB/s
+    value: "4.800"
+  scope: memory
+  sourceIds:
+    - wikipedia-geforce-256-specifications
+  status: theoretical
+  subject:
+    configurationId: ddr-32mb
+    id: nvidia-geforce-256
+    kind: system
+  normalized:
+    value: "4800000000"
+    unit: B/s
+    significantDigits: 4
+    unitRegistry: units-v1
+  evidenceLevel: rumored
+- caveat: >-
+    The DDR configuration has one fitted frame buffer, so its whole-system
+    figure repeats the cited interface bandwidth.
+  comparabilityGroup: memory-bandwidth|whole-system|theoretical-peak
+  editorialStatus: provisional
+  evidenceStage: shipped
+  extractIds:
+    - wikipedia-geforce-256-specifications:ddr
+  id: nvidia-geforce-256:ddr-32mb:whole-system-memory-bandwidth
+  method: theoretical-peak
+  metric: memory-bandwidth
+  provenance: community
+  quantity:
+    significantDigits: 4
+    state: value
+    unit: GB/s
+    value: "4.800"
+  scope: whole-system
+  sourceIds:
+    - wikipedia-geforce-256-specifications
+  status: theoretical
+  subject:
+    configurationId: ddr-32mb
+    id: nvidia-geforce-256
+    kind: system
+  normalized:
+    value: "4800000000"
+    unit: B/s
+    significantDigits: 4
+    unitRegistry: units-v1
+  evidenceLevel: rumored
+- caveat: Tier C table figure for the NV10's theoretical fixed-function FP32 rate.
+  comparabilityGroup: peak-fp32-rate|gpu|theoretical-peak
+  editorialStatus: provisional
+  evidenceStage: shipped
+  extractIds:
+    - wikipedia-geforce-256-specifications:sdr
+    - wikipedia-geforce-256-specifications:ddr
+  id: nvidia-nv10:peak-fp32-rate
+  method: theoretical-peak
+  metric: peak-fp32-rate
+  provenance: community
+  quantity:
+    significantDigits: 3
+    state: value
+    unit: MFLOP/s
+    value: "960"
+  scope: gpu
+  sourceIds:
+    - wikipedia-geforce-256-specifications
+  status: theoretical
+  subject:
+    id: nvidia-nv10
+    kind: component
+  normalized:
+    value: "960000000"
+    unit: FLOP/s
+    significantDigits: 3
+    unitRegistry: units-v1
+  evidenceLevel: rumored
+- caveat: Tier C table figure for the NV10's theoretical pixel fill rate.
+  comparabilityGroup: pixel-fill-rate|gpu|theoretical-peak
+  editorialStatus: provisional
+  evidenceStage: shipped
+  extractIds:
+    - wikipedia-geforce-256-specifications:sdr
+    - wikipedia-geforce-256-specifications:ddr
+  id: nvidia-nv10:pixel-fill-rate
+  method: theoretical-peak
+  metric: pixel-fill-rate
+  provenance: community
+  quantity:
+    significantDigits: 3
+    state: value
+    unit: Mpixel/s
+    value: "480"
+  scope: gpu
+  sourceIds:
+    - wikipedia-geforce-256-specifications
+  status: theoretical
+  subject:
+    id: nvidia-nv10
+    kind: component
+  normalized:
+    value: "480000000"
+    unit: pixel/s
+    significantDigits: 3
+    unitRegistry: units-v1
+  evidenceLevel: rumored
+- caveat: Tier C table figure for the NV10's theoretical texel fill rate.
+  comparabilityGroup: texel-fill-rate|gpu|theoretical-peak
+  editorialStatus: provisional
+  evidenceStage: shipped
+  extractIds:
+    - wikipedia-geforce-256-specifications:sdr
+    - wikipedia-geforce-256-specifications:ddr
+  id: nvidia-nv10:texel-fill-rate
+  method: theoretical-peak
+  metric: texel-fill-rate
+  provenance: community
+  quantity:
+    significantDigits: 3
+    state: value
+    unit: Mtexel/s
+    value: "480"
+  scope: gpu
+  sourceIds:
+    - wikipedia-geforce-256-specifications
+  status: theoretical
+  subject:
+    id: nvidia-nv10
+    kind: component
+  normalized:
+    value: "480000000"
+    unit: texel/s
+    significantDigits: 3
+    unitRegistry: units-v1
+  evidenceLevel: rumored
+- caveat: >-
+    No checked source, including the VisionTek product brief, states a
+    board-power rating for either reference configuration.
+  comparabilityGroup: rated-power-consumption|gpu|rated-power
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: nvidia-nv10:rated-power-consumption
+  method: rated-power
+  metric: rated-power-consumption
+  provenance: community
+  quantity:
+    note: >-
+      No checked source, including the VisionTek product brief, states a
+      board-power rating for either reference configuration.
+    state: unknown
+  unknownAudit:
+    reviewedOn: 2026-08-26
+    routesChecked:
+      - vendor-documentation
+      - independent-analysis
+      - community-source
+    outcome: no-published-candidate
+    summary: >-
+      No checked source, including the VisionTek product brief, states a
+      board-power rating for either reference configuration.
+  scope: gpu
+  sourceIds:
+    - visiontek-geforce-256-agp-product-brief
+    - wikipedia-geforce-256-specifications
+  status: vendor-rated
+  subject:
+    id: nvidia-nv10
+    kind: component

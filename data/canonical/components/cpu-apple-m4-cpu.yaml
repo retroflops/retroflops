@@ -1,0 +1,13 @@
+id: apple-m4-cpu
+slug: apple-m4-cpu
+kind: cpu
+name: Apple M4 CPU
+manufacturer: Apple
+architecture: Apple M4
+introducedDate: 2024-11
+instructionSet: Arm64
+instructionSetFamily: arm
+summary: Four performance and six efficiency cores in Apple’s M4.
+sourceIds:
+  - apple-mac-mini-m4-tech-specs
+editorialStatus: approved

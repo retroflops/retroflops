@@ -1,0 +1,22 @@
+id: copetti-wii-architecture
+title: "Wii Architecture: A Practical Analysis"
+publisher: Rodrigo Copetti
+publishedDate: 2020-06-12
+accessedDate: 2026-08-25
+locator: Main-memory discussion, MEM1 and MEM2 paragraphs
+extract: >-
+  Splash (24 MB of 1T-SRAM) and a new memory chip, MEM2, which includes 64 MB of
+  GDDR3 SDRAM.
+tier: B
+sourceType: independent-analysis
+url: https://www.copetti.org/writings/consoles/wii/
+usageNote: >-
+  Independent technical analysis. It agrees with the 25C3 presentation on the
+  two physical main-memory capacities.
+fetch:
+  url: https://www.copetti.org/writings/consoles/wii/
+  fetchedAt: 2026-08-25T06:11:17Z
+  httpStatus: 200
+  contentType: text/html; charset=UTF-8
+  byteLength: 164605
+  sha256: fd4a585a5d4f2bb3f1279832024edb4ddf501ae2d9671862efd9dd6540262875

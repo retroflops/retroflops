@@ -1,0 +1,355 @@
+- caveat: >-
+    Approved rather than provisional because the source names the precision, the
+    first floating-point figure in this catalog of which that is true. It
+    remains a peak: no workload sustains it, and the same chip's tensor cores
+    double it for the same precision, which is recorded separately because a
+    different unit produced it.
+  comparabilityGroup: peak-fp64-rate|gpu|theoretical-peak
+  conditions: Double-precision rate on the general floating-point units, as
+    distinct from the tensor cores.
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - nvidia-h100:product-specifications
+  id: nvidia-h100:peak-fp64-rate
+  method: theoretical-peak
+  metric: peak-fp64-rate
+  normalized:
+    value: "34000000000000"
+    unit: FLOP/s
+    significantDigits: 2
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 2
+    state: value
+    unit: TFLOP/s
+    value: "34"
+  scope: gpu
+  sourceIds:
+    - nvidia-h100-product-specifications
+  status: vendor-rated
+  subject:
+    id: nvidia-h100-gpu
+    kind: component
+  evidenceLevel: confirmed
+- caveat: >-
+    Twice the general-purpose double-precision rate, and available only to
+    matrix operations shaped the way the tensor cores require. It is in a
+    comparability group of its own for that reason: quoting it beside another
+    machine's general floating-point peak would compare a specialized unit with
+    a general one.
+  comparabilityGroup: peak-fp64-rate|gpu|tensor-core-peak
+  conditions: Double-precision rate through the fourth-generation tensor cores,
+    which perform matrix operations rather than general arithmetic.
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - nvidia-h100:product-specifications
+  id: nvidia-h100:peak-fp64-rate-tensor
+  method: tensor-core-peak
+  metric: peak-fp64-rate
+  normalized:
+    value: "67000000000000"
+    unit: FLOP/s
+    significantDigits: 2
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 2
+    state: value
+    unit: TFLOP/s
+    value: "67"
+  scope: gpu
+  sourceIds:
+    - nvidia-h100-product-specifications
+  status: vendor-rated
+  subject:
+    id: nvidia-h100-gpu
+    kind: component
+  evidenceLevel: confirmed
+- caveat: >-
+    Equal to this chip's double-precision tensor-core rate, which is a
+    coincidence of two different units and not a statement that precision costs
+    nothing here: on the general units, single precision is twice as fast as
+    double.
+  comparabilityGroup: peak-fp32-rate|gpu|theoretical-peak
+  conditions: Single-precision rate on the general floating-point units.
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - nvidia-h100:product-specifications
+  id: nvidia-h100:peak-fp32-rate
+  method: theoretical-peak
+  metric: peak-fp32-rate
+  normalized:
+    value: "67000000000000"
+    unit: FLOP/s
+    significantDigits: 2
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 2
+    state: value
+    unit: TFLOP/s
+    value: "67"
+  scope: gpu
+  sourceIds:
+    - nvidia-h100-product-specifications
+  status: vendor-rated
+  subject:
+    id: nvidia-h100-gpu
+    kind: component
+  evidenceLevel: confirmed
+- caveat: >-
+    Conditional on the data, not just the hardware: the figure assumes a
+    sparsity pattern the workload must actually have, and halves without it. The
+    method records that condition, so this rate cannot be compared with any
+    dense figure, which is why it is recorded separately rather than rounded
+    into a headline number.
+  comparabilityGroup: peak-fp16-rate|gpu|tensor-core-sparsity-peak
+  conditions: Half-precision rate through the tensor cores, with structural
+    sparsity — the source's asterisk footnote reads "With sparsity".
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - nvidia-h100:product-specifications
+  id: nvidia-h100:peak-fp16-rate
+  method: tensor-core-sparsity-peak
+  metric: peak-fp16-rate
+  normalized:
+    value: "1979000000000000"
+    unit: FLOP/s
+    significantDigits: 4
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 4
+    state: value
+    unit: TFLOP/s
+    value: "1979"
+  scope: gpu
+  sourceIds:
+    - nvidia-h100-product-specifications
+  status: vendor-rated
+  subject:
+    id: nvidia-h100-gpu
+    kind: component
+  evidenceLevel: confirmed
+- caveat: >-
+    NVIDIA writes "80GB", read as {{measurement:nvidia-h100-memory:capacity}} in
+    the binary convention this catalog applies to every memory capacity.
+    Recorded at whole-system scope because it is all the memory this device has,
+    but it answers a narrower question than a computer's: work has to be copied
+    here from a host before the accelerator can touch it.
+  comparabilityGroup: memory-capacity|whole-system|design-capacity
+  conditions: Memory on the SXM module. The accelerator has no other, and no host
+    memory is included.
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - nvidia-h100:product-specifications
+  id: nvidia-h100-memory:capacity
+  method: design-capacity
+  metric: memory-capacity
+  normalized:
+    value: "85899345920"
+    unit: B
+    significantDigits: 2
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 2
+    state: value
+    unit: GiB
+    value: "80"
+  scope: whole-system
+  sourceIds:
+    - nvidia-h100-product-specifications
+  status: vendor-rated
+  subject:
+    id: nvidia-h100-memory
+    kind: component
+  evidenceLevel: confirmed
+- caveat: >-
+    A bus maximum like every other bandwidth figure here, and directly
+    comparable with them: same metric, same scope, same method. That makes it
+    the one place in this record where a multiplier across the whole span of the
+    catalog is legitimate.
+  comparabilityGroup: memory-bandwidth|memory|theoretical-peak
+  conditions: Peak transfer rate between the accelerator's memory and its processing units.
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - nvidia-h100:product-specifications
+  id: nvidia-h100-memory:bandwidth
+  method: theoretical-peak
+  metric: memory-bandwidth
+  normalized:
+    value: "3350000000000"
+    unit: B/s
+    significantDigits: 3
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 3
+    state: value
+    unit: TB/s
+    value: "3.35"
+  scope: memory
+  sourceIds:
+    - nvidia-h100-product-specifications
+  status: theoretical
+  subject:
+    id: nvidia-h100-memory
+    kind: component
+  evidenceLevel: confirmed
+- caveat: >-
+    A cooling-design target for one component, not a machine's consumption, and
+    explicitly configurable downward, so "700 W" is a ceiling that a given
+    deployment may never approach. The metric forbids ratios, which also keeps
+    it away from the whole-system ratings recorded for the PlayStation 2 and the
+    Mac mini: those describe complete computers, this describes a card.
+  comparabilityGroup: thermal-design-power|gpu|rated-power
+  conditions: '"Max Thermal Design Power (TDP): Up to 700W (configurable)" — an
+    upper bound for the module, and one operators may set lower.'
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - nvidia-h100:product-specifications
+  id: nvidia-h100:thermal-design-power
+  method: rated-power
+  metric: thermal-design-power
+  normalized:
+    value: "700"
+    unit: W
+    significantDigits: 3
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 3
+    state: value
+    unit: W
+    value: "700"
+  scope: gpu
+  sourceIds:
+    - nvidia-h100-product-specifications
+  status: vendor-rated
+  subject:
+    id: nvidia-h100-gpu
+    kind: component
+  evidenceLevel: confirmed
+- caveat: >-
+    Adds 1 memory-bandwidth figure obtained by theoretical-peak. Nothing in the
+    catalog is left out of it. A total is only as trustworthy as the decision
+    about what belongs in it, so both the terms and the exclusions are named
+    records.
+  comparabilityGroup: memory-bandwidth|whole-system|theoretical-peak
+  conditions: One pool of high-bandwidth memory on the package, and nothing else
+    on the card.
+  derivedFrom: nvidia-h100-sxm:whole-system-memory-bandwidth
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - nvidia-h100:product-specifications
+  id: nvidia-h100-sxm:whole-system-memory-bandwidth
+  method: theoretical-peak
+  metric: memory-bandwidth
+  normalized:
+    value: "3350000000000"
+    unit: B/s
+    significantDigits: 3
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 3
+    state: value
+    unit: TB/s
+    value: "3.35"
+  rounding: none
+  scope: whole-system
+  sourceIds:
+    - nvidia-h100-product-specifications
+  status: derived
+  subject:
+    id: nvidia-h100-sxm
+    kind: system
+  evidenceLevel: confirmed
+- caveat: >-
+    Unknown rather than not-applicable, and worth noticing beside the two
+    consumer cards in this catalog: the GeForce GTX 1080 is specified with a
+    base clock and a boost clock, while the data-center part from the same maker
+    is specified with neither. What NVIDIA sells here is throughput, and the
+    frequency that produces it is left inside the figures.
+  comparabilityGroup: clock-frequency|gpu|nominal-clock
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - nvidia-h100:product-specifications
+  id: nvidia-h100-sxm:gpu-clock-frequency
+  method: nominal-clock
+  metric: clock-frequency
+  provenance: vendor
+  quantity:
+    note: >-
+      NVIDIA’s specification table for this accelerator gives floating-point
+      rates at four precisions, a memory bandwidth and a power figure, and no
+      clock at all.
+    state: unknown
+  unknownAudit:
+    reviewedOn: 2026-08-25
+    routesChecked:
+      - vendor-documentation
+      - independent-analysis
+      - community-source
+    outcome: no-published-candidate
+    summary: NVIDIA's specification table provides no GPU clock.
+  scope: gpu
+  sourceIds:
+    - nvidia-h100-product-specifications
+  status: vendor-rated
+  subject:
+    id: nvidia-h100-sxm
+    kind: system
+- asOf: 2026-08-18
+  benchmark:
+    id: geekbench-compute
+    variant: opencl
+    version: "7"
+  caveat: >-
+    A dated capture of the benchmark publisher’s rolling average for this
+    graphics processor, read from the 25 July 2026 OpenCL chart. Version 7
+    calibrates a compute result against a baseline of 100,000, so it may be
+    compared only with another Geekbench 7 OpenCL figure from this curation
+    round, never with a Metal figure, an earlier version or a processor score.
+    The chart’s device string names the memory rather than the form factor; it
+    is read as the SXM module because the PCIe and NVL cards hold rows of their
+    own.
+  comparabilityGroup: geekbench-compute-score|gpu|benchmark-chart-average|geekbench-compute@7:opencl
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - geekbench-opencl-chart-2026-07-25:h100
+    - geekbench-opencl-chart-2026-07-25:what-the-figures-are
+  id: nvidia-h100-gpu:geekbench-compute-7-opencl
+  method: benchmark-chart-average
+  metric: geekbench-compute-score
+  normalized:
+    value: "341973"
+    unit: score
+    significantDigits: 6
+    unitRegistry: units-v1
+  provenance: independent
+  quantity:
+    significantDigits: 6
+    state: value
+    unit: score
+    value: "341973"
+  scope: gpu
+  sourceIds:
+    - geekbench-opencl-benchmark-chart-2026-07-25
+  status: measured
+  subject:
+    id: nvidia-h100-gpu
+    kind: component
+  evidenceLevel: confirmed

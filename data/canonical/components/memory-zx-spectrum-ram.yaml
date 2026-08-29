@@ -1,0 +1,12 @@
+id: zx-spectrum-ram
+slug: zx-spectrum-ram
+kind: memory
+name: ZX Spectrum 48K RAM
+manufacturer: Sinclair Research
+architecture: Dynamic RAM
+introducedDate: '1982'
+memoryType: Dynamic RAM
+summary: '{{context:zx-spectrum-ram:context-kib-48}} writable system memory.'
+sourceIds:
+  - zx-spectrum-48k-manual
+editorialStatus: provisional

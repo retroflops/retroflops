@@ -1,0 +1,16 @@
+id: apple-iphone-6s-cpu
+slug: apple-iphone-6s-cpu
+kind: cpu
+name: Apple iPhone 6s CPU
+manufacturer: Apple
+architecture: Apple A9
+introducedDate: '2015'
+instructionSet: Arm64
+instructionSetFamily: arm
+summary: The processor section of the Apple iPhone 6s system-on-chip.
+notes:
+  Apple identifies the chip but does not publish its operating clock in the
+  cited technical specification.
+sourceIds:
+  - apple-iphone-6s-tech-specs
+editorialStatus: approved

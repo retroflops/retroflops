@@ -1,0 +1,17 @@
+- extract: CPU Speed (system operating frequency) 1.05 MHz
+  extractHash: 51979803b819316294c4dea0dfb69c0f493c99bf5b8e684c59bba83587977866
+  id: game-boy-programming-manual:dmg-cpu-speed
+  locator: Printed p. 16, table 1.5, Feature Comparison
+  notes: >-
+    Nintendo labels this as the system operating frequency for the original
+    monochrome DMG Game Boy.
+  sourceId: game-boy-cpu-manual
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-22
+- extract: Work RAM 8,192 bytes
+  extractHash: 03b9fd710b19c47440ea751e62c8bdc4cee998e8f6094839c9da629be9141bb9
+  id: game-boy-programming-manual:dmg-work-ram
+  locator: Printed p. 16, table 1.5, Feature Comparison
+  sourceId: game-boy-cpu-manual
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-22

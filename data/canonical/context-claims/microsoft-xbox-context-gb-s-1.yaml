@@ -1,0 +1,21 @@
+id: microsoft-xbox:context-gb-s-1
+subject:
+  kind: system
+  id: microsoft-xbox
+label: Rate
+quantity:
+  state: value
+  value: '1'
+  unit: GB/s
+  significantDigits: 1
+provenance: independent
+evidenceStage: shipped
+status: theoretical
+editorialStatus: provisional
+sourceIds:
+  - gamespot-inside-the-xbox-gpu
+  - anandtech-xbox-memory-bandwidth-2001
+extractIds:
+  - gamespot-xbox-gpu:memory-throughput
+  - anandtech-xbox:memory-bandwidth-galore
+evidenceLevel: confirmed

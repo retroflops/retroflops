@@ -1,0 +1,78 @@
+- caveat: >-
+    This is a documented absence rather than an unexamined one. Two vendor
+    specification records were read for the machines fitted with this component,
+    and they answer the question differently in both directions: the older part
+    has the higher base clock and the lower ceiling. What is missing is not a
+    document but a component: the entry would need splitting into the named
+    graphics devices, and the Core 2 Duo platform's chipset graphics is a third
+    device the processor's own name does not identify.
+  comparabilityGroup: clock-frequency|gpu|nominal-clock
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: intel-integrated-graphics:clock-frequency
+  method: nominal-clock
+  metric: clock-frequency
+  provenance: vendor
+  quantity:
+    note: >-
+      Intel states a frequency for each generation and the generations disagree:
+      Intel HD Graphics 3000 on the Core i7-2600K is specified at
+      {{context:intel-integrated-graphics:context-mhz-850}} base and
+      {{context:intel-integrated-graphics:context-ghz-1-35}} maximum dynamic,
+      UHD Graphics 770 on the Core i9-14900K at
+      {{context:intel-integrated-graphics:context-mhz-300}} base and
+      {{context:intel-integrated-graphics:context-ghz-1-65}} maximum dynamic.
+      Both figures are vendor statements and neither can stand for the other.
+    state: unknown
+  unknownAudit:
+    reviewedOn: 2026-08-25
+    routesChecked:
+      - vendor-documentation
+      - independent-analysis
+      - community-source
+    outcome: no-published-candidate
+    summary: The checked processor specifications provide no comparable graphics clock.
+  scope: gpu
+  sourceIds:
+    - intel-core-i7-2600k-specifications
+    - intel-core-i9-14900k-specifications
+  status: vendor-rated
+  subject:
+    id: intel-integrated-graphics
+    kind: component
+- caveat: >-
+    A documented absence. The vendor record was read and states the unit count
+    without the per-unit throughput that would turn it into a rate, and the
+    component in any case spans graphics generations with different clocks, so
+    one answer could not describe them even if the throughput were published.
+  comparabilityGroup: peak-fp32-rate|gpu|theoretical-peak
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: intel-integrated-graphics:peak-fp32-rate
+  method: theoretical-peak
+  metric: peak-fp32-rate
+  provenance: vendor
+  quantity:
+    note: >-
+      Intel's specification record for the newest of these graphics devices
+      states an execution-unit count of 32 and no floating-point rate at any
+      precision. An execution-unit count is not a rate: converting one to the
+      other needs a published figure for floating-point operations per unit per
+      clock, which the specification does not give.
+    state: unknown
+  unknownAudit:
+    reviewedOn: 2026-08-25
+    routesChecked:
+      - vendor-documentation
+      - independent-analysis
+      - community-source
+    outcome: no-compatible-candidate
+    summary: The checked processor specifications provide no precision-qualified
+      FP32 rate.
+  scope: gpu
+  sourceIds:
+    - intel-core-i9-14900k-specifications
+  status: vendor-rated
+  subject:
+    id: intel-integrated-graphics
+    kind: component

@@ -1,0 +1,329 @@
+- caveat: >-
+    One uploaded Geekbench result reports this base frequency for an iPhone18,1
+    with an A19 Pro. Apple does not publish the clock, so the figure remains
+    reported rather than confirmed.
+  comparabilityGroup: clock-frequency|cpu|nominal-clock
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: apple-iphone-17-pro:cpu-clock-frequency
+  method: nominal-clock
+  metric: clock-frequency
+  provenance: independent
+  quantity:
+    significantDigits: 3
+    state: value
+    unit: GHz
+    value: "4.26"
+  scope: cpu
+  sourceIds:
+    - geekbench-iphone-17-pro-result-69588
+  status: measured
+  subject:
+    id: apple-iphone-17-pro
+    kind: system
+  evidenceLevel: reported
+  normalized:
+    value: "4260000000"
+    unit: Hz
+    significantDigits: 3
+    unitRegistry: units-v1
+- caveat: >-
+    The Apple Wiki lists {{measurement:apple-iphone-17-pro:gpu-clock-frequency}}
+    as the maximum GPU clock but does not identify a primary source. Other
+    specification sites repeat the number. Until a technical source states it,
+    the catalog treats it as rumored.
+  comparabilityGroup: clock-frequency|gpu|nominal-clock
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: apple-iphone-17-pro:gpu-clock-frequency
+  method: nominal-clock
+  metric: clock-frequency
+  provenance: community
+  quantity:
+    significantDigits: 3
+    state: value
+    unit: MHz
+    value: "1620"
+  scope: gpu
+  sourceIds:
+    - the-apple-wiki-a19-pro
+  status: vendor-rated
+  subject:
+    id: apple-iphone-17-pro
+    kind: system
+  evidenceLevel: rumored
+  normalized:
+    value: "1620000000"
+    unit: Hz
+    significantDigits: 3
+    unitRegistry: units-v1
+- caveat: >-
+    iFixit identifies a Samsung
+    {{measurement:apple-iphone-17-pro:whole-system-memory-capacity}} LPDDR5X
+    package layered under the A19 Pro. This is working memory, not the phone's
+    separately listed flash storage.
+  comparabilityGroup: memory-capacity|whole-system|design-capacity
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: apple-iphone-17-pro:whole-system-memory-capacity
+  method: design-capacity
+  metric: memory-capacity
+  provenance: independent
+  quantity:
+    significantDigits: 2
+    state: value
+    unit: GB
+    value: "12"
+  scope: whole-system
+  sourceIds:
+    - ifixit-iphone-17-pro-chip-id
+  status: measured
+  subject:
+    id: apple-iphone-17-pro
+    kind: system
+  evidenceLevel: reported
+  normalized:
+    value: "12000000000"
+    unit: B
+    significantDigits: 2
+    unitRegistry: units-v1
+- caveat: >-
+    Wikipedia lists LPDDR5X-9600 and
+    {{measurement:apple-iphone-17-pro:whole-system-memory-bandwidth}} for the
+    full A19 Pro. The page is the only checked source that states the bandwidth,
+    so the value is rumored.
+  comparabilityGroup: memory-bandwidth|whole-system|theoretical-peak
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: apple-iphone-17-pro:whole-system-memory-bandwidth
+  method: theoretical-peak
+  metric: memory-bandwidth
+  provenance: community
+  quantity:
+    significantDigits: 3
+    state: value
+    unit: GB/s
+    value: "76.8"
+  scope: whole-system
+  sourceIds:
+    - wikipedia-apple-a19
+  status: theoretical
+  subject:
+    id: apple-iphone-17-pro
+    kind: system
+  evidenceLevel: rumored
+  normalized:
+    value: "76800000000"
+    unit: B/s
+    significantDigits: 3
+    unitRegistry: units-v1
+- caveat: >-
+    Apple publishes no standalone FP32 rate. Independent reviews report workload
+    scores, while specification pages derive incompatible peaks from
+    undocumented execution-unit assumptions.
+  comparabilityGroup: peak-fp32-rate|gpu|theoretical-peak
+  editorialStatus: approved
+  evidenceStage: shipped
+  id: apple-iphone-17-pro:peak-fp32-rate
+  method: theoretical-peak
+  metric: peak-fp32-rate
+  provenance: vendor
+  quantity:
+    note: No checked source states a reproducible FP32 peak for the six-core A19 Pro
+      GPU.
+    state: unknown
+  scope: gpu
+  sourceIds:
+    - apple-iphone-17-pro-tech-specs
+  status: vendor-rated
+  subject:
+    id: apple-iphone-17-pro
+    kind: system
+  unknownAudit:
+    reviewedOn: 2026-08-25
+    routesChecked:
+      - vendor-documentation
+      - independent-analysis
+      - community-source
+      - specialist-reference
+      - community-source
+    outcome: no-compatible-candidate
+    summary: >-
+      Apple gives no rate, and the available estimates depend on shader counts
+      and clocks that their sources do not establish together.
+- caveat: >-
+    Battery-life durations and charging limits are not a whole-system power
+    rating. A Notebookcheck wall measurement is recorded separately because it
+    answers a different question.
+  comparabilityGroup: rated-power-consumption|whole-system|rated-power
+  editorialStatus: approved
+  evidenceStage: shipped
+  id: apple-iphone-17-pro:rated-power-consumption
+  method: rated-power
+  metric: rated-power-consumption
+  provenance: vendor
+  quantity:
+    note: Battery-life durations and charging limits are not a whole-system power
+      rating.
+    state: unknown
+  scope: whole-system
+  sourceIds:
+    - apple-iphone-17-pro-tech-specs
+    - notebookcheck-iphone-17-pro-review
+  status: vendor-rated
+  subject:
+    id: apple-iphone-17-pro
+    kind: system
+  unknownAudit:
+    reviewedOn: 2026-08-25
+    routesChecked:
+      - vendor-documentation
+      - independent-analysis
+      - community-source
+      - specialist-reference
+    outcome: no-compatible-candidate
+    summary: >-
+      Apple publishes charging and battery-life limits, while independent tests
+      measure workload-specific draw. Neither is a rated whole-phone draw.
+- benchmark:
+    id: geekbench
+    variant: power-consumption-150-cd-m2
+    version: "5.5"
+  caveat: >-
+    Notebookcheck measured an average
+    {{measurement:apple-iphone-17-pro:geekbench-5-5-power-draw}} during
+    Geekbench at the stated display brightness. The source also reports a wide
+    range, so the average describes this workload and no general operating
+    limit.
+  comparabilityGroup: system-power-draw|whole-system|wall-measurement|geekbench@5.5:power-consumption-150-cd-m2
+  conditions: Geekbench 5.5, display at 150 cd/m²; reported average.
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: apple-iphone-17-pro:geekbench-5-5-power-draw
+  method: wall-measurement
+  metric: system-power-draw
+  provenance: independent
+  quantity:
+    significantDigits: 3
+    state: value
+    unit: W
+    value: "4.24"
+  scope: whole-system
+  sourceIds:
+    - notebookcheck-iphone-17-pro-review
+  status: measured
+  subject:
+    id: apple-iphone-17-pro
+    kind: system
+  evidenceLevel: reported
+  normalized:
+    value: "4.24"
+    unit: W
+    significantDigits: 3
+    unitRegistry: units-v1
+- asOf: 2026-07-26
+  benchmark:
+    id: geekbench
+    variant: single-core
+    version: "6"
+  caveat: >-
+    A dated capture of the benchmark publisher’s rolling device average. It may
+    be compared only with the same variant from this capture date.
+  comparabilityGroup: geekbench-score|whole-system|benchmark-chart-average|geekbench@6:single-core
+  editorialStatus: approved
+  evidenceStage: shipped
+  id: apple-iphone-17-pro:geekbench-6-single-core
+  method: benchmark-chart-average
+  metric: geekbench-score
+  normalized:
+    value: "3162"
+    unit: score
+    significantDigits: 4
+    unitRegistry: units-v1
+  provenance: independent
+  quantity:
+    significantDigits: 4
+    state: value
+    unit: score
+    value: "3162"
+  scope: whole-system
+  sourceIds:
+    - geekbench-apple-iphone-17-pro-chart-2026-07-26
+  status: measured
+  subject:
+    id: apple-iphone-17-pro
+    kind: system
+  evidenceLevel: confirmed
+- asOf: 2026-07-26
+  benchmark:
+    id: geekbench
+    variant: multi-core
+    version: "6"
+  caveat: >-
+    A dated capture of the benchmark publisher’s rolling device average. It may
+    be compared only with the same variant from this capture date.
+  comparabilityGroup: geekbench-score|whole-system|benchmark-chart-average|geekbench@6:multi-core
+  editorialStatus: approved
+  evidenceStage: shipped
+  id: apple-iphone-17-pro:geekbench-6-multi-core
+  method: benchmark-chart-average
+  metric: geekbench-score
+  normalized:
+    value: "8719"
+    unit: score
+    significantDigits: 4
+    unitRegistry: units-v1
+  provenance: independent
+  quantity:
+    significantDigits: 4
+    state: value
+    unit: score
+    value: "8719"
+  scope: whole-system
+  sourceIds:
+    - geekbench-apple-iphone-17-pro-chart-2026-07-26
+  status: measured
+  subject:
+    id: apple-iphone-17-pro
+    kind: system
+  evidenceLevel: confirmed
+- asOf: 2026-08-18
+  benchmark:
+    id: geekbench-compute
+    variant: metal
+    version: "6"
+  caveat: >-
+    A dated capture of the benchmark publisher’s rolling average for this
+    graphics processor, read from the 18 July 2026 Metal chart. It may be
+    compared only with another Geekbench 6 Metal figure from this curation
+    round, never with an OpenCL figure, a later version or a processor score.
+    The chart keys the row on the A19 Pro’s graphics processor, so the figure
+    describes the chip wherever it is fitted rather than this phone alone.
+  comparabilityGroup: geekbench-compute-score|gpu|benchmark-chart-average|geekbench-compute@6:metal
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - geekbench-metal-chart-2026-07-18:apple-a19-pro
+    - geekbench-metal-chart-2026-07-18:what-the-figures-are
+  id: apple-iphone-17-pro-gpu:geekbench-compute-6-metal
+  method: benchmark-chart-average
+  metric: geekbench-compute-score
+  normalized:
+    value: "44651"
+    unit: score
+    significantDigits: 5
+    unitRegistry: units-v1
+  provenance: independent
+  quantity:
+    significantDigits: 5
+    state: value
+    unit: score
+    value: "44651"
+  scope: gpu
+  sourceIds:
+    - geekbench-metal-benchmark-chart-2026-07-18
+  status: measured
+  subject:
+    id: apple-iphone-17-pro-gpu
+    kind: component
+  evidenceLevel: confirmed

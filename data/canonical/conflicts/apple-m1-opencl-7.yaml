@@ -1,0 +1,37 @@
+id: apple-m1-gpu:geekbench-compute-7-opencl
+subject:
+  kind: component
+  id: apple-m1-gpu
+metric: geekbench-compute-score
+candidates:
+  - quantity:
+      state: value
+      value: '17592'
+      unit: score
+      significantDigits: 5
+    sourceIds:
+      - geekbench-opencl-benchmark-chart-2026-07-25
+    evidence: 'Device and Score table, row "Apple M1": 17592.'
+  - quantity:
+      state: value
+      value: '13136'
+      unit: score
+      significantDigits: 5
+    sourceIds:
+      - geekbench-opencl-benchmark-chart-2026-07-25
+    evidence: 'Device and Score table, row "Apple M1 (G13G B1)": 13136.'
+decision:
+  outcome: accepted
+  candidateIndex: 0
+  rationale:
+    'The chart keys its rows on the string a driver reports, so one product
+    reaches it under several names with several averages. The rule this catalog
+    applies, here and in every later round: take the row that names the product
+    as its maker names it, and treat a string carrying tokens the maker does not
+    use — a “GPU” suffix, a die designation, another company’s prefix — as the
+    driver’s name rather than the product’s. G13G B1 is the die and stepping of
+    the M1’s graphics processor, not a product Apple offers. The gap here is a
+    quarter of the score, which is larger than a labeling split alone explains
+    and is a further reason to prefer the row holding the bulk of the uploads
+    rather than to average the two.'
+  decidedOn: 2026-08-18

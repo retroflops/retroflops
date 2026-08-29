@@ -1,0 +1,221 @@
+---
+// SPDX-FileCopyrightText: 2026 Wojciech Polak
+// SPDX-License-Identifier: MIT
+
+import BreadcrumbTrail from '~/components/breadcrumb-trail.astro';
+import ConflictCard from '~/components/conflict-card.astro';
+import DerivedClaimCard from '~/components/derived-claim-card.astro';
+import FamilyNav from '~/components/family-nav.astro';
+import MeasurementTable from '~/components/measurement-table.astro';
+import BaseLayout from '~/layouts/base-layout.astro';
+import {
+  getComponents,
+  getComponentAvailability,
+  getConflictsFor,
+  getContextClaimsFor,
+  getDerivedClaimsUsing,
+  getMeasurementsFor,
+  getSourcesByIds,
+  getSystemsUsing,
+} from '~/lib/catalog';
+import { formatPartialDate, formatQuantity, humaniseIdentifier } from '~/lib/display';
+import { componentCrumbs, componentFamilyNav } from '~/lib/families';
+import { route } from '~/lib/paths';
+import { breadcrumbList, componentArticle } from '~/lib/structured-data';
+
+export function getStaticPaths() {
+  return getComponents().map((component) => ({
+    params: { kind: component.kind, slug: component.slug },
+    props: { component },
+  }));
+}
+
+const { component } = Astro.props;
+const availability = getComponentAvailability(component);
+
+const measurements = getMeasurementsFor('component', component.id);
+const contextClaims = getContextClaimsFor('component', component.id);
+const usedBy = getSystemsUsing(component.id);
+const derivedClaims = getDerivedClaimsUsing(measurements.map((measurement) => measurement.id));
+const conflicts = getConflictsFor('component', component.id);
+const sources = getSourcesByIds([
+  ...new Set([
+    ...component.sourceIds,
+    ...measurements.flatMap((measurement) => measurement.sourceIds),
+    ...contextClaims.flatMap((claim) => claim.sourceIds),
+  ]),
+]);
+
+const KIND_LABELS = { cpu: 'Processor', gpu: 'Graphics', memory: 'Memory' } as const;
+
+/** One array feeds both the visible trail and the JSON-LD, so they cannot drift. */
+const crumbs =
+  availability.availability === 'research'
+    ? [
+        { name: 'RetroFlops', path: '/' },
+        { name: 'Research', path: '/research/' },
+        { name: component.name, path: `/components/${component.kind}/${component.slug}/` },
+      ]
+    : componentCrumbs(component);
+const familyNav = componentFamilyNav(component);
+
+const absolute = (path: string): string => new URL(route(path), Astro.site ?? Astro.url).href;
+const structuredData = [componentArticle(component, absolute), breadcrumbList(crumbs, absolute)];
+---
+
+<BaseLayout
+  title={component.name}
+  description={component.summary}
+  structuredData={structuredData}
+  noindex={availability.availability === 'research'}
+>
+  <BreadcrumbTrail crumbs={crumbs} />
+
+  {
+    availability.availability === 'research' && (
+      <aside class="research-notice prose" aria-label="Research record notice">
+        <p>
+          <strong>Research record.</strong> The source trail is preserved, but no numeric
+          measurement is currently available for this component or a system that uses it.
+        </p>
+      </aside>
+    )
+  }
+
+  <header class="page-header stack">
+    <p class="page-header__eyebrow">{KIND_LABELS[component.kind]}</p>
+    <h1>{component.name}</h1>
+    <p class="lede prose">{component.summary}</p>
+    <dl class="fact-row">
+      <div>
+        <dt>Manufacturer</dt>
+        <dd>{component.manufacturer}</dd>
+      </div>
+      {
+        component.architecture !== undefined && (
+          <div>
+            <dt>Architecture</dt>
+            <dd>{component.architecture}</dd>
+          </div>
+        )
+      }
+      {
+        component.introducedDate !== undefined && (
+          <div>
+            <dt>Introduced</dt>
+            <dd>{formatPartialDate(component.introducedDate)}</dd>
+          </div>
+        )
+      }
+      {
+        contextClaims.map((claim) => (
+          <div>
+            <dt>{claim.label}</dt>
+            <dd class="numeric">{formatQuantity(claim.quantity).text}</dd>
+          </div>
+        ))
+      }
+      {
+        component.kind === 'cpu' && component.instructionSet !== undefined && (
+          <div>
+            <dt>Instruction set</dt>
+            <dd>{component.instructionSet}</dd>
+          </div>
+        )
+      }
+      {
+        component.kind === 'memory' && component.memoryType !== undefined && (
+          <div>
+            <dt>Type</dt>
+            <dd>{component.memoryType}</dd>
+          </div>
+        )
+      }
+      <div>
+        <dt>Record status</dt>
+        <dd>{component.editorialStatus}</dd>
+      </div>
+    </dl>
+  </header>
+
+  {
+    measurements.length > 0 && (
+      <section class="stack" aria-labelledby="figures">
+        <h2 id="figures">Figures</h2>
+        <MeasurementTable
+          measurements={measurements}
+          sources={sources}
+          caption={`${component.name}: recorded figures`}
+          openAbsences={availability.availability === 'research'}
+        />
+      </section>
+    )
+  }
+
+  {
+    derivedClaims.length > 0 && (
+      <section class="stack" aria-labelledby="derived">
+        <h2 id="derived">Derived comparisons</h2>
+        {derivedClaims.map((claim) => (
+          <DerivedClaimCard claim={claim} />
+        ))}
+      </section>
+    )
+  }
+
+  {
+    conflicts.length > 0 && (
+      <section class="stack" aria-labelledby="conflicts">
+        <h2 id="conflicts">Conflicting sources</h2>
+        {conflicts.map((conflict) => (
+          <ConflictCard conflict={conflict} sources={sources} />
+        ))}
+      </section>
+    )
+  }
+
+  {
+    usedBy.length > 0 && (
+      <section class="stack" aria-labelledby="used-by">
+        <h2 id="used-by">Fitted to</h2>
+        <ul class="link-list">
+          {usedBy.map((system) => (
+            <li>
+              <a href={route(`/systems/${system.slug}/`)}>{system.name}</a>
+              <span class="meta">
+                {humaniseIdentifier(system.type)} · {formatPartialDate(system.releaseDate)}
+              </span>
+            </li>
+          ))}
+        </ul>
+      </section>
+    )
+  }
+
+  {
+    component.notes !== undefined && (
+      <section class="prose stack" aria-labelledby="notes">
+        <h2 id="notes">Editorial notes</h2>
+        <p>{component.notes}</p>
+      </section>
+    )
+  }
+
+  <section class="stack" aria-labelledby="sources">
+    <h2 id="sources">Sources</h2>
+    <ul class="source-list">
+      {
+        sources.map((source) => (
+          <li>
+            <a href={route(`/sources/${source.id}/`)}>{source.title}</a>
+            <span class="meta">
+              {source.publisher} · tier {source.tier} · {source.locator}
+            </span>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+
+  {familyNav !== undefined && <FamilyNav nav={familyNav} />}
+</BaseLayout>

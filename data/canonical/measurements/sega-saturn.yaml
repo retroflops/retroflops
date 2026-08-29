@@ -1,0 +1,392 @@
+- caveat: >-
+    Sega states one frequency for both SH2 processors of the PAL console, model
+    MK-80200-50. It is the PAL rate; the Japanese machine's crystal gives a
+    slightly higher one, and this catalog has no Sega document for that model.
+    Two processors at this rate are not one at twice it, so the pair share a
+    single clock figure.
+  comparabilityGroup: clock-frequency|cpu|nominal-clock
+  conditions: Master and slave SH2 of the PAL console, model MK-80200-50.
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - sega-saturn-manual:cpu
+    - sega-saturn-manual:ratings
+  id: sega-saturn:retail:cpu-clock-frequency
+  method: nominal-clock
+  metric: clock-frequency
+  normalized:
+    value: "28400000"
+    unit: Hz
+    significantDigits: 3
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 3
+    state: value
+    unit: MHz
+    value: "28.4"
+  scope: cpu
+  sourceIds:
+    - sega-saturn-service-manual
+  status: vendor-rated
+  subject:
+    configurationId: retail
+    id: sega-saturn
+    kind: system
+  evidenceLevel: confirmed
+- caveat: >-
+    Sega's verified material states no video clock. Wikipedia gives
+    {{measurement:sega-saturn:retail:gpu-clock-frequency}} for both VDP1 and
+    VDP2, and the catalog carries it as rumored until a technical document
+    states it.
+  comparabilityGroup: clock-frequency|gpu|nominal-clock
+  editorialStatus: provisional
+  evidenceStage: shipped
+  extractIds:
+    - sega-saturn-manual:cpu
+  id: sega-saturn:retail:gpu-clock-frequency
+  method: nominal-clock
+  metric: clock-frequency
+  provenance: community
+  quantity:
+    state: value
+    value: "28.63636"
+    unit: MHz
+    significantDigits: 7
+  scope: gpu
+  sourceIds:
+    - sega-saturn-service-manual
+    - wikipedia-sega-saturn-specifications
+  status: vendor-rated
+  subject:
+    configurationId: retail
+    id: sega-saturn
+    kind: system
+  evidenceLevel: rumored
+  normalized:
+    value: "28636360"
+    unit: Hz
+    significantDigits: 7
+    unitRegistry: units-v1
+- caveat: >-
+    The work memory alone, which Sega states as 16 Mbit. It is one of six
+    memories the same block lists, and the console's total is built from the
+    five that are writable.
+  comparabilityGroup: memory-capacity|memory|design-capacity
+  conditions: Work RAM of the PAL console, model MK-80200-50.
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - sega-saturn-manual:memories
+  id: sega-saturn-ram:capacity
+  method: design-capacity
+  metric: memory-capacity
+  normalized:
+    value: "2097152"
+    unit: B
+    significantDigits: 1
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 1
+    state: value
+    unit: MiB
+    value: "2"
+  scope: memory
+  sourceIds:
+    - sega-saturn-service-manual
+  status: vendor-rated
+  subject:
+    id: sega-saturn-ram
+    kind: component
+  evidenceLevel: confirmed
+- caveat: >-
+    Stated by Sega as 12 Mbit, in the same block as the work memory. It serves
+    the video display processors and is a term of the machine's memory.
+  comparabilityGroup: memory-capacity|memory|design-capacity
+  conditions: Video RAM of the PAL console, model MK-80200-50.
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - sega-saturn-manual:memories
+  id: sega-saturn-video-ram:capacity
+  method: design-capacity
+  metric: memory-capacity
+  normalized:
+    value: "1572864"
+    unit: B
+    significantDigits: 2
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 2
+    state: value
+    unit: MiB
+    value: "1.5"
+  scope: memory
+  sourceIds:
+    - sega-saturn-service-manual
+  status: vendor-rated
+  subject:
+    id: sega-saturn-video-ram
+    kind: component
+  evidenceLevel: confirmed
+- caveat: Stated by Sega as 4 Mbit and dedicated to the sound processor.
+  comparabilityGroup: memory-capacity|memory|design-capacity
+  conditions: Sound RAM of the PAL console, model MK-80200-50.
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - sega-saturn-manual:memories
+  id: sega-saturn-sound-ram:capacity
+  method: design-capacity
+  metric: memory-capacity
+  normalized:
+    value: "524288"
+    unit: B
+    significantDigits: 3
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 3
+    state: value
+    unit: KiB
+    value: "512"
+  scope: memory
+  sourceIds:
+    - sega-saturn-service-manual
+  status: vendor-rated
+  subject:
+    id: sega-saturn-sound-ram
+    kind: component
+  evidenceLevel: confirmed
+- caveat: >-
+    Stated by Sega as 4 Mbit. It buffers the disc drive rather than serving a
+    processor, and it is writable memory the console has.
+  comparabilityGroup: memory-capacity|memory|design-capacity
+  conditions: CD buffer RAM of the PAL console, model MK-80200-50.
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - sega-saturn-manual:memories
+  id: sega-saturn-cd-buffer-ram:capacity
+  method: design-capacity
+  metric: memory-capacity
+  normalized:
+    value: "524288"
+    unit: B
+    significantDigits: 3
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 3
+    state: value
+    unit: KiB
+    value: "512"
+  scope: memory
+  sourceIds:
+    - sega-saturn-service-manual
+  status: vendor-rated
+  subject:
+    id: sega-saturn-cd-buffer-ram
+    kind: component
+  evidenceLevel: confirmed
+- caveat: >-
+    Stated by Sega as 256 Kbit. Battery-backed and small, and the only memory on
+    this machine whose contents survive a power cut.
+  comparabilityGroup: memory-capacity|memory|design-capacity
+  conditions: Backup RAM of the PAL console, model MK-80200-50.
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - sega-saturn-manual:memories
+  id: sega-saturn-backup-ram:capacity
+  method: design-capacity
+  metric: memory-capacity
+  normalized:
+    value: "32768"
+    unit: B
+    significantDigits: 2
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 2
+    state: value
+    unit: KiB
+    value: "32"
+  scope: memory
+  sourceIds:
+    - sega-saturn-service-manual
+  status: vendor-rated
+  subject:
+    id: sega-saturn-backup-ram
+    kind: component
+  evidenceLevel: confirmed
+- caveat: >-
+    Stated by Sega as 4 Mbit. Boot firmware, so it is named as an exclusion from
+    the console's memory total rather than added to it.
+  comparabilityGroup: memory-capacity|memory|design-capacity
+  conditions: IPL ROM of the PAL console, model MK-80200-50.
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - sega-saturn-manual:memories
+  id: sega-saturn-ipl-rom:capacity
+  method: design-capacity
+  metric: memory-capacity
+  normalized:
+    value: "524288"
+    unit: B
+    significantDigits: 3
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 3
+    state: value
+    unit: KiB
+    value: "512"
+  scope: memory
+  sourceIds:
+    - sega-saturn-service-manual
+  status: vendor-rated
+  subject:
+    id: sega-saturn-ipl-rom
+    kind: component
+  evidenceLevel: confirmed
+- caveat: >-
+    Adds 5 memory-capacity figures obtained by design-capacity. Left out:
+    {{measurement:sega-saturn-sound-ram:capacity}} of IPL ROM (boot firmware,
+    not memory the console can write to). A total is only as trustworthy as the
+    decision about what belongs in it, so both the terms and the exclusions are
+    named records.
+  comparabilityGroup: memory-capacity|whole-system|design-capacity
+  derivedFrom: sega-saturn:whole-system-memory
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - sega-saturn-manual:memories
+  id: sega-saturn:whole-system-memory-capacity
+  method: design-capacity
+  metric: memory-capacity
+  normalized:
+    value: "4751360"
+    unit: B
+    significantDigits: 7
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 7
+    state: value
+    unit: B
+    value: "4751360"
+  rounding: none
+  scope: whole-system
+  sourceIds:
+    - sega-saturn-service-manual
+  status: derived
+  subject:
+    id: sega-saturn
+    kind: system
+  evidenceLevel: confirmed
+- caveat: >-
+    The manual is a service document: it lists what is fitted and what it is
+    rated at, not how fast the buses run.
+  comparabilityGroup: memory-bandwidth|memory|theoretical-peak
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - sega-saturn-manual:memories
+  id: sega-saturn:memory-bandwidth
+  method: theoretical-peak
+  metric: memory-bandwidth
+  provenance: vendor
+  quantity:
+    note: >-
+      Sega's specification block states memory capacities and no transfer rate,
+      bus width or timing.
+    state: unknown
+  unknownAudit:
+    reviewedOn: 2026-08-25
+    routesChecked:
+      - vendor-documentation
+      - independent-analysis
+      - community-source
+    outcome: no-compatible-candidate
+    summary: >-
+      The checked service manual gives memory capacities but no transfer rate,
+      bus width, or timing for a comparable bandwidth value.
+  scope: memory
+  sourceIds:
+    - sega-saturn-service-manual
+  status: vendor-rated
+  subject:
+    id: sega-saturn
+    kind: system
+- caveat: >-
+    An instruction rate is not a floating-point rate, and Sega names no
+    benchmark for the one it does give.
+  comparabilityGroup: peak-fp32-rate|gpu|theoretical-peak
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - sega-saturn-manual:cpu
+  id: sega-saturn:peak-fp32-rate
+  method: theoretical-peak
+  metric: peak-fp32-rate
+  provenance: vendor
+  quantity:
+    note: >-
+      Sega states {{context:sega-saturn:context-mips-25}} for each SH2 and no
+      floating-point rate at any precision.
+    state: unknown
+  unknownAudit:
+    reviewedOn: 2026-08-25
+    routesChecked:
+      - vendor-documentation
+      - independent-analysis
+      - community-source
+    outcome: no-compatible-candidate
+    summary: >-
+      Sega's SH2 instruction-rate statement supplies neither a floating-point
+      rate nor a named floating-point benchmark.
+  scope: gpu
+  sourceIds:
+    - sega-saturn-service-manual
+  status: vendor-rated
+  subject:
+    id: sega-saturn
+    kind: system
+- caveat: >-
+    Stated as 約15W, or "approximately 15 W". Unusually for a console of its era
+    this is the machine's own consumption rather than an adapter rating, because
+    the Saturn takes mains power directly. Later revisions and non-Japanese
+    mains configurations may differ.
+  comparabilityGroup: rated-power-consumption|whole-system|rated-power
+  conditions: Japanese Sega Saturn, model code HST-3210, on AC100V±10%
+    50/{{context:sega-saturn:context-hz-60}} mains.
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - sega-saturn:spec-table:power
+  id: sega-saturn:rated-power-consumption
+  method: rated-power
+  metric: rated-power-consumption
+  normalized:
+    value: "15"
+    unit: W
+    significantDigits: 2
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 2
+    state: value
+    unit: W
+    value: "15"
+  scope: whole-system
+  sourceIds:
+    - sega-hardware-encyclopedia-saturn
+  status: vendor-rated
+  subject:
+    id: sega-saturn
+    kind: system
+  evidenceLevel: confirmed

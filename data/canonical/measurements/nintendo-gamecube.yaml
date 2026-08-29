@@ -1,0 +1,339 @@
+- caveat: >-
+    Nintendo states this in its own specification table, under the processor
+    block. The row below it gives 1125 Dmips (Dhrystone 2.1), a rare vendor
+    Dhrystone figure and a separate quantity this catalog has not yet opened.
+  comparabilityGroup: clock-frequency|cpu|nominal-clock
+  conditions: The IBM "Gekko" processor of the shipped console.
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - gamecube-specs:cpu-clock
+  id: nintendo-gamecube:retail:cpu-clock-frequency
+  method: nominal-clock
+  metric: clock-frequency
+  normalized:
+    value: "485000000"
+    unit: Hz
+    significantDigits: 3
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 3
+    state: value
+    unit: MHz
+    value: "485"
+  scope: cpu
+  sourceIds:
+    - nintendo-gamecube-tech-specs
+  status: vendor-rated
+  subject:
+    configurationId: retail
+    id: nintendo-gamecube
+    kind: system
+  evidenceLevel: confirmed
+- caveat: >-
+    The graphics part's own row. The processor's external bus runs at the same
+    {{measurement:nintendo-gamecube:retail:gpu-clock-frequency}}, which is one
+    frequency serving two purposes rather than two figures that agree.
+  comparabilityGroup: clock-frequency|gpu|nominal-clock
+  conditions: The ATI/Nintendo "Flipper" graphics part of the shipped console.
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - gamecube-specs:gpu-clock
+  id: nintendo-gamecube:retail:gpu-clock-frequency
+  method: nominal-clock
+  metric: clock-frequency
+  normalized:
+    value: "162000000"
+    unit: Hz
+    significantDigits: 3
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 3
+    state: value
+    unit: MHz
+    value: "162"
+  scope: gpu
+  sourceIds:
+    - nintendo-gamecube-tech-specs
+  status: vendor-rated
+  subject:
+    configurationId: retail
+    id: nintendo-gamecube
+    kind: system
+  evidenceLevel: confirmed
+- caveat: >-
+    The main memory alone. Nintendo lists it beneath a stated system total of
+    {{context:nintendo-gamecube-ram:context-mb-40}}, the rest of which is the
+    console's dedicated sound memory, recorded as its own figure rather than
+    folded in here.
+  comparabilityGroup: memory-capacity|memory|design-capacity
+  conditions: MoSys 1T-SRAM main memory of the shipped console.
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - gamecube-specs:memory
+  id: nintendo-gamecube-ram:capacity
+  method: design-capacity
+  metric: memory-capacity
+  normalized:
+    value: "25165824"
+    unit: B
+    significantDigits: 2
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 2
+    state: value
+    unit: MiB
+    value: "24"
+  scope: memory
+  sourceIds:
+    - nintendo-gamecube-tech-specs
+  status: vendor-rated
+  subject:
+    id: nintendo-gamecube-ram
+    kind: component
+  evidenceLevel: confirmed
+- caveat: >-
+    Dedicated to audio and not addressable as main memory, but part of the
+    machine's memory all the same: Nintendo puts it under the same "Sistema de
+    Memoria" heading and counts it into the
+    {{context:nintendo-gamecube-sound-ram:context-mb-40}} total it states there.
+  comparabilityGroup: memory-capacity|memory|design-capacity
+  conditions: "{{context:nintendo-gamecube-sound-ram:context-mhz-81}} DRAM
+    reserved for sound on the shipped console."
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - gamecube-specs:memory
+  id: nintendo-gamecube-sound-ram:capacity
+  method: design-capacity
+  metric: memory-capacity
+  normalized:
+    value: "16777216"
+    unit: B
+    significantDigits: 2
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 2
+    state: value
+    unit: MiB
+    value: "16"
+  scope: memory
+  sourceIds:
+    - nintendo-gamecube-tech-specs
+  status: vendor-rated
+  subject:
+    id: nintendo-gamecube-sound-ram
+    kind: component
+  evidenceLevel: confirmed
+- caveat: >-
+    Adds 2 memory-capacity figures obtained by design-capacity. Nothing in the
+    catalog is left out of it. A total is only as trustworthy as the decision
+    about what belongs in it, so both the terms and the exclusions are named
+    records.
+  comparabilityGroup: memory-capacity|whole-system|design-capacity
+  derivedFrom: nintendo-gamecube:whole-system-memory
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - gamecube-specs:memory
+  id: nintendo-gamecube:whole-system-memory-capacity
+  method: design-capacity
+  metric: memory-capacity
+  normalized:
+    value: "41943040"
+    unit: B
+    significantDigits: 8
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 8
+    state: value
+    unit: B
+    value: "41943040"
+  rounding: none
+  scope: whole-system
+  sourceIds:
+    - nintendo-gamecube-tech-specs
+  status: derived
+  subject:
+    id: nintendo-gamecube
+    kind: system
+  evidenceLevel: confirmed
+- caveat: >-
+    The path to main memory only. Nintendo states a separate
+    10,{{context:nintendo-gamecube:context-gb-s-4}} for texture access and
+    1,{{context:nintendo-gamecube:context-gb-s-3}} for the external bus, and the
+    console's {{context:nintendo-gamecube:context-mb-16}} of audio memory is a
+    further pool again, so this is one of several rates in the machine, not a
+    total.
+  comparabilityGroup: memory-bandwidth|memory|theoretical-peak
+  conditions: Main memory ({{context:nintendo-gamecube:context-mb-24}} 1T-SRAM),
+    stated by Nintendo as a maximum.
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - gamecube-specs:main-memory-bandwidth
+  id: nintendo-gamecube:memory-bandwidth
+  method: theoretical-peak
+  metric: memory-bandwidth
+  normalized:
+    value: "2600000000"
+    unit: B/s
+    significantDigits: 2
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 2
+    state: value
+    unit: GB/s
+    value: "2.6"
+  scope: memory
+  sourceIds:
+    - nintendo-gamecube-tech-specs
+  status: vendor-rated
+  subject:
+    id: nintendo-gamecube
+    kind: system
+  evidenceLevel: confirmed
+- caveat: >-
+    Provisional and unknown: Nintendo publishes a floating-point figure for this
+    console that is explicitly a total across three units. The absence is of a
+    standalone graphics rate, not of a number.
+  comparabilityGroup: peak-fp32-rate|gpu|theoretical-peak
+  editorialStatus: provisional
+  evidenceStage: shipped
+  extractIds:
+    - gamecube-specs:floating-point-aggregate
+  id: nintendo-gamecube:peak-fp32-rate
+  method: theoretical-peak
+  metric: peak-fp32-rate
+  provenance: vendor
+  quantity:
+    note: >-
+      Nintendo does publish a floating-point figure for this console — 10,5
+      GFLOPS (máximo) — and its own wording makes it a total across the
+      processor, the geometry engine and the hardware lighting. A precision the
+      publisher leaves unsaid is something this catalog now reads as single
+      precision and carries as rumored, but an aggregate across unlike units is
+      a different quantity, and no community article separates it. There is no
+      standalone graphics rate to record.
+    state: unknown
+  unknownAudit:
+    reviewedOn: 2026-08-25
+    routesChecked:
+      - vendor-documentation
+      - independent-analysis
+      - community-source
+    outcome: no-compatible-candidate
+    summary: >-
+      Nintendo's published aggregate is not a standalone GPU floating-point
+      rate, and no community article separates one.
+  scope: gpu
+  sourceIds:
+    - nintendo-gamecube-tech-specs
+  status: vendor-rated
+  subject:
+    id: nintendo-gamecube
+    kind: system
+- caveat: >-
+    Half of the only power figure Nintendo published for this console: its
+    specification table gives the adapter's rating and no wattage. Recorded on
+    its own so the watts derived from it have something to cite.
+  comparabilityGroup: supply-voltage|whole-system|nameplate-rating
+  conditions: Bundled AC adapter, DC output.
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - gamecube-specs:power-adapter
+  id: nintendo-gamecube:supply-voltage
+  method: nameplate-rating
+  metric: supply-voltage
+  normalized:
+    value: "12"
+    unit: V
+    significantDigits: 2
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 2
+    state: value
+    unit: V
+    value: "12"
+  scope: whole-system
+  sourceIds:
+    - nintendo-gamecube-tech-specs
+  status: vendor-rated
+  subject:
+    id: nintendo-gamecube
+    kind: system
+  evidenceLevel: confirmed
+- caveat: The other half of the adapter rating in Nintendo's specification table.
+  comparabilityGroup: supply-current|whole-system|nameplate-rating
+  conditions: Bundled AC adapter, DC output.
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - gamecube-specs:power-adapter
+  id: nintendo-gamecube:supply-current
+  method: nameplate-rating
+  metric: supply-current
+  normalized:
+    value: "3.25"
+    unit: A
+    significantDigits: 3
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 3
+    state: value
+    unit: A
+    value: "3.25"
+  scope: whole-system
+  sourceIds:
+    - nintendo-gamecube-tech-specs
+  status: vendor-rated
+  subject:
+    id: nintendo-gamecube
+    kind: system
+  evidenceLevel: confirmed
+- caveat: >-
+    Nintendo published the adapter's rating and never a wattage, so this is the
+    product of the two figures in its own table rather than something it stated.
+    Exact arithmetic for a direct-current supply, and still a supply rating:
+    what the console actually draws is a smaller number nobody published.
+  comparabilityGroup: rated-power-consumption|whole-system|rated-power
+  conditions: Bundled AC adapter at its rated DC output.
+  derivedFrom: nintendo-gamecube:supply-power
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - gamecube-specs:power-adapter
+  id: nintendo-gamecube:rated-power-consumption
+  method: rated-power
+  metric: rated-power-consumption
+  normalized:
+    value: "39"
+    unit: W
+    significantDigits: 2
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 2
+    state: value
+    unit: W
+    value: "39"
+  rounding: half-up
+  scope: whole-system
+  sourceIds:
+    - nintendo-gamecube-tech-specs
+  status: derived
+  subject:
+    id: nintendo-gamecube
+    kind: system
+  evidenceLevel: confirmed

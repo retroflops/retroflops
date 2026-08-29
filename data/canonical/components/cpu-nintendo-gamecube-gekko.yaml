@@ -1,0 +1,13 @@
+editorialStatus: approved
+id: nintendo-gamecube-gekko
+slug: nintendo-gamecube-gekko
+kind: cpu
+name: IBM Gekko
+manufacturer: IBM
+architecture: PowerPC 750CXe-derived
+introducedDate: '2001'
+instructionSet: PowerPC
+instructionSetFamily: power
+summary: The Nintendo GameCube main processor.
+sourceIds:
+  - nintendo-gamecube-tech-specs

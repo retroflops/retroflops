@@ -1,0 +1,7 @@
+- extract: 128 × 8 static RAM.
+  id: mos-6532-riot-datasheet:ram-capacity
+  locator: Features and functional-block diagram, 128 × 8 static RAM
+  sourceId: mos-6532-riot-datasheet
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-25
+  extractHash: 74b6a8bbb27cdd1baddab8406330f3b71088fa96cbca98dfb37d59aa983feef5

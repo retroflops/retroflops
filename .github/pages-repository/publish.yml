@@ -1,0 +1,123 @@
+# The publishing workflow for https://retroflops.github.io/.
+#
+# This file has identical copies in two repositories.
+# `retroflops/retroflops` keeps the canonical copy at
+# `.github/pages-repository/publish.yml` beside the source. Pull requests review
+# changes there, but it does not run there. `retroflops/retroflops.github.io`
+# runs the copy at `.github/workflows/publish.yml`. Edit the canonical copy,
+# then copy it to the publishing repository. This workflow compares both copies
+# and stops if they differ.
+#
+# The publishing repository builds `retroflops/retroflops` and deploys the
+# result to its Pages site at the organization root domain. Because
+# `actions/deploy-pages` publishes only the repository that runs it, the build
+# runs here.
+
+name: Publish the site
+
+# GitHub has no cross-repository push trigger. The source repository dispatches
+# this workflow with the commit to build. The default supports manual runs from
+# the Actions tab.
+on:
+  workflow_dispatch:
+    inputs:
+      commit:
+        description: The retroflops/retroflops commit to build
+        required: false
+        default: main
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Run one deployment at a time. Do not cancel a queued deployment because an
+# interrupted deployment can leave the site partially updated.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+env:
+  ASTRO_TELEMETRY_DISABLED: '1'
+  SOURCE_REPOSITORY: retroflops/retroflops
+
+jobs:
+  build:
+    name: Build the site
+    if: github.repository == 'retroflops/retroflops.github.io'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      # The public source needs no credential. Check it out at the workspace
+      # root because the build uses only that repository.
+      - name: Check out the source
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          repository: retroflops/retroflops
+          ref: ${{ inputs.commit }}
+          persist-credentials: false
+
+      # This workflow compares its two copies before dependencies install. A
+      # mismatch would publish an unreviewed workflow.
+      - name: Check out this repository beside it
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          path: .publishing-repo
+          persist-credentials: false
+
+      - name: Compare this workflow with its canonical copy
+        run: |
+          canonical=.github/pages-repository/publish.yml
+          deployed=.publishing-repo/.github/workflows/publish.yml
+          if ! diff --unified "${canonical}" "${deployed}"; then
+            echo "::error::This workflow has drifted from ${SOURCE_REPOSITORY}/${canonical}. Copy the canonical file over ${deployed#.publishing-repo/} and try again."
+            exit 1
+          fi
+          rm -rf .publishing-repo
+
+      - name: Set up pnpm
+        uses: pnpm/action-setup@0ebf47130e4866e96fce0953f49152a61190b271 # v6.0.9
+
+      - name: Set up Node.js
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version-file: .node-version
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      # `configure-pages` reports this site's origin and base path. Its output
+      # keeps the build correct if the site moves under a repository prefix.
+      - name: Configure Pages
+        id: pages
+        uses: actions/configure-pages@983d7736d9b0ae728b81ab479565c72886d7745b # v5.0.0
+
+      - name: Build
+        run: pnpm build
+        env:
+          SITE_URL: ${{ steps.pages.outputs.origin }}
+          BASE_PATH: ${{ steps.pages.outputs.base_path }}
+
+      - name: Record what was built
+        run: |
+          echo "Built ${SOURCE_REPOSITORY}@$(git rev-parse HEAD)" >> "${GITHUB_STEP_SUMMARY}"
+
+      - name: Upload the site
+        uses: actions/upload-pages-artifact@7b1f4a764d45c48632c6b24a0339c27f5614fb0b # v4.0.0
+        with:
+          path: dist
+
+  deploy:
+    name: Publish
+    needs: build
+    if: github.repository == 'retroflops/retroflops.github.io'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy
+        id: deployment
+        uses: actions/deploy-pages@d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e # v4.0.5

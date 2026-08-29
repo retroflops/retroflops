@@ -1,0 +1,33 @@
+accessedDate: 2026-08-13
+editorialStatus: approved
+extract: >-
+  GeForce RTX 2080 Ti: 1350 MHz base clock and 1635 MHz boost clock; 11 GB GDDR6
+  frame buffer; 616 GB/s memory bandwidth; 13.45 TFLOPS general-shader FP32
+  peak; 250 W thermal design power.
+fetch:
+  byteLength: 542586
+  contentType: text/html; charset=UTF-8
+  fetchedAt: 2026-08-15T18:48:22Z
+  finalUrl: https://www.nvidia.com/en-us/geforce/20-series/
+  httpStatus: 200
+  sha256: 71ab278b7ff4ebf126bc77d08b784defb494b8acc7e6c5b2d8b4960ed6d3f177
+  url: https://www.nvidia.com/en-us/geforce/graphics-cards/rtx-2080-ti/
+id: nvidia-geforce-rtx-2080-ti-product-specifications
+license: Copyright retained by the publisher. Short extracts are recorded solely
+  to verify the cited specifications.
+locator: Reference-card specification table and architecture summary
+publisher: NVIDIA
+sourceType: vendor-documentation
+tier: A
+title: NVIDIA GeForce RTX 2080 Ti — reference specifications
+url: https://www.nvidia.com/en-us/geforce/graphics-cards/rtx-2080-ti/
+usageNote: >-
+  Fetched for the first time on 15 August 2026, and the retrieval is the
+  finding: the address now redirects to NVIDIA's 20-series landing page, which
+  carries none of this card's figures. A Wayback capture of the original address
+  from 20 August 2018 does carry the launch table, and reading it raises a
+  second question this record cannot settle on its own — the table gives 1635
+  MHz (OC) for the Founders Edition and 1545 MHz for the standard card, while
+  the catalog records 1635 MHz against a record titled reference. The base
+  clock, the thermal design power and the floating-point rate are on neither
+  page. Held for the round that curates the graphics cards.

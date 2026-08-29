@@ -1,0 +1,11 @@
+editorialStatus: approved
+id: microsoft-xbox-series-x-rdna2
+slug: microsoft-xbox-series-x-rdna2
+kind: gpu
+name: AMD Xbox Series X GPU
+manufacturer: AMD / Microsoft
+architecture: RDNA 2
+introducedDate: '2020'
+summary: The graphics processor fitted to the Microsoft Xbox Series X.
+sourceIds:
+  - xbox-wire-series-x-tech-2020

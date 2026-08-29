@@ -1,0 +1,17 @@
+id: snes-video-ram:context-bit-8
+subject:
+  kind: component
+  id: snes-video-ram
+label: Word size
+quantity:
+  state: value
+  value: '8'
+  unit: bit
+  significantDigits: 1
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - nintendo-snes-tech-specs
+evidenceLevel: confirmed

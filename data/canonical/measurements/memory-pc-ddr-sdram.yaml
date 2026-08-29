@@ -1,0 +1,38 @@
+- caveat: >-
+    A documented absence, and a demonstration of what would fix it. A vendor
+    rating exists for one member; recording it here would silently give the
+    Pentium 4 and Core 2 Duo platforms a DDR3 bandwidth. The entry needs
+    splitting per memory generation before any of the three can be answered.
+  comparabilityGroup: memory-bandwidth|memory|theoretical-peak
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: pc-ddr-sdram:memory-bandwidth
+  method: theoretical-peak
+  metric: memory-bandwidth
+  provenance: vendor
+  quantity:
+    note: >-
+      One of the three machines fitted with this component can be documented and
+      the component cannot: Intel rates the Core i7-2600K's dual-channel
+      DDR3-1333 interface at {{context:pc-ddr-sdram:context-gb-s-21}}. The same
+      component also stands for the Pentium 4's DDR and the Core 2 Duo E6600's
+      DDR2, which are different standards at different transfer rates, so the
+      one figure available describes a third of the component.
+    state: unknown
+  unknownAudit:
+    reviewedOn: 2026-08-25
+    routesChecked:
+      - vendor-documentation
+      - independent-analysis
+      - community-source
+    outcome: no-compatible-candidate
+    summary: >-
+      No configuration-specific compatible bandwidth value is present in the
+      checked material.
+  scope: memory
+  sourceIds:
+    - intel-core-i7-2600k-specifications
+  status: vendor-rated
+  subject:
+    id: pc-ddr-sdram
+    kind: component

@@ -1,0 +1,253 @@
+---
+// SPDX-FileCopyrightText: 2026 Wojciech Polak
+// SPDX-License-Identifier: MIT
+
+import BaseLayout from '~/layouts/base-layout.astro';
+import { getCatalog, getCatalogAvailability } from '~/lib/catalog';
+import { route, withBase } from '~/lib/paths';
+import { catalogDataset } from '~/lib/structured-data';
+
+const catalog = getCatalog();
+const availability = getCatalogAvailability();
+const catalogSystems = [...availability.systems.values()].filter(
+  (record) => record.availability === 'catalog',
+).length;
+const states = {
+  values: catalog.measurements.filter((measurement) => measurement.quantity.state === 'value')
+    .length,
+  unknown: catalog.measurements.filter((measurement) => measurement.quantity.state === 'unknown')
+    .length,
+  notApplicable: catalog.measurements.filter(
+    (measurement) => measurement.quantity.state === 'not-applicable',
+  ).length,
+  unverified: catalog.measurements.filter(
+    (measurement) => measurement.quantity.state === 'unverified',
+  ).length,
+};
+
+const counts = {
+  systems: catalog.systems.length,
+  components: catalog.components.length,
+  measurements: catalog.measurements.length,
+  contextClaims: catalog.contextClaims.length,
+  sources: catalog.sources.length,
+  derivedClaims: catalog.derivedClaims.length,
+  conflicts: catalog.conflicts.length,
+};
+
+const downloads = [
+  {
+    path: '/data/catalog-v1.json',
+    name: 'catalog-v1.json',
+    what: 'The full export: catalog and research systems, components, measurements, contextual claims, sources, derived claims and conflicts.',
+  },
+  {
+    path: '/data/catalog-summary-v1.json',
+    name: 'catalog-summary-v1.json',
+    what: 'A compact index of names and facets for selectors and filters. It contains no figures, so a filter does not need to download the catalog.',
+  },
+  {
+    path: '/data/measurements-v1.csv',
+    name: 'measurements-v1.csv',
+    what: 'One row per figure, with its unit, its normalized value in the base unit, its comparability group, its confidence status and its sources.',
+  },
+];
+
+const absolute = (path: string): string => new URL(route(path), Astro.site ?? Astro.url).href;
+const structuredData = [
+  catalogDataset(
+    {
+      schemaVersion: catalog.schemaVersion,
+      measurementCount: counts.measurements,
+      systemCount: counts.systems,
+      componentCount: counts.components,
+    },
+    absolute,
+  ),
+];
+---
+
+<BaseLayout
+  title="Data and contributing"
+  description="Public exports, the versioned schema, the registries the figures are built on, and how to report an error in a record."
+  structuredData={structuredData}
+>
+  <header class="page-header stack">
+    <p class="page-header__eyebrow">Reference</p>
+    <h1>Data and contributing</h1>
+    <p class="lede prose">
+      The site generates all of its data from files you can download during the build. The browser
+      computes nothing and fetches no data at runtime.
+    </p>
+  </header>
+
+  <section class="data-ledger stack" aria-labelledby="data-ledger-heading">
+    <h2 id="data-ledger-heading">What the export contains</h2>
+    <div class="data-ledger__bar" aria-hidden="true">
+      <span class="data-ledger__value" style={`flex-grow: ${states.values}`}></span>
+      <span class="data-ledger__unknown" style={`flex-grow: ${states.unknown}`}></span>
+      <span class="data-ledger__na" style={`flex-grow: ${states.notApplicable}`}></span>
+      <span class="data-ledger__unverified" style={`flex-grow: ${states.unverified}`}></span>
+    </div>
+    <p class="meta">
+      <span class="numeric">{states.values}</span> values · <span class="numeric"
+        >{states.unknown}</span
+      >
+      unknown · <span class="numeric">{states.notApplicable}</span> not applicable · <span
+        class="numeric">{states.unverified}</span
+      > not yet checked
+    </p>
+    <p class="prose">
+      All <span class="numeric">{catalogSystems}</span> systems have at least one numeric measurement.
+      Documented unknowns remain beside the values they qualify.
+    </p>
+  </section>
+
+  <section class="stack" aria-labelledby="exports">
+    <h2 id="exports">Exports</h2>
+    <ul class="link-list">
+      {
+        downloads.map((item) => (
+          <li>
+            <a class="wrap-anywhere" href={withBase(item.path)} download>
+              {item.name}
+            </a>
+            <span class="meta">{item.what}</span>
+          </li>
+        ))
+      }
+    </ul>
+    <p class="prose meta">
+      The artifacts carry no timestamp and no build identifier. Two builds from identical inputs
+      produce byte-identical files. A reviewer can therefore inspect a data change as a diff.
+    </p>
+  </section>
+
+  <section class="stack" aria-labelledby="contents">
+    <h2 id="contents">What is in it</h2>
+    <dl class="fact-row">
+      <div>
+        <dt>Systems</dt>
+        <dd class="numeric">{counts.systems}</dd>
+      </div>
+      <div>
+        <dt>Contextual claims</dt>
+        <dd class="numeric">{counts.contextClaims}</dd>
+      </div>
+      <div>
+        <dt>Components</dt>
+        <dd class="numeric">{counts.components}</dd>
+      </div>
+      <div>
+        <dt>Figures</dt>
+        <dd class="numeric">{counts.measurements}</dd>
+      </div>
+      <div>
+        <dt>Sources</dt>
+        <dd class="numeric">{counts.sources}</dd>
+      </div>
+      <div>
+        <dt>Derived claims</dt>
+        <dd class="numeric">{counts.derivedClaims}</dd>
+      </div>
+      <div>
+        <dt>Conflicts</dt>
+        <dd class="numeric">{counts.conflicts}</dd>
+      </div>
+    </dl>
+  </section>
+
+  <section class="stack" aria-labelledby="schema">
+    <h2 id="schema">Schema and registries</h2>
+    <p class="prose">
+      The export declares the schema it conforms to and the version of every registry it was built
+      against. Changing a definition changes its registry version and forces derived results to be
+      recomputed and re-checked.
+    </p>
+    <dl class="detail-list">
+      <div>
+        <dt>Schema</dt>
+        <dd><code>{catalog.schemaVersion}</code></dd>
+      </div>
+      <div>
+        <dt>Units</dt>
+        <dd>
+          <code>{catalog.registries.units}</code>
+          <span class="meta">
+            Every unit belongs to one quantity. Machine words and bytes, and Dhrystone MIPS and
+            native MIPS, are separate quantities, not flags on a shared one, because they must never
+            convert into one another.
+          </span>
+        </dd>
+      </div>
+      <div>
+        <dt>Metrics</dt>
+        <dd>
+          <code>{catalog.registries.metrics}</code>
+          <span class="meta">
+            Each metric fixes what is measured, which device scopes it applies to, and whether a
+            ratio or a logarithmic axis is meaningful for it at all.
+          </span>
+        </dd>
+      </div>
+      <div>
+        <dt>Methods</dt>
+        <dd>
+          <code>{catalog.registries.methods}</code>
+          <span class="meta">
+            A method says how a figure was obtained, and it is part of the comparability group. Who
+            published it and whether the hardware had shipped are recorded separately, because
+            neither changes what the number measures.
+          </span>
+        </dd>
+      </div>
+      <div>
+        <dt>Comparability</dt>
+        <dd>
+          <code>{catalog.registries.comparability}</code>
+          <span class="meta">
+            A comparability group is metric, scope, method and benchmark identity. The unit is not
+            part of that group.
+          </span>
+        </dd>
+      </div>
+    </dl>
+  </section>
+
+  <section class="prose stack" aria-labelledby="licensing">
+    <h2 id="licensing">Licensing</h2>
+    <p>
+      The code is MIT. The catalog, the editorial prose and the exports above are
+      <a href="https://creativecommons.org/licenses/by/4.0/" rel="license">CC BY 4.0</a>. You may
+      share and adapt them with credit to RetroFlops. Individual facts are not owned by anybody; the
+      license covers the compilation: the machines selected, the figures judged acceptable, their
+      normalization and grouping, and the prose that explains them.
+    </p>
+    <p>
+      The documents cited belong to their publishers, and nothing here grants any right over them.
+      Each source record states the license its publisher applies and any usage constraint that
+      travels with a quotation from it. SPEC results, for instance, carry the SPEC fair-use rules
+      wherever they appear. One source states no license at all, and its record does not assume any
+      permission.
+    </p>
+    <p>
+      Short extracts from vendor documentation are quoted only for verification, so readers can
+      check a figure against its source.
+    </p>
+  </section>
+
+  <section class="prose stack" aria-labelledby="corrections">
+    <h2 id="corrections">Reporting an error</h2>
+    <p>
+      Report a correction with the record and the document that contradicts it. The catalog records
+      a conflict instead of an average. If two acceptable sources disagree, both values are recorded
+      with their evidence and an editorial decision. A documented disagreement can become part of
+      the catalog.
+    </p>
+    <p>
+      Figures whose sourcing is not yet strong enough are marked <code>provisional</code> and take no
+      part in any automatic comparison. A source that settles one lets the editors review it. The
+      <a href={route('/methodology/')}>methodology</a> sets out what counts as an acceptable source.
+    </p>
+  </section>
+</BaseLayout>

@@ -1,0 +1,17 @@
+id: nvidia-geforce-6800-ultra-memory:context-mib-256
+subject:
+  kind: component
+  id: nvidia-geforce-6800-ultra-memory
+label: Capacity
+quantity:
+  state: value
+  value: '256'
+  unit: MiB
+  significantDigits: 3
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - nvidia-geforce-6800-ultra-whitepaper
+evidenceLevel: confirmed

@@ -1,0 +1,17 @@
+id: intel-core-i9-14900k:context-bit-64
+subject:
+  kind: component
+  id: intel-core-i9-14900k
+label: Word size
+quantity:
+  state: value
+  value: '64'
+  unit: bit
+  significantDigits: 2
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - intel-desktop-processor-reference
+evidenceLevel: confirmed

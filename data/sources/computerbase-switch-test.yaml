@@ -1,0 +1,26 @@
+accessedDate: 2026-08-15
+editorialStatus: approved
+fetch:
+  byteLength: 130076
+  contentType: text/html; charset=UTF-8
+  fetchedAt: 2026-08-15T09:47:50Z
+  httpStatus: 200
+  sha256: 9fc1532550864005491c88db9bb500dc58816daab6c3c90aa8de449fec24351b
+  url: https://www.computerbase.de/artikel/gaming/nintendo-switch-test.58668/
+id: computerbase-switch-test
+license: Copyright ComputerBase. Quoted here under short-extract fair use for
+  verification of the figure cited.
+locator: '"Die Technik der Switch" section, and "Mehr GPU-Takt im TV-Modus"'
+publishedDate: 2017-03
+publisher: ComputerBase
+sourceType: independent-analysis
+tier: B
+title: "Nintendo Switch im Test: Die beste Nintendo-Konsole seit dem SNES"
+url: https://www.computerbase.de/artikel/gaming/nintendo-switch-test.58668/
+usageNote: >-
+  The second source for the memory capacity, which it states outright.
+  Deliberately not a source for the clocks: reviewing the shipped console, it
+  records that the frequencies were never officially disclosed and that only
+  unconfirmed developer figures had leaked. That refusal is the reason the
+  catalog's clock figures stay provisional on one source instead of being
+  approved on two.

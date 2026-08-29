@@ -1,0 +1,173 @@
+- caveat: >-
+    The product brief names a {{measurement:raspberry-pi-5:cpu-clock-frequency}}
+    clock for the BCM2712 processor.
+  comparabilityGroup: clock-frequency|cpu|nominal-clock
+  editorialStatus: approved
+  evidenceStage: shipped
+  id: raspberry-pi-5:cpu-clock-frequency
+  method: nominal-clock
+  metric: clock-frequency
+  normalized:
+    value: "2400000000"
+    unit: Hz
+    significantDigits: 2
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 2
+    state: value
+    unit: GHz
+    value: "2.4"
+  scope: cpu
+  sourceIds:
+    - raspberry-pi-5-product-brief
+  status: vendor-rated
+  subject:
+    id: raspberry-pi-5
+    kind: system
+  evidenceLevel: confirmed
+- caveat: >-
+    The product brief names an
+    {{measurement:raspberry-pi-5:gpu-clock-frequency}} VideoCore VII GPU.
+  comparabilityGroup: clock-frequency|gpu|nominal-clock
+  editorialStatus: approved
+  evidenceStage: shipped
+  id: raspberry-pi-5:gpu-clock-frequency
+  method: nominal-clock
+  metric: clock-frequency
+  normalized:
+    value: "800000000"
+    unit: Hz
+    significantDigits: 3
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 3
+    state: value
+    unit: MHz
+    value: "800"
+  scope: gpu
+  sourceIds:
+    - raspberry-pi-5-product-brief
+  status: vendor-rated
+  subject:
+    id: raspberry-pi-5
+    kind: system
+  evidenceLevel: confirmed
+- caveat: >-
+    This configuration is the {{context:raspberry-pi-5:context-gb-8}} board
+    model; memory capacity is treated as binary working memory.
+  comparabilityGroup: memory-capacity|whole-system|design-capacity
+  editorialStatus: approved
+  evidenceStage: shipped
+  id: raspberry-pi-5:whole-system-memory-capacity
+  method: design-capacity
+  metric: memory-capacity
+  normalized:
+    value: "8589934592"
+    unit: B
+    significantDigits: 1
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 1
+    state: value
+    unit: GiB
+    value: "8"
+  scope: whole-system
+  sourceIds:
+    - raspberry-pi-5-product-brief
+  status: vendor-rated
+  subject:
+    id: raspberry-pi-5
+    kind: system
+  evidenceLevel: confirmed
+- caveat: >-
+    The product brief names LPDDR4X-4267 but publishes no comparable
+    memory-interface width or system bandwidth.
+  comparabilityGroup: memory-bandwidth|whole-system|theoretical-peak
+  editorialStatus: approved
+  evidenceStage: shipped
+  id: raspberry-pi-5:whole-system-memory-bandwidth
+  method: theoretical-peak
+  metric: memory-bandwidth
+  provenance: vendor
+  quantity:
+    note: >-
+      The product brief names LPDDR4X-4267 but publishes no comparable
+      memory-interface width or system bandwidth.
+    state: unknown
+  unknownAudit:
+    reviewedOn: 2026-08-25
+    routesChecked:
+      - vendor-documentation
+      - independent-analysis
+      - community-source
+    outcome: no-compatible-candidate
+    summary: The product brief provides no memory-interface width or system bandwidth.
+  scope: whole-system
+  sourceIds:
+    - raspberry-pi-5-product-brief
+  status: vendor-rated
+  subject:
+    id: raspberry-pi-5
+    kind: system
+- caveat: >-
+    The product brief names the VideoCore VII GPU but does not publish an FP32
+    peak.
+  comparabilityGroup: peak-fp32-rate|gpu|theoretical-peak
+  editorialStatus: approved
+  evidenceStage: shipped
+  id: raspberry-pi-5:peak-fp32-rate
+  method: theoretical-peak
+  metric: peak-fp32-rate
+  provenance: vendor
+  quantity:
+    note: >-
+      The product brief names the VideoCore VII GPU but does not publish an FP32
+      peak.
+    state: unknown
+  unknownAudit:
+    reviewedOn: 2026-08-25
+    routesChecked:
+      - vendor-documentation
+      - independent-analysis
+      - community-source
+    outcome: no-published-candidate
+    summary: The product brief provides no FP32 peak rate.
+  scope: gpu
+  sourceIds:
+    - raspberry-pi-5-product-brief
+  status: vendor-rated
+  subject:
+    id: raspberry-pi-5
+    kind: system
+- caveat: >-
+    The {{context:raspberry-pi-5:context-v-5}},
+    {{context:raspberry-pi-5:context-a-5}} input is the board’s rated supply
+    requirement, not a workload power measurement.
+  comparabilityGroup: rated-power-consumption|whole-system|rated-power
+  editorialStatus: approved
+  evidenceStage: shipped
+  id: raspberry-pi-5:rated-power-consumption
+  method: rated-power
+  metric: rated-power-consumption
+  normalized:
+    value: "25"
+    unit: W
+    significantDigits: 2
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 2
+    state: value
+    unit: W
+    value: "25"
+  scope: whole-system
+  sourceIds:
+    - raspberry-pi-5-product-brief
+  status: vendor-rated
+  subject:
+    id: raspberry-pi-5
+    kind: system
+  evidenceLevel: confirmed

@@ -1,0 +1,26 @@
+id: commodore-64:whole-system-memory
+formula:
+  id: sum
+  version: '1'
+  expression: a + b + …
+inputMeasurementIds:
+  - c64-system-ram:capacity
+exclusions:
+  - measurementId: c64-system-rom:capacity
+    label: 20 KiB of system ROM
+    reason:
+      read-only, so it is storage the machine reads from rather than memory it
+      works in
+result:
+  state: value
+  value: '65536'
+  unit: B
+  significantDigits: 5
+rounding: none
+caveat: >-
+  Adds 1 memory-capacity figure obtained by design-capacity. Left out:
+  {{measurement:c64-system-rom:capacity}} (read-only, so it is storage the
+  machine reads from rather than memory it works in). A total is only as
+  trustworthy as the decision about what belongs in it, so both the terms and
+  the exclusions are named records.
+editorialStatus: approved

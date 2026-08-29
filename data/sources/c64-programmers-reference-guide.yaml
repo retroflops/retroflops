@@ -1,0 +1,22 @@
+accessedDate: 2026-07-28
+editorialStatus: approved
+fetch:
+  byteLength: 814733
+  contentType: text/plain; charset=utf-8
+  fetchedAt: 2026-07-29T06:47:27Z
+  httpStatus: 200
+  sha256: c355460ac39db119a47c5341b205bda6a011f1b778a498fcd24fad47dc0424b7
+  url: https://archive.org/download/c64-programmer-ref/Image092417194545.merged_djvu.txt
+id: c64-programmers-reference-guide
+locator: >-
+  Appendix L "6510 microprocessor chip specifications" p. 402; memory management
+  p. 260; RS-232 system frequency p. 351
+publisher: Commodore Business Machines
+sourceType: technical-manual
+tier: A
+title: Commodore 64 Programmer's Reference Guide
+url: https://archive.org/download/c64-programmer-ref/Image092417194545.merged_djvu.txt
+publishedDate: "1982"
+archiveUrl: https://archive.org/details/c64-programmer-ref
+license: Copyright Commodore Business Machines. Quoted here under short-extract
+  fair use for verification of the figures cited.

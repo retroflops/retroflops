@@ -1,0 +1,27 @@
+- extract: microprocessor runs at 1.79 MHz.
+  extractHash: eb8fa3ffcdbcbde3381d4cbfd55a8e6cea86ab33ff051c3e5cb24d042b7ac820
+  id: atari-800-reference:cpu-clock-ntsc
+  locator: Hardware Manual, television/display timing discussion
+  notes: >-
+    The replacement manual gives the NTSC figure. It does not validate the
+    separate PAL catalogue value.
+  sourceId: atari-800-technical-reference-notes
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-22
+- extract: maximum of 48K RAM.
+  extractHash: 6faa4447b4c52a57d84e9baa1e05c7fd1d983277e8ee1a2c14497d16327c2ec6
+  id: atari-800-reference:ram-48k
+  locator: Operating System User's Manual, section 1, model differences
+  notes: >-
+    This is the maximum configuration of the Atari 800, not a shared
+    configuration for the 400 and 800.
+  sourceId: atari-800-technical-reference-notes
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-22
+- extract: 10K Operating System (OS) in ROM.
+  extractHash: 82196f6e4d3b82e1d45a809ce24c7975c220dbaf93bfe4a1c47900780fe5738f
+  id: atari-800-reference:os-rom-10k
+  locator: Hardware Manual, section II, Operating System
+  sourceId: atari-800-technical-reference-notes
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-22

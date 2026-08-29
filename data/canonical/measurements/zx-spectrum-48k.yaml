@@ -1,0 +1,250 @@
+- caveat: Sinclair's technical data names the Z80A's nominal clock.
+  comparabilityGroup: clock-frequency|cpu|nominal-clock
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: zx-spectrum-48k:clock-frequency
+  method: nominal-clock
+  metric: clock-frequency
+  provenance: vendor
+  quantity:
+    significantDigits: 2
+    state: value
+    unit: MHz
+    value: "3.5"
+  scope: cpu
+  sourceIds:
+    - sinclair-zx-spectrum-technical-data
+  status: vendor-rated
+  subject:
+    configurationId: pal
+    id: zx-spectrum-48k
+    kind: system
+  normalized:
+    value: "3500000"
+    unit: Hz
+    significantDigits: 2
+    unitRegistry: units-v1
+  evidenceLevel: confirmed
+- caveat: Sinclair's service manual specifies the dynamic-RAM configuration.
+  comparabilityGroup: memory-capacity|memory|design-capacity
+  editorialStatus: provisional
+  evidenceStage: shipped
+  extractIds:
+    - zx-spectrum-48k-manual:ram-capacity
+  id: zx-spectrum-ram:capacity
+  method: design-capacity
+  metric: memory-capacity
+  provenance: vendor
+  quantity:
+    significantDigits: 2
+    state: value
+    unit: KiB
+    value: "48"
+  scope: memory
+  sourceIds:
+    - zx-spectrum-48k-manual
+  status: vendor-rated
+  subject:
+    id: zx-spectrum-ram
+    kind: component
+  normalized:
+    value: "49152"
+    unit: B
+    significantDigits: 2
+    unitRegistry: units-v1
+  evidenceLevel: confirmed
+- caveat: The service manual identifies the lower address region as ROM.
+  comparabilityGroup: memory-capacity|memory|design-capacity
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: zx-spectrum-rom:capacity
+  method: design-capacity
+  metric: memory-capacity
+  provenance: vendor
+  quantity:
+    significantDigits: 2
+    state: value
+    unit: KiB
+    value: "16"
+  scope: memory
+  sourceIds:
+    - zx-spectrum-48k-manual
+  status: vendor-rated
+  subject:
+    id: zx-spectrum-rom
+    kind: component
+  normalized:
+    value: "16384"
+    unit: B
+    significantDigits: 2
+    unitRegistry: units-v1
+  evidenceLevel: confirmed
+- caveat: This is the fitted writable RAM capacity, not RAM plus ROM.
+  comparabilityGroup: memory-capacity|whole-system|design-capacity
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: zx-spectrum-48k:whole-system-memory-capacity
+  method: design-capacity
+  metric: memory-capacity
+  provenance: vendor
+  quantity:
+    significantDigits: 2
+    state: value
+    unit: KiB
+    value: "48"
+  scope: whole-system
+  sourceIds:
+    - zx-spectrum-48k-manual
+  status: vendor-rated
+  subject:
+    id: zx-spectrum-48k
+    kind: system
+  normalized:
+    value: "49152"
+    unit: B
+    significantDigits: 2
+    unitRegistry: units-v1
+  evidenceLevel: confirmed
+- caveat: >-
+    This is the ULA master clock used for video timing. It is not a modern GPU
+    execution clock.
+  comparabilityGroup: clock-frequency|gpu|nominal-clock
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: zx-spectrum-48k:gpu-clock-frequency
+  method: nominal-clock
+  metric: clock-frequency
+  provenance: vendor
+  quantity:
+    significantDigits: 2
+    state: value
+    unit: MHz
+    value: "14"
+  scope: gpu
+  sourceIds:
+    - zx-spectrum-48k-manual
+  status: vendor-rated
+  subject:
+    id: zx-spectrum-48k
+    kind: system
+  normalized:
+    value: "14000000"
+    unit: Hz
+    significantDigits: 2
+    unitRegistry: units-v1
+  evidenceLevel: confirmed
+- caveat: >-
+    The service manual describes the ULA's priority over RAM access, but gives
+    no memory transfer-rate figure from which bandwidth can be stated.
+  comparabilityGroup: memory-bandwidth|memory|theoretical-peak
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: zx-spectrum-48k:memory-bandwidth
+  method: theoretical-peak
+  metric: memory-bandwidth
+  provenance: vendor
+  quantity:
+    note: >-
+      The source describes RAM access arbitration but provides no transfer-rate
+      figure.
+    state: unknown
+  unknownAudit:
+    reviewedOn: 2026-08-25
+    routesChecked:
+      - vendor-documentation
+      - specialist-reference
+      - archive
+      - community-source
+    outcome: no-compatible-candidate
+    summary: >-
+      The manual documents contention and timing, but no source checked states a
+      transferable memory-bandwidth quantity for this ULA and DRAM design.
+  scope: memory
+  sourceIds:
+    - zx-spectrum-48k-manual
+  status: vendor-rated
+  subject:
+    id: zx-spectrum-48k
+    kind: system
+- caveat: >-
+    Provisional record for zx-spectrum-z80a:peak-fp32-rate: the cited primary
+    manual is registered, but its page-level transcription and independent
+    review are still pending.
+  comparabilityGroup: peak-fp32-rate|cpu|theoretical-peak
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: zx-spectrum-z80a:peak-fp32-rate
+  method: theoretical-peak
+  metric: peak-fp32-rate
+  provenance: vendor
+  quantity:
+    note: The Z80A contains no floating-point hardware.
+    state: not-applicable
+  scope: cpu
+  sourceIds:
+    - zx-spectrum-48k-manual
+  status: vendor-rated
+  subject:
+    id: zx-spectrum-z80a
+    kind: component
+- comparabilityGroup: sustained-fp40-rate|whole-system|benchmark-run
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: zx-spectrum-48k:sustained-fp40-rate
+  method: benchmark-run
+  metric: sustained-fp40-rate
+  provenance: independent
+  quantity:
+    note: >-
+      A Sinclair BASIC result requires a named reproducible benchmark before it
+      can be published.
+    state: unknown
+  unknownAudit:
+    reviewedOn: 2026-08-25
+    routesChecked:
+      - vendor-documentation
+      - specialist-reference
+      - community-source
+    outcome: no-published-candidate
+    summary: >-
+      No checked source names a reproducible floating-point benchmark for this
+      configuration. The Z80A's lack of floating-point hardware does not answer
+      a software benchmark question.
+  scope: whole-system
+  sourceIds:
+    - zx-spectrum-48k-manual
+  status: measured
+  subject:
+    id: zx-spectrum-48k
+    kind: system
+- caveat: >-
+    The service manual describes the external supply and on-board regulation,
+    but gives no whole-system power rating.
+  comparabilityGroup: rated-power-consumption|whole-system|rated-power
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: zx-spectrum-48k:rated-power-consumption
+  method: rated-power
+  metric: rated-power-consumption
+  provenance: vendor
+  quantity:
+    note: The source supplies no whole-system power rating.
+    state: unknown
+  unknownAudit:
+    reviewedOn: 2026-08-25
+    routesChecked:
+      - vendor-documentation
+      - specialist-reference
+      - archive
+      - community-source
+    outcome: no-compatible-candidate
+    summary: >-
+      The checked documents describe the external supply, not the computer's
+      whole-system rated consumption. Supply capacity is not a power rating.
+  scope: whole-system
+  sourceIds:
+    - zx-spectrum-48k-manual
+  status: vendor-rated
+  subject:
+    id: zx-spectrum-48k
+    kind: system

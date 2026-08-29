@@ -1,0 +1,14 @@
+id: df-ps4-pro:downclock
+sourceId: digitalfoundry-ps4-pro-review
+locator: >-
+  section "PlayStation 4 Pro: set-up and base PS4 game performance", paragraph
+  on backwards compatibility
+extract: >-
+  The new Pro GPU shuts down half of its compute units and the rest are
+  downclocked from 911MHz to the standard PS4's 800MHz.
+transcribedOn: 2026-07-31
+transcribedBy: RetroFlops editorial
+notes: >-
+  The second place this article states the base PlayStation 4's graphics clock,
+  here in prose rather than in the table.
+extractHash: 1dc2c009700553d56a3e81bbddb4c0a8fd3f7e71ebc49cd8157ecdb4ef08f917

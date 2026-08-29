@@ -1,0 +1,23 @@
+accessedDate: 2026-08-13
+editorialStatus: approved
+fetch:
+  byteLength: 18295
+  contentType: text/html;charset=UTF-8
+  fetchedAt: 2026-08-13T18:08:02Z
+  httpStatus: 200
+  sha256: 7297e540da30639af0693bd86fb4718adf636e179b978645765db457a9a62e04
+  url: https://www.beyond3d.com/content/articles/4/3
+id: beyond3d-xenos-2005
+license: Copyright Beyond3D. Quoted here under short-extract fair use for
+  verification of the figure cited.
+locator: Body text, memory subsystem discussion
+publishedDate: "2005"
+publisher: Beyond3D
+sourceType: independent-analysis
+tier: B
+title: "ATI Xenos: Xbox 360 Graphics Demystified"
+url: https://www.beyond3d.com/content/articles/4/3
+usageNote: >-
+  The independent half of the Xbox 360 bandwidth figure. It states the same 22.4
+  GB/s as Microsoft's Hot Chips slide and gives the interface width and clock it
+  follows from, so the two agree on the number and on how it arises.

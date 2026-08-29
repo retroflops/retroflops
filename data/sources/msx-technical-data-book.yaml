@@ -1,0 +1,19 @@
+id: msx-technical-data-book
+title: MSX Technical Data Book
+publisher: ASCII Corporation
+url: https://archive.org/download/MSXTechnicalDataBook/MSX%20Technical%20Data%20Book.pdf
+publishedDate: "1984"
+accessedDate: 2026-08-22
+locator: Internet Archive item record and front matter
+extract: MSX Technical Data Book ... Produced by ASCII
+tier: B
+sourceType: technical-manual
+editorialStatus: provisional
+fetch:
+  url: https://archive.org/download/MSXTechnicalDataBook/MSX%20Technical%20Data%20Book.pdf
+  finalUrl: https://dn760005.eu.archive.org/0/items/MSXTechnicalDataBook/MSX%20Technical%20Data%20Book.pdf
+  fetchedAt: 2026-08-24T18:59:27Z
+  httpStatus: 200
+  contentType: application/pdf
+  byteLength: 11485513
+  sha256: bbd1a3a7bb1d4c26b50269197a41c07ee974155cb528add4e31e7a3cf26fc645

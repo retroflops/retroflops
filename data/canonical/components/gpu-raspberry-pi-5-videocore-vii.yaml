@@ -1,0 +1,13 @@
+id: raspberry-pi-5-videocore-vii
+slug: raspberry-pi-5-videocore-vii
+kind: gpu
+name: VideoCore VII
+manufacturer: Broadcom
+architecture: VideoCore VII
+introducedDate: 2023-09
+summary:
+  The {{context:raspberry-pi-5-videocore-vii:context-mhz-800}} graphics
+  processor in Raspberry Pi 5.
+sourceIds:
+  - raspberry-pi-5-product-brief
+editorialStatus: approved

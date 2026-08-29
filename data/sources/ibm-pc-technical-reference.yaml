@@ -1,0 +1,22 @@
+id: ibm-pc-technical-reference
+title: Personal Computer Hardware Reference Library - Technical Reference
+publisher: International Business Machines Corporation
+url: https://www.minuszerodegrees.net/manuals/IBM_5150_Technical_Reference_6025005_AUG81.pdf
+publishedDate: "1981"
+accessedDate: 2026-08-24
+locator: >-
+  First Edition, August 1981; Section 1, Hardware Overview, printed p. 1-1;
+  Section 2, System Board, printed p. 2-3; I/O Channel, printed p. 2-8; Power
+  Supply, printed pp. 2-33 to 2-35
+tier: A
+sourceType: technical-manual
+editorialStatus: approved
+license: Copyright International Business Machines Corporation. Quoted here
+  under short-extract fair use for verification of the figures cited.
+fetch:
+  url: https://www.minuszerodegrees.net/manuals/IBM_5150_Technical_Reference_6025005_AUG81.pdf
+  fetchedAt: 2026-08-24T14:27:32Z
+  httpStatus: 200
+  contentType: application/pdf
+  byteLength: 9711291
+  sha256: 09caa5b2d8741959ea35c022ee797ec5b97c386b7bb15fb2c03dc33c7728caed

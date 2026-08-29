@@ -1,0 +1,9 @@
+- extract: Chip clock frequency, 120 MHz.
+  id: toms-hardware-geforce-256:core-clock
+  locator: >-
+    GeForce: The First GPU, GeForce 256 specification table, Chip clock
+    frequency row
+  sourceId: toms-hardware-geforce-256
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-25
+  extractHash: 833073e4bc17482d499baf13c680f355d8b15997c63cc9dcbdbf6371c5605ad1

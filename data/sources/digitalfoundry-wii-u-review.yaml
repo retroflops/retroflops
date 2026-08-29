@@ -1,0 +1,26 @@
+accessedDate: 2026-08-15
+author: Richard Leadbetter
+editorialStatus: approved
+fetch:
+  byteLength: 162458
+  contentType: text/html; charset=UTF-8
+  fetchedAt: 2026-08-15T18:03:20Z
+  httpStatus: 200
+  sha256: 4ce31f07a60a285418120385cec910bd27e7110182d8b85efe0781ef2d825df8
+  url: https://www.digitalfoundry.net/articles/df-hardware-nintendo-wii-u-review
+id: digitalfoundry-wii-u-review
+license: Copyright Digital Foundry. Quoted here under short-extract fair use for
+  verification of the figure cited.
+locator: Main unit specification table, 'RAM' row
+publishedDate: 2012-11
+publisher: Digital Foundry
+sourceType: independent-analysis
+tier: B
+title: Nintendo Wii U review
+url: https://www.digitalfoundry.net/articles/df-hardware-nintendo-wii-u-review
+usageNote: >-
+  A review of retail hardware whose specification table states the memory
+  capacity together with the part it is made of. The same publication's teardown
+  piece calls the module size a best guess; this table does not hedge, and it is
+  the table that is cited. Nintendo's own specification page has no memory row
+  at all, which is why a review is carrying this figure.

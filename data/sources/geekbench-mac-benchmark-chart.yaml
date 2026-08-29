@@ -1,0 +1,30 @@
+accessedDate: 2026-08-04
+editorialStatus: approved
+fetch:
+  byteLength: 275570
+  contentType: text/html; charset=utf-8
+  fetchedAt: 2026-08-04T09:41:31Z
+  httpStatus: 200
+  sha256: ff41a34b998b2692a395338b7430153f30e802bb6ed515a23f94e9356eb2eb72
+  url: https://web.archive.org/web/20250601022137id_/https://browser.geekbench.com/mac-benchmarks
+id: geekbench-mac-benchmark-chart
+license: Copyright Primate Labs Inc. Quoted here under short-extract fair use
+  for verification of the figures cited.
+locator: >-
+  Single-Core and Multi-Core tabs, row "Mac mini (Late 2020) — Apple M1 @ 3.2
+  GHz (8 cores)"
+publisher: Primate Labs Inc.
+sourceType: official-benchmark-result
+tier: A
+title: Geekbench 6 Mac Benchmark Chart
+url: https://web.archive.org/web/20250601022137id_/https://browser.geekbench.com/mac-benchmarks
+usageNote: >-
+  The benchmark's own publisher, which is what makes it a tier A result rather
+  than an aggregator's table. Two things about it are unusual enough to be
+  recorded on every figure taken from it. It is a rolling average — the page
+  says so itself, and says when it was last recomputed — so a figure read from
+  it is a dated snapshot and never a current value. And browser.geekbench.com
+  refuses automated requests outright, so the fetched address is a Wayback
+  capture; here the archive is not a fallback but the mechanism, because a
+  capture is dated by construction and that is exactly what a snapshot of a
+  moving number needs.

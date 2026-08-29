@@ -1,0 +1,529 @@
+- caveat: >-
+    Apple publishes no frequency for this machine, and this figure is not
+    Apple's: two independent parties measured the running hardware and reported
+    the same number. It is recorded beside the vendor's silence rather than
+    instead of it, and it sits in the same comparability group as every other
+    nominal clock, the Commodore 64's included, because the group is set by
+    method and not by who established the number.
+  comparabilityGroup: clock-frequency|cpu|nominal-clock
+  conditions: The four Firestorm performance cores, in single-threaded work and,
+    given thermal headroom, in all-core loads too.
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - anandtech-m1:clocks
+    - 7cpu-m1:clocks
+  id: apple-mac-mini-m1:cpu-clock-frequency-performance-cores
+  method: nominal-clock
+  metric: clock-frequency
+  normalized:
+    value: "3200000000"
+    unit: Hz
+    significantDigits: 2
+    unitRegistry: units-v1
+  provenance: independent
+  quantity:
+    significantDigits: 2
+    state: value
+    unit: GHz
+    value: "3.2"
+  scope: cpu
+  sourceIds:
+    - anandtech-mac-mini-m1-2020
+    - 7cpu-apple-m1
+  status: measured
+  subject:
+    id: apple-mac-mini-m1
+    kind: system
+    part: performance-cores
+  evidenceLevel: confirmed
+- caveat: >-
+    The other half of the same chip, running at the same time. Four of the
+    {{context:apple-m1:context-unit-8}} cores hold this frequency and four hold
+    {{measurement:apple-mac-mini-m1:cpu-clock-frequency-performance-cores}}, so
+    neither figure is "the M1's clock" and the catalog does not pretend one of
+    them is. That is also why no multiplier is offered against either: a machine
+    that answers this question twice has no single figure to divide.
+  comparabilityGroup: clock-frequency|cpu|nominal-clock
+  conditions: The four Icestorm efficiency cores, which AnandTech calls Thunder cores.
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - anandtech-m1:clocks
+    - 7cpu-m1:clocks
+  id: apple-mac-mini-m1:cpu-clock-frequency-efficiency-cores
+  method: nominal-clock
+  metric: clock-frequency
+  normalized:
+    value: "2064000000"
+    unit: Hz
+    significantDigits: 4
+    unitRegistry: units-v1
+  provenance: independent
+  quantity:
+    significantDigits: 4
+    state: value
+    unit: MHz
+    value: "2064"
+  scope: cpu
+  sourceIds:
+    - anandtech-mac-mini-m1-2020
+    - 7cpu-apple-m1
+  status: measured
+  subject:
+    id: apple-mac-mini-m1
+    kind: system
+    part: efficiency-cores
+  evidenceLevel: confirmed
+- caveat: >-
+    Provisional on the sourcing, not on the number. One analysis states it; the
+    other source states the channel count and the memory class it was computed
+    from and stops there. It is also a ceiling the bus allows rather than a rate
+    anything reached: the same page measures a single core copying at 60 to
+    {{context:apple-mac-mini-m1:context-gb-s-62}}.
+  comparabilityGroup: memory-bandwidth|whole-system|theoretical-peak
+  conditions: Eight {{context:apple-mac-mini-m1:context-bit-16}} channels of
+    LPDDR4X-4266-class memory on a {{context:apple-mac-mini-m1:context-bit-128}}
+    bus, shared by the processor cores, the graphics cores and the Neural
+    Engine.
+  editorialStatus: provisional
+  evidenceStage: shipped
+  extractIds:
+    - anandtech-m1:memory-bandwidth
+  id: apple-mac-mini-m1:whole-system-memory-bandwidth
+  method: theoretical-peak
+  metric: memory-bandwidth
+  normalized:
+    value: "68250000000"
+    unit: B/s
+    significantDigits: 4
+    unitRegistry: units-v1
+  provenance: independent
+  quantity:
+    significantDigits: 4
+    state: value
+    unit: GB/s
+    value: "68.25"
+  scope: whole-system
+  sourceIds:
+    - anandtech-mac-mini-m1-2020
+  status: theoretical
+  subject:
+    id: apple-mac-mini-m1
+    kind: system
+  evidenceLevel: reported
+- caveat: Notebookcheck reports this clock in its M1 GPU specification table.
+  comparabilityGroup: clock-frequency|gpu|nominal-clock
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: apple-mac-mini-m1:gpu-clock-frequency
+  method: nominal-clock
+  metric: clock-frequency
+  normalized:
+    value: "1278000000"
+    unit: Hz
+    significantDigits: 4
+    unitRegistry: units-v1
+  provenance: independent
+  quantity:
+    significantDigits: 4
+    state: value
+    unit: MHz
+    value: "1278"
+  scope: gpu
+  sourceIds:
+    - notebookcheck-apple-m1-gpu
+  status: measured
+  subject:
+    id: apple-mac-mini-m1
+    kind: system
+  evidenceLevel: reported
+- asOf: 2026-07-26
+  benchmark:
+    id: geekbench
+    variant: single-core
+    version: "6"
+  caveat: >-
+    A dated snapshot of a moving number, not a score this machine got. The
+    latest archived Mac chart available to the 26 July curation run is from 25
+    July; its hash pins this value. It may be divided only by a figure from the
+    same variant and curation run.
+  comparabilityGroup: geekbench-score|whole-system|benchmark-chart-average|geekbench@6:single-core
+  conditions: Mac mini (Late 2020), averaged over every Geekbench 6 result
+    uploaded for the model.
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - geekbench-mac-chart-2026:mac-mini-m1
+    - geekbench-mac-chart-2026:what-the-figures-are
+  id: apple-mac-mini-m1:geekbench-6-single-core
+  method: benchmark-chart-average
+  metric: geekbench-score
+  normalized:
+    value: "2198"
+    unit: score
+    significantDigits: 4
+    unitRegistry: units-v1
+  provenance: independent
+  quantity:
+    significantDigits: 4
+    state: value
+    unit: score
+    value: "2198"
+  scope: whole-system
+  sourceIds:
+    - geekbench-mac-benchmark-chart-2026-07-25
+  status: measured
+  subject:
+    id: apple-mac-mini-m1
+    kind: system
+  evidenceLevel: confirmed
+- asOf: 2026-07-26
+  benchmark:
+    id: geekbench
+    variant: multi-core
+    version: "6"
+  caveat: >-
+    The same dated snapshot as the single-core figure and a different quantity:
+    the variant is part of the benchmark identity, so this can never be divided
+    by the single-core score to produce a scaling factor.
+  comparabilityGroup: geekbench-score|whole-system|benchmark-chart-average|geekbench@6:multi-core
+  conditions: Mac mini (Late 2020), averaged over every Geekbench 6 result
+    uploaded for the model.
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - geekbench-mac-chart-2026:mac-mini-m1
+    - geekbench-mac-chart-2026:what-the-figures-are
+  id: apple-mac-mini-m1:geekbench-6-multi-core
+  method: benchmark-chart-average
+  metric: geekbench-score
+  normalized:
+    value: "8915"
+    unit: score
+    significantDigits: 4
+    unitRegistry: units-v1
+  provenance: independent
+  quantity:
+    significantDigits: 4
+    state: value
+    unit: score
+    value: "8915"
+  scope: whole-system
+  sourceIds:
+    - geekbench-mac-benchmark-chart-2026-07-25
+  status: measured
+  subject:
+    id: apple-mac-mini-m1
+    kind: system
+  evidenceLevel: confirmed
+- caveat: >-
+    Apple writes "16 billion", which is two significant digits. The figure
+    covers the entire die and is recorded at cpu scope only because the metric
+    admits no scope that means "whole chip"; it is not a count of the processor
+    cores' transistors, and no vendor breakdown exists.
+  comparabilityGroup: transistor-count|cpu|die-specification
+  conditions: "The whole M1 die: processor cores, graphics cores, Neural Engine
+    and memory controller."
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - apple-m1-2020:die
+  id: apple-m1:transistor-count
+  method: die-specification
+  metric: transistor-count
+  normalized:
+    value: "16000000000"
+    unit: transistor
+    significantDigits: 2
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 2
+    state: value
+    unit: transistor
+    value: "16000000000"
+  scope: cpu
+  sourceIds:
+    - apple-m1-announcement-2020
+  status: vendor-rated
+  subject:
+    id: apple-m1
+    kind: component
+  evidenceLevel: confirmed
+- caveat: >-
+    A process name expressed as a length, not a measured dimension: nothing on
+    this die is five nanometers across. The metric forbids ratios for that
+    reason, so this figure can be displayed and never divided.
+  comparabilityGroup: process-node|cpu|die-specification
+  conditions: Fabrication process named by Apple for the M1 die.
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - apple-m1-2020:die
+  id: apple-m1:process-node
+  method: die-specification
+  metric: process-node
+  normalized:
+    value: "0.000000005"
+    unit: m
+    significantDigits: 1
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 1
+    state: value
+    unit: nm
+    value: "5"
+  scope: cpu
+  sourceIds:
+    - apple-m1-announcement-2020
+  status: vendor-rated
+  subject:
+    id: apple-m1
+    kind: component
+  evidenceLevel: confirmed
+- caveat: >-
+    Recorded as single precision, which Apple does not state: the same editorial
+    reading, and the same reason for provisional status, as the Dreamcast's and
+    the PlayStations' floating-point figures. With no clock and no
+    operations-per-cycle published, it cannot be reconciled with the eight
+    graphics cores it belongs to.
+  comparabilityGroup: peak-fp32-rate|gpu|theoretical-peak
+  conditions: '"2.6 teraflops of throughput" for the eight graphics cores, stated
+    on the day the chip was announced.'
+  editorialStatus: provisional
+  evidenceStage: shipped
+  extractIds:
+    - apple-m1-2020:gpu
+  id: apple-m1-gpu:peak-fp32-rate
+  method: theoretical-peak
+  metric: peak-fp32-rate
+  normalized:
+    value: "2600000000000"
+    unit: FLOP/s
+    significantDigits: 2
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 2
+    state: value
+    unit: TFLOP/s
+    value: "2.6"
+  scope: gpu
+  sourceIds:
+    - apple-m1-announcement-2020
+  status: vendor-rated
+  subject:
+    id: apple-m1-gpu
+    kind: component
+  evidenceLevel: confirmed
+- caveat: >-
+    Apple writes "8GB", meaning
+    {{measurement:apple-mac-mini-m1:8gb:memory-capacity}}. Fitted in the package
+    and not expandable, so this is the machine's memory for its whole life
+    rather than a starting point.
+  comparabilityGroup: memory-capacity|whole-system|design-capacity
+  conditions: Unified memory in the base configuration, shared by the processor
+    cores, the graphics cores and the Neural Engine.
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - apple-mac-mini-m1:chip-and-memory
+  id: apple-mac-mini-m1:8gb:memory-capacity
+  method: design-capacity
+  metric: memory-capacity
+  normalized:
+    value: "8589934592"
+    unit: B
+    significantDigits: 1
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 1
+    state: value
+    unit: GiB
+    value: "8"
+  scope: whole-system
+  sourceIds:
+    - apple-mac-mini-m1-tech-specs
+  status: vendor-rated
+  subject:
+    configurationId: 8gb
+    id: apple-mac-mini-m1
+    kind: system
+  evidenceLevel: confirmed
+- caveat: >-
+    Apple writes "16GB", meaning
+    {{measurement:apple-mac-mini-m1:16gb:memory-capacity}}, and offers it only
+    as a build-time option. The same caveat as the base configuration applies:
+    it cannot be changed afterwards.
+  comparabilityGroup: memory-capacity|whole-system|design-capacity
+  conditions: Unified memory in the larger configuration, shared by the processor
+    cores, the graphics cores and the Neural Engine.
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - apple-mac-mini-m1:chip-and-memory
+  id: apple-mac-mini-m1:16gb:memory-capacity
+  method: design-capacity
+  metric: memory-capacity
+  normalized:
+    value: "17179869184"
+    unit: B
+    significantDigits: 2
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 2
+    state: value
+    unit: GiB
+    value: "16"
+  scope: whole-system
+  sourceIds:
+    - apple-mac-mini-m1-tech-specs
+  status: vendor-rated
+  subject:
+    configurationId: 16gb
+    id: apple-mac-mini-m1
+    kind: system
+  evidenceLevel: confirmed
+- caveat: >-
+    A ceiling the machine is permitted to draw, not a figure it reaches: no
+    workload is named, and this is a computer that spends most of its life far
+    below it. Comparable in kind with the PlayStation 2's
+    {{context:apple-mac-mini-m1:context-w-79}} rating and with nothing that was
+    actually measured, which is why the metric forbids ratios.
+  comparabilityGroup: rated-power-consumption|whole-system|rated-power
+  conditions: '"Maximum continuous power" from the technical specification, on a
+    {{context:apple-mac-mini-m1:context-v-100}}–{{context:apple-mac-mini-m1:context-v-240}}
+    supply. Identical for both memory configurations.'
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - apple-mac-mini-m1:electrical
+  id: apple-mac-mini-m1:rated-power-consumption
+  method: rated-power
+  metric: rated-power-consumption
+  normalized:
+    value: "150"
+    unit: W
+    significantDigits: 2
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 2
+    state: value
+    unit: W
+    value: "150"
+  scope: whole-system
+  sourceIds:
+    - apple-mac-mini-m1-tech-specs
+  status: vendor-rated
+  subject:
+    id: apple-mac-mini-m1
+    kind: system
+  evidenceLevel: confirmed
+- caveat: >-
+    The M1 has separately recorded performance-core and efficiency-core clocks;
+    one CPU clock would erase that distinction.
+  comparabilityGroup: clock-frequency|cpu|nominal-clock
+  editorialStatus: approved
+  evidenceStage: shipped
+  id: apple-mac-mini-m1:cpu-clock-frequency
+  method: nominal-clock
+  metric: clock-frequency
+  provenance: vendor
+  quantity:
+    state: not-applicable
+  scope: cpu
+  sourceIds:
+    - apple-m1-announcement-2020
+    - apple-mac-mini-m1-tech-specs
+  status: vendor-rated
+  subject:
+    id: apple-mac-mini-m1
+    kind: system
+- asOf: 2026-08-18
+  benchmark:
+    id: geekbench-compute
+    variant: metal
+    version: "6"
+  caveat: >-
+    A dated capture of the benchmark publisher’s rolling average for this
+    graphics processor, read from the 18 July 2026 Metal chart. It may be
+    compared only with another Geekbench 6 Metal figure from this curation
+    round, never with an OpenCL figure, a later version or a processor score.
+    The chart also lists this processor under “Apple M1 GPU”, at 32 442; the row
+    naming the product as its maker does was taken, and the disagreement is
+    recorded in the conflict ledger.
+  comparabilityGroup: geekbench-compute-score|gpu|benchmark-chart-average|geekbench-compute@6:metal
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - geekbench-metal-chart-2026-07-18:apple-m1
+    - geekbench-metal-chart-2026-07-18:what-the-figures-are
+  id: apple-m1-gpu:geekbench-compute-6-metal
+  method: benchmark-chart-average
+  metric: geekbench-compute-score
+  normalized:
+    value: "31387"
+    unit: score
+    significantDigits: 5
+    unitRegistry: units-v1
+  provenance: independent
+  quantity:
+    significantDigits: 5
+    state: value
+    unit: score
+    value: "31387"
+  scope: gpu
+  sourceIds:
+    - geekbench-metal-benchmark-chart-2026-07-18
+  status: measured
+  subject:
+    id: apple-m1-gpu
+    kind: component
+  evidenceLevel: confirmed
+- asOf: 2026-08-18
+  benchmark:
+    id: geekbench-compute
+    variant: opencl
+    version: "7"
+  caveat: >-
+    A dated capture of the benchmark publisher’s rolling average for this
+    graphics processor, read from the 25 July 2026 OpenCL chart. Version 7
+    calibrates a compute result against a baseline of 100,000, so it may be
+    compared only with another Geekbench 7 OpenCL figure from this curation
+    round, never with a Metal figure, an earlier version or a processor score.
+    The chart also lists this processor under “Apple M1 (G13G B1)”, at 13 136;
+    the row naming the product as its maker does was taken, and the disagreement
+    is recorded in the conflict ledger.
+  comparabilityGroup: geekbench-compute-score|gpu|benchmark-chart-average|geekbench-compute@7:opencl
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - geekbench-opencl-chart-2026-07-25:apple-m1
+    - geekbench-opencl-chart-2026-07-25:what-the-figures-are
+  id: apple-m1-gpu:geekbench-compute-7-opencl
+  method: benchmark-chart-average
+  metric: geekbench-compute-score
+  normalized:
+    value: "17592"
+    unit: score
+    significantDigits: 5
+    unitRegistry: units-v1
+  provenance: independent
+  quantity:
+    significantDigits: 5
+    state: value
+    unit: score
+    value: "17592"
+  scope: gpu
+  sourceIds:
+    - geekbench-opencl-benchmark-chart-2026-07-25
+  status: measured
+  subject:
+    id: apple-m1-gpu
+    kind: component
+  evidenceLevel: confirmed

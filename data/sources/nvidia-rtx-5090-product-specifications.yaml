@@ -1,0 +1,25 @@
+accessedDate: 2026-08-03
+editorialStatus: approved
+fetch:
+  byteLength: 657427
+  contentType: text/html; charset=UTF-8
+  fetchedAt: 2026-08-03T21:20:48Z
+  httpStatus: 200
+  sha256: 82eb58f9356a9c5a921afd55a00926aad65f7b4a336899435458672377bc845e
+  url: https://www.nvidia.com/en-us/geforce/graphics-cards/50-series/rtx-5090/
+id: nvidia-rtx-5090-product-specifications
+license: Copyright NVIDIA Corporation. Quoted here under short-extract fair use
+  for verification of the figures cited.
+locator: >-
+  Specification table, "GPU Engine Specs", "Memory Specs" and "Thermal and Power
+  Specs" sections
+publisher: NVIDIA Corporation
+sourceType: vendor-documentation
+tier: A
+title: GeForce RTX 5090 Graphics Card — Specifications
+url: https://www.nvidia.com/en-us/geforce/graphics-cards/50-series/rtx-5090/
+usageNote: >-
+  A living product page with no publication date, like the H100's. What it does
+  not contain is the point: no floating-point rate, no memory bandwidth. Where
+  the GeForce GTX 1080's page once printed a bandwidth figure, this one prints
+  AI TOPS and a ray-tracing rate, neither of which the catalog has a metric for.

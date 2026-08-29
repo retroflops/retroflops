@@ -1,0 +1,17 @@
+id: nintendo-gamecube-gekko:context-unit-1
+subject:
+  kind: component
+  id: nintendo-gamecube-gekko
+label: Core count
+quantity:
+  state: value
+  value: '1'
+  unit: unit
+  significantDigits: 1
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - nintendo-gamecube-tech-specs
+evidenceLevel: confirmed

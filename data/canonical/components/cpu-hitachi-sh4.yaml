@@ -1,0 +1,25 @@
+id: hitachi-sh4
+slug: hitachi-sh4
+kind: cpu
+name: Hitachi SH-4
+manufacturer: Hitachi
+architecture: SuperH SH-4
+introducedDate: '1998'
+instructionSet: SuperH SH-4
+instructionSetFamily: superh
+summary:
+  A superscalar {{context:hitachi-sh4:context-bit-32}} RISC core with
+  {{context:hitachi-sh4:context-bit-16}} instructions, a five-stage pipeline and
+  an IEEE 754 floating-point unit doing single and double precision.
+notes:
+  The first processor in this catalog with floating-point hardware whose vendor
+  also publishes a rate for it. Its {{context:hitachi-sh4:context-bit-16}}
+  instruction encoding on a {{context:hitachi-sh4:context-bit-32}} core is a
+  code-density decision, not a word-size one. Internal clock is
+  {{context:hitachi-sh4:context-mhz-200}} against a
+  {{context:hitachi-sh4:context-mhz-100}} external bus and a
+  {{context:hitachi-sh4:context-mhz-50}} peripheral clock, all derived from a
+  {{context:hitachi-sh4:context-mhz-33-3}} PLL output.
+sourceIds:
+  - dreamcast-hardware-spec
+editorialStatus: approved

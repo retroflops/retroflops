@@ -1,0 +1,295 @@
+- caveat: >-
+    The same clock rate as the Apollo Guidance Computer, and the coincidence
+    says nothing about their speed: the LVDC is a serial machine that spends
+    four clocks per bit, so it adds in {{measurement:lvdc:addition-time}}
+    against the AGC's {{context:lvdc:context-us-23-4}}.
+  comparabilityGroup: clock-frequency|cpu|nominal-clock
+  conditions: Four clocks per bit, giving 512 kilobits per second in serial operation.
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - ntrs-19700023342:table-5
+  id: lvdc:clock-frequency
+  method: nominal-clock
+  metric: clock-frequency
+  normalized:
+    value: "2048000"
+    unit: Hz
+    significantDigits: 4
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 4
+    state: value
+    unit: MHz
+    value: "2.048"
+  scope: cpu
+  sourceIds:
+    - ntrs-19700023342
+  status: vendor-rated
+  subject:
+    id: lvdc
+    kind: component
+  evidenceLevel: confirmed
+- comparabilityGroup: instruction-execution-time|cpu|add-instruction
+  conditions: Add-subtract, {{context:lvdc:context-bit-26}} accuracy. Add-subtract
+    and multiply-divide run simultaneously.
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - ntrs-19700023342:table-5
+  id: lvdc:addition-time
+  method: add-instruction
+  metric: instruction-execution-time
+  normalized:
+    value: "0.000082"
+    unit: s
+    significantDigits: 2
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 2
+    state: value
+    unit: us
+    value: "82"
+  scope: cpu
+  sourceIds:
+    - ntrs-19700023342
+  status: vendor-rated
+  subject:
+    id: lvdc
+    kind: component
+  evidenceLevel: confirmed
+- comparabilityGroup: instruction-execution-time|cpu|multiply-instruction
+  conditions: "{{context:lvdc:context-bit-24}} accuracy."
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - ntrs-19700023342:table-5
+  id: lvdc:multiplication-time
+  method: multiply-instruction
+  metric: instruction-execution-time
+  normalized:
+    value: "0.000328"
+    unit: s
+    significantDigits: 3
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 3
+    state: value
+    unit: us
+    value: "328"
+  scope: cpu
+  sourceIds:
+    - ntrs-19700023342
+  status: vendor-rated
+  subject:
+    id: lvdc
+    kind: component
+  evidenceLevel: confirmed
+- comparabilityGroup: instruction-execution-time|cpu|divide-instruction
+  conditions: "{{context:lvdc:context-bit-24}} accuracy."
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - ntrs-19700023342:table-5
+  id: lvdc:division-time
+  method: divide-instruction
+  metric: instruction-execution-time
+  normalized:
+    value: "0.000656"
+    unit: s
+    significantDigits: 3
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 3
+    state: value
+    unit: us
+    value: "656"
+  scope: cpu
+  sourceIds:
+    - ntrs-19700023342
+  status: vendor-rated
+  subject:
+    id: lvdc
+    kind: component
+  evidenceLevel: confirmed
+- caveat: >-
+    A word here is {{context:lvdc-core-memory:context-bit-28}}, against the
+    Apollo Guidance Computer's 16. Word counts from machines with different word
+    widths are not a like-for-like capacity comparison.
+  comparabilityGroup: memory-capacity-words|memory|design-capacity
+  conditions: "One basic module: fourteen 128 by
+    {{context:lvdc-core-memory:context-unit-64}} core planes, 4096 non-redundant
+    {{context:lvdc-core-memory:context-bit-28}} words."
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - ntrs-19700023342:page-26:memory-module
+    - ntrs-19700023342:table-5
+  id: lvdc-core-memory:module-capacity
+  method: design-capacity
+  metric: memory-capacity-words
+  normalized:
+    value: "4096"
+    unit: word
+    significantDigits: 4
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 4
+    state: value
+    unit: word
+    value: "4096"
+  scope: memory
+  sourceIds:
+    - ntrs-19700023342
+  status: vendor-rated
+  subject:
+    id: lvdc-core-memory
+    kind: component
+  evidenceLevel: confirmed
+- caveat: >-
+    A maximum, not the capacity of every flight article. Running the modules in
+    duplex for redundancy halves the words available.
+  comparabilityGroup: memory-capacity-words|whole-system|design-capacity
+  conditions: Eight memory modules operating in simplex; the maximum the design allows.
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - ntrs-19700023342:page-26:memory-module
+    - ntrs-19700023342:table-5
+  id: saturn-lvdc:max-memory-capacity
+  method: design-capacity
+  metric: memory-capacity-words
+  normalized:
+    value: "32768"
+    unit: word
+    significantDigits: 5
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 5
+    state: value
+    unit: word
+    value: "32768"
+  scope: whole-system
+  sourceIds:
+    - ntrs-19700023342
+  status: vendor-rated
+  subject:
+    configurationId: eight-module
+    id: saturn-lvdc
+    kind: system
+  evidenceLevel: confirmed
+- caveat: >-
+    A design figure for the computer alone, excluding the data adapter that
+    connects it to the rest of the instrument unit. It is not a measured draw
+    and not a cooling-design target.
+  comparabilityGroup: rated-power-consumption|whole-system|rated-power
+  conditions: Computer with four memory modules. The report gives no figure for
+    other module counts.
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - ntrs-19700023342:table-5
+  id: saturn-lvdc:rated-power
+  method: rated-power
+  metric: rated-power-consumption
+  normalized:
+    value: "137"
+    unit: W
+    significantDigits: 4
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 4
+    state: value
+    unit: W
+    value: "137.0"
+  scope: whole-system
+  sourceIds:
+    - ntrs-19700023342
+  status: vendor-rated
+  subject:
+    configurationId: four-module
+    id: saturn-lvdc
+    kind: system
+  evidenceLevel: confirmed
+- comparabilityGroup: peak-fp32-rate|cpu|theoretical-peak
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - ntrs-19700023342:table-5
+  id: lvdc:peak-fp32-rate
+  method: theoretical-peak
+  metric: peak-fp32-rate
+  provenance: vendor
+  quantity:
+    note: >-
+      The LVDC is a fixed-point machine, as its own characteristics table states
+      in the type row. There is no floating-point rate to give.
+    state: not-applicable
+  scope: cpu
+  sourceIds:
+    - ntrs-19700023342
+  status: vendor-rated
+  subject:
+    id: lvdc
+    kind: component
+- comparabilityGroup: peak-fp64-rate|cpu|theoretical-peak
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - ntrs-19700023342:table-5
+    - ntrs-19700023342:page-25:data-word
+  id: lvdc:peak-fp64-rate
+  method: theoretical-peak
+  metric: peak-fp64-rate
+  provenance: vendor
+  quantity:
+    note: >-
+      Fixed-point machine. The {{context:lvdc:context-bit-26}} data word carries
+      25 magnitude bits and a sign bit, not an exponent.
+    state: not-applicable
+  scope: cpu
+  sourceIds:
+    - ntrs-19700023342
+  status: vendor-rated
+  subject:
+    id: lvdc
+    kind: component
+- caveat: >-
+    Unknown for the same reason as the Apollo Guidance Computer’s, and the pair
+    is worth seeing together: two machines of the same program and the same
+    year, both described in microseconds and words, neither in bytes per second.
+  comparabilityGroup: memory-bandwidth|memory|theoretical-peak
+  editorialStatus: approved
+  evidenceStage: shipped
+  id: saturn-lvdc:memory-bandwidth
+  method: theoretical-peak
+  metric: memory-bandwidth
+  provenance: vendor
+  quantity:
+    note: >-
+      The report specifies the memory by module capacity, word length and cycle
+      time, and states no transfer rate.
+    state: unknown
+  unknownAudit:
+    reviewedOn: 2026-08-25
+    routesChecked:
+      - vendor-documentation
+      - independent-analysis
+      - community-source
+    outcome: no-compatible-candidate
+    summary: The checked report provides cycle time and word length, not a bandwidth
+      value.
+  scope: memory
+  sourceIds:
+    - ntrs-19700023342
+  status: vendor-rated
+  subject:
+    id: saturn-lvdc
+    kind: system

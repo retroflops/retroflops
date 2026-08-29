@@ -1,0 +1,138 @@
+---
+// SPDX-FileCopyrightText: 2026 Wojciech Polak
+// SPDX-License-Identifier: MIT
+
+import SiteFooter from '~/components/site-footer.astro';
+import SiteHeader from '~/components/site-header.astro';
+import { route } from '~/lib/paths';
+import '~/styles/global.css';
+
+interface Props {
+  title: string;
+  description: string;
+  /** Set on pages that must not be indexed, such as the 404 page. */
+  noindex?: boolean;
+  /**
+   * JSON-LD for this page. Passed as an object rather than a string so a page
+   * cannot accidentally emit malformed markup, and serialized here in one place.
+   */
+  structuredData?: readonly Record<string, unknown>[];
+}
+
+const { title, description, noindex = false, structuredData = [] } = Astro.props;
+
+const siteTitle = 'RetroFlops';
+const fullTitle = title === siteTitle ? siteTitle : `${title} — ${siteTitle}`;
+const canonical = new URL(Astro.url.pathname, Astro.site ?? Astro.url);
+
+/**
+ * One preview image for the whole site, and an absolute address for it: a card
+ * reader has no page to resolve a relative one against. Per-page previews would
+ * mean rendering text into an image, which needs a font the build would have to
+ * carry. The card shows the logo and lets the title and description, which
+ * every page sets, do the describing.
+ */
+const socialImage = new URL(route('/og-image.png'), Astro.site ?? Astro.url);
+
+/**
+ * `<` is escaped so a stray sequence in a record's prose cannot close the script
+ * element early. Astro does not escape inside `set:html`, and this is the one
+ * place the site emits unescaped markup.
+ */
+const jsonLd = structuredData.map((item) => JSON.stringify(item).replaceAll('<', '\\u003c'));
+---
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    {
+      /*
+      Whether scripts are running, decided before the first paint.
+
+      The client-only panels, Explore's filters and the comparison builder, do
+      not exist in the HTML, so the space they will occupy has to be reserved
+      by CSS or the page jumps when they arrive. Reserving it unconditionally
+      would leave a reader without JavaScript staring at a gap where a control
+      is never going to appear, so the reservation is conditioned on this class.
+    */
+    }
+    <script is:inline>
+      document.documentElement.classList.replace('no-js', 'js');
+    </script>
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical.href} />
+    {noindex && <meta name="robots" content="noindex" />}
+    <meta name="generator" content={Astro.generator} />
+    {
+      /*
+      Icons, all generated from `brand/logo.svg` by `pnpm brand:icons`.
+
+      The SVG is what a current browser picks; `favicon.ico` is for everything
+      that still asks for that exact address without looking at this markup, so
+      it is declared as well as being served at the root.
+    */
+    }
+    <link rel="icon" href={route('/favicon.svg')} type="image/svg+xml" />
+    <link rel="icon" href={route('/favicon.ico')} sizes="32x32" />
+    <link rel="apple-touch-icon" href={route('/apple-touch-icon.png')} />
+    <link rel="manifest" href={route('/site.webmanifest')} />
+    <meta name="theme-color" content="#f4f0e6" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#141814" media="(prefers-color-scheme: dark)" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={siteTitle} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical.href} />
+    <meta property="og:locale" content="en" />
+    <meta property="og:image" content={socialImage.href} />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="The RetroFlops logo" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={socialImage.href} />
+    <meta name="twitter:image:alt" content="The RetroFlops logo" />
+
+    <link rel="alternate" type="application/xml" title="Sitemap" href={route('/sitemap.xml')} />
+
+    {jsonLd.map((item) => <script type="application/ld+json" is:inline set:html={item} />)}
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to main content</a>
+    <SiteHeader />
+    {/* Pagefind indexes only what is marked, so site chrome stays out of results. */}
+    <main
+      id="main"
+      class="site-main"
+      tabindex="-1"
+      data-pagefind-body={noindex ? undefined : true}
+      data-pagefind-ignore={noindex ? true : undefined}
+    >
+      <div class="container stack-l">
+        <slot />
+      </div>
+    </main>
+    <SiteFooter />
+    {
+      /*
+      Back to top.
+
+      A profile is a long page on a phone, and the way back to the navigation is
+      otherwise a long swipe. The control remains an anchor, while a CSS scroll
+      timeline decides when it appears and draws the reading progress around it.
+      A browser without that CSS keeps the useful part: a plain, visible link.
+    */
+    }
+    <a class="to-top" href="#top">
+      <span aria-hidden="true">↑</span>
+      <span class="visually-hidden">Back to top</span>
+    </a>
+  </body>
+</html>

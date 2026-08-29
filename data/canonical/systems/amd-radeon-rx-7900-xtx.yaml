@@ -1,0 +1,46 @@
+id: amd-radeon-rx-7900-xtx
+slug: amd-radeon-rx-7900-xtx
+name: AMD Radeon RX 7900 XTX
+manufacturer: AMD
+type: accelerator
+family: radeon
+releaseDate: 2022-12
+region: Worldwide
+summary: >-
+  AMD Radeon RX 7900 XTX: {{measurement:amd-radeon-rx-7900-xtx-memory:capacity}}
+  of GDDR6, {{measurement:amd-radeon-rx-7900-xtx-memory:bandwidth}} peak
+  bandwidth, and {{measurement:amd-navi31:peak-fp32-rate}} FP32.
+description: >-
+  AMD calls {{measurement:amd-navi31:clock-frequency-base}} the game clock and
+  {{measurement:amd-navi31:clock-frequency-boost}} the boost clock. The 61.42
+  TFLOPS peak is tied to the boost clock; it must not be recalculated from the
+  game clock and silently relabeled as the same rate.
+imageIds:
+  - amd-radeon-rx-7900-xtx-card
+configurations:
+  - id: reference-card
+    label: Reference card
+    releaseDate: 2022-12
+    entries:
+      - componentId: amd-navi31
+        role: gpu
+        count: 1
+        shared: false
+        notes: >-
+          The lower declared clock; the separately named upper clock is recorded
+          as a peak-clock measurement.
+        measurementIds:
+          - amd-navi31:clock-frequency-base
+          - amd-navi31:clock-frequency-boost
+      - componentId: amd-radeon-rx-7900-xtx-memory
+        role: video-memory
+        count: 1
+        shared: false
+        measurementIds:
+          - amd-radeon-rx-7900-xtx-memory:capacity
+sourceIds:
+  - amd-radeon-rx-7900-xtx-product-specifications
+editorialStatus: approved
+notes: >-
+  This accelerator’s whole-system memory is its fitted frame buffer; host memory
+  is excluded. Partner cards may differ from this reference configuration.

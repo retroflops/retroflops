@@ -1,0 +1,20 @@
+id: nintendo-wii-rvl-001-manual
+title: Wii Operations Manual, RVL-001
+publisher: Nintendo of Europe GmbH
+publishedDate: "2012"
+accessedDate: 2026-08-25
+locator: Specifications page
+extract: Wii Operations Manual for RVL-001.
+tier: A
+sourceType: technical-manual
+url: https://www.nintendo.com/eu/media/downloads/support_1/wii_21/Wii_HW_MAN_RVK_UKV_300_NFRP_1_2012.pdf
+usageNote: >-
+  Nintendo's published operations manual, used only after confirming the exact
+  specification row in the retained PDF.
+fetch:
+  url: https://www.nintendo.com/eu/media/downloads/support_1/wii_21/Wii_HW_MAN_RVK_UKV_300_NFRP_1_2012.pdf
+  fetchedAt: 2026-08-25T06:09:37Z
+  httpStatus: 200
+  contentType: application/pdf
+  byteLength: 6000310
+  sha256: a0e2ab82d15a6fc4779525bb1438c857d6a27d0a21373a5503330763db23a990

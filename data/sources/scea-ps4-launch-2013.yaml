@@ -1,0 +1,19 @@
+accessedDate: 2026-07-29
+editorialStatus: approved
+fetch:
+  byteLength: 82275
+  contentType: text/html; charset=UTF-8
+  fetchedAt: 2026-07-29T17:16:58Z
+  httpStatus: 200
+  sha256: d034e8bffe1e4d4579ee376e9d324671fa38942b8cca3e6de4d78607e6883a16
+  url: https://sonyinteractive.com/en/press-releases/2013/playstation4-launches-across-the-united-states-and-canada/
+id: scea-ps4-launch-2013
+license: Copyright Sony Interactive Entertainment Inc. Quoted here under
+  short-extract fair use for verification of the figures cited.
+locator: Paragraph describing the system architecture
+publishedDate: 2013-11-15
+publisher: Sony Computer Entertainment America LLC
+sourceType: vendor-documentation
+tier: A
+title: PlayStation®4 Launches Across the United States and Canada
+url: https://sonyinteractive.com/en/press-releases/2013/playstation4-launches-across-the-united-states-and-canada/

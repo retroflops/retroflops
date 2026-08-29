@@ -1,0 +1,20 @@
+id: wikipedia-atari-2600
+title: Atari 2600
+publisher: Wikipedia contributors
+accessedDate: 2026-08-26
+locator: Hardware section, processor paragraph
+extract: >-
+  The CPU is the MOS Technology 6507, a version of the 6502, running at 1.19 MHz in the 2600.
+tier: C
+sourceType: wiki
+url: https://en.wikipedia.org/wiki/Atari_2600
+editorialStatus: provisional
+usageNote: >-
+  Tier C community article used only for the provisional processor clock of the console.
+fetch:
+  url: https://en.wikipedia.org/wiki/Atari_2600
+  fetchedAt: 2026-08-26T10:31:35Z
+  httpStatus: 200
+  contentType: text/html; charset=UTF-8
+  byteLength: 676552
+  sha256: 8e195ad1590e5858d870a0c32f34f7fa7de97906028b86d97cb926f208042987

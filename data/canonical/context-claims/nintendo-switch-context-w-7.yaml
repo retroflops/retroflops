@@ -1,0 +1,19 @@
+id: nintendo-switch:context-w-7
+subject:
+  kind: system
+  id: nintendo-switch
+label: Contextual value
+quantity:
+  state: value
+  value: '7'
+  unit: W
+  significantDigits: 1
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - nintendo-ecodesign-accessories-part-3
+extractIds:
+  - nintendo-ecodesign:hac-002:output
+evidenceLevel: confirmed

@@ -1,0 +1,17 @@
+id: ps2-iop:context-bit-32
+subject:
+  kind: component
+  id: ps2-iop
+label: Word size
+quantity:
+  state: value
+  value: '32'
+  unit: bit
+  significantDigits: 2
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - scei-ps2-specifications-1999
+evidenceLevel: confirmed

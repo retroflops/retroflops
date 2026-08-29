@@ -1,0 +1,27 @@
+accessedDate: 2026-08-16
+editorialStatus: approved
+fetch:
+  byteLength: 279998
+  contentType: application/pdf
+  fetchedAt: 2026-08-16T17:44:52Z
+  httpStatus: 200
+  sha256: 6d862883d4fae0b5147d92ed289c452dff5a0f9d6f9fbe654dcd62f0ed5dab1b
+  url: https://datasheets.chipdb.org/Intel/x86/386/datashts/24126703.PDF
+id: intel-386dx-datasheet
+license: Copyright Intel Corporation; cited for verification under short-extract
+  fair use.
+locator: >-
+  Table 3-2, "Intel386™ DX D.C. Characteristics", Icc Supply Current row, 25 MHz
+  grade
+publishedDate: 1994-01
+publisher: Intel Corporation
+sourceType: vendor-documentation
+tier: A
+title: Intel386™ DX Microprocessor Data Sheet (Order Number 241267)
+url: https://datasheets.chipdb.org/Intel/x86/386/datashts/24126703.PDF
+usageNote: >-
+  Cited for what it specifies instead of a thermal rating: a maximum and a
+  typical supply current for each speed grade. The document's own date line
+  reads January 1994 over a 1995 copyright, so it is a reprint of the
+  specification rather than the original release. Retrieved from chipdb's Intel
+  datasheet mirror, custodian rather than author.

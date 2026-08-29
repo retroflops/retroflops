@@ -1,0 +1,15 @@
+id: amiga-1200-kickstart-rom
+slug: amiga-1200-kickstart-rom
+kind: memory
+name: Amiga 1200 Kickstart ROM
+manufacturer: Commodore Business Machines
+architecture: Mask ROM
+introducedDate: '1992'
+memoryType: Mask ROM
+summary:
+  '{{measurement:amiga-1200-kickstart-rom:capacity}} of mask ROM holding
+  Kickstart 3.0, organized as 128K by
+  {{context:amiga-1200-kickstart-rom:context-bit-32}}.'
+sourceIds:
+  - amiga-1200-service-manual
+editorialStatus: approved

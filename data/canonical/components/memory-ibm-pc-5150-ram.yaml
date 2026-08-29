@@ -1,0 +1,14 @@
+id: ibm-pc-5150-ram
+slug: ibm-pc-5150-ram
+kind: memory
+name: IBM PC 5150 system RAM
+manufacturer: IBM
+architecture: Dynamic RAM
+introducedDate: '1981'
+memoryType: Dynamic RAM
+summary:
+  Writable RAM in the original {{measurement:ibm-pc-5150-ram:capacity}} base
+  configuration.
+sourceIds:
+  - ibm-pc-technical-reference
+editorialStatus: approved

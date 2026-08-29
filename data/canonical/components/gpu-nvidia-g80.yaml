@@ -1,0 +1,16 @@
+id: nvidia-g80
+slug: nvidia-g80
+kind: gpu
+name: NVIDIA Tesla (NVIDIA GeForce 8800 GTX)
+manufacturer: NVIDIA
+architecture: Tesla
+introducedDate: 2006-11
+summary:
+  NVIDIA GeForce 8800 GTX graphics processor, represented by vendor
+  reference-card specifications.
+notes:
+  The general-shader FP32 peak is separate from tensor, AI and ray-tracing
+  rates.
+sourceIds:
+  - nvidia-geforce-8800-gtx-product-brief
+editorialStatus: provisional

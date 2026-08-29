@@ -1,0 +1,16 @@
+id: nvidia-tu102
+slug: nvidia-tu102
+kind: gpu
+name: NVIDIA Turing (NVIDIA GeForce RTX 2080 Ti)
+manufacturer: NVIDIA
+architecture: Turing
+introducedDate: 2018-09
+summary:
+  NVIDIA GeForce RTX 2080 Ti graphics processor, represented by vendor
+  reference-card specifications.
+notes:
+  The general-shader FP32 peak is separate from tensor, AI and ray-tracing
+  rates.
+sourceIds:
+  - nvidia-geforce-rtx-2080-ti-product-specifications
+editorialStatus: approved

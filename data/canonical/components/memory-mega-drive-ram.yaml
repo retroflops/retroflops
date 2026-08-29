@@ -1,0 +1,11 @@
+architecture: Static RAM
+editorialStatus: provisional
+id: mega-drive-ram
+kind: memory
+manufacturer: Sega
+memoryType: Static RAM
+name: Sega Mega Drive RAM
+slug: mega-drive-ram
+sourceIds:
+  - sega-mega-drive-service-manual
+summary: '{{measurement:mega-drive-ram:capacity}} writable main RAM.'

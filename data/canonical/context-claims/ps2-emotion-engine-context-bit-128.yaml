@@ -1,0 +1,18 @@
+id: ps2-emotion-engine:context-bit-128
+subject:
+  kind: component
+  id: ps2-emotion-engine
+label: Width
+quantity:
+  state: value
+  value: '128'
+  unit: bit
+  significantDigits: 3
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - scei-ps2-specifications-1999
+  - scei-ee-gs-single-chip-2003
+evidenceLevel: confirmed

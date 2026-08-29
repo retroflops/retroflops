@@ -1,0 +1,18 @@
+id: nvidia-gb202:context-unit-21760
+subject:
+  kind: component
+  id: nvidia-gb202
+label: Shading-unit count
+quantity:
+  state: value
+  value: '21760'
+  unit: unit
+  significantDigits: 5
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - nvidia-rtx-blackwell-whitepaper
+  - nvidia-rtx-5090-product-specifications
+evidenceLevel: confirmed

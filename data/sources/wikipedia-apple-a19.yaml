@@ -1,0 +1,23 @@
+id: wikipedia-apple-a19
+title: Apple A19
+publisher: Wikipedia contributors
+url: https://en.wikipedia.org/wiki/Apple_A19
+accessedDate: 2026-08-25
+locator: Memory section
+extract: >-
+  The A19 Pro features 12GB of LPDDR5X (9600 MT/s) memory with bandwidth up to
+  76.8 GB/s.
+tier: C
+sourceType: wiki
+editorialStatus: provisional
+license: Text available under CC BY-SA 4.0.
+usageNote: >-
+  The cited reference is not stable enough to promote this claim. The catalog
+  keeps the bandwidth as rumored until a technical source states the interface.
+fetch:
+  url: https://en.wikipedia.org/wiki/Apple_A19
+  fetchedAt: 2026-08-26T10:20:38Z
+  httpStatus: 200
+  contentType: text/html; charset=UTF-8
+  byteLength: 236934
+  sha256: d44d87f311d31c240c6afaaca7eea1ca8dc4d0e457efa548acafcca7244e003c

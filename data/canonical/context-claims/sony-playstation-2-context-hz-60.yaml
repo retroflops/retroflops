@@ -1,0 +1,20 @@
+id: sony-playstation-2:context-hz-60
+subject:
+  kind: system
+  id: sony-playstation-2
+  configurationId: retail
+label: Frequency
+quantity:
+  state: value
+  value: '60'
+  unit: Hz
+  significantDigits: 2
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - scea-ps2-scph-39001-manual
+extractIds:
+  - scea-ps2-manual:power
+evidenceLevel: confirmed

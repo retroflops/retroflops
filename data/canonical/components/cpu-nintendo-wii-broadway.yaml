@@ -1,0 +1,13 @@
+editorialStatus: provisional
+id: nintendo-wii-broadway
+slug: nintendo-wii-broadway
+kind: cpu
+name: IBM Broadway
+manufacturer: IBM
+architecture: PowerPC-derived
+introducedDate: '2006'
+instructionSet: PowerPC
+instructionSetFamily: power
+summary: The Nintendo Wii main processor.
+sourceIds:
+  - nintendo-wii-hardware-overview

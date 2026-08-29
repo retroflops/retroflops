@@ -1,0 +1,13 @@
+id: nvidia-geforce-gtx-580-memory
+slug: nvidia-geforce-gtx-580-memory
+kind: memory
+name: NVIDIA GeForce GTX 580 frame buffer
+manufacturer: NVIDIA
+memoryType: GDDR5
+introducedDate: 2010-11
+summary:
+  '{{measurement:nvidia-geforce-gtx-580-memory:capacity}} of GDDR5 with
+  {{measurement:nvidia-geforce-gtx-580-memory:bandwidth}} peak bandwidth.'
+sourceIds:
+  - nvidia-geforce-gtx-580-product-brief
+editorialStatus: provisional

@@ -1,0 +1,24 @@
+- extract: 6502 microprocessor running at 2 MHz
+  extractHash: 0b68c2cdd8959580873cd7071a5fe8d8ead4b67cb0ddcf7225e1e06e641f5211
+  id: bbc-micro-information-sheet:cpu-clock
+  locator: Information Sheet 03, Processor
+  sourceId: bbc-micro-information-sheet
+  transcribed:
+    significantDigits: 1
+    state: value
+    unit: MHz
+    value: '2'
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-22
+- extract: A 16K Read Only Memory ... A further 16K Language ROM
+  extractHash: 35838d6cd3f92733fb0f9ca90b3273d8b4556d3372269a72625991a246e23583
+  id: bbc-micro-information-sheet:rom-capacity
+  locator: Information Sheet 03, Memory
+  sourceId: bbc-micro-information-sheet
+  transcribed:
+    significantDigits: 2
+    state: value
+    unit: KiB
+    value: '32'
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-22

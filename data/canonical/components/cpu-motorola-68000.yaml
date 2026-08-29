@@ -1,0 +1,21 @@
+id: motorola-68000
+slug: motorola-68000
+kind: cpu
+name: Motorola MC68000
+manufacturer: Motorola
+architecture: Motorola 68000
+introducedDate: '1979'
+instructionSet: Motorola 68000
+instructionSetFamily: motorola-68000
+summary: >-
+  A processor with {{context:motorola-68000:context-bit-32}} internal registers
+  and a narrower data bus and ALU. It powered the Amiga line and many other
+  machines of its era.
+notes: >-
+  The split between the register width and the external data path is why the
+  register width alone describes it poorly. The address space is larger than the
+  memory fitted to the Amiga models in this catalog. Floating point is not on
+  the die; it needs a 68881 or 68882 coprocessor.
+sourceIds:
+  - amiga-hardware-reference-manual
+editorialStatus: approved

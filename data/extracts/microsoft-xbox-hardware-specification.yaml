@@ -1,0 +1,21 @@
+- extract: CPU - 733 MHz Intel Pentium III
+  extractHash: 36ff8ce4dc05fde743067c1e470c2937ec9d7630a3911cef1e91d31e780d92f9
+  id: original-xbox-specifications:cpu-clock
+  locator: Xbox Specs section beneath the Original Xbox display
+  sourceId: microsoft-xbox-hardware-specification
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-22
+- extract: GPU - Nvidia NV2A @233 MHz
+  extractHash: ecce295afee15773c615cde5815aafd734d65d7663e70fe663728c150d6b9677
+  id: original-xbox-specifications:gpu-clock
+  locator: Xbox Specs section beneath the Original Xbox display
+  sourceId: microsoft-xbox-hardware-specification
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-22
+- extract: Memory - 64MB DDR
+  extractHash: 5a60ba09a71b427f3acf56e84dceb9c75a1a8b04a1ac630e0a0265905c5f833b
+  id: original-xbox-specifications:main-memory
+  locator: Xbox Specs section beneath the Original Xbox display
+  sourceId: microsoft-xbox-hardware-specification
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-22

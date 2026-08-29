@@ -1,0 +1,96 @@
+---
+// SPDX-FileCopyrightText: 2026 Wojciech Polak
+// SPDX-License-Identifier: MIT
+
+/**
+ * A component category page.
+ *
+ * `/components/cpu/intel-8086/` resolved long before `/components/cpu/` did,
+ * which made the middle of the path a hole a reader could fall into. The
+ * breadcrumb needed this route anyway; it was a missing page before it was a
+ * navigation feature.
+ */
+import BreadcrumbTrail from '~/components/breadcrumb-trail.astro';
+import BaseLayout from '~/layouts/base-layout.astro';
+import { getComponentAvailability } from '~/lib/catalog';
+import { COMPONENT_KINDS } from '~/lib/data/schema';
+import type { Component } from '~/lib/data/schema';
+import { formatPartialDate } from '~/lib/display';
+import { componentCategory, componentKindLabel, componentsOfKind } from '~/lib/families';
+import { route } from '~/lib/paths';
+import { breadcrumbList } from '~/lib/structured-data';
+
+export function getStaticPaths() {
+  return COMPONENT_KINDS.map((kind) => ({ params: { kind }, props: { kind } }));
+}
+
+interface Props {
+  kind: Component['kind'];
+}
+
+const { kind } = Astro.props;
+
+const components = componentsOfKind(kind).filter(
+  (component) => getComponentAvailability(component).availability === 'catalog',
+);
+const researchCount = componentsOfKind(kind).length - components.length;
+const label = componentKindLabel(kind);
+
+const crumbs = [
+  { name: 'RetroFlops', path: '/' },
+  { name: 'Explore', path: '/explore/' },
+  componentCategory(kind),
+];
+
+const description = `Every ${label.toLowerCase()} record in the RetroFlops catalog, by name.`;
+
+const absolute = (path: string): string => new URL(route(path), Astro.site ?? Astro.url).href;
+const structuredData = [breadcrumbList(crumbs, absolute)];
+---
+
+<BaseLayout title={label} description={description} structuredData={structuredData}>
+  <BreadcrumbTrail crumbs={crumbs} />
+
+  <header class="page-header stack">
+    <p class="page-header__eyebrow">Category</p>
+    <h1>{label}</h1>
+    <p class="lede prose">{description}</p>
+  </header>
+
+  <section class="stack" aria-labelledby="records">
+    <h2 id="records" class="visually-hidden">{label} in the catalog</h2>
+    <ul class="card-grid">
+      {
+        components.map((component) => (
+          <li class="card stack">
+            <p class="card__eyebrow">
+              {component.manufacturer}
+              {component.introducedDate !== undefined &&
+                ` · ${formatPartialDate(component.introducedDate)}`}
+            </p>
+            <h3>
+              <a href={route(`/components/${component.kind}/${component.slug}/`)}>
+                {component.name}
+              </a>
+            </h3>
+            <p class="card__summary">{component.summary}</p>
+            <p class="meta">
+              <span class="numeric">{getComponentAvailability(component).counts.valueCount}</span>{' '}
+              values ·{' '}
+              <span class="numeric">{getComponentAvailability(component).counts.unknownCount}</span>{' '}
+              unknown
+            </p>
+          </li>
+        ))
+      }
+    </ul>
+    {
+      researchCount > 0 && (
+        <p class="prose meta">
+          {researchCount} {researchCount === 1 ? 'component is' : 'components are'} kept in{' '}
+          <a href={route('/research/')}>Research</a> because no numeric measurement is available.
+        </p>
+      )
+    }
+  </section>
+</BaseLayout>

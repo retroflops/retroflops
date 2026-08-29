@@ -1,0 +1,16 @@
+- extract: >-
+    Output voltage: DC5.0V/DC15.0V
+
+    Output current: 1.5A/2.6A
+  extractHash: b1def6a2a51e5c66d0c9310f0a52a792de0875f23c3cba30682a2639d00c03d1
+  id: nintendo-ecodesign:hac-002:output
+  locator:
+    HAC-002 technical characteristics, output voltage and output current rows
+  notes: >-
+    The adapter has two output modes and the rows are read pairwise: 5.0 V at
+    1.5 A, and 15.0 V at 2.6 A. Nintendo states no wattage; the catalog's 39 W
+    is the product of the higher pair, which is exact for a DC supply. The 5 V
+    mode would give 7.5 W.
+  sourceId: nintendo-ecodesign-accessories-part-3
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-13

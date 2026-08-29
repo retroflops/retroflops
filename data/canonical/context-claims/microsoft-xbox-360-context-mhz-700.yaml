@@ -1,0 +1,21 @@
+id: microsoft-xbox-360:context-mhz-700
+subject:
+  kind: system
+  id: microsoft-xbox-360
+label: Frequency
+quantity:
+  state: value
+  value: '700'
+  unit: MHz
+  significantDigits: 3
+provenance: independent
+evidenceStage: shipped
+status: theoretical
+editorialStatus: provisional
+sourceIds:
+  - hot-chips-17-xbox-360-architecture
+  - beyond3d-xenos-2005
+extractIds:
+  - hc17-xbox360:slide4:memory-bandwidth
+  - beyond3d-xenos:system-memory-bandwidth
+evidenceLevel: confirmed

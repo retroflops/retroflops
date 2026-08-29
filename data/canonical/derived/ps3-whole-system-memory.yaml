@@ -1,0 +1,24 @@
+id: sony-playstation-3:whole-system-memory
+formula:
+  id: sum
+  version: '1'
+  expression: a + b + …
+inputMeasurementIds:
+  - ps3-xdr:capacity
+exclusions:
+  - measurementId: ps3-gddr3:capacity
+    label: 256 MiB of video memory
+    reason: the RSX’s own pool, which the processor cannot spend on its own work
+result:
+  state: value
+  value: '268435456'
+  unit: B
+  significantDigits: 9
+rounding: none
+caveat: >-
+  Adds 1 memory-capacity figure obtained by design-capacity. Left out:
+  {{measurement:ps3-gddr3:capacity}} (the RSX’s own pool, which the processor
+  cannot spend on its own work). A total is only as trustworthy as the decision
+  about what belongs in it, so both the terms and the exclusions are named
+  records.
+editorialStatus: approved

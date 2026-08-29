@@ -1,0 +1,205 @@
+---
+// SPDX-FileCopyrightText: 2026 Wojciech Polak
+// SPDX-License-Identifier: MIT
+
+/**
+ * One comparability group over time.
+ *
+ * The series is a route rather than a query parameter, so choosing one is a link
+ * that works without scripts and the page it lands on is complete: summary,
+ * table and sources. The chart is an island on top of that. Its only interactive
+ * control is the scale toggle, which keeps its state in the query string.
+ */
+import MetricChart from '~/islands/metric-chart';
+import BaseLayout from '~/layouts/base-layout.astro';
+import { getCatalog } from '~/lib/catalog';
+import {
+  formatPartialDate,
+  methodLabel,
+  PROVISIONAL_EXPLAINER,
+  PROVISIONAL_EXPLAINER_PATH,
+  statusLabel,
+} from '~/lib/display';
+import { route } from '~/lib/paths';
+import { breadcrumbList, timelineArticle } from '~/lib/structured-data';
+import { timelineSeries } from '~/lib/timeline';
+
+export function getStaticPaths() {
+  return timelineSeries(getCatalog()).map((series) => ({
+    params: { series: series.slug },
+    props: { series },
+  }));
+}
+
+const { series } = Astro.props;
+
+const axisLabel = `${series.metricLabel} (${series.unit})`;
+const path = `/timeline/${series.slug}/`;
+const description = `${series.label} at ${series.scope} scope, obtained by ${methodLabel(series.method).toLowerCase()}, plotted against the release date of each machine. ${series.summary}`;
+
+const absolute = (target: string): string => new URL(route(target), Astro.site ?? Astro.url).href;
+const structuredData = [
+  timelineArticle(`${series.label} over time`, series.summary, path, absolute),
+  breadcrumbList(
+    [
+      { name: 'RetroFlops', path: '/' },
+      { name: 'Timeline', path: '/timeline/' },
+      { name: series.label, path },
+    ],
+    absolute,
+  ),
+];
+---
+
+<BaseLayout
+  title={`${series.label} over time`}
+  description={series.summary}
+  structuredData={structuredData}
+>
+  <header class="page-header stack">
+    <p class="page-header__eyebrow">
+      <a href={route('/timeline/')}>Timeline</a>
+    </p>
+    <h1>{series.label} over time</h1>
+    <p class="lede prose">{series.metricDescription}</p>
+    <dl class="fact-row">
+      <div>
+        <dt>Device scope</dt>
+        <dd>{series.scope}</dd>
+      </div>
+      <div>
+        <dt>Method</dt>
+        <dd>{methodLabel(series.method)}</dd>
+      </div>
+      {
+        series.benchmark !== undefined && (
+          <div>
+            <dt>Benchmark</dt>
+            <dd>
+              {series.benchmark.id} {series.benchmark.version}
+              {series.benchmark.variant !== undefined && `, ${series.benchmark.variant}`}
+            </dd>
+          </div>
+        )
+      }
+      <div>
+        <dt>Plotted in</dt>
+        <dd>{series.unitLabel}</dd>
+      </div>
+    </dl>
+  </header>
+
+  <section class="stack" aria-labelledby="chart">
+    <h2 id="chart">Chart</h2>
+    <p class="prose">{series.summary}</p>
+    {/* client:only, and harmless if the script never arrives: the table below is the data. */}
+    <MetricChart
+      points={series.points}
+      axisLabel={axisLabel}
+      allowsLogScale={series.allowsLogScale}
+      description={description}
+      client:only="preact"
+    />
+    <noscript>
+      <p class="prose meta">
+        The chart needs JavaScript. Every figure it would draw is in the table below, which is the
+        chart's data rather than a summary of it.
+      </p>
+    </noscript>
+  </section>
+
+  <section class="stack" aria-labelledby="data">
+    <h2 id="data">Data</h2>
+    <p class="prose meta">
+      One row per figure, in date order. Figures with no value stay in the table. The chart omits
+      them because an unpublished figure is not a low one.
+    </p>
+    {
+      series.points.some((point) => point.editorialStatus === 'provisional') && (
+        <p class="prose meta">
+          <span class="badge badge--provisional">provisional</span> {PROVISIONAL_EXPLAINER}{' '}
+          <a href={route(PROVISIONAL_EXPLAINER_PATH)}>How records are judged</a>.
+        </p>
+      )
+    }
+    <div class="table-frame">
+      <table class="config-table">
+        <thead>
+          <tr>
+            <th scope="col">Machine</th>
+            <th scope="col">Released</th>
+            <th scope="col">Figure</th>
+            <th scope="col">Confidence</th>
+            <th scope="col">Sources</th>
+          </tr>
+        </thead>
+        <tbody>
+          {
+            series.points.map((point) => (
+              <tr>
+                <th scope="row">
+                  <a href={route(`/systems/${point.systemSlug}/`)}>{point.systemName}</a>
+                  {point.part !== undefined && <span class="cell-note">{point.part}</span>}
+                  {point.variant !== undefined && <span class="cell-note">{point.variant}</span>}
+                </th>
+                <td data-label="Released">{formatPartialDate(point.date)}</td>
+                <td class="numeric" data-label="Figure">
+                  {point.text}
+                </td>
+                <td data-label="Confidence">
+                  {statusLabel(point.status)}
+                  {point.editorialStatus === 'provisional' && (
+                    <span class="badge badge--provisional">provisional</span>
+                  )}
+                </td>
+                <td data-label="Sources">
+                  <ul class="link-list">
+                    {point.sourceIds.map((id) => (
+                      <li>
+                        <a class="wrap-anywhere" href={route(`/sources/${id}/`)}>
+                          {id}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </td>
+              </tr>
+            ))
+          }
+          {
+            series.absences.map((absence) => (
+              <tr>
+                <th scope="row">
+                  <a href={route(`/systems/${absence.systemSlug}/`)}>{absence.systemName}</a>
+                  {absence.part !== undefined && <span class="cell-note">{absence.part}</span>}
+                </th>
+                <td data-label="Released">{formatPartialDate(absence.date)}</td>
+                <td class="is-absent" data-label="Figure">
+                  {absence.text}
+                  {absence.note !== undefined && <span class="cell-note">{absence.note}</span>}
+                </td>
+                <td data-label="Confidence">not plotted</td>
+                <td data-label="Sources">—</td>
+              </tr>
+            ))
+          }
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="prose stack" aria-labelledby="reading">
+    <h2 id="reading">Why this chart holds one group only</h2>
+    <p>
+      Every point on a chart is implicitly compared with every other point on it. This chart uses
+      one comparability group: one metric, one device scope, one method
+      {series.benchmark !== undefined && ' and one benchmark version'}. There is no chart of all
+      clock frequencies over time because they are not one quantity.
+    </p>
+    <p>
+      Points use the release date of the machine a figure belongs to, including figures recorded
+      against a part. A release date applies only to a machine that shipped.
+      <a href={route('/methodology/01-metrics/')}>What this metric measures</a>.
+    </p>
+  </section>
+</BaseLayout>

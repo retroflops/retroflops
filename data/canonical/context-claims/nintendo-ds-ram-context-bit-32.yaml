@@ -1,0 +1,17 @@
+id: nintendo-ds-ram:context-bit-32
+subject:
+  kind: component
+  id: nintendo-ds-ram
+label: Word size
+quantity:
+  state: value
+  value: '32'
+  unit: bit
+  significantDigits: 2
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - nintendo-ds-technical-reference
+evidenceLevel: reported

@@ -1,0 +1,54 @@
+- extract: runs at either 1 or 2 MHz
+  extractHash: a8cfac1e20aff8a5cd0050b106e56744f3cc2d89ab931362f90159adceedb7c3
+  id: bbc-micro-service-manual:cpu-clock
+  locator: Section 3.1, Processor + clock circuitry + reset circuitry
+  notes: >-
+    The manual uses 2 MHz for normal processing and RAM or ROM access, and 1 MHz
+    for specified slow-device accesses.
+  sourceId: bbc-micro-service-manual
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-22
+- extract: 32K Random Access Memory (RAM)
+  extractHash: 4bd34a7d7e62721ee12f2507e8a19658530bf083adc167e2dea107c712986558
+  id: bbc-micro-service-manual:ram-capacity
+  locator: Section 1.2.2, Model B Specification
+  sourceId: bbc-micro-service-manual
+  transcribed:
+    significantDigits: 2
+    state: value
+    unit: KiB
+    value: '32'
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-22
+- extract: 5 volts at 3.75 amps
+  extractHash: 96458a4231095777036eb183b9efb2ca9676dfc659c7dd7d610b71780296619c
+  id: bbc-micro-service-manual:power-supply
+  locator: Section 3.14, Power supply
+  notes: This is a PSU rail capability, not a Model B consumption rating.
+  sourceId: bbc-micro-service-manual
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-22
+- extract: >-
+    Every 250 nanoseconds, control of the RAM address lines is switched between
+    the microprocessor and the CRTC. Thus, in each one microsecond period, the
+    microprocessor has two RAM accesses and the CRTC has two RAM accesses.
+  extractHash: 4ea95aba2ea2b6600e1dac69b1b3a432409cd02831d4e493bc290168840b77dd
+  id: bbc-micro-service-manual:memory-cycle-time
+  locator: Section 3.3, printed p. 12
+  sourceId: bbc-micro-service-manual
+  transcribed:
+    significantDigits: 3
+    state: value
+    unit: ns
+    value: '250'
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-24
+- extract: >-
+    in the Model B, the data inputs and outputs of one pair of devices are
+    paralleled for each of the 8 data bits, D0 to D7.
+  extractHash: d0a747d6ee21bb147139b93ee15a0aeb3e5629e1fa5c362f9131487d91fd7ae4
+  id: bbc-micro-service-manual:ram-data-width
+  locator: Section 3.3, printed p. 12
+  sourceId: bbc-micro-service-manual
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-24

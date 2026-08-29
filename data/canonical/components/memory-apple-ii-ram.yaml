@@ -1,0 +1,14 @@
+id: apple-ii-ram
+slug: apple-ii-ram
+kind: memory
+name: Apple II system RAM
+manufacturer: Apple Computer
+architecture: Dynamic RAM
+introducedDate: '1977'
+memoryType: Dynamic RAM
+summary:
+  Writable motherboard RAM whose fitted capacity depends on the purchased Apple
+  II configuration.
+sourceIds:
+  - apple-ii-reference-manual
+editorialStatus: approved

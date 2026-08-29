@@ -1,0 +1,40 @@
+accessedDate: 2026-08-17
+alt: A white Sega Dreamcast photographed against white, a circular disc lid marked with the orange
+  Dreamcast spiral set into its top, with the controller standing to the left, a small screen in the
+  middle of it.
+attribution: Photograph by Evan-Amos, licensed CC BY-SA 3.0, via Wikimedia Commons.
+canonical:
+  byteLength: 17233
+  format: avif
+  height: 960
+  sha256: 6440e48dbf6e2b5d6b750f478c01db3a9bbf85a01576a6c7779054be417e510a
+  width: 1280
+caption: A Sega Dreamcast with its controller; the small screen in the pad is a memory unit slotted into it.
+creator: Evan-Amos
+creatorType: person
+editorialStatus: approved
+id: sega-dreamcast-console
+original:
+  byteLength: 2470609
+  height: 2200
+  mediaType: image/jpeg
+  sha256: d42fe4bf514b7c7c9fc4fbefec0dff08fda1c97b114d97758dafd2d09065fb09
+  width: 4540
+originalUrl: https://upload.wikimedia.org/wikipedia/commons/8/81/Dreamcast-Console-Set.jpg
+publisher: Wikimedia Commons
+rights:
+  id: cc-by-sa-3.0
+  statedAt: https://commons.wikimedia.org/wiki/File:Dreamcast-Console-Set.jpg
+  statement: This file is licensed under the Creative Commons Attribution-Share Alike 3.0 Unported license.
+  url: https://creativecommons.org/licenses/by-sa/3.0/
+sourcePageUrl: https://commons.wikimedia.org/wiki/File:Dreamcast-Console-Set.jpg
+title: Dreamcast-Console-Set.jpg
+transform:
+  background: "#ffffff"
+  fit: pad
+  note: The photograph is wider than 4:3 and the machine reaches both ends of it, so no crop keeps the
+    whole subject. The declared margin is the same white as the backdrop the photograph was taken
+    against, which is why it cannot be seen; it is recorded because it is there.
+  preset: image-v1
+  sourceHeight: 2200
+  sourceWidth: 4540

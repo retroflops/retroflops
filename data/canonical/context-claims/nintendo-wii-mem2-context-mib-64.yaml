@@ -1,0 +1,17 @@
+id: nintendo-wii-mem2:context-mib-64
+subject:
+  kind: component
+  id: nintendo-wii-mem2
+label: Capacity
+quantity:
+  state: value
+  value: '64'
+  unit: MiB
+  significantDigits: 2
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - nintendo-wii-hardware-overview
+evidenceLevel: confirmed

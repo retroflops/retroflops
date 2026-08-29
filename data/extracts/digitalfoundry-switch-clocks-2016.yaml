@@ -1,0 +1,56 @@
+- extract: >-
+    Where Switch remains consistent is in CPU power - the cores run at 1020MHz
+    regardless of whether the machine is docked or undocked.
+  extractHash: a7004edc2bc4f7c37704973ad93923f3322d2a8faf03647ea7c69dc1cae4d7da
+  id: df-switch:cpu-clock
+  locator:
+    Body text, after the discussion of the docked and undocked power
+    configurations
+  notes: >-
+    Stated as the writer's own confirmed finding about retail hardware, which is
+    what separates it from the leaked table reproduced earlier in the same
+    article. The hyphen is the article's own and is transcribed as printed.
+  sourceId: digitalfoundry-switch-clocks-2016
+  transcribed:
+    significantDigits: 3
+    state: value
+    unit: MHz
+    value: '1020'
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-15
+- extract: >-
+    We can assume that the clock-speeds are theoretical maximums, and not the
+    768/307.2MHz combo we've confirmed as locked in retail hardware.
+  extractHash: b97f77b7e0e2f7c8117e810aba13967c64109f58ad6c9527f32bcce3ae7e39d5
+  id: df-switch:gpu-clocks
+  locator: Caption to the reproduced early developer specification table
+  notes: >-
+    One sentence carrying both graphics frequencies, and carrying them as a
+    correction to the leaked table printed beside it: the docked 768 MHz and
+    handheld 307.2 MHz are what the writer says was confirmed as locked in
+    shipping hardware, against the higher theoretical maximums in the leak.
+    Written before release and never contradicted by Nintendo, who publishes no
+    frequency at all.
+  sourceId: digitalfoundry-switch-clocks-2016
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-15
+- extract: Memory | 4GB
+  extractHash: 474057c82226340ae9f8bacb3310c913bbc6ba55934ecbdb773ee03911ff0a75
+  id: df-switch:leaked-spec-memory
+  locator: Reproduced early developer specification table, 'Memory' row
+  notes: >-
+    From the leaked table rather than from the writer's own confirmations, which
+    is a weaker provenance than the clock sentences. The article picks that
+    table apart row by row — the video output, the fill rate and the missing A53
+    cores are all questioned by name — and lets the memory capacity stand.
+    ComputerBase states the same capacity outright while reviewing the shipped
+    console, and the figure is recorded on the pair rather than on this row
+    alone.
+  sourceId: digitalfoundry-switch-clocks-2016
+  transcribed:
+    significantDigits: 1
+    state: value
+    unit: GiB
+    value: '4'
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-15

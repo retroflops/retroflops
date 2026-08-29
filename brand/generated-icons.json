@@ -1,0 +1,87 @@
+{
+  "generatedBy": "pnpm brand:icons",
+  "outputs": {
+    "brand/exports/avatar-512.png": {
+      "artworkSha256": "a4f5fa5d1dd169a215e399aa296475253cd50ce27e399ad2731e43a2ebc3c7da",
+      "bytes": 5979,
+      "fileSha256": "9b588d531cdf3cec91971e788cdfe2c6cc6c7e9cd63f89d3ff0dcc0b859dbd87",
+      "format": "png",
+      "height": 512,
+      "why": "the GitHub organization and social profile picture, uploaded by hand",
+      "width": 512
+    },
+    "brand/exports/lockup-1600.png": {
+      "artworkSha256": "15aedf31a611ec7f6adf38d77cbe72089541b79cd34106ee811a072c41158650",
+      "bytes": 22388,
+      "fileSha256": "3bf14a0ee4418efe809ed5586ce2beac075e7a910dec3b87abc11130944b3e8c",
+      "format": "png",
+      "height": 427,
+      "why": "the horizontal lockup for a README, a slide or an issue, on the site paper",
+      "width": 1600
+    },
+    "public/apple-touch-icon.png": {
+      "artworkSha256": "a4f5fa5d1dd169a215e399aa296475253cd50ce27e399ad2731e43a2ebc3c7da",
+      "bytes": 1667,
+      "fileSha256": "a592a729ef4c8c90d2ccc4bd5fb30d5d829690f4ea0949cd7f2f7831b0070845",
+      "format": "png",
+      "height": 180,
+      "why": "iOS home screen, which rounds the corners itself and drops any transparency",
+      "width": 180
+    },
+    "public/favicon.ico": {
+      "artworkSha256": "d43cb5ae17c47fadeb86ec6a66b01155fbe5b53a85b6f03bcd4e6d1274933b6c",
+      "bytes": 1664,
+      "fileSha256": "47085a11410e90a0d533b763d6042f66b29cbae87317d75c3e1243bc58f1511e",
+      "format": "ico",
+      "height": 48,
+      "why": "the fallback for browsers, feed readers and bookmark bars that ask for /favicon.ico",
+      "width": 48
+    },
+    "public/favicon.svg": {
+      "artworkSha256": "d43cb5ae17c47fadeb86ec6a66b01155fbe5b53a85b6f03bcd4e6d1274933b6c",
+      "bytes": 750,
+      "fileSha256": "d43cb5ae17c47fadeb86ec6a66b01155fbe5b53a85b6f03bcd4e6d1274933b6c",
+      "format": "svg",
+      "height": 512,
+      "why": "the favicon a current browser prefers, resolution-independent",
+      "width": 512
+    },
+    "public/icon-192.png": {
+      "artworkSha256": "d43cb5ae17c47fadeb86ec6a66b01155fbe5b53a85b6f03bcd4e6d1274933b6c",
+      "bytes": 2440,
+      "fileSha256": "0d27af530eb95ebca8e625eff05616d57bdd8e14c255233107e9c0c02698e933",
+      "format": "png",
+      "height": 192,
+      "why": "the web app manifest, at the size Android uses for a shortcut",
+      "width": 192
+    },
+    "public/icon-512.png": {
+      "artworkSha256": "d43cb5ae17c47fadeb86ec6a66b01155fbe5b53a85b6f03bcd4e6d1274933b6c",
+      "bytes": 8381,
+      "fileSha256": "e8a172e10352164eff9bf00367c657404432ae8c697655fee39a8cb4c649ba62",
+      "format": "png",
+      "height": 512,
+      "why": "the web app manifest, at the size used for a splash screen",
+      "width": 512
+    },
+    "public/icon-maskable-512.png": {
+      "artworkSha256": "ecdd39ad36874c2e0cd53f20360306ebfd67d89713f9999f7cf89b184d1568e7",
+      "bytes": 4911,
+      "fileSha256": "11169bfb9c0ec70ac24596ba5b27248691f106d6bb49b7c71ad1401c55b1eb81",
+      "format": "png",
+      "height": 512,
+      "why": "the maskable manifest icon, drawn inside the safe circle",
+      "width": 512
+    },
+    "public/og-image.png": {
+      "artworkSha256": "b2587199ed32a2b887f130406e758219964fb5e0983b2808800133fbb489928a",
+      "bytes": 14564,
+      "fileSha256": "12d79a0e432fdf7a0728ef465c60354dd3c0c12caf3c9fcf253d81b64f2c98cd",
+      "format": "png",
+      "height": 630,
+      "why": "the Open Graph and Twitter card image every page falls back to",
+      "width": 1200
+    }
+  },
+  "source": "brand/logo.svg"
+}

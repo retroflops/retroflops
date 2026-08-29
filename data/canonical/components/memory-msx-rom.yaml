@@ -1,0 +1,12 @@
+id: msx-rom
+slug: msx-rom
+kind: memory
+name: MSX BIOS and BASIC ROM
+manufacturer: MSX standard
+architecture: Mask ROM
+introducedDate: '1983'
+memoryType: Mask ROM
+summary: Read-only MSX BIOS and BASIC firmware.
+sourceIds:
+  - msx-technical-data-book
+editorialStatus: provisional

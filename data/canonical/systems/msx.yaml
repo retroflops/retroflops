@@ -1,0 +1,50 @@
+id: msx
+slug: msx
+name: MSX
+manufacturer: MSX standard
+type: home-computer
+releaseDate: '1983'
+region: Worldwide
+summary: >-
+  A standard rather than one maker’s machine: Microsoft and ASCII specified a
+  Z80A, a TMS9918A-compatible video processor and ROM-resident BASIC, and
+  manufacturers across Japan and Europe built to it.
+description: >-
+  MSX tried to do for home computers what a common cassette format had done for
+  audio, so that software bought for one maker’s machine would run on another’s.
+  It held that promise in Japan, where the line stayed in production for years,
+  and made little impression in most of North America.
+configurations:
+  - id: msx1-64k
+    label: MSX1, 64 KiB RAM
+    entries:
+      - componentId: msx-z80a
+        role: main-cpu
+        count: 1
+        shared: false
+        measurementIds:
+          - msx:clock-frequency
+      - componentId: msx-vdp
+        role: gpu
+        count: 1
+        shared: false
+        measurementIds:
+          - msx:gpu-clock-frequency
+      - componentId: msx-ram
+        role: system-memory
+        count: 1
+        shared: false
+        measurementIds:
+          - msx-ram:capacity
+      - componentId: msx-rom
+        role: system-memory
+        count: 1
+        shared: false
+        notes: Read-only BIOS and BASIC ROM.
+        measurementIds:
+          - msx-rom:capacity
+imageIds:
+  - msx-computer
+sourceIds:
+  - msx-technical-data-book
+editorialStatus: provisional

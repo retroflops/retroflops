@@ -1,0 +1,13 @@
+architecture: DRAM
+editorialStatus: approved
+id: sega-saturn-video-ram
+kind: memory
+manufacturer: Sega
+memoryType: DRAM
+name: Sega Saturn video RAM
+slug: sega-saturn-video-ram
+sourceIds:
+  - sega-saturn-service-manual
+summary:
+  '{{measurement:sega-saturn-video-ram:capacity}} of memory attached to the
+  video display processors.'

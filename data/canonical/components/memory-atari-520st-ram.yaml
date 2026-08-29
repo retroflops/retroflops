@@ -1,0 +1,12 @@
+id: atari-520st-ram
+slug: atari-520st-ram
+kind: memory
+name: Atari 520ST RAM
+manufacturer: Atari
+architecture: Dynamic RAM
+introducedDate: '1985'
+memoryType: Dynamic RAM
+summary: '{{measurement:atari-520st-ram:capacity}} writable system memory.'
+sourceIds:
+  - atari-st-field-service-manual
+editorialStatus: provisional

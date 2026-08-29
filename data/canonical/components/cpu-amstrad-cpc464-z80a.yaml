@@ -1,0 +1,12 @@
+id: amstrad-cpc464-z80a
+slug: amstrad-cpc464-z80a
+kind: cpu
+name: Zilog Z80A
+manufacturer: Zilog
+architecture: Z80
+introducedDate: '1976'
+instructionSet: Zilog Z80
+summary: Four-megahertz main processor in the Amstrad CPC 464.
+sourceIds:
+  - amstrad-cpc464-user-instructions
+editorialStatus: provisional

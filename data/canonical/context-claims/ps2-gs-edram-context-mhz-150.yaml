@@ -1,0 +1,19 @@
+id: ps2-gs-edram:context-mhz-150
+subject:
+  kind: component
+  id: ps2-gs-edram
+label: Frequency
+quantity:
+  state: value
+  value: '150'
+  unit: MHz
+  significantDigits: 3
+provenance: vendor
+evidenceStage: shipped
+status: theoretical
+editorialStatus: provisional
+sourceIds:
+  - scei-ps2-specifications-1999
+extractIds:
+  - scei-ps2-1999:graphics
+evidenceLevel: confirmed

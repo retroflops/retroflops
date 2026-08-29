@@ -1,0 +1,12 @@
+id: zx-spectrum-z80a
+slug: zx-spectrum-z80a
+kind: cpu
+name: Zilog Z80A
+manufacturer: Zilog
+architecture: Z80
+introducedDate: '1976'
+instructionSet: Zilog Z80
+summary: The ZX Spectrum's eight-bit main processor.
+sourceIds:
+  - zx-spectrum-48k-manual
+editorialStatus: provisional

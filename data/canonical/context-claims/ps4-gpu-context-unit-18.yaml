@@ -1,0 +1,17 @@
+id: ps4-gpu:context-unit-18
+subject:
+  kind: component
+  id: ps4-gpu
+label: Count
+quantity:
+  state: value
+  value: '18'
+  unit: unit
+  significantDigits: 2
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - scei-ps4-introduction-2013
+evidenceLevel: confirmed

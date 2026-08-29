@@ -1,0 +1,12 @@
+editorialStatus: approved
+id: sega-saturn-ram
+slug: sega-saturn-ram
+kind: memory
+name: Sega Saturn work RAM
+manufacturer: SEGA Enterprises
+architecture: SDRAM
+introducedDate: '1994'
+memoryType: SDRAM
+summary: '{{measurement:sega-saturn-ram:capacity}} of installed SDRAM.'
+sourceIds:
+  - sega-saturn-service-manual

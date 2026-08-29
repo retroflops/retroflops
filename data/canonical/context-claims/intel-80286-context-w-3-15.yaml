@@ -1,0 +1,17 @@
+id: intel-80286:context-w-3-15
+subject:
+  kind: component
+  id: intel-80286
+label: Contextual value
+quantity:
+  state: value
+  value: '3.15'
+  unit: W
+  significantDigits: 3
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - intel-80286-datasheet
+evidenceLevel: confirmed

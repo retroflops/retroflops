@@ -1,0 +1,17 @@
+accessedDate: 2026-08-22
+editorialStatus: provisional
+id: nintendo-wii-hardware-overview
+locator: Wii manual table
+publisher: Nintendo
+sourceType: technical-manual
+tier: A
+title: Wii - System and Accessory Instruction Manuals
+url: https://en-americas-support.nintendo.com/app/answers/detail/a_id/16890/~/wii-manuals
+extract: Wii Operations Manual (Model No. RVL-001)
+fetch:
+  url: https://csassets.nintendo.com/noaext/image/private/t_KA_PDF/WiiOpMn_EN_setup?_a=BATCtdAA0
+  fetchedAt: 2026-08-25T06:06:43Z
+  httpStatus: 200
+  contentType: application/pdf
+  byteLength: 4741700
+  sha256: 0fc72ec254f6f015b8b2f16bce769fd976cd31942be79370c70d142c6bb25fa5

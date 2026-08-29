@@ -1,0 +1,21 @@
+- extract: 3.2 GHz IBM PowerPC tri-core CPU
+  extractHash: 25120bda514544e68901100be6aa4997d189aa7806756da4c8d73aea932fc0e1
+  id: xbox-360-launch:cpu-clock
+  locator: Xbox 360 launch hardware-specification list
+  sourceId: microsoft-xbox-360-hardware-overview
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-22
+- extract: 500 MHz ATi custom Radeon X1800
+  extractHash: 2c264955958b2bfad24509c66869c21ff07e6aefde395a6e9859a18f48a11b7d
+  id: xbox-360-launch:gpu-clock
+  locator: Xbox 360 launch hardware-specification list
+  sourceId: microsoft-xbox-360-hardware-overview
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-22
+- extract: 512 MB of GDDR3 RAM @ 700 MHz
+  extractHash: ffe6c4ee5f532d6d367c288e97fa704b8638e391ffbf1994b610cfb718b282c3
+  id: xbox-360-launch:main-memory
+  locator: Xbox 360 launch hardware-specification list
+  sourceId: microsoft-xbox-360-hardware-overview
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-22

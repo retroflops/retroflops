@@ -1,0 +1,12 @@
+editorialStatus: provisional
+id: microsoft-xbox-ram
+slug: microsoft-xbox-ram
+kind: memory
+name: Microsoft Xbox unified memory
+manufacturer: Microsoft
+architecture: DDR SDRAM
+introducedDate: '2001'
+memoryType: DDR SDRAM
+summary: '{{measurement:microsoft-xbox-ram:capacity}} of installed DDR SDRAM.'
+sourceIds:
+  - microsoft-xbox-hardware-specification

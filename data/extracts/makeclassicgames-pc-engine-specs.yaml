@@ -1,0 +1,7 @@
+- extract: Hudson Soft HuC6280, 8-bit, based on the 65C02, at 7.16 MHz.
+  id: makeclassicgames-pc-engine-specs:cpu-clock
+  locator: Technical specifications table, CPU row
+  sourceId: makeclassicgames-pc-engine-specs
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-25
+  extractHash: 26d170240bbf0e0616595daf5f7cc44252ee8fc5e2dc4a4b95a74fbd02a9ad05

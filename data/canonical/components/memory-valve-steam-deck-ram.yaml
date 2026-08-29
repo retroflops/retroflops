@@ -1,0 +1,12 @@
+editorialStatus: approved
+id: valve-steam-deck-ram
+slug: valve-steam-deck-ram
+kind: memory
+name: Valve Steam Deck unified memory
+manufacturer: Valve
+architecture: LPDDR5
+introducedDate: '2022'
+memoryType: LPDDR5
+summary: '{{measurement:valve-steam-deck-ram:capacity}} of installed LPDDR5.'
+sourceIds:
+  - valve-steam-deck-tech-specs

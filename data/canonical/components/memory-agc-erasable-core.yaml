@@ -1,0 +1,21 @@
+id: agc-erasable-core
+slug: agc-erasable-core
+kind: memory
+name: Apollo Guidance Computer erasable core memory
+manufacturer: MIT Instrumentation Laboratory / Raytheon
+architecture: Coincident-current ferrite core
+introducedDate: '1966'
+memoryType: Coincident-current ferrite core
+summary:
+  "The machine's read-write store: a {{measurement:agc-erasable-core:capacity}}
+  coincident-current ferrite core array wired in 32 by 64 planes with no splices
+  in the wires, for reliability."
+notes:
+  Shares the fixed memory's {{context:agc-erasable-core:context-us-11-7}} cycle
+  time, which is leisurely for a core array and leaves time between read and
+  write for incrementing and shifting during memory-cycle stealing. Block II
+  doubled the capacity from Block I's
+  {{context:agc-erasable-core:context-word-1024}}.
+sourceIds:
+  - ntrs-19760016247
+editorialStatus: approved

@@ -1,0 +1,16 @@
+id: apple-iphone-15-pro-cpu
+slug: apple-iphone-15-pro-cpu
+kind: cpu
+name: Apple iPhone 15 Pro CPU
+manufacturer: Apple
+architecture: Apple A17 Pro
+introducedDate: '2023'
+instructionSet: Arm64
+instructionSetFamily: arm
+summary: The processor section of the Apple iPhone 15 Pro system-on-chip.
+notes:
+  Apple identifies the chip but does not publish its operating clock in the
+  cited technical specification.
+sourceIds:
+  - apple-iphone-15-pro-tech-specs
+editorialStatus: approved

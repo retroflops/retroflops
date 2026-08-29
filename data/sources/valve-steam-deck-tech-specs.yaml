@@ -1,0 +1,23 @@
+accessedDate: 2026-08-13
+editorialStatus: approved
+fetch:
+  byteLength: 32477
+  contentType: text/html; charset=UTF-8
+  fetchedAt: 2026-08-13T18:08:05Z
+  httpStatus: 200
+  sha256: 512e5216797c9edf4dd737a27e3798050f3b0aa5857bcd18d198435effe47aca
+  url: https://www.steamdeck.com/en/tech/deck
+id: valve-steam-deck-tech-specs
+license: Copyright Valve Corporation. Quoted here under short-extract fair use
+  for verification of the figures cited.
+locator: "Tech specs: Compute (APU, GPU, RAM) and Power sections"
+publisher: Valve Corporation
+sourceType: vendor-documentation
+tier: A
+title: Steam Deck — Tech Specs
+url: https://www.steamdeck.com/en/tech/deck
+usageNote: >-
+  The one modern handheld whose maker states a floating-point rate and its
+  precision in the same breath. This page is the LCD model, which is the machine
+  this catalog records; the OLED page at /en/tech carries a different memory
+  transfer rate (6400 MT/s against 5500) and the two must not be merged.

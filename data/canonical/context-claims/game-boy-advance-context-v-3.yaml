@@ -1,0 +1,19 @@
+id: game-boy-advance:context-v-3
+subject:
+  kind: system
+  id: game-boy-advance
+label: Contextual value
+quantity:
+  state: value
+  value: '3'
+  unit: V
+  significantDigits: 1
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - nintendo-gba-ac-adapter-set
+extractIds:
+  - nintendo-gba-adapter:tech-specs:output
+evidenceLevel: confirmed

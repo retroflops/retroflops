@@ -1,0 +1,16 @@
+id: apple-iphone-12-cpu
+slug: apple-iphone-12-cpu
+kind: cpu
+name: Apple iPhone 12 CPU
+manufacturer: Apple
+architecture: Apple A14 Bionic
+introducedDate: '2020'
+instructionSet: Arm64
+instructionSetFamily: arm
+summary: The processor section of the Apple iPhone 12 system-on-chip.
+notes:
+  Apple identifies the chip but does not publish its operating clock in the
+  cited technical specification.
+sourceIds:
+  - apple-iphone-12-tech-specs
+editorialStatus: approved

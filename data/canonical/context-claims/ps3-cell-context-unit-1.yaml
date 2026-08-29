@@ -1,0 +1,18 @@
+id: ps3-cell:context-unit-1
+subject:
+  kind: component
+  id: ps3-cell
+label: Core count
+quantity:
+  state: value
+  value: '1'
+  unit: unit
+  significantDigits: 1
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - scei-ps3-specifications-2005
+  - scei-ps3-launch-2006
+evidenceLevel: confirmed

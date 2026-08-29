@@ -1,0 +1,11 @@
+id: atari-800-antic-gtia
+slug: atari-800-antic-gtia
+kind: gpu
+name: ANTIC and GTIA
+manufacturer: Atari
+architecture: Display-list and television-interface chips
+introducedDate: '1979'
+summary: The Atari 800 display subsystem, split across ANTIC and GTIA.
+sourceIds:
+  - atari-800-technical-reference-notes
+editorialStatus: provisional

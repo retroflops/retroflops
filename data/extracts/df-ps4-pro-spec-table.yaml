@@ -1,0 +1,18 @@
+id: df-ps4-pro:spec-table
+sourceId: digitalfoundry-ps4-pro-review
+locator: specification table "Base PS4 / PS4 Pro / Boost", CPU and GPU rows
+extract: >-
+  CPU Eight Jaguar cores clocked at 1.6GHz Eight Jaguar cores clocked at 2.1GHz
+  1.3x
+
+  GPU 18 Radeon GCN compute units at 800MHz 36 improved GCN compute units at
+  911MHz 2.3x FLOPs
+transcribedOn: 2026-07-31
+transcribedBy: RetroFlops editorial
+notes: >-
+  Transcribed from the three-column comparison table; the column order is Base
+  PS4, PS4 Pro, Boost, and the cells are rejoined here on one line per row
+  because the table markup carries no separator. The same article states the
+  graphics figure again in prose: the Pro's units "are downclocked from 911MHz
+  to the standard PS4's 800MHz".
+extractHash: cffeeb6da6f902549113c93be1435907f69bbe00d570e33c63e64cae3d0e01ee

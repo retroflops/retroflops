@@ -1,0 +1,106 @@
+id: apple-iphone-6s
+slug: apple-iphone-6s
+name: Apple iPhone 6s
+manufacturer: Apple
+type: smartphone
+family: apple-iphone
+releaseDate: 2015-09-25
+region: Worldwide
+summary: >-
+  The A9 with PowerVR Series7XT graphics, and a display that measured how hard
+  it was pressed. 3D Touch was the headline feature of exactly one generation.
+description: >-
+  Pressure sensing was dropped from later phones and replaced with a timed long
+  press, which makes the 6s a rare case of iPhone hardware being removed rather
+  than improved.
+configurations:
+  - id: 16gb
+    label: 16 GB model
+    entries:
+      - componentId: apple-iphone-6s-cpu
+        role: main-cpu
+        count: 1
+        shared: false
+        measurementIds:
+          - apple-iphone-6s:cpu-clock-frequency
+      - componentId: apple-iphone-6s-gpu
+        role: gpu
+        count: 1
+        shared: false
+        measurementIds:
+          - apple-iphone-6s:gpu-clock-frequency
+      - componentId: apple-iphone-6s-memory
+        role: unified-memory
+        count: 1
+        shared: true
+        measurementIds:
+          - apple-iphone-6s:whole-system-memory-capacity
+  - id: 32gb
+    label: 32 GB model
+    entries:
+      - componentId: apple-iphone-6s-cpu
+        role: main-cpu
+        count: 1
+        shared: false
+        measurementIds:
+          - apple-iphone-6s:cpu-clock-frequency
+      - componentId: apple-iphone-6s-gpu
+        role: gpu
+        count: 1
+        shared: false
+        measurementIds:
+          - apple-iphone-6s:gpu-clock-frequency
+      - componentId: apple-iphone-6s-memory
+        role: unified-memory
+        count: 1
+        shared: true
+        measurementIds:
+          - apple-iphone-6s:whole-system-memory-capacity
+  - id: 64gb
+    label: 64 GB model
+    entries:
+      - componentId: apple-iphone-6s-cpu
+        role: main-cpu
+        count: 1
+        shared: false
+        measurementIds:
+          - apple-iphone-6s:cpu-clock-frequency
+      - componentId: apple-iphone-6s-gpu
+        role: gpu
+        count: 1
+        shared: false
+        measurementIds:
+          - apple-iphone-6s:gpu-clock-frequency
+      - componentId: apple-iphone-6s-memory
+        role: unified-memory
+        count: 1
+        shared: true
+        measurementIds:
+          - apple-iphone-6s:whole-system-memory-capacity
+  - id: 128gb
+    label: 128 GB model
+    entries:
+      - componentId: apple-iphone-6s-cpu
+        role: main-cpu
+        count: 1
+        shared: false
+        measurementIds:
+          - apple-iphone-6s:cpu-clock-frequency
+      - componentId: apple-iphone-6s-gpu
+        role: gpu
+        count: 1
+        shared: false
+        measurementIds:
+          - apple-iphone-6s:gpu-clock-frequency
+      - componentId: apple-iphone-6s-memory
+        role: unified-memory
+        count: 1
+        shared: true
+        measurementIds:
+          - apple-iphone-6s:whole-system-memory-capacity
+notes: >-
+  Flash capacity and charger ratings are recorded as the quantities they are,
+  and never stand in for working memory or whole-system power.
+sourceIds:
+  - apple-iphone-6s-tech-specs
+editorialStatus: approved

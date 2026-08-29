@@ -1,0 +1,20 @@
+id: microsoft-xbox-one-ram:context-mb-32
+subject:
+  kind: component
+  id: microsoft-xbox-one-ram
+label: Capacity
+quantity:
+  state: value
+  value: '32'
+  unit: MB
+  significantDigits: 2
+provenance: independent
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - digitalfoundry-xbox-one-clocks-2013
+  - computerbase-xbox-one-test
+extractIds:
+  - computerbase-xbox-one:ram
+evidenceLevel: confirmed

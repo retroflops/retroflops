@@ -1,0 +1,17 @@
+id: apple-iphone-17-gpu:context-unit-5
+subject:
+  kind: component
+  id: apple-iphone-17-gpu
+label: Core count
+quantity:
+  state: value
+  value: '5'
+  unit: unit
+  significantDigits: 1
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - apple-iphone-17-tech-specs
+evidenceLevel: confirmed

@@ -1,0 +1,175 @@
+- caveat: >-
+    This figure remains provisional until the cited source is corroborated for
+    the exact configuration.
+  comparabilityGroup: clock-frequency|cpu|nominal-clock
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: intel-core-i7-2600k:clock-frequency
+  method: nominal-clock
+  metric: clock-frequency
+  normalized:
+    value: "3400000000"
+    unit: Hz
+    significantDigits: 3
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 3
+    state: value
+    unit: GHz
+    value: "3.40"
+  scope: cpu
+  sourceIds:
+    - intel-core-i7-2600k-specifications
+  status: vendor-rated
+  subject:
+    id: intel-core-i7-2600k
+    kind: component
+  evidenceLevel: confirmed
+- caveat: >-
+    This figure remains provisional until the cited source is corroborated for
+    the exact configuration.
+  comparabilityGroup: clock-frequency|cpu|peak-clock
+  conditions: Maximum Intel Turbo Boost Technology 2.0 frequency, not a
+    continuously held base frequency.
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: intel-core-i7-2600k:peak-clock
+  method: peak-clock
+  metric: clock-frequency
+  normalized:
+    value: "3800000000"
+    unit: Hz
+    significantDigits: 3
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 3
+    state: value
+    unit: GHz
+    value: "3.80"
+  scope: cpu
+  sourceIds:
+    - intel-core-i7-2600k-specifications
+  status: vendor-rated
+  subject:
+    id: intel-core-i7-2600k
+    kind: component
+  evidenceLevel: confirmed
+- benchmark:
+    id: dhrystone
+    version: "2.1"
+  caveat: >-
+    A named Dhrystone 2.1 result normalized by the clock stated for that run. It
+    remains provisional pending a second independent source.
+  comparabilityGroup: dhrystone-mips-per-mhz|cpu|benchmark-run|dhrystone@2.1
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: intel-core-i7-2600k:dhrystone-mips-per-mhz
+  method: benchmark-run
+  metric: dhrystone-mips-per-mhz
+  normalized:
+    value: "4.6"
+    unit: DMIPS/MHz
+    significantDigits: 2
+    unitRegistry: units-v1
+  provenance: independent
+  quantity:
+    significantDigits: 2
+    state: value
+    unit: DMIPS/MHz
+    value: "4.6"
+  scope: cpu
+  sourceIds:
+    - x86-dhrystone-results
+  status: measured
+  subject:
+    id: intel-core-i7-2600k
+    kind: component
+  evidenceLevel: reported
+- caveat: >-
+    This figure remains provisional until the cited source is corroborated for
+    the exact configuration.
+  comparabilityGroup: peak-fp32-rate|cpu|theoretical-peak
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: intel-core-i7-2600k:peak-fp32-rate
+  method: theoretical-peak
+  metric: peak-fp32-rate
+  provenance: vendor
+  quantity:
+    note: >-
+      The cited product table gives cores, clock and power, not a
+      single-precision peak rate.
+    state: unknown
+  unknownAudit:
+    reviewedOn: 2026-08-25
+    routesChecked:
+      - vendor-documentation
+      - independent-analysis
+      - community-source
+    outcome: no-compatible-candidate
+    summary: The checked specifications provide no precision-qualified FP32 rate.
+  scope: cpu
+  sourceIds:
+    - intel-core-i7-2600k-specifications
+  status: vendor-rated
+  subject:
+    id: intel-core-i7-2600k
+    kind: component
+- caveat: >-
+    This figure remains provisional until the cited source is corroborated for
+    the exact configuration.
+  comparabilityGroup: thermal-design-power|cpu|rated-power
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: intel-core-i7-2600k:thermal-design-power
+  method: rated-power
+  metric: thermal-design-power
+  normalized:
+    value: "95"
+    unit: W
+    significantDigits: 2
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 2
+    state: value
+    unit: W
+    value: "95"
+  scope: cpu
+  sourceIds:
+    - intel-core-i7-2600k-specifications
+  status: vendor-rated
+  subject:
+    id: intel-core-i7-2600k
+    kind: component
+  evidenceLevel: confirmed
+- caveat: >-
+    This figure remains provisional until the cited source is corroborated for
+    the exact configuration.
+  comparabilityGroup: memory-capacity|whole-system|design-capacity
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: intel-core-i7-2600k-pc:whole-system-memory-capacity
+  method: design-capacity
+  metric: memory-capacity
+  normalized:
+    value: "8589934592"
+    unit: B
+    significantDigits: 1
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 1
+    state: value
+    unit: GiB
+    value: "8"
+  scope: whole-system
+  sourceIds:
+    - intel-core-i7-2600k-specifications
+  status: vendor-rated
+  subject:
+    id: intel-core-i7-2600k-pc
+    kind: system
+  evidenceLevel: confirmed

@@ -1,0 +1,20 @@
+id: apple-m1-gpu
+slug: apple-m1-gpu
+kind: gpu
+name: Apple M1 GPU
+manufacturer: Apple
+architecture: Apple integrated graphics
+introducedDate: 2020-11
+summary:
+  Eight graphics cores on the M1 die, rated by Apple at
+  {{measurement:apple-m1-gpu:peak-fp32-rate}} of throughput and sharing the
+  processor's memory rather than owning any.
+notes:
+  Apple's phrase is "the GPU in M1", so this is a section of a die rather than a
+  separate part; it is a component of its own here because the catalog's kinds
+  are `cpu`, `gpu` and `memory` and one record cannot carry both a core count
+  and a graphics-core count.
+sourceIds:
+  - apple-m1-announcement-2020
+  - apple-mac-mini-m1-tech-specs
+editorialStatus: approved

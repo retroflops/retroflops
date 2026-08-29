@@ -1,0 +1,11 @@
+architecture: Static RAM
+editorialStatus: approved
+id: nes-ram
+kind: memory
+manufacturer: Nintendo
+memoryType: Static RAM
+name: Nintendo Entertainment System RAM
+slug: nes-ram
+sourceIds:
+  - nintendo-nes-tech-specs
+summary: '{{measurement:nes-ram:capacity}} writable CPU work RAM.'

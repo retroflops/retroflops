@@ -1,0 +1,20 @@
+id: wikipedia-wii-u-specifications
+title: Wii U
+publisher: Wikipedia contributors
+accessedDate: 2026-08-26
+locator: Technical specifications section, memory paragraph
+extract: >-
+  main memory consisting of four 512 MB DRAM chips with a maximum bandwidth of 12.8 GB/s
+tier: C
+sourceType: wiki
+url: https://en.wikipedia.org/wiki/Wii_U
+editorialStatus: provisional
+usageNote: >-
+  Tier C community article used only for the provisional main-memory bandwidth of the console.
+fetch:
+  url: https://en.wikipedia.org/wiki/Wii_U
+  fetchedAt: 2026-08-26T10:14:01Z
+  httpStatus: 200
+  contentType: text/html; charset=UTF-8
+  byteLength: 1059038
+  sha256: a1e1d62c593ab29363b2f8eed9068808dd069bd84a0a80343b7220988e384517

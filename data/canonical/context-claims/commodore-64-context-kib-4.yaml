@@ -1,0 +1,17 @@
+id: commodore-64:context-kib-4
+subject:
+  kind: system
+  id: commodore-64
+label: Capacity
+quantity:
+  state: value
+  value: '4'
+  unit: KiB
+  significantDigits: 1
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - c64-programmers-reference-guide
+evidenceLevel: confirmed

@@ -1,0 +1,17 @@
+id: msx-ram:context-bit-8
+subject:
+  kind: component
+  id: msx-ram
+label: Word size
+quantity:
+  state: value
+  value: '8'
+  unit: bit
+  significantDigits: 1
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - msx-technical-data-book
+evidenceLevel: reported

@@ -1,0 +1,21 @@
+id: amiga-ocs
+slug: amiga-ocs
+kind: gpu
+name: Amiga Original Chip Set (Agnus and Denise)
+manufacturer: Commodore-Amiga, Inc.
+architecture: Amiga OCS
+introducedDate: '1985'
+summary:
+  The custom chips that made the Amiga what it was. Agnus holds the blitter and
+  the copper display coprocessor and arbitrates memory; Denise generates the
+  display and the sprites. Both work directly on Chip memory without involving
+  the CPU.
+notes:
+  Paula, the third custom chip, handles audio and I/O and is not modeled here
+  because the catalog records processors, graphics and memory only. The original
+  Agnus reached 512K of Chip memory; Fat Agnus and later the Enhanced Chip Set
+  raised that to {{context:amiga-ocs:context-mb-1}} and
+  {{context:amiga-ocs:context-mb-2}}.
+sourceIds:
+  - amiga-hardware-reference-manual
+editorialStatus: approved

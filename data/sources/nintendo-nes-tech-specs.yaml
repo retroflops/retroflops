@@ -1,0 +1,26 @@
+accessedDate: 2026-08-15
+editorialStatus: approved
+fetch:
+  byteLength: 79883
+  contentType: text/html
+  fetchedAt: 2026-08-15T19:18:30Z
+  httpStatus: 200
+  sha256: e164547b0f54cdb2353456aa974425e64dac089daced5d55f89e96b78bf91ab1
+  url: https://www.nintendo.com/en-gb/Hardware/Nintendo-History/Nintendo-Entertainment-System/Technical-Details/Technical-Details-627027.html
+id: nintendo-nes-tech-specs
+license: Copyright Nintendo. Quoted here under short-extract fair use for
+  verification of the figures cited.
+locator: Technical Details table, CPU and Memory rows
+publisher: Nintendo
+sourceType: vendor-documentation
+tier: A
+title: Nintendo Entertainment System — Technical Details
+url: https://www.nintendo.com/en-gb/Hardware/Nintendo-History/Nintendo-Entertainment-System/Technical-Details/Technical-Details-627027.html
+usageNote: >-
+  Nintendo's own specification table for this console, still published, and the
+  only one this project has found. It states a single processor frequency and
+  names no region, although the console shipped with different crystals in
+  different territories — a distinction the catalog's record makes and this
+  document does not. Its figure is also not the one that circulates. Both facts
+  are carried on the measurement rather than resolved here, because the
+  manufacturer's statement is the manufacturer's statement.

@@ -1,0 +1,286 @@
+- caveat: >-
+    The manual states a round {{measurement:nintendo-64:cpu-clock-frequency}},
+    so this figure carries two significant digits and nothing more. Other
+    accounts of this console quote a more precise rate; none is cited here, and
+    adopting one would be publishing a number this project has not sourced.
+  comparabilityGroup: clock-frequency|cpu|nominal-clock
+  conditions: R4300 CPU, from the manual's clock speeds and bus bandwidth list.
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - n64-pm:p48:clock-speeds
+  id: nintendo-64:cpu-clock-frequency
+  method: nominal-clock
+  metric: clock-frequency
+  normalized:
+    value: "94000000"
+    unit: Hz
+    significantDigits: 2
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 2
+    state: value
+    unit: MHz
+    value: "94"
+  scope: cpu
+  sourceIds:
+    - n64-programming-manual
+  status: vendor-rated
+  subject:
+    configurationId: retail
+    id: nintendo-64
+    kind: system
+  evidenceLevel: confirmed
+- caveat: >-
+    Held provisional rather than approved. The digits are legible, but the same
+    list renders 110 as "liO" and the surrounding prose is badly corrupted, so a
+    third digit read off this scan is not something to publish as fact. A
+    provisional figure is visible but never feeds an automatic multiplier; it
+    needs a second source before it can be accepted.
+  comparabilityGroup: clock-frequency|gpu|nominal-clock
+  conditions: Reality Coprocessor, from the manual's clock speeds and bus bandwidth list.
+  editorialStatus: provisional
+  evidenceStage: shipped
+  extractIds:
+    - n64-pm:p48:clock-speeds
+  id: nintendo-64:rcp-clock-frequency
+  method: nominal-clock
+  metric: clock-frequency
+  normalized:
+    value: "62600000"
+    unit: Hz
+    significantDigits: 3
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 3
+    state: value
+    unit: MHz
+    value: "62.6"
+  scope: gpu
+  sourceIds:
+    - n64-programming-manual
+  status: vendor-rated
+  subject:
+    configurationId: retail
+    id: nintendo-64
+    kind: system
+  evidenceLevel: confirmed
+- caveat: >-
+    One pool shared by the CPU, the RSP, the RDP and the I/O interfaces. It is
+    not comparable like for like with the PlayStation's
+    {{context:n64-rdram:context-mib-2}} of main memory, because that machine has
+    a further {{context:n64-rdram:context-mib-1}} of video memory the CPU cannot
+    reach and this one does not separate the two.
+  comparabilityGroup: memory-capacity|memory|design-capacity
+  conditions: Main memory of the retail console, built from
+    {{context:n64-rdram:context-bit-9}} RDRAMs.
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - n64-pm:p49:main-memory
+    - n64-pm:p47:shared-main-memory
+  id: n64-rdram:capacity
+  method: design-capacity
+  metric: memory-capacity
+  normalized:
+    value: "4194304"
+    unit: B
+    significantDigits: 1
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 1
+    state: value
+    unit: MiB
+    value: "4"
+  scope: memory
+  sourceIds:
+    - n64-programming-manual
+  status: vendor-rated
+  subject:
+    id: n64-rdram
+    kind: component
+  evidenceLevel: confirmed
+- caveat: >-
+    Adds 1 memory-capacity figure obtained by design-capacity. Nothing in the
+    catalog is left out of it. A total is only as trustworthy as the decision
+    about what belongs in it, so both the terms and the exclusions are named
+    records.
+  comparabilityGroup: memory-capacity|whole-system|design-capacity
+  conditions: One pool shared by the processor, the coprocessor and the I/O
+    interfaces, so the machine’s memory is a single figure.
+  derivedFrom: nintendo-64:whole-system-memory
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - n64-pm:p49:main-memory
+    - n64-pm:p47:shared-main-memory
+  id: nintendo-64:whole-system-memory-capacity
+  method: design-capacity
+  metric: memory-capacity
+  normalized:
+    value: "4194304"
+    unit: B
+    significantDigits: 1
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 1
+    state: value
+    unit: MiB
+    value: "4"
+  rounding: none
+  scope: whole-system
+  sourceIds:
+    - n64-programming-manual
+  status: derived
+  subject:
+    id: nintendo-64
+    kind: system
+  evidenceLevel: confirmed
+- caveat: >-
+    Provisional, like the graphics clock on the same page and for the same
+    reason: the bullet this is read from is the one whose own clock figure the
+    scan destroys, so a legible number on an illegible line waits for a second
+    source. Note also what the manual counts: "9 bit bytes at 500 M/sec". The
+    ninth bit is not the programmer’s, so this is 500 million bytes per second
+    of data on a bus carrying rather more than that.
+  comparabilityGroup: memory-bandwidth|memory|theoretical-peak
+  conditions: The single RDRAM pool, which the manual states is used in parallel
+    by the processor, the signal processor, the drawing processor and the I/O
+    interfaces.
+  editorialStatus: provisional
+  evidenceStage: shipped
+  extractIds:
+    - n64-pm:p48:clock-speeds
+  id: n64-rdram:bandwidth
+  method: theoretical-peak
+  metric: memory-bandwidth
+  normalized:
+    value: "500000000"
+    unit: B/s
+    significantDigits: 3
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 3
+    state: value
+    unit: MB/s
+    value: "500"
+  scope: memory
+  sourceIds:
+    - n64-programming-manual
+  status: theoretical
+  subject:
+    id: n64-rdram
+    kind: component
+  evidenceLevel: confirmed
+- caveat: >-
+    Unknown rather than not-applicable: the R4300 has a floating-point unit and
+    the signal processor is a vector machine, so the quantity exists. Nintendo
+    simply never published a rate for it. The console generation that started
+    quoting floating-point figures is the next one.
+  comparabilityGroup: peak-fp32-rate|gpu|theoretical-peak
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - n64-pm:p47:shared-main-memory
+  id: nintendo-64:peak-fp32-rate
+  method: theoretical-peak
+  metric: peak-fp32-rate
+  provenance: vendor
+  quantity:
+    note: >-
+      The programming manual describes the Reality Coprocessor by what its
+      microcode does and never rates it in floating-point operations per second.
+    state: unknown
+  unknownAudit:
+    reviewedOn: 2026-08-25
+    routesChecked:
+      - vendor-documentation
+      - independent-analysis
+      - community-source
+    outcome: no-published-candidate
+    summary: >-
+      The checked programming manual describes Reality Coprocessor microcode but
+      provides no floating-point operations-per-second rate.
+  scope: gpu
+  sourceIds:
+    - n64-programming-manual
+  status: vendor-rated
+  subject:
+    id: nintendo-64
+    kind: system
+- caveat: >-
+    Recorded as asked and unanswered. A figure is printed on the console’s own
+    supply, but a nameplate photograph is not a source this catalog accepts, and
+    Nintendo’s developer documentation does not repeat it.
+  comparabilityGroup: rated-power-consumption|whole-system|rated-power
+  editorialStatus: approved
+  evidenceStage: shipped
+  id: nintendo-64:rated-power-consumption
+  method: rated-power
+  metric: rated-power-consumption
+  provenance: vendor
+  quantity:
+    note: >-
+      The programming manual is written for developers and rates no power for
+      the console.
+    state: unknown
+  unknownAudit:
+    reviewedOn: 2026-08-25
+    routesChecked:
+      - vendor-documentation
+      - independent-analysis
+      - community-source
+    outcome: no-published-candidate
+    summary: >-
+      The checked developer documentation provides no electrical rating for the
+      retail console.
+  scope: whole-system
+  sourceIds:
+    - n64-programming-manual
+  status: vendor-rated
+  subject:
+    id: nintendo-64
+    kind: system
+- caveat: >-
+    Adds 1 memory-bandwidth figure obtained by theoretical-peak. Nothing in the
+    catalog is left out of it. A total is only as trustworthy as the decision
+    about what belongs in it, so both the terms and the exclusions are named
+    records.
+  comparabilityGroup: memory-bandwidth|whole-system|theoretical-peak
+  conditions: "One pool for everything: the manual states that the processor, the
+    signal processor, the drawing processor and the I/O interfaces use this
+    memory in parallel."
+  derivedFrom: nintendo-64:whole-system-memory-bandwidth
+  editorialStatus: provisional
+  evidenceStage: shipped
+  extractIds:
+    - n64-pm:p48:clock-speeds
+    - n64-pm:p47:shared-main-memory
+  id: nintendo-64:whole-system-memory-bandwidth
+  method: theoretical-peak
+  metric: memory-bandwidth
+  normalized:
+    value: "500000000"
+    unit: B/s
+    significantDigits: 3
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 3
+    state: value
+    unit: MB/s
+    value: "500"
+  rounding: none
+  scope: whole-system
+  sourceIds:
+    - n64-programming-manual
+  status: derived
+  subject:
+    id: nintendo-64
+    kind: system
+  evidenceLevel: confirmed

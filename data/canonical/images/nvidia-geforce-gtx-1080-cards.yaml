@@ -1,0 +1,48 @@
+accessedDate: 2026-08-16
+alt: A row of NVIDIA GeForce GTX 1080 Founders Edition cards mounted side by side in a rack, the
+  nearest one in focus with its angular silver shroud and centrifugal fan lit green, power cables
+  looping away from their connectors.
+attribution: Photograph by Benedikt S. Vogler, licensed CC BY-SA 2.0, via Wikimedia Commons.
+canonical:
+  byteLength: 61084
+  format: avif
+  height: 960
+  sha256: b5b1d8ae08f50e068db098d419a3199d83b3ee6b19cd17f3da4b23c63f78411a
+  width: 1280
+caption: GeForce GTX 1080 Founders Edition cards in a rack, the reference shroud and its blower fan
+  in the foreground.
+creator: Benedikt S. Vogler
+creatorType: person
+editorialStatus: approved
+id: nvidia-geforce-gtx-1080-cards
+notes: The photograph shows several cards, which the alternative text says. It is preferred over the
+  single installed card available under an admissible license because that one is dark and runs off
+  the frame at both ends; NVIDIA's own launch photography is not licensed for republication.
+original:
+  byteLength: 1678007
+  height: 2678
+  mediaType: image/jpeg
+  sha256: 0270624bc429ebb68becdd1256f173330a57743ef01faf7e4e1341210b10bbe0
+  width: 4018
+originalUrl: https://upload.wikimedia.org/wikipedia/commons/7/75/NVIDIA_GTX1080.jpg
+publisher: Wikimedia Commons
+rights:
+  id: cc-by-sa-2.0
+  statedAt: https://commons.wikimedia.org/wiki/File:NVIDIA_GTX1080.jpg
+  statement: This file is licensed under the Creative Commons Attribution-Share Alike 2.0 Generic license.
+  url: https://creativecommons.org/licenses/by-sa/2.0/
+sourcePageUrl: https://commons.wikimedia.org/wiki/File:NVIDIA_GTX1080.jpg
+title: Mehrere GTX 1080-Karten
+transform:
+  fit: crop
+  note: A centered crop off the long edges of a 3:2 original. The photograph is a row of cards rather
+    than one object on a table, so the crop narrows the row without cutting through the card in
+    focus.
+  preset: image-v1
+  region:
+    height: 2676
+    width: 3568
+    x: 225
+    y: 1
+  sourceHeight: 2678
+  sourceWidth: 4018

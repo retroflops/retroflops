@@ -1,0 +1,69 @@
+id: nvidia-geforce-256
+slug: nvidia-geforce-256
+name: NVIDIA GeForce 256
+manufacturer: NVIDIA
+type: accelerator
+family: nvidia-geforce
+releaseDate: 1999-10
+region: Worldwide
+summary: >-
+  The card NVIDIA sold as the first GPU, moving transform and lighting off the
+  processor and onto the board. It shipped first with SDR memory and later with
+  DDR.
+description: >-
+  NVIDIA sold the GeForce 256 as the first GPU, on the strength of moving
+  transform and lighting off the processor and onto the card. The marketing word
+  outlasted the argument it was coined for, but the shift underneath it held:
+  geometry work that had belonged to the CPU now ran beside rasterization.
+imageIds:
+  - nvidia-geforce-256-card
+configurations:
+  - id: sdr-32mb
+    label: SDR 32 MiB reference card
+    releaseDate: 1999-10
+    entries:
+      - componentId: nvidia-nv10
+        role: gpu
+        count: 1
+        shared: false
+        measurementIds:
+          - nvidia-nv10:clock-frequency-base
+          - nvidia-nv10:peak-fp32-rate
+          - nvidia-nv10:pixel-fill-rate
+          - nvidia-nv10:texel-fill-rate
+      - componentId: nvidia-geforce-256-sdr-memory
+        role: video-memory
+        count: 1
+        shared: false
+        measurementIds:
+          - nvidia-geforce-256:sdr-32mb:memory-capacity
+          - nvidia-geforce-256:sdr-32mb:memory-bandwidth
+          - nvidia-geforce-256:sdr-32mb:whole-system-memory-bandwidth
+  - id: ddr-32mb
+    label: DDR 32 MiB reference card
+    releaseDate: 1999-12
+    entries:
+      - componentId: nvidia-nv10
+        role: gpu
+        count: 1
+        shared: false
+        measurementIds:
+          - nvidia-nv10:clock-frequency-base
+          - nvidia-nv10:peak-fp32-rate
+          - nvidia-nv10:pixel-fill-rate
+          - nvidia-nv10:texel-fill-rate
+      - componentId: nvidia-geforce-256-ddr-memory
+        role: video-memory
+        count: 1
+        shared: false
+        measurementIds:
+          - nvidia-geforce-256:ddr-32mb:memory-capacity
+          - nvidia-geforce-256:ddr-32mb:memory-bandwidth
+          - nvidia-geforce-256:ddr-32mb:whole-system-memory-bandwidth
+sourceIds:
+  - visiontek-geforce-256-agp-product-brief
+  - wikipedia-geforce-256-specifications
+editorialStatus: provisional
+notes: >-
+  NVIDIA released SDR and DDR reference configurations. Later partner cards with
+  more frame-buffer memory are outside this record.

@@ -1,0 +1,7 @@
+- extract: 'Total output power: 100 Watts cont.'
+  id: acorn-a500-technical-reference:power-supply-output
+  locator: Power supply
+  sourceId: acorn-archimedes-technical-reference
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-24
+  extractHash: 4ccbb18606d2688b9d596adf6847cf3c15cd1507965eae7aaf2f5c0a73531176

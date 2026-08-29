@@ -1,0 +1,19 @@
+id: ps3-xdr:context-gb-s-20
+subject:
+  kind: component
+  id: ps3-xdr
+label: Rate
+quantity:
+  state: value
+  value: '20'
+  unit: GB/s
+  significantDigits: 2
+provenance: vendor
+evidenceStage: pre-launch
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - scei-ps3-specifications-2005
+extractIds:
+  - scei-ps3-2005:memory
+evidenceLevel: confirmed

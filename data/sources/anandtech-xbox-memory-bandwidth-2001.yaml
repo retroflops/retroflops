@@ -1,0 +1,25 @@
+accessedDate: 2026-08-13
+archiveUrl: https://web.archive.org/web/20160308075709/http://www.anandtech.com/show/853/6
+editorialStatus: approved
+id: anandtech-xbox-memory-bandwidth-2001
+license: Copyright AnandTech. Quoted here under short-extract fair use for
+  verification of the figure cited.
+locator: >-
+  'Memory Bandwidth Galore' section, paragraph on the 128-bit TwinBank memory
+  architecture
+publishedDate: "2001"
+publisher: AnandTech
+sourceType: independent-analysis
+tier: B
+title: >-
+  Memory Bandwidth Galore — Hardware Behind the Consoles, Part I: Microsoft's
+  Xbox
+url: https://www.anandtech.com/show/853/6
+urlStatus: known-unavailable
+usageNote: >-
+  AnandTech closed in 2024 and the original address no longer answers, so the
+  figure is cited from a Wayback capture of 8 March 2016. The article reaches
+  6.4 GB/s from the memory parts it found in a retail console — 5ns Samsung
+  chips at 200MHz DDR across NVIDIA's 128-bit TwinBank — which is a different
+  route to the number than GameSpot's, and that is what makes the two
+  independent.

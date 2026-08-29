@@ -1,0 +1,1168 @@
+version: unknown-repair-v1
+baselineCommit: 99c5bc2ca113964ff77cde4f9cf0cca9faa323f9
+entries:
+  - measurementId: amiga-4000:gpu-clock-frequency
+    disposition: true-unknown
+    reviewedOn: 2026-08-26
+    targetIds: [amiga-4000:gpu-clock-frequency]
+  - measurementId: amiga-4000:memory-bandwidth
+    disposition: true-unknown
+    reviewedOn: 2026-08-26
+    targetIds: [amiga-4000:memory-bandwidth]
+  - measurementId: amiga-4000:rated-power-consumption
+    disposition: true-unknown
+    reviewedOn: 2026-08-26
+    targetIds: [amiga-4000:rated-power-consumption]
+  - measurementId: apple-iphone-17:peak-fp32-rate
+    disposition: true-unknown
+    reviewedOn: 2026-08-26
+    targetIds: [apple-iphone-17:peak-fp32-rate]
+  - measurementId: apple-iphone-17:rated-power-consumption
+    disposition: true-unknown
+    reviewedOn: 2026-08-26
+    targetIds: [apple-iphone-17:rated-power-consumption]
+  - measurementId: nintendo-switch-2:rated-power-consumption
+    disposition: true-unknown
+    reviewedOn: 2026-08-26
+    targetIds: [nintendo-switch-2:rated-power-consumption]
+  - measurementId: 3dfx-voodoo-graphics-memory:bandwidth
+    disposition: true-unknown
+    reviewedOn: 2026-08-25
+    targetIds: [3dfx-voodoo-graphics-memory:bandwidth]
+  - measurementId: 3dfx-voodoo-graphics-memory:capacity
+    disposition: rumored
+    reviewedOn: 2026-08-26
+    targetIds: [3dfx-voodoo-graphics-memory:capacity]
+  - measurementId: 3dfx-voodoo-graphics:peak-fp32-rate
+    disposition: true-unknown
+    reviewedOn: 2026-08-25
+    targetIds: [3dfx-voodoo-graphics:peak-fp32-rate]
+  - measurementId: 3dfx-voodoo-graphics:pixel-fill-rate
+    disposition: true-unknown
+    reviewedOn: 2026-08-25
+    targetIds: [3dfx-voodoo-graphics:pixel-fill-rate]
+  - measurementId: 3dfx-voodoo-graphics:rated-power-consumption
+    disposition: true-unknown
+    reviewedOn: 2026-08-25
+    targetIds: [3dfx-voodoo-graphics:rated-power-consumption]
+  - measurementId: 3dfx-voodoo-graphics:texel-fill-rate
+    disposition: true-unknown
+    reviewedOn: 2026-08-25
+    targetIds: [3dfx-voodoo-graphics:texel-fill-rate]
+  - measurementId: 3dfx-voodoo-graphics:whole-system-memory-bandwidth
+    disposition: true-unknown
+    reviewedOn: 2026-08-25
+    targetIds: [3dfx-voodoo-graphics:whole-system-memory-bandwidth]
+  - measurementId: acorn-archimedes-a310:clock-frequency
+    disposition: rumored
+    reviewedOn: 2026-08-26
+    targetIds: [acorn-archimedes-a310:clock-frequency]
+  - measurementId: acorn-archimedes-a310:gpu-clock-frequency
+    disposition: true-unknown
+    reviewedOn: 2026-08-25
+    targetIds: [acorn-archimedes-a310:gpu-clock-frequency]
+  - measurementId: acorn-archimedes-a310:memory-bandwidth
+    disposition: true-unknown
+    reviewedOn: 2026-08-25
+    targetIds: [acorn-archimedes-a310:memory-bandwidth]
+  - measurementId: acorn-archimedes-a310:whole-system-memory-capacity
+    disposition: true-unknown
+    reviewedOn: 2026-08-25
+    targetIds: [acorn-archimedes-a310:whole-system-memory-capacity]
+  - measurementId: acorn-archimedes-ram:capacity
+    disposition: true-unknown
+    reviewedOn: 2026-08-25
+    targetIds: [acorn-archimedes-ram:capacity]
+  - measurementId: acorn-archimedes-rom:capacity
+    disposition: true-unknown
+    reviewedOn: 2026-08-25
+    targetIds: [acorn-archimedes-rom:capacity]
+  - measurementId: amiga-1200:gpu-clock-frequency
+    disposition: true-unknown
+    reviewedOn: 2026-08-25
+    targetIds: [amiga-1200:gpu-clock-frequency]
+  - measurementId: amiga-1200:memory-bandwidth
+    disposition: true-unknown
+    reviewedOn: 2026-08-25
+    targetIds: [amiga-1200:memory-bandwidth]
+  - measurementId: amiga-500:gpu-clock-frequency
+    disposition: true-unknown
+    reviewedOn: 2026-08-25
+    targetIds: [amiga-500:gpu-clock-frequency]
+  - measurementId: amiga-500:memory-bandwidth
+    disposition: true-unknown
+    reviewedOn: 2026-08-25
+    targetIds: [amiga-500:memory-bandwidth]
+  - measurementId: amiga-500:rated-power-consumption
+    disposition: true-unknown
+    reviewedOn: 2026-08-25
+    targetIds: [amiga-500:rated-power-consumption]
+  - measurementId: amstrad-cpc-464:gpu-clock-frequency
+    disposition: true-unknown
+    reviewedOn: 2026-08-25
+    targetIds: [amstrad-cpc-464:gpu-clock-frequency]
+  - measurementId: amstrad-cpc-464:memory-bandwidth
+    disposition: true-unknown
+    reviewedOn: 2026-08-25
+    targetIds: [amstrad-cpc-464:memory-bandwidth]
+  - measurementId: amstrad-cpc-464:rated-power-consumption
+    disposition: true-unknown
+    reviewedOn: 2026-08-25
+    targetIds: [amstrad-cpc-464:rated-power-consumption]
+  - measurementId: amstrad-cpc-464:sustained-fp40-rate
+    disposition: true-unknown
+    reviewedOn: 2026-08-25
+    targetIds: [amstrad-cpc-464:sustained-fp40-rate]
+  - measurementId: amstrad-cpc-464:whole-system-memory-capacity
+    disposition: true-unknown
+    reviewedOn: 2026-08-25
+    targetIds: [amstrad-cpc-464:whole-system-memory-capacity]
+  - measurementId: amstrad-cpc464-rom:capacity
+    disposition: true-unknown
+    reviewedOn: 2026-08-25
+    targetIds: [amstrad-cpc464-rom:capacity]
+  - measurementId: apollo-guidance-computer-block-ii:memory-bandwidth
+    disposition: true-unknown
+    reviewedOn: 2026-08-25
+    targetIds: [apollo-guidance-computer-block-ii:memory-bandwidth]
+  - measurementId: apollo-guidance-computer-block-ii:system-power-draw
+    disposition: true-unknown
+    reviewedOn: 2026-08-25
+    targetIds: [apollo-guidance-computer-block-ii:system-power-draw]
+  - measurementId: apple-ii-6502:peak-fp32-rate
+    disposition: true-unknown
+    reviewedOn: 2026-08-25
+    targetIds: [apple-ii-6502:peak-fp32-rate]
+  - measurementId: apple-ii-ram:capacity
+    disposition: true-unknown
+    reviewedOn: 2026-08-25
+    targetIds: [apple-ii-ram:capacity]
+  - measurementId: apple-ii:gpu-clock-frequency
+    disposition: true-unknown
+    reviewedOn: 2026-08-25
+    targetIds: [apple-ii:gpu-clock-frequency]
+  - measurementId: apple-ii:memory-bandwidth
+    disposition: true-unknown
+    reviewedOn: 2026-08-25
+    targetIds: [apple-ii:memory-bandwidth]
+  - measurementId: apple-ii:rated-power-consumption
+    disposition: true-unknown
+    reviewedOn: 2026-08-25
+    targetIds: [apple-ii:rated-power-consumption]
+  - measurementId: apple-ii:sustained-fp40-rate
+    disposition: true-unknown
+    reviewedOn: 2026-08-25
+    targetIds: [apple-ii:sustained-fp40-rate]
+  - measurementId: apple-ii:whole-system-memory-capacity
+    disposition: true-unknown
+    reviewedOn: 2026-08-25
+    targetIds: [apple-ii:whole-system-memory-capacity]
+  - measurementId: apple-iphone-12:cpu-clock-frequency
+    disposition: reported
+    reviewedOn: 2026-08-25
+    targetIds:
+      - apple-iphone-12:cpu-clock-frequency
+  - measurementId: apple-iphone-12:gpu-clock-frequency
+    disposition: true-unknown
+    reviewedOn: 2026-08-25
+    targetIds:
+      - apple-iphone-12:gpu-clock-frequency
+  - measurementId: apple-iphone-12:peak-fp32-rate
+    disposition: true-unknown
+    reviewedOn: 2026-08-25
+    targetIds:
+      - apple-iphone-12:peak-fp32-rate
+  - measurementId: apple-iphone-12:rated-power-consumption
+    disposition: true-unknown
+    reviewedOn: 2026-08-25
+    targetIds:
+      - apple-iphone-12:rated-power-consumption
+  - measurementId: apple-iphone-12:whole-system-memory-bandwidth
+    disposition: rumored
+    reviewedOn: 2026-08-25
+    targetIds:
+      - apple-iphone-12:whole-system-memory-bandwidth
+  - measurementId: apple-iphone-12:whole-system-memory-capacity
+    disposition: reported
+    reviewedOn: 2026-08-25
+    targetIds:
+      - apple-iphone-12:whole-system-memory-capacity
+  - measurementId: apple-iphone-15-pro:cpu-clock-frequency
+    disposition: confirmed
+    reviewedOn: 2026-08-25
+    targetIds:
+      - apple-iphone-15-pro:cpu-clock-frequency
+  - measurementId: apple-iphone-15-pro:gpu-clock-frequency
+    disposition: rumored
+    reviewedOn: 2026-08-25
+    targetIds:
+      - apple-iphone-15-pro:gpu-clock-frequency
+  - measurementId: apple-iphone-15-pro:peak-fp32-rate
+    disposition: true-unknown
+    reviewedOn: 2026-08-25
+    targetIds:
+      - apple-iphone-15-pro:peak-fp32-rate
+  - measurementId: apple-iphone-15-pro:rated-power-consumption
+    disposition: true-unknown
+    reviewedOn: 2026-08-25
+    targetIds:
+      - apple-iphone-15-pro:rated-power-consumption
+  - measurementId: apple-iphone-15-pro:whole-system-memory-bandwidth
+    disposition: rumored
+    reviewedOn: 2026-08-25
+    targetIds:
+      - apple-iphone-15-pro:whole-system-memory-bandwidth
+  - measurementId: apple-iphone-15-pro:whole-system-memory-capacity
+    disposition: reported
+    reviewedOn: 2026-08-25
+    targetIds:
+      - apple-iphone-15-pro:whole-system-memory-capacity
+  - measurementId: apple-iphone-17-pro:cpu-clock-frequency
+    disposition: reported
+    targetIds:
+      - apple-iphone-17-pro:cpu-clock-frequency
+    reviewedOn: 2026-08-25
+  - measurementId: apple-iphone-17-pro:gpu-clock-frequency
+    disposition: rumored
+    targetIds:
+      - apple-iphone-17-pro:gpu-clock-frequency
+    reviewedOn: 2026-08-25
+  - measurementId: apple-iphone-17-pro:peak-fp32-rate
+    disposition: true-unknown
+    targetIds:
+      - apple-iphone-17-pro:peak-fp32-rate
+    reviewedOn: 2026-08-25
+  - measurementId: apple-iphone-17-pro:rated-power-consumption
+    disposition: true-unknown
+    targetIds:
+      - apple-iphone-17-pro:rated-power-consumption
+    reviewedOn: 2026-08-25
+  - measurementId: apple-iphone-17-pro:whole-system-memory-bandwidth
+    disposition: rumored
+    targetIds:
+      - apple-iphone-17-pro:whole-system-memory-bandwidth
+    reviewedOn: 2026-08-25
+  - measurementId: apple-iphone-17-pro:whole-system-memory-capacity
+    disposition: reported
+    targetIds:
+      - apple-iphone-17-pro:whole-system-memory-capacity
+    reviewedOn: 2026-08-25
+  - measurementId: apple-iphone-1st-generation:cpu-clock-frequency
+    disposition: reported
+    targetIds:
+      - apple-iphone-1st-generation:cpu-clock-frequency-independent
+    reviewedOn: 2026-08-25
+  - measurementId: apple-iphone-1st-generation:gpu-clock-frequency
+    disposition: true-unknown
+    targetIds:
+      - apple-iphone-1st-generation:gpu-clock-frequency
+    reviewedOn: 2026-08-25
+  - measurementId: apple-iphone-1st-generation:peak-fp32-rate
+    disposition: true-unknown
+    targetIds:
+      - apple-iphone-1st-generation:peak-fp32-rate
+    reviewedOn: 2026-08-25
+  - measurementId: apple-iphone-1st-generation:rated-power-consumption
+    disposition: true-unknown
+    targetIds:
+      - apple-iphone-1st-generation:rated-power-consumption
+    reviewedOn: 2026-08-25
+  - measurementId: apple-iphone-1st-generation:whole-system-memory-bandwidth
+    disposition: true-unknown
+    targetIds:
+      - apple-iphone-1st-generation:whole-system-memory-bandwidth
+    reviewedOn: 2026-08-25
+  - measurementId: apple-iphone-3gs:cpu-clock-frequency
+    disposition: reported
+    targetIds:
+      - apple-iphone-3gs:cpu-clock-frequency
+    reviewedOn: 2026-08-25
+  - measurementId: apple-iphone-3gs:gpu-clock-frequency
+    disposition: true-unknown
+    targetIds:
+      - apple-iphone-3gs:gpu-clock-frequency
+    reviewedOn: 2026-08-25
+  - measurementId: apple-iphone-3gs:peak-fp32-rate
+    disposition: true-unknown
+    targetIds:
+      - apple-iphone-3gs:peak-fp32-rate
+    reviewedOn: 2026-08-25
+  - measurementId: apple-iphone-3gs:rated-power-consumption
+    disposition: true-unknown
+    targetIds:
+      - apple-iphone-3gs:rated-power-consumption
+    reviewedOn: 2026-08-25
+  - measurementId: apple-iphone-3gs:whole-system-memory-bandwidth
+    disposition: true-unknown
+    targetIds:
+      - apple-iphone-3gs:whole-system-memory-bandwidth
+    reviewedOn: 2026-08-25
+  - measurementId: apple-iphone-3gs:whole-system-memory-capacity
+    disposition: true-unknown
+    targetIds:
+      - apple-iphone-3gs:whole-system-memory-capacity
+    reviewedOn: 2026-08-25
+  - measurementId: apple-iphone-4:cpu-clock-frequency
+    disposition: reported
+    targetIds:
+      - apple-iphone-4:cpu-clock-frequency
+    reviewedOn: 2026-08-25
+  - measurementId: apple-iphone-4:gpu-clock-frequency
+    disposition: true-unknown
+    targetIds:
+      - apple-iphone-4:gpu-clock-frequency
+    reviewedOn: 2026-08-25
+  - measurementId: apple-iphone-4:peak-fp32-rate
+    disposition: true-unknown
+    targetIds:
+      - apple-iphone-4:peak-fp32-rate
+    reviewedOn: 2026-08-25
+  - measurementId: apple-iphone-4:rated-power-consumption
+    disposition: true-unknown
+    targetIds:
+      - apple-iphone-4:rated-power-consumption
+    reviewedOn: 2026-08-25
+  - measurementId: apple-iphone-4:whole-system-memory-bandwidth
+    disposition: true-unknown
+    targetIds:
+      - apple-iphone-4:whole-system-memory-bandwidth
+    reviewedOn: 2026-08-25
+  - measurementId: apple-iphone-4:whole-system-memory-capacity
+    disposition: reported
+    targetIds:
+      - apple-iphone-4:whole-system-memory-capacity
+    reviewedOn: 2026-08-25
+  - measurementId: apple-iphone-5s:cpu-clock-frequency
+    disposition: rumored
+    targetIds:
+      - apple-iphone-5s:cpu-clock-frequency
+    reviewedOn: 2026-08-26
+  - measurementId: apple-iphone-5s:gpu-clock-frequency
+    disposition: true-unknown
+    targetIds:
+      - apple-iphone-5s:gpu-clock-frequency
+    reviewedOn: 2026-08-25
+  - measurementId: apple-iphone-5s:peak-fp32-rate
+    disposition: true-unknown
+    targetIds:
+      - apple-iphone-5s:peak-fp32-rate
+    reviewedOn: 2026-08-25
+  - measurementId: apple-iphone-5s:rated-power-consumption
+    disposition: true-unknown
+    targetIds:
+      - apple-iphone-5s:rated-power-consumption
+    reviewedOn: 2026-08-25
+  - measurementId: apple-iphone-5s:whole-system-memory-bandwidth
+    disposition: true-unknown
+    targetIds:
+      - apple-iphone-5s:whole-system-memory-bandwidth
+    reviewedOn: 2026-08-25
+  - measurementId: apple-iphone-5s:whole-system-memory-capacity
+    disposition: reported
+    targetIds:
+      - apple-iphone-5s:whole-system-memory-capacity
+    reviewedOn: 2026-08-25
+  - measurementId: apple-iphone-6s:cpu-clock-frequency
+    disposition: rumored
+    targetIds: [apple-iphone-6s:cpu-clock-frequency]
+    reviewedOn: 2026-08-26
+  - measurementId: apple-iphone-6s:gpu-clock-frequency
+    disposition: rumored
+    targetIds: [apple-iphone-6s:gpu-clock-frequency]
+    reviewedOn: 2026-08-26
+  - measurementId: apple-iphone-6s:peak-fp32-rate
+    disposition: true-unknown
+    targetIds: [apple-iphone-6s:peak-fp32-rate]
+    reviewedOn: 2026-08-25
+  - measurementId: apple-iphone-6s:rated-power-consumption
+    disposition: true-unknown
+    targetIds: [apple-iphone-6s:rated-power-consumption]
+    reviewedOn: 2026-08-25
+  - measurementId: apple-iphone-6s:whole-system-memory-bandwidth
+    disposition: true-unknown
+    targetIds: [apple-iphone-6s:whole-system-memory-bandwidth]
+    reviewedOn: 2026-08-25
+  - measurementId: apple-iphone-6s:whole-system-memory-capacity
+    disposition: reported
+    targetIds: [apple-iphone-6s:whole-system-memory-capacity]
+    reviewedOn: 2026-08-25
+  - measurementId: apple-iphone-x:cpu-clock-frequency
+    disposition: rumored
+    targetIds: [apple-iphone-x:cpu-clock-frequency]
+    reviewedOn: 2026-08-26
+  - measurementId: apple-iphone-x:gpu-clock-frequency
+    disposition: true-unknown
+    targetIds: [apple-iphone-x:gpu-clock-frequency]
+    reviewedOn: 2026-08-25
+  - measurementId: apple-iphone-x:peak-fp32-rate
+    disposition: true-unknown
+    targetIds: [apple-iphone-x:peak-fp32-rate]
+    reviewedOn: 2026-08-25
+  - measurementId: apple-iphone-x:rated-power-consumption
+    disposition: true-unknown
+    targetIds: [apple-iphone-x:rated-power-consumption]
+    reviewedOn: 2026-08-25
+  - measurementId: apple-iphone-x:whole-system-memory-bandwidth
+    disposition: true-unknown
+    targetIds: [apple-iphone-x:whole-system-memory-bandwidth]
+    reviewedOn: 2026-08-25
+  - measurementId: apple-iphone-x:whole-system-memory-capacity
+    disposition: reported
+    targetIds: [apple-iphone-x:whole-system-memory-capacity]
+    reviewedOn: 2026-08-25
+  - measurementId: apple-mac-mini-m1:cpu-clock-frequency
+    disposition: not-applicable
+    targetIds:
+      - apple-mac-mini-m1:cpu-clock-frequency
+    reviewedOn: 2026-08-25
+  - measurementId: apple-mac-mini-m1:gpu-clock-frequency
+    disposition: reported
+    targetIds:
+      - apple-mac-mini-m1:gpu-clock-frequency
+    reviewedOn: 2026-08-25
+  - measurementId: apple-mac-mini-m4:cpu-clock-frequency
+    disposition: confirmed
+    targetIds:
+      - apple-mac-mini-m4:cpu-clock-frequency
+    reviewedOn: 2026-08-25
+  - measurementId: apple-mac-mini-m4:gpu-clock-frequency
+    disposition: rumored
+    targetIds:
+      - apple-mac-mini-m4:gpu-clock-frequency
+    reviewedOn: 2026-08-25
+  - measurementId: apple-mac-mini-m4:peak-fp32-rate
+    disposition: rumored
+    targetIds:
+      - apple-mac-mini-m4:peak-fp32-rate
+    reviewedOn: 2026-08-25
+  - measurementId: apple-macintosh-128k:clock-frequency
+    disposition: confirmed
+    targetIds:
+      - apple-macintosh-128k:clock-frequency
+    reviewedOn: 2026-08-25
+  - measurementId: apple-macintosh-128k:gpu-clock-frequency
+    disposition: not-applicable
+    targetIds:
+      - apple-macintosh-128k:gpu-clock-frequency
+    reviewedOn: 2026-08-25
+  - measurementId: apple-macintosh-128k:memory-bandwidth
+    disposition: true-unknown
+    targetIds:
+      - apple-macintosh-128k:memory-bandwidth
+    reviewedOn: 2026-08-25
+  - measurementId: atari-2600:cartridge-storage-capacity
+    disposition: not-applicable
+    targetIds:
+      - atari-2600:cartridge-storage-capacity
+    reviewedOn: 2026-08-25
+  - measurementId: atari-2600:cpu-clock-frequency
+    disposition: rumored
+    targetIds:
+      - atari-2600:cpu-clock-frequency
+    reviewedOn: 2026-08-26
+  - measurementId: atari-2600:gpu-clock-frequency
+    disposition: true-unknown
+    targetIds:
+      - atari-2600:gpu-clock-frequency
+    reviewedOn: 2026-08-25
+  - measurementId: atari-2600:memory-bandwidth
+    disposition: true-unknown
+    targetIds:
+      - atari-2600:memory-bandwidth
+    reviewedOn: 2026-08-25
+  - measurementId: atari-2600:rated-power-consumption
+    disposition: true-unknown
+    targetIds:
+      - atari-2600:rated-power-consumption
+    reviewedOn: 2026-08-25
+  - measurementId: atari-2600:whole-system-memory-capacity
+    disposition: confirmed
+    targetIds:
+      - atari-2600:whole-system-memory-capacity
+    reviewedOn: 2026-08-25
+  - measurementId: atari-520st:gpu-clock-frequency
+    disposition: true-unknown
+    targetIds:
+      - atari-520st:gpu-clock-frequency
+    reviewedOn: 2026-08-25
+  - measurementId: atari-520st:memory-bandwidth
+    disposition: true-unknown
+    targetIds:
+      - atari-520st:memory-bandwidth
+    reviewedOn: 2026-08-25
+  - measurementId: atari-800:gpu-clock-frequency
+    disposition: true-unknown
+    reviewedOn: 2026-08-25
+    targetIds: [atari-800:gpu-clock-frequency]
+  - measurementId: atari-800:memory-bandwidth
+    disposition: true-unknown
+    reviewedOn: 2026-08-25
+    targetIds: [atari-800:memory-bandwidth]
+  - measurementId: atari-800:pal:clock-frequency
+    disposition: rumored
+    reviewedOn: 2026-08-26
+    targetIds: [atari-800:pal:clock-frequency]
+  - measurementId: atari-800:rated-power-consumption
+    disposition: true-unknown
+    reviewedOn: 2026-08-25
+    targetIds: [atari-800:rated-power-consumption]
+  - measurementId: atari-800:sustained-fp40-rate
+    disposition: true-unknown
+    reviewedOn: 2026-08-25
+    targetIds: [atari-800:sustained-fp40-rate]
+  - measurementId: ati-r300:peak-fp32-rate
+    disposition: true-unknown
+    reviewedOn: 2026-08-25
+    targetIds: [ati-r300:peak-fp32-rate]
+  - measurementId: ati-r300:rated-power-consumption
+    disposition: true-unknown
+    reviewedOn: 2026-08-25
+    targetIds: [ati-r300:rated-power-consumption]
+  - measurementId: bbc-micro-6502:peak-fp32-rate
+    disposition: true-unknown
+    reviewedOn: 2026-08-25
+    targetIds: [bbc-micro-6502:peak-fp32-rate]
+  - measurementId: bbc-micro-model-b:gpu-clock-frequency
+    disposition: true-unknown
+    reviewedOn: 2026-08-25
+    targetIds: [bbc-micro-model-b:gpu-clock-frequency]
+  - measurementId: bbc-micro-model-b:rated-power-consumption
+    disposition: true-unknown
+    reviewedOn: 2026-08-25
+    targetIds: [bbc-micro-model-b:rated-power-consumption]
+  - measurementId: bbc-micro-model-b:sustained-fp40-rate
+    disposition: true-unknown
+    reviewedOn: 2026-08-25
+    targetIds: [bbc-micro-model-b:sustained-fp40-rate]
+  - measurementId: commodore-64:dhrystone-mips-per-mhz
+    disposition: true-unknown
+    reviewedOn: 2026-08-25
+    targetIds: [commodore-64:dhrystone-mips-per-mhz]
+  - measurementId: commodore-64:memory-bandwidth
+    disposition: true-unknown
+    reviewedOn: 2026-08-25
+    targetIds: [commodore-64:memory-bandwidth]
+  - measurementId: commodore-64:rated-power-consumption
+    disposition: true-unknown
+    reviewedOn: 2026-08-25
+    targetIds: [commodore-64:rated-power-consumption]
+  - measurementId: commodore-64:sustained-fp40-rate
+    disposition: true-unknown
+    reviewedOn: 2026-08-25
+    targetIds: [commodore-64:sustained-fp40-rate]
+  - measurementId: game-boy-advance:cartridge-storage-capacity
+    disposition: not-applicable
+    reviewedOn: 2026-08-25
+    targetIds:
+      - game-boy-advance:cartridge-storage-capacity
+  - measurementId: game-boy-advance:gpu-clock-frequency
+    disposition: true-unknown
+    reviewedOn: 2026-08-25
+    targetIds:
+      - game-boy-advance:gpu-clock-frequency
+  - measurementId: game-boy-advance:memory-bandwidth
+    disposition: true-unknown
+    reviewedOn: 2026-08-25
+    targetIds:
+      - game-boy-advance:memory-bandwidth
+  - measurementId: game-boy-advance:rated-power-consumption
+    disposition: true-unknown
+    reviewedOn: 2026-08-25
+    targetIds:
+      - game-boy-advance:rated-power-consumption
+  - measurementId: game-boy-advance:whole-system-memory-capacity
+    disposition: true-unknown
+    reviewedOn: 2026-08-25
+    targetIds:
+      - game-boy-advance:whole-system-memory-capacity
+  - measurementId: gba-ram:capacity
+    disposition: rumored
+    reviewedOn: 2026-08-26
+    targetIds:
+      - gba-ram:capacity
+  - measurementId: ibm-pc-5150:gpu-clock-frequency
+    disposition: not-applicable
+    reviewedOn: 2026-08-25
+    targetIds: [ibm-pc-5150:gpu-clock-frequency]
+  - measurementId: ibm-pc-5150:rated-power-consumption
+    disposition: true-unknown
+    reviewedOn: 2026-08-25
+    targetIds: [ibm-pc-5150:rated-power-consumption]
+  - measurementId: intel-80286:thermal-design-power
+    disposition: true-unknown
+    reviewedOn: 2026-08-25
+    targetIds: [intel-80286:thermal-design-power]
+  - measurementId: intel-80386dx:thermal-design-power
+    disposition: true-unknown
+    reviewedOn: 2026-08-25
+    targetIds: [intel-80386dx:thermal-design-power]
+  - measurementId: intel-80486dx:peak-fp32-rate
+    disposition: true-unknown
+    reviewedOn: 2026-08-25
+    targetIds: [intel-80486dx:peak-fp32-rate]
+  - measurementId: intel-80486dx:thermal-design-power
+    disposition: true-unknown
+    reviewedOn: 2026-08-25
+    targetIds: [intel-80486dx:thermal-design-power]
+  - measurementId: intel-8086:thermal-design-power
+    disposition: true-unknown
+    reviewedOn: 2026-08-25
+    targetIds: [intel-8086:thermal-design-power]
+  - measurementId: intel-core-2-duo-e6600-pc:whole-system-memory-capacity
+    disposition: true-unknown
+    reviewedOn: 2026-08-25
+    targetIds: [intel-core-2-duo-e6600-pc:whole-system-memory-capacity]
+  - measurementId: intel-core-2-duo-e6600:clock-frequency
+    disposition: rumored
+    reviewedOn: 2026-08-26
+    targetIds: [intel-core-2-duo-e6600:clock-frequency]
+  - measurementId: intel-core-2-duo-e6600:peak-fp32-rate
+    disposition: true-unknown
+    reviewedOn: 2026-08-25
+    targetIds: [intel-core-2-duo-e6600:peak-fp32-rate]
+  - measurementId: intel-core-2-duo-e6600:thermal-design-power
+    disposition: rumored
+    reviewedOn: 2026-08-26
+    targetIds: [intel-core-2-duo-e6600:thermal-design-power]
+  - measurementId: intel-core-i7-2600k:peak-fp32-rate
+    disposition: true-unknown
+    reviewedOn: 2026-08-25
+    targetIds: [intel-core-i7-2600k:peak-fp32-rate]
+  - measurementId: intel-core-i9-14900k:peak-fp32-rate
+    disposition: true-unknown
+    reviewedOn: 2026-08-25
+    targetIds: [intel-core-i9-14900k:peak-fp32-rate]
+  - measurementId: intel-integrated-graphics:clock-frequency
+    disposition: true-unknown
+    reviewedOn: 2026-08-25
+    targetIds: [intel-integrated-graphics:clock-frequency]
+  - measurementId: intel-integrated-graphics:peak-fp32-rate
+    disposition: true-unknown
+    reviewedOn: 2026-08-25
+    targetIds: [intel-integrated-graphics:peak-fp32-rate]
+  - measurementId: intel-pentium-4:peak-fp32-rate
+    disposition: true-unknown
+    reviewedOn: 2026-08-25
+    targetIds: [intel-pentium-4:peak-fp32-rate]
+  - measurementId: intel-pentium-ii:peak-fp32-rate
+    disposition: true-unknown
+    reviewedOn: 2026-08-25
+    targetIds: [intel-pentium-ii:peak-fp32-rate]
+  - measurementId: intel-pentium:peak-fp32-rate
+    disposition: true-unknown
+    reviewedOn: 2026-08-25
+    targetIds: [intel-pentium:peak-fp32-rate]
+  - measurementId: master-system-ram:capacity
+    disposition: rumored
+    reviewedOn: 2026-08-26
+    targetIds:
+      - master-system-ram:capacity
+  - measurementId: microsoft-xbox-360:peak-fp32-rate
+    disposition: rumored
+    reviewedOn: 2026-08-26
+    targetIds: [microsoft-xbox-360:peak-fp32-rate]
+  - measurementId: microsoft-xbox-360:rated-power-consumption
+    disposition: true-unknown
+    reviewedOn: 2026-08-25
+    targetIds: [microsoft-xbox-360:rated-power-consumption]
+  - measurementId: microsoft-xbox-one:peak-fp32-rate
+    disposition: rumored
+    reviewedOn: 2026-08-26
+    targetIds: [microsoft-xbox-one:peak-fp32-rate]
+  - measurementId: microsoft-xbox-one:rated-power-consumption
+    disposition: true-unknown
+    reviewedOn: 2026-08-25
+    targetIds: [microsoft-xbox-one:rated-power-consumption]
+  - measurementId: microsoft-xbox-series-x:rated-power-consumption
+    disposition: true-unknown
+    reviewedOn: 2026-08-25
+    targetIds: [microsoft-xbox-series-x:rated-power-consumption]
+  - measurementId: microsoft-xbox:peak-fp32-rate
+    disposition: true-unknown
+    reviewedOn: 2026-08-25
+    targetIds:
+      - microsoft-xbox:peak-fp32-rate
+  - measurementId: microsoft-xbox:rated-power-consumption
+    disposition: true-unknown
+    reviewedOn: 2026-08-25
+    targetIds:
+      - microsoft-xbox:rated-power-consumption
+  - measurementId: mos-6510:native-instruction-rate
+    disposition: true-unknown
+    reviewedOn: 2026-08-25
+    targetIds: [mos-6510:native-instruction-rate]
+  - measurementId: msx-ram:capacity
+    disposition: true-unknown
+    reviewedOn: 2026-08-25
+    targetIds: [msx-ram:capacity]
+  - measurementId: msx-rom:capacity
+    disposition: true-unknown
+    reviewedOn: 2026-08-25
+    targetIds: [msx-rom:capacity]
+  - measurementId: msx:gpu-clock-frequency
+    disposition: true-unknown
+    reviewedOn: 2026-08-25
+    targetIds: [msx:gpu-clock-frequency]
+  - measurementId: msx:memory-bandwidth
+    disposition: true-unknown
+    reviewedOn: 2026-08-25
+    targetIds: [msx:memory-bandwidth]
+  - measurementId: msx:rated-power-consumption
+    disposition: true-unknown
+    reviewedOn: 2026-08-25
+    targetIds: [msx:rated-power-consumption]
+  - measurementId: msx:sustained-fp40-rate
+    disposition: true-unknown
+    reviewedOn: 2026-08-25
+    targetIds: [msx:sustained-fp40-rate]
+  - measurementId: msx:whole-system-memory-capacity
+    disposition: true-unknown
+    reviewedOn: 2026-08-25
+    targetIds: [msx:whole-system-memory-capacity]
+  - measurementId: nec-pc-engine:cartridge-storage-capacity
+    disposition: not-applicable
+    reviewedOn: 2026-08-25
+    targetIds:
+      - nec-pc-engine:cartridge-storage-capacity
+  - measurementId: nec-pc-engine:gpu-clock-frequency
+    disposition: true-unknown
+    reviewedOn: 2026-08-25
+    targetIds:
+      - nec-pc-engine:gpu-clock-frequency
+  - measurementId: nec-pc-engine:memory-bandwidth
+    disposition: true-unknown
+    reviewedOn: 2026-08-25
+    targetIds:
+      - nec-pc-engine:memory-bandwidth
+  - measurementId: nec-pc-engine:rated-power-consumption
+    disposition: true-unknown
+    reviewedOn: 2026-08-25
+    targetIds:
+      - nec-pc-engine:rated-power-consumption
+  - measurementId: nec-pc-engine:whole-system-memory-capacity
+    disposition: true-unknown
+    reviewedOn: 2026-08-25
+    targetIds:
+      - nec-pc-engine:whole-system-memory-capacity
+  - measurementId: nintendo-64:peak-fp32-rate
+    disposition: true-unknown
+    reviewedOn: 2026-08-25
+    targetIds:
+      - nintendo-64:peak-fp32-rate
+  - measurementId: nintendo-64:rated-power-consumption
+    disposition: true-unknown
+    reviewedOn: 2026-08-25
+    targetIds:
+      - nintendo-64:rated-power-consumption
+  - measurementId: nintendo-ds:cartridge-storage-capacity
+    disposition: not-applicable
+    reviewedOn: 2026-08-25
+    targetIds: [nintendo-ds:cartridge-storage-capacity]
+  - measurementId: nintendo-ds:cpu-clock-frequency
+    disposition: rumored
+    reviewedOn: 2026-08-26
+    targetIds: [nintendo-ds:cpu-clock-frequency]
+  - measurementId: nintendo-ds:gpu-clock-frequency
+    disposition: true-unknown
+    reviewedOn: 2026-08-25
+    targetIds: [nintendo-ds:gpu-clock-frequency]
+  - measurementId: nintendo-ds:memory-bandwidth
+    disposition: true-unknown
+    reviewedOn: 2026-08-25
+    targetIds: [nintendo-ds:memory-bandwidth]
+  - measurementId: nintendo-ds:rated-power-consumption
+    disposition: true-unknown
+    reviewedOn: 2026-08-25
+    targetIds: [nintendo-ds:rated-power-consumption]
+  - measurementId: nintendo-entertainment-system:cartridge-storage-capacity
+    disposition: not-applicable
+    reviewedOn: 2026-08-25
+    targetIds:
+      - nintendo-entertainment-system:cartridge-storage-capacity
+  - measurementId: nintendo-entertainment-system:gpu-clock-frequency
+    disposition: rumored
+    reviewedOn: 2026-08-26
+    targetIds:
+      - nintendo-entertainment-system:gpu-clock-frequency
+  - measurementId: nintendo-entertainment-system:memory-bandwidth
+    disposition: true-unknown
+    reviewedOn: 2026-08-25
+    targetIds:
+      - nintendo-entertainment-system:memory-bandwidth
+  - measurementId: nintendo-entertainment-system:rated-power-consumption
+    disposition: true-unknown
+    reviewedOn: 2026-08-25
+    targetIds:
+      - nintendo-entertainment-system:rated-power-consumption
+  - measurementId: nintendo-game-boy:cartridge-storage-capacity
+    disposition: not-applicable
+    reviewedOn: 2026-08-25
+    targetIds:
+      - nintendo-game-boy:cartridge-storage-capacity
+  - measurementId: nintendo-game-boy:gpu-clock-frequency
+    disposition: true-unknown
+    reviewedOn: 2026-08-25
+    targetIds:
+      - nintendo-game-boy:gpu-clock-frequency
+  - measurementId: nintendo-game-boy:memory-bandwidth
+    disposition: true-unknown
+    reviewedOn: 2026-08-25
+    targetIds:
+      - nintendo-game-boy:memory-bandwidth
+  - measurementId: nintendo-game-boy:rated-power-consumption
+    disposition: true-unknown
+    reviewedOn: 2026-08-25
+    targetIds:
+      - nintendo-game-boy:rated-power-consumption
+  - measurementId: nintendo-gamecube:peak-fp32-rate
+    disposition: true-unknown
+    reviewedOn: 2026-08-25
+    targetIds:
+      - nintendo-gamecube:peak-fp32-rate
+  - measurementId: nintendo-switch:docked:cpu-clock-frequency
+    disposition: confirmed
+    targetIds:
+      - nintendo-switch:docked:cpu-clock-frequency-independent
+    reviewedOn: 2026-08-25
+  - measurementId: nintendo-switch:docked:gpu-clock-frequency
+    disposition: confirmed
+    targetIds:
+      - nintendo-switch:docked:gpu-clock-frequency-independent
+    reviewedOn: 2026-08-25
+  - measurementId: nintendo-switch:handheld:cpu-clock-frequency
+    disposition: confirmed
+    targetIds:
+      - nintendo-switch:handheld:cpu-clock-frequency-independent
+    reviewedOn: 2026-08-25
+  - measurementId: nintendo-switch:handheld:gpu-clock-frequency
+    disposition: confirmed
+    targetIds:
+      - nintendo-switch:handheld:gpu-clock-frequency-independent
+    reviewedOn: 2026-08-25
+  - measurementId: nintendo-switch:memory-bandwidth
+    disposition: true-unknown
+    reviewedOn: 2026-08-25
+    targetIds: [nintendo-switch:memory-bandwidth]
+  - measurementId: nintendo-switch:peak-fp32-rate
+    disposition: rumored
+    reviewedOn: 2026-08-26
+    targetIds: [nintendo-switch:peak-fp32-rate]
+  - measurementId: nintendo-wii-u:memory-bandwidth
+    disposition: rumored
+    reviewedOn: 2026-08-26
+    targetIds: [nintendo-wii-u:memory-bandwidth]
+  - measurementId: nintendo-wii-u:peak-fp32-rate
+    disposition: true-unknown
+    reviewedOn: 2026-08-25
+    targetIds: [nintendo-wii-u:peak-fp32-rate]
+  - measurementId: nintendo-wii-u:rated-power-consumption
+    disposition: true-unknown
+    reviewedOn: 2026-08-25
+    targetIds: [nintendo-wii-u:rated-power-consumption]
+  - measurementId: nintendo-wii-u:retail:cpu-clock-frequency
+    disposition: reported
+    targetIds:
+      - nintendo-wii-u:retail:cpu-clock-frequency-independent
+    reviewedOn: 2026-08-25
+  - measurementId: nintendo-wii-u:retail:gpu-clock-frequency
+    disposition: reported
+    targetIds:
+      - nintendo-wii-u:retail:gpu-clock-frequency-independent
+    reviewedOn: 2026-08-25
+  - measurementId: nintendo-wii:memory-bandwidth
+    disposition: true-unknown
+    reviewedOn: 2026-08-25
+    targetIds: [nintendo-wii:memory-bandwidth]
+  - measurementId: nintendo-wii:peak-fp32-rate
+    disposition: true-unknown
+    reviewedOn: 2026-08-25
+    targetIds: [nintendo-wii:peak-fp32-rate]
+  - measurementId: nintendo-wii:rated-power-consumption
+    disposition: true-unknown
+    reviewedOn: 2026-08-25
+    targetIds: [nintendo-wii:rated-power-consumption]
+  - measurementId: nintendo-wii:retail:cpu-clock-frequency
+    disposition: rumored
+    reviewedOn: 2026-08-26
+    targetIds: [nintendo-wii:retail:cpu-clock-frequency]
+  - measurementId: nintendo-wii:retail:gpu-clock-frequency
+    disposition: rumored
+    reviewedOn: 2026-08-26
+    targetIds: [nintendo-wii:retail:gpu-clock-frequency]
+  - measurementId: nintendo-wii:whole-system-memory-capacity
+    disposition: true-unknown
+    reviewedOn: 2026-08-25
+    targetIds: [nintendo-wii:whole-system-memory-capacity]
+  - measurementId: nvidia-g80:thermal-design-power
+    disposition: true-unknown
+    reviewedOn: 2026-08-25
+    targetIds: [nvidia-g80:thermal-design-power]
+  - measurementId: nvidia-geforce-256-memory:bandwidth
+    disposition: rumored
+    reviewedOn: 2026-08-26
+    targetIds:
+      - nvidia-geforce-256:sdr-32mb:memory-bandwidth
+      - nvidia-geforce-256:ddr-32mb:memory-bandwidth
+  - measurementId: nvidia-geforce-256-memory:capacity
+    disposition: rumored
+    reviewedOn: 2026-08-26
+    targetIds:
+      - nvidia-geforce-256:sdr-32mb:memory-capacity
+      - nvidia-geforce-256:ddr-32mb:memory-capacity
+  - measurementId: nvidia-geforce-256:whole-system-memory-bandwidth
+    disposition: rumored
+    reviewedOn: 2026-08-26
+    targetIds:
+      - nvidia-geforce-256:sdr-32mb:whole-system-memory-bandwidth
+      - nvidia-geforce-256:ddr-32mb:whole-system-memory-bandwidth
+  - measurementId: nvidia-geforce-6800-ultra-memory:capacity
+    disposition: true-unknown
+    reviewedOn: 2026-08-25
+    targetIds: [nvidia-geforce-6800-ultra-memory:capacity]
+  - measurementId: nvidia-geforce-gtx-1080:launch-price
+    disposition: true-unknown
+    reviewedOn: 2026-08-25
+    targetIds: [nvidia-geforce-gtx-1080:launch-price]
+  - measurementId: nvidia-gf110:peak-fp32-rate
+    disposition: true-unknown
+    reviewedOn: 2026-08-25
+    targetIds: [nvidia-gf110:peak-fp32-rate]
+  - measurementId: nvidia-gf110:thermal-design-power
+    disposition: rumored
+    reviewedOn: 2026-08-26
+    targetIds: [nvidia-gf110:thermal-design-power]
+  - measurementId: nvidia-gk110b:peak-fp32-rate
+    disposition: true-unknown
+    reviewedOn: 2026-08-25
+    targetIds: [nvidia-gk110b:peak-fp32-rate]
+  - measurementId: nvidia-h100-sxm:gpu-clock-frequency
+    disposition: true-unknown
+    reviewedOn: 2026-08-25
+    targetIds: [nvidia-h100-sxm:gpu-clock-frequency]
+  - measurementId: nvidia-nv10:peak-fp32-rate
+    disposition: rumored
+    reviewedOn: 2026-08-26
+    targetIds: [nvidia-nv10:peak-fp32-rate]
+  - measurementId: nvidia-nv10:pixel-fill-rate
+    disposition: rumored
+    reviewedOn: 2026-08-26
+    targetIds: [nvidia-nv10:pixel-fill-rate]
+  - measurementId: nvidia-nv10:rated-power-consumption
+    disposition: true-unknown
+    reviewedOn: 2026-08-25
+    targetIds: [nvidia-nv10:rated-power-consumption]
+  - measurementId: nvidia-nv10:texel-fill-rate
+    disposition: rumored
+    reviewedOn: 2026-08-26
+    targetIds: [nvidia-nv10:texel-fill-rate]
+  - measurementId: nvidia-nv40:peak-fp32-rate
+    disposition: true-unknown
+    reviewedOn: 2026-08-25
+    targetIds: [nvidia-nv40:peak-fp32-rate]
+  - measurementId: nvidia-nv40:thermal-design-power
+    disposition: true-unknown
+    reviewedOn: 2026-08-25
+    targetIds: [nvidia-nv40:thermal-design-power]
+  - measurementId: pc-32bit-dram:memory-bandwidth
+    disposition: true-unknown
+    reviewedOn: 2026-08-25
+    targetIds: [pc-32bit-dram:memory-bandwidth]
+  - measurementId: pc-ddr-sdram:memory-bandwidth
+    disposition: true-unknown
+    reviewedOn: 2026-08-25
+    targetIds: [pc-ddr-sdram:memory-bandwidth]
+  - measurementId: pc-display-adapter:clock-frequency
+    disposition: true-unknown
+    reviewedOn: 2026-08-25
+    targetIds: [pc-display-adapter:clock-frequency]
+  - measurementId: pc-early-dram:memory-bandwidth
+    disposition: true-unknown
+    reviewedOn: 2026-08-25
+    targetIds: [pc-early-dram:memory-bandwidth]
+  - measurementId: pc-engine-ram:capacity
+    disposition: rumored
+    reviewedOn: 2026-08-26
+    targetIds:
+      - pc-engine-ram:capacity
+  - measurementId: pc-sdram:memory-bandwidth
+    disposition: true-unknown
+    reviewedOn: 2026-08-25
+    targetIds: [pc-sdram:memory-bandwidth]
+  - measurementId: raspberry-pi-5:peak-fp32-rate
+    disposition: true-unknown
+    reviewedOn: 2026-08-25
+    targetIds: [raspberry-pi-5:peak-fp32-rate]
+  - measurementId: raspberry-pi-5:whole-system-memory-bandwidth
+    disposition: true-unknown
+    reviewedOn: 2026-08-25
+    targetIds: [raspberry-pi-5:whole-system-memory-bandwidth]
+  - measurementId: saturn-lvdc:memory-bandwidth
+    disposition: true-unknown
+    reviewedOn: 2026-08-25
+    targetIds: [saturn-lvdc:memory-bandwidth]
+  - measurementId: sega-master-system:cartridge-storage-capacity
+    disposition: not-applicable
+    reviewedOn: 2026-08-25
+    targetIds:
+      - sega-master-system:cartridge-storage-capacity
+  - measurementId: sega-master-system:cpu-clock-frequency
+    disposition: rumored
+    reviewedOn: 2026-08-26
+    targetIds:
+      - sega-master-system:cpu-clock-frequency
+  - measurementId: sega-master-system:memory-bandwidth
+    disposition: true-unknown
+    reviewedOn: 2026-08-25
+    targetIds:
+      - sega-master-system:memory-bandwidth
+  - measurementId: sega-master-system:rated-power-consumption
+    disposition: true-unknown
+    reviewedOn: 2026-08-25
+    targetIds:
+      - sega-master-system:rated-power-consumption
+  - measurementId: sega-master-system:whole-system-memory-capacity
+    disposition: true-unknown
+    reviewedOn: 2026-08-25
+    targetIds:
+      - sega-master-system:whole-system-memory-capacity
+  - measurementId: sega-mega-drive:cartridge-storage-capacity
+    disposition: not-applicable
+    reviewedOn: 2026-08-25
+    targetIds:
+      - sega-mega-drive:cartridge-storage-capacity
+  - measurementId: sega-mega-drive:gpu-clock-frequency
+    disposition: true-unknown
+    reviewedOn: 2026-08-25
+    targetIds:
+      - sega-mega-drive:gpu-clock-frequency
+  - measurementId: sega-mega-drive:memory-bandwidth
+    disposition: true-unknown
+    reviewedOn: 2026-08-25
+    targetIds:
+      - sega-mega-drive:memory-bandwidth
+  - measurementId: sega-saturn:memory-bandwidth
+    disposition: true-unknown
+    reviewedOn: 2026-08-25
+    targetIds:
+      - sega-saturn:memory-bandwidth
+  - measurementId: sega-saturn:peak-fp32-rate
+    disposition: true-unknown
+    reviewedOn: 2026-08-25
+    targetIds:
+      - sega-saturn:peak-fp32-rate
+  - measurementId: sega-saturn:retail:gpu-clock-frequency
+    disposition: rumored
+    reviewedOn: 2026-08-26
+    targetIds:
+      - sega-saturn:retail:gpu-clock-frequency
+  - measurementId: sgi-octane:memory-bandwidth
+    disposition: true-unknown
+    reviewedOn: 2026-08-25
+    targetIds: [sgi-octane:memory-bandwidth]
+  - measurementId: sgi-octane:rated-power-consumption
+    disposition: true-unknown
+    reviewedOn: 2026-08-25
+    targetIds: [sgi-octane:rated-power-consumption]
+  - measurementId: sgi-octane:sustained-fp64-rate
+    disposition: true-unknown
+    reviewedOn: 2026-08-25
+    targetIds: [sgi-octane:sustained-fp64-rate]
+  - measurementId: snk-neo-geo-aes:cartridge-storage-capacity
+    disposition: not-applicable
+    reviewedOn: 2026-08-25
+    targetIds:
+      - snk-neo-geo-aes:cartridge-storage-capacity
+  - measurementId: snk-neo-geo-aes:gpu-clock-frequency
+    disposition: true-unknown
+    reviewedOn: 2026-08-25
+    targetIds:
+      - snk-neo-geo-aes:gpu-clock-frequency
+  - measurementId: snk-neo-geo-aes:memory-bandwidth
+    disposition: true-unknown
+    reviewedOn: 2026-08-25
+    targetIds:
+      - snk-neo-geo-aes:memory-bandwidth
+  - measurementId: snk-neo-geo-aes:rated-power-consumption
+    disposition: true-unknown
+    reviewedOn: 2026-08-25
+    targetIds:
+      - snk-neo-geo-aes:rated-power-consumption
+  - measurementId: sony-playstation-4:cpu-clock-frequency
+    disposition: confirmed
+    targetIds:
+      - sony-playstation-4:cpu-clock-frequency-independent
+    reviewedOn: 2026-08-25
+  - measurementId: sony-playstation-4:gpu-clock-frequency
+    disposition: confirmed
+    targetIds:
+      - sony-playstation-4:gpu-clock-frequency-independent
+    reviewedOn: 2026-08-25
+  - measurementId: sony-playstation:gpu-clock-frequency
+    disposition: true-unknown
+    reviewedOn: 2026-08-25
+    targetIds:
+      - sony-playstation:gpu-clock-frequency
+  - measurementId: sony-playstation:memory-bandwidth
+    disposition: true-unknown
+    reviewedOn: 2026-08-25
+    targetIds:
+      - sony-playstation:memory-bandwidth
+  - measurementId: super-nintendo:cartridge-storage-capacity
+    disposition: not-applicable
+    reviewedOn: 2026-08-25
+    targetIds:
+      - super-nintendo:cartridge-storage-capacity
+  - measurementId: super-nintendo:gpu-clock-frequency
+    disposition: true-unknown
+    reviewedOn: 2026-08-25
+    targetIds:
+      - super-nintendo:gpu-clock-frequency
+  - measurementId: super-nintendo:memory-bandwidth
+    disposition: true-unknown
+    reviewedOn: 2026-08-25
+    targetIds:
+      - super-nintendo:memory-bandwidth
+  - measurementId: super-nintendo:rated-power-consumption
+    disposition: true-unknown
+    reviewedOn: 2026-08-25
+    targetIds:
+      - super-nintendo:rated-power-consumption
+  - measurementId: vga-compatible-adapter:clock-frequency
+    disposition: true-unknown
+    reviewedOn: 2026-08-25
+    targetIds: [vga-compatible-adapter:clock-frequency]
+  - measurementId: zx-spectrum-48k:clock-frequency
+    disposition: confirmed
+    reviewedOn: 2026-08-25
+    targetIds:
+      - zx-spectrum-48k:clock-frequency
+  - measurementId: zx-spectrum-48k:gpu-clock-frequency
+    disposition: confirmed
+    reviewedOn: 2026-08-25
+    targetIds:
+      - zx-spectrum-48k:gpu-clock-frequency
+  - measurementId: zx-spectrum-48k:memory-bandwidth
+    disposition: true-unknown
+    reviewedOn: 2026-08-25
+    targetIds:
+      - zx-spectrum-48k:memory-bandwidth
+  - measurementId: zx-spectrum-48k:rated-power-consumption
+    disposition: true-unknown
+    reviewedOn: 2026-08-25
+    targetIds:
+      - zx-spectrum-48k:rated-power-consumption
+  - measurementId: zx-spectrum-48k:sustained-fp40-rate
+    disposition: true-unknown
+    reviewedOn: 2026-08-25
+    targetIds:
+      - zx-spectrum-48k:sustained-fp40-rate
+  - measurementId: zx-spectrum-48k:whole-system-memory-capacity
+    disposition: confirmed
+    reviewedOn: 2026-08-25
+    targetIds:
+      - zx-spectrum-48k:whole-system-memory-capacity
+  - measurementId: zx-spectrum-rom:capacity
+    disposition: confirmed
+    reviewedOn: 2026-08-25
+    targetIds:
+      - zx-spectrum-rom:capacity

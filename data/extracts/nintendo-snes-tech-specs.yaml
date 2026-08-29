@@ -1,0 +1,35 @@
+- extract: CPU	16-bit 65816 processor, 2.68 Mhz
+  extractHash: 49304e429450be0019235c5c988da6d6b56c02f798ddb8ae7aa8834b1c54bd69
+  id: nintendo-snes:specs:cpu
+  locator: Technical Details table, 'CPU' row
+  notes: >-
+    One of this console's real frequencies rather than a disputed one. The 65816
+    is clocked from a single oscillator but runs a memory cycle at one of three
+    rates depending on which region is being addressed, and 2.68 MHz is the
+    middle of them; the fastest is about 3.58 MHz. Nintendo picks one and names
+    no condition, so the catalog records this figure and says in the caveat
+    which access it belongs to.
+  sourceId: nintendo-snes-tech-specs
+  transcribed:
+    significantDigits: 3
+    state: value
+    unit: MHz
+    value: '2.68'
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-15
+- extract:
+    "Memory\tRAM: 1 Mbit, Video RAM: 0.5 Mbit, Cart size: 2 Mbit - 48 Mbit"
+  extractHash: 8f0a3cdb5146dad026d006d9912e8fbfb4b167855a750417519f58a3eb8ffbde
+  id: nintendo-snes:specs:memory
+  locator: Technical Details table, 'Memory' row
+  notes: >-
+    Stated in bits, which is how memory parts were sold and how this page
+    differs from Nintendo's Nintendo Entertainment System page: 1 Mbit is 128
+    KiB of work memory and 0.5 Mbit is 64 KiB of video memory. The cartridge
+    figure is a range across the format's whole life rather than a capacity of
+    anything, so it leaves that question unknown while giving the reader the
+    bounds — the only vendor statement this catalog has about cartridge size on
+    any machine.
+  sourceId: nintendo-snes-tech-specs
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-15

@@ -1,0 +1,13 @@
+architecture: DRAM
+editorialStatus: approved
+id: sega-saturn-sound-ram
+kind: memory
+manufacturer: Sega
+memoryType: DRAM
+name: Sega Saturn sound RAM
+slug: sega-saturn-sound-ram
+sourceIds:
+  - sega-saturn-service-manual
+summary:
+  '{{measurement:sega-saturn-sound-ram:capacity}} of memory dedicated to the
+  sound processor.'

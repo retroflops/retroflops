@@ -1,0 +1,376 @@
+- caveat: >-
+    Provisional on the sourcing, not on the number. Apple published no frequency
+    for this machine and one independent analysis establishes it; the policy
+    asks for a tier A source or two agreeing tier B ones, so this waits for a
+    second, and meanwhile feeds no multiplier. The same paragraph says the core
+    is capable of {{context:iphone-s5l8900:context-mhz-667}}, which is a
+    different quantity and is not recorded: what the part is able to do is not
+    what it was set to do.
+  comparabilityGroup: clock-frequency|cpu|nominal-clock
+  conditions: The single ARM1176JZF-S core of the shipped phone, deliberately set
+    below the core's capability to save power.
+  editorialStatus: provisional
+  evidenceStage: shipped
+  extractIds:
+    - anandtech-iphone:processor
+  id: apple-iphone-1st-generation:cpu-clock-frequency-independent
+  method: nominal-clock
+  metric: clock-frequency
+  normalized:
+    value: "412000000"
+    unit: Hz
+    significantDigits: 3
+    unitRegistry: units-v1
+  provenance: independent
+  quantity:
+    significantDigits: 3
+    state: value
+    unit: MHz
+    value: "412"
+  scope: cpu
+  sourceIds:
+    - anandtech-iphone-hardware-2009
+  status: vendor-rated
+  subject:
+    id: apple-iphone-1st-generation
+    kind: system
+  evidenceLevel: reported
+- caveat: >-
+    Nobody has published this figure: not the vendor, and not the analysis that
+    established the processor's. The analyst writes that he does not have it and
+    guesses at {{context:apple-iphone-1st-generation:context-mhz-60}}; a guess
+    is quoted here as evidence that the absence is real, and never recorded as
+    the number.
+  comparabilityGroup: clock-frequency|gpu|nominal-clock
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - anandtech-iphone:graphics
+  id: apple-iphone-1st-generation:gpu-clock-frequency
+  method: nominal-clock
+  metric: clock-frequency
+  provenance: vendor
+  quantity:
+    note: >-
+      Apple states no frequency for any part of this machine. The independent
+      analysis that established the processor clock says outright that it has no
+      clock-speed information for the graphics core and is guessing.
+    state: unknown
+  unknownAudit:
+    reviewedOn: 2026-08-25
+    routesChecked:
+      - vendor-documentation
+      - independent-analysis
+      - community-source
+    outcome: no-published-candidate
+    summary: >-
+      Apple publishes no graphics frequency, and AnandTech identifies the core
+      without establishing a clock. No checked source states one.
+  scope: gpu
+  sourceIds:
+    - anandtech-iphone-hardware-2009
+  status: vendor-rated
+  subject:
+    id: apple-iphone-1st-generation
+    kind: system
+- caveat: >-
+    The memory the machine runs in, and not the number it was sold by: the
+    {{context:iphone-dram:context-gb-4}} and
+    {{context:iphone-dram:context-gb-8}} on the box are flash storage, recorded
+    separately and thirty-two to sixty-four times larger. Written "128MB" by the
+    source and read as {{measurement:iphone-dram:capacity}}, the binary
+    convention this catalog applies to every memory capacity. Recorded at
+    whole-system scope because one pool on the package serves the processor and
+    the graphics core alike, so there is no second figure this excludes.
+    Provisional because one independent analysis supports it and no vendor
+    document mentions memory at all.
+  comparabilityGroup: memory-capacity|whole-system|design-capacity
+  conditions: One pool of DDR memory on the same package as the processor and the
+    graphics core.
+  editorialStatus: provisional
+  evidenceStage: shipped
+  extractIds:
+    - anandtech-iphone:memory
+  id: iphone-dram:capacity
+  method: design-capacity
+  metric: memory-capacity
+  normalized:
+    value: "134217728"
+    unit: B
+    significantDigits: 3
+    unitRegistry: units-v1
+  provenance: independent
+  quantity:
+    significantDigits: 3
+    state: value
+    unit: MiB
+    value: "128"
+  scope: whole-system
+  sourceIds:
+    - anandtech-iphone-hardware-2009
+  status: vendor-rated
+  subject:
+    id: iphone-dram
+    kind: component
+  evidenceLevel: reported
+- caveat: >-
+    Recorded as unknown rather than left out, so the machine appears in the
+    bandwidth row with a stated absence instead of a blank. The teardown-grade
+    sources that give this phone its clock and its capacity do not reach the
+    memory interface, and Apple published nothing.
+  comparabilityGroup: memory-bandwidth|whole-system|theoretical-peak
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - anandtech-iphone:memory
+  id: apple-iphone-1st-generation:whole-system-memory-bandwidth
+  method: theoretical-peak
+  metric: memory-bandwidth
+  provenance: vendor
+  quantity:
+    note: >-
+      No source consulted states a memory bandwidth, a bus width or a memory
+      clock for this machine. The one analysis that opens the package describes
+      the memory as {{context:apple-iphone-1st-generation:context-mb-128}} of
+      DDR on the same die and stops there.
+    state: unknown
+  unknownAudit:
+    reviewedOn: 2026-08-25
+    routesChecked:
+      - vendor-documentation
+      - independent-analysis
+      - community-source
+    outcome: no-compatible-candidate
+    summary: >-
+      Apple and AnandTech identify the memory but provide neither its transfer
+      rate nor enough interface details to calculate a compatible bandwidth.
+  scope: whole-system
+  sourceIds:
+    - anandtech-iphone-hardware-2009
+  status: vendor-rated
+  subject:
+    id: apple-iphone-1st-generation
+    kind: system
+- caveat: >-
+    Unknown rather than not-applicable: the ARM11 core in this phone has a
+    vector floating-point unit, so the quantity exists. What does not exist is a
+    published rate for it. This is a machine sold to be a telephone, and nobody
+    asked it how many floating-point operations it could do.
+  comparabilityGroup: peak-fp32-rate|cpu|theoretical-peak
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - anandtech-iphone:processor
+  id: apple-iphone-1st-generation:peak-fp32-rate
+  method: theoretical-peak
+  metric: peak-fp32-rate
+  provenance: vendor
+  quantity:
+    note: >-
+      The cited analysis states that the ARM11 CPU in the iPhone has a vector
+      floating point unit, and states no rate for it. Apple states nothing at
+      all.
+    state: unknown
+  unknownAudit:
+    reviewedOn: 2026-08-25
+    routesChecked:
+      - vendor-documentation
+      - independent-analysis
+      - community-source
+    outcome: no-published-candidate
+    summary: >-
+      The ARM11 floating-point unit establishes that the quantity exists, but
+      neither Apple nor AnandTech states an FP32 peak rate.
+  scope: cpu
+  sourceIds:
+    - anandtech-iphone-hardware-2009
+  status: vendor-rated
+  subject:
+    id: apple-iphone-1st-generation
+    kind: system
+- caveat: >-
+    Apple publishes battery life for this machine — talk time, standby time,
+    playback time — and battery life is not power. A duration under unstated
+    conditions cannot be turned into watts without the cell's capacity, which
+    Apple also does not publish, so the figure is recorded as unknown rather
+    than computed from something it is not.
+  comparabilityGroup: rated-power-consumption|whole-system|rated-power
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - apple-iphone-2007:retail-launch
+  id: apple-iphone-1st-generation:rated-power-consumption
+  method: rated-power
+  metric: rated-power-consumption
+  provenance: vendor
+  quantity:
+    note: >-
+      Neither cited release states a power figure of any kind for the phone or
+      its charger.
+    state: unknown
+  unknownAudit:
+    reviewedOn: 2026-08-25
+    routesChecked:
+      - vendor-documentation
+      - independent-analysis
+      - community-source
+    outcome: no-compatible-candidate
+    summary: >-
+      Apple publishes battery-life durations, not a phone power rating, and no
+      checked independent source supplies a comparable whole-system value.
+  scope: whole-system
+  sourceIds:
+    - apple-iphone-retail-launch-2007
+  status: vendor-rated
+  subject:
+    id: apple-iphone-1st-generation
+    kind: system
+- caveat: >-
+    Storage, not memory. Apple wrote "4GB" and it is read decimally, as makers
+    state flash and disk capacities. This catalog reads a memory part as binary
+    instead. The two quantities are kept in separate metrics precisely because
+    this machine is where they are most often confused: the number on the box is
+    this one, and it is thirty-two times the memory the phone actually runs in.
+  comparabilityGroup: storage-capacity|storage|design-capacity
+  conditions: The smaller of the two models sold at launch, $499 in the United States.
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - apple-iphone-2007:retail-launch
+    - apple-iphone-2007:announcement
+  id: apple-iphone-1st-generation:storage-capacity-4gb
+  method: design-capacity
+  metric: storage-capacity
+  normalized:
+    value: "4000000000"
+    unit: B
+    significantDigits: 1
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 1
+    state: value
+    unit: GB
+    value: "4"
+  scope: storage
+  sourceIds:
+    - apple-iphone-retail-launch-2007
+    - apple-iphone-announcement-2007
+  status: vendor-rated
+  subject:
+    configurationId: 4gb
+    id: apple-iphone-1st-generation
+    kind: system
+  evidenceLevel: confirmed
+- caveat: >-
+    The larger of the two launch models, read decimally for the same reason as
+    the smaller one. Both releases state the same pair of capacities, five
+    months apart; the later one is cited first because it describes hardware
+    that was already in the shops.
+  comparabilityGroup: storage-capacity|storage|design-capacity
+  conditions: The larger of the two models sold at launch, $599 in the United States.
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - apple-iphone-2007:retail-launch
+    - apple-iphone-2007:announcement
+  id: apple-iphone-1st-generation:storage-capacity-8gb
+  method: design-capacity
+  metric: storage-capacity
+  normalized:
+    value: "8000000000"
+    unit: B
+    significantDigits: 1
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 1
+    state: value
+    unit: GB
+    value: "8"
+  scope: storage
+  sourceIds:
+    - apple-iphone-retail-launch-2007
+    - apple-iphone-announcement-2007
+  status: vendor-rated
+  subject:
+    configurationId: 8gb
+    id: apple-iphone-1st-generation
+    kind: system
+  evidenceLevel: confirmed
+- caveat: >-
+    The price of the handset alone. Apple sold it only with a two-year AT&T
+    contract in the United States, and the release states nothing about what
+    that cost, so this is what the hardware was listed at, not what owning it
+    came to.
+  comparabilityGroup: launch-price|whole-system|list-price
+  conditions: United States list price of the
+    {{measurement:apple-iphone-1st-generation:storage-capacity-4gb}} model, as
+    announced in January 2007 and restated at the retail launch in June.
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - apple-iphone-2007:retail-launch
+    - apple-iphone-2007:announcement
+  id: apple-iphone-1st-generation:launch-price-4gb
+  method: list-price
+  metric: launch-price
+  normalized:
+    value: "499"
+    unit: USD
+    significantDigits: 3
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 3
+    state: value
+    unit: USD
+    value: "499"
+  scope: whole-system
+  sourceIds:
+    - apple-iphone-retail-launch-2007
+    - apple-iphone-announcement-2007
+  status: vendor-rated
+  subject:
+    configurationId: 4gb
+    id: apple-iphone-1st-generation
+    kind: system
+  evidenceLevel: confirmed
+- caveat: >-
+    A hundred dollars for four more gigabytes of flash, which is the only
+    difference the two releases name between the models. As with the
+    {{context:iphone-dram:context-gb-4}} model this is the handset’s list price
+    and excludes the contract Apple required with it.
+  comparabilityGroup: launch-price|whole-system|list-price
+  conditions: United States list price of the
+    {{measurement:apple-iphone-1st-generation:storage-capacity-8gb}} model, as
+    announced in January 2007 and restated at the retail launch in June.
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - apple-iphone-2007:retail-launch
+    - apple-iphone-2007:announcement
+  id: apple-iphone-1st-generation:launch-price-8gb
+  method: list-price
+  metric: launch-price
+  normalized:
+    value: "599"
+    unit: USD
+    significantDigits: 3
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 3
+    state: value
+    unit: USD
+    value: "599"
+  scope: whole-system
+  sourceIds:
+    - apple-iphone-retail-launch-2007
+    - apple-iphone-announcement-2007
+  status: vendor-rated
+  subject:
+    configurationId: 8gb
+    id: apple-iphone-1st-generation
+    kind: system
+  evidenceLevel: confirmed

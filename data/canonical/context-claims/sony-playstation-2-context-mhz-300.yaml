@@ -1,0 +1,19 @@
+id: sony-playstation-2:context-mhz-300
+subject:
+  kind: system
+  id: sony-playstation-2
+  configurationId: retail
+label: Frequency
+quantity:
+  state: value
+  value: '300'
+  unit: MHz
+  significantDigits: 3
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - scei-ee-gs-single-chip-2003
+  - scei-ps2-specifications-1999
+evidenceLevel: confirmed

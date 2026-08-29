@@ -1,0 +1,42 @@
+accessedDate: 2026-08-17
+alt: A white Nintendo Wii standing upright in a gray stand and photographed against white, the disc
+  slot running down its front edge, with a Wii Remote and its wrist strap leaning against the
+  console.
+attribution: Photograph by Evan-Amos, released into the public domain by its author, via Wikimedia Commons.
+canonical:
+  byteLength: 20295
+  format: avif
+  height: 960
+  sha256: 7da2aa1e11437a60028784f4a978776ae0fe93309e56d7f01de9c3beb33318bf
+  width: 1280
+caption: A Wii standing in its vertical stand, with a Wii Remote.
+creator: Evan-Amos
+creatorType: person
+editorialStatus: approved
+id: nintendo-wii-console
+original:
+  byteLength: 361896
+  height: 2500
+  mediaType: image/jpeg
+  sha256: 0d60673fe5fe31cd981a622bbd5efbd49751a10ba470477072095494dd103003
+  width: 2500
+originalUrl: https://upload.wikimedia.org/wikipedia/commons/1/14/Wii-console.jpg
+publisher: Wikimedia Commons
+rights:
+  id: pd-self
+  statedAt: https://commons.wikimedia.org/wiki/File:Wii-console.jpg
+  statement: "I, the copyright holder of this work, release this work into the public domain. This
+    applies worldwide. In some countries this may not be legally possible; if so: I grant anyone the
+    right to use this work for any purpose, without any conditions, unless such conditions are
+    required by law."
+  url: https://commons.wikimedia.org/wiki/Template:PD-self
+sourcePageUrl: https://commons.wikimedia.org/wiki/File:Wii-console.jpg
+title: Wii-console.jpg
+transform:
+  background: "#ffffff"
+  fit: pad
+  note: The photograph is square, so it reaches 4:3 by a declared margin at each side rather than by a
+    crop, which would cut the top off the console. The margin is the same white as the backdrop.
+  preset: image-v1
+  sourceHeight: 2500
+  sourceWidth: 2500

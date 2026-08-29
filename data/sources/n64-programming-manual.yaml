@@ -1,0 +1,29 @@
+accessedDate: 2026-07-29
+editorialStatus: approved
+fetch:
+  byteLength: 877855
+  contentType: text/plain; charset=utf-8
+  fetchedAt: 2026-07-29T07:53:02Z
+  finalUrl: https://dn760002.eu.archive.org/0/items/Nintendo_Ultra64_Programming_Manual/Nintendo_Ultra64_Programming_Manual_and_Addendums_djvu.txt
+  httpStatus: 200
+  sha256: bd41cf0ea58134250ccdcc6235345afd5fe5fbf0397ffc8ee007f778ac3ac340
+  url: https://archive.org/download/Nintendo_Ultra64_Programming_Manual/Nintendo_Ultra64_Programming_Manual_and_Addendums_djvu.txt
+id: n64-programming-manual
+locator: >-
+  Chapter 3 "Hardware architecture": memory issues p. 47, clock speeds and bus
+  bandwidth p. 48, development hardware p. 49
+publisher: Nintendo / Silicon Graphics
+sourceType: technical-manual
+tier: A
+title: Nintendo Ultra 64 Programming Manual
+url: https://archive.org/download/Nintendo_Ultra64_Programming_Manual/Nintendo_Ultra64_Programming_Manual_and_Addendums_djvu.txt
+publishedDate: 1996-10
+archiveUrl: https://archive.org/details/Nintendo_Ultra64_Programming_Manual
+license: Copyright Nintendo. Quoted here under short-extract fair use for
+  verification of the figures cited.
+usageNote: >-
+  The scanned text layer of this manual is badly degraded — the clock-speed list
+  alone renders "various system statistics" as "fpfrious s^ptem statistics" and
+  "110 Mhz" as "-liO Mhz". Every figure taken from it records what was legible
+  and what was reconstructed, and figures that could not be read with confidence
+  are held provisional rather than published as fact.

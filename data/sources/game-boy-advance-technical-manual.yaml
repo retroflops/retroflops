@@ -1,0 +1,19 @@
+accessedDate: 2026-08-22
+editorialStatus: provisional
+id: game-boy-advance-technical-manual
+locator: PDF p. 3, Introduction
+publisher: Nintendo of America Inc.
+sourceType: technical-manual
+tier: B
+title: AGB Programming Manual, Version 1.1
+url: https://archive.org/download/NintendoGbaManualV1.1/Nintendo%20Gba%20Manual%20V1.1.pdf
+publishedDate: 2001-04-02
+extract: AGB Programming Manual / Version 1.1
+fetch:
+  url: https://archive.org/download/NintendoGbaManualV1.1/Nintendo%20Gba%20Manual%20V1.1.pdf
+  finalUrl: https://dn760009.eu.archive.org/0/items/NintendoGbaManualV1.1/Nintendo%20Gba%20Manual%20V1.1.pdf
+  fetchedAt: 2026-08-24T18:59:16Z
+  httpStatus: 200
+  contentType: application/pdf
+  byteLength: 772603
+  sha256: 68e6437b261fae93a8fe6d9a074ffbfa70528226e383f8370f229961a5730734

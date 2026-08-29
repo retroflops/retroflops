@@ -1,0 +1,41 @@
+accessedDate: 2026-08-17
+alt: "A GeForce 6800 Ultra lying on dark ground: a long green board carrying a green cooler with
+  printed GeForce 6 artwork over its fan, a black finned heatsink beside it, and two DVI sockets on
+  the bracket."
+attribution: Photograph by Hyins, released into the public domain by its author, via Wikimedia Commons.
+canonical:
+  byteLength: 143402
+  format: avif
+  height: 960
+  sha256: 3613ae9e21237ec919400e12691fc50ab9597776730fcadd4027c73f1ca5644d
+  width: 1280
+caption: A GeForce 6800 Ultra with the reference cooler and its printed shroud artwork.
+creator: Hyins
+creatorType: person
+editorialStatus: approved
+id: nvidia-geforce-6800-ultra-card
+original:
+  byteLength: 2617306
+  height: 1200
+  mediaType: image/png
+  sha256: d7d4b7d5143679ee8cf6279eb051d0d00820faac1afa2d221bca735d20ec3bcb
+  width: 1600
+originalUrl: https://upload.wikimedia.org/wikipedia/commons/8/8a/NVIDIA_GeForce_6800_Ultra.png
+publisher: Wikimedia Commons
+rights:
+  id: pd-self
+  statedAt: https://commons.wikimedia.org/wiki/File:NVIDIA_GeForce_6800_Ultra.png
+  statement: "I, the copyright holder of this work, release this work into the public domain. This
+    applies worldwide. In some countries this may not be legally possible; if so: I grant anyone the
+    right to use this work for any purpose, without any conditions, unless such conditions are
+    required by law."
+  url: https://commons.wikimedia.org/wiki/Template:PD-self
+sourcePageUrl: https://commons.wikimedia.org/wiki/File:NVIDIA_GeForce_6800_Ultra.png
+title: NVIDIA GeForce 6800 Ultra.png
+transform:
+  fit: exact
+  note: The photograph is already 4:3, so the reduction takes the whole frame and nothing is cut or
+    added.
+  preset: image-v1
+  sourceHeight: 1200
+  sourceWidth: 1600

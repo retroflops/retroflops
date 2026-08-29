@@ -1,0 +1,32 @@
+- caveat: >-
+    This figure remains provisional until the cited source is corroborated for
+    the exact configuration.
+  comparabilityGroup: memory-bandwidth|memory|theoretical-peak
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: pc-sdram:memory-bandwidth
+  method: theoretical-peak
+  metric: memory-bandwidth
+  provenance: vendor
+  quantity:
+    note: >-
+      The representative PC configurations state capacity but do not assert an
+      unverified memory-bus peak.
+    state: unknown
+  unknownAudit:
+    reviewedOn: 2026-08-25
+    routesChecked:
+      - vendor-documentation
+      - independent-analysis
+      - community-source
+    outcome: no-compatible-candidate
+    summary: >-
+      No configuration-specific compatible bandwidth value is present in the
+      checked material.
+  scope: memory
+  sourceIds:
+    - intel-historical-x86-documentation
+  status: vendor-rated
+  subject:
+    id: pc-sdram
+    kind: component

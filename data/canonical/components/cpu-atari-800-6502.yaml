@@ -1,0 +1,14 @@
+id: atari-800-6502
+slug: atari-800-6502
+kind: cpu
+name: MOS Technology 6502
+manufacturer: MOS Technology
+architecture: MOS 6502
+introducedDate: '1975'
+instructionSet: MOS 6502
+instructionSetFamily: mos-6502
+summary:
+  Eight-bit processor whose clock follows the Atari 800's television standard.
+sourceIds:
+  - atari-800-technical-reference-notes
+editorialStatus: provisional

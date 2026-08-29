@@ -1,0 +1,44 @@
+accessedDate: 2026-08-17
+alt: A gray Super Nintendo Entertainment System photographed against white, purple power and reset
+  switches on its sloping front, with the North American control pad and its lavender and purple
+  buttons to the left.
+attribution: Photograph by Evan-Amos, released into the public domain by its author, via Wikimedia Commons.
+canonical:
+  byteLength: 18921
+  format: avif
+  height: 960
+  sha256: 0ffa8c5f01cf83c237008b07e0a72d98f20e8fe297093466438616ccff605916
+  width: 1280
+caption: The Super Nintendo Entertainment System in its North American case, with the control pad of
+  the same market.
+creator: Evan-Amos
+creatorType: person
+editorialStatus: approved
+id: super-nintendo-console
+original:
+  byteLength: 4107551
+  height: 2840
+  mediaType: image/jpeg
+  sha256: bc07d3188ac341eaabbca386ad85cbd5ed0e117d0215c42c1829291f0ac5ae6f
+  width: 5472
+originalUrl: https://upload.wikimedia.org/wikipedia/commons/3/31/SNES-Mod1-Console-Set.jpg
+publisher: Wikimedia Commons
+rights:
+  id: pd-self
+  statedAt: https://commons.wikimedia.org/wiki/File:SNES-Mod1-Console-Set.jpg
+  statement: "I, the copyright holder of this work, release this work into the public domain. This
+    applies worldwide. In some countries this may not be legally possible; if so: I grant anyone the
+    right to use this work for any purpose, without any conditions, unless such conditions are
+    required by law."
+  url: https://commons.wikimedia.org/wiki/Template:PD-self
+sourcePageUrl: https://commons.wikimedia.org/wiki/File:SNES-Mod1-Console-Set.jpg
+title: SNES-Mod1-Console-Set.jpg
+transform:
+  background: "#ffffff"
+  fit: pad
+  note: The photograph is wider than 4:3 and the machine reaches both ends of it, so no crop keeps the
+    whole subject. The declared margin is the same white as the backdrop the photograph was taken
+    against, which is why it cannot be seen; it is recorded because it is there.
+  preset: image-v1
+  sourceHeight: 2840
+  sourceWidth: 5472

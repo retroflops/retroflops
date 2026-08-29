@@ -1,0 +1,17 @@
+id: ps2-iop:context-mhz-33-8688
+subject:
+  kind: component
+  id: ps2-iop
+label: Frequency
+quantity:
+  state: value
+  value: '33.8688'
+  unit: MHz
+  significantDigits: 6
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - scei-ps2-specifications-1999
+evidenceLevel: confirmed

@@ -1,0 +1,50 @@
+- extract: 'CPU: Zen 2 4c/8t, 2.4-3.5GHz (up to 448 GFlops FP32)'
+  extractHash: fde8560dd243b248e21ab50498777cd2fa8493ea64f546bf86cf1ae39ecc992c
+  id: steam-deck:tech:cpu
+  locator: Tech specs, Compute → APU → CPU line
+  notes: >-
+    Valve publishes a range rather than one rate, so the ceiling is recorded
+    under peak-clock and the 2.4 GHz floor is named in the caveat instead of
+    being averaged away. The 448 GFlops in the same parenthesis belongs to the
+    processor and not to the graphics line below it; the catalog records only
+    the GPU's rate, so this one is transcribed here and used nowhere.
+  sourceId: valve-steam-deck-tech-specs
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-15
+- extract: 'GPU: 8 RDNA 2 CUs, 1.6GHz (1.6 TFlops FP32)'
+  extractHash: 0c505dfe76759e6073a8a2a3233ade259d15c3ffd5e48973803b821580cc8705
+  id: steam-deck:tech:gpu-fp32
+  locator: Tech specs, Compute → APU → GPU line
+  notes: >-
+    Valve names the rate and its precision in the same parenthesis, which almost
+    no other console or handheld maker does. The page states the CPU's own FP32
+    capability separately as up to 448 GFlops, so this figure is the GPU's
+    alone.
+  sourceId: valve-steam-deck-tech-specs
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-13
+- extract: 16 GB LPDDR5 on-board RAM (5500 MT/s quad 32-bit channels)
+  extractHash: 91e0e3e2a7e0ca895237537deca0ead5ff8ca772438fb758c56f47d46c4fd26f
+  id: steam-deck:tech:ram
+  locator: Tech specs, Compute → RAM line
+  notes: >-
+    Valve gives the transfer rate and the channel geometry and never a
+    bandwidth, so the catalog's 88 GB/s is arithmetic on these two sourced
+    inputs: four 32-bit channels are 128 bits, or 16 bytes, per transfer, and
+    5500 MT/s × 16 B = 88 GB/s decimal. The OLED model's page states 6400 MT/s
+    instead, which is why that page cannot be used for this machine.
+  sourceId: valve-steam-deck-tech-specs
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-13
+- extract: PD3.0 Type C power supply, 45W
+  extractHash: c47a37acb7a62cbf330abcd6788a16a5dd1b176eac5e214a8aaf028e7cba54fa
+  id: steam-deck:tech:power-supply
+  locator: Tech specs, Power section, Input line
+  notes: >-
+    A supply rating stated in watts by the manufacturer, which is one of the
+    forms this metric admits. It is not the handheld's draw: the same page gives
+    the APU an operating window of 4–15 W, a different quantity for a different
+    part.
+  sourceId: valve-steam-deck-tech-specs
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-13

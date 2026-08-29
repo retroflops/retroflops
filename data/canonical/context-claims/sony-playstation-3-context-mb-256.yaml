@@ -1,0 +1,18 @@
+id: sony-playstation-3:context-mb-256
+subject:
+  kind: system
+  id: sony-playstation-3
+label: Capacity
+quantity:
+  state: value
+  value: '256'
+  unit: MB
+  significantDigits: 3
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - scei-ps3-specifications-2005
+  - scei-ps3-launch-2006
+evidenceLevel: confirmed

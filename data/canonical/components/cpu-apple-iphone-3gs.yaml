@@ -1,0 +1,17 @@
+id: apple-iphone-3gs-cpu
+slug: apple-iphone-3gs-cpu
+kind: cpu
+name: Apple iPhone 3GS CPU
+manufacturer: Apple
+architecture: S5PC100
+introducedDate: '2009'
+instructionSet: Armv7-A
+instructionSetFamily: arm
+summary: The processor section of the Apple iPhone 3GS system-on-chip.
+notes:
+  Apple identifies the chip but does not publish its operating clock in the
+  cited technical specification.
+sourceIds:
+  - apple-iphone-3gs-tech-specs
+  - anandtech-iphone-hardware-2009
+editorialStatus: approved

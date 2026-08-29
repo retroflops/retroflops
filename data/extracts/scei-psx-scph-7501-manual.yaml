@@ -1,0 +1,28 @@
+- extract: >-
+    General
+
+    Power requirements: 120 V AC, 60 Hz
+
+    Power consumption: 17W
+
+    Dimensions: 270 × 60 × 188 mm (w/h/d) (10 3/4 × 2 3/8 × 7 1/2 inches)
+
+    Mass: 1.3 kg (2 lb 14 oz)
+  extractHash: 195abd59abae8f445dc6018232b44db388cb063bd41ce3fee8dd1d669371d934
+  id: scei-psx-scph-7501:power
+  locator: '"Specifications", General section'
+  notes: >-
+    Label and value rejoined with a colon, as in the PlayStation 2 manual this
+    catalog already cites. The manual covers the SCPH-7501 revision of 1997, not
+    the SCPH-1001 that launched in 1995: the console was made smaller and
+    cheaper across its life, and a rating from one revision is not a rating for
+    another. The rating is recorded against the machine with the revision named,
+    exactly as the PlayStation 2's is.
+  sourceId: scei-psx-scph-7501-manual
+  transcribed:
+    significantDigits: 2
+    state: value
+    unit: W
+    value: '17'
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-04

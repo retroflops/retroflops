@@ -1,0 +1,55 @@
+configurations:
+  - entries:
+      - componentId: master-system-z80
+        count: 1
+        role: main-cpu
+        shared: false
+        measurementIds:
+          - sega-master-system:cpu-clock-frequency
+      - componentId: master-system-vdp
+        count: 1
+        role: gpu
+        shared: false
+        measurementIds:
+          - sega-master-system:gpu-clock-frequency
+      - componentId: master-system-ram
+        count: 1
+        role: system-memory
+        shared: false
+        measurementIds:
+          - master-system-ram:capacity
+      - componentId: master-system-video-ram
+        count: 1
+        role: video-memory
+        shared: false
+        notes: >-
+          Attached to the video display processor; the Z80 reaches it only
+          through the VDP data port.
+        measurementIds:
+          - master-system-video-ram:capacity
+    id: ntsc
+    label: NTSC retail console
+    region: North America
+editorialStatus: provisional
+id: sega-master-system
+manufacturer: Sega
+name: Sega Master System
+notes: Removable cartridge ROM is storage, not whole-system working memory.
+region: North America
+releaseDate: 1986-06
+slug: sega-master-system
+imageIds:
+  - sega-master-system-console
+sourceIds:
+  - sega-8bit-service-manual
+summary: >-
+  A Z80 console with a tile-and-sprite VDP descended from the TMS9918. It lost
+  to Nintendo in Japan and North America, then outsold it in Brazil and parts of
+  Europe for years afterward.
+type: console
+family: sega-console
+description: >-
+  Sega built the Master System on the processor and video lineage it already
+  used in the arcades, which made conversions straightforward. Its long
+  afterlife came from licensing: Tec Toy kept manufacturing and selling the
+  console in Brazil long after Sega had moved on.

@@ -1,0 +1,14 @@
+- id: ifixit-iphone-5s-teardown-2013:installed-memory
+  sourceId: ifixit-iphone-5s-teardown-2013
+  locator: Teardown highlights, A7 SoC
+  extract: >-
+    The A7 has 1 GB RAM, two cores, and is based on the ARM v8 64-bit
+    instruction set.
+  extractHash: d1783652306dd5682fb0dc173d52489178fe52f03a5ad79284f7b1853a5fa7fe
+  transcribed:
+    state: value
+    value: '1'
+    unit: GiB
+    significantDigits: 1
+  transcribedOn: 2026-08-25
+  transcribedBy: RetroFlops editors

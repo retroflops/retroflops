@@ -1,0 +1,21 @@
+accessedDate: 2026-08-04
+archiveUrl: https://archive.org/details/manualzilla-id-6920058
+editorialStatus: approved
+fetch:
+  byteLength: 638780
+  contentType: text/plain; charset=utf-8
+  fetchedAt: 2026-08-04T15:14:38Z
+  finalUrl: https://dn760005.eu.archive.org/0/items/manualzilla-id-6920058/6920058_djvu.txt
+  httpStatus: 200
+  sha256: 7bc5be0e84729968ef3a7527da1f925f8c80e022248922eae31e3e6789f20ca9
+  url: https://archive.org/download/manualzilla-id-6920058/6920058_djvu.txt
+id: mips-r10000-users-manual
+license: Copyright MIPS Technologies, Inc. Quoted here under short-extract fair
+  use for verification of the figures cited.
+locator: Chapter 15, "Floating-Point Unit", opening section
+publishedDate: 1996-10-10
+publisher: MIPS Technologies, Inc.
+sourceType: vendor-documentation
+tier: A
+title: MIPS R10000 Microprocessor User's Manual, Version 2.0
+url: https://archive.org/download/manualzilla-id-6920058/6920058_djvu.txt

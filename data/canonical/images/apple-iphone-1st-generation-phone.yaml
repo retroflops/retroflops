@@ -1,0 +1,41 @@
+accessedDate: 2026-08-17
+alt: "The back of a first-generation iPhone lying on a pale carpet: a brushed aluminum panel with a
+  black plastic strip across the bottom, an Apple logo and the word iPhone engraved on it, and the
+  metal scratched and scuffed with use."
+attribution: Photograph by Pavel Ševela, licensed CC BY-SA 3.0, via Wikimedia Commons.
+canonical:
+  byteLength: 135362
+  format: avif
+  height: 960
+  sha256: a98cf045e24b65ac0fcaeac729dc5e8517a19cb854c87953d521c011bc40fbb2
+  width: 1280
+caption: A first-generation iPhone, {{context:apple-iphone-1st-generation:context-gb-8}}, seen from
+  the back. The aluminum panel with a black plastic strip belongs to this model alone — every later
+  iPhone 3G and 3GS has an all-plastic back.
+creator: Pavel Ševela
+creatorType: person
+editorialStatus: approved
+id: apple-iphone-1st-generation-phone
+original:
+  byteLength: 4055235
+  height: 2592
+  mediaType: image/jpeg
+  sha256: e90d55378246b3db87b69ce72ac73da74caf59c53028340820da6e2b61baabc2
+  width: 3456
+originalUrl: https://upload.wikimedia.org/wikipedia/commons/c/c4/Apple_iPhone_2G_8GB_%2810%29.jpg
+publisher: Wikimedia Commons
+rights:
+  id: cc-by-sa-3.0
+  statedAt: https://commons.wikimedia.org/wiki/File:Apple_iPhone_2G_8GB_(10).jpg
+  statement: "I, the copyright holder of this work, hereby publish it under the following license:
+    This file is licensed under the Creative Commons Attribution-Share Alike 3.0 Unported license."
+  url: https://creativecommons.org/licenses/by-sa/3.0/
+sourcePageUrl: https://commons.wikimedia.org/wiki/File:Apple_iPhone_2G_8GB_(10).jpg
+title: Apple iPhone 2G 8GB (10).jpg
+transform:
+  fit: exact
+  note: The photograph is already 4:3, so the reduction takes the whole frame and nothing is cut or
+    added.
+  preset: image-v1
+  sourceHeight: 2592
+  sourceWidth: 3456

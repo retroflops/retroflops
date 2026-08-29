@@ -1,0 +1,19 @@
+id: ps3-gddr3
+slug: ps3-gddr3
+kind: memory
+name: PlayStation 3 video memory (GDDR3)
+manufacturer: NVIDIA (interface) / Sony Computer Entertainment (system)
+memoryType: GDDR3
+summary:
+  "{{measurement:ps3-gddr3:capacity}} of GDDR3 belonging to the RSX, external to
+  it rather than embedded as the PlayStation 2's was."
+notes:
+  "The PlayStation 2 put four mebibytes of graphics memory on the graphics die
+  and paid for the bandwidth with capacity. The PlayStation 3 reverses the
+  trade: sixty-four times the capacity, off-chip, at a fraction of the per-byte
+  bandwidth. Neither pool is addressable as the other, so the console's
+  {{context:ps3-gddr3:context-mib-512}} is never one number."
+sourceIds:
+  - scei-ps3-specifications-2005
+  - scei-ps3-launch-2006
+editorialStatus: approved

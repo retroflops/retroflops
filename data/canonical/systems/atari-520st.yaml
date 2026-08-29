@@ -1,0 +1,49 @@
+id: atari-520st
+slug: atari-520st
+name: Atari 520ST
+manufacturer: Atari
+type: personal-computer
+releaseDate: 1985-06
+region: Worldwide
+summary: >-
+  An {{measurement:atari-520st:clock-frequency}} 68000 personal computer with
+  {{measurement:atari-520st-ram:capacity}} RAM, TOS ROM and the SHIFTER display
+  subsystem.
+description: >-
+  The 520ST has writable main RAM and read-only TOS firmware. Keeping each as a
+  component makes the {{measurement:atari-520st-ram:capacity}} whole-system
+  figure a transparent sum rather than an unexplained convention.
+configurations:
+  - id: retail
+    label: 520ST retail configuration
+    entries:
+      - componentId: atari-520st-68000
+        role: main-cpu
+        count: 1
+        shared: false
+        measurementIds:
+          - atari-520st:clock-frequency
+      - componentId: atari-520st-shifter
+        role: gpu
+        count: 1
+        shared: true
+        measurementIds:
+          - atari-520st:gpu-clock-frequency
+      - componentId: atari-520st-ram
+        role: system-memory
+        count: 1
+        shared: true
+        measurementIds:
+          - atari-520st-ram:capacity
+      - componentId: atari-520st-rom
+        role: system-memory
+        count: 1
+        shared: false
+        notes: Read-only TOS ROM.
+        measurementIds:
+          - atari-520st-rom:capacity
+imageIds:
+  - atari-520st-computer
+sourceIds:
+  - atari-st-field-service-manual
+editorialStatus: provisional

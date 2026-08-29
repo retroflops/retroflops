@@ -1,0 +1,17 @@
+id: apple-iphone-4-cpu:context-unit-1
+subject:
+  kind: component
+  id: apple-iphone-4-cpu
+label: Core count
+quantity:
+  state: value
+  value: '1'
+  unit: unit
+  significantDigits: 1
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - apple-iphone-4-tech-specs
+evidenceLevel: confirmed

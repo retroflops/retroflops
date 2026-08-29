@@ -1,0 +1,28 @@
+id: bls-cpi-u-july-2026
+title: >-
+  Consumer Price Index for All Urban Consumers, U.S. city average, all items,
+  July 2026 snapshot
+publisher: U.S. Bureau of Labor Statistics
+url: https://download.bls.gov/pub/time.series/cu/cu.data.1.AllItems
+publishedDate: 2026-08-12
+accessedDate: 2026-08-24
+locator: >-
+  Series CUUR0000SA0, monthly observations M06 2007, M11 2013 and M07 2026; all
+  items, U.S. city average, all urban consumers, not seasonally adjusted,
+  1982-84=100.
+tier: A
+sourceType: government-document
+license: U.S. government work. The Bureau of Labor Statistics publishes the data
+  for public use.
+usageNote: >-
+  This frozen response supplies the CPI inputs for derived price adjustments. It
+  does not replace any manufacturer's nominal launch price or convert between
+  markets or currencies.
+editorialStatus: approved
+fetch:
+  url: https://download.bls.gov/pub/time.series/cu/cu.data.1.AllItems
+  fetchedAt: 2026-08-24T07:50:16Z
+  httpStatus: 200
+  contentType: text/plain
+  byteLength: 2685811
+  sha256: 9baac9eb2fd78f4510a7edeb2c2d23abfbe0c4d4482febe54f415852e19dddf7

@@ -1,0 +1,17 @@
+id: motorola-68ec020:context-unit-1
+subject:
+  kind: component
+  id: motorola-68ec020
+label: Core count
+quantity:
+  state: value
+  value: '1'
+  unit: unit
+  significantDigits: 1
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - amiga-1200-service-manual
+evidenceLevel: confirmed

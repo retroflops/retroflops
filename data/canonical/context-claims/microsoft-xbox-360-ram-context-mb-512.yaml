@@ -1,0 +1,19 @@
+id: microsoft-xbox-360-ram:context-mb-512
+subject:
+  kind: component
+  id: microsoft-xbox-360-ram
+label: Capacity
+quantity:
+  state: value
+  value: '512'
+  unit: MB
+  significantDigits: 3
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - microsoft-xbox-360-hardware-overview
+extractIds:
+  - xbox-360-launch:main-memory
+evidenceLevel: confirmed

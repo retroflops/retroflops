@@ -1,0 +1,16 @@
+id: motorola-68060
+slug: motorola-68060
+kind: cpu
+name: Motorola MC68060
+manufacturer: Motorola
+architecture: Motorola 68060
+introducedDate: '1994'
+instructionSet: Motorola 68000
+instructionSetFamily: motorola-68000
+summary: A 68060 fitted through the CYBERSTORM accelerator in an Amiga 4000.
+notes: >-
+  This is a documented third-party accelerator configuration. It does not turn
+  the 68060 into a stock Commodore A4000 processor.
+sourceIds:
+  - phase5-cyberstorm-mk1-manual
+editorialStatus: approved

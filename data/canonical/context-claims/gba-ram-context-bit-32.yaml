@@ -1,0 +1,17 @@
+id: gba-ram:context-bit-32
+subject:
+  kind: component
+  id: gba-ram
+label: Word size
+quantity:
+  state: value
+  value: '32'
+  unit: bit
+  significantDigits: 2
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - game-boy-advance-technical-manual
+evidenceLevel: reported

@@ -1,0 +1,28 @@
+accessedDate: 2026-08-15
+author: Richard Leadbetter
+editorialStatus: approved
+fetch:
+  byteLength: 97291
+  contentType: text/html; charset=UTF-8
+  fetchedAt: 2026-08-15T18:03:20Z
+  httpStatus: 200
+  sha256: 96a6453ab2e285ba0a85a1e3462a0d19d63bca88d743a2c4c5517e0943dafd0c
+  url: https://www.digitalfoundry.net/articles/digitalfoundry-wii-hacker-reveals-wii-u-cpu-secrets
+id: digitalfoundry-wii-u-clocks-2012
+license: Copyright Digital Foundry. Quoted here under short-extract fair use for
+  verification of the figures cited.
+locator: Body text, the quoted post giving the processor and graphics frequencies
+publishedDate: 2012-11-30
+publisher: Digital Foundry
+sourceType: independent-analysis
+tier: B
+title: Wii U has 1.24GHz CPU, 550MHz graphics core - report
+url: https://www.digitalfoundry.net/articles/digitalfoundry-wii-hacker-reveals-wii-u-cpu-secrets
+usageNote: >-
+  The provenance is unusual and the article says so in its own headline: the
+  frequencies come from a hacker reading them out of the shipped console, and
+  the publication reports them under the word "report" while explaining who he
+  is and why the figures carry weight. That is a chain this catalog can describe
+  but not upgrade — one publication stating a figure it did not itself measure —
+  so the frequencies stay provisional. Nintendo has never published a frequency
+  for this console to compare them against.

@@ -1,0 +1,16 @@
+- extract: >-
+    型番	MK-2000
+
+    電源/消費電力	DC9V/850mA(本体付属の専用ACアダプタ使用)
+  extractHash: c7c3c8bf83a2d679577a81c7b70ddee963ab9f52db3fe2d8a69d841a77f1fe68
+  id: sega-sms:spec-table:power
+  locator: Specifications table, 型番 and 電源/消費電力 rows
+  notes: >-
+    Transcribed with no value. "DC9V/850mA (using the dedicated AC adapter
+    supplied with the unit)". The 型番 row is what disqualifies it here: MK-2000
+    is the Japanese Master System of 18 October 1987, and this catalog's record
+    is the overseas machine of 1986. The same page states that the two differ in
+    hardware, so the rating cannot be carried across.
+  sourceId: sega-hardware-encyclopedia-master-system
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-13

@@ -1,0 +1,19 @@
+id: sega-saturn:context-hz-60
+subject:
+  kind: system
+  id: sega-saturn
+label: Frequency
+quantity:
+  state: value
+  value: '60'
+  unit: Hz
+  significantDigits: 2
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - sega-hardware-encyclopedia-saturn
+extractIds:
+  - sega-saturn:spec-table:power
+evidenceLevel: confirmed

@@ -1,0 +1,175 @@
+---
+// SPDX-FileCopyrightText: 2026 Wojciech Polak
+// SPDX-License-Identifier: MIT
+
+import { getCollection } from 'astro:content';
+
+import CatalogSearch from '~/islands/catalog-search';
+import BaseLayout from '~/layouts/base-layout.astro';
+import { getCatalog } from '~/lib/catalog';
+import { route, withBase } from '~/lib/paths';
+import { assertPromotedPreset } from '~/lib/presets';
+import { website } from '~/lib/structured-data';
+
+const catalog = getCatalog();
+const absolute = (path: string): string => new URL(route(path), Astro.site ?? Astro.url).href;
+const structuredData = [website(absolute)];
+
+/**
+ * Promoted comparisons. The choice lives in each preset's own front matter, so
+ * promotion is an editorial decision recorded next to the argument it promotes.
+ * Each one is resolved rather than trusted: a preset that stopped resolving
+ * would fail this build too, not only its own page.
+ */
+const promoted = (await getCollection('presets'))
+  .filter((preset) => preset.data.promoted)
+  .toSorted((a, b) => a.data.order - b.data.order)
+  .map((preset) => ({ preset, comparison: assertPromotedPreset(preset.data, preset.id) }));
+
+if (promoted.length === 0) {
+  throw new Error('At least one catalog comparison must be promoted on Home.');
+}
+
+/**
+ * Three records chosen to show the range, not to rank anything: the oldest
+ * machine here, the one whose sourcing story is most instructive, and the
+ * newest. Editorial, and labeled as such.
+ */
+const startingPoints = [
+  'apollo-guidance-computer-block-ii',
+  'sony-playstation-2',
+  'nvidia-h100-sxm',
+]
+  .map((slug) => catalog.systems.find((system) => system.slug === slug))
+  .filter((system) => system !== undefined);
+---
+
+<BaseLayout
+  title="RetroFlops"
+  description="Sourced hardware data for historic and modern computers, consoles, CPUs, and GPUs, with explicit limits on what can be compared."
+  structuredData={structuredData}
+>
+  <header class="page-header stack">
+    <p class="page-header__eyebrow">Hardware data across eras</p>
+    <h1>RetroFlops</h1>
+    <p class="lede prose">
+      RetroFlops places the Apollo Guidance Computer and classic consoles beside Apple Silicon and
+      modern GPUs. Each catalog figure includes its source, exact locator, method, and evidence
+      status.
+    </p>
+  </header>
+
+  {
+    /*
+    `search-slot` reserves the height the island will occupy, so the page below
+    it does not move when the island arrives. The reservation is on `.js`,
+    because a reader without scripts gets the noscript paragraph instead and an
+    empty box above it would be a promise the page cannot keep.
+  */
+  }
+  <section aria-labelledby="search-heading" class="stack search-slot">
+    <h2 id="search-heading" class="visually-hidden">Search</h2>
+    {/* client:only for the same reason as Explore's filters: no dead input. */}
+    <CatalogSearch base={withBase('/')} client:only="preact" />
+    <noscript>
+      <p class="prose">
+        Search needs JavaScript. Everything it would find is listed on
+        <a href={route('/explore/')}>Explore</a>, and every profile page works without scripts.
+      </p>
+    </noscript>
+  </section>
+
+  <section class="prose stack" aria-labelledby="rules">
+    <h2 id="rules">How the numbers are handled</h2>
+    <p>
+      There is no universal RetroFlops score. MIPS, DMIPS, instructions per second, FLOPS, SPEC
+      results, memory bandwidth, TDP, and whole-system power draw stay separate. A multiplier
+      appears only when the metric, method, benchmark identity, and device scope match, and both
+      figures are confirmed and approved. <code>reported</code> and <code>rumored</code> figures remain
+      visible, but stay provisional and never feed automatic multipliers.
+    </p>
+    <p>
+      Missing data is explicit. <code>unknown</code> means research found no acceptable figure;
+      <code>not-applicable</code> means the quantity does not exist for that hardware. Neither is represented
+      as zero. Every multiplier shows its formula, inputs, rounding rule, and caveats.
+    </p>
+    <p>
+      <a href={route('/methodology/')}>Read the methodology</a>
+    </p>
+  </section>
+
+  <section class="stack" aria-labelledby="comparisons">
+    <h2 id="comparisons">Prepared comparisons</h2>
+    <p class="prose meta">
+      Each has at least one valid multiplier and a useful hardware observation. Other prepared
+      comparisons remain on the Compare page as methodology examples.
+    </p>
+    <ul class="card-grid">
+      {
+        promoted.map(({ preset, comparison }) => (
+          <li class="card stack">
+            <p class="card__eyebrow">
+              {comparison.subjects.length} records ·{' '}
+              <span class="numeric">{comparison.ratioCount}</span>
+              {comparison.ratioCount === 1 ? ' multiplier' : ' multipliers'}
+            </p>
+            <h3>
+              <a href={route(`/compare/${preset.id}/`)}>{preset.data.title}</a>
+            </h3>
+            <p class="card__summary">{preset.data.summary}</p>
+          </li>
+        ))
+      }
+    </ul>
+    <p>
+      <a href={route('/compare/#presets')}>See every prepared comparison</a>,
+      <a href={route('/compare/')}>build your own</a> from two to four records, or read
+      <a href={route('/timeline/')}>one metric over time</a>.
+    </p>
+  </section>
+
+  <section class="stack" aria-labelledby="start">
+    <h2 id="start">Where to start</h2>
+    <p class="prose meta">This is an editorial selection. The catalog has no "fastest" label.</p>
+    <ul class="card-grid">
+      {
+        startingPoints.map((system) => (
+          <li class="card stack">
+            <p class="card__eyebrow">{system.releaseDate.slice(0, 4)}</p>
+            <h3>
+              <a href={route(`/systems/${system.slug}/`)}>{system.name}</a>
+            </h3>
+            <p class="card__summary">{system.summary}</p>
+          </li>
+        ))
+      }
+    </ul>
+    <p>
+      <a href={route('/explore/')}>Browse the catalog</a>. The full export retains
+      <span class="numeric">{catalog.systems.length}</span> systems,
+      <span class="numeric">{catalog.components.length}</span> components and
+      <span class="numeric">{catalog.measurements.length}</span> measurements.
+    </p>
+  </section>
+
+  <aside class="author-note prose stack" aria-labelledby="author-note-heading">
+    <h2 id="author-note-heading">Why I built RetroFlops</h2>
+    <p>
+      I wanted a catalog that could place the Apollo Guidance Computer, an Atari or a PlayStation
+      beside modern hardware without flattening them into one made-up score. I had little interest
+      in cataloging every current processor or phone. That mix of eras is deliberate.
+    </p>
+    <p>
+      I like the software underneath it. The hard part has been the data. A number only earns its
+      place after I can trace it to the right document, page, hardware configuration, metric and
+      method. That work is slow, and there is still a long list of gaps to close.
+    </p>
+    <p>
+      If you have a correction or a better source, please
+      <a href="https://github.com/retroflops/retroflops/issues">open an issue</a> with the machine, the
+      figure and an exact page or table locator. Every proposed figure has to pass the same sourcing and
+      validation rules as the rest of the catalog. The
+      <a href={route('/data/')}>data and contributing page</a> explains what the catalog can accept.
+    </p>
+  </aside>
+</BaseLayout>

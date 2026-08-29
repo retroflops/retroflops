@@ -1,0 +1,93 @@
+- extract: >-
+    Table 3. GeForce RTX 5090 vs GeForce RTX 4090 vs GeForce RTX 3090 Specs —
+    GeForce RTX 5090 column
+
+    GPU Codename: GB202
+
+    GPU Architecture: NVIDIA Blackwell
+
+    SMs: 170
+
+    CUDA Cores / GPU: 21760
+
+    GPU Boost Clock (MHz): 2407
+
+    Peak FP32 TFLOPS (non-Tensor): 104.8
+
+    Frame Buffer Memory Size and Type: 32GB GDDR7
+
+    Memory Interface: 512-bit
+
+    Memory Clock (Data Rate): 28 Gbps
+
+    Memory Bandwidth: 1792 GB/sec
+
+    ROPs: 176
+
+    L2 Cache Size: 98304 KB
+
+    TGP (Total Graphics Power): 575W
+
+    Transistor Count: 92.2 Billion
+
+    Die Size: 750 mm2
+  extractHash: bacadaf09d59c53adf16a315fcb31446b923ff9ad5d0b32791f6db8ba171707a
+  id: nvidia-rtx-5090:whitepaper-table
+  locator: Appendix A "Blackwell GB202 GPU", Table 3, GeForce RTX 5090 column
+  notes: >-
+    The table has three columns and only the RTX 5090's is transcribed, each row
+    label rejoined with its value by a colon; the tensor, ray-tracing, fill-rate
+    and video-engine rows are omitted, as are the superscript footnote markers
+    the table prints on some labels. Two things here are absent from the product
+    page that sells the card: a memory bandwidth, and a floating-point rate that
+    names its precision.
+  sourceId: nvidia-rtx-blackwell-whitepaper
+  transcribed:
+    significantDigits: 4
+    state: value
+    unit: TFLOP/s
+    value: '104.8'
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-03
+- extract: >-
+    The full GB202 chip consists of 92.2 billion transistors and contains 12
+    GPCs, 96 TPCs, 192 SMs, and sixteen 32-bit memory controllers (512-bit
+    total).
+  extractHash: cc1fc0d233b6e92ea14bb2425754fa3b87bd9236fe4bf651a6f8f26d92322597
+  id: nvidia-rtx-5090:gb202-die
+  locator: Appendix A “Blackwell GB202 GPU”, opening paragraph
+  notes: >-
+    This sentence describes the full die, which has 192 SMs; the GeForce RTX
+    5090 in the same appendix's table has 170. NVIDIA nevertheless prints 92.2
+    billion in the card's own column, so the count recorded for the card is the
+    full die's on the vendor's own authority — stated in the caveat rather than
+    silently narrowed. The memory interface is the same 512 bits in both.
+  sourceId: nvidia-rtx-blackwell-whitepaper
+  transcribed:
+    significantDigits: 3
+    state: value
+    unit: transistor
+    value: '92200000000'
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-04
+- extract: 'Manufacturing Process: TSMC 4nm 4N NVIDIA Custom Process'
+  extractHash: 99f0a9c8e3c2fae3399bd8732075f32a97d14d1d96063e1f2429a912bb34113e
+  id: nvidia-rtx-5090:whitepaper-process
+  locator: >-
+    Appendix A “Blackwell GB202 GPU”, Table 3, GeForce RTX 5090 column,
+    Manufacturing Process row
+  notes: >-
+    One row of the three-column table, the GeForce RTX 5090 column only, its
+    label rejoined with its value by a colon. “4N” is a foundry process name
+    rather than a measured dimension, and the row was omitted from the earlier
+    transcription of this table for that reason; it is recorded now because the
+    metric it feeds is defined as a marketing node name and forbids ratios
+    outright.
+  sourceId: nvidia-rtx-blackwell-whitepaper
+  transcribed:
+    significantDigits: 1
+    state: value
+    unit: nm
+    value: '4'
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-04

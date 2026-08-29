@@ -1,0 +1,17 @@
+id: apple-iphone-5s-cpu:context-unit-2
+subject:
+  kind: component
+  id: apple-iphone-5s-cpu
+label: Core count
+quantity:
+  state: value
+  value: '2'
+  unit: unit
+  significantDigits: 1
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - apple-iphone-5s-tech-specs
+evidenceLevel: confirmed

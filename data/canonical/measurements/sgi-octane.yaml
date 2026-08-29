@@ -1,0 +1,425 @@
+- benchmark:
+    id: spec-cpu
+    variant: cint-base
+    version: "95"
+  caveat: >-
+    SPEC fair use applies to any quotation of this figure. Base and peak are
+    different comparability groups: base results are run with one flag set
+    across all benchmarks, peak results allow per-benchmark tuning, and the two
+    are never interchangeable. Comparable only with other CINT95 base results,
+    never with CPU2000 or later suites. SPEC publishes no conversion between
+    suite generations.
+  comparabilityGroup: spec-cpu-result|whole-system|spec-published-result|spec-cpu@95:cint-base
+  conditions: IRIX64 6.4, MIPSpro C Compiler 7.2, base flags -Ofast=ip27
+    -IPA:use_intrinsic with feedback-directed optimization. One
+    {{measurement:sgi-octane:1x:clock-frequency}} R10000,
+    {{measurement:sgi-octane:1x:memory-capacity}} of memory.
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - spec-cpu95-octane-int:summary
+  id: sgi-octane:1x:specint-base95
+  method: spec-published-result
+  metric: spec-cpu-result
+  normalized:
+    value: "13"
+    unit: score
+    significantDigits: 3
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 3
+    state: value
+    unit: score
+    value: "13.0"
+  scope: whole-system
+  sourceIds:
+    - spec-cpu95-octane-int
+  status: measured
+  subject:
+    configurationId: 1x-250mhz
+    id: sgi-octane
+    kind: system
+  evidenceLevel: confirmed
+- comparabilityGroup: sustained-fp64-rate|whole-system|benchmark-run
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - sgistuff-octane-linpack:octane-r10000-250mhz
+  id: sgi-octane:sustained-fp64-rate
+  method: benchmark-run
+  metric: sustained-fp64-rate
+  provenance: independent
+  quantity:
+    note: >-
+      SGIStuff reports a LINPACK result for an Octane with an R10000, but names
+      neither the LINPACK revision nor the floating-point precision. The row
+      cannot establish an FP64 benchmark result.
+    state: unknown
+  unknownAudit:
+    reviewedOn: 2026-08-25
+    routesChecked:
+      - vendor-documentation
+      - independent-analysis
+      - community-source
+    outcome: no-compatible-candidate
+    summary: The cited benchmark result does not state a precision-qualified FP64 run.
+  scope: whole-system
+  sourceIds:
+    - sgistuff-octane-linpack
+  status: measured
+  subject:
+    id: sgi-octane
+    kind: system
+- benchmark:
+    id: spec-cpu
+    variant: cint-peak
+    version: "95"
+  caveat: >-
+    SPEC fair use applies. A peak result is tuned per benchmark and is not
+    comparable with a base result, including the base result for this same
+    machine.
+  comparabilityGroup: spec-cpu-result|whole-system|spec-published-result|spec-cpu@95:cint-peak
+  conditions: As the base result, but with per-benchmark compiler flags. The full
+    peak flag set is in the cited result file.
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - spec-cpu95-octane-int:summary
+  id: sgi-octane:1x:specint-peak95
+  method: spec-published-result
+  metric: spec-cpu-result
+  normalized:
+    value: "13.6"
+    unit: score
+    significantDigits: 3
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 3
+    state: value
+    unit: score
+    value: "13.6"
+  scope: whole-system
+  sourceIds:
+    - spec-cpu95-octane-int
+  status: measured
+  subject:
+    configurationId: 1x-250mhz
+    id: sgi-octane
+    kind: system
+  evidenceLevel: confirmed
+- benchmark:
+    id: spec-cpu
+    variant: cfp-base
+    version: "95"
+  caveat: >-
+    SPEC fair use applies. A floating-point result is not comparable with an
+    integer one: different benchmarks, different code, different comparability
+    group. This result was also obtained on a two-processor machine with an
+    auto-parallelizing compiler, so it is not a single-processor figure.
+  comparabilityGroup: spec-cpu-result|whole-system|spec-published-result|spec-cpu@95:cfp-base
+  conditions: IRIX64 6.4, MIPSpro Fortran 77 and 90 7.2 with the Auto
+    Parallelizing Option. Two {{measurement:sgi-octane:2x:clock-frequency}}
+    R10000 processors, {{measurement:sgi-octane:2x:memory-capacity}} of memory.
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - spec-cpu95-octane-fp:summary
+  id: sgi-octane:2x:specfp-base95
+  method: spec-published-result
+  metric: spec-cpu-result
+  normalized:
+    value: "25.5"
+    unit: score
+    significantDigits: 3
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 3
+    state: value
+    unit: score
+    value: "25.5"
+  scope: whole-system
+  sourceIds:
+    - spec-cpu95-octane-fp
+  status: measured
+  subject:
+    configurationId: 2x-250mhz
+    id: sgi-octane
+    kind: system
+  evidenceLevel: confirmed
+- benchmark:
+    id: spec-cpu
+    variant: cfp-peak
+    version: "95"
+  caveat: >-
+    SPEC fair use applies. Peak and base are separate comparability groups, and
+    this is a two-processor result.
+  comparabilityGroup: spec-cpu-result|whole-system|spec-published-result|spec-cpu@95:cfp-peak
+  conditions: As the base floating-point result, but with per-benchmark compiler flags.
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - spec-cpu95-octane-fp:summary
+  id: sgi-octane:2x:specfp-peak95
+  method: spec-published-result
+  metric: spec-cpu-result
+  normalized:
+    value: "26.6"
+    unit: score
+    significantDigits: 3
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 3
+    state: value
+    unit: score
+    value: "26.6"
+  scope: whole-system
+  sourceIds:
+    - spec-cpu95-octane-fp
+  status: measured
+  subject:
+    configurationId: 2x-250mhz
+    id: sgi-octane
+    kind: system
+  evidenceLevel: confirmed
+- comparabilityGroup: clock-frequency|cpu|nominal-clock
+  conditions: MIPS R10000, processor chip revision 3.1, as reported in the SPEC
+    result configuration.
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - spec-cpu95-octane-int:summary
+  id: sgi-octane:1x:clock-frequency
+  method: nominal-clock
+  metric: clock-frequency
+  normalized:
+    value: "250000000"
+    unit: Hz
+    significantDigits: 3
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 3
+    state: value
+    unit: MHz
+    value: "250"
+  scope: cpu
+  sourceIds:
+    - spec-cpu95-octane-int
+  status: vendor-rated
+  subject:
+    configurationId: 1x-250mhz
+    id: sgi-octane
+    kind: system
+  evidenceLevel: confirmed
+- caveat: >-
+    Two processors at {{measurement:sgi-octane:2x:clock-frequency}} is not
+    {{context:sgi-octane:context-mhz-500}} of anything. Clock frequency does not
+    add across processors, which is exactly why the floating-point result
+    obtained on this machine is recorded separately from the single-processor
+    integer one.
+  comparabilityGroup: clock-frequency|cpu|nominal-clock
+  conditions: Both processors run at the same rate. The clock is per processor,
+    not a total.
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - spec-cpu95-octane-fp:summary
+  id: sgi-octane:2x:clock-frequency
+  method: nominal-clock
+  metric: clock-frequency
+  normalized:
+    value: "250000000"
+    unit: Hz
+    significantDigits: 3
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 3
+    state: value
+    unit: MHz
+    value: "250"
+  scope: cpu
+  sourceIds:
+    - spec-cpu95-octane-fp
+  status: vendor-rated
+  subject:
+    configurationId: 2x-250mhz
+    id: sgi-octane
+    kind: system
+  evidenceLevel: confirmed
+- caveat: >-
+    The result file writes "128MB", which in this period and context means
+    {{measurement:sgi-octane:1x:memory-capacity}}. It describes the tested
+    configuration, not the maximum the Octane supported.
+  comparabilityGroup: memory-capacity|whole-system|design-capacity
+  conditions: Memory fitted to the machine SGI published the CINT95 result on.
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - spec-cpu95-octane-int:summary
+  id: sgi-octane:1x:memory-capacity
+  method: design-capacity
+  metric: memory-capacity
+  normalized:
+    value: "134217728"
+    unit: B
+    significantDigits: 3
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 3
+    state: value
+    unit: MiB
+    value: "128"
+  scope: whole-system
+  sourceIds:
+    - spec-cpu95-octane-int
+  status: vendor-rated
+  subject:
+    configurationId: 1x-250mhz
+    id: sgi-octane
+    kind: system
+  evidenceLevel: confirmed
+- comparabilityGroup: memory-capacity|whole-system|design-capacity
+  conditions: Memory fitted to the machine SGI published the CFP95 result on.
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - spec-cpu95-octane-fp:summary
+  id: sgi-octane:2x:memory-capacity
+  method: design-capacity
+  metric: memory-capacity
+  normalized:
+    value: "268435456"
+    unit: B
+    significantDigits: 3
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 3
+    state: value
+    unit: MiB
+    value: "256"
+  scope: whole-system
+  sourceIds:
+    - spec-cpu95-octane-fp
+  status: vendor-rated
+  subject:
+    configurationId: 2x-250mhz
+    id: sgi-octane
+    kind: system
+  evidenceLevel: confirmed
+- caveat: >-
+    Computed here, not published anywhere. Nobody rated this processor in
+    floating-point operations per second: a processor of 1996 was documented by
+    what its units retire per cycle, and the manual says the adder and the
+    multiplier each accept one operation every cycle and stops there. The
+    multiplication is the derived claim this record names, with both constants
+    cited to that manual. It is an upper bound twice over — every unit fed on
+    every cycle, nothing stalling — and the same figure holds at double
+    precision, because the manual gives the multiplier one repeat rate for both.
+  comparabilityGroup: peak-fp32-rate|cpu|theoretical-peak
+  conditions: One R10000 at {{context:mips-r10000:context-mhz-250}}, both
+    floating-point units issuing on every cycle.
+  derivedFrom: mips-r10000:peak-fp32-from-clock
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - mips-r10000:floating-point-units
+    - spec-cpu95-octane-int:summary
+  id: mips-r10000:peak-fp32-rate
+  method: theoretical-peak
+  metric: peak-fp32-rate
+  normalized:
+    value: "500000000"
+    unit: FLOP/s
+    significantDigits: 3
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 3
+    state: value
+    unit: MFLOP/s
+    value: "500"
+  rounding: half-up
+  scope: cpu
+  sourceIds:
+    - mips-r10000-users-manual
+    - spec-cpu95-octane-int
+  status: derived
+  subject:
+    id: mips-r10000
+    kind: component
+  evidenceLevel: confirmed
+- caveat: >-
+    Unknown because of what this record is sourced from. Silicon Graphics quoted
+    a bandwidth for the Octane’s crossbar in its own literature, and none of
+    that literature is cited here. The machine is in the catalog on the strength
+    of two SPEC submissions, which say what was fitted and how fast it ran the
+    suite.
+  comparabilityGroup: memory-bandwidth|memory|theoretical-peak
+  editorialStatus: approved
+  evidenceStage: shipped
+  id: sgi-octane:memory-bandwidth
+  method: theoretical-peak
+  metric: memory-bandwidth
+  provenance: independent
+  quantity:
+    note: >-
+      The cited documents are published SPEC results, which describe the
+      machine’s configuration and its scores and state no memory bandwidth.
+    state: unknown
+  unknownAudit:
+    reviewedOn: 2026-08-25
+    routesChecked:
+      - vendor-documentation
+      - independent-analysis
+      - community-source
+    outcome: no-published-candidate
+    summary: The cited documents provide no comparable system memory bandwidth.
+  scope: memory
+  sourceIds:
+    - spec-cpu95-octane-int
+  status: vendor-rated
+  subject:
+    id: sgi-octane
+    kind: system
+- caveat: >-
+    The same limitation as the bandwidth, from the same two documents. A
+    workstation of this size has a supply rating printed on it; no source here
+    states it.
+  comparabilityGroup: rated-power-consumption|whole-system|rated-power
+  editorialStatus: approved
+  evidenceStage: shipped
+  id: sgi-octane:rated-power-consumption
+  method: rated-power
+  metric: rated-power-consumption
+  provenance: independent
+  quantity:
+    note: >-
+      A SPEC result reports the hardware and software configuration of the
+      machine under test, not its power rating. SGI’s own hardware documentation
+      for the Octane is not held by any archive this project may cite: what
+      survives of SGI on the Internet Archive is brochures and price lists, and
+      the Octane brochure of December 1999 states the supply voltage and no
+      wattage at all.
+    state: unknown
+  unknownAudit:
+    reviewedOn: 2026-08-25
+    routesChecked:
+      - vendor-documentation
+      - independent-analysis
+      - community-source
+    outcome: no-published-candidate
+    summary: The checked documentation provides no system power rating.
+  scope: whole-system
+  sourceIds:
+    - spec-cpu95-octane-int
+  status: vendor-rated
+  subject:
+    id: sgi-octane
+    kind: system

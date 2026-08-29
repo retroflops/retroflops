@@ -1,0 +1,173 @@
+- caveat: The reference-card graphics clock.
+  comparabilityGroup: clock-frequency|gpu|nominal-clock
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: nvidia-nv40:clock-frequency-base
+  method: nominal-clock
+  metric: clock-frequency
+  normalized:
+    value: "425000000"
+    unit: Hz
+    significantDigits: 3
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 3
+    state: value
+    unit: MHz
+    value: "425"
+  scope: gpu
+  sourceIds:
+    - nvidia-geforce-6800-ultra-whitepaper
+  status: vendor-rated
+  subject:
+    id: nvidia-nv40
+    kind: component
+  evidenceLevel: confirmed
+- caveat: >-
+    The recovered NVIDIA material documents a
+    {{context:nvidia-geforce-6800-ultra-memory:context-mb-512}} later variant,
+    not the April 2004 reference-card capacity.
+  comparabilityGroup: memory-capacity|whole-system|design-capacity
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: nvidia-geforce-6800-ultra-memory:capacity
+  method: design-capacity
+  metric: memory-capacity
+  provenance: vendor
+  quantity:
+    note: >-
+      NVIDIA's release notes establish only that a
+      {{context:nvidia-geforce-6800-ultra-memory:context-mb-512}} Ultra variant
+      existed; the recovered material does not establish the launch-reference
+      capacity.
+    state: unknown
+  unknownAudit:
+    reviewedOn: 2026-08-25
+    routesChecked:
+      - vendor-documentation
+      - independent-analysis
+      - community-source
+    outcome: no-compatible-candidate
+    summary: Recovered material does not establish the launch-reference value.
+  scope: whole-system
+  sourceIds:
+    - nvidia-geforce-6800-ultra-whitepaper
+  status: vendor-rated
+  subject:
+    id: nvidia-geforce-6800-ultra-memory
+    kind: component
+- caveat: >-
+    Vendor-stated maximum transfer rate of this memory interface, not a
+    benchmarked application result.
+  comparabilityGroup: memory-bandwidth|memory|theoretical-peak
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: nvidia-geforce-6800-ultra-memory:bandwidth
+  method: theoretical-peak
+  metric: memory-bandwidth
+  normalized:
+    value: "35000000000"
+    unit: B/s
+    significantDigits: 2
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 2
+    state: value
+    unit: GB/s
+    value: "35"
+  scope: memory
+  sourceIds:
+    - nvidia-geforce-6800-ultra-whitepaper
+  status: theoretical
+  subject:
+    id: nvidia-geforce-6800-ultra-memory
+    kind: component
+  evidenceLevel: confirmed
+- caveat: Adds the one fitted frame-buffer bandwidth. No host memory is included.
+  comparabilityGroup: memory-bandwidth|whole-system|theoretical-peak
+  derivedFrom: nvidia-geforce-6800-ultra:whole-system-memory-bandwidth
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: nvidia-geforce-6800-ultra:whole-system-memory-bandwidth
+  method: theoretical-peak
+  metric: memory-bandwidth
+  normalized:
+    value: "35000000000"
+    unit: B/s
+    significantDigits: 2
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 2
+    state: value
+    unit: GB/s
+    value: "35"
+  rounding: none
+  scope: whole-system
+  sourceIds:
+    - nvidia-geforce-6800-ultra-whitepaper
+  status: derived
+  subject:
+    id: nvidia-geforce-6800-ultra
+    kind: system
+  evidenceLevel: confirmed
+- caveat: >-
+    Programmable shaders do not authorize a catalog-side FLOPS estimate without
+    a published operation count.
+  comparabilityGroup: peak-fp32-rate|gpu|theoretical-peak
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: nvidia-nv40:peak-fp32-rate
+  method: theoretical-peak
+  metric: peak-fp32-rate
+  provenance: vendor
+  quantity:
+    note: The cited vendor material states no FP32 peak in FLOP/s.
+    state: unknown
+  unknownAudit:
+    reviewedOn: 2026-08-25
+    routesChecked:
+      - vendor-documentation
+      - independent-analysis
+      - community-source
+    outcome: no-published-candidate
+    summary: The cited vendor material provides no compatible published value.
+  scope: gpu
+  sourceIds:
+    - nvidia-geforce-6800-ultra-whitepaper
+  status: vendor-rated
+  subject:
+    id: nvidia-nv40
+    kind: component
+- caveat: >-
+    The recovered NVIDIA material does not state a numeric board-power or
+    thermal-design rating.
+  comparabilityGroup: thermal-design-power|gpu|rated-power
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: nvidia-nv40:thermal-design-power
+  method: rated-power
+  metric: thermal-design-power
+  provenance: vendor
+  quantity:
+    note: >-
+      No numeric graphics-card or board-power rating appears in the recovered
+      qualifying NVIDIA documents.
+    state: unknown
+  unknownAudit:
+    reviewedOn: 2026-08-25
+    routesChecked:
+      - vendor-documentation
+      - independent-analysis
+      - community-source
+    outcome: no-published-candidate
+    summary: Recovered qualifying documents provide no numeric board-power rating.
+  scope: gpu
+  sourceIds:
+    - nvidia-geforce-6800-ultra-whitepaper
+  status: vendor-rated
+  subject:
+    id: nvidia-nv40
+    kind: component

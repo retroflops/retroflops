@@ -1,0 +1,17 @@
+id: intel-core-2-duo-e6600:context-ghz-2-66
+subject:
+  kind: component
+  id: intel-core-2-duo-e6600
+label: Frequency
+quantity:
+  state: value
+  value: '2.66'
+  unit: GHz
+  significantDigits: 3
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - intel-historical-x86-documentation
+evidenceLevel: confirmed

@@ -1,0 +1,22 @@
+id: hardware-fr-3dfx-voodoo
+title: "3dfx Voodoo Graphics"
+publisher: Hardware.fr
+publishedDate: 2001-07-01
+accessedDate: 2026-08-25
+locator: Voodoo Graphics section, opening specification sentence
+extract: >-
+  Le Voodoo Graphics, cadencé à 50 MHz, disposant d'un fillrate et d'une
+  passante mémoire de 50 Mpixels/s et 800 Mo/s.
+tier: B
+sourceType: independent-analysis
+url: https://www.hardware.fr/articles/420-3/3dfx-voodoo-graphics.html
+usageNote: >-
+  Independent technical history. Used with Tom's Hardware France only for the
+  stated 50 MHz graphics clock.
+fetch:
+  url: https://www.hardware.fr/articles/420-3/3dfx-voodoo-graphics.html
+  fetchedAt: 2026-08-25T06:04:49Z
+  httpStatus: 200
+  contentType: text/html
+  byteLength: 29361
+  sha256: 0306ef24db1f484d27b8de19e9b2723f91051d1bf4b0efd54317e946f90b11db

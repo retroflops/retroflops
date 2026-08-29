@@ -1,0 +1,17 @@
+id: sega-saturn:context-mhz-57-2
+subject:
+  kind: system
+  id: sega-saturn
+label: Frequency
+quantity:
+  state: value
+  value: '57.2'
+  unit: MHz
+  significantDigits: 3
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - sega-saturn-service-manual
+evidenceLevel: confirmed

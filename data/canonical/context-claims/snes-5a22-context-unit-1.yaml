@@ -1,0 +1,17 @@
+id: snes-5a22:context-unit-1
+subject:
+  kind: component
+  id: snes-5a22
+label: Core count
+quantity:
+  state: value
+  value: '1'
+  unit: unit
+  significantDigits: 1
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - nintendo-snes-tech-specs
+evidenceLevel: confirmed

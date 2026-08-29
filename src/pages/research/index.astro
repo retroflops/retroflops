@@ -1,0 +1,144 @@
+---
+// SPDX-FileCopyrightText: 2026 Wojciech Polak
+// SPDX-License-Identifier: MIT
+
+import { getCollection } from 'astro:content';
+
+import BaseLayout from '~/layouts/base-layout.astro';
+import {
+  getComponentAvailability,
+  getComponentById,
+  getComponents,
+  getSystemAvailability,
+  getSystems,
+} from '~/lib/catalog';
+import { formatPartialDate, humaniseIdentifier } from '~/lib/display';
+import { route } from '~/lib/paths';
+import { presetAvailability } from '~/lib/presets';
+
+const systems = getSystems()
+  .filter((system) => getSystemAvailability(system).availability === 'research')
+  .toSorted((a, b) => a.releaseDate.localeCompare(b.releaseDate));
+
+const componentIdsBySystem = new Map(
+  systems.map((system) => [
+    system.id,
+    getSystemAvailability(system).componentIds.filter((id) => {
+      const component = getComponentById(id);
+      return (
+        component !== undefined && getComponentAvailability(component).availability === 'research'
+      );
+    }),
+  ]),
+);
+const assignedComponentIds = new Set([...componentIdsBySystem.values()].flat());
+const unassignedComponents = getComponents()
+  .filter(
+    (component) =>
+      getComponentAvailability(component).availability === 'research' &&
+      !assignedComponentIds.has(component.id),
+  )
+  .toSorted((a, b) => a.name.localeCompare(b.name));
+
+const groups = [...new Set(systems.map((system) => system.type))].map((type) => ({
+  type,
+  systems: systems.filter((system) => system.type === type),
+}));
+
+const researchExamples = (await getCollection('presets'))
+  .toSorted((a, b) => a.data.order - b.data.order)
+  .filter((preset) => presetAvailability(preset.data).availability === 'research');
+---
+
+<BaseLayout
+  title="Research records"
+  description="No records currently await a first numeric measurement."
+  noindex
+>
+  <header class="page-header stack">
+    <p class="page-header__eyebrow">Research</p>
+    <h1>Research records</h1>
+    <p class="lede prose">No records currently await a first numeric measurement.</p>
+  </header>
+
+  {
+    groups.map(({ type, systems: records }) => (
+      <section class="stack" aria-labelledby={`research-${type}`}>
+        <h2 id={`research-${type}`}>{humaniseIdentifier(type)}</h2>
+        <ul class="card-grid">
+          {records.map((system) => {
+            const state = getSystemAvailability(system);
+            const componentIds = componentIdsBySystem.get(system.id) ?? [];
+            return (
+              <li class="card stack">
+                <p class="card__eyebrow">{formatPartialDate(system.releaseDate)}</p>
+                <h3>
+                  <a href={route(`/systems/${system.slug}/`)}>{system.name}</a>
+                </h3>
+                <p class="card__summary">{system.summary}</p>
+                <p class="meta">
+                  <span class="numeric">{state.counts.unknownCount}</span> unknown ·{' '}
+                  <span class="numeric">{state.counts.notApplicableCount}</span> not applicable
+                </p>
+                {componentIds.length > 0 && (
+                  <p class="meta">
+                    Components:{' '}
+                    {componentIds.map((id, index) => {
+                      const component = getComponentById(id);
+                      return component === undefined ? null : (
+                        <>
+                          {index > 0 && ' · '}
+                          <a href={route(`/components/${component.kind}/${component.slug}/`)}>
+                            {component.name}
+                          </a>
+                        </>
+                      );
+                    })}
+                  </p>
+                )}
+              </li>
+            );
+          })}
+        </ul>
+      </section>
+    ))
+  }
+
+  {
+    unassignedComponents.length > 0 && (
+      <section class="stack" aria-labelledby="unassigned-components">
+        <h2 id="unassigned-components">Unassigned components</h2>
+        <ul class="link-list">
+          {unassignedComponents.map((component) => (
+            <li>
+              <a href={route(`/components/${component.kind}/${component.slug}/`)}>
+                {component.name}
+              </a>
+              <span class="meta">{component.manufacturer}</span>
+            </li>
+          ))}
+        </ul>
+      </section>
+    )
+  }
+
+  {
+    researchExamples.length > 0 && (
+      <section class="stack" aria-labelledby="research-examples">
+        <h2 id="research-examples">Research examples</h2>
+        <p class="prose meta">
+          These comparisons retain a research record to explain what a missing numeric baseline does
+          to the result.
+        </p>
+        <ul class="link-list">
+          {researchExamples.map((preset) => (
+            <li>
+              <a href={route(`/compare/${preset.id}/`)}>{preset.data.title}</a>
+              <span class="meta">{preset.data.summary}</span>
+            </li>
+          ))}
+        </ul>
+      </section>
+    )
+  }
+</BaseLayout>

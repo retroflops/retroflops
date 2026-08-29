@@ -1,0 +1,224 @@
+- caveat: Two independent technical histories agree on this graphics-clock figure.
+  comparabilityGroup: clock-frequency|gpu|nominal-clock
+  editorialStatus: provisional
+  evidenceStage: shipped
+  extractIds:
+    - hardware-fr-3dfx-voodoo:clock
+    - toms-hardware-fr-3dfx-voodoo:clock
+  id: 3dfx-voodoo-graphics:clock-frequency-base
+  method: nominal-clock
+  metric: clock-frequency
+  provenance: independent
+  quantity:
+    significantDigits: 2
+    state: value
+    unit: MHz
+    value: "50"
+  scope: gpu
+  sourceIds:
+    - hardware-fr-3dfx-voodoo
+    - toms-hardware-fr-3dfx-voodoo
+  status: vendor-rated
+  subject:
+    id: 3dfx-voodoo-graphics
+    kind: component
+  normalized:
+    value: "50000000"
+    unit: Hz
+    significantDigits: 2
+    unitRegistry: units-v1
+  evidenceLevel: confirmed
+- caveat: >-
+    No 3dfx document in this catalog states the card's memory. Wikipedia gives
+    {{measurement:3dfx-voodoo-graphics-memory:capacity}} of EDO DRAM for the
+    board as it shipped, and the catalog carries it as rumored.
+  comparabilityGroup: memory-capacity|whole-system|design-capacity
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: 3dfx-voodoo-graphics-memory:capacity
+  method: design-capacity
+  metric: memory-capacity
+  provenance: community
+  quantity:
+    state: value
+    value: "4"
+    unit: MB
+    significantDigits: 1
+  scope: whole-system
+  sourceIds:
+    - 3dfx-sst-1-data-book
+    - wikipedia-voodoo-graphics
+  status: vendor-rated
+  subject:
+    id: 3dfx-voodoo-graphics-memory
+    kind: component
+  evidenceLevel: rumored
+  normalized:
+    value: "4000000"
+    unit: B
+    significantDigits: 1
+    unitRegistry: units-v1
+- caveat: >-
+    No qualifying document-level replacement establishes the memory interface or
+    bandwidth.
+  comparabilityGroup: memory-bandwidth|memory|theoretical-peak
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: 3dfx-voodoo-graphics-memory:bandwidth
+  method: theoretical-peak
+  metric: memory-bandwidth
+  provenance: independent
+  quantity:
+    note: No reviewed source establishes this figure for a Voodoo Graphics board.
+    state: unknown
+  unknownAudit:
+    reviewedOn: 2026-08-25
+    routesChecked:
+      - vendor-documentation
+      - independent-analysis
+      - community-source
+    outcome: no-published-candidate
+    summary: No reviewed source establishes this figure for a Voodoo Graphics board.
+  scope: memory
+  sourceIds:
+    - 3dfx-sst-1-data-book
+  status: theoretical
+  subject:
+    id: 3dfx-voodoo-graphics-memory
+    kind: component
+- caveat: >-
+    The fitted frame-buffer bandwidth is unknown, so no whole-system value can
+    be recorded.
+  comparabilityGroup: memory-bandwidth|whole-system|theoretical-peak
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: 3dfx-voodoo-graphics:whole-system-memory-bandwidth
+  method: theoretical-peak
+  metric: memory-bandwidth
+  provenance: independent
+  quantity:
+    note: No reviewed source establishes this figure for a Voodoo Graphics board.
+    state: unknown
+  unknownAudit:
+    reviewedOn: 2026-08-25
+    routesChecked:
+      - vendor-documentation
+      - independent-analysis
+      - community-source
+    outcome: no-published-candidate
+    summary: No reviewed source establishes this figure for a Voodoo Graphics board.
+  scope: whole-system
+  sourceIds:
+    - 3dfx-sst-1-data-book
+  status: theoretical
+  subject:
+    id: 3dfx-voodoo-graphics
+    kind: system
+- caveat: >-
+    No qualifying document-level replacement establishes an FP32 rate for this
+    fixed-function card.
+  comparabilityGroup: peak-fp32-rate|gpu|theoretical-peak
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: 3dfx-voodoo-graphics:peak-fp32-rate
+  method: theoretical-peak
+  metric: peak-fp32-rate
+  provenance: independent
+  quantity:
+    note: >-
+      No reviewed source establishes this figure for a Voodoo Graphics board;
+      fill rate is not treated as FLOPS.
+    state: unknown
+  unknownAudit:
+    reviewedOn: 2026-08-25
+    routesChecked:
+      - vendor-documentation
+      - independent-analysis
+      - community-source
+    outcome: no-compatible-candidate
+    summary: No reviewed source establishes this figure for a Voodoo Graphics board.
+  scope: gpu
+  sourceIds:
+    - 3dfx-sst-1-data-book
+  status: vendor-rated
+  subject:
+    id: 3dfx-voodoo-graphics
+    kind: component
+- caveat: No qualifying document-level replacement establishes a pixel fill rate.
+  comparabilityGroup: pixel-fill-rate|gpu|theoretical-peak
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: 3dfx-voodoo-graphics:pixel-fill-rate
+  method: theoretical-peak
+  metric: pixel-fill-rate
+  provenance: independent
+  quantity:
+    note: No reviewed source establishes this figure for a Voodoo Graphics board.
+    state: unknown
+  unknownAudit:
+    reviewedOn: 2026-08-25
+    routesChecked:
+      - vendor-documentation
+      - independent-analysis
+      - community-source
+    outcome: no-published-candidate
+    summary: No reviewed source establishes this figure for a Voodoo Graphics board.
+  scope: gpu
+  sourceIds:
+    - 3dfx-sst-1-data-book
+  status: theoretical
+  subject:
+    id: 3dfx-voodoo-graphics
+    kind: component
+- caveat: No qualifying document-level replacement establishes a texel fill rate.
+  comparabilityGroup: texel-fill-rate|gpu|theoretical-peak
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: 3dfx-voodoo-graphics:texel-fill-rate
+  method: theoretical-peak
+  metric: texel-fill-rate
+  provenance: independent
+  quantity:
+    note: No reviewed source establishes this figure for a Voodoo Graphics board.
+    state: unknown
+  unknownAudit:
+    reviewedOn: 2026-08-25
+    routesChecked:
+      - vendor-documentation
+      - independent-analysis
+      - community-source
+    outcome: no-published-candidate
+    summary: No reviewed source establishes this figure for a Voodoo Graphics board.
+  scope: gpu
+  sourceIds:
+    - 3dfx-sst-1-data-book
+  status: theoretical
+  subject:
+    id: 3dfx-voodoo-graphics
+    kind: component
+- caveat: No qualifying document-level replacement establishes a board-power rating.
+  comparabilityGroup: rated-power-consumption|gpu|rated-power
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: 3dfx-voodoo-graphics:rated-power-consumption
+  method: rated-power
+  metric: rated-power-consumption
+  provenance: independent
+  quantity:
+    note: No reviewed source establishes this figure for a Voodoo Graphics board.
+    state: unknown
+  unknownAudit:
+    reviewedOn: 2026-08-25
+    routesChecked:
+      - vendor-documentation
+      - independent-analysis
+      - community-source
+    outcome: no-published-candidate
+    summary: No reviewed source establishes this figure for a Voodoo Graphics board.
+  scope: gpu
+  sourceIds:
+    - 3dfx-sst-1-data-book
+  status: vendor-rated
+  subject:
+    id: 3dfx-voodoo-graphics
+    kind: component

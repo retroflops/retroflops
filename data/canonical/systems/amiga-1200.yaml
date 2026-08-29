@@ -1,0 +1,104 @@
+id: amiga-1200
+slug: amiga-1200
+name: Commodore Amiga 1200
+manufacturer: Commodore Business Machines
+type: home-computer
+family: commodore-amiga
+releaseDate: 1992-10
+region: Worldwide
+summary: >-
+  A 68EC020 at around {{measurement:amiga-1200:pal:clock-frequency}} with the
+  AGA chipset and {{measurement:amiga-1200-chip-ram:capacity}} of
+  {{context:motorola-68ec020:context-bit-32}} Chip memory.
+description: >-
+  The Amiga 1200 is a useful counterpart to the Amiga 500 because the two differ
+  in more than clock rate. The 68EC020 runs at roughly twice the 500's
+  frequency. Both clocks derive from the same video crystals, halved rather than
+  quartered. It also has a {{context:motorola-68ec020:context-bit-32}} data path
+  where the 68000 had 16, an instruction cache, and single-access operations
+  where the 68000 needed two. Comparing the machines on megahertz alone would
+  miss most of what changed. Chip memory is
+  {{context:motorola-68ec020:context-bit-32}} wide and organized as 256K by 32,
+  and the AGA chipset reaching it replaced the Original Chip Set. Floating point
+  remained absent by default; the socket for a 68881 or 68882 was factory-fit
+  only.
+configurations:
+  - id: pal
+    label: PAL
+    region: Europe
+    entries:
+      - componentId: motorola-68ec020
+        role: main-cpu
+        count: 1
+        shared: false
+        notes: >-
+          Half the {{context:motorola-68ec020:context-mhz-28-37516}} PAL base
+          crystal. The service manual's functional-specification section states
+          {{context:motorola-68ec020:context-mhz-14-18}} instead; see the
+          conflict ledger.
+        measurementIds:
+          - amiga-1200:pal:clock-frequency
+      - componentId: amiga-aga
+        role: gpu
+        count: 1
+        shared: false
+        measurementIds:
+          - amiga-1200:gpu-clock-frequency
+      - componentId: amiga-1200-chip-ram
+        role: system-memory
+        count: 1
+        shared: true
+        notes: >-
+          Shared with the AGA chipset. Shipped as
+          {{context:amiga-1200-chip-ram:context-mb-1}}, later configured with
+          {{measurement:amiga-1200-chip-ram:capacity}} as standard.
+        measurementIds:
+          - amiga-1200-chip-ram:capacity
+      - componentId: amiga-1200-kickstart-rom
+        role: system-memory
+        count: 1
+        shared: false
+        measurementIds:
+          - amiga-1200-kickstart-rom:capacity
+  - id: ntsc
+    label: NTSC
+    region: North America
+    entries:
+      - componentId: motorola-68ec020
+        role: main-cpu
+        count: 1
+        shared: false
+        notes:
+          Half the {{context:motorola-68ec020:context-mhz-28-63636}} NTSC base
+          crystal.
+        measurementIds:
+          - amiga-1200:ntsc:clock-frequency
+      - componentId: amiga-aga
+        role: gpu
+        count: 1
+        shared: false
+        measurementIds:
+          - amiga-1200:gpu-clock-frequency
+      - componentId: amiga-1200-chip-ram
+        role: system-memory
+        count: 1
+        shared: true
+        measurementIds:
+          - amiga-1200-chip-ram:capacity
+      - componentId: amiga-1200-kickstart-rom
+        role: system-memory
+        count: 1
+        shared: false
+        measurementIds:
+          - amiga-1200-kickstart-rom:capacity
+notes: >-
+  The release date is editorial context; the cited service manual documents the
+  hardware without dating the launch. The scanned text of that manual is
+  unreliable in places. It confuses 3 with 8, so every figure taken from it was
+  cross-checked against the base crystal frequencies in the Amiga Hardware
+  Reference Manual.
+imageIds:
+  - amiga-1200-computer
+sourceIds:
+  - amiga-1200-service-manual
+editorialStatus: approved

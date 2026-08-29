@@ -1,0 +1,58 @@
+- extract: >-
+    SPEC Benchmark CINT95 Summary
+
+    SPECint_base95 (Geom. Mean) 13.0
+
+    SPECint95 (Geom. Mean) 13.6
+
+    Tested By: SGI. Test Date: Feb-98. Hardware Avail: Mar-98. Software Avail:
+    Sep-97.
+
+    Model Name: Octane 1X 250MHz R10k. CPU: 250 MHz MIPS R10000 Processor Chip
+    Revision: 3.1. FPU: MIPS R10010 Floating Point Chip Revision: 0.0. Number of
+    CPU(s): 1. Primary Cache: 32KBI + 32KBD on chip. Secondary Cache: 1MB (I+D).
+    Memory: 128MB.
+
+    Operating System: IRIX64 6.4. Compiler: MIPSpro C Compiler 7.2. Base Flags:
+    -Ofast=ip27 -IPA:use_intrinsic, FEEDBACK
+  extractHash: 4b642c6826608a7ea3df30a7ba2837edb12c346c7b695413512a0d4dbdaca1c7
+  id: spec-cpu95-octane-int:summary
+  locator: result cpu95-980206-02410, summary and configuration sections
+  notes: >-
+    Section headings and per-benchmark rows are omitted; the summary geometric
+    means and the configuration they were run on are what this dataset records.
+    Quotation is limited to that under the SPEC Fair Use Rules. The
+    per-benchmark ratios and the peak compiler flags remain in the cited result
+    file.
+  sourceId: spec-cpu95-octane-int
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-07-29
+- extract: >-
+    SPEC Benchmark CFP95 Summary
+
+    SPECfp_base95 (Geom. Mean) 25.5
+
+    SPECfp95 (Geom. Mean) 26.6
+
+    Tested By: SGI. Test Date: Apr-98. Hardware Avail: Mar-98. Software Avail:
+    Sep-97.
+
+    Model Name: Octane 2X 250MHz R10k. CPU: 250 MHz MIPS R10000 Processor Chip
+    Revision: 3.1. FPU: MIPS R10010 Floating Point Chip Revision: 0.0. Number of
+    CPU(s): 2. Primary Cache: 32KBI + 32KBD on chip. Secondary Cache: 1MB (I+D).
+    Memory: 256MB.
+
+    Operating System: IRIX64 6.4. Compiler: MIPSpro Fortran 77 and 90 7.2,
+    MIPSpro Auto Parallelizing Option 7.2
+  extractHash: 6a6951d22b2c98d977125c7293fe065f1c8a240ff0e39984527cb1e4b9be351d
+  id: spec-cpu95-octane-fp:summary
+  locator: result cpu95-980413-02594, summary and configuration sections
+  notes: >-
+    This result is a different machine from the CINT95 one: two processors
+    rather than one, and 256MB rather than 128MB. The Auto Parallelizing Option
+    in the compiler list matters, because SPECfp95 is a speed metric and the
+    second processor can contribute to it. The two results are therefore
+    recorded against separate configurations.
+  sourceId: spec-cpu95-octane-fp
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-07-29

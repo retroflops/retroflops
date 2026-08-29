@@ -1,0 +1,67 @@
+id: apple-iphone-4
+slug: apple-iphone-4
+name: Apple iPhone 4
+manufacturer: Apple
+type: smartphone
+family: apple-iphone
+releaseDate: 2010-06-24
+region: Worldwide
+summary: >-
+  Apple's first in-house A4, PowerVR SGX535 graphics, a glass-and-steel body and
+  the Retina display that made pixel density a selling point.
+description: >-
+  The stainless frame doubled as the antenna, which is why holding the phone
+  across its lower left corner could drop a call. Apple replaced the plastic
+  back with glass on both faces, and spent the next decade dealing with the
+  consequences.
+imageIds:
+  - apple-iphone-4-phone
+configurations:
+  - id: 16gb
+    label: 16 GB model
+    entries:
+      - componentId: apple-iphone-4-cpu
+        role: main-cpu
+        count: 1
+        shared: false
+        measurementIds:
+          - apple-iphone-4:cpu-clock-frequency
+      - componentId: apple-iphone-4-gpu
+        role: gpu
+        count: 1
+        shared: false
+        measurementIds:
+          - apple-iphone-4:gpu-clock-frequency
+      - componentId: apple-iphone-4-memory
+        role: unified-memory
+        count: 1
+        shared: true
+        measurementIds:
+          - apple-iphone-4:whole-system-memory-capacity
+  - id: 32gb
+    label: 32 GB model
+    entries:
+      - componentId: apple-iphone-4-cpu
+        role: main-cpu
+        count: 1
+        shared: false
+        measurementIds:
+          - apple-iphone-4:cpu-clock-frequency
+      - componentId: apple-iphone-4-gpu
+        role: gpu
+        count: 1
+        shared: false
+        measurementIds:
+          - apple-iphone-4:gpu-clock-frequency
+      - componentId: apple-iphone-4-memory
+        role: unified-memory
+        count: 1
+        shared: true
+        measurementIds:
+          - apple-iphone-4:whole-system-memory-capacity
+notes: >-
+  Flash capacity and charger ratings are recorded as the quantities they are,
+  and never stand in for working memory or whole-system power.
+sourceIds:
+  - apple-iphone-4-tech-specs
+editorialStatus: approved

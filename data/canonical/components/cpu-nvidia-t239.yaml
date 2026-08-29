@@ -1,0 +1,16 @@
+id: nvidia-t239-cpu
+slug: nvidia-t239-cpu
+kind: cpu
+name: NVIDIA T239 CPU
+manufacturer: NVIDIA
+architecture: Arm Cortex-A78C
+introducedDate: '2025'
+instructionSet: Armv8-A
+instructionSetFamily: arm
+summary:
+  The eight-core Arm processor section of the Switch 2's custom NVIDIA
+  system-on-chip.
+sourceIds:
+  - nintendo-switch-2-tech-specs
+  - techpowerup-switch-2-specs
+editorialStatus: provisional

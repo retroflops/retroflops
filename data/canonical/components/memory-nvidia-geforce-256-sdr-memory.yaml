@@ -1,0 +1,13 @@
+id: nvidia-geforce-256-sdr-memory
+slug: nvidia-geforce-256-sdr-memory
+kind: memory
+name: NVIDIA GeForce 256 SDR 32 MiB frame buffer
+manufacturer: NVIDIA
+memoryType: SDR SDRAM
+introducedDate: 1999-10
+summary: >-
+  The SDR SDRAM frame buffer fitted to NVIDIA's October 1999 GeForce 256
+  reference card.
+sourceIds:
+  - wikipedia-geforce-256-specifications
+editorialStatus: provisional

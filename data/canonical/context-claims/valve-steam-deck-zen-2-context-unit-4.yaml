@@ -1,0 +1,17 @@
+id: valve-steam-deck-zen-2:context-unit-4
+subject:
+  kind: component
+  id: valve-steam-deck-zen-2
+label: Core count
+quantity:
+  state: value
+  value: '4'
+  unit: unit
+  significantDigits: 1
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - valve-steam-deck-tech-specs
+evidenceLevel: confirmed

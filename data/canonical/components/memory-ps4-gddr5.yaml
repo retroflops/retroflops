@@ -1,0 +1,19 @@
+id: ps4-gddr5
+slug: ps4-gddr5
+kind: memory
+name: PlayStation 4 unified system memory (GDDR5)
+manufacturer: Sony Computer Entertainment / AMD
+memoryType: GDDR5
+summary: >-
+  Eight gibibytes of GDDR5 shared by the processor and the graphics units. The
+  three PlayStations before it split their memory in two.
+notes: >-
+  This is the first console record in the catalog whose memory capacity is a
+  single honest number. The PlayStation, PlayStation 2 and PlayStation 3 each
+  keep a processor pool and a graphics pool that cannot be spent on each other's
+  work, so adding them describes memory the machine does not have. Here the
+  pools are the same memory, and the sum is the machine.
+sourceIds:
+  - scei-ps4-introduction-2013
+  - scea-ps4-launch-2013
+editorialStatus: approved

@@ -1,0 +1,173 @@
+- caveat: >-
+    Notebookcheck reports this maximum performance-core frequency for the A19.
+    Apple does not publish the clock, so it remains reported rather than
+    confirmed.
+  comparabilityGroup: clock-frequency|cpu|nominal-clock
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: apple-iphone-17:cpu-clock-frequency
+  method: nominal-clock
+  metric: clock-frequency
+  normalized:
+    value: "4260000000"
+    unit: Hz
+    significantDigits: 3
+    unitRegistry: units-v1
+  provenance: independent
+  quantity:
+    significantDigits: 3
+    state: value
+    unit: GHz
+    value: '4.26'
+  scope: cpu
+  sourceIds:
+    - notebookcheck-apple-a19
+  status: measured
+  subject:
+    id: apple-iphone-17
+    kind: system
+  evidenceLevel: reported
+- caveat: >-
+    Notebookcheck reports this A19 GPU maximum and identifies the five-core GPU
+    in the regular iPhone 17. Apple does not publish the clock.
+  comparabilityGroup: clock-frequency|gpu|nominal-clock
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: apple-iphone-17:gpu-clock-frequency
+  method: nominal-clock
+  metric: clock-frequency
+  provenance: vendor
+  normalized:
+    value: "1620000000"
+    unit: Hz
+    significantDigits: 3
+    unitRegistry: units-v1
+  quantity:
+    significantDigits: 3
+    state: value
+    unit: MHz
+    value: '1620'
+  scope: gpu
+  sourceIds:
+    - notebookcheck-apple-a19
+  status: measured
+  subject:
+    id: apple-iphone-17
+    kind: system
+  evidenceLevel: reported
+- caveat: >-
+    Notebookcheck identifies the regular iPhone 17 with
+    {{measurement:apple-iphone-17:whole-system-memory-capacity}} of LPDDR5X
+    memory.
+  comparabilityGroup: memory-capacity|whole-system|design-capacity
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: apple-iphone-17:whole-system-memory-capacity
+  method: design-capacity
+  metric: memory-capacity
+  normalized:
+    value: "8000000000"
+    unit: B
+    significantDigits: 1
+    unitRegistry: units-v1
+  provenance: independent
+  quantity:
+    significantDigits: 1
+    state: value
+    unit: GB
+    value: '8'
+  scope: whole-system
+  sourceIds:
+    - notebookcheck-apple-a19
+  status: measured
+  subject:
+    id: apple-iphone-17
+    kind: system
+  evidenceLevel: reported
+- caveat: >-
+    Notebookcheck reports the A19 LPDDR5X-8533 controller at this theoretical
+    maximum. Apple does not publish the interface rate.
+  comparabilityGroup: memory-bandwidth|whole-system|theoretical-peak
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: apple-iphone-17:whole-system-memory-bandwidth
+  method: theoretical-peak
+  metric: memory-bandwidth
+  provenance: independent
+  normalized:
+    value: "68260000000"
+    unit: B/s
+    significantDigits: 4
+    unitRegistry: units-v1
+  quantity:
+    significantDigits: 4
+    state: value
+    unit: GB/s
+    value: '68.26'
+  scope: whole-system
+  sourceIds:
+    - notebookcheck-apple-a19
+  status: theoretical
+  subject:
+    id: apple-iphone-17
+    kind: system
+  evidenceLevel: reported
+- caveat: Apple publishes no standalone FP32 throughput figure for this phone GPU.
+  comparabilityGroup: peak-fp32-rate|gpu|theoretical-peak
+  editorialStatus: approved
+  evidenceStage: shipped
+  id: apple-iphone-17:peak-fp32-rate
+  method: theoretical-peak
+  metric: peak-fp32-rate
+  provenance: vendor
+  quantity:
+    note: Apple publishes no standalone FP32 throughput figure for the A19 GPU.
+    state: unknown
+  unknownAudit:
+    reviewedOn: 2026-08-26
+    routesChecked:
+      - vendor-documentation
+      - benchmark-database
+      - specialist-reference
+      - community-source
+    outcome: no-published-candidate
+    summary: No checked source states a standalone FP32 throughput for the A19 GPU.
+  scope: gpu
+  sourceIds:
+    - apple-iphone-17-tech-specs
+  status: vendor-rated
+  subject:
+    id: apple-iphone-17
+    kind: system
+- caveat: >-
+    Battery-life durations and charging limits are not a whole-system power
+    rating.
+  comparabilityGroup: rated-power-consumption|whole-system|rated-power
+  editorialStatus: approved
+  evidenceStage: shipped
+  id: apple-iphone-17:rated-power-consumption
+  method: rated-power
+  metric: rated-power-consumption
+  provenance: vendor
+  quantity:
+    note: Battery-life durations and charging limits are not a whole-system power
+      rating.
+    state: unknown
+  unknownAudit:
+    reviewedOn: 2026-08-26
+    routesChecked:
+      - vendor-documentation
+      - independent-analysis
+      - community-source
+      - specialist-reference
+    outcome: no-compatible-candidate
+    summary: >-
+      Apple publishes charging and battery-life claims, not a whole-phone power
+      rating.
+  scope: whole-system
+  sourceIds:
+    - apple-iphone-17-tech-specs
+  status: vendor-rated
+  subject:
+    id: apple-iphone-17
+    kind: system

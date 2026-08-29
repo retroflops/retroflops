@@ -1,0 +1,12 @@
+editorialStatus: approved
+id: nintendo-switch-tegra-x1-gpu
+slug: nintendo-switch-tegra-x1-gpu
+kind: gpu
+name: NVIDIA Tegra X1 GPU
+manufacturer: NVIDIA
+architecture: Maxwell
+introducedDate: '2017'
+summary: The graphics processor fitted to the Nintendo Switch.
+sourceIds:
+  - nintendo-switch-tech-specs
+  - digitalfoundry-switch-clocks-2016

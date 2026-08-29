@@ -1,0 +1,25 @@
+accessedDate: 2026-08-18
+editorialStatus: approved
+fetch:
+  byteLength: 77463
+  contentType: text/html; charset=utf-8
+  fetchedAt: 2026-08-18T20:56:42Z
+  httpStatus: 200
+  sha256: fe7ea272fce11fdde980d6c9dcd9c452ae931717bc2a63b5d5146afe46184bbd
+  url: https://web.archive.org/web/20260718165829id_/https://browser.geekbench.com/metal-benchmarks
+id: geekbench-metal-benchmark-chart-2026-07-18
+license: Copyright Primate Labs Inc. Quoted here under short-extract fair use
+  for verification of the figures cited.
+locator: >-
+  Device and Score table, rows "Apple M1", "Apple M4", "Apple A14 GPU", "Apple
+  A17 Pro GPU" and "Apple A19 Pro GPU"
+publisher: Primate Labs Inc.
+sourceType: official-benchmark-result
+tier: A
+title: Geekbench 6 Metal Benchmark Chart — 18 July 2026 capture
+url: https://web.archive.org/web/20260718165829id_/https://browser.geekbench.com/metal-benchmarks
+usageNote: >-
+  A Wayback capture of Primate Labs' rolling chart. The measurements record the
+  capture date and are not current averages. This is the last capture taken
+  before Geekbench 7 replaced the chart at this address, so it is the only
+  evidence for the version 6 Metal figures.

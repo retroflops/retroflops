@@ -1,0 +1,44 @@
+accessedDate: 2026-08-17
+alt: "A Steam Deck held in both hands: a wide black handheld with a screen in the middle,
+  thumbsticks, a cross-shaped pad and trackpads at the left, and four buttons and a second trackpad
+  at the right. The screen shows a blocky landscape with the word Minetest across it."
+attribution: Photograph by Zughy, licensed CC BY-SA 4.0, via Wikimedia Commons.
+canonical:
+  byteLength: 84622
+  format: avif
+  height: 960
+  sha256: bf1a0a5220894c8679a6ea8e65c17607821fb4cb9ea86785893640bd84590608
+  width: 1280
+caption: A Steam Deck, the original LCD model, held at a conference stand. The screen is showing the
+  title screen of Minetest.
+creator: Zughy
+creatorType: person
+editorialStatus: approved
+id: valve-steam-deck-handheld
+notes: "The file page states the terms twice, because two works are in the frame: the photograph is
+  CC BY-SA 4.0, quoted here, and the game shown on the screen is under GPLv3 or later. Both permit
+  this publication; the record quotes the photograph's terms, which are the ones this project relies
+  on."
+original:
+  byteLength: 1681912
+  height: 2760
+  mediaType: image/jpeg
+  sha256: 81e3c017e4e4ff407cb82053104ff97070a224654b8cbb067d34462cda1ae98d
+  width: 3680
+originalUrl: https://upload.wikimedia.org/wikipedia/commons/b/b2/Minetest_on_Steam_Deck_device_-_FOSDEM_2024.jpg
+publisher: Wikimedia Commons
+rights:
+  id: cc-by-sa-4.0
+  statedAt: https://commons.wikimedia.org/wiki/File:Minetest_on_Steam_Deck_device_-_FOSDEM_2024.jpg
+  statement: This file is licensed under the Creative Commons Attribution-Share Alike 4.0
+    International license.
+  url: https://creativecommons.org/licenses/by-sa/4.0/
+sourcePageUrl: https://commons.wikimedia.org/wiki/File:Minetest_on_Steam_Deck_device_-_FOSDEM_2024.jpg
+title: Minetest on Steam Deck device - FOSDEM 2024.jpg
+transform:
+  fit: exact
+  note: The photograph is already 4:3, so the reduction takes the whole frame and nothing is cut or
+    added.
+  preset: image-v1
+  sourceHeight: 2760
+  sourceWidth: 3680

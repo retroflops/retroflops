@@ -1,0 +1,63 @@
+id: nvidia-h100-sxm
+slug: nvidia-h100-sxm
+name: NVIDIA H100 Tensor Core GPU (SXM)
+manufacturer: NVIDIA
+type: accelerator
+releaseDate: '2022'
+region: Worldwide
+summary: >-
+  {{measurement:nvidia-h100:peak-fp64-rate}} of FP64 and 67 of FP32,
+  {{measurement:nvidia-h100-memory:capacity}} of memory at
+  {{measurement:nvidia-h100-memory:bandwidth}}, and a
+  {{measurement:nvidia-h100:thermal-design-power}} ceiling. Its floating-point
+  figures state their precision.
+description: >-
+  NVIDIA's specification table names the precision of every rate it publishes:
+  FP64 at {{measurement:nvidia-h100:peak-fp64-rate}}, FP64 through the tensor
+  cores at 67, FP32 at 67, and FP16 through the tensor cores at 1,979 with
+  structural sparsity. Other floating-point figures in this dataset, from Sega,
+  Sony and Apple, are bare numbers whose precision the reader must infer. Those
+  figures are provisional; these are approved.
+
+
+  A single "teraflops" figure would obscure the difference. The chip performs
+  double-precision arithmetic at 34 or
+  {{measurement:nvidia-h100:peak-fp64-rate-tensor}} depending on which units run
+  it, and half-precision arithmetic at 1,979 when the workload has the required
+  sparsity pattern. The catalog keeps these capabilities in separate
+  comparability groups, so no ratio crosses between them.
+
+
+  This is an accelerator rather than a computer. It has no operating system or
+  input, and a host gives it work. Its memory figure therefore means something
+  different from a console's.
+configurations:
+  - id: sxm
+    label: SXM module
+    entries:
+      - componentId: nvidia-h100-gpu
+        role: gpu
+        count: 1
+        shared: false
+        notes: >-
+          NVIDIA states no clock frequency for it, as with every other modern
+          record in this catalog.
+        measurementIds:
+          - nvidia-h100-sxm:gpu-clock-frequency
+      - componentId: nvidia-h100-memory
+        role: video-memory
+        count: 1
+        shared: false
+        measurementIds:
+          - nvidia-h100-memory:capacity
+notes: >-
+  The release date is editorial context: the cited page carries no publication
+  date and states none for the product. The same table's H100 NVL column is not
+  recorded because it describes a different card. Transcribing a second column
+  would double the record without adding a comparison the catalog can make. The
+  BFLOAT16, FP8 and INT8 rates are omitted because the catalog has no metric for
+  those formats. NVLink's {{context:nvidia-h100-sxm:context-gb-s-900}} is
+  excluded because the catalog has no metric for interconnect bandwidth.
+sourceIds:
+  - nvidia-h100-product-specifications
+editorialStatus: approved

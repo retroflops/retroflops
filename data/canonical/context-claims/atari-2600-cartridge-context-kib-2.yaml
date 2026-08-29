@@ -1,0 +1,17 @@
+id: atari-2600-cartridge:context-kib-2
+subject:
+  kind: component
+  id: atari-2600-cartridge
+label: Capacity
+quantity:
+  state: value
+  value: '2'
+  unit: KiB
+  significantDigits: 1
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - atari-2600-stella-programming-guide
+evidenceLevel: reported

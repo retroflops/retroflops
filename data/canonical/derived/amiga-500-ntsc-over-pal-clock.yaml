@@ -1,0 +1,19 @@
+id: amiga-500:ntsc-over-pal-clock
+formula:
+  id: ratio
+  version: '1'
+  expression: a ÷ b
+inputMeasurementIds:
+  - amiga-500:ntsc:clock-frequency
+  - amiga-500:pal:clock-frequency
+result:
+  state: value
+  value: '1.00921'
+  unit: unit
+  significantDigits: 6
+rounding: half-up
+caveat: >-
+  Compares clock-frequency at cpu scope, obtained by nominal-clock. Valid only
+  within this comparability group, and reported to 6 significant digits — the
+  precision of the least precise input.
+editorialStatus: approved

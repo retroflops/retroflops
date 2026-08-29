@@ -1,0 +1,43 @@
+id: raspberry-pi-5
+slug: raspberry-pi-5
+name: Raspberry Pi 5
+manufacturer: Raspberry Pi Ltd
+type: personal-computer
+releaseDate: 2023-10-23
+region: Worldwide
+summary: >-
+  A {{measurement:raspberry-pi-5:cpu-clock-frequency}} quad-core Cortex-A76
+  board with an {{measurement:raspberry-pi-5:gpu-clock-frequency}} VideoCore VII
+  GPU and {{measurement:raspberry-pi-5:whole-system-memory-capacity}} of LPDDR4X
+  memory.
+description: >-
+  The {{context:raspberry-pi-5:context-gb-8}} board configuration records the
+  Pi’s published processor and graphics clocks without turning its display
+  engine into a floating-point rate.
+configurations:
+  - id: 8gb
+    label: 8 GB model
+    entries:
+      - componentId: raspberry-pi-5-bcm2712
+        role: main-cpu
+        count: 1
+        shared: false
+        measurementIds:
+          - raspberry-pi-5:cpu-clock-frequency
+      - componentId: raspberry-pi-5-videocore-vii
+        role: gpu
+        count: 1
+        shared: false
+        measurementIds:
+          - raspberry-pi-5:gpu-clock-frequency
+      - componentId: raspberry-pi-5-memory
+        role: unified-memory
+        count: 1
+        shared: true
+        measurementIds:
+          - raspberry-pi-5:whole-system-memory-capacity
+imageIds:
+  - raspberry-pi-5-computer
+sourceIds:
+  - raspberry-pi-5-product-brief
+editorialStatus: approved

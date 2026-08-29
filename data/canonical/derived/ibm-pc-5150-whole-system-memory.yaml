@@ -1,0 +1,23 @@
+id: ibm-pc-5150:whole-system-memory
+formula:
+  id: sum
+  version: '1'
+  expression: a + b + …
+inputMeasurementIds:
+  - ibm-pc-5150-ram:capacity
+exclusions:
+  - measurementId: ibm-pc-5150-rom:capacity
+    label: 40 KiB of BIOS and BASIC ROM
+    reason: read-only firmware, not memory the machine can write to
+result:
+  state: value
+  value: '16384'
+  unit: B
+  significantDigits: 5
+rounding: none
+caveat: >-
+  Adds 1 memory-capacity figure obtained by design-capacity. Left out:
+  {{measurement:ibm-pc-5150-rom:capacity}} (read-only firmware, not memory the
+  machine can write to). A total is only as trustworthy as the decision about
+  what belongs in it, so both the terms and the exclusions are named records.
+editorialStatus: approved

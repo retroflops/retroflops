@@ -1,0 +1,172 @@
+- caveat: >-
+    A stock GeForce 8800 GTX in the independent technical comparison, not a
+    factory-overclocked partner board.
+  comparabilityGroup: clock-frequency|gpu|nominal-clock
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: nvidia-g80:clock-frequency-base
+  method: nominal-clock
+  metric: clock-frequency
+  normalized:
+    value: "575000000"
+    unit: Hz
+    significantDigits: 3
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 3
+    state: value
+    unit: MHz
+    value: "575"
+  scope: gpu
+  sourceIds:
+    - fau-geforce-8800-gtx-cuda-comparison
+  status: vendor-rated
+  subject:
+    id: nvidia-g80
+    kind: component
+  evidenceLevel: reported
+- caveat: The frame buffer fitted to the reference accelerator; host memory is
+    excluded.
+  comparabilityGroup: memory-capacity|whole-system|design-capacity
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: nvidia-geforce-8800-gtx-memory:capacity
+  method: design-capacity
+  metric: memory-capacity
+  normalized:
+    value: "805306368"
+    unit: B
+    significantDigits: 3
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 3
+    state: value
+    unit: MiB
+    value: "768"
+  scope: whole-system
+  sourceIds:
+    - fau-geforce-8800-gtx-cuda-comparison
+  status: vendor-rated
+  subject:
+    id: nvidia-geforce-8800-gtx-memory
+    kind: component
+  evidenceLevel: reported
+- caveat: >-
+    Vendor-stated maximum transfer rate of this memory interface, not a
+    benchmarked application result.
+  comparabilityGroup: memory-bandwidth|memory|theoretical-peak
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: nvidia-geforce-8800-gtx-memory:bandwidth
+  method: theoretical-peak
+  metric: memory-bandwidth
+  normalized:
+    value: "86400000000"
+    unit: B/s
+    significantDigits: 3
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 3
+    state: value
+    unit: GB/s
+    value: "86.4"
+  scope: memory
+  sourceIds:
+    - nvidia-geforce-8800-gtx-product-brief
+    - fau-geforce-8800-gtx-cuda-comparison
+  status: theoretical
+  subject:
+    id: nvidia-geforce-8800-gtx-memory
+    kind: component
+  evidenceLevel: confirmed
+- caveat: Adds the one fitted frame-buffer bandwidth. No host memory is included.
+  comparabilityGroup: memory-bandwidth|whole-system|theoretical-peak
+  derivedFrom: nvidia-geforce-8800-gtx:whole-system-memory-bandwidth
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: nvidia-geforce-8800-gtx:whole-system-memory-bandwidth
+  method: theoretical-peak
+  metric: memory-bandwidth
+  normalized:
+    value: "86400000000"
+    unit: B/s
+    significantDigits: 3
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 3
+    state: value
+    unit: GB/s
+    value: "86.4"
+  rounding: none
+  scope: whole-system
+  sourceIds:
+    - nvidia-geforce-8800-gtx-product-brief
+    - fau-geforce-8800-gtx-cuda-comparison
+  status: derived
+  subject:
+    id: nvidia-geforce-8800-gtx
+    kind: system
+  evidenceLevel: confirmed
+- caveat: >-
+    A theoretical general-shader FP32 peak; tensor, AI and ray-tracing rates are
+    excluded.
+  comparabilityGroup: peak-fp32-rate|gpu|theoretical-peak
+  conditions: General shader units at the vendor-stated reference clock.
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: nvidia-g80:peak-fp32-rate
+  method: theoretical-peak
+  metric: peak-fp32-rate
+  normalized:
+    value: "518000000000"
+    unit: FLOP/s
+    significantDigits: 3
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 3
+    state: value
+    unit: GFLOP/s
+    value: "518"
+  scope: gpu
+  sourceIds:
+    - nvidia-geforce-8800-gtx-product-brief
+  status: theoretical
+  subject:
+    id: nvidia-g80
+    kind: component
+  evidenceLevel: confirmed
+- caveat: >-
+    Neither qualifying source states a numeric board-power or thermal-design
+    rating.
+  comparabilityGroup: thermal-design-power|gpu|rated-power
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: nvidia-g80:thermal-design-power
+  method: rated-power
+  metric: thermal-design-power
+  provenance: vendor
+  quantity:
+    note: >-
+      Neither qualifying source supplies a numeric GeForce 8800 GTX board-power
+      or thermal-design rating.
+    state: unknown
+  unknownAudit:
+    reviewedOn: 2026-08-25
+    routesChecked:
+      - vendor-documentation
+      - independent-analysis
+      - community-source
+    outcome: no-published-candidate
+    summary: Qualifying sources provide no numeric board-power or thermal rating.
+  scope: gpu
+  sourceIds:
+    - nvidia-geforce-8800-gtx-product-brief
+  status: vendor-rated
+  subject:
+    id: nvidia-g80
+    kind: component

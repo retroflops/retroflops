@@ -1,0 +1,17 @@
+id: amiga-1200-kickstart-rom:context-bit-32
+subject:
+  kind: component
+  id: amiga-1200-kickstart-rom
+label: Word size
+quantity:
+  state: value
+  value: '32'
+  unit: bit
+  significantDigits: 2
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - amiga-1200-service-manual
+evidenceLevel: confirmed

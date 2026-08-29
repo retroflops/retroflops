@@ -1,0 +1,13 @@
+architecture: SRAM
+editorialStatus: approved
+id: sega-saturn-backup-ram
+kind: memory
+manufacturer: Sega
+memoryType: SRAM
+name: Sega Saturn backup RAM
+slug: sega-saturn-backup-ram
+sourceIds:
+  - sega-saturn-service-manual
+summary:
+  '{{measurement:sega-saturn-backup-ram:capacity}} of battery-backed memory for
+  saved games.'

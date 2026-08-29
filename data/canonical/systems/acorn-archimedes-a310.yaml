@@ -1,0 +1,51 @@
+id: acorn-archimedes-a310
+slug: acorn-archimedes-a310
+name: Acorn Archimedes A310
+manufacturer: Acorn Computers
+type: personal-computer
+releaseDate: 1987-06
+region: United Kingdom
+summary: >-
+  The first Archimedes, built around Acorn's own ARM2 and running RISC OS from
+  ROM. It put a RISC processor in a home computer years before the idea reached
+  the mainstream.
+description: >-
+  Acorn designed its own processor after concluding that nothing on the market
+  was a fit successor to the BBC Micro. The ARM2 it produced was cheap and
+  unusually quick for its transistor count, and the architecture outlived the
+  company that commissioned it.
+configurations:
+  - id: retail
+    label: A310 retail configuration
+    region: United Kingdom
+    entries:
+      - componentId: acorn-archimedes-arm2
+        role: main-cpu
+        count: 1
+        shared: false
+        measurementIds:
+          - acorn-archimedes-a310:clock-frequency
+      - componentId: acorn-archimedes-vidc
+        role: gpu
+        count: 1
+        shared: true
+        measurementIds:
+          - acorn-archimedes-a310:gpu-clock-frequency
+      - componentId: acorn-archimedes-ram
+        role: system-memory
+        count: 1
+        shared: true
+        measurementIds:
+          - acorn-archimedes-ram:capacity
+      - componentId: acorn-archimedes-rom
+        role: system-memory
+        count: 1
+        shared: false
+        notes: Read-only RISC OS ROM.
+        measurementIds:
+          - acorn-archimedes-rom:capacity
+imageIds:
+  - acorn-archimedes-a310-computer
+sourceIds:
+  - acorn-archimedes-technical-reference
+editorialStatus: provisional

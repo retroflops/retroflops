@@ -1,0 +1,20 @@
+id: microsoft-xbox-series-x:context-unit-2
+subject:
+  kind: system
+  id: microsoft-xbox-series-x
+  configurationId: retail
+label: Count
+quantity:
+  state: value
+  value: '2'
+  unit: unit
+  significantDigits: 1
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - xbox-wire-series-x-tech-2020
+extractIds:
+  - xbox-series-x-tech:specs:cpu
+evidenceLevel: confirmed

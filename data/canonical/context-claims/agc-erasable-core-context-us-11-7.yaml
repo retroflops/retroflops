@@ -1,0 +1,17 @@
+id: agc-erasable-core:context-us-11-7
+subject:
+  kind: component
+  id: agc-erasable-core
+label: Contextual value
+quantity:
+  state: value
+  value: '11.7'
+  unit: us
+  significantDigits: 3
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - ntrs-19760016247
+evidenceLevel: confirmed

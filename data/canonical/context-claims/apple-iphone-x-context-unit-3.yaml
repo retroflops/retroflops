@@ -1,0 +1,17 @@
+id: apple-iphone-x:context-unit-3
+subject:
+  kind: system
+  id: apple-iphone-x
+label: Count
+quantity:
+  state: value
+  value: '3'
+  unit: unit
+  significantDigits: 1
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - apple-iphone-x-tech-specs
+evidenceLevel: confirmed

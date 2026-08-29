@@ -1,0 +1,12 @@
+- id: ifixit-iphone-6s-teardown-2015:installed-memory
+  sourceId: ifixit-iphone-6s-teardown-2015
+  locator: iPhone 6s chips
+  extract: Apple A9 APL0898 SoC plus Samsung 2 GB LPDDR4 RAM.
+  extractHash: 50d35884335601c181d23b77fc4a858398d36fcc796a7a2afc9c3bd59a4ed6a5
+  transcribed:
+    state: value
+    value: '2'
+    unit: GiB
+    significantDigits: 1
+  transcribedOn: 2026-08-25
+  transcribedBy: RetroFlops editors

@@ -1,0 +1,26 @@
+accessedDate: 2026-08-04
+author: Andrei Frumusanu
+editorialStatus: approved
+fetch:
+  byteLength: 78863
+  contentType: text/html; charset=utf-8
+  fetchedAt: 2026-08-04T09:41:13Z
+  httpStatus: 200
+  sha256: a6ce83c510f6b109f78f7ff450fca503b5a117004ecfa73ce5c624b4a9dbba37
+  url: https://web.archive.org/web/20231219211825id_/https://www.anandtech.com/show/16252/mac-mini-apple-m1-tested
+id: anandtech-mac-mini-m1-2020
+license: Copyright AnandTech. Quoted here under short-extract fair use for
+  verification of the figures cited.
+locator: 'Page 1, section "Apple Silicon M1: Firestorm cores at 3.2GHz & ~20-24W TDP?"'
+publishedDate: 2020-11-17
+publisher: AnandTech
+sourceType: independent-analysis
+tier: B
+title: "The 2020 Mac Mini Unleashed: Putting Apple Silicon M1 To The Test"
+url: https://web.archive.org/web/20231219211825id_/https://www.anandtech.com/show/16252/mac-mini-apple-m1-tested
+usageNote: >-
+  AnandTech stopped serving its articles in 2024 and now redirects every one of
+  them to its forums, so the fetched address is a Wayback capture of 19 December
+  2023 taken in `id_` mode, which returns the bytes as published without the
+  archive's own navigation — the same arrangement as the iPhone article. The
+  archive is the custodian; the tier is decided by who wrote the piece.

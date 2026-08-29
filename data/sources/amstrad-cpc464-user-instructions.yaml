@@ -1,0 +1,19 @@
+id: amstrad-cpc464-user-instructions
+title: Amstrad CPC464 Guide de l'utilisateur
+publisher: AMSOFT
+url: https://archive.org/download/Amstrad_CPC464_Guide_de_lutilisateur_1984_AMSOFT_FR/Amstrad_CPC464_Guide_de_lutilisateur_1984_AMSOFT_FR.pdf
+publishedDate: "1984"
+accessedDate: 2026-08-22
+locator: Technical Specification page, LS! CHIPS section
+extract: Z80A processor running at 4MHz; 64K bytes of RAM (over 42K available to user).
+tier: A
+sourceType: technical-manual
+editorialStatus: provisional
+fetch:
+  url: https://archive.org/download/Amstrad_CPC464_Guide_de_lutilisateur_1984_AMSOFT_FR/Amstrad_CPC464_Guide_de_lutilisateur_1984_AMSOFT_FR.pdf
+  finalUrl: https://dn790009.ca.archive.org/0/items/Amstrad_CPC464_Guide_de_lutilisateur_1984_AMSOFT_FR/Amstrad_CPC464_Guide_de_lutilisateur_1984_AMSOFT_FR.pdf
+  fetchedAt: 2026-08-24T18:58:10Z
+  httpStatus: 200
+  contentType: application/pdf
+  byteLength: 6522986
+  sha256: 1b35932eb2598826e851a87b6e211491e0dfe7a54d8abb17fb0382649672543d

@@ -1,0 +1,42 @@
+accessedDate: 2026-08-17
+alt: A black Sony PlayStation 3 with a curved gloss top photographed against white, a disc slot
+  along the front edge, with a wireless controller lying to its left.
+attribution: Photograph by Evan-Amos, released into the public domain by its author, via Wikimedia Commons.
+canonical:
+  byteLength: 18083
+  format: avif
+  height: 960
+  sha256: 46bf3ec93d2f09295f7afe1d1f0155bf1d53dd58ed6fa20e369804e4496818ae
+  width: 1280
+caption: A launch-model PlayStation 3, the CECHA01 with the curved gloss top, shown with its controller.
+creator: Evan-Amos
+creatorType: person
+editorialStatus: approved
+id: sony-playstation-3-console
+original:
+  byteLength: 2508727
+  height: 2610
+  mediaType: image/jpeg
+  sha256: 50e6e9d7481f881a0b212c1a71216a8691d4514fb32b5c0702db6a90189161b6
+  width: 5820
+originalUrl: https://upload.wikimedia.org/wikipedia/commons/9/90/Sony-PlayStation-3-CECHA01-wController-L.jpg
+publisher: Wikimedia Commons
+rights:
+  id: pd-self
+  statedAt: https://commons.wikimedia.org/wiki/File:Sony-PlayStation-3-CECHA01-wController-L.jpg
+  statement: "I, the copyright holder of this work, release this work into the public domain. This
+    applies worldwide. In some countries this may not be legally possible; if so: I grant anyone the
+    right to use this work for any purpose, without any conditions, unless such conditions are
+    required by law."
+  url: https://commons.wikimedia.org/wiki/Template:PD-self
+sourcePageUrl: https://commons.wikimedia.org/wiki/File:Sony-PlayStation-3-CECHA01-wController-L.jpg
+title: Sony-PlayStation-3-CECHA01-wController-L.jpg
+transform:
+  background: "#ffffff"
+  fit: pad
+  note: The photograph is wider than 4:3 and the machine reaches both ends of it, so no crop keeps the
+    whole subject. The declared margin is the same white as the backdrop the photograph was taken
+    against, which is why it cannot be seen; it is recorded because it is there.
+  preset: image-v1
+  sourceHeight: 2610
+  sourceWidth: 5820

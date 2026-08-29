@@ -1,0 +1,20 @@
+accessedDate: 2026-08-22
+editorialStatus: provisional
+id: nec-pc-engine-technical-manual
+locator: HuC62 System Outline Note
+publisher: NEC and Hudson
+sourceType: technical-manual
+tier: B
+title: PC Engine Developer Documentation
+url: https://archive.org/download/PCEDev/HuC62%20-%20System%20Outline%20Note.pdf
+extract: >-
+  English language documentation for the CPU, VDC, and audio chip in the PC
+  Engine
+fetch:
+  url: https://archive.org/download/PCEDev/HuC62%20-%20System%20Outline%20Note.pdf
+  finalUrl: https://dn760003.eu.archive.org/0/items/PCEDev/HuC62%20-%20System%20Outline%20Note.pdf
+  fetchedAt: 2026-08-24T19:00:55Z
+  httpStatus: 200
+  contentType: application/pdf
+  byteLength: 134653
+  sha256: 03f428045a31b9d3a05c75edf81d18ff02d6b6d5006735833e5616715562193c

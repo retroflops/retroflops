@@ -1,0 +1,55 @@
+- extract: >-
+    M1 is the first personal computer chip built using cutting-edge 5-nanometer
+    process technology and is packed with an astounding 16 billion transistors,
+    the most Apple has ever put into a chip.
+  extractHash: 660e419ad734deb5d9effc6975f2e44ced53605d36f8681df9d384adec3816e9
+  id: apple-m1-2020:die
+  locator: opening section, paragraph introducing the chip
+  notes: >-
+    "16 billion" is two significant digits, not eleven. Both figures describe
+    the whole die — processor cores, graphics cores, Neural Engine and memory
+    controller together — and Apple publishes no breakdown.
+  sourceId: apple-m1-announcement-2020
+  transcribed:
+    significantDigits: 2
+    state: value
+    unit: transistor
+    value: '16000000000'
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-07-29
+- extract: >-
+    M1 features an 8-core CPU consisting of four high-performance cores and four
+    high-efficiency cores. Each of the high-performance cores provides
+    industry-leading performance for single-threaded tasks.
+  extractHash: 0b0d68bbb105885debfe2c02f9fda32ea846e64aac000d767a657179028151e0
+  id: apple-m1-2020:cpu
+  locator: '"The World''s Best CPU Performance per Watt" section'
+  notes: >-
+    There is no clock frequency in this section or anywhere else in the release,
+    and none on Apple's technical specification pages either. The four-plus-four
+    split is the substantive detail: the eight cores are not eight of the same
+    thing, so a per-core figure would mean two different things depending on
+    which core it described.
+  sourceId: apple-m1-announcement-2020
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-07-29
+- extract: >-
+    With 2.6 teraflops of throughput, M1 has the world's fastest integrated
+    graphics in a personal computer. The GPU in M1 is the most advanced Apple
+    has ever created.
+  extractHash: 39ce3fb15effcc9fed17e4b8fe8597d4b8ed94fc4d5928dcc563752f49f0dd29
+  id: apple-m1-2020:gpu
+  locator: '"World''s Fastest Integrated Graphics" section'
+  notes: >-
+    "Throughput" without a precision, a clock or an operations-per-cycle figure,
+    exactly as with the PlayStation 3's and PlayStation 4's graphics figures.
+    The apostrophes in the original are typographic; they are transcribed as the
+    ASCII form.
+  sourceId: apple-m1-announcement-2020
+  transcribed:
+    significantDigits: 2
+    state: value
+    unit: TFLOP/s
+    value: '2.6'
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-07-29

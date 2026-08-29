@@ -1,0 +1,17 @@
+id: motorola-68ec020:context-mhz-14-18
+subject:
+  kind: component
+  id: motorola-68ec020
+label: Frequency
+quantity:
+  state: value
+  value: '14.18'
+  unit: MHz
+  significantDigits: 4
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - amiga-1200-service-manual
+evidenceLevel: confirmed

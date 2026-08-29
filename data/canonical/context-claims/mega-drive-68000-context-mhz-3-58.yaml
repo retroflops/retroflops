@@ -1,0 +1,17 @@
+id: mega-drive-68000:context-mhz-3-58
+subject:
+  kind: component
+  id: mega-drive-68000
+label: Frequency
+quantity:
+  state: value
+  value: '3.58'
+  unit: MHz
+  significantDigits: 3
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - sega-mega-drive-service-manual
+evidenceLevel: confirmed

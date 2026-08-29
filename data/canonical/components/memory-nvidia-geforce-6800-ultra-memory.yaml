@@ -1,0 +1,13 @@
+id: nvidia-geforce-6800-ultra-memory
+slug: nvidia-geforce-6800-ultra-memory
+kind: memory
+name: NVIDIA GeForce 6800 Ultra frame buffer
+manufacturer: NVIDIA
+memoryType: GDDR3
+introducedDate: 2004-04
+summary:
+  '{{context:nvidia-geforce-6800-ultra-memory:context-mib-256}} of GDDR3 with
+  {{context:nvidia-geforce-6800-ultra-memory:context-gb-s-35-2}} peak bandwidth.'
+sourceIds:
+  - nvidia-geforce-6800-ultra-whitepaper
+editorialStatus: provisional

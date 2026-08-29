@@ -1,0 +1,249 @@
+- caveat: >-
+    Provisional record for sega-mega-drive: the cited primary manual is
+    registered, but its page-level transcription and independent review are
+    still pending.
+  comparabilityGroup: clock-frequency|cpu|nominal-clock
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: sega-mega-drive:cpu-clock-frequency
+  method: nominal-clock
+  metric: clock-frequency
+  normalized:
+    value: "7670000"
+    unit: Hz
+    significantDigits: 3
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 3
+    state: value
+    unit: MHz
+    value: "7.67"
+  scope: cpu
+  sourceIds:
+    - sega-mega-drive-service-manual
+  status: vendor-rated
+  subject:
+    configurationId: ntsc
+    id: sega-mega-drive
+    kind: system
+  evidenceLevel: confirmed
+- caveat: >-
+    Provisional record for sega-mega-drive: the cited primary manual is
+    registered, but its page-level transcription and independent review are
+    still pending.
+  comparabilityGroup: memory-capacity|memory|design-capacity
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: mega-drive-ram:capacity
+  method: design-capacity
+  metric: memory-capacity
+  normalized:
+    value: "65536"
+    unit: B
+    significantDigits: 2
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 2
+    state: value
+    unit: KiB
+    value: "64"
+  scope: memory
+  sourceIds:
+    - sega-mega-drive-service-manual
+  status: vendor-rated
+  subject:
+    id: mega-drive-ram
+    kind: component
+  evidenceLevel: confirmed
+- caveat: >-
+    The reviewed service manual is for the later PAL Mega Drive II, not this
+    original Japanese Mega Drive configuration, so its VDP timing does not
+    apply.
+  comparabilityGroup: clock-frequency|gpu|nominal-clock
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: sega-mega-drive:gpu-clock-frequency
+  method: nominal-clock
+  metric: clock-frequency
+  provenance: vendor
+  quantity:
+    note: The reviewed manual covers a different console revision.
+    state: unknown
+  unknownAudit:
+    reviewedOn: 2026-08-25
+    routesChecked:
+      - vendor-documentation
+      - independent-analysis
+      - community-source
+    outcome: no-compatible-candidate
+    summary: >-
+      The available manual is for PAL Mega Drive II hardware, not the original
+      Japanese Mega Drive configuration.
+  scope: gpu
+  sourceIds:
+    - sega-mega-drive-service-manual
+  status: vendor-rated
+  subject:
+    id: sega-mega-drive
+    kind: system
+- caveat: >-
+    The reviewed service manual is for the later PAL Mega Drive II, not this
+    original Japanese Mega Drive configuration, so its memory timings do not
+    apply.
+  comparabilityGroup: memory-bandwidth|memory|theoretical-peak
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: sega-mega-drive:memory-bandwidth
+  method: theoretical-peak
+  metric: memory-bandwidth
+  provenance: vendor
+  quantity:
+    note: The reviewed manual covers a different console revision.
+    state: unknown
+  unknownAudit:
+    reviewedOn: 2026-08-25
+    routesChecked:
+      - vendor-documentation
+      - independent-analysis
+      - community-source
+    outcome: no-compatible-candidate
+    summary: >-
+      The available PAL Mega Drive II manual cannot supply a memory figure for
+      this original Japanese configuration.
+  scope: memory
+  sourceIds:
+    - sega-mega-drive-service-manual
+  status: vendor-rated
+  subject:
+    id: sega-mega-drive
+    kind: system
+- caveat: >-
+    Provisional record for sega-mega-drive: the cited primary manual is
+    registered, but its page-level transcription and independent review are
+    still pending.
+  comparabilityGroup: peak-fp32-rate|cpu|theoretical-peak
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: mega-drive-68000:peak-fp32-rate
+  method: theoretical-peak
+  metric: peak-fp32-rate
+  provenance: vendor
+  quantity:
+    note: This console CPU has no integrated floating-point execution unit.
+    state: not-applicable
+  scope: cpu
+  sourceIds:
+    - sega-mega-drive-service-manual
+  status: vendor-rated
+  subject:
+    id: mega-drive-68000
+    kind: component
+- caveat: >-
+    Provisional record for sega-mega-drive: the cited primary manual is
+    registered, but its page-level transcription and independent review are
+    still pending.
+  comparabilityGroup: peak-fp32-rate|gpu|theoretical-peak
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: mega-drive-vdp:peak-fp32-rate
+  method: theoretical-peak
+  metric: peak-fp32-rate
+  provenance: vendor
+  quantity:
+    note: >-
+      This is a tile, sprite or scanline graphics unit, not a floating-point
+      processor; it executes no FP32 operations.
+    state: not-applicable
+  scope: gpu
+  sourceIds:
+    - sega-mega-drive-service-manual
+  status: vendor-rated
+  subject:
+    id: mega-drive-vdp
+    kind: component
+- caveat: >-
+    Sega states this as 約13W — "approximately 13 W" — so the figure carries the
+    vendor's own hedge. It is a consumption rating and not a measured draw, and
+    it describes the Japanese HAA-2500; later Mega Drive and Genesis revisions
+    are different hardware.
+  comparabilityGroup: rated-power-consumption|whole-system|rated-power
+  conditions: Japanese Mega Drive, model code HAA-2500, drawing from its dedicated
+    DC9V AC adapter.
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - sega-md:spec-table:power
+  id: sega-mega-drive:rated-power-consumption
+  method: rated-power
+  metric: rated-power-consumption
+  normalized:
+    value: "13"
+    unit: W
+    significantDigits: 2
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 2
+    state: value
+    unit: W
+    value: "13"
+  scope: whole-system
+  sourceIds:
+    - sega-hardware-encyclopedia-mega-drive
+  status: vendor-rated
+  subject:
+    id: sega-mega-drive
+    kind: system
+  evidenceLevel: confirmed
+- comparabilityGroup: storage-capacity|storage|design-capacity
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: sega-mega-drive:cartridge-storage-capacity
+  method: design-capacity
+  metric: storage-capacity
+  provenance: vendor
+  quantity:
+    note: >-
+      Game cartridges are removable media and their ROM capacity varies by
+      title; no cartridge capacity is part of the base console.
+    state: not-applicable
+  scope: storage
+  sourceIds:
+    - sega-mega-drive-service-manual
+  status: vendor-rated
+  subject:
+    id: sega-mega-drive
+    kind: system
+- caveat: >-
+    Adds 1 memory-capacity figure obtained by design-capacity. Left out:
+    removable game-cartridge ROM (removable program storage, not memory the
+    console can write to). A total is only as trustworthy as the decision about
+    what belongs in it, so both the terms and the exclusions are named records.
+  comparabilityGroup: memory-capacity|whole-system|design-capacity
+  derivedFrom: sega-mega-drive:whole-system-memory
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: sega-mega-drive:whole-system-memory-capacity
+  method: design-capacity
+  metric: memory-capacity
+  normalized:
+    value: "65536"
+    unit: B
+    significantDigits: 5
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 5
+    state: value
+    unit: B
+    value: "65536"
+  scope: whole-system
+  sourceIds:
+    - sega-mega-drive-service-manual
+  status: derived
+  subject:
+    id: sega-mega-drive
+    kind: system
+  evidenceLevel: confirmed

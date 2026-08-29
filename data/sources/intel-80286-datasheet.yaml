@@ -1,0 +1,36 @@
+accessedDate: 2026-08-16
+editorialStatus: approved
+fetch:
+  byteLength: 2837740
+  contentType: application/pdf
+  fetchedAt: 2026-08-16T19:05:40Z
+  httpStatus: 200
+  sha256: afb8931d14de0834f1a70c2662e8ae27022b5b1c891edfa3d85704bccbafd595
+  url: https://datasheets.chipdb.org/Intel/x86/286/datashts/210253-016.pdf
+id: intel-80286-datasheet
+license: Copyright Intel Corporation; cited for verification under short-extract
+  fair use.
+locator: >-
+  Printed page 2-99 (PDF page 40 of 56): ABSOLUTE MAXIMUM RATINGS, Power
+  Dissipation line, and the first D.C. CHARACTERISTICS table, Icc Supply Current
+  row. Speed grades are on printed page 2-100.
+publishedDate: 1993-09
+publisher: Intel Corporation
+sourceType: vendor-documentation
+tier: A
+title: >-
+  80286 Microprocessor with Memory Management and Protection (80286-12,
+  80286-10, 80286-8) — Datasheet, Order Number 210253-018
+url: https://datasheets.chipdb.org/Intel/x86/286/datashts/210253-016.pdf
+usageNote: >-
+  Three things travel with any quotation from this document. Its only wattage,
+  3.3 W, is an absolute maximum: the same page says "These are stress ratings
+  only" and that operation beyond the Operating Conditions is not recommended,
+  so it is a destruction limit and not a thermal-design figure. Its file name
+  says revision 016 while the document's own footer says Order Number
+  210253-018, September 1993 — the footer is the identifier to trust. And the
+  copy on this mirror carries a third-party "DataSheet4U.com" watermark across
+  its pages: the content, folios and microfiche header are Intel's, but the file
+  has passed through a datasheet aggregator on its way here. It has no text
+  layer at all and a damaged cross-reference table, so every figure from it has
+  to be rendered and read by eye.

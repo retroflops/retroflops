@@ -1,0 +1,67 @@
+- extract: >-
+    Master 32bit RISC SH2 (28.4 MHz, 25MIPS)
+
+    Slave 32bit RISC SH2 (28.4 MHz, 25MIPS)
+  extractHash: f02d870544edfa35d937f0a85e650519dfa4e66a6366ec2d1fedbc3e9554f742
+  id: sega-saturn-manual:cpu
+  locator: Section 1, Specifications block, CPU rows
+  notes: >-
+    Two processors at one frequency, and the frequency belongs to the PAL
+    console this manual documents; the Japanese machine's crystal gives a
+    slightly higher rate. The catalog records one clock for the pair rather than
+    adding them, because two processors at 28.4 MHz are not one at 56.8. The 25
+    MIPS beside each is Sega's own instruction-rate claim and is not read as a
+    measurement here — it names no benchmark.
+  sourceId: sega-saturn-service-manual
+  transcribed:
+    significantDigits: 3
+    state: value
+    unit: MHz
+    value: '28.4'
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-15
+- extract: >-
+    Work RAM 16 Mbit
+
+    Video RAM 12 Mbit
+
+    Sound RAM 4Mbit
+
+    CD Buffer RAM 4Mbit
+
+    IPLROM 4Mbit
+
+    Backup RAM 256 Kbit
+  extractHash: cabfc2775b006c433eaec2924c9a3c736766579358f71247607b96626d04ac9d
+  id: sega-saturn-manual:memories
+  locator: Section 1, Specifications block, Memories rows
+  notes: >-
+    Six memories under one heading, stated in bits: 16 Mbit is 2 MiB, 12 Mbit is
+    1.5 MiB, 4 Mbit is 512 KiB and 256 Kbit is 32 KiB. Five of them are writable
+    and become terms of the machine's memory; the IPL ROM is firmware and is
+    named as an exclusion instead. The catalog previously recorded only the work
+    RAM, which is under half of what Sega lists. The missing space in "4Mbit" is
+    the scan's own.
+  sourceId: sega-saturn-service-manual
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-15
+- extract: >-
+    Model MK - 80200-50
+
+    Power supply AC220-240 V 50/60 Hz
+
+    Power consumption Approx. 20W
+  extractHash: 18f37e454ea9872de907fdc224360db31f8cf3cd431b5f9e4aa8c0524b18e4ee
+  id: sega-saturn-manual:ratings
+  locator: Section 1, Specifications, Ratings block
+  notes: >-
+    Transcribed with no value, and kept for the model number rather than the
+    wattage. It identifies which console every other figure in this manual
+    belongs to. Sega's own hardware encyclopedia gives 15 W for this console,
+    against approximately 20 W here; the two documents may well describe
+    different models, so the catalog keeps the encyclopedia figure it already
+    carries and records this one beside it rather than replacing a sourced
+    number on a document that names a different model.
+  sourceId: sega-saturn-service-manual
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-15

@@ -1,0 +1,17 @@
+id: intel-pentium:context-v-3-3
+subject:
+  kind: component
+  id: intel-pentium
+label: Contextual value
+quantity:
+  state: value
+  value: '3.3'
+  unit: V
+  significantDigits: 2
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - intel-pentium-datasheet
+evidenceLevel: confirmed

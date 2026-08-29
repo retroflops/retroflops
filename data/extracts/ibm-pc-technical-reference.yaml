@@ -1,0 +1,56 @@
+- extract: processor is operated at 4.77 Mhz
+  extractHash: a7bb8951737b670a2cd4fe9e4065822a4c5539d855d108d6da53deddf987614c
+  id: ibm-pc-technical-reference:cpu-clock
+  locator: Section 2, System Board, printed p. 2-3
+  sourceId: ibm-pc-technical-reference
+  transcribed:
+    significantDigits: 3
+    state: value
+    unit: MHz
+    value: '4.77'
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-22
+- extract: 40KB ROM and 16KB memory
+  extractHash: 1df99c85e831bd4d16501e05edbedb44eb3c7b238949de70cac66bc18c83c8ad
+  id: ibm-pc-technical-reference:base-memory
+  locator: Section 1, Hardware Overview, printed p. 1-1
+  notes: >-
+    This is the original base configuration. The 64KB board maximum and 48KB ROM
+    socket capacity are not fitted capacities.
+  sourceId: ibm-pc-technical-reference
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-22
+- extract: a co-processor can be added as a feature
+  extractHash: 36f0ad0cb95f68b3e58bfa17fd6ba8dd043ccd7fdb3c9f43e94a944c6a3f00f1
+  id: ibm-pc-technical-reference:coprocessor
+  locator: Section 2, System Board, printed p. 2-3
+  notes:
+    The original base configuration does not include the optional coprocessor.
+  sourceId: ibm-pc-technical-reference
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-22
+- extract: 63.5 watt
+  extractHash: 621e65b53cc733628a633e296215e448a212019a811d1ecef9915b502d20f7b8
+  id: ibm-pc-technical-reference:power-supply
+  locator: Section 2, Power Supply, printed pp. 2-33 to 2-35
+  notes: >-
+    IBM gives this as a switching-power-supply rating, not configured system
+    consumption.
+  sourceId: ibm-pc-technical-reference
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-22
+- extract: >-
+    If the channel's Ready line is not activated by an addressed device, all
+    processor generated memory read and write cycles take four 210 ns clock or
+    840 ns/byte.
+  extractHash: 4b8a5a553d09675f978ea86518938a7efa3f6dd96d82ad9303a94d21425bab53
+  id: ibm-pc-technical-reference:memory-cycle-time
+  locator: Section 2, I/O Channel, printed p. 2-8
+  sourceId: ibm-pc-technical-reference
+  transcribed:
+    significantDigits: 3
+    state: value
+    unit: ns
+    value: '840'
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-24

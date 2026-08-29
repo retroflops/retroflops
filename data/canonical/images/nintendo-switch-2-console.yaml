@@ -1,0 +1,41 @@
+accessedDate: 2026-08-26
+alt: >-
+  A Nintendo Switch 2 in handheld mode, its black screen between attached dark
+  Joy-Con 2 controllers.
+attribution: Photograph by AOMAF2024, released CC0, via Wikimedia Commons.
+canonical:
+  format: avif
+  width: 1280
+  height: 960
+  byteLength: 19899
+  sha256: c32af8b702bf9e3d208938994ca74234fbd88051d540ff344374f0d5d7a47489
+caption: A Nintendo Switch 2 with its Joy-Con 2 controllers attached in handheld mode.
+creator: AOMAF2024
+creatorType: person
+editorialStatus: provisional
+id: nintendo-switch-2-console
+original:
+  sha256: 61a30ddc381d05bc267c01d4a90d23b4fed36bf67afd65ed9c1b40be1e077f7a
+  byteLength: 640115
+  width: 1589
+  height: 741
+  mediaType: image/png
+originalUrl: https://upload.wikimedia.org/wikipedia/commons/8/89/Nintendo_Switch_2_console_in_handheld_mode.png
+publisher: Wikimedia Commons
+rights:
+  id: cc0-1.0
+  statedAt: https://commons.wikimedia.org/wiki/File:Nintendo_Switch_2_console_in_handheld_mode.png
+  statement: This file is made available under the Creative Commons CC0 1.0
+    Universal Public Domain Dedication.
+  url: https://creativecommons.org/publicdomain/zero/1.0/
+sourcePageUrl: https://commons.wikimedia.org/wiki/File:Nintendo_Switch_2_console_in_handheld_mode.png
+title: Nintendo Switch 2 console in handheld mode.png
+transform:
+  background: '#ffffff'
+  fit: pad
+  note: >-
+    The handheld photograph is much wider than 4:3, so white margins preserve
+    the whole console and both attached controllers.
+  preset: image-v1
+  sourceHeight: 741
+  sourceWidth: 1589

@@ -1,0 +1,311 @@
+- caveat: >-
+    Nintendo's own figure, and it matches neither of the frequencies this
+    console is normally described as running at: about
+    {{context:nintendo-entertainment-system:context-mhz-1-79-2}} on NTSC
+    hardware, about {{context:nintendo-entertainment-system:context-mhz-1-77}}
+    on PAL. The manufacturer names no region and no condition. It is published
+    here because it is the only statement about this console from a document
+    anybody can open: the circulating figure has no source this project may
+    cite, so there is no competing candidate to record against it.
+  comparabilityGroup: clock-frequency|cpu|nominal-clock
+  conditions: As stated by Nintendo for the console, with no region named.
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - nintendo-nes:specs:cpu
+  id: nintendo-entertainment-system:cpu-clock-frequency
+  method: nominal-clock
+  metric: clock-frequency
+  normalized:
+    value: "1660000"
+    unit: Hz
+    significantDigits: 3
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 3
+    state: value
+    unit: MHz
+    value: "1.66"
+  scope: cpu
+  sourceIds:
+    - nintendo-nes-tech-specs
+  status: vendor-rated
+  subject:
+    configurationId: ntsc
+    id: nintendo-entertainment-system
+    kind: system
+  evidenceLevel: confirmed
+- caveat: >-
+    The processor's work memory, which Nintendo states beside an equal amount of
+    video memory. The page writes "Kb" where it means kilobytes; read as
+    kilobits the row would give {{context:nes-ram:context-b-256}}, which no
+    version of this console has.
+  comparabilityGroup: memory-capacity|memory|design-capacity
+  conditions: Static work RAM addressable by the processor.
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - nintendo-nes:specs:memory
+  id: nes-ram:capacity
+  method: design-capacity
+  metric: memory-capacity
+  normalized:
+    value: "2048"
+    unit: B
+    significantDigits: 1
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 1
+    state: value
+    unit: KiB
+    value: "2"
+  scope: memory
+  sourceIds:
+    - nintendo-nes-tech-specs
+  status: vendor-rated
+  subject:
+    id: nes-ram
+    kind: component
+  evidenceLevel: confirmed
+- caveat: >-
+    Memory attached to the picture processor rather than to the processor, and a
+    term of the machine's memory all the same: Nintendo lists it in the same row
+    as the work memory and in the same amount.
+  comparabilityGroup: memory-capacity|memory|design-capacity
+  conditions: Static video RAM addressable by the picture processor.
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - nintendo-nes:specs:memory
+  id: nes-video-ram:capacity
+  method: design-capacity
+  metric: memory-capacity
+  normalized:
+    value: "2048"
+    unit: B
+    significantDigits: 1
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 1
+    state: value
+    unit: KiB
+    value: "2"
+  scope: memory
+  sourceIds:
+    - nintendo-nes-tech-specs
+  status: vendor-rated
+  subject:
+    id: nes-video-ram
+    kind: component
+  evidenceLevel: confirmed
+- caveat: >-
+    Nintendo publishes no clock for the picture processor. Wikipedia's
+    specification section states
+    {{measurement:nintendo-entertainment-system:gpu-clock-frequency}} for the
+    Ricoh 2C02 in an NTSC console, and the catalog carries it as rumored until a
+    technical document states it.
+  comparabilityGroup: clock-frequency|gpu|nominal-clock
+  editorialStatus: provisional
+  evidenceStage: shipped
+  extractIds:
+    - nintendo-nes:specs:memory
+  id: nintendo-entertainment-system:gpu-clock-frequency
+  method: nominal-clock
+  metric: clock-frequency
+  provenance: community
+  quantity:
+    state: value
+    value: "5.37"
+    unit: MHz
+    significantDigits: 3
+  scope: gpu
+  sourceIds:
+    - nintendo-nes-tech-specs
+    - wikipedia-nes-specifications
+  status: vendor-rated
+  subject:
+    id: nintendo-entertainment-system
+    kind: system
+  evidenceLevel: rumored
+  normalized:
+    value: "5370000"
+    unit: Hz
+    significantDigits: 3
+    unitRegistry: units-v1
+- caveat: >-
+    The vendor page is a consumer specification rather than a hardware manual;
+    capacities are as far as it goes into memory.
+  comparabilityGroup: memory-bandwidth|memory|theoretical-peak
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - nintendo-nes:specs:memory
+  id: nintendo-entertainment-system:memory-bandwidth
+  method: theoretical-peak
+  metric: memory-bandwidth
+  provenance: vendor
+  quantity:
+    note: >-
+      Nintendo's table states two memory capacities and no transfer rate, bus
+      width or timing, so there is neither a bandwidth to read nor terms to
+      compute one from.
+    state: unknown
+  unknownAudit:
+    reviewedOn: 2026-08-25
+    routesChecked:
+      - vendor-documentation
+      - independent-analysis
+      - community-source
+    outcome: no-compatible-candidate
+    summary: >-
+      The reviewed specifications give memory capacities but no bus width,
+      timing, or transfer-rate terms for a comparable bandwidth value.
+  scope: memory
+  sourceIds:
+    - nintendo-nes-tech-specs
+  status: vendor-rated
+  subject:
+    id: nintendo-entertainment-system
+    kind: system
+- caveat: >-
+    Not-applicable rather than unknown: this is a fact about the architecture,
+    not about what Nintendo published.
+  comparabilityGroup: peak-fp32-rate|cpu|theoretical-peak
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - nintendo-nes:specs:memory
+  id: nes-2a03:peak-fp32-rate
+  method: theoretical-peak
+  metric: peak-fp32-rate
+  provenance: vendor
+  quantity:
+    note: This console CPU has no integrated floating-point execution unit.
+    state: not-applicable
+  scope: cpu
+  sourceIds:
+    - nintendo-nes-tech-specs
+  status: vendor-rated
+  subject:
+    id: nes-2a03
+    kind: component
+- caveat: >-
+    Not-applicable for the same architectural reason as the processor, and
+    recorded separately because it is a separate part.
+  comparabilityGroup: peak-fp32-rate|gpu|theoretical-peak
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - nintendo-nes:specs:memory
+  id: nes-ppu:peak-fp32-rate
+  method: theoretical-peak
+  metric: peak-fp32-rate
+  provenance: vendor
+  quantity:
+    note: >-
+      This is a tile, sprite or scanline graphics unit, not a floating-point
+      processor; it executes no FP32 operations.
+    state: not-applicable
+  scope: gpu
+  sourceIds:
+    - nintendo-nes-tech-specs
+  status: vendor-rated
+  subject:
+    id: nes-ppu
+    kind: component
+- caveat: >-
+    The console predates the European ecodesign disclosures that give this
+    catalog the Switch's rating, and its specification page states nothing
+    electrical.
+  comparabilityGroup: rated-power-consumption|whole-system|rated-power
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - nintendo-nes:specs:memory
+  id: nintendo-entertainment-system:rated-power-consumption
+  method: rated-power
+  metric: rated-power-consumption
+  provenance: vendor
+  quantity:
+    note: >-
+      Nintendo's table states the console's dimensions and no electrical figure
+      of any kind.
+    state: unknown
+  unknownAudit:
+    reviewedOn: 2026-08-25
+    routesChecked:
+      - vendor-documentation
+      - independent-analysis
+      - community-source
+    outcome: no-published-candidate
+    summary: >-
+      The reviewed technical page gives no electrical rating for this console
+      model.
+  scope: whole-system
+  sourceIds:
+    - nintendo-nes-tech-specs
+  status: vendor-rated
+  subject:
+    id: nintendo-entertainment-system
+    kind: system
+- caveat: >-
+    Nintendo's page for this console gives no cartridge figure. Its Super
+    Nintendo page does state a range, which is why that machine's record carries
+    the bounds and this one does not.
+  comparabilityGroup: storage-capacity|storage|design-capacity
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - nintendo-nes:specs:memory
+  id: nintendo-entertainment-system:cartridge-storage-capacity
+  method: design-capacity
+  metric: storage-capacity
+  provenance: vendor
+  quantity:
+    note: >-
+      Game cartridges are removable media and their ROM capacity varies by
+      title; no cartridge capacity is part of the base console.
+    state: not-applicable
+  scope: storage
+  sourceIds:
+    - nintendo-nes-tech-specs
+  status: vendor-rated
+  subject:
+    id: nintendo-entertainment-system
+    kind: system
+- caveat: >-
+    Adds 2 memory-capacity figures obtained by design-capacity. Left out:
+    removable game-cartridge ROM (removable program storage, not memory the
+    console can write to). A total is only as trustworthy as the decision about
+    what belongs in it, so both the terms and the exclusions are named records.
+  comparabilityGroup: memory-capacity|whole-system|design-capacity
+  derivedFrom: nintendo-entertainment-system:whole-system-memory
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - nintendo-nes:specs:memory
+  id: nintendo-entertainment-system:whole-system-memory-capacity
+  method: design-capacity
+  metric: memory-capacity
+  normalized:
+    value: "4096"
+    unit: B
+    significantDigits: 4
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 4
+    state: value
+    unit: B
+    value: "4096"
+  scope: whole-system
+  sourceIds:
+    - nintendo-nes-tech-specs
+  status: derived
+  subject:
+    id: nintendo-entertainment-system
+    kind: system
+  evidenceLevel: confirmed

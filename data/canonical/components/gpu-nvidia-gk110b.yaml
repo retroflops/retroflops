@@ -1,0 +1,16 @@
+id: nvidia-gk110b
+slug: nvidia-gk110b
+kind: gpu
+name: NVIDIA Kepler (NVIDIA GeForce GTX 780 Ti)
+manufacturer: NVIDIA
+architecture: Kepler
+introducedDate: 2013-11
+summary:
+  NVIDIA GeForce GTX 780 Ti graphics processor, represented by vendor
+  reference-card specifications.
+notes:
+  The general-shader FP32 peak is separate from tensor, AI and ray-tracing
+  rates.
+sourceIds:
+  - nvidia-geforce-gtx-780-ti-product-brief
+editorialStatus: provisional

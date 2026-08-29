@@ -1,0 +1,33 @@
+- extract: >-
+    Operating frequency
+
+    200 MHz and 167 MHz
+
+    Processing speed
+
+    360 MIPS/200 MHz, 300MIPS/167 MHz 1.4 GFLOPS/200 MHz
+
+    Power consumption
+
+    1.5 W (typ.) (at 200 MHz)
+  extractHash: 4050d45d095b7fd31a455ea0e2f7e508cfbafd62662afe39ff085b74ca5e3507
+  id: hitachi-sh7750:power
+  locator: >-
+    Closing "Specifications" table, rows "Operating frequency", "Processing
+    speed" and "Power consumption"
+  notes: >-
+    The table is rendered as a label column and a value column; the pairs are
+    rejoined here, each label immediately above its value. The row taken is the
+    power one — the 200 MHz operating frequency and the 360 MIPS and 1.4 GFLOPS
+    rates are already recorded from this manufacturer and are quoted here only
+    to fix which speed grade the 1.5 W belongs to. "typ." is the manufacturer's
+    own hedge: a typical draw, not a maximum and not a measurement of any
+    particular part.
+  sourceId: hitachi-sh7750-announcement-1997
+  transcribed:
+    significantDigits: 2
+    state: value
+    unit: W
+    value: '1.5'
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-04

@@ -1,0 +1,19 @@
+- extract: >-
+    Table 3-2. Intel386™ DX D.C. Characteristics ... ICC Supply Current (Note 4)
+    ... CLK2 = 50 MHz: with 25 MHz Intel386™ DX 320 mA ICC Typ. = 240 mA
+  extractHash: 2de2feab59135b93450b93f0973b36a14283918f59c02ca77e20e8855fc4c9e5
+  id: intel-386dx-datasheet:supply-current-25mhz
+  locator: >-
+    Table 3-2, "Intel386™ DX D.C. Characteristics", Icc Supply Current row, 25
+    MHz grade
+  notes: >-
+    Transcribed to establish an absence: the quantity Intel specifies for this
+    part is a supply current, 320 mA maximum against a 240 mA typical, and the
+    datasheet states no wattage. The clock in the row is the CLK2 input at 50
+    MHz, which is twice the 25 MHz the processor runs at — a detail that would
+    silently double a derived figure for anyone reading the row as a core
+    frequency. The scan renders "=" as "e" in this table; the characters have
+    been transcribed as the document means them, and the digits are unaffected.
+  sourceId: intel-386dx-datasheet
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-16

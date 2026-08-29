@@ -1,0 +1,14 @@
+- id: anandtech-iphone-4-performance-2010:cpu-clock-estimate
+  sourceId: anandtech-iphone-4-performance-2010
+  locator: Page 12, Performance, Geekbench CPU tests
+  extract: >-
+    The CPU specific tests all indicate the iPhone 4 is around 25% faster than
+    the iPhone 3GS.
+  extractHash: bf73753f0995191668acaf0c4f770b9756850a62edbbf853a36c7621d468fd66
+  transcribed:
+    state: value
+    value: '800'
+    unit: MHz
+    significantDigits: 1
+  transcribedOn: 2026-08-25
+  transcribedBy: RetroFlops editors

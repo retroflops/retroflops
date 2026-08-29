@@ -1,0 +1,25 @@
+accessedDate: 2026-07-31
+editorialStatus: approved
+fetch:
+  byteLength: 79614
+  contentType: text/html; charset=UTF-8
+  fetchedAt: 2026-07-31T12:09:29Z
+  finalUrl: https://www.computerbase.de/artikel/gaming/playstation-4-pro-test.57321/
+  httpStatus: 200
+  sha256: d1a5905aa9c4b7caff71f227c36bf405d20786a8d2abb23de30b42e95632b026
+  url: https://www.computerbase.de/2016-11/playstation-4-pro-test/
+id: computerbase-ps4-pro-test
+license: Copyright ComputerBase GmbH. Quoted here under short-extract fair use
+  for verification of the figures cited.
+locator: >-
+  Section "Quasi eine verdoppelte GPU mit AMDs Polaris-Technik", paragraphs on
+  the processor and graphics clocks
+publishedDate: 2016-11
+publisher: ComputerBase
+sourceType: independent-analysis
+tier: B
+title: "PlayStation 4 Pro im Test: Wer neu kauft, kauft Pro"
+url: https://www.computerbase.de/2016-11/playstation-4-pro-test/
+usageNote: >-
+  The second of the two independent sources the sourcing policy requires where
+  no vendor document states the figure.

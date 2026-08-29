@@ -1,0 +1,12 @@
+id: ifixit-iphone-12-teardown
+title: iPhone 12 and 12 Pro Teardown
+publisher: iFixit
+url: https://www.ifixit.com/Teardown/iPhone%2B12%2Band%2B12%2BPro%2BTeardown/137669
+publishedDate: 2020-10-20
+accessedDate: 2026-08-25
+locator: Step 9, logic-board chip identification
+extract: Apple A14 Bionic is layered under Micron 4 GB LPDDR4 SDRAM.
+tier: B
+sourceType: independent-analysis
+editorialStatus: provisional
+license: Copyright iFixit. Quoted under short-extract fair use.

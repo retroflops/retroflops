@@ -1,0 +1,295 @@
+- caveat: >-
+    Both releases write "8GB", meaning {{measurement:ps4-gddr5:capacity}}.
+    Recorded at whole-system scope rather than memory scope because it is the
+    machine's memory: unlike the earlier PlayStations, there is no second pool
+    this figure excludes.
+  comparabilityGroup: memory-capacity|whole-system|design-capacity
+  conditions: Unified system memory, shared by the eight processor cores and the
+    {{context:ps4-gddr5:context-unit-18}} compute units.
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - scea-ps4-2013:launch-architecture
+    - scei-ps4-2013:memory
+  id: ps4-gddr5:capacity
+  method: design-capacity
+  metric: memory-capacity
+  normalized:
+    value: "8589934592"
+    unit: B
+    significantDigits: 1
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 1
+    state: value
+    unit: GiB
+    value: "8"
+  scope: whole-system
+  sourceIds:
+    - scea-ps4-launch-2013
+    - scei-ps4-introduction-2013
+  status: vendor-rated
+  subject:
+    id: ps4-gddr5
+    kind: component
+  evidenceLevel: confirmed
+- caveat: >-
+    Stated nine months before the console shipped and not repeated by the launch
+    release. It is also one figure where two earlier records would have needed
+    two: processor and graphics traffic share this bus rather than owning
+    separate ones.
+  comparabilityGroup: memory-bandwidth|memory|theoretical-peak
+  conditions: Bandwidth of the unified GDDR5 memory, per the introduction of February 2013.
+  editorialStatus: provisional
+  evidenceStage: pre-launch
+  extractIds:
+    - scei-ps4-2013:memory
+  id: ps4-gddr5:bandwidth
+  method: theoretical-peak
+  metric: memory-bandwidth
+  normalized:
+    value: "176000000000"
+    unit: B/s
+    significantDigits: 3
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 3
+    state: value
+    unit: GB/s
+    value: "176"
+  scope: memory
+  sourceIds:
+    - scei-ps4-introduction-2013
+  status: vendor-rated
+  subject:
+    id: ps4-gddr5
+    kind: component
+  evidenceLevel: confirmed
+- caveat: >-
+    Recorded as single precision, which the source does not state: the same
+    editorial reading the PlayStation 3's figures carry, and the same reason for
+    holding it provisional. Sony also gives no clock, so the figure cannot be
+    checked against the {{context:ps4-gpu:context-unit-18}} compute units it is
+    attributed to.
+  comparabilityGroup: peak-fp32-rate|gpu|theoretical-peak
+  conditions: '{{context:ps4-gpu:context-unit-18}} compute units "collectively
+    generating 1.84 Teraflops of processing power", per the introduction of
+    February 2013.'
+  editorialStatus: provisional
+  evidenceStage: pre-launch
+  extractIds:
+    - scei-ps4-2013:processor
+  id: ps4-gpu:peak-fp32-rate
+  method: theoretical-peak
+  metric: peak-fp32-rate
+  normalized:
+    value: "1840000000000"
+    unit: FLOP/s
+    significantDigits: 3
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 3
+    state: value
+    unit: TFLOP/s
+    value: "1.84"
+  scope: gpu
+  sourceIds:
+    - scei-ps4-introduction-2013
+  status: vendor-rated
+  subject:
+    id: ps4-gpu
+    kind: component
+  evidenceLevel: confirmed
+- caveat: >-
+    Adds 1 memory-bandwidth figure obtained by theoretical-peak. Nothing in the
+    catalog is left out of it. A total is only as trustworthy as the decision
+    about what belongs in it, so both the terms and the exclusions are named
+    records.
+  comparabilityGroup: memory-bandwidth|whole-system|theoretical-peak
+  conditions: "One bus for everything: the processor and the graphics units share
+    this memory rather than owning separate pools."
+  derivedFrom: sony-playstation-4:whole-system-memory-bandwidth
+  editorialStatus: provisional
+  evidenceStage: pre-launch
+  extractIds:
+    - scei-ps4-2013:memory
+  id: sony-playstation-4:whole-system-memory-bandwidth
+  method: theoretical-peak
+  metric: memory-bandwidth
+  normalized:
+    value: "176000000000"
+    unit: B/s
+    significantDigits: 3
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 3
+    state: value
+    unit: GB/s
+    value: "176"
+  rounding: none
+  scope: whole-system
+  sourceIds:
+    - scei-ps4-introduction-2013
+  status: derived
+  subject:
+    id: sony-playstation-4
+    kind: system
+  evidenceLevel: confirmed
+- caveat: >-
+    Sony publishes no frequency for this machine, and this figure is not Sony's:
+    two independent publications state it while describing the PlayStation 4
+    Pro, three years after the console shipped. It is recorded beside the
+    vendor's silence rather than instead of it, and it sits in the same
+    comparability group as every other nominal clock, because the group is set
+    by method and not by who published the number.
+  comparabilityGroup: clock-frequency|cpu|nominal-clock
+  conditions: The eight Jaguar cores of the shipped console, as reported by two
+    independent technical publications.
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - df-ps4-pro:spec-table
+    - computerbase-ps4-pro:clocks
+  id: sony-playstation-4:cpu-clock-frequency-independent
+  method: nominal-clock
+  metric: clock-frequency
+  normalized:
+    value: "1600000000"
+    unit: Hz
+    significantDigits: 2
+    unitRegistry: units-v1
+  provenance: independent
+  quantity:
+    significantDigits: 2
+    state: value
+    unit: GHz
+    value: "1.6"
+  rounding: none
+  scope: cpu
+  sourceIds:
+    - digitalfoundry-ps4-pro-review
+    - computerbase-ps4-pro-test
+  status: vendor-rated
+  subject:
+    configurationId: launch
+    id: sony-playstation-4
+    kind: system
+  evidenceLevel: confirmed
+- caveat: >-
+    Provisional on the sourcing, not on the number. One publication states
+    {{measurement:sony-playstation-4:gpu-clock-frequency-independent}} outright,
+    twice; the second states only that the Pro's graphics clock was raised by
+    {{context:sony-playstation-4:context-mhz-111}} to
+    {{context:sony-playstation-4:context-mhz-911}}, which leaves 800 by
+    subtraction rather than by statement. The policy asks for two sources that
+    state the figure, so this waits for a second one, and meanwhile feeds no
+    multiplier.
+  comparabilityGroup: clock-frequency|gpu|nominal-clock
+  conditions: The {{context:ps4-gpu:context-unit-18}} compute units of the shipped console.
+  editorialStatus: provisional
+  evidenceStage: shipped
+  extractIds:
+    - df-ps4-pro:spec-table
+    - df-ps4-pro:downclock
+    - computerbase-ps4-pro:clocks
+  id: sony-playstation-4:gpu-clock-frequency-independent
+  method: nominal-clock
+  metric: clock-frequency
+  normalized:
+    value: "800000000"
+    unit: Hz
+    significantDigits: 3
+    unitRegistry: units-v1
+  provenance: independent
+  quantity:
+    significantDigits: 3
+    state: value
+    unit: MHz
+    value: "800"
+  rounding: none
+  scope: gpu
+  sourceIds:
+    - digitalfoundry-ps4-pro-review
+    - computerbase-ps4-pro-test
+  status: vendor-rated
+  subject:
+    configurationId: launch
+    id: sony-playstation-4
+    kind: system
+  evidenceLevel: confirmed
+- caveat: >-
+    A nameplate maximum, not a gameplay draw. The console does not approach it
+    in normal use. It belongs to the CUH-1001A chassis; Sony rated later
+    revisions lower, which is a hardware difference rather than a disagreement
+    about this one.
+  comparabilityGroup: rated-power-consumption|whole-system|rated-power
+  conditions: Launch chassis CUH-1001A, rated at
+    {{context:sony-playstation-4:context-v-120}} AC,
+    {{context:sony-playstation-4:context-hz-60}}.
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - ps4-cuh-1001a:p11:rated-power
+  id: sony-playstation-4:rated-power-consumption
+  method: rated-power
+  metric: rated-power-consumption
+  normalized:
+    value: "250"
+    unit: W
+    significantDigits: 3
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 3
+    state: value
+    unit: W
+    value: "250"
+  scope: whole-system
+  sourceIds:
+    - scei-ps4-safety-guide-cuh-1001a
+  status: vendor-rated
+  subject:
+    id: sony-playstation-4
+    kind: system
+  evidenceLevel: confirmed
+- caveat: >-
+    Sony’s own word is "suggested": the figure is what Sony asked retailers to
+    charge rather than what any buyer paid. The same release gives an identical
+    numeral in Canadian dollars, which is a pricing decision and not a
+    conversion, and is not recorded: the catalog holds one currency, and
+    comparing across two would need a dated exchange rate that is a property of
+    the date rather than of the console.
+  comparabilityGroup: launch-price|whole-system|list-price
+  conditions: Suggested retail price in the United States on the day the console
+    went on sale, 15 November 2013.
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - scea-ps4-2013:price
+  id: sony-playstation-4:launch-price
+  method: list-price
+  metric: launch-price
+  normalized:
+    value: "399"
+    unit: USD
+    significantDigits: 3
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 3
+    state: value
+    unit: USD
+    value: "399"
+  scope: whole-system
+  sourceIds:
+    - scea-ps4-launch-2013
+  status: vendor-rated
+  subject:
+    configurationId: launch
+    id: sony-playstation-4
+    kind: system
+  evidenceLevel: confirmed

@@ -1,0 +1,17 @@
+id: microsoft-xbox-360-xenon:context-bit-64
+subject:
+  kind: component
+  id: microsoft-xbox-360-xenon
+label: Word size
+quantity:
+  state: value
+  value: '64'
+  unit: bit
+  significantDigits: 2
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - microsoft-xbox-360-hardware-overview
+evidenceLevel: confirmed

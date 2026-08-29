@@ -1,0 +1,46 @@
+- extract: >-
+    The data on this chart is calculated from Geekbench 6 results users have
+    uploaded to the Geekbench Browser. To make sure the results accurately
+    reflect the average performance of each Mac, the chart only includes Macs
+    with at least five unique results in the Geekbench Browser.
+
+    This chart was last updated about 17 hours ago.
+  extractHash: 92a1731228e1d0757116423a4f11a523f68f3e1b04ef5d275036aae0c0d0cd65
+  id: geekbench-mac-chart:what-the-figures-are
+  locator:
+    Introductory paragraph above the chart, and the line immediately below it
+  notes: >-
+    Transcribed with no value: this is the record that says what kind of number
+    the chart holds. An average over uploads, recomputed continuously — the page
+    dates its own last update — so a figure read from it is true of a day and of
+    no other day. That is the whole reason these figures carry a method of their
+    own and an as-of date, and never divide into somebody's single run.
+  sourceId: geekbench-mac-benchmark-chart
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-04
+- extract: >-
+    Mac mini (Late 2020) | Apple M1 @ 3.2 GHz (8 cores) | 2364
+
+    Mac mini (Late 2020) | Apple M1 @ 3.2 GHz (8 cores) | 8436
+  extractHash: 80aed702296372de5d73a6c90b8cd7a0b5c31bb98be1d6725568adf1416d7b95
+  id: geekbench-mac-chart:mac-mini-m1
+  locator: Single-Core tab, and Multi-Core tab, row "Mac mini (Late 2020)"
+  notes: >-
+    One row from each of the chart's first two tabs, joined with pipes where the
+    table has cells. The first is the Single-Core tab, the second Multi-Core;
+    the tabs are Single Core, Multi-Core, OpenCL and Metal in that order, and
+    the two graphics figures are not recorded from here because the compute
+    figures this catalog holds are curated from the Metal and OpenCL charts,
+    which key their rows on the graphics processor rather than on the Mac model.
+    Only the single-core value is transcribed here, the multi-core one being
+    read from the same pair. Note the row label: Primate Labs states the clock
+    Apple does not, and states the same 3.2 GHz as the two sources the clock
+    figures are taken from.
+  sourceId: geekbench-mac-benchmark-chart
+  transcribed:
+    significantDigits: 4
+    state: value
+    unit: score
+    value: '2364'
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-04

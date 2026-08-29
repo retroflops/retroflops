@@ -1,0 +1,17 @@
+id: raspberry-pi-5-bcm2712:context-ghz-2-4
+subject:
+  kind: component
+  id: raspberry-pi-5-bcm2712
+label: Frequency
+quantity:
+  state: value
+  value: '2.4'
+  unit: GHz
+  significantDigits: 2
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - raspberry-pi-5-product-brief
+evidenceLevel: confirmed

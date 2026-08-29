@@ -1,0 +1,19 @@
+id: acorn-archimedes-technical-reference
+title: Acorn Archimedes 500 series / Acorn R200 series Technical Reference Manual
+publisher: Acorn Computers Limited
+url: https://8bs.com/othrdnld/manuals/archi/A500TechRef-pdf.zip
+accessedDate: 2026-08-22
+locator: >-
+  Acorn Archimedes 500 series / Acorn R200 series Technical Reference Manual
+  archive
+extract: Acorn Archimedes 500 series / Acorn R200 series Technical Reference Manual
+tier: B
+sourceType: technical-manual
+editorialStatus: provisional
+fetch:
+  url: https://8bs.com/othrdnld/manuals/archi/A500TechRef-pdf.zip
+  fetchedAt: 2026-08-24T19:41:59Z
+  httpStatus: 200
+  contentType: application/zip
+  byteLength: 37249891
+  sha256: 06c683493beb2c4b400f4bc12232e2eb6b7f5430910f55cf100d40bbc5160f2e

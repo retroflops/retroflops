@@ -1,0 +1,294 @@
+- comparabilityGroup: clock-frequency|cpu|nominal-clock
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - bbc-micro-service-manual:cpu-clock
+    - bbc-micro-information-sheet:cpu-clock
+  id: bbc-micro-model-b:clock-frequency
+  method: nominal-clock
+  metric: clock-frequency
+  normalized:
+    value: "2000000"
+    unit: Hz
+    significantDigits: 1
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 1
+    state: value
+    unit: MHz
+    value: "2"
+  scope: cpu
+  sourceIds:
+    - bbc-micro-service-manual
+    - bbc-micro-information-sheet
+  status: vendor-rated
+  subject:
+    configurationId: retail
+    id: bbc-micro-model-b
+    kind: system
+  evidenceLevel: confirmed
+- comparabilityGroup: memory-capacity|memory|design-capacity
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - bbc-micro-service-manual:ram-capacity
+  id: bbc-micro-ram:capacity
+  method: design-capacity
+  metric: memory-capacity
+  normalized:
+    value: "32768"
+    unit: B
+    significantDigits: 2
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 2
+    state: value
+    unit: KiB
+    value: "32"
+  scope: memory
+  sourceIds:
+    - bbc-micro-service-manual
+  status: vendor-rated
+  subject:
+    id: bbc-micro-ram
+    kind: component
+  evidenceLevel: confirmed
+- comparabilityGroup: memory-capacity|memory|design-capacity
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - bbc-micro-information-sheet:rom-capacity
+  id: bbc-micro-rom:capacity
+  method: design-capacity
+  metric: memory-capacity
+  normalized:
+    value: "32768"
+    unit: B
+    significantDigits: 2
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 2
+    state: value
+    unit: KiB
+    value: "32"
+  scope: memory
+  sourceIds:
+    - bbc-micro-information-sheet
+  status: vendor-rated
+  subject:
+    id: bbc-micro-rom
+    kind: component
+  evidenceLevel: confirmed
+- caveat: >-
+    Adds 1 memory-capacity figure obtained by design-capacity. Left out:
+    {{measurement:bbc-micro-ram:capacity}} of MOS and BASIC ROM (read-only
+    firmware, not memory the machine can write to). A total is only as
+    trustworthy as the decision about what belongs in it, so both the terms and
+    the exclusions are named records.
+  comparabilityGroup: memory-capacity|whole-system|design-capacity
+  derivedFrom: bbc-micro-model-b:whole-system-memory
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - bbc-micro-service-manual:ram-capacity
+  id: bbc-micro-model-b:whole-system-memory-capacity
+  method: design-capacity
+  metric: memory-capacity
+  normalized:
+    value: "32768"
+    unit: B
+    significantDigits: 5
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 5
+    state: value
+    unit: B
+    value: "32768"
+  scope: whole-system
+  sourceIds:
+    - bbc-micro-service-manual
+  status: derived
+  subject:
+    id: bbc-micro-model-b
+    kind: system
+  evidenceLevel: confirmed
+- comparabilityGroup: clock-frequency|gpu|nominal-clock
+  editorialStatus: approved
+  evidenceStage: shipped
+  id: bbc-micro-model-b:gpu-clock-frequency
+  method: nominal-clock
+  metric: clock-frequency
+  provenance: vendor
+  quantity:
+    note: >-
+      The documentation describes the ULA's timing functions without a
+      standalone GPU frequency.
+    state: unknown
+  unknownAudit:
+    reviewedOn: 2026-08-25
+    routesChecked:
+      - vendor-documentation
+      - independent-analysis
+      - community-source
+    outcome: no-published-candidate
+    summary: The checked documentation supplies no standalone ULA clock.
+  scope: gpu
+  sourceIds:
+    - bbc-micro-service-manual
+  status: vendor-rated
+  subject:
+    id: bbc-micro-model-b
+    kind: system
+- comparabilityGroup: memory-bandwidth|memory|theoretical-peak
+  caveat: >-
+    Divides bytes transferred by one shared-RAM access by the published memory
+    cycle time. The result is an interface ceiling when a manual specifies
+    nanoseconds per byte instead of a transfer rate. It is not measured
+    application throughput: refresh, contention and wait states can consume
+    cycles. Reported to 3 significant digits. That is the precision of the cycle
+    time, because the bytes-per-cycle constant is exact.
+  derivedFrom: bbc-micro-model-b:memory-bandwidth-from-cycle-time
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - bbc-micro-service-manual:memory-cycle-time
+    - bbc-micro-service-manual:ram-data-width
+  id: bbc-micro-model-b:memory-bandwidth
+  method: theoretical-peak
+  metric: memory-bandwidth
+  provenance: vendor
+  quantity:
+    significantDigits: 3
+    state: value
+    unit: MB/s
+    value: '4.00'
+  rounding: none
+  scope: memory
+  sourceIds:
+    - bbc-micro-service-manual
+  status: derived
+  subject:
+    id: bbc-micro-model-b
+    kind: system
+  normalized:
+    value: "4000000"
+    unit: B/s
+    significantDigits: 3
+    unitRegistry: units-v1
+  evidenceLevel: confirmed
+- comparabilityGroup: memory-cycle-time|memory|nominal-cycle-time
+  conditions: One shared-RAM access; control alternates between the processor and CRTC.
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - bbc-micro-service-manual:memory-cycle-time
+  id: bbc-micro-model-b:memory-cycle-time
+  method: nominal-cycle-time
+  metric: memory-cycle-time
+  provenance: vendor
+  quantity:
+    significantDigits: 3
+    state: value
+    unit: ns
+    value: '250'
+  scope: memory
+  sourceIds:
+    - bbc-micro-service-manual
+  status: vendor-rated
+  subject:
+    id: bbc-micro-model-b
+    kind: system
+  normalized:
+    value: "0.00000025"
+    unit: s
+    significantDigits: 3
+    unitRegistry: units-v1
+  evidenceLevel: confirmed
+- comparabilityGroup: peak-fp32-rate|cpu|theoretical-peak
+  editorialStatus: approved
+  evidenceStage: shipped
+  id: bbc-micro-6502:peak-fp32-rate
+  method: theoretical-peak
+  metric: peak-fp32-rate
+  provenance: vendor
+  quantity:
+    note: >-
+      The detailed hardware documentation does not identify a floating-point
+      processor in the standard Model B.
+    state: unknown
+  unknownAudit:
+    reviewedOn: 2026-08-25
+    routesChecked:
+      - vendor-documentation
+      - independent-analysis
+      - community-source
+    outcome: no-compatible-candidate
+    summary: The checked documentation provides no floating-point execution rate.
+  scope: cpu
+  sourceIds:
+    - bbc-micro-service-manual
+    - bbc-micro-user-guide
+  status: vendor-rated
+  subject:
+    id: bbc-micro-6502
+    kind: component
+- comparabilityGroup: sustained-fp40-rate|whole-system|benchmark-run
+  editorialStatus: approved
+  evidenceStage: shipped
+  id: bbc-micro-model-b:sustained-fp40-rate
+  method: benchmark-run
+  metric: sustained-fp40-rate
+  provenance: independent
+  quantity:
+    note: >-
+      The non-IEEE BASIC format may be recorded only with a named reproducible
+      benchmark run.
+    state: unknown
+  unknownAudit:
+    reviewedOn: 2026-08-25
+    routesChecked:
+      - vendor-documentation
+      - independent-analysis
+      - community-source
+    outcome: no-compatible-candidate
+    summary: No named reproducible benchmark result is present in the checked material.
+  scope: whole-system
+  sourceIds:
+    - bbc-micro-service-manual
+    - bbc-micro-user-guide
+  status: measured
+  subject:
+    id: bbc-micro-model-b
+    kind: system
+- comparabilityGroup: rated-power-consumption|whole-system|rated-power
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - bbc-micro-service-manual:power-supply
+  id: bbc-micro-model-b:rated-power-consumption
+  method: rated-power
+  metric: rated-power-consumption
+  provenance: vendor
+  quantity:
+    note: The documented PSU rail capability is not a whole-system consumption
+      rating.
+    state: unknown
+  unknownAudit:
+    reviewedOn: 2026-08-25
+    routesChecked:
+      - vendor-documentation
+      - independent-analysis
+      - community-source
+    outcome: no-compatible-candidate
+    summary: The documented PSU rail capability is not a system consumption rating.
+  scope: whole-system
+  sourceIds:
+    - bbc-micro-service-manual
+  status: vendor-rated
+  subject:
+    id: bbc-micro-model-b
+    kind: system

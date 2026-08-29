@@ -1,0 +1,14 @@
+id: 3dfx-voodoo-graphics-memory
+slug: 3dfx-voodoo-graphics-memory
+kind: memory
+name: 3dfx Voodoo Graphics frame buffer
+manufacturer: 3dfx Interactive
+memoryType: EDO DRAM
+introducedDate: 1996-11
+summary: >-
+  EDO DRAM on the card itself, split between the frame buffer and texture
+  storage. Voodoo Graphics rendered only 3D and passed 2D through from a
+  separate display adapter, so this memory holds no desktop.
+sourceIds:
+  - 3dfx-sst-1-data-book
+editorialStatus: provisional

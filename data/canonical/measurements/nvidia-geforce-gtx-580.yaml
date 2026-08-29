@@ -1,0 +1,169 @@
+- caveat: The reference-card graphics clock.
+  comparabilityGroup: clock-frequency|gpu|nominal-clock
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: nvidia-gf110:clock-frequency-base
+  method: nominal-clock
+  metric: clock-frequency
+  normalized:
+    value: "772000000"
+    unit: Hz
+    significantDigits: 3
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 3
+    state: value
+    unit: MHz
+    value: "772"
+  scope: gpu
+  sourceIds:
+    - nvidia-geforce-gtx-580-product-brief
+  status: vendor-rated
+  subject:
+    id: nvidia-gf110
+    kind: component
+  evidenceLevel: confirmed
+- caveat: The frame buffer fitted to the reference accelerator; host memory is
+    excluded.
+  comparabilityGroup: memory-capacity|whole-system|design-capacity
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: nvidia-geforce-gtx-580-memory:capacity
+  method: design-capacity
+  metric: memory-capacity
+  normalized:
+    value: "1610612736"
+    unit: B
+    significantDigits: 4
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 4
+    state: value
+    unit: MiB
+    value: "1536"
+  scope: whole-system
+  sourceIds:
+    - nvidia-geforce-gtx-580-product-brief
+  status: vendor-rated
+  subject:
+    id: nvidia-geforce-gtx-580-memory
+    kind: component
+  evidenceLevel: confirmed
+- caveat: >-
+    Vendor-stated maximum transfer rate of this memory interface, not a
+    benchmarked application result.
+  comparabilityGroup: memory-bandwidth|memory|theoretical-peak
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: nvidia-geforce-gtx-580-memory:bandwidth
+  method: theoretical-peak
+  metric: memory-bandwidth
+  normalized:
+    value: "192400000000"
+    unit: B/s
+    significantDigits: 4
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 4
+    state: value
+    unit: GB/s
+    value: "192.4"
+  scope: memory
+  sourceIds:
+    - nvidia-geforce-gtx-580-product-brief
+  status: theoretical
+  subject:
+    id: nvidia-geforce-gtx-580-memory
+    kind: component
+  evidenceLevel: confirmed
+- caveat: Adds the one fitted frame-buffer bandwidth. No host memory is included.
+  comparabilityGroup: memory-bandwidth|whole-system|theoretical-peak
+  derivedFrom: nvidia-geforce-gtx-580:whole-system-memory-bandwidth
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: nvidia-geforce-gtx-580:whole-system-memory-bandwidth
+  method: theoretical-peak
+  metric: memory-bandwidth
+  normalized:
+    value: "192400000000"
+    unit: B/s
+    significantDigits: 4
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 4
+    state: value
+    unit: GB/s
+    value: "192.4"
+  rounding: none
+  scope: whole-system
+  sourceIds:
+    - nvidia-geforce-gtx-580-product-brief
+  status: derived
+  subject:
+    id: nvidia-geforce-gtx-580
+    kind: system
+  evidenceLevel: confirmed
+- caveat: >-
+    The recovered NVIDIA launch material does not state an explicitly labelled
+    FP32 peak.
+  comparabilityGroup: peak-fp32-rate|gpu|theoretical-peak
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: nvidia-gf110:peak-fp32-rate
+  method: theoretical-peak
+  metric: peak-fp32-rate
+  provenance: vendor
+  quantity:
+    note: >-
+      The launch table gives CUDA-core and processor-clock figures, but no
+      explicitly labelled single-precision throughput.
+    state: unknown
+  unknownAudit:
+    reviewedOn: 2026-08-25
+    routesChecked:
+      - vendor-documentation
+      - independent-analysis
+      - community-source
+    outcome: no-compatible-candidate
+    summary: Surviving launch material provides no explicitly labelled FP32 throughput.
+  scope: gpu
+  sourceIds:
+    - nvidia-geforce-gtx-580-product-brief
+  status: theoretical
+  subject:
+    id: nvidia-gf110
+    kind: component
+- caveat: >-
+    Nvidia's own material for this chip states no thermal figure. Wikipedia
+    gives {{measurement:nvidia-gf110:thermal-design-power}} as the card's rated
+    thermal design power, and the catalog carries it as rumored.
+  comparabilityGroup: thermal-design-power|gpu|rated-power
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: nvidia-gf110:thermal-design-power
+  method: rated-power
+  metric: thermal-design-power
+  provenance: community
+  quantity:
+    state: value
+    value: "243"
+    unit: W
+    significantDigits: 3
+  scope: gpu
+  sourceIds:
+    - nvidia-geforce-gtx-580-product-brief
+    - wikipedia-geforce-500-series
+  status: vendor-rated
+  subject:
+    id: nvidia-gf110
+    kind: component
+  evidenceLevel: rumored
+  normalized:
+    value: "243"
+    unit: W
+    significantDigits: 3
+    unitRegistry: units-v1

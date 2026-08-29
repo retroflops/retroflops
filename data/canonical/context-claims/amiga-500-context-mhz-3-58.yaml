@@ -1,0 +1,19 @@
+id: amiga-500:context-mhz-3-58
+subject:
+  kind: system
+  id: amiga-500
+label: Frequency
+quantity:
+  state: value
+  value: '3.58'
+  unit: MHz
+  significantDigits: 3
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - amiga-hardware-reference-manual
+extractIds:
+  - amiga-hrm:glossary:base-crystal
+evidenceLevel: confirmed

@@ -1,0 +1,46 @@
+accessedDate: 2026-08-17
+alt: "A Mitsubishi ML-8000 mounted on a display panel: a gray keyboard unit with blue and green
+  keys, under a black upper section holding a cartridge slot."
+attribution: Photograph by うぃき野郎, licensed CC BY-SA 4.0, via Wikimedia Commons.
+canonical:
+  byteLength: 108103
+  format: avif
+  height: 960
+  sha256: 2d13bb0dd3a9c1a035aab9475f8d0fef351abc18fdbaf043e9336f81bfe5160f
+  width: 1280
+caption: A Mitsubishi ML-8000, the first machine built to the MSX standard. MSX was a specification
+  rather than a product, so every MSX machine is one manufacturer's reading of it.
+creator: うぃき野郎
+creatorType: person
+editorialStatus: approved
+id: msx-computer
+original:
+  byteLength: 441003
+  height: 1188
+  mediaType: image/jpeg
+  sha256: 6bce591253663ad4c7cd9bed9eab6ba8b9718c4ec8a06b32ee2c9a28542b49d1
+  width: 2028
+originalUrl: https://upload.wikimedia.org/wikipedia/commons/0/01/MITSUBISHI_MSX_ML-8000.jpg
+publisher: Wikimedia Commons
+rights:
+  id: cc-by-sa-4.0
+  statedAt: https://commons.wikimedia.org/wiki/File:MITSUBISHI_MSX_ML-8000.jpg
+  statement: "I, the copyright holder of this work, hereby publish it under the following license:
+    This file is licensed under the Creative Commons Attribution-Share Alike 4.0 International
+    license."
+  url: https://creativecommons.org/licenses/by-sa/4.0/
+sourcePageUrl: https://commons.wikimedia.org/wiki/File:MITSUBISHI_MSX_ML-8000.jpg
+title: MITSUBISHI MSX ML-8000.jpg
+transform:
+  fit: crop
+  note: The photograph is far wider than 4:3 and a boxed third-party controller shares the left of the
+    frame. The crop is the smallest the preset allows, 1280x960 taken from the right of the picture,
+    which holds the machine and excludes the controller; at that size the reduction is one to one.
+  preset: image-v1
+  region:
+    height: 960
+    width: 1280
+    x: 700
+    y: 163
+  sourceHeight: 1188
+  sourceWidth: 2028

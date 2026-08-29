@@ -1,0 +1,21 @@
+accessedDate: 2026-07-29
+editorialStatus: approved
+fetch:
+  byteLength: 89698
+  contentType: text/html; charset=UTF-8
+  fetchedAt: 2026-07-29T17:10:37Z
+  httpStatus: 200
+  sha256: 3efa17666552d66ffb227e4ed5221c56352338acf84cc701da46db0fd370c527
+  url: https://sonyinteractive.com/en/press-releases/2005/sony-computer-entertainment-inc-to-launch-its-next-generation-computer-entertainment-system-playstation-3-in-spring-2006/
+id: scei-ps3-specifications-2005
+license: Copyright Sony Interactive Entertainment Inc. Quoted here under
+  short-extract fair use for verification of the figures cited.
+locator: '"<PLAYSTATION®3 Specifications>" table at the foot of the release'
+publishedDate: 2005-05-16
+publisher: Sony Computer Entertainment Inc.
+sourceType: vendor-documentation
+tier: A
+title: >-
+  Sony Computer Entertainment Inc. to Launch its Next Generation Computer
+  Entertainment System, PlayStation 3 in Spring 2006
+url: https://sonyinteractive.com/en/press-releases/2005/sony-computer-entertainment-inc-to-launch-its-next-generation-computer-entertainment-system-playstation-3-in-spring-2006/

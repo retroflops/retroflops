@@ -1,0 +1,12 @@
+editorialStatus: provisional
+id: nintendo-wii-mem2
+slug: nintendo-wii-mem2
+kind: memory
+name: Nintendo Wii MEM2
+manufacturer: Nintendo
+architecture: GDDR3
+introducedDate: '2006'
+memoryType: GDDR3
+summary: '{{context:nintendo-wii-mem2:context-mib-64}} of installed GDDR3.'
+sourceIds:
+  - nintendo-wii-hardware-overview

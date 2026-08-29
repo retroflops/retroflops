@@ -1,0 +1,14 @@
+id: apple-iphone-4-gpu
+slug: apple-iphone-4-gpu
+kind: gpu
+name: Apple iPhone 4 GPU
+manufacturer: Apple
+architecture: PowerVR SGX535
+introducedDate: '2010'
+summary: The graphics section integrated with the processor in Apple iPhone 4.
+notes:
+  The cited Apple specification identifies the graphics configuration only where
+  Apple chose to disclose it; it supplies no graphics clock or FP32 peak.
+sourceIds:
+  - apple-iphone-4-tech-specs
+editorialStatus: approved

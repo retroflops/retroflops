@@ -1,0 +1,208 @@
+- extract: >-
+    Welcome to the Geekbench OpenCL Benchmark Chart. The data on this chart is
+    calculated from Geekbench 7 results users have uploaded to the Geekbench
+    Browser. To make sure the results accurately reflect the average performance
+    of each GPU, the chart only includes GPUs with at least five unique results
+    in the Geekbench Browser.
+
+    This chart was last updated about 2 hours ago.
+  extractHash: fe572c4915d309406c7096e947613c258f0bb156013332f4270accc070d2588e
+  id: geekbench-opencl-chart-2026-07-25:what-the-figures-are
+  locator:
+    Introductory paragraph above the chart, and the line immediately below it
+  notes: >-
+    The same rolling average as the Metal chart, and read the same way: a figure
+    true of one day. This capture is nine days younger than the Metal one and
+    already runs version 7, which is why the two APIs enter this catalog under
+    different versions.
+  sourceId: geekbench-opencl-benchmark-chart-2026-07-25
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-18
+- extract: >-
+    Geekbench 7 CPU scores are calibrated against a baseline score of 2,500
+    (which is the score of an AMD Ryzen 7 7700).
+
+    Geekbench 7 GPU scores are calibrated against a baseline score of 100,000
+    (which is the score of an NVIDIA GeForce RTX 4060).
+  extractHash: 9d22dc3205f6b0f69b5ce0c8df653e6830e88eee82a20a3b836d68cc580f768b
+  id: geekbench-opencl-chart-2026-07-25:calibration
+  locator: Second and third paragraphs above the chart
+  notes: >-
+    Version 7 states in two sentences why a compute score and a processor score
+    are not one quantity: the baselines differ by a factor of forty, so a
+    machine reporting both would otherwise look forty times faster at graphics
+    than at arithmetic for no reason but the calibration.
+  sourceId: geekbench-opencl-benchmark-chart-2026-07-25
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-18
+- extract: NVIDIA GeForce RTX 5090 | 335760
+  extractHash: b1f3a4b3b4668031aa0f48861c644a64a36e6c3a2078496a12e8f9892e7bfe70
+  id: geekbench-opencl-chart-2026-07-25:rtx-5090
+  locator: Device and Score table, row "NVIDIA GeForce RTX 5090"
+  notes: >-
+    The chart's neighboring rows name other products rather than other strings
+    for this one: "NVIDIA GeForce RTX 5090 D V2" is the export part and "NVIDIA
+    GeForce RTX 5090 Laptop GPU" a mobile one.
+  sourceId: geekbench-opencl-benchmark-chart-2026-07-25
+  transcribed:
+    significantDigits: 6
+    state: value
+    unit: score
+    value: '335760'
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-18
+- extract: NVIDIA H100 80GB HBM3 | 341973
+  extractHash: 11b2c28ad9dd26616ec180de45229f238973b68897f6239cd4fe67478b469e5e
+  id: geekbench-opencl-chart-2026-07-25:h100
+  locator: Device and Score table, row "NVIDIA H100 80GB HBM3"
+  notes: >-
+    The device string names the memory rather than the form factor. It is read
+    as the SXM part because the chart lists "NVIDIA H100 PCIe" at 277842 and
+    "NVIDIA H100 NVL" at 309790 as separate rows, leaving this row for the
+    module this catalog records.
+  sourceId: geekbench-opencl-benchmark-chart-2026-07-25
+  transcribed:
+    significantDigits: 6
+    state: value
+    unit: score
+    value: '341973'
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-18
+- extract: NVIDIA GeForce RTX 4090 | 255036
+  extractHash: 331a09244f9bd26ccd6d64a0c137bd115724dd9eae64ce2cd600ade959f32a04
+  id: geekbench-opencl-chart-2026-07-25:rtx-4090
+  locator: Device and Score table, row "NVIDIA GeForce RTX 4090"
+  notes: >-
+    The "RTX 4090 D" row above it at 278621 is the export part, a different
+    product.
+  sourceId: geekbench-opencl-benchmark-chart-2026-07-25
+  transcribed:
+    significantDigits: 6
+    state: value
+    unit: score
+    value: '255036'
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-18
+- extract: AMD Radeon RX 7900 XTX | 208566
+  extractHash: e61568dd5908256a0a78b18739971bb58f8c22d97192e12e6bbf2c7ad71691dd
+  id: geekbench-opencl-chart-2026-07-25:rx-7900-xtx
+  locator: Device and Score table, row "AMD Radeon RX 7900 XTX"
+  notes: >-
+    The row carrying the vendor prefix, transcribed alongside the unprefixed
+    rival string below.
+  sourceId: geekbench-opencl-benchmark-chart-2026-07-25
+  transcribed:
+    significantDigits: 6
+    state: value
+    unit: score
+    value: '208566'
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-18
+- extract: Radeon RX 7900 XTX | 212610
+  extractHash: 4e9c8dcabd518764352a31c220a75d0cb871309a1abcb904ec5025faffeafa83
+  id: geekbench-opencl-chart-2026-07-25:rx-7900-xtx-unprefixed
+  locator: Device and Score table, row "Radeon RX 7900 XTX"
+  notes: >-
+    The same product without the vendor prefix, kept as evidence for the
+    conflict record.
+  sourceId: geekbench-opencl-benchmark-chart-2026-07-25
+  transcribed:
+    significantDigits: 6
+    state: value
+    unit: score
+    value: '212610'
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-18
+- extract: NVIDIA GeForce GTX 1080 | 54526
+  extractHash: 2e0c8445fe33f0b9d7cab8e3770283106e82feae47575ea22e618d2d505a56c4
+  id: geekbench-opencl-chart-2026-07-25:gtx-1080
+  locator: Device and Score table, row "NVIDIA GeForce GTX 1080"
+  notes: >-
+    The row carrying the vendor prefix. The "with Max-Q Design" rows are
+    excluded from the comparison entirely: that is a different product, not a
+    different string.
+  sourceId: geekbench-opencl-benchmark-chart-2026-07-25
+  transcribed:
+    significantDigits: 5
+    state: value
+    unit: score
+    value: '54526'
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-18
+- extract: GeForce GTX 1080 | 55875
+  extractHash: 603b9e07b7e9c3ac4a0221002ba7b1feae5b877d58f8b221bfe2789cf1c4894a
+  id: geekbench-opencl-chart-2026-07-25:gtx-1080-unprefixed
+  locator: Device and Score table, row "GeForce GTX 1080"
+  notes: >-
+    The same product without the vendor prefix, kept as evidence for the
+    conflict record.
+  sourceId: geekbench-opencl-benchmark-chart-2026-07-25
+  transcribed:
+    significantDigits: 5
+    state: value
+    unit: score
+    value: '55875'
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-18
+- extract: Apple M1 | 17592
+  extractHash: d8391481550d7b546ccaf94f17ec4ceaaf78af07d335ef35fa72b71583fb2fd5
+  id: geekbench-opencl-chart-2026-07-25:apple-m1
+  locator: Device and Score table, row "Apple M1"
+  notes: >-
+    The product name as Apple writes it. The chart also carries "Apple M1 (G13G
+    B1)", the same processor with its die designation appended.
+  sourceId: geekbench-opencl-benchmark-chart-2026-07-25
+  transcribed:
+    significantDigits: 5
+    state: value
+    unit: score
+    value: '17592'
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-18
+- extract: Apple M1 (G13G B1) | 13136
+  extractHash: 6f1ce50a936bb4b626d518a13a09721ac6b9d8452624ca7390eeabeb8a2af5f9
+  id: geekbench-opencl-chart-2026-07-25:apple-m1-die-string
+  locator: Device and Score table, row "Apple M1 (G13G B1)"
+  notes: >-
+    The rival string for the same processor, kept as evidence for the conflict
+    record. G13G is the graphics die of the M1; Apple does not sell the part
+    under this name.
+  sourceId: geekbench-opencl-benchmark-chart-2026-07-25
+  transcribed:
+    significantDigits: 5
+    state: value
+    unit: score
+    value: '13136'
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-18
+- extract: Apple M4 | 32716
+  extractHash: af1ebf7ea14e477e5c574fedc7ad79868a59959f232c0deac2e0898b2418772c
+  id: geekbench-opencl-chart-2026-07-25:apple-m4
+  locator: Device and Score table, row "Apple M4"
+  notes: >-
+    The product name as Apple writes it, transcribed alongside the
+    mis-attributed rival string below.
+  sourceId: geekbench-opencl-benchmark-chart-2026-07-25
+  transcribed:
+    significantDigits: 5
+    state: value
+    unit: score
+    value: '32716'
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-18
+- extract: QUALCOMM Apple M4 GPU730 | 8518
+  extractHash: 725fcd24779039d414b857e8fbf78b9a129dbc67772e0c31a97ba5e6f7b7b294
+  id: geekbench-opencl-chart-2026-07-25:apple-m4-qualcomm-string
+  locator: Device and Score table, row "QUALCOMM Apple M4 GPU730"
+  notes: >-
+    The rival string for the same processor, kept as evidence for the conflict
+    record. Qualcomm makes no Apple silicon; the string is what some drivers
+    reported, and its score is a quarter of the row above.
+  sourceId: geekbench-opencl-benchmark-chart-2026-07-25
+  transcribed:
+    significantDigits: 4
+    state: value
+    unit: score
+    value: '8518'
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-18

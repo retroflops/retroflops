@@ -1,0 +1,24 @@
+id: ifixit-iphone-6s-teardown-2015
+title: "Teardown: Is the iPhone 6s Worth Its Weight in Rose Gold?"
+publisher: iFixit
+author: Kay Kay Clapp
+publishedDate: 2015-09-25
+accessedDate: 2026-08-25
+url: https://www.ifixit.com/News/7390/iphone-6s
+locator: iPhone 6s chips
+extract: >-
+  iFixit identifies the Apple A9 package with 2 GB of Samsung LPDDR4 RAM in a
+  teardown of the shipping iPhone 6s.
+tier: B
+sourceType: independent-analysis
+license: Copyright iFixit. Quoted here under short-extract fair use for verification.
+usageNote: >-
+  This teardown reports components observed in a retail iPhone 6s; it is
+  evidence for installed memory, not an Apple-published specification.
+fetch:
+  url: https://www.ifixit.com/News/7390/iphone-6s
+  fetchedAt: 2026-08-25T14:59:39Z
+  httpStatus: 200
+  contentType: text/html; charset=utf-8
+  byteLength: 144965
+  sha256: 88e3df933d0e39f100c09f7b9da7c321024996aa11ad8f36a3715459480d4c7d

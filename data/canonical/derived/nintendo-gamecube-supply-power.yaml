@@ -1,0 +1,27 @@
+id: nintendo-gamecube:supply-power
+formula:
+  id: power-from-voltage-current
+  version: '1'
+  expression: voltage × current
+inputMeasurementIds:
+  - nintendo-gamecube:supply-voltage
+  - nintendo-gamecube:supply-current
+result:
+  state: value
+  value: '39'
+  unit: W
+  significantDigits: 2
+rounding: half-up
+caveat: >-
+  Multiplies the two halves of a supply rating the maker published instead of a
+  wattage. The arithmetic is exact for direct current — no power factor, nothing
+  assumed — so this is not an estimate. It is still a rating and not a draw: a
+  supply is specified for the worst case with headroom above it, and a machine
+  at rest or at play may use a small fraction of it. Reported to 2 significant
+  digits, the precision of the less precise of the two published figures.
+editorialStatus: approved
+notes: >-
+  Nintendo's Spanish specification page for the GameCube gives the console's
+  power as "Adaptador de corriente DC12V x 3,25A" and no wattage, which was the
+  ordinary way to state it: the number a buyer needed was on the adapter, and
+  the console's own draw was nobody's published figure.

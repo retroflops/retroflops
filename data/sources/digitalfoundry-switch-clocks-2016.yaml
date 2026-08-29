@@ -1,0 +1,30 @@
+accessedDate: 2026-08-15
+author: Richard Leadbetter
+editorialStatus: approved
+fetch:
+  byteLength: 105361
+  contentType: text/html; charset=UTF-8
+  fetchedAt: 2026-08-15T09:47:50Z
+  httpStatus: 200
+  sha256: 1b064c1dfba66f2c3eab61ac2755daadd0b2d08d4b155a70297cd46b7bc72a49
+  url: https://www.digitalfoundry.net/articles/digitalfoundry-2016-nintendo-switch-spec-analysis
+id: digitalfoundry-switch-clocks-2016
+license: Copyright Digital Foundry. Quoted here under short-extract fair use for
+  verification of the figures cited.
+locator: >-
+  Body text on the retail clock configuration, and the reproduced early
+  developer specification table
+publishedDate: 2016-12-19
+publisher: Digital Foundry
+sourceType: independent-analysis
+tier: B
+title: Nintendo Switch CPU and GPU clock speeds revealed
+url: https://www.digitalfoundry.net/articles/digitalfoundry-2016-nintendo-switch-spec-analysis
+usageNote: >-
+  Published three months before the console shipped and never contradicted by
+  Nintendo, who has still published no frequency for this machine. The article
+  distinguishes two things the catalog must keep apart: the clocks the writer
+  states as confirmed for retail hardware, and a leaked developer specification
+  table it reproduces and criticizes. Only the first is used for the clocks; the
+  table is cited for the memory capacity, which the article treats as
+  uncontested.

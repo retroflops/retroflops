@@ -1,0 +1,17 @@
+id: nintendo-ds-technical-reference
+title: GBATEK Nintendo DS Technical Reference
+publisher: Martin Korth
+url: https://mgba-emu.github.io/gbatek/
+accessedDate: 2026-08-24
+locator: NDS Reference, DS Technical Data and Memory Maps
+sourceType: technical-manual
+tier: B
+editorialStatus: provisional
+extract: GBATEK Nintendo DS Technical Reference
+fetch:
+  url: https://mgba-emu.github.io/gbatek/
+  fetchedAt: 2026-08-24T19:39:36Z
+  httpStatus: 200
+  contentType: text/html; charset=utf-8
+  byteLength: 5473181
+  sha256: a701cf0f5be47b23dd31298d7dc593a7cccb3ae9a59087dea940305565025b70

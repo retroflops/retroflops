@@ -1,0 +1,12 @@
+architecture: ARM7TDMI
+editorialStatus: provisional
+id: gba-arm7tdmi
+instructionSet: ARMv4T
+instructionSetFamily: arm
+kind: cpu
+manufacturer: ARM
+name: ARM7TDMI
+slug: gba-arm7tdmi
+sourceIds:
+  - game-boy-advance-technical-manual
+summary: The Game Boy Advance main processor.

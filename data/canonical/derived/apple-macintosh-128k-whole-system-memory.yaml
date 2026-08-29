@@ -1,0 +1,24 @@
+id: apple-macintosh-128k:whole-system-memory
+formula:
+  id: sum
+  version: '1'
+  expression: a + b + …
+inputMeasurementIds:
+  - macintosh-128k-ram:capacity
+exclusions:
+  - measurementId: macintosh-128k-rom:capacity
+    label: 64 KiB of Toolbox ROM
+    reason: read-only firmware, not memory the machine can write to
+result:
+  state: value
+  value: '131072'
+  unit: B
+  significantDigits: 6
+rounding: none
+caveat: >-
+  Adds 1 memory-capacity figure obtained by design-capacity. Left out:
+  {{measurement:macintosh-128k-rom:capacity}} (read-only firmware, not memory
+  the machine can write to). A total is only as trustworthy as the decision
+  about what belongs in it, so both the terms and the exclusions are named
+  records.
+editorialStatus: provisional

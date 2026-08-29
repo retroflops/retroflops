@@ -1,0 +1,12 @@
+id: psutil-apple-gpu-frequency-table
+title: Apple GPU frequency table
+publisher: psutil contributors
+url: https://chromium.googlesource.com/external/github.com/giampaolo/psutil/%2B/3215d7e5f00dfd0bde186be2b7ac658c2dc1afa4
+accessedDate: 2026-08-25
+locator: macOS frequency helper, Apple Silicon GPU comment
+extract: Measured GPU fmax is 1278/1398/1380/1578 MHz on M1/M2/M3/M4.
+tier: C
+sourceType: independent-analysis
+editorialStatus: provisional
+license: BSD-3-Clause; quoted comment from the linked source file.
+usageNote: The table is an implementation comment, not a manufacturer specification.

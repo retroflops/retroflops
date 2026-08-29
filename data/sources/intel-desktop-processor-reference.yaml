@@ -1,0 +1,24 @@
+accessedDate: 2026-08-13
+editorialStatus: approved
+fetch:
+  byteLength: 458345
+  contentType: application/pdf
+  fetchedAt: 2026-08-16T17:44:54Z
+  httpStatus: 200
+  sha256: 901c536cec0eeac5847abd34dcfc64331f9428fb34477ed8014d41fd3d394167
+  url: https://cdrdv2-public.intel.com/787258/Intel%20Core%20Desktop%20Processors%2014th%20Gen%20Quick%20Reference%20Guide%20Final%20.pdf
+id: intel-desktop-processor-reference
+license: Copyright Intel Corporation; cited for verification under short-extract
+  fair use.
+locator: >-
+  Intel Core desktop processors, 14th generation, page 2 specification table,
+  14900K row
+publisher: Intel Corporation
+sourceType: vendor-documentation
+tier: A
+title: Intel Core desktop processors, 14th generation, quick reference guide
+url: https://cdrdv2-public.intel.com/787258/Intel%20Core%20Desktop%20Processors%2014th%20Gen%20Quick%20Reference%20Guide%20Final%20.pdf
+usageNote: >-
+  This guide applies to the 14th-generation Core desktop family, including the
+  14900K row. Its processor base frequency, turbo frequency, processor base
+  power and maximum turbo power are different measurements.

@@ -1,0 +1,13 @@
+id: visiontek-geforce-256-agp-product-brief
+title: 4x AGP GeForce 256 Graphics Accelerator
+publisher: VisionTek
+url: https://web.archive.org/web/20240107050758/http://vgamuseum.info/images/doc/nvidia/gf256/geforce256_graphics.pdf
+accessedDate: 2026-08-26
+locator: Product overview and specifications list
+extract: 32MB of SDRAM at 166MHz clock speed.
+tier: A
+sourceType: vendor-documentation
+editorialStatus: provisional
+usageNote: >-
+  This brief describes VisionTek's SDR board. It does not state a board-power
+  rating.

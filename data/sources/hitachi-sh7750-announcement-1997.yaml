@@ -1,0 +1,21 @@
+accessedDate: 2026-08-04
+editorialStatus: approved
+fetch:
+  byteLength: 10679
+  contentType: text/html
+  fetchedAt: 2026-08-04T09:41:31Z
+  httpStatus: 200
+  sha256: eea913474a5f9e0cc157ad83813a98919fc31ddefaba64434b491ba08d48ee53
+  url: https://www.hitachi.com/New/cnews/E/1997/971110B.html
+id: hitachi-sh7750-announcement-1997
+license: Copyright Hitachi, Ltd. Quoted here under short-extract fair use for
+  verification of the figures cited.
+locator: Closing specifications table, rows "Processing speed" and "Power consumption"
+publishedDate: 1997-11-10
+publisher: Hitachi, Ltd.
+sourceType: vendor-documentation
+tier: A
+title: >-
+  Hitachi Releases the SH-4 SH7750 Series, Offering Industry's Highest
+  Performance of 360 MIPS for an Embedded RISC Processor
+url: https://www.hitachi.com/New/cnews/E/1997/971110B.html

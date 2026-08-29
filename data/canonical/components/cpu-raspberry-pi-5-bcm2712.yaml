@@ -1,0 +1,15 @@
+id: raspberry-pi-5-bcm2712
+slug: raspberry-pi-5-bcm2712
+kind: cpu
+name: Broadcom BCM2712
+manufacturer: Broadcom
+architecture: Cortex-A76
+introducedDate: 2023-09
+instructionSet: Armv8-A
+instructionSetFamily: arm
+summary:
+  The {{context:raspberry-pi-5-bcm2712:context-ghz-2-4}} quad-core processor in
+  Raspberry Pi 5.
+sourceIds:
+  - raspberry-pi-5-product-brief
+editorialStatus: approved

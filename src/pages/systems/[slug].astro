@@ -1,0 +1,383 @@
+---
+// SPDX-FileCopyrightText: 2026 Wojciech Polak
+// SPDX-License-Identifier: MIT
+
+import { getImage } from 'astro:assets';
+
+import BreadcrumbTrail from '~/components/breadcrumb-trail.astro';
+import ConflictCard from '~/components/conflict-card.astro';
+import DerivedClaimCard from '~/components/derived-claim-card.astro';
+import FamilyNav from '~/components/family-nav.astro';
+import MeasurementTable from '~/components/measurement-table.astro';
+import SystemPhoto from '~/components/system-photo.astro';
+import BaseLayout from '~/layouts/base-layout.astro';
+import {
+  getComponentById,
+  getConflictsFor,
+  getDerivedClaimsUsing,
+  getMeasurementById,
+  getMeasurementsFor,
+  getSystemAvailability,
+  getSourcesByIds,
+  getSystems,
+} from '~/lib/catalog';
+import { CANONICAL_HEIGHT, CANONICAL_WIDTH } from '~/lib/data/image-preset';
+import {
+  formatPartialDate,
+  formatQuantity,
+  humaniseIdentifier,
+  methodLabel,
+  roleLabel,
+} from '~/lib/display';
+import { systemCrumbs, systemFamilyNav } from '~/lib/families';
+import { route } from '~/lib/paths';
+import { sortConfigurationEntries } from '~/lib/presentation-order';
+import { breadcrumbList, systemArticle } from '~/lib/structured-data';
+import { getLeadImage } from '~/lib/system-images';
+
+export function getStaticPaths() {
+  return getSystems().map((system) => ({ params: { slug: system.slug }, props: { system } }));
+}
+
+const { system } = Astro.props;
+
+const leadImage = getLeadImage(system);
+const availability = getSystemAvailability(system);
+
+/** One array feeds both the visible trail and the JSON-LD, so they cannot drift. */
+const crumbs =
+  availability.availability === 'research'
+    ? [
+        { name: 'RetroFlops', path: '/' },
+        { name: 'Research', path: '/research/' },
+        { name: system.name, path: `/systems/${system.slug}/` },
+      ]
+    : systemCrumbs(system);
+const familyNav = systemFamilyNav(system);
+
+const systemMeasurements = getMeasurementsFor('system', system.id);
+
+/**
+ * A system's page shows the figures recorded against the machine and the ones
+ * recorded against the parts it is built from. Splitting them would hide half
+ * the catalog from the reader standing in front of the machine.
+ */
+const componentSections = [
+  ...new Set(
+    sortConfigurationEntries(
+      system.configurations.flatMap((configuration) => configuration.entries),
+    ).map((entry) => entry.componentId),
+  ),
+]
+  .map((id) => ({
+    component: getComponentById(id),
+    measurements: getMeasurementsFor('component', id),
+  }))
+  .filter((section) => section.component !== undefined);
+
+const allMeasurementIds = [
+  ...systemMeasurements.map((measurement) => measurement.id),
+  ...componentSections.flatMap((section) => section.measurements.map((m) => m.id)),
+];
+
+const derivedClaims = getDerivedClaimsUsing(allMeasurementIds);
+const conflicts = getConflictsFor('system', system.id);
+const sources = getSourcesByIds([
+  ...new Set([
+    ...system.sourceIds,
+    ...systemMeasurements.flatMap((measurement) => measurement.sourceIds),
+    ...componentSections.flatMap((section) =>
+      section.measurements.flatMap((measurement) => measurement.sourceIds),
+    ),
+    ...derivedClaims.flatMap((claim) =>
+      (claim.constants ?? []).flatMap((constant) => constant.sourceIds),
+    ),
+    ...conflicts.flatMap((conflict) =>
+      conflict.candidates.flatMap((candidate) => candidate.sourceIds),
+    ),
+  ]),
+]);
+
+const absolute = (path: string): string => new URL(route(path), Astro.site ?? Astro.url).href;
+
+/*
+ * The same variant the figure renders at its largest, resolved here so the
+ * structured description points at a file that exists rather than at the
+ * canonical asset the build never serves. Astro deduplicates the request.
+ */
+const heroVariant =
+  leadImage === undefined
+    ? undefined
+    : await getImage({
+        src: leadImage.file,
+        width: CANONICAL_WIDTH,
+        height: CANONICAL_HEIGHT,
+        format: 'avif',
+        quality: 60,
+      });
+
+const structuredData = [
+  systemArticle(
+    system,
+    absolute,
+    leadImage === undefined || heroVariant === undefined
+      ? undefined
+      : {
+          url: new URL(heroVariant.src, Astro.site ?? Astro.url).href,
+          width: CANONICAL_WIDTH,
+          height: CANONICAL_HEIGHT,
+          caption: leadImage.asset.caption,
+          creator: leadImage.asset.creator,
+          creatorType: leadImage.asset.creatorType,
+          creditText: leadImage.asset.attribution,
+          licenseUrl: leadImage.asset.rights.url,
+          sourcePageUrl: leadImage.asset.sourcePageUrl,
+        },
+  ),
+  breadcrumbList(crumbs, absolute),
+];
+---
+
+<BaseLayout
+  title={system.name}
+  description={system.summary}
+  structuredData={structuredData}
+  noindex={availability.availability === 'research'}
+>
+  <BreadcrumbTrail crumbs={crumbs} />
+
+  {
+    availability.availability === 'research' && (
+      <aside class="research-notice prose" aria-label="Research record notice">
+        <p>
+          <strong>Research record.</strong> This profile preserves its source trail, but no numeric
+          measurement is available yet. It stays out of Explore, search, and new comparisons.
+        </p>
+      </aside>
+    )
+  }
+
+  <header class="page-header system-hero">
+    <div class="stack system-hero__text">
+      <p class="page-header__eyebrow">{humaniseIdentifier(system.type)}</p>
+      <h1>{system.name}</h1>
+      <p class="lede prose">{system.summary}</p>
+      <dl class="fact-row">
+        <div>
+          <dt>Manufacturer</dt>
+          <dd>{system.manufacturer}</dd>
+        </div>
+        <div>
+          <dt>Released</dt>
+          <dd>{formatPartialDate(system.releaseDate)}</dd>
+        </div>
+        {
+          system.region !== undefined && (
+            <div>
+              <dt>Region</dt>
+              <dd>{system.region}</dd>
+            </div>
+          )
+        }
+        <div>
+          <dt>Record status</dt>
+          <dd>{system.editorialStatus}</dd>
+        </div>
+      </dl>
+    </div>
+    {leadImage !== undefined && <SystemPhoto image={leadImage} />}
+  </header>
+
+  {
+    system.description !== undefined && (
+      <section class="prose stack" aria-labelledby="about">
+        <h2 id="about">About this machine</h2>
+        {system.description.split('\n\n').map((paragraph) => (
+          <p>{paragraph}</p>
+        ))}
+      </section>
+    )
+  }
+
+  <section class="stack-l" aria-labelledby="configuration">
+    <h2 id="configuration">Configuration</h2>
+    {
+      system.configurations.map((configuration) => (
+        <div class="stack">
+          <h3>{configuration.label}</h3>
+          {configuration.region !== undefined && <p class="meta">{configuration.region}</p>}
+          <div class="table-frame">
+            <table class="config-table">
+              <thead>
+                <tr>
+                  <th scope="col">Component</th>
+                  <th scope="col">Role</th>
+                  <th scope="col">Count</th>
+                  <th scope="col">Clock</th>
+                  <th scope="col">Capacity</th>
+                </tr>
+              </thead>
+              <tbody>
+                {sortConfigurationEntries(configuration.entries).map((entry) => {
+                  const component = getComponentById(entry.componentId);
+                  const entryMeasurements = entry.measurementIds
+                    .map(getMeasurementById)
+                    .filter((measurement) => measurement !== undefined);
+                  const clocks = entryMeasurements.filter(
+                    (measurement) => measurement.metric === 'clock-frequency',
+                  );
+                  const capacities = entryMeasurements.filter((measurement) =>
+                    ['memory-capacity', 'memory-capacity-words', 'storage-capacity'].includes(
+                      measurement.metric,
+                    ),
+                  );
+                  return (
+                    <tr>
+                      <th scope="row">
+                        {component === undefined ? (
+                          entry.componentId
+                        ) : (
+                          <a href={route(`/components/${component.kind}/${component.slug}/`)}>
+                            {component.name}
+                          </a>
+                        )}
+                        {entry.notes !== undefined && <span class="cell-note">{entry.notes}</span>}
+                      </th>
+                      <td data-label="Role">{roleLabel(entry.role)}</td>
+                      <td class="numeric" data-label="Count">
+                        {entry.count}
+                      </td>
+                      {/*
+                        An absence is set in the same column as a figure but must
+                        not be set in the same voice: printed at full weight in a
+                        numeric cell, the word "unknown" reads as though it were
+                        the measurement. The measurement table already draws this
+                        distinction with `is-absent`, and this table now matches it.
+                      */}
+                      <td class="numeric" data-label="Clock">
+                        {clocks.length === 0
+                          ? '—'
+                          : clocks.map((measurement) => {
+                              const quantity = formatQuantity(measurement.quantity);
+                              return (
+                                <span
+                                  class:list={['config-value', { 'is-absent': quantity.absent }]}
+                                >
+                                  {quantity.text}
+                                  <span class="cell-note">{methodLabel(measurement.method)}</span>
+                                </span>
+                              );
+                            })}
+                      </td>
+                      <td class="numeric" data-label="Capacity">
+                        {capacities.length === 0
+                          ? '—'
+                          : capacities.map((measurement) => {
+                              const quantity = formatQuantity(measurement.quantity);
+                              return (
+                                <span
+                                  class:list={['config-value', { 'is-absent': quantity.absent }]}
+                                >
+                                  {quantity.text}
+                                </span>
+                              );
+                            })}
+                        {entry.shared && <span class="cell-note">shared</span>}
+                      </td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
+          {configuration.notes !== undefined && <p class="prose meta">{configuration.notes}</p>}
+        </div>
+      ))
+    }
+  </section>
+
+  {
+    systemMeasurements.length > 0 && (
+      <section class="stack" aria-labelledby="figures">
+        <h2 id="figures">Figures for the whole machine</h2>
+        <MeasurementTable
+          measurements={systemMeasurements}
+          sources={sources}
+          caption={`${system.name}: system figures`}
+          openAbsences={availability.availability === 'research'}
+        />
+      </section>
+    )
+  }
+
+  {
+    componentSections.some((section) => section.measurements.length > 0) && (
+      <section class="stack-l" aria-labelledby="component-figures">
+        <h2 id="component-figures">Figures for its components</h2>
+        {componentSections
+          .filter((section) => section.measurements.length > 0)
+          .map((section) => (
+            <MeasurementTable
+              measurements={section.measurements}
+              sources={sources}
+              caption={section.component?.name ?? ''}
+              openAbsences={availability.availability === 'research'}
+            />
+          ))}
+      </section>
+    )
+  }
+
+  {
+    derivedClaims.length > 0 && (
+      <section class="stack" aria-labelledby="derived">
+        <h2 id="derived">Derived figures and comparisons</h2>
+        <p class="prose meta">
+          Computed by this project rather than read from a source, and recomputed from their inputs
+          on every build.
+        </p>
+        {derivedClaims.map((claim) => (
+          <DerivedClaimCard claim={claim} />
+        ))}
+      </section>
+    )
+  }
+
+  {
+    conflicts.length > 0 && (
+      <section class="stack" aria-labelledby="conflicts">
+        <h2 id="conflicts">Conflicting sources</h2>
+        {conflicts.map((conflict) => (
+          <ConflictCard conflict={conflict} sources={sources} />
+        ))}
+      </section>
+    )
+  }
+
+  {
+    system.notes !== undefined && (
+      <section class="prose stack" aria-labelledby="notes">
+        <h2 id="notes">Editorial notes</h2>
+        <p>{system.notes}</p>
+      </section>
+    )
+  }
+
+  <section class="stack" aria-labelledby="sources">
+    <h2 id="sources">Sources</h2>
+    <ul class="source-list">
+      {
+        sources.map((source) => (
+          <li>
+            <a href={route(`/sources/${source.id}/`)}>{source.title}</a>
+            <span class="meta">
+              {source.publisher} · tier {source.tier} · {source.locator}
+            </span>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+
+  {familyNav !== undefined && <FamilyNav nav={familyNav} />}
+</BaseLayout>

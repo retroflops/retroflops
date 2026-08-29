@@ -1,0 +1,14 @@
+id: bbc-micro-rom
+slug: bbc-micro-rom
+kind: memory
+name: BBC Micro Model B ROM
+manufacturer: Acorn Computers
+architecture: Mask ROM
+introducedDate: '1981'
+memoryType: Mask ROM
+summary:
+  '{{measurement:bbc-micro-rom:capacity}} of read-only MOS and BASIC firmware.'
+sourceIds:
+  - bbc-micro-service-manual
+  - bbc-micro-information-sheet
+editorialStatus: approved

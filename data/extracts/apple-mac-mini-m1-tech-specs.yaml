@@ -1,0 +1,53 @@
+- extract: >-
+    Chip: Apple M1 chip
+
+    8-core CPU with 4 performance cores and 4 efficiency cores
+
+    8-core GPU
+
+    16-core Neural Engine
+
+    Memory: 8GB unified memory
+
+    Configurable to: 16GB
+  extractHash: 75b22ebdbaf52523d84f9e1d1f3882cd2634b3b9565297e50806f18119aeb294
+  id: apple-mac-mini-m1:chip-and-memory
+  locator: '"Chip" and "Memory" sections'
+  notes: >-
+    The page lays each section out as a heading followed by its lines; the
+    headings are rejoined here with a colon. "8GB" and "16GB" mean 8 GiB and 16
+    GiB. The whole of the chip section is quoted, and it contains no frequency
+    for either the processor or the graphics cores.
+  sourceId: apple-mac-mini-m1-tech-specs
+  transcribed:
+    significantDigits: 1
+    state: value
+    unit: GiB
+    value: '8'
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-07-29
+- extract: >-
+    Line voltage: 100–240V AC
+
+    Frequency: 50Hz to 60Hz, single phase
+
+    Maximum continuous power: 150W
+
+    Operating temperature: 50° to 95° F (10° to 35° C)
+  extractHash: 5a5663ce7865645db6eeea110630d70a457b2325073ac30239109019a58f4183
+  id: apple-mac-mini-m1:electrical
+  locator: '"Electrical and Operating Requirements" section'
+  notes: >-
+    "Maximum continuous power" is what the machine may draw, not what it does
+    draw; the same page states no consumption figure for any workload. It is
+    recorded for the same reason the PlayStation 2's 79 W is — a rating is what
+    these vendors publish — and the metric forbids ratios for exactly that
+    reason.
+  sourceId: apple-mac-mini-m1-tech-specs
+  transcribed:
+    significantDigits: 2
+    state: value
+    unit: W
+    value: '150'
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-07-29

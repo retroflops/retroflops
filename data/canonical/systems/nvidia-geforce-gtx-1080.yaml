@@ -1,0 +1,68 @@
+id: nvidia-geforce-gtx-1080
+slug: nvidia-geforce-gtx-1080
+name: NVIDIA GeForce GTX 1080
+manufacturer: NVIDIA
+type: accelerator
+family: nvidia-geforce
+releaseDate: 2016-05
+region: Worldwide
+summary: >-
+  2,560 single-precision cores at
+  {{measurement:nvidia-gp104:clock-frequency-base}}, 8,873 GFLOPS at the
+  {{measurement:nvidia-gp104:clock-frequency-boost}} boost clock,
+  {{measurement:nvidia-gtx-1080-memory:capacity}} of GDDR5X at
+  {{measurement:nvidia-gtx-1080-memory:bandwidth}}, and
+  {{measurement:nvidia-gp104:thermal-design-power}}.
+description: >-
+  The first card here sold for installation in a personal computer. The H100 is
+  an accelerator with no operating system or input. This card does the same job
+  for people playing games, so it is also recorded as an accelerator. The host
+  it plugs into is not this record.
+
+
+  Nine years separate it from the GeForce RTX 5090. Both cards are NVIDIA's, and
+  both state a single-precision peak, a memory bandwidth and a board power. The
+  catalog can therefore calculate ratios for the first two quantities across the
+  decade.
+
+
+  NVIDIA states two clocks for this card, and they are two quantities:
+  {{measurement:nvidia-gp104:clock-frequency-base}} is what it is specified to
+  hold, while {{measurement:nvidia-gp104:clock-frequency-boost}} is what it
+  reaches when there is headroom. They belong to two comparability groups, so a
+  boost clock cannot be compared with the Commodore 64's crystal-derived clock.
+configurations:
+  - id: founders-edition
+    label: Reference card
+    releaseDate: 2016-05
+    entries:
+      - componentId: nvidia-gp104
+        role: gpu
+        count: 1
+        shared: false
+        notes: >-
+          The base clock. The card also states a
+          {{measurement:nvidia-gp104:clock-frequency-boost}} boost clock, which
+          is a separate figure.
+        measurementIds:
+          - nvidia-gp104:clock-frequency-base
+          - nvidia-gp104:clock-frequency-boost
+      - componentId: nvidia-gtx-1080-memory
+        role: video-memory
+        count: 1
+        shared: false
+        measurementIds:
+          - nvidia-gtx-1080-memory:capacity
+notes: >-
+  The release date is the date of the cited launch article. The configuration is
+  labeled a reference card on editorial grounds: NVIDIA's table describes the
+  card it built, and partner boards ship with clocks of their own that this
+  record does not cover. The texel fill rate is not recorded because the catalog
+  has no metric for it. The recommended system power is also excluded because it
+  describes a computer this record does not contain.
+imageIds:
+  - nvidia-geforce-gtx-1080-cards
+sourceIds:
+  - nvidia-gtx-1080-deep-dive-2016
+  - nvidia-gtx-1080-whitepaper
+editorialStatus: approved

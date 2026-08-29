@@ -1,0 +1,17 @@
+id: sony-playstation-5:context-gb-s-5-5
+subject:
+  kind: system
+  id: sony-playstation-5
+label: Rate
+quantity:
+  state: value
+  value: '5.5'
+  unit: GB/s
+  significantDigits: 2
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - scei-ps5-hardware-specs-2020
+evidenceLevel: confirmed

@@ -1,0 +1,12 @@
+id: ibm-pc-5150-video
+slug: ibm-pc-5150-video
+kind: gpu
+name: IBM PC display adapter
+manufacturer: IBM
+architecture: MDA or CGA option
+introducedDate: '1981'
+summary:
+  A period display adapter; the base 5150 did not have one fixed graphics chip.
+sourceIds:
+  - ibm-pc-technical-reference
+editorialStatus: approved

@@ -1,0 +1,287 @@
+- caveat: >-
+    The verified service manual states no clock. Wikipedia gives
+    {{measurement:sega-master-system:cpu-clock-frequency}} for the Z80A, and the
+    catalog carries it as rumored until a Sega document states it.
+  comparabilityGroup: clock-frequency|cpu|nominal-clock
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: sega-master-system:cpu-clock-frequency
+  method: nominal-clock
+  metric: clock-frequency
+  provenance: community
+  quantity:
+    state: value
+    value: "3.58"
+    unit: MHz
+    significantDigits: 3
+  scope: cpu
+  sourceIds:
+    - sega-8bit-service-manual
+    - wikipedia-master-system-specifications
+  status: vendor-rated
+  subject:
+    configurationId: ntsc
+    id: sega-master-system
+    kind: system
+  evidenceLevel: rumored
+  normalized:
+    value: "3580000"
+    unit: Hz
+    significantDigits: 3
+    unitRegistry: units-v1
+- caveat: >-
+    Sega's verified manual states no RAM capacity. Wikipedia gives
+    {{measurement:master-system-ram:capacity}} of work RAM, which is separate
+    from the video RAM the console also carries and which the catalog records
+    separately.
+  comparabilityGroup: memory-capacity|memory|design-capacity
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: master-system-ram:capacity
+  method: design-capacity
+  metric: memory-capacity
+  provenance: community
+  quantity:
+    state: value
+    value: "8"
+    unit: KiB
+    significantDigits: 1
+  scope: memory
+  sourceIds:
+    - sega-8bit-service-manual
+    - wikipedia-master-system-specifications
+  status: vendor-rated
+  subject:
+    id: master-system-ram
+    kind: component
+  evidenceLevel: rumored
+  normalized:
+    value: "8192"
+    unit: B
+    significantDigits: 1
+    unitRegistry: units-v1
+- caveat: >-
+    The service manual identifies the IC5 clock in its oscillator test procedure.
+  comparabilityGroup: clock-frequency|gpu|nominal-clock
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: sega-master-system:gpu-clock-frequency
+  method: nominal-clock
+  metric: clock-frequency
+  provenance: vendor
+  quantity:
+    significantDigits: 7
+    state: value
+    unit: MHz
+    value: "3.579545"
+  scope: gpu
+  extractIds:
+    - sega-master-system-service-manual:ic5-clock
+  sourceIds:
+    - sega-8bit-service-manual
+  status: vendor-rated
+  subject:
+    id: sega-master-system
+    kind: system
+  normalized:
+    value: "3579545"
+    unit: Hz
+    significantDigits: 7
+    unitRegistry: units-v1
+  evidenceLevel: reported
+- caveat: >-
+    The service manual gives oscillator checks and parts lists, but no memory
+    transfer rate or bus-width figure.
+  comparabilityGroup: memory-bandwidth|memory|theoretical-peak
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: sega-master-system:memory-bandwidth
+  method: theoretical-peak
+  metric: memory-bandwidth
+  provenance: vendor
+  quantity:
+    note: The reviewed manual gives no memory bandwidth or bus width.
+    state: unknown
+  unknownAudit:
+    reviewedOn: 2026-08-25
+    routesChecked:
+      - vendor-documentation
+      - independent-analysis
+      - community-source
+    outcome: no-compatible-candidate
+    summary: >-
+      The checked manual supplies neither a memory transfer rate nor the bus
+      terms needed to calculate one.
+  scope: memory
+  sourceIds:
+    - sega-8bit-service-manual
+  status: vendor-rated
+  subject:
+    id: sega-master-system
+    kind: system
+- caveat: >-
+    Provisional record for sega-master-system: the cited primary manual is
+    registered, but its page-level transcription and independent review are
+    still pending.
+  comparabilityGroup: peak-fp32-rate|cpu|theoretical-peak
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: master-system-z80:peak-fp32-rate
+  method: theoretical-peak
+  metric: peak-fp32-rate
+  provenance: vendor
+  quantity:
+    note: This console CPU has no integrated floating-point execution unit.
+    state: not-applicable
+  scope: cpu
+  sourceIds:
+    - sega-8bit-service-manual
+  status: vendor-rated
+  subject:
+    id: master-system-z80
+    kind: component
+- caveat: >-
+    Provisional record for sega-master-system: the cited primary manual is
+    registered, but its page-level transcription and independent review are
+    still pending.
+  comparabilityGroup: peak-fp32-rate|gpu|theoretical-peak
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: master-system-vdp:peak-fp32-rate
+  method: theoretical-peak
+  metric: peak-fp32-rate
+  provenance: vendor
+  quantity:
+    note: >-
+      This is a tile, sprite or scanline graphics unit, not a floating-point
+      processor; it executes no FP32 operations.
+    state: not-applicable
+  scope: gpu
+  sourceIds:
+    - sega-8bit-service-manual
+  status: vendor-rated
+  subject:
+    id: master-system-vdp
+    kind: component
+- caveat: >-
+    Provisional and unknown, having been checked rather than merely left empty:
+    a vendor rating was found and rejected because its model code belongs to a
+    different console.
+  comparabilityGroup: rated-power-consumption|whole-system|rated-power
+  editorialStatus: provisional
+  evidenceStage: shipped
+  extractIds:
+    - sega-sms:spec-table:power
+  id: sega-master-system:rated-power-consumption
+  method: rated-power
+  metric: rated-power-consumption
+  provenance: vendor
+  quantity:
+    note: >-
+      Sega does state an electrical rating for a Master System — DC9V/850mA —
+      but for the Japanese MK-2000 of October 1987, and the same page sets out
+      how the overseas machine released a year earlier differs in hardware: no
+      FM sound, no 3-D glasses port, no rapid-fire circuit. This record is the
+      1986 machine, so the vendor figure exists and does not describe it.
+    state: unknown
+  unknownAudit:
+    reviewedOn: 2026-08-25
+    routesChecked:
+      - vendor-documentation
+      - independent-analysis
+      - community-source
+    outcome: no-compatible-candidate
+    summary: >-
+      Sega's published electrical rating applies to the later Japanese MK-2000,
+      not the 1986 overseas model in this record.
+  scope: whole-system
+  sourceIds:
+    - sega-hardware-encyclopedia-master-system
+  status: vendor-rated
+  subject:
+    id: sega-master-system
+    kind: system
+- comparabilityGroup: storage-capacity|storage|design-capacity
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: sega-master-system:cartridge-storage-capacity
+  method: design-capacity
+  metric: storage-capacity
+  provenance: vendor
+  quantity:
+    note: >-
+      Game cartridges are removable media and their ROM capacity varies by
+      title; no cartridge capacity is part of the base console.
+    state: not-applicable
+  scope: storage
+  sourceIds:
+    - sega-8bit-service-manual
+  status: vendor-rated
+  subject:
+    id: sega-master-system
+    kind: system
+- caveat: >-
+    Both terms of the total are rumored. The catalog displays a rumored figure
+    but does not compute with one, so the total waits for a document that states
+    a capacity outright.
+  comparabilityGroup: memory-capacity|whole-system|design-capacity
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: sega-master-system:whole-system-memory-capacity
+  method: design-capacity
+  metric: memory-capacity
+  provenance: vendor
+  quantity:
+    note: >-
+      The console's work RAM and video RAM are both known only from tier C
+      material. Adding them would rest a new number on that material, which this
+      catalog does not do.
+    state: unknown
+  unknownAudit:
+    reviewedOn: 2026-08-26
+    routesChecked:
+      - vendor-documentation
+      - independent-analysis
+      - community-source
+    outcome: no-compatible-candidate
+    summary: >-
+      Both fitted capacities are published only in tier C material, which may be
+      recorded but may not be summed.
+  scope: whole-system
+  sourceIds:
+    - sega-8bit-service-manual
+  status: vendor-rated
+  subject:
+    id: sega-master-system
+    kind: system
+- caveat: >-
+    Sega's verified service manual states no video-RAM capacity. Wikipedia's
+    infobox and hardware paragraph both give
+    {{measurement:master-system-video-ram:capacity}}, and the catalog carries it
+    as rumored until a Sega document states it.
+  comparabilityGroup: memory-capacity|memory|design-capacity
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: master-system-video-ram:capacity
+  method: design-capacity
+  metric: memory-capacity
+  provenance: community
+  quantity:
+    state: value
+    value: "16"
+    unit: KiB
+    significantDigits: 2
+  scope: memory
+  sourceIds:
+    - sega-8bit-service-manual
+    - wikipedia-master-system-specifications
+  status: vendor-rated
+  subject:
+    id: master-system-video-ram
+    kind: component
+  evidenceLevel: rumored
+  normalized:
+    value: "16384"
+    unit: B
+    significantDigits: 2
+    unitRegistry: units-v1

@@ -1,0 +1,23 @@
+accessedDate: 2026-08-13
+editorialStatus: approved
+fetch:
+  byteLength: 1160158
+  contentType: text/html;charset=utf-8
+  fetchedAt: 2026-08-13T15:24:22Z
+  httpStatus: 200
+  sha256: 145f34903a4510b6aceb6426a302e469186d3a82d49d7dc26f1f25e76e35a3c8
+  url: https://support.apple.com/en-us/112562
+id: apple-iphone-4-tech-specs
+license: Copyright Apple Inc. Quoted here under short-extract fair use for
+  verification of the cited specifications.
+locator: Chip and Power and Battery sections
+publishedDate: "2010"
+publisher: Apple Inc.
+sourceType: vendor-documentation
+tier: A
+title: Apple iPhone 4 — Technical Specifications
+url: https://support.apple.com/en-us/112562
+usageNote: >-
+  Apple states the chip identification and retail technical details, while
+  deliberately not filling undocumented clock, DRAM, bandwidth, FP32 or
+  whole-system power fields.

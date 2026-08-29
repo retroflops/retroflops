@@ -1,0 +1,26 @@
+id: anandtech-iphone-4-performance-2010
+title: "Apple's iPhone 4: Thoroughly Reviewed"
+publisher: AnandTech
+author: Brian Klug and Anand Lal Shimpi
+publishedDate: 2010-06-30
+accessedDate: 2026-08-25
+url: https://web.archive.org/web/20131220060523id_/http://www.anandtech.com/show/3794/the-iphone-4-review/12
+archiveUrl: https://web.archive.org/web/20131220060523/http://www.anandtech.com/show/3794/the-iphone-4-review/12
+locator: Page 12, Performance, synthetic-test clock estimate
+extract: >-
+  CPU-specific synthetic tests ran about 25 percent faster than on the iPhone
+  3GS, leading AnandTech to estimate an 800MHz A4 clock.
+tier: B
+sourceType: independent-analysis
+license: Copyright AnandTech. Quoted here under short-extract fair use for verification.
+usageNote: >-
+  AnandTech no longer serves this article to automated clients. This Wayback
+  capture returns the 2010 article bytes without archive navigation.
+fetch:
+  url: https://web.archive.org/web/20131220060523id_/http://www.anandtech.com/show/3794/the-iphone-4-review/12
+  finalUrl: https://web.archive.org/web/20131113205343id_/http://www.anandtech.com/show/3794/the-iphone-4-review/12
+  fetchedAt: 2026-08-25T14:50:45Z
+  httpStatus: 200
+  contentType: text/html; charset=utf-8
+  byteLength: 82639
+  sha256: f9c1d227523fd58efe4980f73c8602a1beb745a4f22e9f41999d56ed03d08747

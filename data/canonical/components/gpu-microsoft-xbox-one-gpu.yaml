@@ -1,0 +1,12 @@
+editorialStatus: approved
+id: microsoft-xbox-one-gpu
+slug: microsoft-xbox-one-gpu
+kind: gpu
+name: AMD Xbox One GPU
+manufacturer: AMD / Microsoft
+architecture: GCN
+introducedDate: '2013'
+summary: The graphics processor fitted to the Microsoft Xbox One.
+sourceIds:
+  - digitalfoundry-xbox-one-clocks-2013
+  - computerbase-xbox-one-test

@@ -1,0 +1,17 @@
+id: raspberry-pi-5:context-v-5
+subject:
+  kind: system
+  id: raspberry-pi-5
+label: Contextual value
+quantity:
+  state: value
+  value: '5'
+  unit: V
+  significantDigits: 1
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - raspberry-pi-5-product-brief
+evidenceLevel: confirmed

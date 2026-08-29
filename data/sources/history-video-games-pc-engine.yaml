@@ -1,0 +1,22 @@
+id: history-video-games-pc-engine
+title: History of Video Games, Four Decades of Video Entertainment
+publisher: Greenwood Publishing Group
+publishedDate: "2013"
+accessedDate: 2026-08-25
+locator: TurboGrafx-16 technical specifications paragraph
+extract: >-
+  CPU: 8-bit HuC6280A, a modified 65SC02, running at 1.79 or 7.16 MHz,
+  switchable by software.
+tier: B
+sourceType: book
+url: https://cdn.hackaday.io/files/1649347056536256/History%20of%20Video%20Games-Four%20Decades%20of%20Video%20Entertainment.pdf
+usageNote: >-
+  Published hardware history, agreeing with Make Classic Games on the high-speed
+  PC Engine CPU mode.
+fetch:
+  url: https://cdn.hackaday.io/files/1649347056536256/History%20of%20Video%20Games-Four%20Decades%20of%20Video%20Entertainment.pdf
+  fetchedAt: 2026-08-25T06:13:15Z
+  httpStatus: 200
+  contentType: application/pdf
+  byteLength: 27141852
+  sha256: d34818b5c09c3395b76f20d027e5e838275a69a66ceff25007a3873d68095177

@@ -1,0 +1,17 @@
+id: apple-iphone-12:context-unit-4
+subject:
+  kind: system
+  id: apple-iphone-12
+label: Count
+quantity:
+  state: value
+  value: '4'
+  unit: unit
+  significantDigits: 1
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - apple-iphone-12-tech-specs
+evidenceLevel: confirmed

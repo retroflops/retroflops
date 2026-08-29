@@ -1,0 +1,25 @@
+accessedDate: 2026-08-16
+editorialStatus: approved
+fetch:
+  byteLength: 313029
+  contentType: text/html;charset=utf-8
+  fetchedAt: 2026-08-16T17:44:54Z
+  httpStatus: 200
+  sha256: febd9d8290f9366718340b9c18c2081498b368200e00f40ce229ffb052bc8a81
+  url: https://www.intel.com/content/www/us/en/products/sku/52214/intel-core-i72600k-processor-8m-cache-up-to-3-80-ghz/specifications.html
+id: intel-core-i7-2600k-specifications
+license: Copyright Intel Corporation; cited for verification under short-extract
+  fair use.
+locator: >-
+  CPU Specifications: Max Turbo Frequency, Processor Base Frequency and TDP
+  rows; Memory Specifications; Processor Graphics
+publisher: Intel Corporation
+sourceType: vendor-documentation
+tier: A
+title: Intel® Core™ i7-2600K Processor (8M Cache, up to 3.80 GHz) — Specifications
+url: https://www.intel.com/content/www/us/en/products/sku/52214/intel-core-i72600k-processor-8m-cache-up-to-3-80-ghz/specifications.html
+usageNote: >-
+  A living product record with no publication date or revision. It specifies the
+  i7-2600K's base and turbo frequency, TDP, supported memory interface and
+  graphics frequency. Its memory maximum is a processor-interface limit, not a
+  fitted capacity for a reference PC.

@@ -1,0 +1,85 @@
+---
+// SPDX-FileCopyrightText: 2026 Wojciech Polak
+// SPDX-License-Identifier: MIT
+
+import { getCollection } from 'astro:content';
+
+import BaseLayout from '~/layouts/base-layout.astro';
+import { route } from '~/lib/paths';
+
+const pages = (await getCollection('methodology')).toSorted((a, b) => a.data.order - b.data.order);
+---
+
+<BaseLayout
+  title="Methodology"
+  description="Metric definitions, comparability rules, confidence statuses and the policy for derived claims."
+>
+  <header class="page-header stack">
+    <p class="page-header__eyebrow">Reference</p>
+    <h1>Methodology</h1>
+    <p class="lede prose">
+      What each number measures, how confident it is, when two of them may be divided, and what
+      counts as a source. These rules are enforced by the pipeline, not just described here.
+    </p>
+  </header>
+
+  <nav class="stack" aria-labelledby="contents">
+    <h2 id="contents">Contents</h2>
+    <ol class="methodology-index">
+      {
+        pages.map((page) => (
+          <li>
+            <a href={route(`/methodology/${page.id}/`)}>{page.data.title}</a>
+            <span class="meta">{page.data.summary}</span>
+          </li>
+        ))
+      }
+    </ol>
+  </nav>
+
+  <section class="prose stack" aria-labelledby="why">
+    <h2 id="why">Why these pages exist</h2>
+    <p>
+      Hardware comparisons go wrong in a small number of repeatable ways: a floating-point rate
+      quoted without its precision, a benchmark score compared across versions, a cooling-design
+      figure read as power consumption, a missing value written as zero. Each page here names one of
+      those failures and says what this project does instead.
+    </p>
+    <p>
+      None of it is advisory. A comparison that these rules forbid is refused by the pipeline rather
+      than rendered with a warning, and a figure whose source does not meet the bar is not published
+      at all.
+    </p>
+  </section>
+</BaseLayout>
+
+<style>
+  .methodology-index {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    counter-reset: methodology;
+  }
+
+  .methodology-index li {
+    counter-increment: methodology;
+    padding-block: var(--space-xs);
+    border-block-end: var(--border-hairline);
+  }
+
+  .methodology-index a {
+    font-size: var(--step-1);
+  }
+
+  .methodology-index a::before {
+    content: counter(methodology, decimal-leading-zero) '  ';
+    font-family: var(--font-mono);
+    font-size: var(--step--1);
+    color: var(--text-muted);
+  }
+
+  .methodology-index .meta {
+    max-inline-size: var(--prose-max);
+    margin-block-start: var(--space-3xs);
+  }
+</style>

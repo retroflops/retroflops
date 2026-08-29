@@ -1,0 +1,24 @@
+accessedDate: 2026-08-03
+editorialStatus: approved
+fetch:
+  byteLength: 131112
+  contentType: text/html;charset=utf-8
+  fetchedAt: 2026-08-03T21:20:30Z
+  httpStatus: 200
+  sha256: e47cd65913b28966ee735b1e6335e01910bd3955cf8fe1e28fdd5ee27cebda3e
+  url: https://www.apple.com/newsroom/2007/01/09Apple-Reinvents-the-Phone-with-iPhone/
+id: apple-iphone-announcement-2007
+license: Copyright Apple Inc. Quoted here under short-extract fair use for
+  verification of the figures cited.
+locator: Section "Pricing & Availability", paragraph naming the two models
+publishedDate: 2007-01-09
+publisher: Apple Inc.
+sourceType: vendor-documentation
+tier: A
+title: Apple Reinvents the Phone with iPhone
+url: https://www.apple.com/newsroom/2007/01/09Apple-Reinvents-the-Phone-with-iPhone/
+usageNote: >-
+  The announcement, made five months before the phone went on sale. It states
+  what the two models would cost and how much they would hold, and no figure at
+  all for the processor, the memory or the graphics — which is the shape of
+  every Apple hardware document in this catalog.

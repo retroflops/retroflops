@@ -1,0 +1,19 @@
+id: lvdc-core-memory
+slug: lvdc-core-memory
+kind: memory
+name: Saturn LVDC toroidal core memory module
+manufacturer: IBM Federal Systems Division
+architecture: Random-access toroidal core
+introducedDate: '1966'
+memoryType: Random-access toroidal magnetic core
+summary:
+  'One memory module: fourteen 128 by 64 magnetic core planes with their drive
+  and sensing circuits, holding 4096 non-redundant
+  {{context:lvdc-core-memory:context-bit-28}} words.'
+notes:
+  Between one and eight modules could be fitted. Eight in simplex give the
+  maximum {{context:lvdc-core-memory:context-word-32768}} capacity; running them
+  in duplex trades half the capacity for redundancy.
+sourceIds:
+  - ntrs-19700023342
+editorialStatus: approved

@@ -1,0 +1,12 @@
+id: nintendo-switch-2-memory
+slug: nintendo-switch-2-memory
+kind: memory
+name: Nintendo Switch 2 unified memory
+manufacturer: Nintendo
+memoryType: LPDDR5X
+summary:
+  The working-memory pool shared by the Switch 2 processor and graphics
+  hardware.
+sourceIds:
+  - techpowerup-switch-2-specs
+editorialStatus: provisional

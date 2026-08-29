@@ -1,0 +1,43 @@
+accessedDate: 2026-08-17
+alt: A black Japanese Sega Mega Drive photographed against white, a round cartridge lid marked
+  {{context:mega-drive-ram:context-bit-16}} set into its top, volume and power switches on the left,
+  and a three-button control pad in front.
+attribution: Photograph by Evan-Amos, released into the public domain by its author, via Wikimedia Commons.
+canonical:
+  byteLength: 24430
+  format: avif
+  height: 960
+  sha256: a7fe0c899615a03ad5846334f2e20210d23072e082fbb541ba833eac99abe628
+  width: 1280
+caption: A first-model Japanese Mega Drive, shown with the three-button pad.
+creator: Evan-Amos
+creatorType: person
+editorialStatus: approved
+id: sega-mega-drive-console
+original:
+  byteLength: 1975185
+  height: 2120
+  mediaType: image/jpeg
+  sha256: 4f812f238fdbf7709138a374e1386f223330ff3232d564f8a65bc8809bf0b2df
+  width: 4240
+originalUrl: https://upload.wikimedia.org/wikipedia/commons/a/a1/Sega-Mega-Drive-JP-Mk1-Console-Set.jpg
+publisher: Wikimedia Commons
+rights:
+  id: pd-self
+  statedAt: https://commons.wikimedia.org/wiki/File:Sega-Mega-Drive-JP-Mk1-Console-Set.jpg
+  statement: "I, the copyright holder of this work, release this work into the public domain. This
+    applies worldwide. In some countries this may not be legally possible; if so: I grant anyone the
+    right to use this work for any purpose, without any conditions, unless such conditions are
+    required by law."
+  url: https://commons.wikimedia.org/wiki/Template:PD-self
+sourcePageUrl: https://commons.wikimedia.org/wiki/File:Sega-Mega-Drive-JP-Mk1-Console-Set.jpg
+title: Sega-Mega-Drive-JP-Mk1-Console-Set.jpg
+transform:
+  background: "#ffffff"
+  fit: pad
+  note: The photograph is wider than 4:3 and the machine reaches both ends of it, so no crop keeps the
+    whole subject. The declared margin is the same white as the backdrop the photograph was taken
+    against, which is why it cannot be seen; it is recorded because it is there.
+  preset: image-v1
+  sourceHeight: 2120
+  sourceWidth: 4240

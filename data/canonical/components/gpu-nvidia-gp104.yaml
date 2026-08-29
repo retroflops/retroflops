@@ -1,0 +1,23 @@
+id: nvidia-gp104
+slug: nvidia-gp104
+kind: gpu
+name: NVIDIA GP104 (GeForce GTX 1080)
+manufacturer: NVIDIA
+architecture: Pascal
+introducedDate: 2016-05
+summary:
+  Twenty streaming multiprocessors and 2,560 single-precision cores, specified
+  at {{measurement:nvidia-gp104:clock-frequency-base}} and rated at 8,873 GFLOPS
+  when they reach the {{measurement:nvidia-gp104:clock-frequency-boost}} boost
+  clock.
+notes:
+  "The first consumer graphics card in this catalog, and the first record
+  anywhere in it that states two clocks for one part. They are two quantities,
+  not one figure at two resolutions: the base clock is what the card is
+  specified to hold, the boost clock what it reaches when power and heat allow,
+  and NVIDIA's own footnote says which of them its rate figures are computed
+  from."
+sourceIds:
+  - nvidia-gtx-1080-deep-dive-2016
+  - nvidia-gtx-1080-whitepaper
+editorialStatus: approved

@@ -1,0 +1,12 @@
+architecture: Motorola 68000
+editorialStatus: provisional
+id: neo-geo-68000
+instructionSet: Motorola 68000
+instructionSetFamily: motorola-68000
+kind: cpu
+manufacturer: Motorola
+name: Motorola 68000
+slug: neo-geo-68000
+sourceIds:
+  - neo-geo-developers-manual
+summary: The Neo Geo AES main processor.

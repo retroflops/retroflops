@@ -1,0 +1,49 @@
+id: apple-iphone-17
+slug: apple-iphone-17
+name: Apple iPhone 17
+manufacturer: Apple
+type: smartphone
+family: apple-iphone
+releaseDate: 2025-09-19
+region: Worldwide
+summary: >-
+  An A19 phone with a {{measurement:apple-iphone-17:cpu-clock-frequency}} CPU,
+  an Apple-designed {{context:apple-iphone-17-gpu:context-unit-5}}-core GPU, and
+  {{measurement:apple-iphone-17:whole-system-memory-capacity}} of working
+  memory.
+description: >-
+  The iPhone 17 uses Apple’s A19 rather than the A19 Pro in the iPhone 17 Pro.
+  Apple publishes the chip and core counts. An independent technical analysis
+  reports the clock and memory configuration; the catalog leaves unsupported
+  throughput and power figures empty.
+configurations:
+  - id: retail
+    label: Retail hardware
+    entries:
+      - componentId: apple-iphone-17-cpu
+        role: main-cpu
+        count: 1
+        shared: false
+        measurementIds:
+          - apple-iphone-17:cpu-clock-frequency
+      - componentId: apple-iphone-17-gpu
+        role: gpu
+        count: 1
+        shared: false
+        measurementIds:
+          - apple-iphone-17:gpu-clock-frequency
+      - componentId: apple-iphone-17-memory
+        role: unified-memory
+        count: 1
+        shared: true
+        measurementIds:
+          - apple-iphone-17:whole-system-memory-capacity
+notes: >-
+  Storage capacities and charging-adapter limits are not substituted for working
+  memory or whole-system power.
+imageIds:
+  - apple-iphone-17-phone
+sourceIds:
+  - apple-iphone-17-tech-specs
+  - notebookcheck-apple-a19
+editorialStatus: approved

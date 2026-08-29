@@ -1,0 +1,11 @@
+- extract: '8GB flash drive'
+  extractHash: 6a2e3f30dcf28805078e7f9bdcae2d11b19147e5af3042511274d4c9b7077037
+  id: apple-iphone-3gs-tech-specs:capacity
+  locator: Capacity section
+  notes: >-
+    Apple lists the flash capacities the phone was sold in and nothing about the
+    memory it runs programs in. The two are different quantities and are kept in
+    different metrics; this is the number printed on the box.
+  sourceId: apple-iphone-3gs-tech-specs
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-24

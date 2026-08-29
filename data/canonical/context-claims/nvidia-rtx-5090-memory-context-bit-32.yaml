@@ -1,0 +1,22 @@
+id: nvidia-rtx-5090-memory:context-bit-32
+subject:
+  kind: component
+  id: nvidia-rtx-5090-memory
+label: Width
+quantity:
+  state: value
+  value: '32'
+  unit: bit
+  significantDigits: 2
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - nvidia-rtx-blackwell-whitepaper
+  - nvidia-rtx-5090-product-specifications
+extractIds:
+  - nvidia-rtx-5090:whitepaper-table
+  - nvidia-rtx-5090:gb202-die
+  - nvidia-rtx-5090:product-specifications
+evidenceLevel: confirmed

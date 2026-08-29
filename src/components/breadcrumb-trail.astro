@@ -1,0 +1,39 @@
+---
+// SPDX-FileCopyrightText: 2026 Wojciech Polak
+// SPDX-License-Identifier: MIT
+
+/**
+ * The visible breadcrumb.
+ *
+ * Takes the same array `breadcrumbList()` serializes into JSON-LD, so the trail
+ * a reader walks and the trail a search engine is told about cannot disagree.
+ * The last crumb is the current page: it is text rather than a link, because a
+ * link to where you already are is a control that does nothing.
+ */
+import { route } from '~/lib/paths';
+import type { Crumb } from '~/lib/structured-data';
+
+interface Props {
+  crumbs: readonly Crumb[];
+}
+
+const { crumbs } = Astro.props;
+
+const last = crumbs.length - 1;
+---
+
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  <ol>
+    {
+      crumbs.map((crumb, index) => (
+        <li>
+          {index === last ? (
+            <span aria-current="page">{crumb.name}</span>
+          ) : (
+            <a href={route(crumb.path)}>{crumb.name}</a>
+          )}
+        </li>
+      ))
+    }
+  </ol>
+</nav>

@@ -1,0 +1,54 @@
+- extract: >-
+    GPU: GeForce GTX 1080 (Pascal)
+
+    SMs: 20
+
+    CUDA Cores: 2560
+
+    Base Clock: 1607 MHz
+
+    GPU Boost Clock: 1733 MHz
+
+    GFLOPs: 8873 1
+
+    Texture Units: 160
+
+    Texel fill-rate: 277.3 Gigatexels/sec
+
+    Memory Clock (Data Rate): 10,000 MHz
+
+    Memory Bandwidth: 320GB/sec
+
+    ROPs: 64
+
+    L2 Cache Size: 2048 KB
+
+    TDP: 180 Watts
+
+    Transistors: 7.2 billion
+
+    Die Size: 314 mm²
+
+    Manufacturing Process: 16 nm
+
+    1 The GFLOPS and texel fill rates in this chart are based on GPU Boost Clock
+  extractHash: b3581e6a7c46f0a7101946171f39eb93877fb5345beb65402a77c20acde38ba7
+  id: nvidia-gtx-1080:whitepaper-table
+  locator: >-
+    p. 9, table comparing GeForce GTX 980 and GeForce GTX 1080, GTX 1080 column,
+    and footnote 1
+  notes: >-
+    The table compares the GTX 980 with the GTX 1080; only the GTX 1080 column
+    is transcribed, each row label rejoined with its value by a colon, and the
+    superscript footnote marker written as " 1". This is the only NVIDIA
+    document in the catalog that states a floating-point rate for this card, and
+    its footnote is what makes the rate legible: 8873 GFLOPs is the boost clock
+    multiplied out, not the base clock.
+  sourceId: nvidia-gtx-1080-whitepaper
+  transcribed:
+    significantDigits: 4
+    state: value
+    unit: GFLOP/s
+    value: '8873'
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-03

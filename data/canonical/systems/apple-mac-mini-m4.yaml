@@ -1,0 +1,49 @@
+id: apple-mac-mini-m4
+slug: apple-mac-mini-m4
+name: Apple Mac mini (M4, 2024)
+manufacturer: Apple
+type: personal-computer
+family: apple-macintosh
+releaseDate: 2024-11
+region: Worldwide
+summary: >-
+  A {{context:apple-m4-cpu:context-unit-10}}-core M4 CPU and
+  {{context:apple-m4-cpu:context-unit-10}}-core GPU with
+  {{measurement:apple-mac-mini-m4:whole-system-memory-capacity}} of unified
+  memory and {{measurement:apple-mac-mini-m4:whole-system-memory-bandwidth}} of
+  published memory bandwidth.
+description: >-
+  The baseline M4 Mac mini records an independently reported base CPU frequency
+  alongside its installed unified memory, published bandwidth and maximum
+  continuous power. The GPU clock and FP32 peak remain provisional third-party
+  claims rather than Apple specifications.
+configurations:
+  - id: m4-16gb
+    label: M4, 16 GB unified memory
+    entries:
+      - componentId: apple-m4-cpu
+        role: main-cpu
+        count: 1
+        shared: false
+        measurementIds:
+          - apple-mac-mini-m4:cpu-clock-frequency
+      - componentId: apple-m4-gpu
+        role: gpu
+        count: 1
+        shared: false
+        measurementIds:
+          - apple-mac-mini-m4:gpu-clock-frequency
+      - componentId: apple-m4-unified-memory
+        role: unified-memory
+        count: 1
+        shared: true
+        measurementIds:
+          - apple-mac-mini-m4:whole-system-memory-capacity
+imageIds:
+  - apple-mac-mini-m4-computer
+sourceIds:
+  - apple-mac-mini-m4-tech-specs
+  - geekbench-mac-mini-m4-result-12154392
+  - psutil-apple-gpu-frequency-table
+  - flopper-apple-m4-gpu-spec-sheet
+editorialStatus: approved

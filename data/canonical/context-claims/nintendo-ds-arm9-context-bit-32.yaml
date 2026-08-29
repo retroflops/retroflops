@@ -1,0 +1,17 @@
+id: nintendo-ds-arm9:context-bit-32
+subject:
+  kind: component
+  id: nintendo-ds-arm9
+label: Word size
+quantity:
+  state: value
+  value: '32'
+  unit: bit
+  significantDigits: 2
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - nintendo-ds-technical-reference
+evidenceLevel: reported

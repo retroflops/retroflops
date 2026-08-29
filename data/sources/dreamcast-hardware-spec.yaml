@@ -1,0 +1,23 @@
+accessedDate: 2026-07-29
+editorialStatus: approved
+fetch:
+  byteLength: 65296
+  contentType: text/plain; charset=utf-8
+  fetchedAt: 2026-07-29T07:57:07Z
+  finalUrl: https://dn790009.ca.archive.org/0/items/DreamcastHardwareSpecificationOutline/Dreamcast_Hardware_Specification_Outline_djvu.txt
+  httpStatus: 200
+  sha256: fea7b944c4c08ea496fc956122243b98763785451e41131d6b3d4ac8067eaf8e
+  url: https://archive.org/download/DreamcastHardwareSpecificationOutline/Dreamcast_Hardware_Specification_Outline_djvu.txt
+id: dreamcast-hardware-spec
+locator: >-
+  Section 1.2 "System specification" p. 3; section 2.1 "Features of SH4", table
+  2-1, p. 7; section 2.3 "Main memory" p. 8
+publisher: SEGA Enterprises, Development Department
+sourceType: technical-manual
+tier: A
+title: Dreamcast Hardware Specification Outline
+url: https://archive.org/download/DreamcastHardwareSpecificationOutline/Dreamcast_Hardware_Specification_Outline_djvu.txt
+publishedDate: 1999-09
+archiveUrl: https://archive.org/details/DreamcastHardwareSpecificationOutline
+license: Copyright SEGA Enterprises Ltd. Quoted here under short-extract fair
+  use for verification of the figures cited.

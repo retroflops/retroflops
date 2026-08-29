@@ -1,0 +1,24 @@
+accessedDate: 2026-08-13
+editorialStatus: approved
+fetch:
+  byteLength: 163139
+  contentType: text/html
+  fetchedAt: 2026-08-13T18:08:04Z
+  httpStatus: 200
+  sha256: 443aafbd9b58323898b859582d771088b39a850c0c15a2e7b813c6ccb8692b36
+  url: https://www.nintendo.com/en-gb/Corporate/Consumer-Information/Eco-design/Product-Ecodesign-Information-Accessories-part-3--2802495.html
+id: nintendo-ecodesign-accessories-part-3
+license: Copyright Nintendo. Quoted here under short-extract fair use for
+  verification of the figure cited.
+locator: HAC-002 technical characteristics, output voltage and output current rows
+publisher: Nintendo
+sourceType: vendor-documentation
+tier: A
+title: Product Ecodesign Information — Accessories (part 3)
+url: https://www.nintendo.com/en-gb/Corporate/Consumer-Information/Eco-design/Product-Ecodesign-Information-Accessories-part-3--2802495.html
+usageNote: >-
+  Published to satisfy European ecodesign regulation rather than to describe the
+  console, which is why it states an electrical rating Nintendo's product pages
+  never give. It rates the adapter, not the machine: Nintendo's companion
+  consoles page reports the Switch drawing 7 W while actively gaming, so this
+  figure describes what the supply can deliver and not what the console takes.

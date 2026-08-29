@@ -1,0 +1,32 @@
+- extract: 1.023 MHz nominal.
+  extractHash: b021340233d23fe4b69d5d69c84e37262fa678a120037b40fcad8d59ee05cd0f
+  id: apple-ii-reference-manual:cpu-clock
+  locator: Hardware, Section 7, System Timing, printed p. 140
+  sourceId: apple-ii-reference-manual
+  transcribed:
+    significantDigits: 4
+    state: value
+    unit: MHz
+    value: '1.023'
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-22
+- extract: specified amount of RAM memory ... 8K of ROM memory
+  extractHash: 0acdc531673f04f4f3d716db0ec0398972b7fed6deb11916906148795507e71e
+  id: apple-ii-reference-manual:memory-configuration
+  locator: Getting Started With Your Apple II, printed p. 1
+  notes: >-
+    The manual leaves RAM dependent on the purchased configuration. It
+    explicitly gives 8K only for ROM.
+  sourceId: apple-ii-reference-manual
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-22
+- extract: Color reference frequency used by video circuitry
+  extractHash: 6b5632200aa10cea219e6faf9ecea48794dad54cf3360879ac85b2fcb1d9e2a6
+  id: apple-ii-reference-manual:video-reference
+  locator: Hardware, Section 7, System Timing
+  notes: >-
+    This describes a video timing signal, not a separately clocked graphics
+    processor.
+  sourceId: apple-ii-reference-manual
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-22

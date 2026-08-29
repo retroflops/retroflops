@@ -1,0 +1,134 @@
+/*
+ * RetroFlops design tokens for a retro technical laboratory with modern editorial type.
+ * Warm paper background, deep graphite text, phosphor-green data accent,
+ * amber for caveats and reduced-confidence data.
+ */
+
+:root {
+  color-scheme: light dark;
+
+  /* Palette */
+  --color-paper: #f4f0e6;
+  --color-paper-raised: #fbf8f1;
+  --color-paper-sunken: #ebe5d7;
+  --color-graphite: #1c1e1d;
+  --color-graphite-soft: #3d413f;
+  --color-graphite-muted: #6a6f6b;
+  --color-rule: #cec7b5;
+  --color-rule-strong: #a9a08a;
+  /*
+   * The two accents are dark enough to clear 4.5:1 against the *sunken* paper,
+   * not only against the page. Their first values cleared it on the page and
+   * failed on cards, tables and the comparison panel, at 4.28:1 and 4.32:1.
+   * Most accented text sits there, so the darker end of the same
+   * hues is the value the palette keeps.
+   */
+  --color-phosphor: #0d6b41;
+  --color-phosphor-bright: #16a862;
+  --color-phosphor-wash: #e2efe5;
+  --color-amber: #8a5205;
+  --color-amber-wash: #f7ead2;
+  --color-crimson: #96261f;
+
+  /* Effects */
+  --raster-line: rgb(0 0 0 / 3.5%);
+  --shadow-floating: 0 6px 12px rgb(0 0 0 / 10%);
+  --shadow-control: 0 2px 6px rgb(0 0 0 / 12%);
+
+  /* Semantic roles */
+  --surface-page: var(--color-paper);
+  --surface-raised: var(--color-paper-raised);
+  --surface-sunken: var(--color-paper-sunken);
+  --text-primary: var(--color-graphite);
+  --text-secondary: var(--color-graphite-soft);
+  --text-muted: var(--color-graphite-muted);
+  --text-accent: var(--color-phosphor);
+  --border-subtle: var(--color-rule);
+  --border-strong: var(--color-rule-strong);
+  --focus-ring: var(--color-phosphor-bright);
+  --chart-approved: var(--color-phosphor);
+  --chart-provisional: var(--color-amber);
+
+  /* Typography */
+  --font-sans:
+    ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font-mono:
+    ui-monospace, 'SFMono-Regular', 'JetBrains Mono', 'Cascadia Mono', Menlo, Consolas, monospace;
+
+  /* Limited clamp ranges keep headings readable instead of billboard-sized. */
+  --step--1: clamp(0.82rem, 0.79rem + 0.15vw, 0.9rem);
+  --step-0: clamp(1rem, 0.96rem + 0.2vw, 1.09rem);
+  --step-1: clamp(1.18rem, 1.11rem + 0.35vw, 1.38rem);
+  --step-2: clamp(1.4rem, 1.28rem + 0.6vw, 1.75rem);
+  --step-3: clamp(1.66rem, 1.46rem + 1vw, 2.2rem);
+  --step-4: clamp(1.95rem, 1.63rem + 1.6vw, 2.75rem);
+
+  --leading-tight: 1.2;
+  --leading-normal: 1.6;
+  --measure: 68ch;
+
+  /* Spacing */
+  --space-3xs: 0.25rem;
+  --space-2xs: 0.5rem;
+  --space-xs: 0.75rem;
+  --space-s: 1rem;
+  --space-m: 1.5rem;
+  --space-l: 2rem;
+  --space-xl: 3rem;
+  --space-2xl: 4rem;
+
+  /* Layout */
+  --content-max: 72rem;
+  --prose-max: 44rem;
+  --gutter: clamp(1rem, 0.6rem + 2vw, 2rem);
+  /*
+   * The header's height, stated rather than measured: the sticky offsets under
+   * it and the scroll padding all need the number, and none of them can read a
+   * box. The bar is a touch target tall, plus its padding on both edges, plus
+   * its lower rule. A test holds the arithmetic to the rendered height.
+   */
+  --header-height: calc(var(--target-min) + var(--space-s) + 1px);
+  /* How much the pinned bar covers. Zero until the header sticks. */
+  --sticky-offset: 0px;
+
+  /* Shape and depth */
+  --radius-s: 2px;
+  --radius-m: 4px;
+  --border-hairline: 1px solid var(--border-subtle);
+  --shadow-raised: 0 1px 0 var(--border-subtle);
+
+  /* Motion */
+  --duration-fast: 120ms;
+  --duration-base: 200ms;
+  --easing-standard: cubic-bezier(0.2, 0, 0.13, 1);
+
+  /* Minimum comfortable touch target. */
+  --target-min: 44px;
+}
+
+/*
+ * A dark lab bench, not a blacked-out copy of the light page. The bright
+ * figures still clear 4.5:1 on the page and their status washes, while the
+ * subtle grid reverses to a low-opacity white line so it remains present.
+ */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-paper: #141814;
+    --color-paper-raised: #1c221d;
+    --color-paper-sunken: #101410;
+    --color-graphite: #f0f3eb;
+    --color-graphite-soft: #d3d8d1;
+    --color-graphite-muted: #aab1a8;
+    --color-rule: #475248;
+    --color-rule-strong: #667165;
+    --color-phosphor: #65d89b;
+    --color-phosphor-bright: #9af0bd;
+    --color-phosphor-wash: #193a27;
+    --color-amber: #ffca78;
+    --color-amber-wash: #3a2914;
+    --color-crimson: #ff918b;
+    --raster-line: rgb(255 255 255 / 4%);
+    --shadow-floating: 0 6px 12px rgb(0 0 0 / 35%);
+    --shadow-control: 0 2px 6px rgb(0 0 0 / 40%);
+  }
+}

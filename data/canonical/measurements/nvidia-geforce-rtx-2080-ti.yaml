@@ -1,0 +1,193 @@
+- caveat: >-
+    The lower declared clock. The separately named upper clock is a different
+    quantity and uses peak-clock.
+  comparabilityGroup: clock-frequency|gpu|nominal-clock
+  editorialStatus: approved
+  evidenceStage: shipped
+  id: nvidia-tu102:clock-frequency-base
+  method: nominal-clock
+  metric: clock-frequency
+  normalized:
+    value: "1350000000"
+    unit: Hz
+    significantDigits: 3
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 3
+    state: value
+    unit: MHz
+    value: "1350"
+  scope: gpu
+  sourceIds:
+    - nvidia-geforce-rtx-2080-ti-product-specifications
+  status: vendor-rated
+  subject:
+    id: nvidia-tu102
+    kind: component
+  evidenceLevel: confirmed
+- caveat: The vendor’s upper boost clock, distinct from the nominal clock.
+  comparabilityGroup: clock-frequency|gpu|peak-clock
+  editorialStatus: approved
+  evidenceStage: shipped
+  id: nvidia-tu102:clock-frequency-boost
+  method: peak-clock
+  metric: clock-frequency
+  normalized:
+    value: "1635000000"
+    unit: Hz
+    significantDigits: 4
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 4
+    state: value
+    unit: MHz
+    value: "1635"
+  scope: gpu
+  sourceIds:
+    - nvidia-geforce-rtx-2080-ti-product-specifications
+  status: vendor-rated
+  subject:
+    id: nvidia-tu102
+    kind: component
+  evidenceLevel: confirmed
+- caveat: The frame buffer fitted to the reference accelerator; host memory is
+    excluded.
+  comparabilityGroup: memory-capacity|whole-system|design-capacity
+  editorialStatus: approved
+  evidenceStage: shipped
+  id: nvidia-geforce-rtx-2080-ti-memory:capacity
+  method: design-capacity
+  metric: memory-capacity
+  normalized:
+    value: "11811160064"
+    unit: B
+    significantDigits: 2
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 2
+    state: value
+    unit: GiB
+    value: "11"
+  scope: whole-system
+  sourceIds:
+    - nvidia-geforce-rtx-2080-ti-product-specifications
+  status: vendor-rated
+  subject:
+    id: nvidia-geforce-rtx-2080-ti-memory
+    kind: component
+  evidenceLevel: confirmed
+- caveat: >-
+    Vendor-stated maximum transfer rate of this memory interface, not a
+    benchmarked application result.
+  comparabilityGroup: memory-bandwidth|memory|theoretical-peak
+  editorialStatus: approved
+  evidenceStage: shipped
+  id: nvidia-geforce-rtx-2080-ti-memory:bandwidth
+  method: theoretical-peak
+  metric: memory-bandwidth
+  normalized:
+    value: "616000000000"
+    unit: B/s
+    significantDigits: 3
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 3
+    state: value
+    unit: GB/s
+    value: "616"
+  scope: memory
+  sourceIds:
+    - nvidia-geforce-rtx-2080-ti-product-specifications
+  status: theoretical
+  subject:
+    id: nvidia-geforce-rtx-2080-ti-memory
+    kind: component
+  evidenceLevel: confirmed
+- caveat: Adds the one fitted frame-buffer bandwidth. No host memory is included.
+  comparabilityGroup: memory-bandwidth|whole-system|theoretical-peak
+  derivedFrom: nvidia-geforce-rtx-2080-ti:whole-system-memory-bandwidth
+  editorialStatus: approved
+  evidenceStage: shipped
+  id: nvidia-geforce-rtx-2080-ti:whole-system-memory-bandwidth
+  method: theoretical-peak
+  metric: memory-bandwidth
+  normalized:
+    value: "616000000000"
+    unit: B/s
+    significantDigits: 3
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 3
+    state: value
+    unit: GB/s
+    value: "616"
+  rounding: none
+  scope: whole-system
+  sourceIds:
+    - nvidia-geforce-rtx-2080-ti-product-specifications
+  status: derived
+  subject:
+    id: nvidia-geforce-rtx-2080-ti
+    kind: system
+  evidenceLevel: confirmed
+- caveat: >-
+    A theoretical general-shader FP32 peak; tensor, AI and ray-tracing rates are
+    excluded.
+  comparabilityGroup: peak-fp32-rate|gpu|theoretical-peak
+  conditions: General shader units at the
+    {{measurement:nvidia-tu102:clock-frequency-boost}} boost clock.
+  editorialStatus: approved
+  evidenceStage: shipped
+  id: nvidia-tu102:peak-fp32-rate
+  method: theoretical-peak
+  metric: peak-fp32-rate
+  normalized:
+    value: "13450000000000"
+    unit: FLOP/s
+    significantDigits: 4
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 4
+    state: value
+    unit: TFLOP/s
+    value: "13.45"
+  scope: gpu
+  sourceIds:
+    - nvidia-geforce-rtx-2080-ti-product-specifications
+  status: theoretical
+  subject:
+    id: nvidia-tu102
+    kind: component
+  evidenceLevel: confirmed
+- caveat: The vendor’s thermal-design target, not a measured board draw.
+  comparabilityGroup: thermal-design-power|gpu|rated-power
+  editorialStatus: approved
+  evidenceStage: shipped
+  id: nvidia-tu102:thermal-design-power
+  method: rated-power
+  metric: thermal-design-power
+  normalized:
+    value: "250"
+    unit: W
+    significantDigits: 3
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 3
+    state: value
+    unit: W
+    value: "250"
+  scope: gpu
+  sourceIds:
+    - nvidia-geforce-rtx-2080-ti-product-specifications
+  status: vendor-rated
+  subject:
+    id: nvidia-tu102
+    kind: component
+  evidenceLevel: confirmed

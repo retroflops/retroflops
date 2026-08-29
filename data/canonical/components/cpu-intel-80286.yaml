@@ -1,0 +1,16 @@
+id: intel-80286
+slug: intel-80286
+kind: cpu
+name: Intel 80286
+manufacturer: Intel
+architecture: '80286'
+introducedDate: 1982-02
+instructionSet: Intel 80286
+instructionSetFamily: x86
+summary:
+  The protected-mode {{context:intel-80286:context-bit-16}} successor to the
+  8086, normally paired with an optional 80287 floating-point coprocessor.
+sourceIds:
+  - intel-historical-x86-documentation
+  - intel-80286-80287-programmers-reference-manual
+editorialStatus: provisional

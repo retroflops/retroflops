@@ -1,0 +1,39 @@
+accessedDate: 2026-08-17
+alt: A black SNK Neo Geo AES photographed against white, with an arcade-style joystick controller of
+  nearly the same size standing to its left and connected to it by a thick cable.
+attribution: Photograph by Evan-Amos, licensed CC BY-SA 3.0, via Wikimedia Commons.
+canonical:
+  byteLength: 15082
+  format: avif
+  height: 960
+  sha256: b4798c89e10af067807f536ebdc19b93ed49247bee2ad8e1a34040bb508e40e4
+  width: 1280
+caption: The Neo Geo AES beside the arcade stick sold with it, which is very nearly as large as the console.
+creator: Evan-Amos
+creatorType: person
+editorialStatus: approved
+id: snk-neo-geo-aes-console
+original:
+  byteLength: 1475082
+  height: 1340
+  mediaType: image/jpeg
+  sha256: 71356ff43f4faaf9c87dfa96af0c34e7d08d6f09f7c4e990418f30b276e0afae
+  width: 4060
+originalUrl: https://upload.wikimedia.org/wikipedia/commons/7/72/Neo-Geo-AES-Console-Set.jpg
+publisher: Wikimedia Commons
+rights:
+  id: cc-by-sa-3.0
+  statedAt: https://commons.wikimedia.org/wiki/File:Neo-Geo-AES-Console-Set.jpg
+  statement: This file is licensed under the Creative Commons Attribution-Share Alike 3.0 Unported license.
+  url: https://creativecommons.org/licenses/by-sa/3.0/
+sourcePageUrl: https://commons.wikimedia.org/wiki/File:Neo-Geo-AES-Console-Set.jpg
+title: Neo-Geo-AES-Console-Set.jpg
+transform:
+  background: "#ffffff"
+  fit: pad
+  note: The photograph is wider than 4:3 and the machine reaches both ends of it, so no crop keeps the
+    whole subject. The declared margin is the same white as the backdrop the photograph was taken
+    against, which is why it cannot be seen; it is recorded because it is there.
+  preset: image-v1
+  sourceHeight: 1340
+  sourceWidth: 4060

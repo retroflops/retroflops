@@ -1,0 +1,19 @@
+accessedDate: 2026-08-22
+editorialStatus: provisional
+id: game-boy-cpu-manual
+locator: Printed p. 16, table 1.5, Feature Comparison
+publisher: Nintendo of America Inc.
+sourceType: technical-manual
+tier: B
+title: Game Boy Programming Manual, Version 1.1
+url: https://archive.org/download/GameBoyProgManVer1.1/GameBoyProgManVer1.1.pdf
+publishedDate: 1999-12-03
+extract: Game Boy Programming Manual ... Version 1.1
+fetch:
+  url: https://archive.org/download/GameBoyProgManVer1.1/GameBoyProgManVer1.1.pdf
+  finalUrl: https://dn790000.ca.archive.org/0/items/GameBoyProgManVer1.1/GameBoyProgManVer1.1.pdf
+  fetchedAt: 2026-08-24T18:59:24Z
+  httpStatus: 200
+  contentType: application/pdf
+  byteLength: 3405224
+  sha256: 5263e6c1f5fa51fc6813d2ed71c738c887ec78554eef633ad72c6285f7ff9197

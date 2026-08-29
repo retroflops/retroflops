@@ -1,0 +1,52 @@
+- extract: >-
+    The main memory in the system is used in parallel by the R4300 CPU, the RSP
+    microcode engine, the RDP graphics pipeline, and the other I/O interfaces of
+    the RCP.
+  extractHash: 74bc273728c1c2f257be54921327189099d86fe11e4186ad5f7edbd1e8093375
+  id: n64-pm:p47:shared-main-memory
+  locator: chapter 3 "Hardware architecture", page 47, "Memory issues"
+  notes: >-
+    The scan renders "system is" as "system-is"; corrected. This is the
+    architectural statement that matters most for the record: the Nintendo 64
+    has one memory pool shared by processor, geometry engine and rasterizer,
+    where the PlayStation has main memory and video memory as separate pools.
+  sourceId: n64-programming-manual
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-07-29
+- extract: >-
+    Clock Speeds and Bus Bandwidth
+
+    [...] system statistics and bandwidths:
+
+    • CPU - 94 Mhz
+
+    • RDRAM - 110 Mhz (9 bit bytes at 500 M/sec)
+
+    • RCP - 62.6 Mhz
+  extractHash: bdfddcecdb61148f48a952e18c132de02b2feaf537694c46c29ca0b50f37231d
+  id: n64-pm:p48:clock-speeds
+  locator:
+    chapter 3 "Hardware architecture", page 48, "Clock speeds and bus bandwidth"
+  notes: >-
+    Heavily damaged scan. The elided introductory line reads "fpfrious s^ptem
+    statistics and bandwidths:" and only "system statistics and bandwidths" is
+    legible. "CPU -94:^ Mhz" is read as 94; "RDRAM -liO Mhz" is reconstructed as
+    110 from the letterforms and is not published as a figure. The remaining
+    bullets (AI, VI, PI, SI) are omitted as illegible or unused. The manual
+    gives the CPU as a round 94 MHz, not to the precision other sources quote.
+  sourceId: n64-programming-manual
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-07-29
+- extract: The 4 Megabytes of main memory uses the 9 bit RDRAMs.
+  extractHash: 0578be0d80c812297abf73e8f333dbd5c4fa98353f834f7da554d54fb1474c76
+  id: n64-pm:p49:main-memory
+  locator: chapter 3 "Hardware architecture", page 49, "Development hardware"
+  notes: >-
+    The scan reads "The 4 Megabytes oi : mam rr^mqry uses the 9 bit RDRAMs"; "of
+    main memory" is reconstructed, the quantity itself is legible. The sentence
+    sits in a paragraph describing the development system, whose cartridge is
+    replaced by 16 megabytes of RAM, but it states the console's own main memory
+    rather than the development board's.
+  sourceId: n64-programming-manual
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-07-29

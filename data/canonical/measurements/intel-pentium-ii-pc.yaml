@@ -1,0 +1,180 @@
+- caveat: >-
+    This figure remains provisional until the cited source is corroborated for
+    the exact configuration.
+  comparabilityGroup: clock-frequency|cpu|nominal-clock
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: intel-pentium-ii:clock-frequency
+  method: nominal-clock
+  metric: clock-frequency
+  normalized:
+    value: "300000000"
+    unit: Hz
+    significantDigits: 1
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 1
+    state: value
+    unit: MHz
+    value: "300"
+  scope: cpu
+  sourceIds:
+    - intel-historical-x86-documentation
+  status: vendor-rated
+  subject:
+    id: intel-pentium-ii
+    kind: component
+  evidenceLevel: confirmed
+- caveat: >-
+    This figure remains provisional until the cited source is corroborated for
+    the exact configuration.
+  comparabilityGroup: clock-frequency|cpu|peak-clock
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: intel-pentium-ii:peak-clock
+  method: peak-clock
+  metric: clock-frequency
+  provenance: vendor
+  quantity:
+    note: The Pentium II predates dynamic turbo modes.
+    state: not-applicable
+  scope: cpu
+  sourceIds:
+    - intel-historical-x86-documentation
+  status: vendor-rated
+  subject:
+    id: intel-pentium-ii
+    kind: component
+- benchmark:
+    id: dhrystone
+    version: "2.1"
+  caveat: >-
+    A named historic Dhrystone 2.1 result, normalized by the run clock; the
+    one-source result remains provisional.
+  comparabilityGroup: dhrystone-mips-per-mhz|cpu|benchmark-run|dhrystone@2.1
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: intel-pentium-ii:dhrystone-mips-per-mhz
+  method: benchmark-run
+  metric: dhrystone-mips-per-mhz
+  normalized:
+    value: "2.2"
+    unit: DMIPS/MHz
+    significantDigits: 2
+    unitRegistry: units-v1
+  provenance: independent
+  quantity:
+    significantDigits: 2
+    state: value
+    unit: DMIPS/MHz
+    value: "2.2"
+  scope: cpu
+  sourceIds:
+    - x86-dhrystone-results
+  status: measured
+  subject:
+    id: intel-pentium-ii
+    kind: component
+  evidenceLevel: reported
+- caveat: >-
+    This figure remains provisional until the cited source is corroborated for
+    the exact configuration.
+  comparabilityGroup: peak-fp32-rate|cpu|theoretical-peak
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: intel-pentium-ii:peak-fp32-rate
+  method: theoretical-peak
+  metric: peak-fp32-rate
+  provenance: vendor
+  quantity:
+    note: >-
+      The processor has floating-point hardware, but the cited specification
+      does not publish an FP32 peak in FLOP/s.
+    state: unknown
+  unknownAudit:
+    reviewedOn: 2026-08-25
+    routesChecked:
+      - vendor-documentation
+      - independent-analysis
+      - community-source
+    outcome: no-compatible-candidate
+    summary: The checked historical documentation provides no precision-qualified
+      FP32 rate.
+  scope: cpu
+  sourceIds:
+    - intel-historical-x86-documentation
+  status: vendor-rated
+  subject:
+    id: intel-pentium-ii
+    kind: component
+- caveat: >-
+    Intel's Max Processor Power, which the datasheet defines as 100% of the core
+    and 100% of the L2 cache. It is not the Max Thermal Plate Power of
+    {{context:intel-pentium-ii:context-w-41-4}} printed beside it, and it is
+    specific to CPU ID 63x: the same table rates a
+    {{context:intel-pentium-ii:context-mhz-266}} part at either
+    {{context:intel-pentium-ii:context-w-38-2}} or
+    {{context:intel-pentium-ii:context-w-19-5}} depending on stepping, and the
+    faster {{context:intel-pentium-ii:context-mhz-333}} part at
+    {{context:intel-pentium-ii:context-w-23-7}}, so this figure belongs to the
+    0.35-micron silicon and cannot stand for every processor sold as a Pentium
+    II 300.
+  comparabilityGroup: thermal-design-power|cpu|rated-power
+  conditions: Max Processor Power at
+    {{measurement:intel-pentium-ii:clock-frequency}} with
+    {{context:intel-pentium-ii:context-kb-512}} of L2 cache, CPU ID 63x, at
+    nominal core and {{context:intel-pentium-ii:context-v-3-3}} L2 supply
+    voltages.
+  editorialStatus: approved
+  evidenceStage: shipped
+  id: intel-pentium-ii:thermal-design-power
+  method: rated-power
+  metric: thermal-design-power
+  normalized:
+    value: "43"
+    unit: W
+    significantDigits: 3
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 3
+    state: value
+    unit: W
+    value: "43.0"
+  scope: cpu
+  sourceIds:
+    - intel-pentium-ii-datasheet
+  status: vendor-rated
+  subject:
+    id: intel-pentium-ii
+    kind: component
+  evidenceLevel: confirmed
+- caveat: >-
+    This figure remains provisional until the cited source is corroborated for
+    the exact configuration.
+  comparabilityGroup: memory-capacity|whole-system|design-capacity
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: intel-pentium-ii-pc:whole-system-memory-capacity
+  method: design-capacity
+  metric: memory-capacity
+  normalized:
+    value: "67108864"
+    unit: B
+    significantDigits: 2
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 2
+    state: value
+    unit: MiB
+    value: "64"
+  scope: whole-system
+  sourceIds:
+    - intel-historical-x86-documentation
+  status: vendor-rated
+  subject:
+    id: intel-pentium-ii-pc
+    kind: system
+  evidenceLevel: confirmed

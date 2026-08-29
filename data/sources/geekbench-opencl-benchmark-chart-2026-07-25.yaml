@@ -1,0 +1,24 @@
+accessedDate: 2026-08-18
+editorialStatus: approved
+fetch:
+  byteLength: 379361
+  contentType: text/html; charset=utf-8
+  fetchedAt: 2026-08-18T20:56:46Z
+  httpStatus: 200
+  sha256: 77e4e217dae529f4986272328e1180d604aee3fc484621edcf46bee63de82af2
+  url: https://web.archive.org/web/20260725063929id_/https://browser.geekbench.com/opencl-benchmarks
+id: geekbench-opencl-benchmark-chart-2026-07-25
+license: Copyright Primate Labs Inc. Quoted here under short-extract fair use
+  for verification of the figures cited.
+locator: >-
+  Device and Score table, rows "NVIDIA GeForce RTX 5090", "NVIDIA H100 80GB
+  HBM3", "NVIDIA GeForce RTX 4090", "AMD Radeon RX 7900 XTX", "NVIDIA GeForce
+  GTX 1080", "Apple M1" and "Apple M4"
+publisher: Primate Labs Inc.
+sourceType: official-benchmark-result
+tier: A
+title: Geekbench 7 OpenCL Benchmark Chart — 25 July 2026 capture
+url: https://web.archive.org/web/20260725063929id_/https://browser.geekbench.com/opencl-benchmarks
+usageNote: >-
+  A Wayback capture of Primate Labs' rolling chart. The measurements record the
+  capture date and are not current averages.

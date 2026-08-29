@@ -1,0 +1,21 @@
+id: nvidia-rtx-5090-memory
+slug: nvidia-rtx-5090-memory
+kind: memory
+name: NVIDIA GeForce RTX 5090 frame buffer
+manufacturer: NVIDIA
+memoryType: GDDR7
+introducedDate: 2025-01
+summary: >-
+  Thirty-two gibibytes of GDDR7 on a
+  {{measurement:nvidia-rtx-5090-memory:bus-width}} interface at
+  {{measurement:nvidia-rtx-5090-memory:bandwidth}}: five and a half times the
+  bandwidth of the GeForce GTX 1080, and half the H100's.
+notes: >-
+  The bandwidth is in the architecture whitepaper and not on the product page,
+  which states the interface width and stops. This is the one figure on the card
+  that divides cleanly into its 2016 ancestor's: same metric, same scope, same
+  method, both stated by the same vendor.
+sourceIds:
+  - nvidia-rtx-blackwell-whitepaper
+  - nvidia-rtx-5090-product-specifications
+editorialStatus: approved

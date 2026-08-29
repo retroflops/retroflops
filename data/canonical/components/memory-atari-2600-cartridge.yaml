@@ -1,0 +1,13 @@
+architecture: Mask ROM cartridge
+editorialStatus: provisional
+id: atari-2600-cartridge
+kind: memory
+manufacturer: Atari
+memoryType: Mask ROM
+name: Atari 2600 launch cartridge
+slug: atari-2600-cartridge
+sourceIds:
+  - atari-2600-stella-programming-guide
+summary:
+  Removable {{context:atari-2600-cartridge:context-kib-2}} program cartridge,
+  recorded as storage rather than system memory.

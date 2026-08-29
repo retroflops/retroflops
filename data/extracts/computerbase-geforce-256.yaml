@@ -1,0 +1,7 @@
+- extract: 120 MHz GPU-Takt mit einer Füllrate von 480 MT/s.
+  id: computerbase-geforce-256:core-clock
+  locator: Specifications table, "120 MHz GPU-Takt" row
+  sourceId: computerbase-geforce-256
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-25
+  extractHash: 93a3e2d480514d63b115a271833902a2a3e4e40c9fd70e53e8ab4d19c89c33ff

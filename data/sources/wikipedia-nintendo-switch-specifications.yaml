@@ -1,0 +1,20 @@
+id: wikipedia-nintendo-switch-specifications
+title: Nintendo Switch
+publisher: Wikipedia contributors
+accessedDate: 2026-08-26
+locator: Infobox, Graphics row
+extract: >-
+  Graphics 256 Maxwell-based CUDA cores Docked: 768 MHz, 393 GFLOPS Undocked: 384 MHz, 197 GFLOPS
+tier: C
+sourceType: wiki
+url: https://en.wikipedia.org/wiki/Nintendo_Switch
+editorialStatus: provisional
+usageNote: >-
+  Tier C community article used only for the provisional graphics throughput of the docked console.
+fetch:
+  url: https://en.wikipedia.org/wiki/Nintendo_Switch
+  fetchedAt: 2026-08-26T10:14:02Z
+  httpStatus: 200
+  contentType: text/html; charset=UTF-8
+  byteLength: 2354438
+  sha256: ecb36e6ebe35f69cfe8e6b1df582f4d1f2f4614c6914e7187a1ff8a7abc71886

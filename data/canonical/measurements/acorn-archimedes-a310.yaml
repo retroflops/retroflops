@@ -1,0 +1,221 @@
+- caveat: >-
+    The cited Acorn manual states no clock. Wikipedia gives
+    {{measurement:acorn-archimedes-a310:clock-frequency}} for the ARM2 in the
+    first machines of this range, this one among them, and the catalog carries
+    it as rumored.
+  comparabilityGroup: clock-frequency|cpu|nominal-clock
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: acorn-archimedes-a310:clock-frequency
+  method: nominal-clock
+  metric: clock-frequency
+  provenance: community
+  quantity:
+    state: value
+    value: "8"
+    unit: MHz
+    significantDigits: 1
+  scope: cpu
+  sourceIds:
+    - acorn-archimedes-technical-reference
+    - wikipedia-acorn-archimedes
+  status: vendor-rated
+  subject:
+    configurationId: retail
+    id: acorn-archimedes-a310
+    kind: system
+  evidenceLevel: rumored
+  normalized:
+    value: "8000000"
+    unit: Hz
+    significantDigits: 1
+    unitRegistry: units-v1
+- caveat: The verified archive index does not expose a page-level RAM quotation.
+  comparabilityGroup: memory-capacity|memory|design-capacity
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: acorn-archimedes-ram:capacity
+  method: design-capacity
+  metric: memory-capacity
+  provenance: vendor
+  quantity:
+    note: No page-level RAM figure has been verified in the cited manual.
+    state: unknown
+  unknownAudit:
+    reviewedOn: 2026-08-25
+    routesChecked:
+      - vendor-documentation
+      - independent-analysis
+      - community-source
+    outcome: no-published-candidate
+    summary: The checked manual has no page-level compatible value.
+  scope: memory
+  sourceIds:
+    - acorn-archimedes-technical-reference
+  status: vendor-rated
+  subject:
+    id: acorn-archimedes-ram
+    kind: component
+- caveat: The verified archive index does not expose a page-level ROM quotation.
+  comparabilityGroup: memory-capacity|memory|design-capacity
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: acorn-archimedes-rom:capacity
+  method: design-capacity
+  metric: memory-capacity
+  provenance: vendor
+  quantity:
+    note: No page-level ROM figure has been verified in the cited manual.
+    state: unknown
+  unknownAudit:
+    reviewedOn: 2026-08-25
+    routesChecked:
+      - vendor-documentation
+      - independent-analysis
+      - community-source
+    outcome: no-published-candidate
+    summary: The checked manual has no page-level compatible value.
+  scope: memory
+  sourceIds:
+    - acorn-archimedes-technical-reference
+  status: vendor-rated
+  subject:
+    id: acorn-archimedes-rom
+    kind: component
+- caveat: >-
+    No whole-system memory total can be supported while the verified source
+    provides no RAM figure.
+  comparabilityGroup: memory-capacity|whole-system|design-capacity
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: acorn-archimedes-a310:whole-system-memory-capacity
+  method: design-capacity
+  metric: memory-capacity
+  provenance: vendor
+  quantity:
+    note: No whole-system total can be derived without a verified RAM figure.
+    state: unknown
+  unknownAudit:
+    reviewedOn: 2026-08-25
+    routesChecked:
+      - vendor-documentation
+      - independent-analysis
+      - community-source
+    outcome: no-compatible-candidate
+    summary: A whole-system total cannot be derived from the checked material.
+  scope: whole-system
+  sourceIds:
+    - acorn-archimedes-technical-reference
+  status: vendor-rated
+  subject:
+    id: acorn-archimedes-a310
+    kind: system
+- caveat: >-
+    The manual lists selectable video clock settings, but no single nominal
+    graphics-clock frequency for the A310.
+  comparabilityGroup: clock-frequency|gpu|nominal-clock
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: acorn-archimedes-a310:gpu-clock-frequency
+  method: nominal-clock
+  metric: clock-frequency
+  provenance: vendor
+  quantity:
+    note: The reviewed manual gives no single nominal graphics-clock figure.
+    state: unknown
+  unknownAudit:
+    reviewedOn: 2026-08-25
+    routesChecked:
+      - vendor-documentation
+      - independent-analysis
+      - community-source
+    outcome: no-published-candidate
+    summary: The checked manual provides no compatible graphics-clock value.
+  scope: gpu
+  sourceIds:
+    - acorn-archimedes-technical-reference
+  status: vendor-rated
+  subject:
+    id: acorn-archimedes-a310
+    kind: system
+- caveat: >-
+    The manual says the system uses fast-page DRAM access, but gives no
+    transfer-rate figure from which memory bandwidth can be stated.
+  comparabilityGroup: memory-bandwidth|memory|theoretical-peak
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: acorn-archimedes-a310:memory-bandwidth
+  method: theoretical-peak
+  metric: memory-bandwidth
+  provenance: vendor
+  quantity:
+    note: The reviewed manual gives no memory transfer-rate figure.
+    state: unknown
+  unknownAudit:
+    reviewedOn: 2026-08-25
+    routesChecked:
+      - vendor-documentation
+      - independent-analysis
+      - community-source
+    outcome: no-compatible-candidate
+    summary: The checked manual provides no memory transfer rate.
+  scope: memory
+  sourceIds:
+    - acorn-archimedes-technical-reference
+  status: vendor-rated
+  subject:
+    id: acorn-archimedes-a310
+    kind: system
+- caveat: >-
+    Provisional record for acorn-archimedes-arm2:peak-fp32-rate: the cited
+    primary manual is registered, but its page-level transcription and
+    independent review are still pending.
+  comparabilityGroup: peak-fp32-rate|cpu|theoretical-peak
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: acorn-archimedes-arm2:peak-fp32-rate
+  method: theoretical-peak
+  metric: peak-fp32-rate
+  provenance: vendor
+  quantity:
+    note: >-
+      ARM2 has no integrated floating-point hardware; the later FPA is a
+      separate option.
+    state: not-applicable
+  scope: cpu
+  sourceIds:
+    - acorn-archimedes-technical-reference
+  status: vendor-rated
+  subject:
+    id: acorn-archimedes-arm2
+    kind: component
+- caveat: >-
+    This is the continuous output rating of the A500-series power supply, not a
+    measured operating draw.
+  comparabilityGroup: rated-power-consumption|whole-system|rated-power
+  editorialStatus: provisional
+  evidenceStage: shipped
+  extractIds:
+    - acorn-a500-technical-reference:power-supply-output
+  id: acorn-archimedes-a310:rated-power-consumption
+  method: rated-power
+  metric: rated-power-consumption
+  provenance: vendor
+  quantity:
+    significantDigits: 3
+    state: value
+    unit: W
+    value: "100"
+  scope: whole-system
+  sourceIds:
+    - acorn-archimedes-technical-reference
+  status: vendor-rated
+  subject:
+    id: acorn-archimedes-a310
+    kind: system
+  normalized:
+    value: "100"
+    unit: W
+    significantDigits: 3
+    unitRegistry: units-v1
+  evidenceLevel: reported

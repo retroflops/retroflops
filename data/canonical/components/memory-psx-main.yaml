@@ -1,0 +1,14 @@
+id: psx-main-ram
+slug: psx-main-ram
+kind: memory
+name: PlayStation main memory
+manufacturer: Sony Computer Entertainment
+architecture: Main RAM
+introducedDate: '1994'
+memoryType: RAM
+summary:
+  '{{measurement:psx-main-ram:capacity}} of main memory, addressed through a
+  fixed physical map because the console fits no TLB.'
+sourceIds:
+  - psx-hardware-reference
+editorialStatus: approved

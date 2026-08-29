@@ -1,0 +1,76 @@
+id: sony-playstation-4
+slug: sony-playstation-4
+name: Sony PlayStation 4
+aliases:
+  - PS4
+manufacturer: Sony Computer Entertainment
+type: console
+family: sony-playstation
+releaseDate: 2013-11
+region: Worldwide
+summary: >-
+  Eight x86-64 cores and {{context:sony-playstation-4:context-unit-18}} compute
+  units on one die, rated at {{measurement:ps4-gpu:peak-fp32-rate}} and sharing
+  {{measurement:ps4-gddr5:capacity}} of GDDR5 in one memory pool.
+description: >-
+  This record differs from the three earlier PlayStations in two ways.
+
+
+  The memory is one pool. The PlayStation kept
+  {{context:sony-playstation-4:context-mib-2}} for the processor and
+  {{context:sony-playstation-4:context-mib-1}} for the drawing chip; the
+  PlayStation 2 kept {{context:sony-playstation-4:context-mib-32}} and
+  {{context:sony-playstation-4:context-mib-4}}; the PlayStation 3 kept
+  {{context:sony-playstation-4:context-mib-256}} and
+  {{context:sony-playstation-4:context-mib-256}}. Each pair has to remain two
+  numbers because neither half can be spent on the other's work. The PlayStation
+  4's {{measurement:ps4-gddr5:capacity}} is unified, so its memory capacity is
+  one figure.
+
+
+  Sony never published either clock. The introduction gives a core count, a
+  compute-unit count, a teraflops figure and bandwidth, but no frequency; the
+  launch-day release repeats only the memory. Everything except the memory
+  capacity is provisional pre-launch evidence, as with the PlayStation 3's
+  announced figures.
+configurations:
+  - id: launch
+    label: Launch console (CUH-1000 series)
+    releaseDate: 2013-11
+    entries:
+      - componentId: ps4-cpu
+        role: main-cpu
+        count: 1
+        shared: false
+        notes: Eight x86-64 cores. Sony states no clock.
+        measurementIds:
+          - sony-playstation-4:cpu-clock-frequency-independent
+      - componentId: ps4-gpu
+        role: gpu
+        count: 1
+        shared: false
+        notes: >-
+          {{context:sony-playstation-4:context-unit-18}} compute units on the
+          same die as the cores. Sony states no clock.
+        measurementIds:
+          - sony-playstation-4:gpu-clock-frequency-independent
+      - componentId: ps4-gddr5
+        role: unified-memory
+        count: 1
+        shared: true
+        notes: >-
+          Shared by the processor and the graphics units. Sony's own word for it
+          is "unified".
+        measurementIds:
+          - ps4-gddr5:capacity
+notes: >-
+  The release date is well attested here: the cited launch release is dated the
+  day the console went on sale in North America. The configuration is labeled
+  for the CUH-1000 series on editorial grounds. Neither cited release names a
+  model number.
+imageIds:
+  - sony-playstation-4-console
+sourceIds:
+  - scei-ps4-introduction-2013
+  - scea-ps4-launch-2013
+editorialStatus: approved

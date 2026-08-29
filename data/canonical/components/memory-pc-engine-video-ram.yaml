@@ -1,0 +1,13 @@
+architecture: Video RAM
+editorialStatus: provisional
+id: pc-engine-video-ram
+kind: memory
+manufacturer: NEC Home Electronics
+memoryType: Video RAM attached to the HuC6270
+name: PC Engine video RAM
+slug: pc-engine-video-ram
+sourceIds:
+  - nec-pc-engine-technical-manual
+summary:
+  '{{measurement:pc-engine-video-ram:capacity}} of memory attached to the video
+  display controller, eight times the console work RAM.'

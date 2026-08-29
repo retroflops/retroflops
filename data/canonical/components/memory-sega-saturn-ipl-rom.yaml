@@ -1,0 +1,11 @@
+architecture: ROM
+editorialStatus: approved
+id: sega-saturn-ipl-rom
+kind: memory
+manufacturer: Sega
+memoryType: ROM
+name: Sega Saturn IPL ROM
+slug: sega-saturn-ipl-rom
+sourceIds:
+  - sega-saturn-service-manual
+summary: '{{measurement:sega-saturn-ipl-rom:capacity}} of boot firmware.'

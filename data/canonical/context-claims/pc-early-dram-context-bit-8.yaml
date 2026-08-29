@@ -1,0 +1,17 @@
+id: pc-early-dram:context-bit-8
+subject:
+  kind: component
+  id: pc-early-dram
+label: Word size
+quantity:
+  state: value
+  value: '8'
+  unit: bit
+  significantDigits: 1
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - intel-historical-x86-documentation
+evidenceLevel: confirmed

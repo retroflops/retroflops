@@ -1,0 +1,17 @@
+id: sony-playstation-5:context-mhz-294-912
+subject:
+  kind: system
+  id: sony-playstation-5
+label: Frequency
+quantity:
+  state: value
+  value: '294.912'
+  unit: MHz
+  significantDigits: 6
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - scei-ps5-hardware-specs-2020
+evidenceLevel: confirmed

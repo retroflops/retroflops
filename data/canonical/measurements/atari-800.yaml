@@ -1,0 +1,277 @@
+- caveat: The Atari hardware manual explicitly gives this NTSC microprocessor clock.
+  comparabilityGroup: clock-frequency|cpu|nominal-clock
+  editorialStatus: provisional
+  evidenceStage: shipped
+  extractIds:
+    - atari-800-reference:cpu-clock-ntsc
+  id: atari-800:ntsc:clock-frequency
+  method: nominal-clock
+  metric: clock-frequency
+  normalized:
+    value: "1790000"
+    unit: Hz
+    significantDigits: 3
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 3
+    state: value
+    unit: MHz
+    value: "1.79"
+  scope: cpu
+  sourceIds:
+    - atari-800-technical-reference-notes
+  status: vendor-rated
+  subject:
+    configurationId: ntsc-48k
+    id: atari-800
+    kind: system
+  evidenceLevel: reported
+- caveat: >-
+    The cited passage gives only the NTSC clock. Wikipedia states
+    {{measurement:atari-800:pal:clock-frequency}} for the PAL machines of this
+    family, and the catalog carries it as rumored.
+  comparabilityGroup: clock-frequency|cpu|nominal-clock
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: atari-800:pal:clock-frequency
+  method: nominal-clock
+  metric: clock-frequency
+  provenance: community
+  quantity:
+    state: value
+    value: "1.77"
+    unit: MHz
+    significantDigits: 3
+  scope: cpu
+  sourceIds:
+    - atari-800-technical-reference-notes
+    - wikipedia-atari-8-bit
+  status: vendor-rated
+  subject:
+    configurationId: pal-48k
+    id: atari-800
+    kind: system
+  evidenceLevel: rumored
+  normalized:
+    value: "1770000"
+    unit: Hz
+    significantDigits: 3
+    unitRegistry: units-v1
+- caveat: The manual identifies this as the maximum Atari 800 RAM configuration.
+  comparabilityGroup: memory-capacity|memory|design-capacity
+  editorialStatus: provisional
+  evidenceStage: shipped
+  extractIds:
+    - atari-800-reference:ram-48k
+  id: atari-800-ram:capacity
+  method: design-capacity
+  metric: memory-capacity
+  normalized:
+    value: "49152"
+    unit: B
+    significantDigits: 2
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 2
+    state: value
+    unit: KiB
+    value: "48"
+  scope: memory
+  sourceIds:
+    - atari-800-technical-reference-notes
+  status: vendor-rated
+  subject:
+    id: atari-800-ram
+    kind: component
+  evidenceLevel: reported
+- caveat: The manual specifies the operating-system ROM capacity.
+  comparabilityGroup: memory-capacity|memory|design-capacity
+  editorialStatus: provisional
+  evidenceStage: shipped
+  extractIds:
+    - atari-800-reference:os-rom-10k
+  id: atari-800-rom:capacity
+  method: design-capacity
+  metric: memory-capacity
+  normalized:
+    value: "10240"
+    unit: B
+    significantDigits: 2
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 2
+    state: value
+    unit: KiB
+    value: "10"
+  scope: memory
+  sourceIds:
+    - atari-800-technical-reference-notes
+  status: vendor-rated
+  subject:
+    id: atari-800-rom
+    kind: component
+  evidenceLevel: reported
+- caveat: >-
+    Atari's technical notes state this as the maximum fitted RAM configuration.
+    The separate {{measurement:atari-800-rom:capacity}} firmware ROM is not
+    writable working memory.
+  comparabilityGroup: memory-capacity|whole-system|design-capacity
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: atari-800:whole-system-memory-capacity
+  method: design-capacity
+  metric: memory-capacity
+  normalized:
+    value: "49152"
+    unit: B
+    significantDigits: 5
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 5
+    state: value
+    unit: B
+    value: "49152"
+  scope: whole-system
+  sourceIds:
+    - atari-800-technical-reference-notes
+  status: vendor-rated
+  subject:
+    id: atari-800
+    kind: system
+  evidenceLevel: reported
+- caveat: >-
+    The hardware manual describes ANTIC and CTIA/GTIA, but gives no independent
+    graphics-clock frequency.
+  comparabilityGroup: clock-frequency|gpu|nominal-clock
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: atari-800:gpu-clock-frequency
+  method: nominal-clock
+  metric: clock-frequency
+  provenance: vendor
+  quantity:
+    note: The reviewed hardware manual names the display chips but no graphics clock.
+    state: unknown
+  unknownAudit:
+    reviewedOn: 2026-08-25
+    routesChecked:
+      - vendor-documentation
+      - independent-analysis
+      - community-source
+    outcome: no-published-candidate
+    summary: The checked hardware manual provides no independent graphics clock.
+  scope: gpu
+  sourceIds:
+    - atari-800-technical-reference-notes
+  status: vendor-rated
+  subject:
+    id: atari-800
+    kind: system
+- caveat: >-
+    The hardware manual documents display DMA from RAM but gives no transfer
+    rate from which a bandwidth can be stated.
+  comparabilityGroup: memory-bandwidth|memory|theoretical-peak
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: atari-800:memory-bandwidth
+  method: theoretical-peak
+  metric: memory-bandwidth
+  provenance: vendor
+  quantity:
+    note: The reviewed hardware manual gives no memory transfer rate.
+    state: unknown
+  unknownAudit:
+    reviewedOn: 2026-08-25
+    routesChecked:
+      - vendor-documentation
+      - independent-analysis
+      - community-source
+    outcome: no-compatible-candidate
+    summary: The checked hardware manual provides no memory transfer rate.
+  scope: memory
+  sourceIds:
+    - atari-800-technical-reference-notes
+  status: vendor-rated
+  subject:
+    id: atari-800
+    kind: system
+- caveat: >-
+    Provisional record for atari-800-6502:peak-fp32-rate: the cited primary
+    manual is registered, but its page-level transcription and independent
+    review are still pending.
+  comparabilityGroup: peak-fp32-rate|cpu|theoretical-peak
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: atari-800-6502:peak-fp32-rate
+  method: theoretical-peak
+  metric: peak-fp32-rate
+  provenance: vendor
+  quantity:
+    note: The Atari 800's 6502 contains no floating-point hardware.
+    state: not-applicable
+  scope: cpu
+  sourceIds:
+    - atari-800-technical-reference-notes
+  status: vendor-rated
+  subject:
+    id: atari-800-6502
+    kind: component
+- comparabilityGroup: sustained-fp40-rate|whole-system|benchmark-run
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: atari-800:sustained-fp40-rate
+  method: benchmark-run
+  metric: sustained-fp40-rate
+  provenance: independent
+  quantity:
+    note: >-
+      A non-IEEE ROM BASIC result needs a named reproducible benchmark before it
+      can be stated.
+    state: unknown
+  unknownAudit:
+    reviewedOn: 2026-08-25
+    routesChecked:
+      - vendor-documentation
+      - independent-analysis
+      - community-source
+    outcome: no-compatible-candidate
+    summary: No named reproducible benchmark result is present in the checked material.
+  scope: whole-system
+  sourceIds:
+    - atari-800-technical-reference-notes
+  status: measured
+  subject:
+    id: atari-800
+    kind: system
+- caveat: >-
+    The hardware manual documents peripheral supply lines, including one with an
+    unspecified current, but no whole-system power rating.
+  comparabilityGroup: rated-power-consumption|whole-system|rated-power
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: atari-800:rated-power-consumption
+  method: rated-power
+  metric: rated-power-consumption
+  provenance: vendor
+  quantity:
+    note: The reviewed hardware manual gives no whole-system power rating.
+    state: unknown
+  unknownAudit:
+    reviewedOn: 2026-08-25
+    routesChecked:
+      - vendor-documentation
+      - independent-analysis
+      - community-source
+    outcome: no-published-candidate
+    summary: The checked hardware manual provides no whole-system power rating.
+  scope: whole-system
+  sourceIds:
+    - atari-800-technical-reference-notes
+  status: vendor-rated
+  subject:
+    id: atari-800
+    kind: system

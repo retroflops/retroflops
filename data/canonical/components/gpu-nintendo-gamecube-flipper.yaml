@@ -1,0 +1,11 @@
+editorialStatus: approved
+id: nintendo-gamecube-flipper
+slug: nintendo-gamecube-flipper
+kind: gpu
+name: ATI Flipper
+manufacturer: ATI / Nintendo
+architecture: Flipper
+introducedDate: '2001'
+summary: The graphics processor fitted to the Nintendo GameCube.
+sourceIds:
+  - nintendo-gamecube-tech-specs

@@ -1,0 +1,230 @@
+- caveat: Atari's service manual states this clock for the microprocessor.
+  comparabilityGroup: clock-frequency|cpu|nominal-clock
+  editorialStatus: provisional
+  evidenceStage: shipped
+  extractIds:
+    - atari-st-service:cpu-clock
+  id: atari-520st:clock-frequency
+  method: nominal-clock
+  metric: clock-frequency
+  normalized:
+    value: "8000000"
+    unit: Hz
+    significantDigits: 1
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 1
+    state: value
+    unit: MHz
+    value: "8"
+  scope: cpu
+  sourceIds:
+    - atari-st-field-service-manual
+  status: vendor-rated
+  subject:
+    configurationId: retail
+    id: atari-520st
+    kind: system
+  evidenceLevel: reported
+- caveat: >-
+    Atari's service manual attributes this capacity to the 520ST's sixteen RAM
+    chips.
+  comparabilityGroup: memory-capacity|memory|design-capacity
+  editorialStatus: provisional
+  evidenceStage: shipped
+  extractIds:
+    - atari-st-service:520st-ram-capacity
+  id: atari-520st-ram:capacity
+  method: design-capacity
+  metric: memory-capacity
+  normalized:
+    value: "524288"
+    unit: B
+    significantDigits: 3
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 3
+    state: value
+    unit: KiB
+    value: "512"
+  scope: memory
+  sourceIds:
+    - atari-st-field-service-manual
+  status: vendor-rated
+  subject:
+    id: atari-520st-ram
+    kind: component
+  evidenceLevel: reported
+- caveat: >-
+    Atari's service manual states this ROM capacity for the 520ST/1040ST system
+    family.
+  comparabilityGroup: memory-capacity|memory|design-capacity
+  editorialStatus: provisional
+  evidenceStage: shipped
+  extractIds:
+    - atari-st-service:rom-capacity
+  id: atari-520st-rom:capacity
+  method: design-capacity
+  metric: memory-capacity
+  normalized:
+    value: "196608"
+    unit: B
+    significantDigits: 3
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 3
+    state: value
+    unit: KiB
+    value: "192"
+  scope: memory
+  sourceIds:
+    - atari-st-field-service-manual
+  status: vendor-rated
+  subject:
+    id: atari-520st-rom
+    kind: component
+  evidenceLevel: reported
+- caveat: >-
+    The service manual states this RAM capacity for the 520ST. Its separate
+    {{measurement:atari-520st-rom:capacity}} TOS ROM is firmware, not writable
+    working memory.
+  comparabilityGroup: memory-capacity|whole-system|design-capacity
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: atari-520st:whole-system-memory-capacity
+  method: design-capacity
+  metric: memory-capacity
+  normalized:
+    value: "524288"
+    unit: B
+    significantDigits: 6
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 6
+    state: value
+    unit: B
+    value: "524288"
+  scope: whole-system
+  sourceIds:
+    - atari-st-field-service-manual
+  status: vendor-rated
+  subject:
+    id: atari-520st
+    kind: system
+  evidenceLevel: reported
+- caveat: >-
+    The service manual describes the Video Shifter and its timing signals, but
+    does not state a separately named graphics-clock frequency.
+  comparabilityGroup: clock-frequency|gpu|nominal-clock
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: atari-520st:gpu-clock-frequency
+  method: nominal-clock
+  metric: clock-frequency
+  provenance: vendor
+  quantity:
+    note: The reviewed manual gives no separate graphics-clock figure.
+    state: unknown
+  unknownAudit:
+    reviewedOn: 2026-08-25
+    routesChecked:
+      - vendor-documentation
+      - independent-analysis
+      - community-source
+    outcome: no-published-candidate
+    summary: >-
+      The checked service manual describes the Video Shifter and its timing
+      signals but gives no separately named graphics-clock frequency.
+  scope: gpu
+  sourceIds:
+    - atari-st-field-service-manual
+  status: vendor-rated
+  subject:
+    id: atari-520st
+    kind: system
+- caveat: >-
+    The service manual describes RAM arbitration and peripheral DMA rates, but
+    does not state a main-memory transfer rate from which bandwidth can be
+    stated.
+  comparabilityGroup: memory-bandwidth|memory|theoretical-peak
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: atari-520st:memory-bandwidth
+  method: theoretical-peak
+  metric: memory-bandwidth
+  provenance: vendor
+  quantity:
+    note: The reviewed manual gives no main-memory transfer-rate figure.
+    state: unknown
+  unknownAudit:
+    reviewedOn: 2026-08-25
+    routesChecked:
+      - vendor-documentation
+      - independent-analysis
+      - community-source
+    outcome: no-compatible-candidate
+    summary: >-
+      The checked service manual describes RAM arbitration and peripheral DMA,
+      but gives no main-memory transfer rate or bus terms for a bandwidth value.
+  scope: memory
+  sourceIds:
+    - atari-st-field-service-manual
+  status: vendor-rated
+  subject:
+    id: atari-520st
+    kind: system
+- caveat: >-
+    Provisional record for atari-520st-68000:peak-fp32-rate: the cited primary
+    manual is registered, but its page-level transcription and independent
+    review are still pending.
+  comparabilityGroup: peak-fp32-rate|cpu|theoretical-peak
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: atari-520st-68000:peak-fp32-rate
+  method: theoretical-peak
+  metric: peak-fp32-rate
+  provenance: vendor
+  quantity:
+    note: The 520ST does not fit a 68881 floating-point coprocessor.
+    state: not-applicable
+  scope: cpu
+  sourceIds:
+    - atari-st-field-service-manual
+  status: vendor-rated
+  subject:
+    id: atari-520st-68000
+    kind: component
+- caveat: >-
+    This is the maximum input rating of the 520ST's separate power supply, not a
+    measured operating draw.
+  comparabilityGroup: rated-power-consumption|whole-system|rated-power
+  editorialStatus: provisional
+  evidenceStage: shipped
+  extractIds:
+    - atari-st-service:520st-max-power-in
+  id: atari-520st:rated-power-consumption
+  method: rated-power
+  metric: rated-power-consumption
+  provenance: vendor
+  quantity:
+    significantDigits: 2
+    state: value
+    unit: W
+    value: "36"
+  scope: whole-system
+  sourceIds:
+    - atari-st-field-service-manual
+  status: vendor-rated
+  subject:
+    id: atari-520st
+    kind: system
+  normalized:
+    value: "36"
+    unit: W
+    significantDigits: 2
+    unitRegistry: units-v1
+  evidenceLevel: reported

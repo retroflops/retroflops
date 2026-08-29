@@ -1,0 +1,15 @@
+id: intel-pentium-ii
+slug: intel-pentium-ii
+kind: cpu
+name: Intel Pentium II
+manufacturer: Intel
+architecture: P6
+introducedDate: 1997-05
+instructionSet: IA-32 with MMX
+instructionSetFamily: x86
+summary:
+  The P6-generation successor to Pentium, packaged in a Slot 1 cartridge with
+  external level-two cache.
+sourceIds:
+  - intel-historical-x86-documentation
+editorialStatus: provisional

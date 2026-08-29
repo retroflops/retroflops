@@ -1,0 +1,21 @@
+accessedDate: 2026-08-04
+archiveUrl: https://archive.org/details/original-playstation-3-manual
+editorialStatus: approved
+fetch:
+  byteLength: 60819
+  contentType: text/plain; charset=utf-8
+  fetchedAt: 2026-08-04T15:04:38Z
+  finalUrl: https://dn721601.ca.archive.org/0/items/original-playstation-3-manual/original%20playstation%203%20manual_djvu.txt
+  httpStatus: 200
+  sha256: f7f59df6e462dbf0cfe8816a407b4cb3db5a9fbad3d842fc96e5f7be279e982a
+  url: https://archive.org/download/original-playstation-3-manual/original%20playstation%203%20manual_djvu.txt
+id: scei-ps3-cecha01-manual
+license: Copyright Sony Interactive Entertainment Inc. Quoted here under
+  short-extract fair use for verification of the figures cited.
+locator: '"Specifications", PlayStation 3 system section'
+publishedDate: "2006"
+publisher: Sony Computer Entertainment America
+sourceType: vendor-documentation
+tier: A
+title: PlayStation 3 Instruction Manual (CECHA01)
+url: https://archive.org/download/original-playstation-3-manual/original%20playstation%203%20manual_djvu.txt

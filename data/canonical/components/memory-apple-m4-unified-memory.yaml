@@ -1,0 +1,10 @@
+id: apple-m4-unified-memory
+slug: apple-m4-unified-memory
+kind: memory
+name: Apple M4 unified memory
+manufacturer: Apple
+memoryType: Unified memory, in package
+summary: One memory pool shared by the M4 processor and graphics cores.
+sourceIds:
+  - apple-mac-mini-m4-tech-specs
+editorialStatus: approved

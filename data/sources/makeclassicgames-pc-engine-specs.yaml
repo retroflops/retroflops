@@ -1,0 +1,19 @@
+id: makeclassicgames-pc-engine-specs
+title: PC-Engine / TurboGrafx-16
+publisher: Make Classic Games
+accessedDate: 2026-08-25
+locator: Technical specifications table, CPU row
+extract: Hudson Soft HuC6280, 8-bit, based on the 65C02, at 7.16 MHz.
+tier: B
+sourceType: independent-analysis
+url: https://makeclassicgames.dev/pdfs/PCE.pdf
+usageNote: >-
+  Independent technical overview, agreeing with the hardware-history source on
+  the high-speed HuC6280 mode.
+fetch:
+  url: https://makeclassicgames.dev/pdfs/PCE.pdf
+  fetchedAt: 2026-08-25T06:13:11Z
+  httpStatus: 200
+  contentType: application/pdf
+  byteLength: 675186
+  sha256: ca0b85a2ab305e27e98d1f05f72c634f25a7efa6c85bb9623578f5547d6a0489

@@ -1,0 +1,22 @@
+id: nvidia-geforce-6800-ultra-whitepaper
+title: Chapter 30. The GeForce 6 Series GPU Architecture
+publisher: NVIDIA
+author: Emmett Kilgariff and Randima Fernando
+url: https://developer.nvidia.com/gpugems/gpugems2/part-iv-general-purpose-computation-gpus-primer/chapter-30-geforce-6-series-gpu
+publishedDate: "2005"
+accessedDate: 2026-08-22
+locator: >-
+  §30.2.1–30.2.2 and §30.4, GeForce 6800 Ultra memory-system and performance
+  discussion
+extract: >-
+  wide (256 bits); 550 MHz DDR memory clock; 35 GB/sec; 425 MHz internal
+  graphics clock
+tier: A
+sourceType: vendor-documentation
+license: Copyright retained by the publisher. Short extracts are recorded solely
+  to verify the cited specifications.
+editorialStatus: provisional
+usageNote: >-
+  This chapter documents a 2005 GeForce 6800 Ultra configuration. It does not
+  establish the April 2004 reference-card memory capacity or a board-power
+  rating.

@@ -1,0 +1,21 @@
+id: ps4-gddr5:context-unit-18
+subject:
+  kind: component
+  id: ps4-gddr5
+label: Count
+quantity:
+  state: value
+  value: '18'
+  unit: unit
+  significantDigits: 2
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - scea-ps4-launch-2013
+  - scei-ps4-introduction-2013
+extractIds:
+  - scea-ps4-2013:launch-architecture
+  - scei-ps4-2013:memory
+evidenceLevel: confirmed

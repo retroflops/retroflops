@@ -1,0 +1,17 @@
+id: msx-ram:context-kib-64
+subject:
+  kind: component
+  id: msx-ram
+label: Capacity
+quantity:
+  state: value
+  value: '64'
+  unit: KiB
+  significantDigits: 2
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - msx-technical-data-book
+evidenceLevel: reported

@@ -1,0 +1,251 @@
+- caveat: >-
+    The cited guide states no processor clock. Wikipedia gives
+    {{measurement:atari-2600:cpu-clock-frequency}} for the 6507 as it runs in
+    this console, and the catalog carries it as rumored.
+  comparabilityGroup: clock-frequency|cpu|nominal-clock
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: atari-2600:cpu-clock-frequency
+  method: nominal-clock
+  metric: clock-frequency
+  provenance: community
+  quantity:
+    state: value
+    value: "1.19"
+    unit: MHz
+    significantDigits: 3
+  scope: cpu
+  sourceIds:
+    - atari-2600-stella-programming-guide
+    - atari-2600-field-service-manual
+    - wikipedia-atari-2600
+  status: vendor-rated
+  subject:
+    configurationId: ntsc
+    id: atari-2600
+    kind: system
+  evidenceLevel: rumored
+  normalized:
+    value: "1190000"
+    unit: Hz
+    significantDigits: 3
+    unitRegistry: units-v1
+- caveat: >-
+    Atari's service manual identifies the fitted 6532; its MOS datasheet
+    specifies the RAM capacity.
+  comparabilityGroup: memory-capacity|memory|design-capacity
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - atari-2600-service:riot
+    - mos-6532-riot-datasheet:ram-capacity
+  id: atari-2600-ram:capacity
+  method: design-capacity
+  metric: memory-capacity
+  provenance: vendor
+  quantity:
+    significantDigits: 3
+    state: value
+    unit: B
+    value: "128"
+  scope: memory
+  sourceIds:
+    - atari-2600-field-service-manual
+    - mos-6532-riot-datasheet
+  status: vendor-rated
+  subject:
+    id: atari-2600-ram
+    kind: component
+  normalized:
+    value: "128"
+    unit: B
+    significantDigits: 3
+    unitRegistry: units-v1
+  evidenceLevel: confirmed
+- caveat: The cited source does not support a fixed base-console cartridge capacity.
+  comparabilityGroup: clock-frequency|gpu|nominal-clock
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: atari-2600:gpu-clock-frequency
+  method: nominal-clock
+  metric: clock-frequency
+  provenance: vendor
+  quantity:
+    note: >-
+      The cited manual names the tile-and-sprite graphics unit but does not
+      publish one standalone GPU clock.
+    state: unknown
+  unknownAudit:
+    reviewedOn: 2026-08-25
+    routesChecked:
+      - vendor-documentation
+      - independent-analysis
+      - community-source
+    outcome: no-published-candidate
+    summary: >-
+      The checked Atari guide and technical documentation give no standalone TIA
+      clock.
+  scope: gpu
+  sourceIds:
+    - atari-2600-stella-programming-guide
+    - atari-2600-field-service-manual
+  status: vendor-rated
+  subject:
+    id: atari-2600
+    kind: system
+- caveat: >-
+    The Stella Programmer's Guide documents the TIA timing and its eight-bit
+    processor interface, but not a memory transfer rate.
+  comparabilityGroup: memory-bandwidth|memory|theoretical-peak
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: atari-2600:memory-bandwidth
+  method: theoretical-peak
+  metric: memory-bandwidth
+  provenance: vendor
+  quantity:
+    note: The reviewed guide gives no memory bandwidth.
+    state: unknown
+  unknownAudit:
+    reviewedOn: 2026-08-25
+    routesChecked:
+      - vendor-documentation
+      - independent-analysis
+      - community-source
+    outcome: no-compatible-candidate
+    summary: >-
+      The checked Atari guide and technical documentation give neither a memory
+      transfer rate nor a bus specification from which to derive bandwidth.
+  scope: memory
+  sourceIds:
+    - atari-2600-stella-programming-guide
+    - atari-2600-field-service-manual
+  status: vendor-rated
+  subject:
+    id: atari-2600
+    kind: system
+- caveat: >-
+    Provisional record for atari-2600: the cited primary manual is registered,
+    but its page-level transcription and independent review are still pending.
+  comparabilityGroup: peak-fp32-rate|cpu|theoretical-peak
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: atari-2600-6507:peak-fp32-rate
+  method: theoretical-peak
+  metric: peak-fp32-rate
+  provenance: vendor
+  quantity:
+    note: This console CPU has no integrated floating-point execution unit.
+    state: not-applicable
+  scope: cpu
+  sourceIds:
+    - atari-2600-stella-programming-guide
+  status: vendor-rated
+  subject:
+    id: atari-2600-6507
+    kind: component
+- caveat: >-
+    Provisional record for atari-2600: the cited primary manual is registered,
+    but its page-level transcription and independent review are still pending.
+  comparabilityGroup: peak-fp32-rate|gpu|theoretical-peak
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: atari-2600-tia:peak-fp32-rate
+  method: theoretical-peak
+  metric: peak-fp32-rate
+  provenance: vendor
+  quantity:
+    note: >-
+      This is a tile, sprite or scanline graphics unit, not a floating-point
+      processor; it executes no FP32 operations.
+    state: not-applicable
+  scope: gpu
+  sourceIds:
+    - atari-2600-stella-programming-guide
+  status: vendor-rated
+  subject:
+    id: atari-2600-tia
+    kind: component
+- caveat: >-
+    The Stella Programmer's Guide describes the TIA and PIA but gives no
+    whole-system power rating.
+  comparabilityGroup: rated-power-consumption|whole-system|rated-power
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: atari-2600:rated-power-consumption
+  method: rated-power
+  metric: rated-power-consumption
+  provenance: vendor
+  quantity:
+    note: The reviewed guide gives no whole-system power rating.
+    state: unknown
+  unknownAudit:
+    reviewedOn: 2026-08-25
+    routesChecked:
+      - vendor-documentation
+      - independent-analysis
+      - community-source
+    outcome: no-compatible-candidate
+    summary: >-
+      The checked Atari guide and field-service manual provide no compatible
+      whole-system power rating.
+  scope: whole-system
+  sourceIds:
+    - atari-2600-stella-programming-guide
+    - atari-2600-field-service-manual
+  status: vendor-rated
+  subject:
+    id: atari-2600
+    kind: system
+- comparabilityGroup: storage-capacity|storage|design-capacity
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: atari-2600:cartridge-storage-capacity
+  method: design-capacity
+  metric: storage-capacity
+  provenance: vendor
+  quantity:
+    note: >-
+      Cartridges are removable and vary by title; the cited source does not
+      support one fixed capacity for the console.
+    state: not-applicable
+  scope: storage
+  sourceIds:
+    - atari-2600-stella-programming-guide
+  status: vendor-rated
+  subject:
+    id: atari-2600-cartridge
+    kind: component
+- caveat: >-
+    Adds 1 memory-capacity figure obtained by design-capacity. Left out:
+    removable game-cartridge ROM (removable program storage, not memory the
+    console can write to). A total is only as trustworthy as the decision about
+    what belongs in it, so both the terms and the exclusions are named records.
+  comparabilityGroup: memory-capacity|whole-system|design-capacity
+  derivedFrom: atari-2600:whole-system-memory
+  editorialStatus: approved
+  evidenceStage: shipped
+  id: atari-2600:whole-system-memory-capacity
+  method: design-capacity
+  metric: memory-capacity
+  provenance: vendor
+  normalized:
+    value: "128"
+    unit: B
+    significantDigits: 3
+    unitRegistry: units-v1
+  quantity:
+    significantDigits: 3
+    state: value
+    unit: B
+    value: '128'
+  scope: whole-system
+  extractIds:
+    - mos-6532-riot-datasheet:ram-capacity
+  sourceIds:
+    - mos-6532-riot-datasheet
+  status: derived
+  subject:
+    id: atari-2600
+    kind: system
+  evidenceLevel: confirmed

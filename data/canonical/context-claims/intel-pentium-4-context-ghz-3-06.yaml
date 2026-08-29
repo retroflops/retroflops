@@ -1,0 +1,17 @@
+id: intel-pentium-4:context-ghz-3-06
+subject:
+  kind: component
+  id: intel-pentium-4
+label: Frequency
+quantity:
+  state: value
+  value: '3.06'
+  unit: GHz
+  significantDigits: 3
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - intel-pentium-4-datasheet
+evidenceLevel: confirmed

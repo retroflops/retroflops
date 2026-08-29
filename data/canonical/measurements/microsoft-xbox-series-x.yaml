@@ -1,0 +1,245 @@
+- caveat: >-
+    Microsoft publishes two frequencies for this processor:
+    {{measurement:microsoft-xbox-series-x:retail:cpu-clock-frequency}} with
+    simultaneous multithreading off,
+    {{context:microsoft-xbox-series-x:context-ghz-3-6}} with it on. Both are
+    fixed rates the developer selects, not a range the console moves through,
+    and the faster mode is the one recorded here.
+  comparabilityGroup: clock-frequency|cpu|nominal-clock
+  conditions: Eight Zen {{context:microsoft-xbox-series-x:context-unit-2}} cores
+    with simultaneous multithreading disabled.
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - xbox-series-x-tech:specs:cpu
+  id: microsoft-xbox-series-x:retail:cpu-clock-frequency
+  method: nominal-clock
+  metric: clock-frequency
+  normalized:
+    value: "3800000000"
+    unit: Hz
+    significantDigits: 2
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 2
+    state: value
+    unit: GHz
+    value: "3.8"
+  scope: cpu
+  sourceIds:
+    - xbox-wire-series-x-tech-2020
+  status: vendor-rated
+  subject:
+    configurationId: retail
+    id: microsoft-xbox-series-x
+    kind: system
+  evidenceLevel: confirmed
+- caveat: >-
+    A fixed frequency rather than a ceiling: Microsoft states it as constant,
+    which is the design choice that makes this a nominal clock and not a peak
+    one.
+  comparabilityGroup: clock-frequency|gpu|nominal-clock
+  conditions: 52 RDNA {{context:microsoft-xbox-series-x:context-unit-2}} compute
+    units at their constant operating frequency.
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - xbox-series-x-tech:specs:gpu
+  id: microsoft-xbox-series-x:retail:gpu-clock-frequency
+  method: nominal-clock
+  metric: clock-frequency
+  normalized:
+    value: "1825000000"
+    unit: Hz
+    significantDigits: 4
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 4
+    state: value
+    unit: GHz
+    value: "1.825"
+  scope: gpu
+  sourceIds:
+    - xbox-wire-series-x-tech-2020
+  status: vendor-rated
+  subject:
+    configurationId: retail
+    id: microsoft-xbox-series-x
+    kind: system
+  evidenceLevel: confirmed
+- caveat: >-
+    The console's whole complement of GDDR6, before Microsoft partitions it into
+    a {{context:microsoft-xbox-series-x-ram:context-gb-10}} region and a
+    {{context:microsoft-xbox-series-x-ram:context-gb-6}} region at different
+    bandwidths. Microsoft writes "16 GB" of a memory part, which is the binary
+    quantity as memory has always been sold.
+  comparabilityGroup: memory-capacity|memory|design-capacity
+  conditions: GDDR6 on a {{context:microsoft-xbox-series-x-ram:context-bit-320}} bus.
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - xbox-series-x-tech:specs:memory
+  id: microsoft-xbox-series-x-ram:capacity
+  method: design-capacity
+  metric: memory-capacity
+  normalized:
+    value: "17179869184"
+    unit: B
+    significantDigits: 2
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 2
+    state: value
+    unit: GiB
+    value: "16"
+  scope: memory
+  sourceIds:
+    - xbox-wire-series-x-tech-2020
+  status: vendor-rated
+  subject:
+    id: microsoft-xbox-series-x-ram
+    kind: component
+  evidenceLevel: confirmed
+- caveat: >-
+    Adds 1 memory-capacity figure obtained by design-capacity. Nothing in the
+    catalog is left out of it. A total is only as trustworthy as the decision
+    about what belongs in it, so both the terms and the exclusions are named
+    records.
+  comparabilityGroup: memory-capacity|whole-system|design-capacity
+  derivedFrom: microsoft-xbox-series-x:whole-system-memory
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - xbox-series-x-tech:specs:memory
+  id: microsoft-xbox-series-x:whole-system-memory-capacity
+  method: design-capacity
+  metric: memory-capacity
+  normalized:
+    value: "17179869184"
+    unit: B
+    significantDigits: 11
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 11
+    state: value
+    unit: B
+    value: "17179869184"
+  rounding: none
+  scope: whole-system
+  sourceIds:
+    - xbox-wire-series-x-tech-2020
+  status: derived
+  subject:
+    id: microsoft-xbox-series-x
+    kind: system
+  evidenceLevel: confirmed
+- caveat: >-
+    The console has two memory bandwidths, not one: Microsoft partitions the
+    {{context:microsoft-xbox-series-x:context-gb-16}} so that
+    {{context:microsoft-xbox-series-x-ram:context-gb-10}} runs at
+    {{measurement:microsoft-xbox-series-x:memory-bandwidth}} and the remaining
+    {{context:microsoft-xbox-series-x-ram:context-gb-6}} at
+    {{context:microsoft-xbox-series-x:context-gb-s-336}}. The faster partition
+    is recorded here and the slower one is named rather than averaged in,
+    because the mean of the two describes no region of this machine.
+  comparabilityGroup: memory-bandwidth|memory|theoretical-peak
+  conditions: "{{context:microsoft-xbox-series-x-ram:context-gb-10}} GPU-optimal
+    partition of {{context:microsoft-xbox-series-x:context-gb-16}} GDDR6 on a
+    {{context:microsoft-xbox-series-x-ram:context-bit-320}} bus."
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - xbox-series-x-tech:specs:memory-bandwidth
+  id: microsoft-xbox-series-x:memory-bandwidth
+  method: theoretical-peak
+  metric: memory-bandwidth
+  normalized:
+    value: "560000000000"
+    unit: B/s
+    significantDigits: 3
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 3
+    state: value
+    unit: GB/s
+    value: "560"
+  scope: memory
+  sourceIds:
+    - xbox-wire-series-x-tech-2020
+  status: vendor-rated
+  subject:
+    id: microsoft-xbox-series-x
+    kind: system
+  evidenceLevel: confirmed
+- caveat: >-
+    Microsoft's specification table says only "12 TFLOPS", which names no
+    precision and could not be recorded as an FP32 rate. The glossary published
+    the same day for the same console says "32-bit float" outright, and that is
+    the document cited. A separate 12.15 TFLOPS figure circulates from a later
+    Microsoft sheet; it is not merged with this one.
+  comparabilityGroup: peak-fp32-rate|gpu|theoretical-peak
+  conditions: 52 RDNA {{context:microsoft-xbox-series-x:context-unit-2-2}} compute
+    units at a fixed {{context:microsoft-xbox-series-x:context-ghz-1-825}}.
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - xbox-series-x-glossary:tflops
+  id: microsoft-xbox-series-x:peak-fp32-rate
+  method: theoretical-peak
+  metric: peak-fp32-rate
+  normalized:
+    value: "12000000000000"
+    unit: FLOP/s
+    significantDigits: 2
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 2
+    state: value
+    unit: TFLOP/s
+    value: "12"
+  scope: gpu
+  sourceIds:
+    - xbox-wire-series-x-glossary-2020
+  status: vendor-rated
+  subject:
+    id: microsoft-xbox-series-x
+    kind: system
+  evidenceLevel: confirmed
+- caveat: >-
+    Microsoft published a full system specification table for this console and
+    put no electrical rating in it. The consoles whose wattage this catalog does
+    hold got it from a safety guide or a regulatory disclosure, and no such
+    document for the Series X has been read.
+  comparabilityGroup: rated-power-consumption|whole-system|rated-power
+  editorialStatus: approved
+  evidenceStage: shipped
+  id: microsoft-xbox-series-x:rated-power-consumption
+  method: rated-power
+  metric: rated-power-consumption
+  provenance: vendor
+  quantity:
+    note: >-
+      Microsoft's full system specifications table states the processor,
+      graphics, memory, storage and I/O and no power figure of any kind.
+    state: unknown
+  unknownAudit:
+    reviewedOn: 2026-08-25
+    routesChecked:
+      - vendor-documentation
+      - independent-analysis
+      - community-source
+    outcome: no-published-candidate
+    summary: Microsoft's full system specification table provides no power figure.
+  scope: whole-system
+  sourceIds:
+    - xbox-wire-series-x-tech-2020
+  status: vendor-rated
+  subject:
+    id: microsoft-xbox-series-x
+    kind: system

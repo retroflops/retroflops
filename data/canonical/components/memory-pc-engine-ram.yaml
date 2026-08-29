@@ -1,0 +1,11 @@
+architecture: Static RAM
+editorialStatus: provisional
+id: pc-engine-ram
+kind: memory
+manufacturer: NEC Home Electronics
+memoryType: Static RAM
+name: PC Engine work RAM
+slug: pc-engine-ram
+sourceIds:
+  - nec-pc-engine-technical-manual
+summary: '{{context:pc-engine-ram:context-kib-8}} writable system RAM.'

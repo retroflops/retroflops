@@ -1,0 +1,23 @@
+id: iphone-s5l8900
+slug: iphone-s5l8900
+kind: cpu
+name: Apple iPhone system-on-chip (CPU section)
+manufacturer: Samsung / Apple (system)
+architecture: ARM11
+introducedDate: '2007'
+instructionSet: ARM1176JZF-S
+instructionSetFamily: arm
+summary: >-
+  One ARM1176JZF-S core running at {{context:iphone-s5l8900:context-mhz-412}};
+  the core could reach {{context:iphone-s5l8900:context-mhz-667}}, and Apple set
+  it lower because the machine it sits in runs on a battery.
+notes: >-
+  Apple published nothing about this processor: not the maker, not the core, not
+  the frequency, not even that the phone had one. Everything recorded here comes
+  from an independent analysis written two years later, which is also why the
+  frequency is provisional rather than approved. The record is split into a
+  processor and a graphics part in the same way the PlayStation 4's single chip
+  is, because a component record carries one kind.
+sourceIds:
+  - anandtech-iphone-hardware-2009
+editorialStatus: provisional

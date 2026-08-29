@@ -1,0 +1,18 @@
+id: dreamcast-audio-ram
+slug: dreamcast-audio-ram
+kind: memory
+name: Dreamcast audio memory
+manufacturer: SEGA Enterprises
+architecture: SDRAM
+introducedDate: '1998'
+memoryType: SDRAM attached to AICA
+summary: >-
+  A third pool, independent of both main and texture memory:
+  {{measurement:dreamcast-audio-ram:capacity}} belonging to the AICA audio chip.
+notes: >-
+  Recorded because it completes the console's memory topology. AICA itself is a
+  sound processor and is not modeled as a component; the catalog records
+  processors, graphics and memory.
+sourceIds:
+  - dreamcast-hardware-spec
+editorialStatus: approved

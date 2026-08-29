@@ -1,0 +1,177 @@
+- caveat: >-
+    This figure remains provisional until the cited source is corroborated for
+    the exact configuration.
+  comparabilityGroup: clock-frequency|cpu|nominal-clock
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: intel-pentium:clock-frequency
+  method: nominal-clock
+  metric: clock-frequency
+  normalized:
+    value: "100000000"
+    unit: Hz
+    significantDigits: 1
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 1
+    state: value
+    unit: MHz
+    value: "100"
+  scope: cpu
+  sourceIds:
+    - intel-historical-x86-documentation
+  status: vendor-rated
+  subject:
+    id: intel-pentium
+    kind: component
+  evidenceLevel: confirmed
+- caveat: >-
+    This figure remains provisional until the cited source is corroborated for
+    the exact configuration.
+  comparabilityGroup: clock-frequency|cpu|peak-clock
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: intel-pentium:peak-clock
+  method: peak-clock
+  metric: clock-frequency
+  provenance: vendor
+  quantity:
+    note: The original Pentium predates dynamic turbo modes.
+    state: not-applicable
+  scope: cpu
+  sourceIds:
+    - intel-historical-x86-documentation
+  status: vendor-rated
+  subject:
+    id: intel-pentium
+    kind: component
+- benchmark:
+    id: dhrystone
+    version: "2.1"
+  caveat: >-
+    A named historic Dhrystone 2.1 result, normalized by the run clock; the
+    one-source result remains provisional.
+  comparabilityGroup: dhrystone-mips-per-mhz|cpu|benchmark-run|dhrystone@2.1
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: intel-pentium:dhrystone-mips-per-mhz
+  method: benchmark-run
+  metric: dhrystone-mips-per-mhz
+  normalized:
+    value: "1.1"
+    unit: DMIPS/MHz
+    significantDigits: 3
+    unitRegistry: units-v1
+  provenance: independent
+  quantity:
+    significantDigits: 3
+    state: value
+    unit: DMIPS/MHz
+    value: "1.10"
+  scope: cpu
+  sourceIds:
+    - x86-dhrystone-results
+  status: measured
+  subject:
+    id: intel-pentium
+    kind: component
+  evidenceLevel: reported
+- caveat: >-
+    This figure remains provisional until the cited source is corroborated for
+    the exact configuration.
+  comparabilityGroup: peak-fp32-rate|cpu|theoretical-peak
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: intel-pentium:peak-fp32-rate
+  method: theoretical-peak
+  metric: peak-fp32-rate
+  provenance: vendor
+  quantity:
+    note: >-
+      The processor includes a floating-point unit, but the cited specification
+      does not publish an FP32 peak in FLOP/s.
+    state: unknown
+  unknownAudit:
+    reviewedOn: 2026-08-25
+    routesChecked:
+      - vendor-documentation
+      - independent-analysis
+      - community-source
+    outcome: no-compatible-candidate
+    summary: The checked historical documentation provides no precision-qualified
+      FP32 rate.
+  scope: cpu
+  sourceIds:
+    - intel-historical-x86-documentation
+  status: vendor-rated
+  subject:
+    id: intel-pentium
+    kind: component
+- caveat: >-
+    Intel's word for this in 1997 was not "thermal design power" but "maximum
+    active power dissipation", the figure the datasheet says a system must be
+    designed to remove. It is the same design target the later term names, and
+    it is recorded here as such, but it is defined by a worst-case instruction
+    mix rather than a reproducible workload, so it sits at the top of what the
+    part draws rather than in the middle. The
+    {{context:intel-pentium:context-w-3-9}} typical on the same row is an
+    average measured in one system and is not a specification.
+  comparabilityGroup: thermal-design-power|cpu|rated-power
+  conditions: Maximum active power dissipation at
+    {{measurement:intel-pentium:clock-frequency}}, VCC =
+    {{context:intel-pentium:context-v-3-3}}, worst-case instruction mix; the
+    datasheet's typical in-system figure for the same part is
+    {{context:intel-pentium:context-w-3-9}}.
+  editorialStatus: approved
+  evidenceStage: shipped
+  id: intel-pentium:thermal-design-power
+  method: rated-power
+  metric: thermal-design-power
+  normalized:
+    value: "10.1"
+    unit: W
+    significantDigits: 3
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 3
+    state: value
+    unit: W
+    value: "10.1"
+  scope: cpu
+  sourceIds:
+    - intel-pentium-datasheet
+  status: vendor-rated
+  subject:
+    id: intel-pentium
+    kind: component
+  evidenceLevel: confirmed
+- caveat: >-
+    This figure remains provisional until the cited source is corroborated for
+    the exact configuration.
+  comparabilityGroup: memory-capacity|whole-system|design-capacity
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: intel-pentium-pc:whole-system-memory-capacity
+  method: design-capacity
+  metric: memory-capacity
+  normalized:
+    value: "16777216"
+    unit: B
+    significantDigits: 2
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 2
+    state: value
+    unit: MiB
+    value: "16"
+  scope: whole-system
+  sourceIds:
+    - intel-historical-x86-documentation
+  status: vendor-rated
+  subject:
+    id: intel-pentium-pc
+    kind: system
+  evidenceLevel: confirmed

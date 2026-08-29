@@ -1,0 +1,53 @@
+configurations:
+  - entries:
+      - componentId: pc-engine-huc6280
+        count: 1
+        role: main-cpu
+        shared: false
+        measurementIds:
+          - nec-pc-engine:cpu-clock-frequency
+      - componentId: pc-engine-vdc
+        count: 1
+        role: gpu
+        shared: false
+        measurementIds:
+          - nec-pc-engine:gpu-clock-frequency
+      - componentId: pc-engine-ram
+        count: 1
+        role: system-memory
+        shared: false
+        measurementIds:
+          - pc-engine-ram:capacity
+      - componentId: pc-engine-video-ram
+        count: 1
+        role: video-memory
+        shared: false
+        notes: >-
+          Attached to the HuC6270; the processor reaches it through the display
+          controller's address and data registers.
+        measurementIds:
+          - pc-engine-video-ram:capacity
+    id: japan
+    label: Japanese retail console
+    region: Japan
+editorialStatus: provisional
+id: nec-pc-engine
+manufacturer: NEC Home Electronics
+name: NEC PC Engine
+notes: HuCards are removable program storage and excluded from the memory total.
+region: Japan
+releaseDate: 1987-10
+slug: nec-pc-engine
+imageIds:
+  - nec-pc-engine-console
+sourceIds:
+  - nec-pc-engine-technical-manual
+summary: >-
+  A HuC6280 console with a tile-and-sprite video chip, built small enough to sit
+  in one hand and loading games from credit-card-sized HuCards.
+type: console
+description: >-
+  NEC and Hudson Soft divided the work, Hudson designing the processor and video
+  hardware and NEC building and selling the machine. It sits awkwardly between
+  console generations, pairing a processor from the earlier one with graphics
+  that outclassed everything sold beside it.

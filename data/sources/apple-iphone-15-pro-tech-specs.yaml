@@ -1,0 +1,23 @@
+accessedDate: 2026-08-13
+editorialStatus: approved
+fetch:
+  byteLength: 1220660
+  contentType: text/html;charset=utf-8
+  fetchedAt: 2026-08-13T15:24:19Z
+  httpStatus: 200
+  sha256: 6befe6b229f6e11c38d0356eda43c0e738bc0be9836a6a01a410a01b462cd16b
+  url: https://support.apple.com/en-us/111829
+id: apple-iphone-15-pro-tech-specs
+license: Copyright Apple Inc. Quoted here under short-extract fair use for
+  verification of the cited specifications.
+locator: Chip and Power and Battery sections
+publishedDate: "2023"
+publisher: Apple Inc.
+sourceType: vendor-documentation
+tier: A
+title: Apple iPhone 15 Pro — Technical Specifications
+url: https://support.apple.com/en-us/111829
+usageNote: >-
+  Apple states the chip identification and retail technical details, while
+  deliberately not filling undocumented clock, DRAM, bandwidth, FP32 or
+  whole-system power fields.

@@ -1,0 +1,19 @@
+id: sony-playstation-4:context-hz-60
+subject:
+  kind: system
+  id: sony-playstation-4
+label: Frequency
+quantity:
+  state: value
+  value: '60'
+  unit: Hz
+  significantDigits: 2
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - scei-ps4-safety-guide-cuh-1001a
+extractIds:
+  - ps4-cuh-1001a:p11:rated-power
+evidenceLevel: confirmed

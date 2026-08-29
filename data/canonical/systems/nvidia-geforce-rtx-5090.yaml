@@ -1,0 +1,70 @@
+id: nvidia-geforce-rtx-5090
+slug: nvidia-geforce-rtx-5090
+name: NVIDIA GeForce RTX 5090
+manufacturer: NVIDIA
+type: accelerator
+family: nvidia-geforce
+releaseDate: 2025-01
+region: Worldwide
+summary: >-
+  {{measurement:nvidia-gb202:peak-fp32-rate}} of single precision,
+  {{measurement:nvidia-rtx-5090-memory:capacity}} of GDDR7 at
+  {{measurement:nvidia-rtx-5090-memory:bandwidth}} and
+  {{measurement:nvidia-gb202:rated-power-consumption}}. These are the same three
+  quantities recorded for the GeForce GTX 1080 nine years earlier.
+description: >-
+  This record can be compared with the GeForce GTX 1080, the oldest consumer
+  card in the catalog. Both are NVIDIA cards, and both state a single-precision
+  peak and memory bandwidth obtained by the same methods. Their multipliers are
+  therefore legitimate: twelve times the floating-point rate, five and a half
+  times the bandwidth, and four times the memory. Board power is a rating rather
+  than a measurement, so the metric forbids a ratio for it.
+
+
+  NVIDIA's page for this card states no floating-point rate or memory bandwidth.
+  It gives "3352 AI TOPS" and "318 TFLOPS" instead. The first counts
+  low-precision tensor operations; the second belongs to the ray-tracing engine.
+  Neither is a single-precision rate. Dividing either by the GeForce GTX 1080's
+  8,873 GFLOPS would combine different units, arithmetic and precision, so
+  neither is recorded.
+
+
+  The architecture whitepaper supplies the recorded figures. Its appendix writes
+  "Peak FP32 TFLOPS (non-Tensor)" and prints the bandwidth. Like the H100
+  record, this one relies on a vendor document that names the claimed precision.
+imageIds:
+  - nvidia-geforce-rtx-5090-card
+configurations:
+  - id: founders-edition
+    label: Reference card
+    releaseDate: 2025-01
+    entries:
+      - componentId: nvidia-gb202
+        role: gpu
+        count: 1
+        shared: false
+        notes: >-
+          The base clock. The boost clock,
+          {{measurement:nvidia-gb202:clock-frequency-boost}}, is a separate
+          figure in a separate group.
+        measurementIds:
+          - nvidia-gb202:clock-frequency-base
+          - nvidia-gb202:clock-frequency-boost
+      - componentId: nvidia-rtx-5090-memory
+        role: video-memory
+        count: 1
+        shared: false
+        measurementIds:
+          - nvidia-rtx-5090-memory:capacity
+notes: >-
+  The release date is editorial context: neither cited document carries a
+  publication date. The configuration is labeled a reference card for the same
+  reason as the GeForce GTX 1080's. Partner boards carry clocks of their own.
+  The tensor and ray-tracing rates, the fill rates and the required system power
+  are not recorded because the catalog has no metric that would make them
+  comparable with anything. The whitepaper's non-tensor FP16 and INT32 peaks are
+  omitted for the same reason as the H100's BFLOAT16 and FP8 rates.
+sourceIds:
+  - nvidia-rtx-blackwell-whitepaper
+  - nvidia-rtx-5090-product-specifications
+editorialStatus: approved

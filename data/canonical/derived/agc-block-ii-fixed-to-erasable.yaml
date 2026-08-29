@@ -1,0 +1,19 @@
+id: agc-block-ii:fixed-to-erasable-memory
+formula:
+  id: ratio
+  version: '1'
+  expression: a ÷ b
+inputMeasurementIds:
+  - agc-core-rope:capacity
+  - agc-erasable-core:capacity
+result:
+  state: value
+  value: '18'
+  unit: unit
+  significantDigits: 4
+rounding: half-up
+caveat: >-
+  Compares memory-capacity-words at memory scope, obtained by design-capacity.
+  Valid only within this comparability group, and reported to 4 significant
+  digits — the precision of the least precise input.
+editorialStatus: approved

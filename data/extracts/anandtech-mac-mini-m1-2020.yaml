@@ -1,0 +1,50 @@
+- extract: >-
+    We can confirm that in single-threaded workloads, Apple’s Firestorm cores
+    now clock in at 3.2GHz, a 6.66% increase over the 3GHz frequency of the
+    Apple A14. As long as there's thermal headroom, this clock also applies to
+    all-core loads, with in addition to 4x 3.2GHz performance cores also seeing
+    4x Thunder efficiency cores at 2064MHz
+  extractHash: 67f40201e4051b1f6dd212ab80d316e3193bb2b2df4e1a3f287126952274e866
+  id: anandtech-m1:clocks
+  locator: >-
+    Page 1, section "Apple Silicon M1: Firestorm cores at 3.2GHz & ~20-24W
+    TDP?", paragraph beginning "We can confirm"
+  notes: >-
+    Two frequencies, and unlike the iPhone's 412 and 667 MHz they are not the
+    same core at two settings: they are the two halves of the chip, running at
+    once. Only the first is transcribed here because a research record holds one
+    reading; the efficiency cores' 2064 MHz is read from this same sentence and
+    recorded as its own figure. "Thunder" is what the article calls the
+    efficiency cores throughout; Apple's name for them, used everywhere else in
+    this catalog, is Icestorm. The sentence is cut where the published one
+    continues into the graphics cores.
+  sourceId: anandtech-mac-mini-m1-2020
+  transcribed:
+    significantDigits: 2
+    state: value
+    unit: GHz
+    value: '3.2'
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-04
+- extract: >-
+    Across 8x 16-bit memory channels and at LPDDR4X-4266-class memory, this
+    means the M1 hits a peak of 68.25GB/s memory bandwidth.
+  extractHash: c93dfd55ed0fe018f3bd01404c9da2930b96d01ee5cf85f372aa72884d1b7406
+  id: anandtech-m1:memory-bandwidth
+  locator: >-
+    Page 1, section "Memory Differences", paragraph beginning "Besides the
+    additional cores"
+  notes: >-
+    The channel count and the memory class are what 7-CPU's opening line also
+    states, and the analyst computed the rate from them rather than reading it
+    off a specification — Apple publishes none. That makes it a peak the bus
+    allows, not a rate anything reached; the same page reports a single core
+    actually copying at 60 to 62 GB/s.
+  sourceId: anandtech-mac-mini-m1-2020
+  transcribed:
+    significantDigits: 4
+    state: value
+    unit: GB/s
+    value: '68.25'
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-04

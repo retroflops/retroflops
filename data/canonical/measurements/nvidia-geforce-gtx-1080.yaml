@@ -1,0 +1,435 @@
+- caveat: >-
+    The base clock: the frequency the card is specified to hold, and the one of
+    its two clocks that belongs in the same row as a fixed crystal frequency.
+    The boost clock is recorded separately, because a ceiling reached when there
+    is thermal headroom answers a different question.
+  comparabilityGroup: clock-frequency|gpu|nominal-clock
+  conditions: Reference card, as specified in NVIDIA's launch table.
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - nvidia-gtx-1080:specifications
+    - nvidia-gtx-1080:whitepaper-table
+  id: nvidia-gp104:clock-frequency-base
+  method: nominal-clock
+  metric: clock-frequency
+  normalized:
+    value: "1607000000"
+    unit: Hz
+    significantDigits: 4
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 4
+    state: value
+    unit: MHz
+    value: "1607"
+  scope: gpu
+  sourceIds:
+    - nvidia-gtx-1080-deep-dive-2016
+    - nvidia-gtx-1080-whitepaper
+  status: vendor-rated
+  subject:
+    id: nvidia-gp104
+    kind: component
+  evidenceLevel: confirmed
+- caveat: >-
+    The boost clock, and NVIDIA's own footnote is why it is a separate figure
+    rather than a better version of the base clock: the vendor computes its rate
+    figures from this frequency, not from the one the card is specified to hold.
+    It sits in the same comparability group as the PlayStation 5's
+    variable-frequency ceiling and in a different one from every fixed clock in
+    the catalog.
+  comparabilityGroup: clock-frequency|gpu|peak-clock
+  conditions: Reference card, the frequency NVIDIA guarantees the card reaches
+    when power and thermal headroom allow.
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - nvidia-gtx-1080:specifications
+    - nvidia-gtx-1080:whitepaper-table
+  id: nvidia-gp104:clock-frequency-boost
+  method: peak-clock
+  metric: clock-frequency
+  normalized:
+    value: "1733000000"
+    unit: Hz
+    significantDigits: 4
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 4
+    state: value
+    unit: MHz
+    value: "1733"
+  scope: gpu
+  sourceIds:
+    - nvidia-gtx-1080-deep-dive-2016
+    - nvidia-gtx-1080-whitepaper
+  status: vendor-rated
+  subject:
+    id: nvidia-gp104
+    kind: component
+  evidenceLevel: confirmed
+- caveat: >-
+    NVIDIA's table labels this row only "GFLOPs". It is approved as a
+    single-precision rate because the same vendor, in the launch article,
+    describes the parts that produce it as "2560 single-precision CUDA Cores",
+    and because the figure is exactly those cores multiplied by two operations
+    and the boost clock the table's footnote says it uses. That is a precision
+    the vendor stated, in the vendor's own documents, not a reading this catalog
+    supplied, which is what keeps the console teraflops figures provisional.
+  comparabilityGroup: peak-fp32-rate|gpu|theoretical-peak
+  conditions: 2,560 single-precision cores at the
+    {{measurement:nvidia-gp104:clock-frequency-boost}} boost clock, per the
+    whitepaper's footnote. A theoretical peak, not an achieved rate.
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - nvidia-gtx-1080:whitepaper-table
+    - nvidia-gtx-1080:single-precision-cores
+  id: nvidia-gp104:peak-fp32-rate
+  method: theoretical-peak
+  metric: peak-fp32-rate
+  normalized:
+    value: "8873000000000"
+    unit: FLOP/s
+    significantDigits: 4
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 4
+    state: value
+    unit: GFLOP/s
+    value: "8873"
+  scope: gpu
+  sourceIds:
+    - nvidia-gtx-1080-whitepaper
+    - nvidia-gtx-1080-deep-dive-2016
+  status: theoretical
+  subject:
+    id: nvidia-gp104
+    kind: component
+  evidenceLevel: confirmed
+- caveat: >-
+    NVIDIA calls it a framebuffer and writes "8 GB", read as
+    {{measurement:nvidia-gtx-1080-memory:capacity}} in the binary convention
+    this catalog applies to every memory capacity. Recorded at whole-system
+    scope because it is all the memory this card has. As with the H100, it
+    answers a narrower question than a computer's, since work has to be copied
+    here from a host first.
+  comparabilityGroup: memory-capacity|whole-system|design-capacity
+  conditions: The card's own memory, on a
+    {{measurement:nvidia-gtx-1080-memory:bus-width}} interface. No host memory
+    is included.
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - nvidia-gtx-1080:specifications
+  id: nvidia-gtx-1080-memory:capacity
+  method: design-capacity
+  metric: memory-capacity
+  normalized:
+    value: "8589934592"
+    unit: B
+    significantDigits: 1
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 1
+    state: value
+    unit: GiB
+    value: "8"
+  scope: whole-system
+  sourceIds:
+    - nvidia-gtx-1080-deep-dive-2016
+  status: vendor-rated
+  subject:
+    id: nvidia-gtx-1080-memory
+    kind: component
+  evidenceLevel: confirmed
+- caveat: >-
+    A bus maximum, stated identically by the launch article and the whitepaper.
+    Same metric, same scope, same method as every other theoretical bandwidth
+    here, which is what makes the multiplier against the GeForce RTX 5090 a
+    legitimate one.
+  comparabilityGroup: memory-bandwidth|memory|theoretical-peak
+  conditions: Peak transfer rate of the GDDR5X memory on a
+    {{measurement:nvidia-gtx-1080-memory:bus-width}} interface.
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - nvidia-gtx-1080:specifications
+    - nvidia-gtx-1080:whitepaper-table
+  id: nvidia-gtx-1080-memory:bandwidth
+  method: theoretical-peak
+  metric: memory-bandwidth
+  normalized:
+    value: "320000000000"
+    unit: B/s
+    significantDigits: 3
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 3
+    state: value
+    unit: GB/s
+    value: "320"
+  scope: memory
+  sourceIds:
+    - nvidia-gtx-1080-deep-dive-2016
+    - nvidia-gtx-1080-whitepaper
+  status: theoretical
+  subject:
+    id: nvidia-gtx-1080-memory
+    kind: component
+  evidenceLevel: confirmed
+- caveat: >-
+    Adds 1 memory-bandwidth figure obtained by theoretical-peak. Nothing in the
+    catalog is left out of it. A total is only as trustworthy as the decision
+    about what belongs in it, so both the terms and the exclusions are named
+    records.
+  comparabilityGroup: memory-bandwidth|whole-system|theoretical-peak
+  conditions: One pool of GDDR5X on the card, and nothing else on it.
+  derivedFrom: nvidia-geforce-gtx-1080:whole-system-memory-bandwidth
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - nvidia-gtx-1080:specifications
+  id: nvidia-geforce-gtx-1080:whole-system-memory-bandwidth
+  method: theoretical-peak
+  metric: memory-bandwidth
+  normalized:
+    value: "320000000000"
+    unit: B/s
+    significantDigits: 3
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 3
+    state: value
+    unit: GB/s
+    value: "320"
+  rounding: none
+  scope: whole-system
+  sourceIds:
+    - nvidia-gtx-1080-deep-dive-2016
+  status: derived
+  subject:
+    id: nvidia-geforce-gtx-1080
+    kind: system
+  evidenceLevel: confirmed
+- caveat: >-
+    NVIDIA's own word for this figure is TDP, so it is recorded as a
+    cooling-design target. The GeForce RTX 5090 nine years later states a "Total
+    Graphics Power" instead, which is a different definition and therefore a
+    different metric. The two sit in different rows on purpose, and neither
+    would allow a ratio in any case.
+  comparabilityGroup: thermal-design-power|gpu|rated-power
+  conditions: '"TDP: 180 W" for the reference card, alongside a
+    {{context:nvidia-gp104:context-w-500}} recommended system power that
+    describes a computer rather than this card.'
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - nvidia-gtx-1080:specifications
+    - nvidia-gtx-1080:whitepaper-table
+  id: nvidia-gp104:thermal-design-power
+  method: rated-power
+  metric: thermal-design-power
+  normalized:
+    value: "180"
+    unit: W
+    significantDigits: 3
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 3
+    state: value
+    unit: W
+    value: "180"
+  scope: gpu
+  sourceIds:
+    - nvidia-gtx-1080-deep-dive-2016
+    - nvidia-gtx-1080-whitepaper
+  status: vendor-rated
+  subject:
+    id: nvidia-gp104
+    kind: component
+  evidenceLevel: confirmed
+- caveat: >-
+    "7.2 billion" is two significant digits, not eleven. NVIDIA states the same
+    count in the article and in the whitepaper, and neither breaks it down by
+    block, so nothing here says how many of these transistors do arithmetic.
+  comparabilityGroup: transistor-count|gpu|die-specification
+  conditions: "Whole die, as NVIDIA states it: the graphics, memory-controller and
+    display blocks together."
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - nvidia-gtx-1080:specifications
+    - nvidia-gtx-1080:whitepaper-table
+  id: nvidia-gp104:transistor-count
+  method: die-specification
+  metric: transistor-count
+  normalized:
+    value: "7200000000"
+    unit: transistor
+    significantDigits: 2
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 2
+    state: value
+    unit: transistor
+    value: "7200000000"
+  scope: gpu
+  sourceIds:
+    - nvidia-gtx-1080-deep-dive-2016
+    - nvidia-gtx-1080-whitepaper
+  status: vendor-rated
+  subject:
+    id: nvidia-gp104
+    kind: component
+  evidenceLevel: confirmed
+- caveat: >-
+    A node name rather than a measured dimension. Nothing on this die is sixteen
+    nanometers across, and the metric forbids ratios for that reason: "four
+    times finer than 4 nm" would be a statement about marketing rather than
+    about silicon.
+  comparabilityGroup: process-node|gpu|die-specification
+  conditions: 'Node as named by the foundry and repeated by NVIDIA: "16nm FinFET".'
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - nvidia-gtx-1080:specifications
+    - nvidia-gtx-1080:whitepaper-table
+  id: nvidia-gp104:process-node
+  method: die-specification
+  metric: process-node
+  normalized:
+    value: "0.000000016"
+    unit: m
+    significantDigits: 2
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 2
+    state: value
+    unit: nm
+    value: "16"
+  scope: gpu
+  sourceIds:
+    - nvidia-gtx-1080-deep-dive-2016
+    - nvidia-gtx-1080-whitepaper
+  status: vendor-rated
+  subject:
+    id: nvidia-gp104
+    kind: component
+  evidenceLevel: confirmed
+- caveat: >-
+    Stated in the article’s prose rather than in either specification table,
+    which is why it took a second transcription of a source the catalog already
+    held.
+  comparabilityGroup: memory-bus-width|memory|design-capacity
+  conditions: Width of the interface between the GP104 and the GDDR5X fitted to the card.
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - nvidia-gtx-1080:memory-interface
+  id: nvidia-gtx-1080-memory:bus-width
+  method: design-capacity
+  metric: memory-bus-width
+  normalized:
+    value: "256"
+    unit: bit
+    significantDigits: 3
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 3
+    state: value
+    unit: bit
+    value: "256"
+  scope: memory
+  sourceIds:
+    - nvidia-gtx-1080-deep-dive-2016
+  status: vendor-rated
+  subject:
+    id: nvidia-gtx-1080-memory
+    kind: component
+  evidenceLevel: confirmed
+- comparabilityGroup: launch-price|whole-system|list-price
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - nvidia-gtx-1080:pricing
+  id: nvidia-geforce-gtx-1080:launch-price
+  method: list-price
+  metric: launch-price
+  provenance: vendor
+  quantity:
+    note: >-
+      NVIDIA states no price for this card in either cited document. The one
+      figure in them is an expectation about what add-in-card partners would
+      charge — "pricing is expected to start at $599", hedged as varying by
+      region — which is neither NVIDIA’s own asking price nor a price for the
+      Founders Edition NVIDIA sold itself.
+    state: unknown
+  unknownAudit:
+    reviewedOn: 2026-08-25
+    routesChecked:
+      - vendor-documentation
+      - independent-analysis
+      - community-source
+    outcome: no-compatible-candidate
+    summary: Cited documents do not establish NVIDIA's own launch price.
+  scope: whole-system
+  sourceIds:
+    - nvidia-gtx-1080-deep-dive-2016
+  status: vendor-rated
+  subject:
+    id: nvidia-geforce-gtx-1080
+    kind: system
+- asOf: 2026-08-18
+  benchmark:
+    id: geekbench-compute
+    variant: opencl
+    version: "7"
+  caveat: >-
+    A dated capture of the benchmark publisher’s rolling average for this
+    graphics processor, read from the 25 July 2026 OpenCL chart. Version 7
+    calibrates a compute result against a baseline of 100,000, so it may be
+    compared only with another Geekbench 7 OpenCL figure from this curation
+    round, never with a Metal figure, an earlier version or a processor score.
+    The chart also lists this processor under “GeForce GTX 1080”, at 55 875; the
+    row naming the product as its maker does was taken, and the disagreement is
+    recorded in the conflict ledger.
+  comparabilityGroup: geekbench-compute-score|gpu|benchmark-chart-average|geekbench-compute@7:opencl
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - geekbench-opencl-chart-2026-07-25:gtx-1080
+    - geekbench-opencl-chart-2026-07-25:what-the-figures-are
+  id: nvidia-gp104:geekbench-compute-7-opencl
+  method: benchmark-chart-average
+  metric: geekbench-compute-score
+  normalized:
+    value: "54526"
+    unit: score
+    significantDigits: 5
+    unitRegistry: units-v1
+  provenance: independent
+  quantity:
+    significantDigits: 5
+    state: value
+    unit: score
+    value: "54526"
+  scope: gpu
+  sourceIds:
+    - geekbench-opencl-benchmark-chart-2026-07-25
+  status: measured
+  subject:
+    id: nvidia-gp104
+    kind: component
+  evidenceLevel: confirmed

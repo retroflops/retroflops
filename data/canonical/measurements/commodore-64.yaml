@@ -1,0 +1,428 @@
+- caveat: >-
+    Set by the video standard, not chosen for the processor: the VIC-II derives
+    the system clock from the television timing. The 6510 part itself is rated
+    for {{context:mos-6510:context-mhz-1}} and
+    {{context:mos-6510:context-mhz-2}} operation.
+  comparabilityGroup: clock-frequency|cpu|nominal-clock
+  conditions: PAL machines. The manual states this as the system frequency
+    underlying its RS-232 baud-rate formulas.
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - c64-prg:p351:system-frequency
+  id: commodore-64:pal:clock-frequency
+  method: nominal-clock
+  metric: clock-frequency
+  normalized:
+    value: "985250"
+    unit: Hz
+    significantDigits: 5
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 5
+    state: value
+    unit: MHz
+    value: "0.98525"
+  scope: cpu
+  sourceIds:
+    - c64-programmers-reference-guide
+  status: vendor-rated
+  subject:
+    configurationId: pal
+    id: commodore-64
+    kind: system
+  evidenceLevel: confirmed
+- caveat: >-
+    The same computer as the PAL machine, running 3.8% faster because the
+    television standard differs. Neither figure is a round megahertz.
+  comparabilityGroup: clock-frequency|cpu|nominal-clock
+  conditions: NTSC machines. The manual states this as the system frequency
+    underlying its RS-232 baud-rate formulas.
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - c64-prg:p351:system-frequency
+  id: commodore-64:ntsc:clock-frequency
+  method: nominal-clock
+  metric: clock-frequency
+  normalized:
+    value: "1022730"
+    unit: Hz
+    significantDigits: 6
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 6
+    state: value
+    unit: MHz
+    value: "1.02273"
+  scope: cpu
+  sourceIds:
+    - c64-programmers-reference-guide
+  status: vendor-rated
+  subject:
+    configurationId: ntsc
+    id: commodore-64
+    kind: system
+  evidenceLevel: confirmed
+- caveat: >-
+    Exactly {{context:c64-system-ram:context-b-65536}}: the manual's "64K" is a
+    binary kilobyte. The ROM capacity is recorded separately and overlaps this
+    address range rather than extending it, so the two must never be added.
+  comparabilityGroup: memory-capacity|memory|design-capacity
+  conditions: Dynamic RAM filling the whole sixteen-bit address space.
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - c64-prg:p260:memory
+  id: c64-system-ram:capacity
+  method: design-capacity
+  metric: memory-capacity
+  normalized:
+    value: "65536"
+    unit: B
+    significantDigits: 2
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 2
+    state: value
+    unit: KiB
+    value: "64"
+  scope: memory
+  sourceIds:
+    - c64-programmers-reference-guide
+  status: vendor-rated
+  subject:
+    id: c64-system-ram
+    kind: component
+  evidenceLevel: confirmed
+- caveat: Banked over the RAM inside the same sixteen-bit address space, not added
+    to it.
+  comparabilityGroup: memory-capacity|memory|design-capacity
+  conditions: BASIC, the KERNAL operating system and the standard character set.
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - c64-prg:p260:memory
+  id: c64-system-rom:capacity
+  method: design-capacity
+  metric: memory-capacity
+  normalized:
+    value: "20480"
+    unit: B
+    significantDigits: 2
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 2
+    state: value
+    unit: KiB
+    value: "20"
+  scope: memory
+  sourceIds:
+    - c64-programmers-reference-guide
+  status: vendor-rated
+  subject:
+    id: c64-system-rom
+    kind: component
+  evidenceLevel: confirmed
+- comparabilityGroup: native-instruction-rate|cpu|instruction-mix
+  editorialStatus: approved
+  evidenceStage: shipped
+  id: mos-6510:native-instruction-rate
+  method: instruction-mix
+  metric: native-instruction-rate
+  provenance: vendor
+  quantity:
+    note: >-
+      No acceptable source states one, and there is no single correct answer to
+      state: 6502 instructions take between two and seven cycles depending on
+      the instruction and its addressing mode, so an instruction rate exists
+      only for a specific mix of instructions. Dividing the clock by one cycle
+      per instruction — the usual shortcut to "about 1 MIPS" — describes no real
+      workload.
+    state: unknown
+  unknownAudit:
+    reviewedOn: 2026-08-25
+    routesChecked:
+      - vendor-documentation
+      - independent-analysis
+      - community-source
+    outcome: no-compatible-candidate
+    summary: No source establishes a workload-specific compatible instruction rate.
+  scope: cpu
+  sourceIds:
+    - c64-programmers-reference-guide
+  status: measured
+  subject:
+    id: mos-6510
+    kind: component
+- comparabilityGroup: peak-fp32-rate|cpu|theoretical-peak
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - c64-prg:p402:6510-features
+  id: mos-6510:peak-fp32-rate
+  method: theoretical-peak
+  metric: peak-fp32-rate
+  provenance: vendor
+  quantity:
+    note: >-
+      No floating-point hardware. The 6510 does decimal and binary integer
+      arithmetic in an eight-bit accumulator; the Commodore 64's floating point
+      is a software library in the BASIC ROM, which is not a property of the
+      processor.
+    state: not-applicable
+  scope: cpu
+  sourceIds:
+    - c64-programmers-reference-guide
+  status: vendor-rated
+  subject:
+    id: mos-6510
+    kind: component
+- comparabilityGroup: sustained-fp40-rate|whole-system|benchmark-run
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - c64-prg:p6:floating-point-format
+  id: commodore-64:sustained-fp40-rate
+  method: benchmark-run
+  metric: sustained-fp40-rate
+  provenance: independent
+  quantity:
+    note: >-
+      The BASIC ROM uses five-byte floating-point numbers. No named,
+      reproducible benchmark run has been admitted for this machine.
+    state: unknown
+  unknownAudit:
+    reviewedOn: 2026-08-25
+    routesChecked:
+      - vendor-documentation
+      - independent-analysis
+      - community-source
+    outcome: no-compatible-candidate
+    summary: No named reproducible benchmark result is present in the checked material.
+  scope: whole-system
+  sourceIds:
+    - c64-programmers-reference-guide
+  status: measured
+  subject:
+    id: commodore-64
+    kind: system
+- caveat: >-
+    Adds 1 memory-capacity figure obtained by design-capacity. Left out:
+    {{measurement:c64-system-rom:capacity}} of system ROM (read-only, so it is
+    storage the machine reads from rather than memory it works in). A total is
+    only as trustworthy as the decision about what belongs in it, so both the
+    terms and the exclusions are named records.
+  comparabilityGroup: memory-capacity|whole-system|design-capacity
+  conditions: Writable memory available to the processor, in both the PAL and the
+    NTSC machine.
+  derivedFrom: commodore-64:whole-system-memory
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - c64-prg:p260:memory
+  id: commodore-64:whole-system-memory-capacity
+  method: design-capacity
+  metric: memory-capacity
+  normalized:
+    value: "65536"
+    unit: B
+    significantDigits: 2
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 2
+    state: value
+    unit: KiB
+    value: "64"
+  rounding: none
+  scope: whole-system
+  sourceIds:
+    - c64-programmers-reference-guide
+  status: derived
+  subject:
+    id: commodore-64
+    kind: system
+  evidenceLevel: confirmed
+- benchmark:
+    id: dhrystone
+    version: "1.1"
+  caveat: >-
+    The first Dhrystone figure in this catalog, and it is provisional because
+    one collection states it and the policy asks for two independent sources.
+    Read it as what it is: a score against the VAX-11/780, not a count of
+    anything this machine executes. {{measurement:commodore-64:dhrystone-mips}}
+    does not mean twenty thousand instructions per second. It is also version
+    1.1, which was withdrawn precisely because compilers optimized it away, so
+    it may not be divided by a version 2.1 figure; the benchmark identity
+    refuses that automatically.
+  comparabilityGroup: dhrystone-mips|cpu|benchmark-run|dhrystone@1.1
+  conditions: Run in the machine’s own ROM environment at a clock the table gives
+    as {{context:commodore-64:context-mhz-1}}, under Dhrystone version 1.1.
+  editorialStatus: provisional
+  evidenceStage: shipped
+  extractIds:
+    - netlib-dhrystone:commodore-64
+    - netlib-dhrystone:columns
+  id: commodore-64:dhrystone-mips
+  method: benchmark-run
+  metric: dhrystone-mips
+  normalized:
+    value: "20500"
+    unit: IPS
+    significantDigits: 3
+    unitRegistry: units-v1
+  provenance: independent
+  quantity:
+    significantDigits: 3
+    state: value
+    unit: DMIPS
+    value: "0.0205"
+  scope: cpu
+  sourceIds:
+    - netlib-pds-dhrystone
+  status: measured
+  subject:
+    id: commodore-64
+    kind: system
+  evidenceLevel: reported
+- comparabilityGroup: dhrystone-mips-per-mhz|cpu|benchmark-run
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - netlib-dhrystone:commodore-64
+    - netlib-dhrystone:columns
+  id: commodore-64:dhrystone-mips-per-mhz
+  method: benchmark-run
+  metric: dhrystone-mips-per-mhz
+  provenance: independent
+  quantity:
+    note: >-
+      Netlib gives the result at {{context:commodore-64:context-mhz-1}}, which
+      can describe either the PAL or NTSC clock after rounding. Its linked note
+      names only C Power 2.8 with -DROPT. No source establishes a run clock
+      precise enough to normalize the score per megahertz for either catalog
+      configuration.
+    state: unknown
+  unknownAudit:
+    reviewedOn: 2026-08-25
+    routesChecked:
+      - vendor-documentation
+      - independent-analysis
+      - community-source
+    outcome: no-compatible-candidate
+    summary: The available benchmark note does not identify a configuration clock.
+  scope: cpu
+  sourceIds:
+    - netlib-pds-dhrystone
+  status: measured
+  subject:
+    id: commodore-64
+    kind: system
+- caveat: >-
+    A pixel rate, not a rate at which the VIC-II executes anything: the chip has
+    no instructions to execute. It is recorded as the machine’s graphics clock
+    because the manual makes it the primary clock of the whole machine, with the
+    processor’s {{measurement:commodore-64:ntsc:clock-frequency}} derived from
+    it rather than the other way round. Stated only for the NTSC machine: the
+    guide is a North American publication and never gives the PAL dot clock.
+  comparabilityGroup: clock-frequency|gpu|nominal-clock
+  conditions: The video dot clock of the NTSC machine, carried on pin 6 of the
+    expansion port.
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - c64-prg:p367:dot-clock
+  id: commodore-64:ntsc:gpu-clock-frequency
+  method: nominal-clock
+  metric: clock-frequency
+  normalized:
+    value: "8180000"
+    unit: Hz
+    significantDigits: 3
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 3
+    state: value
+    unit: MHz
+    value: "8.18"
+  scope: gpu
+  sourceIds:
+    - c64-programmers-reference-guide
+  status: vendor-rated
+  subject:
+    configurationId: ntsc
+    id: commodore-64
+    kind: system
+  evidenceLevel: confirmed
+- caveat: >-
+    Unknown, not not-applicable: the machine moves bytes and therefore has a
+    rate. It could be computed — one byte per cycle, and the processor and the
+    VIC-II take alternate cycles — but that arithmetic is this project’s, not
+    the manual’s, and it would have to describe the interleaving rather than
+    just state the product.
+  comparabilityGroup: memory-bandwidth|memory|theoretical-peak
+  editorialStatus: approved
+  evidenceStage: shipped
+  id: commodore-64:memory-bandwidth
+  method: theoretical-peak
+  metric: memory-bandwidth
+  provenance: vendor
+  quantity:
+    note: >-
+      The Programmer’s Reference Guide describes the memory by capacity, by
+      address map and by which chip may reach which part of it, and never states
+      a transfer rate.
+    state: unknown
+  unknownAudit:
+    reviewedOn: 2026-08-25
+    routesChecked:
+      - vendor-documentation
+      - independent-analysis
+      - community-source
+    outcome: no-compatible-candidate
+    summary: The checked guide provides no memory transfer rate.
+  scope: memory
+  sourceIds:
+    - c64-programmers-reference-guide
+  status: vendor-rated
+  subject:
+    id: commodore-64
+    kind: system
+- caveat: >-
+    Recorded so the question is asked and answered rather than left blank. The
+    Amiga 1200’s service manual has a specification table with a supply rating
+    in it; this guide is a programming manual and has no such table, which is a
+    fact about the document rather than about the computer.
+  comparabilityGroup: rated-power-consumption|whole-system|rated-power
+  editorialStatus: approved
+  evidenceStage: shipped
+  id: commodore-64:rated-power-consumption
+  method: rated-power
+  metric: rated-power-consumption
+  provenance: vendor
+  quantity:
+    note: >-
+      The Programmer’s Reference Guide gives no power figure for the machine.
+      The only wattage in it is a resistor rating on a schematic.
+    state: unknown
+  unknownAudit:
+    reviewedOn: 2026-08-25
+    routesChecked:
+      - vendor-documentation
+      - independent-analysis
+      - community-source
+    outcome: no-published-candidate
+    summary: The checked guide provides no whole-system power rating.
+  scope: whole-system
+  sourceIds:
+    - c64-programmers-reference-guide
+  status: vendor-rated
+  subject:
+    id: commodore-64
+    kind: system

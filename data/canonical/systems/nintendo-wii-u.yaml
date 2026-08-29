@@ -1,0 +1,46 @@
+editorialStatus: provisional
+id: nintendo-wii-u
+slug: nintendo-wii-u
+name: Nintendo Wii U
+manufacturer: Nintendo
+type: console
+family: nintendo-home-console
+releaseDate: 2012-11
+region: North America
+summary: >-
+  Nintendo Wii U, represented with its retail processor, graphics and installed
+  writable memory.
+description: >-
+  This record keeps processor, graphics and installed memory as distinct
+  components so that their quantities retain their own meaning. Nintendo
+  published no frequency and no memory capacity for this console; the figures
+  here are independent reporting, recorded beside the vendor's silence rather
+  than instead of it.
+configurations:
+  - id: retail
+    label: Retail hardware
+    entries:
+      - componentId: nintendo-wii-u-espresso
+        role: main-cpu
+        count: 1
+        shared: false
+        measurementIds:
+          - nintendo-wii-u:retail:cpu-clock-frequency-independent
+      - componentId: nintendo-wii-u-latte
+        role: gpu
+        count: 1
+        shared: false
+        measurementIds:
+          - nintendo-wii-u:retail:gpu-clock-frequency-independent
+      - componentId: nintendo-wii-u-ram
+        role: unified-memory
+        count: 1
+        shared: true
+        measurementIds:
+          - nintendo-wii-u-ram:capacity
+imageIds:
+  - nintendo-wii-u-console
+sourceIds:
+  - nintendo-wii-u-tech-specs
+  - digitalfoundry-wii-u-clocks-2012
+  - digitalfoundry-wii-u-review

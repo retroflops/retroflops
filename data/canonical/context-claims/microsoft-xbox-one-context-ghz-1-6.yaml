@@ -1,0 +1,22 @@
+id: microsoft-xbox-one:context-ghz-1-6
+subject:
+  kind: system
+  id: microsoft-xbox-one
+  configurationId: retail
+label: Frequency
+quantity:
+  state: value
+  value: '1.6'
+  unit: GHz
+  significantDigits: 2
+provenance: independent
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - digitalfoundry-xbox-one-clocks-2013
+  - computerbase-xbox-one-test
+extractIds:
+  - df-xbox-one:cpu-clock
+  - computerbase-xbox-one:clocks
+evidenceLevel: confirmed

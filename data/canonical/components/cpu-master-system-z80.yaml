@@ -1,0 +1,11 @@
+architecture: Z80
+editorialStatus: provisional
+id: master-system-z80
+instructionSet: Zilog Z80
+kind: cpu
+manufacturer: Zilog
+name: Zilog Z80
+slug: master-system-z80
+sourceIds:
+  - sega-8bit-service-manual
+summary: The Master System main processor.

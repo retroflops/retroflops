@@ -1,0 +1,22 @@
+id: microsoft-xbox-one:context-unit-12
+subject:
+  kind: system
+  id: microsoft-xbox-one
+  configurationId: retail
+label: Count
+quantity:
+  state: value
+  value: '12'
+  unit: unit
+  significantDigits: 2
+provenance: independent
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - digitalfoundry-xbox-one-clocks-2013
+  - computerbase-xbox-one-test
+extractIds:
+  - df-xbox-one:gpu-clock
+  - computerbase-xbox-one:clocks
+evidenceLevel: confirmed

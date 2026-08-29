@@ -1,0 +1,49 @@
+configurations:
+  - entries:
+      - componentId: nintendo-ds-arm9
+        count: 1
+        notes: >-
+          The ARM7 companion is a separate processor and is not represented by a
+          summed frequency.
+        role: main-cpu
+        shared: false
+        measurementIds:
+          - nintendo-ds:cpu-clock-frequency
+      - componentId: nintendo-ds-2d
+        count: 1
+        role: gpu
+        shared: false
+        measurementIds:
+          - nintendo-ds:gpu-clock-frequency
+      - componentId: nintendo-ds-ram
+        count: 1
+        role: system-memory
+        shared: true
+        measurementIds:
+          - nintendo-ds-ram:capacity
+    id: retail
+    label: Original retail handheld
+editorialStatus: provisional
+id: nintendo-ds
+manufacturer: Nintendo
+name: Nintendo DS
+notes: >-
+  Nintendo DS Game Card ROM is removable storage, excluded from whole-system
+  working memory.
+region: North America
+releaseDate: 2004-11
+slug: nintendo-ds
+sourceIds:
+  - nintendo-ds-technical-reference
+summary: >-
+  A handheld with two screens, the lower one a touch panel, plus a microphone
+  and a wireless radio. Its display engines draw tiles and sprites in the manner
+  of the Game Boy Advance.
+imageIds:
+  - nintendo-ds-handheld
+type: handheld
+family: nintendo-handheld
+description: >-
+  Nintendo introduced the DS as a third line beside the Game Boy rather than its
+  replacement, and hedged by fitting a Game Boy Advance cartridge slot and the
+  processor needed to use it. The hedge stopped being necessary quickly.

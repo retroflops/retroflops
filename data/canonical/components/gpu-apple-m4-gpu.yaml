@@ -1,0 +1,11 @@
+id: apple-m4-gpu
+slug: apple-m4-gpu
+kind: gpu
+name: Apple M4 GPU
+manufacturer: Apple
+architecture: Apple integrated graphics
+introducedDate: 2024-11
+summary: Ten graphics cores in the baseline M4 Mac mini.
+sourceIds:
+  - apple-mac-mini-m4-tech-specs
+editorialStatus: approved

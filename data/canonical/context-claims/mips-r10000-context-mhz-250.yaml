@@ -1,0 +1,21 @@
+id: mips-r10000:context-mhz-250
+subject:
+  kind: component
+  id: mips-r10000
+label: Frequency
+quantity:
+  state: value
+  value: '250'
+  unit: MHz
+  significantDigits: 3
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - mips-r10000-users-manual
+  - spec-cpu95-octane-int
+extractIds:
+  - mips-r10000:floating-point-units
+  - spec-cpu95-octane-int:summary
+evidenceLevel: confirmed

@@ -1,0 +1,228 @@
+- caveat: >-
+    Microsoft's launch specification identifies the retail CPU as a tri-core
+    PowerPC part.
+  comparabilityGroup: clock-frequency|cpu|nominal-clock
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - xbox-360-launch:cpu-clock
+  id: microsoft-xbox-360:retail:cpu-clock-frequency
+  method: nominal-clock
+  metric: clock-frequency
+  normalized:
+    value: "3200000000"
+    unit: Hz
+    significantDigits: 2
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 2
+    state: value
+    unit: GHz
+    value: "3.2"
+  scope: cpu
+  sourceIds:
+    - microsoft-xbox-360-hardware-overview
+  status: vendor-rated
+  subject:
+    configurationId: retail
+    id: microsoft-xbox-360
+    kind: system
+  evidenceLevel: confirmed
+- caveat: >-
+    Microsoft's launch specification gives the graphics clock for the custom ATI
+    processor.
+  comparabilityGroup: clock-frequency|gpu|nominal-clock
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - xbox-360-launch:gpu-clock
+  id: microsoft-xbox-360:retail:gpu-clock-frequency
+  method: nominal-clock
+  metric: clock-frequency
+  normalized:
+    value: "500000000"
+    unit: Hz
+    significantDigits: 3
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 3
+    state: value
+    unit: MHz
+    value: "500"
+  scope: gpu
+  sourceIds:
+    - microsoft-xbox-360-hardware-overview
+  status: vendor-rated
+  subject:
+    configurationId: retail
+    id: microsoft-xbox-360
+    kind: system
+  evidenceLevel: confirmed
+- caveat: >-
+    This is the {{context:microsoft-xbox-360-ram:context-mb-512}} unified GDDR3
+    main memory. The separate {{context:microsoft-xbox-360-ram:context-mb-10}}
+    EDRAM is not added to it.
+  comparabilityGroup: memory-capacity|memory|design-capacity
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - xbox-360-launch:main-memory
+  id: microsoft-xbox-360-ram:capacity
+  method: design-capacity
+  metric: memory-capacity
+  normalized:
+    value: "536870912"
+    unit: B
+    significantDigits: 3
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 3
+    state: value
+    unit: MiB
+    value: "512"
+  scope: memory
+  sourceIds:
+    - microsoft-xbox-360-hardware-overview
+  status: vendor-rated
+  subject:
+    id: microsoft-xbox-360-ram
+    kind: component
+  evidenceLevel: confirmed
+- caveat: >-
+    Adds 1 memory-capacity figure obtained by design-capacity. Nothing in the
+    catalog is left out of it. A total is only as trustworthy as the decision
+    about what belongs in it, so both the terms and the exclusions are named
+    records.
+  comparabilityGroup: memory-capacity|whole-system|design-capacity
+  derivedFrom: microsoft-xbox-360:whole-system-memory
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: microsoft-xbox-360:whole-system-memory-capacity
+  method: design-capacity
+  metric: memory-capacity
+  normalized:
+    value: "536870912"
+    unit: B
+    significantDigits: 9
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 9
+    state: value
+    unit: B
+    value: "536870912"
+  rounding: none
+  scope: whole-system
+  sourceIds:
+    - microsoft-xbox-360-hardware-overview
+  status: derived
+  subject:
+    id: microsoft-xbox-360
+    kind: system
+  evidenceLevel: confirmed
+- caveat: >-
+    The unified memory only. The
+    {{context:microsoft-xbox-360-ram:context-mb-10}} of embedded DRAM has a
+    separate {{context:microsoft-xbox-360:context-gb-s-256}} fill figure on the
+    same slide, which is a frame-buffer path rather than the console's memory
+    bandwidth and is not merged in.
+  comparabilityGroup: memory-bandwidth|memory|theoretical-peak
+  conditions: "{{context:microsoft-xbox-360-ram:context-mb-512}} unified GDDR3 at
+    {{context:microsoft-xbox-360:context-mhz-700}} on a
+    {{context:microsoft-xbox-360:context-bit-128}} interface."
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - hc17-xbox360:slide4:memory-bandwidth
+    - beyond3d-xenos:system-memory-bandwidth
+  id: microsoft-xbox-360:memory-bandwidth
+  method: theoretical-peak
+  metric: memory-bandwidth
+  normalized:
+    value: "22400000000"
+    unit: B/s
+    significantDigits: 3
+    unitRegistry: units-v1
+  provenance: independent
+  quantity:
+    significantDigits: 3
+    state: value
+    unit: GB/s
+    value: "22.4"
+  scope: memory
+  sourceIds:
+    - hot-chips-17-xbox-360-architecture
+    - beyond3d-xenos-2005
+  status: theoretical
+  subject:
+    id: microsoft-xbox-360
+    kind: system
+  evidenceLevel: confirmed
+- caveat: >-
+    Microsoft's own deck quantifies this chip in shader instructions, fill rate
+    and texture rate, never in floating-point operations. Wikipedia states
+    {{measurement:microsoft-xbox-360:peak-fp32-rate}} for the graphics processor
+    and names no precision; the catalog reads that as single precision because
+    Microsoft documents the shader units as IEEE single-precision floating
+    point, and carries the rate as rumored until a vendor document states it.
+  comparabilityGroup: peak-fp32-rate|gpu|theoretical-peak
+  editorialStatus: provisional
+  evidenceStage: shipped
+  extractIds:
+    - hc17-xbox360:slide10:gpu-specs
+  id: microsoft-xbox-360:peak-fp32-rate
+  method: theoretical-peak
+  metric: peak-fp32-rate
+  provenance: community
+  quantity:
+    state: value
+    value: "240"
+    unit: GFLOP/s
+    significantDigits: 3
+  scope: gpu
+  sourceIds:
+    - hot-chips-17-xbox-360-architecture
+    - wikipedia-xbox-360-specifications
+  status: theoretical
+  subject:
+    id: microsoft-xbox-360
+    kind: system
+  evidenceLevel: rumored
+  normalized:
+    value: "240000000000"
+    unit: FLOP/s
+    significantDigits: 3
+    unitRegistry: units-v1
+- caveat: >-
+    Provisional record for microsoft-xbox-360: the primary technical source is
+    registered, but page-level transcription and independent review are pending.
+  comparabilityGroup: rated-power-consumption|whole-system|rated-power
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: microsoft-xbox-360:rated-power-consumption
+  method: rated-power
+  metric: rated-power-consumption
+  provenance: vendor
+  quantity:
+    note: >-
+      The registered technical source does not yet provide a comparable
+      whole-system rated power figure.
+    state: unknown
+  unknownAudit:
+    reviewedOn: 2026-08-25
+    routesChecked:
+      - vendor-documentation
+      - independent-analysis
+      - community-source
+    outcome: no-published-candidate
+    summary: The checked source provides no compatible published value.
+  scope: whole-system
+  sourceIds:
+    - microsoft-xbox-360-hardware-overview
+  status: vendor-rated
+  subject:
+    id: microsoft-xbox-360
+    kind: system

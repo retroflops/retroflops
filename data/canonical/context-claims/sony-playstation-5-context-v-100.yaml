@@ -1,0 +1,20 @@
+id: sony-playstation-5:context-v-100
+subject:
+  kind: system
+  id: sony-playstation-5
+  configurationId: launch
+label: Contextual value
+quantity:
+  state: value
+  value: '100'
+  unit: V
+  significantDigits: 3
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - sie-ps5-safety-guide-cfi-1015a
+extractIds:
+  - ps5-cfi-1015a:p7:rated-power
+evidenceLevel: confirmed

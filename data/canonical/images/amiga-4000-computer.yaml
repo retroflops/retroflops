@@ -1,0 +1,46 @@
+accessedDate: 2026-08-26
+alt: >-
+  A gray Commodore Amiga 4000 desktop computer with its keyboard and two-button
+  mouse, photographed from the front.
+attribution: Photograph by Marcin Wichary, licensed CC BY 2.0, via Wikimedia Commons.
+canonical:
+  format: avif
+  width: 1280
+  height: 960
+  byteLength: 63065
+  sha256: 98c8dd95fb33f33598150fdc737d978eb9ae896bb8a8a914cb7ec692dc71c9ae
+caption: A Commodore Amiga 4000 displayed with its keyboard at the PC Museum in
+  Solothurn.
+creator: Marcin Wichary
+creatorType: person
+editorialStatus: provisional
+id: amiga-4000-computer
+original:
+  sha256: 34a071eff162257f44f876b329fa6437d8024e615aab21cdfaf77c9b3eff397f
+  byteLength: 946687
+  width: 2272
+  height: 1704
+  mediaType: image/jpeg
+originalUrl: https://upload.wikimedia.org/wikipedia/commons/3/32/Amiga_4000_%282319887178%29.jpg
+publisher: Wikimedia Commons
+rights:
+  id: cc-by-2.0
+  statedAt: https://commons.wikimedia.org/wiki/File:Amiga_4000_(2319887178).jpg
+  statement: This file is licensed under the Creative Commons Attribution 2.0
+    Generic license.
+  url: https://creativecommons.org/licenses/by/2.0/
+sourcePageUrl: https://commons.wikimedia.org/wiki/File:Amiga_4000_(2319887178).jpg
+title: Amiga 4000 (2319887178).jpg
+transform:
+  fit: crop
+  note: >-
+    The original is already 4:3, so the complete machine and its keyboard remain
+    in frame.
+  preset: image-v1
+  region:
+    height: 1704
+    width: 2272
+    x: 0
+    y: 0
+  sourceHeight: 1704
+  sourceWidth: 2272

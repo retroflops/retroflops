@@ -1,0 +1,14 @@
+id: apple-iphone-x-memory
+slug: apple-iphone-x-memory
+kind: memory
+name: Apple iPhone X unified memory
+manufacturer: Apple
+memoryType: Unified mobile DRAM
+summary:
+  The working memory pool used by the Apple iPhone X; Apple does not state its
+  installed capacity.
+notes:
+  Flash storage is a separate medium and is not a substitute for working memory.
+sourceIds:
+  - apple-iphone-x-tech-specs
+editorialStatus: approved

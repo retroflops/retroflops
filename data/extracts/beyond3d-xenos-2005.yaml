@@ -1,0 +1,13 @@
+- extract: >-
+    The system memory bandwidth is 22.4GB/s courtesy of the 128-bit GDDR3 memory
+    interface running at 700MHz.
+  extractHash: 105c7d18ae671f79abcf117590c22d9aa6ceae7a30cedf1eaf094f6c9d65b23d
+  id: beyond3d-xenos:system-memory-bandwidth
+  locator: Body text, memory subsystem discussion
+  notes: >-
+    States the same 22.4 GB/s as Microsoft's Hot Chips slide and, unlike the
+    slide, spells out the interface width the figure follows from. The two agree
+    on the number and on its derivation.
+  sourceId: beyond3d-xenos-2005
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-13

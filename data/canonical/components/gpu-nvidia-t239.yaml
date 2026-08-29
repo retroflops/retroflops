@@ -1,0 +1,14 @@
+id: nvidia-t239-gpu
+slug: nvidia-t239-gpu
+kind: gpu
+name: NVIDIA T239 GPU
+manufacturer: NVIDIA
+architecture: NVIDIA Ampere
+introducedDate: '2025'
+summary:
+  The Ampere-derived graphics section of the Switch 2's custom NVIDIA
+  system-on-chip.
+sourceIds:
+  - nintendo-switch-2-tech-specs
+  - techpowerup-switch-2-specs
+editorialStatus: provisional

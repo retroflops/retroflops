@@ -1,0 +1,11 @@
+id: atari-520st-shifter
+slug: atari-520st-shifter
+kind: gpu
+name: Atari ST SHIFTER
+manufacturer: Atari
+architecture: Video shifter
+introducedDate: '1985'
+summary: Display subsystem that reads the Atari ST framebuffer.
+sourceIds:
+  - atari-st-field-service-manual
+editorialStatus: provisional

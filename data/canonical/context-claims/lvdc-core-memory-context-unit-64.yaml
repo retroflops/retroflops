@@ -1,0 +1,20 @@
+id: lvdc-core-memory:context-unit-64
+subject:
+  kind: component
+  id: lvdc-core-memory
+label: Count
+quantity:
+  state: value
+  value: '64'
+  unit: unit
+  significantDigits: 2
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - ntrs-19700023342
+extractIds:
+  - ntrs-19700023342:page-26:memory-module
+  - ntrs-19700023342:table-5
+evidenceLevel: confirmed

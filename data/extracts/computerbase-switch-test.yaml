@@ -1,0 +1,38 @@
+- extract: >-
+    Dem SoC stehen 4 GByte RAM zur Seite, der interne Speicher beläuft sich auf
+    32 GByte, die per microSD-Karte erweitert werden können.
+  extractHash: c40cc60f9bd90f2fb293c510b73cd63c0ac0133ecc095784b31b8e3f09981360
+  id: computerbase-switch:ram
+  locator: '"Die Technik der Switch" section, paragraph on the Tegra SoC'
+  notes: >-
+    Stated flatly about the shipped console, in a review published after
+    release, and it agrees with the capacity Digital Foundry's reproduced
+    developer table gives. "GByte" is this publication's own spelling of the
+    binary quantity, as memory has always been sold.
+  sourceId: computerbase-switch-test
+  transcribed:
+    significantDigits: 1
+    state: value
+    unit: GiB
+    value: '4'
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-15
+- extract: >-
+    Einzelheiten hierzu sind allerdings offiziell bisher nicht bekannt gegeben
+    worden; lediglich von Entwicklern genannte Taktraten, die noch nicht
+    bestätigt wurden, sind nach außen gelangt.
+  extractHash: 200c6fe2ac34cab432ad936732fef10ed08acad41aef1fe4f82cbd82eb092a37
+  id: computerbase-switch:clocks-undisclosed
+  locator: >-
+    "Mehr GPU-Takt im TV-Modus" section, after the statement that the SoC runs
+    faster docked than in tablet mode
+  notes: >-
+    Transcribed with no value, because its value to this catalog is the refusal.
+    Reviewing the shipped console, the publication says the frequencies were
+    never officially disclosed and that what leaked were unconfirmed developer
+    figures. That is the second source declining to state what the first states,
+    so the clocks stay provisional on one source rather than approved on two —
+    and this record is what a reader is shown instead of an unexplained status.
+  sourceId: computerbase-switch-test
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-15

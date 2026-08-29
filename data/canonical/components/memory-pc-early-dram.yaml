@@ -1,0 +1,12 @@
+id: pc-early-dram
+slug: pc-early-dram
+kind: memory
+name: Early PC dynamic RAM
+manufacturer: PC industry
+architecture: Dynamic RAM
+introducedDate: '1978'
+memoryType: DRAM
+summary: Dynamic main memory used by representative 8086 and 80286 PCs.
+sourceIds:
+  - intel-historical-x86-documentation
+editorialStatus: provisional

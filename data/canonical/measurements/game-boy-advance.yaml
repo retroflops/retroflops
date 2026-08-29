@@ -1,0 +1,289 @@
+- caveat: >-
+    Nintendo's AGB programming manual states a rounded
+    {{measurement:game-boy-advance:cpu-clock-frequency}} CPU figure.
+  comparabilityGroup: clock-frequency|cpu|nominal-clock
+  editorialStatus: provisional
+  evidenceStage: shipped
+  extractIds:
+    - agb-programming-manual:cpu-clock
+  id: game-boy-advance:cpu-clock-frequency
+  method: nominal-clock
+  metric: clock-frequency
+  normalized:
+    value: "16000000"
+    unit: Hz
+    significantDigits: 2
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 2
+    state: value
+    unit: MHz
+    value: "16"
+  scope: cpu
+  sourceIds:
+    - game-boy-advance-technical-manual
+  status: vendor-rated
+  subject:
+    configurationId: retail
+    id: game-boy-advance
+    kind: system
+  evidenceLevel: reported
+- caveat: >-
+    Nintendo's verified AGB manual passage states no internal-RAM capacity.
+    Wikipedia gives {{measurement:gba-ram:capacity}}, the sum of the handheld's
+    two work-RAM banks, separate from the video RAM beside them, which the
+    catalog records separately.
+  comparabilityGroup: memory-capacity|memory|design-capacity
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: gba-ram:capacity
+  method: design-capacity
+  metric: memory-capacity
+  provenance: community
+  quantity:
+    state: value
+    value: "288"
+    unit: KiB
+    significantDigits: 3
+  scope: memory
+  sourceIds:
+    - game-boy-advance-technical-manual
+    - wikipedia-game-boy-advance-specifications
+  status: vendor-rated
+  subject:
+    id: gba-ram
+    kind: component
+  evidenceLevel: rumored
+  normalized:
+    value: "294912"
+    unit: B
+    significantDigits: 3
+    unitRegistry: units-v1
+- caveat: >-
+    The AGB Programming Manual states the ARM7TDMI system clock and display
+    timings, but not an independent graphics-clock frequency.
+  comparabilityGroup: clock-frequency|gpu|nominal-clock
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: game-boy-advance:gpu-clock-frequency
+  method: nominal-clock
+  metric: clock-frequency
+  provenance: vendor
+  quantity:
+    note: The reviewed manual gives no independent graphics clock.
+    state: unknown
+  unknownAudit:
+    reviewedOn: 2026-08-25
+    routesChecked:
+      - vendor-documentation
+      - independent-analysis
+      - community-source
+    outcome: no-published-candidate
+    summary: >-
+      The checked manual states system clock and display timing but no
+      independent graphics-clock frequency.
+  scope: gpu
+  sourceIds:
+    - game-boy-advance-technical-manual
+  status: vendor-rated
+  subject:
+    id: game-boy-advance
+    kind: system
+- caveat: >-
+    The AGB Programming Manual documents wait states and DMA behavior but does
+    not state a memory-bus width or a bandwidth figure.
+  comparabilityGroup: memory-bandwidth|memory|theoretical-peak
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: game-boy-advance:memory-bandwidth
+  method: theoretical-peak
+  metric: memory-bandwidth
+  provenance: vendor
+  quantity:
+    note: The reviewed manual gives no memory bandwidth or bus width.
+    state: unknown
+  unknownAudit:
+    reviewedOn: 2026-08-25
+    routesChecked:
+      - vendor-documentation
+      - independent-analysis
+      - community-source
+    outcome: no-compatible-candidate
+    summary: >-
+      The checked manual describes wait states and DMA but gives no bus width or
+      bandwidth figure for a comparable value.
+  scope: memory
+  sourceIds:
+    - game-boy-advance-technical-manual
+  status: vendor-rated
+  subject:
+    id: game-boy-advance
+    kind: system
+- caveat: >-
+    Provisional record for game-boy-advance: the cited primary manual is
+    registered, but its page-level transcription and independent review are
+    still pending.
+  comparabilityGroup: peak-fp32-rate|cpu|theoretical-peak
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: gba-arm7tdmi:peak-fp32-rate
+  method: theoretical-peak
+  metric: peak-fp32-rate
+  provenance: vendor
+  quantity:
+    note: This console CPU has no integrated floating-point execution unit.
+    state: not-applicable
+  scope: cpu
+  sourceIds:
+    - game-boy-advance-technical-manual
+  status: vendor-rated
+  subject:
+    id: gba-arm7tdmi
+    kind: component
+- caveat: >-
+    Provisional record for game-boy-advance: the cited primary manual is
+    registered, but its page-level transcription and independent review are
+    still pending.
+  comparabilityGroup: peak-fp32-rate|gpu|theoretical-peak
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: gba-ppu:peak-fp32-rate
+  method: theoretical-peak
+  metric: peak-fp32-rate
+  provenance: vendor
+  quantity:
+    note: >-
+      This is a tile, sprite or scanline graphics unit, not a floating-point
+      processor; it executes no FP32 operations.
+    state: not-applicable
+  scope: gpu
+  sourceIds:
+    - game-boy-advance-technical-manual
+  status: vendor-rated
+  subject:
+    id: gba-ppu
+    kind: component
+- caveat: >-
+    Provisional and unknown after checking: the only wattage reachable belongs
+    to an optional accessory rather than to the machine as sold.
+  comparabilityGroup: rated-power-consumption|whole-system|rated-power
+  editorialStatus: provisional
+  evidenceStage: shipped
+  extractIds:
+    - nintendo-gba-adapter:tech-specs:output
+  id: game-boy-advance:rated-power-consumption
+  method: rated-power
+  metric: rated-power-consumption
+  provenance: vendor
+  quantity:
+    note: >-
+      Nintendo rates an AC-DC adapter for this handheld at
+      {{context:game-boy-advance:context-v-3}}, 300 mA, but it is an accessory
+      bought separately and the machine ships running on two AA cells. A rating
+      for a power source most units never used is not the console’s rated
+      consumption, and Nintendo publishes no figure for the handheld itself.
+    state: unknown
+  unknownAudit:
+    reviewedOn: 2026-08-25
+    routesChecked:
+      - vendor-documentation
+      - independent-analysis
+      - community-source
+    outcome: no-compatible-candidate
+    summary: >-
+      Nintendo's published wattage is for an optional AC adapter, not the
+      battery-powered handheld.
+  scope: whole-system
+  sourceIds:
+    - nintendo-gba-ac-adapter-set
+  status: vendor-rated
+  subject:
+    id: game-boy-advance
+    kind: system
+- comparabilityGroup: storage-capacity|storage|design-capacity
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: game-boy-advance:cartridge-storage-capacity
+  method: design-capacity
+  metric: storage-capacity
+  provenance: vendor
+  quantity:
+    note: >-
+      Game cartridges are removable media and their ROM capacity varies by
+      title; no cartridge capacity is part of the base console.
+    state: not-applicable
+  scope: storage
+  sourceIds:
+    - game-boy-advance-technical-manual
+  status: vendor-rated
+  subject:
+    id: game-boy-advance
+    kind: system
+- caveat: >-
+    Both terms of the total are rumored. The catalog displays a rumored figure
+    but does not compute with one, so the total waits for a document that states
+    a capacity outright.
+  comparabilityGroup: memory-capacity|whole-system|design-capacity
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: game-boy-advance:whole-system-memory-capacity
+  method: design-capacity
+  metric: memory-capacity
+  provenance: vendor
+  quantity:
+    note: >-
+      The handheld's work RAM and video RAM are both known only from tier C
+      material. Adding them would rest a new number on that material, which this
+      catalog does not do.
+    state: unknown
+  unknownAudit:
+    reviewedOn: 2026-08-26
+    routesChecked:
+      - vendor-documentation
+      - independent-analysis
+      - community-source
+    outcome: no-compatible-candidate
+    summary: >-
+      Both fitted capacities are published only in tier C material, which may be
+      recorded but may not be summed.
+  scope: whole-system
+  sourceIds:
+    - game-boy-advance-technical-manual
+  status: vendor-rated
+  subject:
+    id: game-boy-advance
+    kind: system
+- caveat: >-
+    Nintendo's verified AGB manual passage states no video-RAM capacity.
+    Wikipedia gives {{measurement:gba-video-ram:capacity}}, and its own hardware
+    section says that figure counts the picture processor's video RAM together
+    with the object attribute memory and palette RAM beside it. The capacity is
+    recorded as the infobox states it, and the catalog carries it as rumored
+    until a Nintendo document states it.
+  comparabilityGroup: memory-capacity|memory|design-capacity
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: gba-video-ram:capacity
+  method: design-capacity
+  metric: memory-capacity
+  provenance: community
+  quantity:
+    state: value
+    value: "98"
+    unit: KiB
+    significantDigits: 2
+  scope: memory
+  sourceIds:
+    - game-boy-advance-technical-manual
+    - wikipedia-game-boy-advance-specifications
+  status: vendor-rated
+  subject:
+    id: gba-video-ram
+    kind: component
+  evidenceLevel: rumored
+  normalized:
+    value: "100352"
+    unit: B
+    significantDigits: 2
+    unitRegistry: units-v1

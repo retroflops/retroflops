@@ -1,0 +1,13 @@
+id: zx-spectrum-rom
+slug: zx-spectrum-rom
+kind: memory
+name: ZX Spectrum ROM
+manufacturer: Sinclair Research
+architecture: Mask ROM
+introducedDate: '1982'
+memoryType: Mask ROM
+summary:
+  '{{context:zx-spectrum-rom:context-kib-16}} read-only Sinclair BASIC firmware.'
+sourceIds:
+  - zx-spectrum-48k-manual
+editorialStatus: provisional

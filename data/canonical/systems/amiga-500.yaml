@@ -1,0 +1,89 @@
+id: amiga-500
+slug: amiga-500
+name: Commodore Amiga 500
+manufacturer: Commodore-Amiga, Inc.
+type: home-computer
+family: commodore-amiga
+releaseDate: '1987'
+region: Worldwide
+summary: >-
+  A 68000 at around {{measurement:amiga-500:pal:clock-frequency}} with the
+  Original Chip Set handling graphics, audio and I/O in parallel with the
+  processor, and memory shared between them.
+description: >-
+  The Amiga 500 shows why a processor clock alone says little. Its 68000 runs at
+  {{context:amiga-500:context-mhz-7-09379}} on PAL machines and
+  {{context:amiga-500:context-mhz-7-15909}} on NTSC ones. Both derive, like the
+  Commodore 64's, from the video crystal rather than from a frequency chosen for
+  the CPU. The custom chips work directly on memory while the processor does
+  something else: Agnus runs the blitter and copper, Denise drives the display
+  and sprites, and Paula handles audio and I/O. That architecture is also why
+  memory is recorded here as two separate figures. Chip memory is what the
+  custom chips can reach; Fast memory is what only the CPU can see. A single
+  "RAM" number for an Amiga hides the distinction that determines what the
+  machine can display and play.
+configurations:
+  - id: pal
+    label: PAL
+    region: Europe
+    entries:
+      - componentId: motorola-68000
+        role: main-cpu
+        count: 1
+        shared: false
+        notes: >-
+          Derived from the {{context:motorola-68000:context-mhz-28-37516}} PAL
+          base crystal.
+        measurementIds:
+          - amiga-500:pal:clock-frequency
+      - componentId: amiga-ocs
+        role: gpu
+        count: 1
+        shared: false
+        measurementIds:
+          - amiga-500:gpu-clock-frequency
+      - componentId: amiga-500-chip-ram
+        role: system-memory
+        count: 1
+        shared: true
+        notes: >-
+          Shared between the 68000 and the custom chips. Expandable to
+          {{measurement:amiga-500:total-memory-capacity}} with a later Agnus.
+        measurementIds:
+          - amiga-500-chip-ram:capacity
+  - id: ntsc
+    label: NTSC
+    region: North America
+    entries:
+      - componentId: motorola-68000
+        role: main-cpu
+        count: 1
+        shared: false
+        notes: >-
+          Derived from the {{context:motorola-68000:context-mhz-28-63636}} NTSC
+          base crystal.
+        measurementIds:
+          - amiga-500:ntsc:clock-frequency
+      - componentId: amiga-ocs
+        role: gpu
+        count: 1
+        shared: false
+        measurementIds:
+          - amiga-500:gpu-clock-frequency
+      - componentId: amiga-500-chip-ram
+        role: system-memory
+        count: 1
+        shared: true
+        measurementIds:
+          - amiga-500-chip-ram:capacity
+notes: >-
+  The release date is editorial context; the cited manual documents the hardware
+  without dating the model's launch. The manual is the 1991 third edition, whose
+  table of memory configurations describes a later base machine than the
+  {{measurement:amiga-500-chip-ram:capacity}} Amiga 500 of 1987. The figures
+  recorded here identify the column they came from.
+imageIds:
+  - amiga-500-computer
+sourceIds:
+  - amiga-hardware-reference-manual
+editorialStatus: approved

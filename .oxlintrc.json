@@ -1,0 +1,92 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": ["typescript", "unicorn", "oxc", "import", "react", "jsx-a11y", "promise", "node"],
+  "categories": {
+    "correctness": "error",
+    "suspicious": "error",
+    "perf": "error"
+  },
+  "env": {
+    "builtin": true,
+    "es2024": true
+  },
+  "settings": {
+    "jsx-a11y": {
+      "polymorphicPropName": "as"
+    }
+  },
+  "options": {
+    "maxWarnings": 0,
+    "denyWarnings": true,
+    "reportUnusedDisableDirectives": "error"
+  },
+  "rules": {
+    "eqeqeq": [
+      "error",
+      "always",
+      {
+        "null": "ignore"
+      }
+    ],
+    "no-console": "error",
+    "import/no-unassigned-import": [
+      "error",
+      {
+        "allow": ["**/*.css"]
+      }
+    ],
+    "typescript/consistent-type-imports": "error",
+    "typescript/no-explicit-any": "error",
+    "typescript/no-non-null-assertion": "error",
+    "unicorn/filename-case": [
+      "error",
+      {
+        "case": "kebabCase"
+      }
+    ],
+    "unicorn/prefer-node-protocol": "error"
+  },
+  "ignorePatterns": [
+    "dist/",
+    "dist-pages/",
+    "test-results/",
+    "playwright-report/",
+    ".astro/",
+    "node_modules/",
+    ".cache/",
+    "data/cache/",
+    "data/generated/",
+    "public/data/",
+    "public/pagefind/"
+  ],
+  "overrides": [
+    {
+      "files": ["**/*.test.ts", "**/*.test.tsx", "tests/**"],
+      "plugins": ["vitest"],
+      "rules": {
+        "typescript/no-non-null-assertion": "off",
+        "no-await-in-loop": "off"
+      }
+    },
+    {
+      "files": ["scripts/**/*.ts", "astro.config.ts", "*.config.ts", "*.config.mjs"],
+      "env": {
+        "builtin": true,
+        "node": true
+      },
+      "rules": {
+        "no-console": "off"
+      }
+    },
+    {
+      "files": ["src/components/**/*.tsx", "src/islands/**/*.tsx"],
+      "env": {
+        "builtin": true,
+        "browser": true
+      },
+      "rules": {
+        "react/react-in-jsx-scope": "off"
+      }
+    }
+  ]
+}

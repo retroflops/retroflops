@@ -1,0 +1,20 @@
+id: marcan-wii-fail-2008
+title: "Console Hacking 2008: Wii Fail"
+publisher: Hector Martin
+publishedDate: 2008-12-29
+accessedDate: 2026-08-25
+locator: Hardware summary slide, memory row
+extract: 24MB 1T-SRAM (MEM1) + 64MB GDDR3 DRAM (MEM2).
+tier: B
+sourceType: independent-analysis
+url: https://marcan.st/uploads/25c3_console_hacking/
+usageNote: >-
+  Independent technical presentation. Used with the Copetti analysis for the
+  capacities of Wii's two main-memory pools.
+fetch:
+  url: https://marcan.st/uploads/25c3_console_hacking/
+  fetchedAt: 2026-08-25T06:11:16Z
+  httpStatus: 200
+  contentType: text/html
+  byteLength: 24868
+  sha256: 281271a8bf17330a391040b8e62c252dee7f9260e3da2b50203b868a0b0540e3

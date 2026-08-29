@@ -1,0 +1,21 @@
+id: nvidia-gb202:context-w-180
+subject:
+  kind: component
+  id: nvidia-gb202
+label: Contextual value
+quantity:
+  state: value
+  value: '180'
+  unit: W
+  significantDigits: 3
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - nvidia-rtx-blackwell-whitepaper
+  - nvidia-rtx-5090-product-specifications
+extractIds:
+  - nvidia-rtx-5090:whitepaper-table
+  - nvidia-rtx-5090:product-specifications
+evidenceLevel: confirmed

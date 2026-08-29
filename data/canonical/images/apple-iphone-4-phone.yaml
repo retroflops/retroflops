@@ -1,0 +1,42 @@
+accessedDate: 2026-08-17
+alt: "An iPhone 4 lying at an angle against white, seen from the front and one long side: a black
+  glass face with a round home button, a stainless steel band around the edge carrying volume
+  buttons, and the dock connector and speaker grilles along the bottom. The screen is off."
+attribution: Photograph © Raimond Spekking, licensed CC BY-SA 4.0, via Wikimedia Commons.
+canonical:
+  byteLength: 18758
+  format: avif
+  height: 960
+  sha256: c93d1d23b1a3caabfc40583a96ff42320460d33e784f4ee2c86ec2801a20265b
+  width: 1280
+caption: An iPhone 4, model A1332, switched off.
+creator: Raimond Spekking
+creatorType: person
+editorialStatus: approved
+id: apple-iphone-4-phone
+original:
+  byteLength: 6766177
+  height: 2844
+  mediaType: image/jpeg
+  sha256: 1e78d7c15b3aaff0bc83187463015da1137b4ec7121fcac361521a7bdd6ee825
+  width: 5056
+originalUrl: https://upload.wikimedia.org/wikipedia/commons/8/84/IPhone_4%2C_model_A1332-6494.jpg
+publisher: Wikimedia Commons
+rights:
+  id: cc-by-sa-4.0
+  statedAt: https://commons.wikimedia.org/wiki/File:IPhone_4,_model_A1332-6494.jpg
+  statement: "I, the copyright holder of this work, hereby publish it under the following license:
+    This file is licensed under the Creative Commons Attribution-Share Alike 4.0 International
+    license."
+  url: https://creativecommons.org/licenses/by-sa/4.0/
+sourcePageUrl: https://commons.wikimedia.org/wiki/File:IPhone_4,_model_A1332-6494.jpg
+title: IPhone 4, model A1332-6494.jpg
+transform:
+  background: "#ffffff"
+  fit: pad
+  note: The photograph is wider than 4:3 and the machine reaches both ends of it, so no crop keeps the
+    whole subject. The declared margin is the same white as the backdrop the photograph was taken
+    against, which is why it cannot be seen; it is recorded because it is there.
+  preset: image-v1
+  sourceHeight: 2844
+  sourceWidth: 5056

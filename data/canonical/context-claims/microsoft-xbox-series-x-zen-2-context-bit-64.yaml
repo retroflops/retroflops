@@ -1,0 +1,17 @@
+id: microsoft-xbox-series-x-zen-2:context-bit-64
+subject:
+  kind: component
+  id: microsoft-xbox-series-x-zen-2
+label: Word size
+quantity:
+  state: value
+  value: '64'
+  unit: bit
+  significantDigits: 2
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - xbox-wire-series-x-tech-2020
+evidenceLevel: confirmed

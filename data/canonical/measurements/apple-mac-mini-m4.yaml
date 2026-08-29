@@ -1,0 +1,312 @@
+- caveat: >-
+    The cited Geekbench result identifies this M4 Mac mini and reports its base
+    frequency.
+  comparabilityGroup: clock-frequency|cpu|nominal-clock
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: apple-mac-mini-m4:cpu-clock-frequency
+  method: nominal-clock
+  metric: clock-frequency
+  normalized:
+    value: "4410000000"
+    unit: Hz
+    significantDigits: 3
+    unitRegistry: units-v1
+  provenance: independent
+  quantity:
+    significantDigits: 3
+    state: value
+    unit: GHz
+    value: "4.41"
+  scope: cpu
+  sourceIds:
+    - geekbench-mac-mini-m4-result-12154392
+  status: measured
+  subject:
+    id: apple-mac-mini-m4
+    kind: system
+  evidenceLevel: confirmed
+- caveat: A third-party frequency table identifies this as the M4 GPU maximum.
+  comparabilityGroup: clock-frequency|gpu|nominal-clock
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: apple-mac-mini-m4:gpu-clock-frequency
+  method: nominal-clock
+  metric: clock-frequency
+  normalized:
+    value: "1578000000"
+    unit: Hz
+    significantDigits: 4
+    unitRegistry: units-v1
+  provenance: independent
+  quantity:
+    significantDigits: 4
+    state: value
+    unit: MHz
+    value: "1578"
+  scope: gpu
+  sourceIds:
+    - psutil-apple-gpu-frequency-table
+  status: measured
+  subject:
+    id: apple-mac-mini-m4
+    kind: system
+  evidenceLevel: rumored
+- caveat: A third-party specification sheet reports this theoretical peak.
+  comparabilityGroup: peak-fp32-rate|gpu|theoretical-peak
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: apple-mac-mini-m4:peak-fp32-rate
+  method: theoretical-peak
+  metric: peak-fp32-rate
+  normalized:
+    value: "4300000000000"
+    unit: FLOP/s
+    significantDigits: 2
+    unitRegistry: units-v1
+  provenance: community
+  quantity:
+    significantDigits: 2
+    state: value
+    unit: TFLOP/s
+    value: "4.3"
+  scope: gpu
+  sourceIds:
+    - flopper-apple-m4-gpu-spec-sheet
+  status: theoretical
+  subject:
+    id: apple-mac-mini-m4
+    kind: system
+  evidenceLevel: rumored
+- caveat: >-
+    The baseline M4 configuration is supplied with
+    {{context:apple-mac-mini-m4:context-gb-16}} of unified memory.
+  comparabilityGroup: memory-capacity|whole-system|design-capacity
+  editorialStatus: approved
+  evidenceStage: shipped
+  id: apple-mac-mini-m4:whole-system-memory-capacity
+  method: design-capacity
+  metric: memory-capacity
+  normalized:
+    value: "17179869184"
+    unit: B
+    significantDigits: 2
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 2
+    state: value
+    unit: GiB
+    value: "16"
+  scope: whole-system
+  sourceIds:
+    - apple-mac-mini-m4-tech-specs
+  status: vendor-rated
+  subject:
+    id: apple-mac-mini-m4
+    kind: system
+  evidenceLevel: confirmed
+- caveat: >-
+    Apple states {{measurement:apple-mac-mini-m4:whole-system-memory-bandwidth}}
+    as the M4 memory bandwidth; the record does not relabel it as an achieved
+    rate.
+  comparabilityGroup: memory-bandwidth|whole-system|theoretical-peak
+  editorialStatus: approved
+  evidenceStage: shipped
+  id: apple-mac-mini-m4:whole-system-memory-bandwidth
+  method: theoretical-peak
+  metric: memory-bandwidth
+  normalized:
+    value: "120000000000"
+    unit: B/s
+    significantDigits: 3
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 3
+    state: value
+    unit: GB/s
+    value: "120"
+  scope: whole-system
+  sourceIds:
+    - apple-mac-mini-m4-tech-specs
+  status: vendor-rated
+  subject:
+    id: apple-mac-mini-m4
+    kind: system
+  evidenceLevel: confirmed
+- caveat: Maximum continuous power is a vendor rating, not a measurement of a workload.
+  comparabilityGroup: rated-power-consumption|whole-system|rated-power
+  editorialStatus: approved
+  evidenceStage: shipped
+  id: apple-mac-mini-m4:rated-power-consumption
+  method: rated-power
+  metric: rated-power-consumption
+  normalized:
+    value: "155"
+    unit: W
+    significantDigits: 3
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 3
+    state: value
+    unit: W
+    value: "155"
+  scope: whole-system
+  sourceIds:
+    - apple-mac-mini-m4-tech-specs
+  status: vendor-rated
+  subject:
+    id: apple-mac-mini-m4
+    kind: system
+  evidenceLevel: confirmed
+- asOf: 2026-07-26
+  benchmark:
+    id: geekbench
+    variant: single-core
+    version: "6"
+  caveat: >-
+    A dated capture of the benchmark publisher’s rolling device average; it is
+    not a score this machine itself got.
+  comparabilityGroup: geekbench-score|whole-system|benchmark-chart-average|geekbench@6:single-core
+  editorialStatus: approved
+  evidenceStage: shipped
+  id: apple-mac-mini-m4:geekbench-6-single-core
+  method: benchmark-chart-average
+  metric: geekbench-score
+  normalized:
+    value: "3273"
+    unit: score
+    significantDigits: 4
+    unitRegistry: units-v1
+  provenance: independent
+  quantity:
+    significantDigits: 4
+    state: value
+    unit: score
+    value: "3273"
+  scope: whole-system
+  sourceIds:
+    - geekbench-mac-benchmark-chart-2026-07-25
+  status: measured
+  subject:
+    id: apple-mac-mini-m4
+    kind: system
+  evidenceLevel: confirmed
+- asOf: 2026-07-26
+  benchmark:
+    id: geekbench
+    variant: multi-core
+    version: "6"
+  caveat: >-
+    The multi-core average is a different Geekbench variant from the single-core
+    average and is never used as a scaling factor.
+  comparabilityGroup: geekbench-score|whole-system|benchmark-chart-average|geekbench@6:multi-core
+  editorialStatus: approved
+  evidenceStage: shipped
+  id: apple-mac-mini-m4:geekbench-6-multi-core
+  method: benchmark-chart-average
+  metric: geekbench-score
+  normalized:
+    value: "15226"
+    unit: score
+    significantDigits: 5
+    unitRegistry: units-v1
+  provenance: independent
+  quantity:
+    significantDigits: 5
+    state: value
+    unit: score
+    value: "15226"
+  scope: whole-system
+  sourceIds:
+    - geekbench-mac-benchmark-chart-2026-07-25
+  status: measured
+  subject:
+    id: apple-mac-mini-m4
+    kind: system
+  evidenceLevel: confirmed
+- asOf: 2026-08-18
+  benchmark:
+    id: geekbench-compute
+    variant: metal
+    version: "6"
+  caveat: >-
+    A dated capture of the benchmark publisher’s rolling average for this
+    graphics processor, read from the 18 July 2026 Metal chart. It may be
+    compared only with another Geekbench 6 Metal figure from this curation
+    round, never with an OpenCL figure, a later version or a processor score.
+    The chart also lists this processor under “Apple M4 GPU”, at 54 196; the row
+    naming the product as its maker does was taken, and the disagreement is
+    recorded in the conflict ledger.
+  comparabilityGroup: geekbench-compute-score|gpu|benchmark-chart-average|geekbench-compute@6:metal
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - geekbench-metal-chart-2026-07-18:apple-m4
+    - geekbench-metal-chart-2026-07-18:what-the-figures-are
+  id: apple-m4-gpu:geekbench-compute-6-metal
+  method: benchmark-chart-average
+  metric: geekbench-compute-score
+  normalized:
+    value: "54482"
+    unit: score
+    significantDigits: 5
+    unitRegistry: units-v1
+  provenance: independent
+  quantity:
+    significantDigits: 5
+    state: value
+    unit: score
+    value: "54482"
+  scope: gpu
+  sourceIds:
+    - geekbench-metal-benchmark-chart-2026-07-18
+  status: measured
+  subject:
+    id: apple-m4-gpu
+    kind: component
+  evidenceLevel: confirmed
+- asOf: 2026-08-18
+  benchmark:
+    id: geekbench-compute
+    variant: opencl
+    version: "7"
+  caveat: >-
+    A dated capture of the benchmark publisher’s rolling average for this
+    graphics processor, read from the 25 July 2026 OpenCL chart. Version 7
+    calibrates a compute result against a baseline of 100,000, so it may be
+    compared only with another Geekbench 7 OpenCL figure from this curation
+    round, never with a Metal figure, an earlier version or a processor score.
+    The chart also lists this processor under “QUALCOMM Apple M4 GPU730”, at 8
+    518; the row naming the product as its maker does was taken, and the
+    disagreement is recorded in the conflict ledger.
+  comparabilityGroup: geekbench-compute-score|gpu|benchmark-chart-average|geekbench-compute@7:opencl
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - geekbench-opencl-chart-2026-07-25:apple-m4
+    - geekbench-opencl-chart-2026-07-25:what-the-figures-are
+  id: apple-m4-gpu:geekbench-compute-7-opencl
+  method: benchmark-chart-average
+  metric: geekbench-compute-score
+  normalized:
+    value: "32716"
+    unit: score
+    significantDigits: 5
+    unitRegistry: units-v1
+  provenance: independent
+  quantity:
+    significantDigits: 5
+    state: value
+    unit: score
+    value: "32716"
+  scope: gpu
+  sourceIds:
+    - geekbench-opencl-benchmark-chart-2026-07-25
+  status: measured
+  subject:
+    id: apple-m4-gpu
+    kind: component
+  evidenceLevel: confirmed

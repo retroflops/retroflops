@@ -1,0 +1,25 @@
+accessedDate: 2026-07-31
+author: Richard Leadbetter
+editorialStatus: approved
+fetch:
+  byteLength: 123126
+  contentType: text/html; charset=UTF-8
+  fetchedAt: 2026-07-31T12:09:29Z
+  httpStatus: 200
+  sha256: 70c09710f690530b7a6cd41fa2d8faba7e4337b6d8a4d1a0074763236e6ea522
+  url: https://www.digitalfoundry.net/articles/digitalfoundry-2016-playstation-4-pro-review
+id: digitalfoundry-ps4-pro-review
+license: Copyright Eurogamer/Digital Foundry. Quoted here under short-extract
+  fair use for verification of the figures cited.
+locator: >-
+  Specification table comparing "Base PS4", "PS4 Pro" and "Boost", CPU and GPU
+  rows
+publishedDate: 2016-11
+publisher: Digital Foundry (Eurogamer)
+sourceType: independent-analysis
+tier: B
+title: PlayStation 4 Pro review
+url: https://www.digitalfoundry.net/articles/digitalfoundry-2016-playstation-4-pro-review
+usageNote: >-
+  Used only for figures Sony itself does not publish. Where Sony states a
+  number, the vendor document is cited instead.

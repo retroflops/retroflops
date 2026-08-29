@@ -1,0 +1,46 @@
+accessedDate: 2026-08-17
+alt: A beige Apple II seen from the front, its lid sloping down to an integrated keyboard with dark
+  brown keys and a rainbow apple badge above them.
+attribution: Photograph by The wub, licensed CC BY-SA 4.0, via Wikimedia Commons.
+canonical:
+  byteLength: 39012
+  format: avif
+  height: 960
+  sha256: e0d1e4fe2e5a732f543a6d1465093ef66449ae92609c3f9ed0ee3c07417bcf83
+  width: 1280
+caption: An Apple II in the Computer History Museum. The case holds the keyboard and the motherboard
+  together; a monitor and a disk drive were bought separately.
+creator: The wub
+creatorType: person
+editorialStatus: approved
+id: apple-ii-computer
+original:
+  byteLength: 1432855
+  height: 1879
+  mediaType: image/jpeg
+  sha256: a9a15f7c4b1d3b644e3431c0a96712603c69f3d0d4012a369421f4ca48bcb341
+  width: 2819
+originalUrl: https://upload.wikimedia.org/wikipedia/commons/2/25/Apple_II%2C_1977%2C_Computer_History_Museum.jpg
+publisher: Wikimedia Commons
+rights:
+  id: cc-by-sa-4.0
+  statedAt: https://commons.wikimedia.org/wiki/File:Apple_II,_1977,_Computer_History_Museum.jpg
+  statement: "I, the copyright holder of this work, hereby publish it under the following license:
+    This file is licensed under the Creative Commons Attribution-Share Alike 4.0 International
+    license."
+  url: https://creativecommons.org/licenses/by-sa/4.0/
+sourcePageUrl: https://commons.wikimedia.org/wiki/File:Apple_II,_1977,_Computer_History_Museum.jpg
+title: Apple II, 1977, Computer History Museum.jpg
+transform:
+  fit: crop
+  note: "The photograph is wider than 4:3 against a plain museum wall, so the frame is narrowed rather
+    than padded: a margin here would have to invent a color the backdrop does not have. The crop is
+    centered and takes nothing off the machine."
+  preset: image-v1
+  region:
+    height: 1878
+    width: 2504
+    x: 157
+    y: 0
+  sourceHeight: 1879
+  sourceWidth: 2819

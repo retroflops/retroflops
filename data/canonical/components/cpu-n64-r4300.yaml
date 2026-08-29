@@ -1,0 +1,19 @@
+id: n64-r4300
+slug: n64-r4300
+kind: cpu
+name: MIPS R4300 (Nintendo 64 CPU)
+manufacturer: NEC / MIPS Technologies
+architecture: MIPS III
+introducedDate: '1996'
+instructionSet: MIPS III
+instructionSetFamily: mips
+summary:
+  The console's general-purpose processor, running the game as a collection of
+  threads and generating the task lists the Reality Coprocessor executes.
+notes:
+  The programming manual calls it simply the R4300. Unlike the PlayStation's
+  processor it has a TLB and can use virtual addresses. It shares one memory
+  pool with the graphics hardware rather than having main memory to itself.
+sourceIds:
+  - n64-programming-manual
+editorialStatus: approved

@@ -1,0 +1,17 @@
+id: zx-spectrum-ram:context-kib-48
+subject:
+  kind: component
+  id: zx-spectrum-ram
+label: Capacity
+quantity:
+  state: value
+  value: '48'
+  unit: KiB
+  significantDigits: 2
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - zx-spectrum-48k-manual
+evidenceLevel: confirmed

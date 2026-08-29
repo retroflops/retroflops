@@ -1,0 +1,18 @@
+id: psx-gpu
+slug: psx-gpu
+kind: gpu
+name: PlayStation GPU
+manufacturer: Sony Computer Entertainment
+architecture: PlayStation GPU
+introducedDate: '1994'
+summary:
+  'The graphics drawing processor: a CRT controller for display plus high-speed
+  polygon and sprite drawing into the frame buffer.'
+notes:
+  It draws but does not transform. Coordinate and light-source calculation is
+  the GTE's job on the CPU side, so the console's 3D capability is split across
+  two chips and neither describes it alone. The frame buffer is dual-ported, so
+  drawing and display can proceed at the same time.
+sourceIds:
+  - psx-hardware-reference
+editorialStatus: approved

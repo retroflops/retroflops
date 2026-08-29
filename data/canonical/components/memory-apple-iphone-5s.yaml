@@ -1,0 +1,14 @@
+id: apple-iphone-5s-memory
+slug: apple-iphone-5s-memory
+kind: memory
+name: Apple iPhone 5s unified memory
+manufacturer: Apple
+memoryType: Unified mobile DRAM
+summary:
+  The working memory pool used by the Apple iPhone 5s; Apple does not state its
+  installed capacity.
+notes:
+  Flash storage is a separate medium and is not a substitute for working memory.
+sourceIds:
+  - apple-iphone-5s-tech-specs
+editorialStatus: approved

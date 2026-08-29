@@ -1,0 +1,17 @@
+id: ps4-cpu:context-unit-8
+subject:
+  kind: component
+  id: ps4-cpu
+label: Core count
+quantity:
+  state: value
+  value: '8'
+  unit: unit
+  significantDigits: 1
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - scei-ps4-introduction-2013
+evidenceLevel: confirmed

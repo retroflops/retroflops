@@ -1,0 +1,43 @@
+accessedDate: 2026-08-17
+alt: A purple Nintendo GameCube photographed against white, a cube with a carrying handle at the
+  back and a circular disc lid on top, a memory card in a front slot, and a purple controller to the
+  left.
+attribution: Photograph by Evan-Amos, released into the public domain by its author, via Wikimedia Commons.
+canonical:
+  byteLength: 28364
+  format: avif
+  height: 960
+  sha256: df2d7c3e826e10d92b225a6221769683e9c9b285d9baae5b826d662706b05718
+  width: 1280
+caption: An indigo GameCube with its controller and a memory card in the front slot.
+creator: Evan-Amos
+creatorType: person
+editorialStatus: approved
+id: nintendo-gamecube-console
+original:
+  byteLength: 2402493
+  height: 2110
+  mediaType: image/jpeg
+  sha256: fd53f9cd5f32f7c297cf202a71ae21a990359b221925764a8a92669a375df27c
+  width: 3760
+originalUrl: https://upload.wikimedia.org/wikipedia/commons/d/d1/GameCube-Set.jpg
+publisher: Wikimedia Commons
+rights:
+  id: pd-self
+  statedAt: https://commons.wikimedia.org/wiki/File:GameCube-Set.jpg
+  statement: "I, the copyright holder of this work, release this work into the public domain. This
+    applies worldwide. In some countries this may not be legally possible; if so: I grant anyone the
+    right to use this work for any purpose, without any conditions, unless such conditions are
+    required by law."
+  url: https://commons.wikimedia.org/wiki/Template:PD-self
+sourcePageUrl: https://commons.wikimedia.org/wiki/File:GameCube-Set.jpg
+title: GameCube-Set.jpg
+transform:
+  background: "#ffffff"
+  fit: pad
+  note: The photograph is wider than 4:3 and the machine reaches both ends of it, so no crop keeps the
+    whole subject. The declared margin is the same white as the backdrop the photograph was taken
+    against, which is why it cannot be seen; it is recorded because it is there.
+  preset: image-v1
+  sourceHeight: 2110
+  sourceWidth: 3760

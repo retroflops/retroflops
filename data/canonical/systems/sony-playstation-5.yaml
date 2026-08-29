@@ -1,0 +1,97 @@
+id: sony-playstation-5
+slug: sony-playstation-5
+name: Sony PlayStation 5
+aliases:
+  - PS5
+manufacturer: Sony Interactive Entertainment
+type: console
+family: sony-playstation
+releaseDate: 2020-11
+region: Worldwide
+summary: >-
+  Eight Zen {{context:sony-playstation-5:context-unit-2}} cores to
+  {{measurement:sony-playstation-5:cpu-peak-clock}}, an RDNA 2 graphics engine
+  to {{measurement:sony-playstation-5:gpu-peak-clock}} and
+  {{measurement:ps5-gpu:peak-fp32-rate}}, and {{measurement:ps5-gddr6:capacity}}
+  shared at {{measurement:ps5-gddr6:bandwidth}}. The specification gives no
+  fixed frequency.
+description: >-
+  This record completes a line of five consoles from the same maker, released
+  from 1994 to 2020 and described in five different vocabularies.
+
+
+  The PlayStation and PlayStation 2 are described by frequency. The PlayStation
+  3 adds a floating-point rate. The PlayStation 4 drops frequency entirely and
+  gives core counts and teraflops. The PlayStation 5 states frequencies but also
+  says they are not constants. "Variable frequency, up to 3.5 GHz" is a
+  different quantity from a nominal clock: it is a ceiling reached when power
+  and heat allow. It cannot share a row with the PlayStation 2's
+  {{context:sony-playstation-5:context-mhz-294-912}}, because the two figures
+  answer different questions. This machine's nominal clock is therefore recorded
+  as not-applicable, and its ceiling is recorded under a method shared with
+  GeForce boost clocks.
+
+
+  Everything here is provisional because Sony's only specification table for
+  this console went up eight months before it shipped and has been edited since.
+  The graphics rate now reads {{measurement:ps5-gpu:peak-fp32-rate}} where it
+  once read 10.28, and the compute-unit count it once carried is gone. A figure
+  from a document that is still changing remains provisional.
+imageIds:
+  - sony-playstation-5-console
+configurations:
+  - id: launch
+    label: Launch console
+    releaseDate: 2020-11
+    entries:
+      - componentId: ps5-cpu
+        role: main-cpu
+        count: 1
+        shared: false
+        notes: >-
+          {{context:ps5-cpu:context-unit-8}} cores,
+          {{context:ps5-cpu:context-unit-16}} threads. The frequency is a
+          ceiling: Sony specifies it as variable.
+        measurementIds:
+          - sony-playstation-5:cpu-clock-frequency
+          - sony-playstation-5:cpu-peak-clock
+      - componentId: ps5-gpu
+        role: gpu
+        count: 1
+        shared: false
+        notes:
+          Also a ceiling, and also variable. Sony states no compute-unit count.
+        measurementIds:
+          - sony-playstation-5:gpu-clock-frequency
+          - sony-playstation-5:gpu-peak-clock
+      - componentId: ps5-gddr6
+        role: unified-memory
+        count: 1
+        shared: true
+        notes: >-
+          Sony's own heading is "System Memory": one pool for the processor and
+          the graphics engine.
+        measurementIds:
+          - ps5-gddr6:capacity
+      - componentId: ps5-ssd
+        role: storage
+        count: 1
+        shared: false
+        notes: >-
+          Read decimally. 825 is not a power of two and was never meant to be
+          read as one.
+        measurementIds:
+          - sony-playstation-5:storage-capacity
+notes: >-
+  The release date is editorial context: the cited table predates the console by
+  eight months and states no date. The digital edition, which differs only in
+  the optical drive, is not recorded as a second configuration because it
+  carries no different figure. Three things in Sony's table are deliberately not
+  recorded: the SSD's {{context:sony-playstation-5:context-gb-s-5-5}} read
+  bandwidth, which is a storage rate rather than the memory-bandwidth metric;
+  the disc capacity, which describes a medium rather than the machine; and the
+  audio engine, which the catalog has no metric for. No power figure is recorded
+  because Sony publishes none.
+sourceIds:
+  - scei-ps5-hardware-specs-2020
+editorialStatus: approved

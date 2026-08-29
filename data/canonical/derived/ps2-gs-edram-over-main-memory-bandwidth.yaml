@@ -1,0 +1,20 @@
+id: playstation-2:gs-edram-over-main-memory-bandwidth
+formula:
+  id: ratio
+  version: '1'
+  expression: a ÷ b
+inputMeasurementIds:
+  - ps2-gs-edram:bandwidth
+  - ps2-main-rdram:bandwidth
+result:
+  state: value
+  value: '15'
+  unit: unit
+  significantDigits: 2
+rounding: half-up
+caveat: >-
+  Compares memory-bandwidth at memory scope, obtained by theoretical-peak. Valid
+  only within this comparability group, and reported to 2 significant digits —
+  the precision of the least precise input. At least one input is a theoretical
+  peak, which is an upper bound rather than an achieved result.
+editorialStatus: approved

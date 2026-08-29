@@ -1,0 +1,13 @@
+editorialStatus: approved
+id: sega-saturn-sh2
+slug: sega-saturn-sh2
+kind: cpu
+name: Hitachi SH-2
+manufacturer: Hitachi
+architecture: SuperH SH-2
+introducedDate: '1994'
+instructionSet: SuperH SH-2
+instructionSetFamily: superh
+summary: The Sega Saturn main processor.
+sourceIds:
+  - sega-saturn-service-manual

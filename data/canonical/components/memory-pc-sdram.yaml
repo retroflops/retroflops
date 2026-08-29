@@ -1,0 +1,13 @@
+id: pc-sdram
+slug: pc-sdram
+kind: memory
+name: PC synchronous dynamic RAM
+manufacturer: PC industry
+architecture: Synchronous dynamic RAM
+introducedDate: '1993'
+memoryType: SDRAM
+summary:
+  Synchronous main memory used by representative Pentium and Pentium II PCs.
+sourceIds:
+  - intel-historical-x86-documentation
+editorialStatus: provisional

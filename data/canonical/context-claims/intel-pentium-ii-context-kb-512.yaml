@@ -1,0 +1,17 @@
+id: intel-pentium-ii:context-kb-512
+subject:
+  kind: component
+  id: intel-pentium-ii
+label: Capacity
+quantity:
+  state: value
+  value: '512'
+  unit: kB
+  significantDigits: 3
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - intel-pentium-ii-datasheet
+evidenceLevel: confirmed

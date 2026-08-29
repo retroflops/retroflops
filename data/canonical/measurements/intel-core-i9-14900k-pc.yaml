@@ -1,0 +1,192 @@
+- caveat: >-
+    This figure remains provisional until the cited source is corroborated for
+    the exact configuration.
+  comparabilityGroup: clock-frequency|cpu|nominal-clock
+  conditions: P-core base frequency; the E-core base frequency is
+    {{context:intel-core-i9-14900k:context-ghz-2-4}}.
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: intel-core-i9-14900k:clock-frequency
+  method: nominal-clock
+  metric: clock-frequency
+  normalized:
+    value: "3200000000"
+    unit: Hz
+    significantDigits: 2
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 2
+    state: value
+    unit: GHz
+    value: "3.2"
+  scope: cpu
+  sourceIds:
+    - intel-desktop-processor-reference
+  status: vendor-rated
+  subject:
+    id: intel-core-i9-14900k
+    kind: component
+    part: performance-cores
+  evidenceLevel: confirmed
+- caveat: >-
+    This figure remains provisional until the cited source is corroborated for
+    the exact configuration.
+  comparabilityGroup: clock-frequency|cpu|peak-clock
+  conditions: P-core maximum Intel Thermal Velocity Boost frequency; it requires
+    thermal and power headroom.
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: intel-core-i9-14900k:peak-clock
+  method: peak-clock
+  metric: clock-frequency
+  normalized:
+    value: "6000000000"
+    unit: Hz
+    significantDigits: 2
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 2
+    state: value
+    unit: GHz
+    value: "6.0"
+  scope: cpu
+  sourceIds:
+    - intel-desktop-processor-reference
+  status: vendor-rated
+  subject:
+    id: intel-core-i9-14900k
+    kind: component
+    part: performance-cores
+  evidenceLevel: confirmed
+- benchmark:
+    id: dhrystone
+    version: "2.1"
+  caveat: >-
+    A named Dhrystone 2.1 result normalized by the clock stated for that run. It
+    remains provisional pending a second independent source.
+  comparabilityGroup: dhrystone-mips-per-mhz|cpu|benchmark-run|dhrystone@2.1
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: intel-core-i9-14900k:dhrystone-mips-per-mhz
+  method: benchmark-run
+  metric: dhrystone-mips-per-mhz
+  normalized:
+    value: "6.1"
+    unit: DMIPS/MHz
+    significantDigits: 2
+    unitRegistry: units-v1
+  provenance: independent
+  quantity:
+    significantDigits: 2
+    state: value
+    unit: DMIPS/MHz
+    value: "6.1"
+  scope: cpu
+  sourceIds:
+    - x86-dhrystone-results
+  status: measured
+  subject:
+    id: intel-core-i9-14900k
+    kind: component
+  evidenceLevel: reported
+- caveat: >-
+    The rarest kind of gap: not a missing number but a number missing the one
+    qualifier that would make it comparable. Intel's export filing answers a
+    question its product specification never touches, and then leaves the
+    precision unstated across all twenty-four pages. Recording it as an FP32
+    peak would be a guess about which precision Intel meant, and the catalog
+    does not publish those.
+  comparabilityGroup: peak-fp32-rate|cpu|theoretical-peak
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: intel-core-i9-14900k:peak-fp32-rate
+  method: theoretical-peak
+  metric: peak-fp32-rate
+  provenance: vendor
+  quantity:
+    note: >-
+      Intel does publish a floating-point rate for this processor — 1228.8
+      GFLOPS, in the export-compliance matrix it maintains for the US Export
+      Administration Regulations — and states no precision for it anywhere in
+      that document. Without a precision the figure cannot answer a
+      single-precision question, and it cannot be assumed to be one: the same
+      1228.8 is listed for the faster-clocked 14900KS.
+    state: unknown
+  unknownAudit:
+    reviewedOn: 2026-08-25
+    routesChecked:
+      - vendor-documentation
+      - independent-analysis
+      - community-source
+    outcome: no-compatible-candidate
+    summary: The checked application metrics provide no precision-qualified FP32 rate.
+  scope: cpu
+  sourceIds:
+    - intel-app-metrics-core-processors
+  status: vendor-rated
+  subject:
+    id: intel-core-i9-14900k
+    kind: component
+- caveat: >-
+    Intel calls this Processor Base Power. The separate
+    {{context:intel-core-i9-14900k:context-w-253}} Maximum Turbo Power is a
+    limit, not a wall-power measurement, so it is retained in the conditions
+    rather than recorded as system power draw.
+  comparabilityGroup: thermal-design-power|cpu|rated-power
+  conditions: "{{measurement:intel-core-i9-14900k:thermal-design-power}} Processor
+    Base Power; Intel specifies up to
+    {{context:intel-core-i9-14900k:context-w-253}} Maximum Turbo Power."
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: intel-core-i9-14900k:thermal-design-power
+  method: rated-power
+  metric: thermal-design-power
+  normalized:
+    value: "125"
+    unit: W
+    significantDigits: 3
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 3
+    state: value
+    unit: W
+    value: "125"
+  scope: cpu
+  sourceIds:
+    - intel-desktop-processor-reference
+  status: vendor-rated
+  subject:
+    id: intel-core-i9-14900k
+    kind: component
+  evidenceLevel: confirmed
+- caveat: >-
+    This figure remains provisional until the cited source is corroborated for
+    the exact configuration.
+  comparabilityGroup: memory-capacity|whole-system|design-capacity
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: intel-core-i9-14900k-pc:whole-system-memory-capacity
+  method: design-capacity
+  metric: memory-capacity
+  normalized:
+    value: "34359738368"
+    unit: B
+    significantDigits: 2
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 2
+    state: value
+    unit: GiB
+    value: "32"
+  scope: whole-system
+  sourceIds:
+    - intel-desktop-processor-reference
+  status: vendor-rated
+  subject:
+    id: intel-core-i9-14900k-pc
+    kind: system
+  evidenceLevel: confirmed

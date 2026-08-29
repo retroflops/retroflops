@@ -1,0 +1,18 @@
+id: c64-system-rom
+slug: c64-system-rom
+kind: memory
+name: Commodore 64 system ROM
+manufacturer: Commodore Business Machines
+architecture: Mask ROM
+introducedDate: '1982'
+memoryType: Mask ROM
+summary:
+  '{{measurement:c64-system-rom:capacity}} of mask ROM holding BASIC, the KERNAL
+  operating system and the standard character set.'
+notes:
+  Banked into the same address space as the RAM, so the ROM and RAM capacities
+  describe overlapping address ranges and must never be added together into a
+  single memory figure.
+sourceIds:
+  - c64-programmers-reference-guide
+editorialStatus: approved

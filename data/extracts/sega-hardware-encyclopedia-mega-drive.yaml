@@ -1,0 +1,16 @@
+- extract: >-
+    型番	HAA-2500
+
+    電源/消費電力	専用ACアダプタ(DC9V) / 約13W
+  extractHash: d4dfd30416f531e503ebc70dbc31a9bbe4e1ba9cfb9a3364b760fd0fa13f22f8
+  id: sega-md:spec-table:power
+  locator: Specifications table, 型番 row and 電源/消費電力 row
+  notes: >-
+    約13W is "approximately 13 W". The 型番 row is transcribed alongside the
+    power row because the figure belongs to that model code: this is the
+    Japanese Mega Drive of 29 October 1988, which is the machine this catalog
+    records. The tab marks the boundary between the table's label column and its
+    value column.
+  sourceId: sega-hardware-encyclopedia-mega-drive
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-13

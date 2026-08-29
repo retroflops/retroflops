@@ -1,0 +1,47 @@
+editorialStatus: provisional
+id: nintendo-wii
+slug: nintendo-wii
+name: Nintendo Wii
+manufacturer: Nintendo
+type: console
+family: nintendo-home-console
+releaseDate: 2006-11
+region: North America
+summary: >-
+  Nintendo Wii, represented with its retail processor, graphics and installed
+  writable memory.
+description: >-
+  The Wii record links Broadway, Hollywood, and installed memory as separate
+  components, preserving the scope of each published hardware figure.
+configurations:
+  - id: retail
+    label: Retail hardware
+    entries:
+      - componentId: nintendo-wii-broadway
+        role: main-cpu
+        count: 1
+        shared: false
+        measurementIds:
+          - nintendo-wii:retail:cpu-clock-frequency
+      - componentId: nintendo-wii-hollywood
+        role: gpu
+        count: 1
+        shared: false
+        measurementIds:
+          - nintendo-wii:retail:gpu-clock-frequency
+      - componentId: nintendo-wii-mem1
+        role: system-memory
+        count: 1
+        shared: false
+        measurementIds:
+          - nintendo-wii-mem1:capacity
+      - componentId: nintendo-wii-mem2
+        role: video-memory
+        count: 1
+        shared: false
+        measurementIds:
+          - nintendo-wii-mem2:capacity
+imageIds:
+  - nintendo-wii-console
+sourceIds:
+  - nintendo-wii-hardware-overview

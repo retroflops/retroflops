@@ -1,0 +1,17 @@
+id: nvidia-geforce-6800-ultra-memory:context-gb-s-35-2
+subject:
+  kind: component
+  id: nvidia-geforce-6800-ultra-memory
+label: Rate
+quantity:
+  state: value
+  value: '35.2'
+  unit: GB/s
+  significantDigits: 3
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - nvidia-geforce-6800-ultra-whitepaper
+evidenceLevel: confirmed

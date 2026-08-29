@@ -1,0 +1,20 @@
+id: wikipedia-master-system-specifications
+title: Master System
+publisher: Wikipedia contributors
+accessedDate: 2026-08-26
+locator: Infobox, CPU and Memory rows
+extract: >-
+  CPU Zilog Z80A @ 3.58 MHz [...] Memory 8 KB RAM 16 KB VRAM
+tier: C
+sourceType: wiki
+url: https://en.wikipedia.org/wiki/Master_System
+editorialStatus: provisional
+usageNote: >-
+  Tier C community article used only for the provisional processor clock and work-RAM capacity of the 1986 machine.
+fetch:
+  url: https://en.wikipedia.org/wiki/Master_System
+  fetchedAt: 2026-08-26T09:41:39Z
+  httpStatus: 200
+  contentType: text/html; charset=UTF-8
+  byteLength: 589080
+  sha256: a621d81dda5fdfb68c128fcbe9135d8bbfcdca4a3bf10ac6e9283e2a9ba4810f

@@ -1,0 +1,22 @@
+accessedDate: 2026-08-13
+editorialStatus: approved
+id: sega-hardware-encyclopedia-master-system
+license: Copyright SEGA CORPORATION. The site's own notice prohibits
+  reproduction or reprinting without the copyright holder's permission; the
+  figure is verified here from a short extract rather than by reproducing the
+  page.
+locator: >-
+  Specifications table, 型番 and 電源/消費電力 rows; and the MASTER SYSTEM / Power Base
+  section on the overseas model
+publisher: SEGA CORPORATION
+sourceType: vendor-documentation
+tier: A
+title: セガハード大百科 — マスターシステム (Sega Hardware Encyclopedia — Master System)
+url: https://www.sega.jp/history/hard/mastersystem/
+usageNote: >-
+  Cited for an absence rather than a figure. The page states an electrical
+  rating, but for the Japanese MK-2000 of October 1987, and then sets out how
+  the overseas machine released a year earlier differs — no FM sound, no 3-D
+  glasses port, no rapid-fire circuit. This catalog's Master System is the 1986
+  machine, so the page documents both that a vendor figure exists and that it
+  belongs to another console.

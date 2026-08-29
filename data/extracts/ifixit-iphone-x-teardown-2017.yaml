@@ -1,0 +1,12 @@
+- id: ifixit-iphone-x-teardown-2017:installed-memory
+  sourceId: ifixit-iphone-x-teardown-2017
+  locator: iPhone X teardown, logic-board chips
+  extract: Apple A11 Bionic SoC layered over SK hynix 3 GB LPDDR4X RAM.
+  extractHash: c2a46613d9b71f8193f8231a3006e20a46855cf8647ecd46de8cf627a876ccf8
+  transcribed:
+    state: value
+    value: '3'
+    unit: GiB
+    significantDigits: 1
+  transcribedOn: 2026-08-25
+  transcribedBy: RetroFlops editors

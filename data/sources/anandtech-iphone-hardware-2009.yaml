@@ -1,0 +1,28 @@
+accessedDate: 2026-08-03
+archiveUrl: https://web.archive.org/web/20131220060523/http://www.anandtech.com/show/2782
+author: Anand Lal Shimpi
+editorialStatus: approved
+fetch:
+  byteLength: 74018
+  contentType: text/html; charset=utf-8
+  fetchedAt: 2026-08-03T21:20:29Z
+  httpStatus: 200
+  sha256: 3be169be8f8d84c14657a460d2227b3388deebd4aad1df0a95168a5dd72bb7d9
+  url: https://web.archive.org/web/20131220060523id_/http://www.anandtech.com/show/2782
+id: anandtech-iphone-hardware-2009
+license: Copyright AnandTech. Quoted here under short-extract fair use for
+  verification of the figures cited.
+locator: Page 1, section "The Original"
+publishedDate: 2009-06-10
+publisher: AnandTech
+sourceType: independent-analysis
+tier: B
+title: The iPhone 3GS Hardware Exposed & Analyzed
+url: https://web.archive.org/web/20131220060523id_/http://www.anandtech.com/show/2782
+usageNote: >-
+  AnandTech no longer serves this article to anything but a browser, so the
+  fetched address is a Wayback capture of 20 December 2013 taken in `id_` mode,
+  which returns the bytes as published without the archive's own navigation. The
+  archive is the custodian; the author is the publisher, and the tier is decided
+  by who wrote the piece. Written two years after the phone shipped, about the
+  machine it replaced.

@@ -1,0 +1,76 @@
+---
+// SPDX-FileCopyrightText: 2026 Wojciech Polak
+// SPDX-License-Identifier: MIT
+
+import { BUILD_INFO, formatBuildDate, shortCommit } from '~/lib/build-info';
+import { route } from '~/lib/paths';
+import { COPYRIGHT_HOLDER, COPYRIGHT_YEAR, REPOSITORY_URL } from '~/lib/site';
+
+/*
+ * The GitHub mark is the only third-party mark on the site and the only inline
+ * SVG: the Invertocat cannot be drawn with borders the way the menu icon and
+ * the caret are. It stays out of `brand/logo.svg` and the icon generator, which
+ * are for this project's own artwork, and it is reproduced unmodified apart
+ * from inheriting the link color.
+ */
+const GITHUB_MARK_PATH =
+  'M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z';
+
+const { version, git } = BUILD_INFO;
+const commitLabel = git === undefined ? undefined : shortCommit(git.commit);
+const commitDate = git === undefined ? undefined : formatBuildDate(git.commitDate);
+---
+
+<footer class="site-footer">
+  <div class="container">
+    <p>
+      RetroFlops publishes sourced hardware performance data. Every numeric value carries a source,
+      a locator and an evidence-review status. There is no universal score, and values are compared
+      only within a single metric and methodology.
+    </p>
+    <p>
+      <a href={route('/methodology/')}>Methodology</a> ·
+      <a href={route('/data/')}>Data &amp; contributing</a> ·
+      <a class="site-footer__gh" href={REPOSITORY_URL} rel="noopener"
+        ><svg
+          class="site-footer__gh-mark"
+          width="16"
+          height="16"
+          viewBox="0 0 16 16"
+          fill="currentColor"
+          aria-hidden="true"
+          focusable="false"><path d={GITHUB_MARK_PATH}></path></svg
+        ><span class="site-footer__gh-label">GitHub</span></a
+      >
+    </p>
+    <p class="site-footer__legal">
+      © {COPYRIGHT_YEAR}
+      {COPYRIGHT_HOLDER} and contributors. The code is
+      <a href={route('/data/#licensing')}>MIT</a>; the catalog, the editorial prose and the exports
+      are
+      <a href="https://creativecommons.org/licenses/by/4.0/" rel="license">CC BY 4.0</a>. The
+      documents cited belong to their publishers.
+    </p>
+    {
+      /*
+      Which build this page came from.
+
+      Every piece is prepared above, and the two elements carry their text as
+      `set:text` rather than as children, because the compressor turns a line
+      break into a space and the formatter decides where the lines break: an
+      element with an expression child gets split across three lines, which
+      would put a stray space inside the hash and before the period.
+    */
+    }
+    {
+      git === undefined ? (
+        <p class="site-footer__build">Version {version}.</p>
+      ) : (
+        <p class="site-footer__build">
+          Version {version}, built from commit <code set:text={commitLabel} /> of
+          <time datetime={git.commitDate} set:text={commitDate} />.
+        </p>
+      )
+    }
+  </div>
+</footer>

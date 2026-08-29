@@ -1,0 +1,133 @@
+id: apple-iphone-1st-generation
+slug: apple-iphone-1st-generation
+name: Apple iPhone (1st generation)
+manufacturer: Apple
+type: smartphone
+family: apple-iphone
+releaseDate: 2007-06-29
+region: United States
+summary: >-
+  One ARM11 core at
+  {{measurement:apple-iphone-1st-generation:cpu-clock-frequency-independent}}, a
+  graphics core with no published frequency, and
+  {{measurement:iphone-dram:capacity}} of memory in a phone sold by its four or
+  eight gigabytes of storage.
+description: >-
+  The first telephone in this catalog is also the first record where the number
+  on the box does not describe the machine's working memory. Apple sold the
+  iPhone as a {{context:apple-iphone-1st-generation:context-gb-4}} model and an
+  {{context:apple-iphone-1st-generation:context-gb-8}} model. Both figures are
+  flash storage. The memory used to run programs is
+  {{measurement:iphone-dram:capacity}}, which Apple never mentioned; it appears
+  here because somebody took the phone apart and wrote it down.
+
+
+  Apple's two press releases give a price, a capacity, a screen size and a
+  camera, but no processor, frequency or memory. The clock, the core, the
+  graphics part and the memory all come from one independent analysis published
+  two years later. Because it is one analysis rather than two, every figure it
+  supports is provisional. The catalog's rule is a tier A source or two agreeing
+  tier B ones; the vendor's silence does not lower the bar.
+
+
+  The analysis does not guess. It gives the processor as
+  {{measurement:apple-iphone-1st-generation:cpu-clock-frequency-independent}}
+  and says plainly that it does not know the graphics core's frequency. That
+  sentence is the evidence for the graphics clock, and it is the reason there is
+  no figure to give.
+imageIds:
+  - apple-iphone-1st-generation-phone
+configurations:
+  - id: 4gb
+    label: 4 GB model
+    releaseDate: 2007-06-29
+    entries:
+      - componentId: iphone-s5l8900
+        role: main-cpu
+        count: 1
+        shared: false
+        notes: >-
+          One ARM1176JZF-S core. Apple states no frequency; this one is
+          independently published.
+        measurementIds:
+          - apple-iphone-1st-generation:cpu-clock-frequency-independent
+      - componentId: iphone-mbx-lite
+        role: gpu
+        count: 1
+        shared: false
+        notes: >-
+          On the same package as the processor. No frequency has been published
+          for it by anyone.
+        measurementIds:
+          - apple-iphone-1st-generation:gpu-clock-frequency
+      - componentId: iphone-dram
+        role: system-memory
+        count: 1
+        shared: true
+        notes:
+          One pool on the package, shared by the processor and the graphics
+          core.
+        measurementIds:
+          - iphone-dram:capacity
+      - componentId: iphone-flash
+        role: storage
+        count: 1
+        shared: false
+        notes:
+          Where programs are kept. Thirty-two times the memory the machine runs
+          them in.
+        measurementIds:
+          - apple-iphone-1st-generation:storage-capacity-4gb
+  - id: 8gb
+    label: 8 GB model
+    releaseDate: 2007-06-29
+    entries:
+      - componentId: iphone-s5l8900
+        role: main-cpu
+        count: 1
+        shared: false
+        notes: >-
+          One ARM1176JZF-S core. Apple states no frequency; this one is
+          independently published.
+        measurementIds:
+          - apple-iphone-1st-generation:cpu-clock-frequency-independent
+      - componentId: iphone-mbx-lite
+        role: gpu
+        count: 1
+        shared: false
+        notes: >-
+          On the same package as the processor. No frequency has been published
+          for it by anyone.
+        measurementIds:
+          - apple-iphone-1st-generation:gpu-clock-frequency
+      - componentId: iphone-dram
+        role: system-memory
+        count: 1
+        shared: true
+        notes:
+          One pool on the package, shared by the processor and the graphics
+          core.
+        measurementIds:
+          - iphone-dram:capacity
+      - componentId: iphone-flash
+        role: storage
+        count: 1
+        shared: false
+        notes:
+          Where programs are kept. Sixty-four times the memory the machine runs
+          them in.
+        measurementIds:
+          - apple-iphone-1st-generation:storage-capacity-8gb
+notes: >-
+  The release date and the hour come from Apple's retail-availability release of
+  28 June 2007. The {{context:apple-iphone-1st-generation:context-gb-16}} model
+  added in February 2008 is not recorded: it is a later configuration of the
+  same machine and adds no quantity this record does not already carry. The
+  battery figures Apple publishes, talk time and standby time, are durations
+  under unstated conditions rather than a power draw, so no power figure is
+  recorded for the machine.
+sourceIds:
+  - apple-iphone-retail-launch-2007
+  - apple-iphone-announcement-2007
+  - anandtech-iphone-hardware-2009
+editorialStatus: approved

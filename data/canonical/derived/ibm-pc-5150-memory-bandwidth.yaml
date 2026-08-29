@@ -1,0 +1,30 @@
+id: ibm-pc-5150:memory-bandwidth-from-cycle-time
+formula:
+  id: memory-bandwidth-from-cycle-time
+  version: '1'
+  expression: bytes per memory cycle ÷ memory cycle time
+inputMeasurementIds:
+  - ibm-pc-5150:memory-cycle-time
+constants:
+  - id: bytes-per-memory-cycle
+    label: bytes transferred by one processor memory cycle
+    value: '1'
+    reason: >-
+      IBM gives the cycle time as "ns/byte", so the stated processor-generated
+      memory cycle transfers one byte.
+    sourceIds:
+      - ibm-pc-technical-reference
+result:
+  state: value
+  value: '1190000'
+  unit: B/s
+  significantDigits: 3
+rounding: half-up
+caveat: >-
+  Divides bytes transferred by one processor memory cycle by the published
+  memory cycle time. The result is an interface ceiling when a manual specifies
+  nanoseconds per byte instead of a transfer rate. It is not measured
+  application throughput: refresh, contention and wait states can consume
+  cycles. Reported to 3 significant digits. That is the precision of the cycle
+  time, because the bytes-per-cycle constant is exact.
+editorialStatus: approved

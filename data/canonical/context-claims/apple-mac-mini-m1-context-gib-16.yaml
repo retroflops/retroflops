@@ -1,0 +1,18 @@
+id: apple-mac-mini-m1:context-gib-16
+subject:
+  kind: system
+  id: apple-mac-mini-m1
+label: Capacity
+quantity:
+  state: value
+  value: '16'
+  unit: GiB
+  significantDigits: 2
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - apple-m1-announcement-2020
+  - apple-mac-mini-m1-tech-specs
+evidenceLevel: confirmed

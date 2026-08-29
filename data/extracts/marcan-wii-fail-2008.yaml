@@ -1,0 +1,7 @@
+- extract: 24MB 1T-SRAM (MEM1) + 64MB GDDR3 DRAM (MEM2).
+  id: marcan-wii-fail-2008:main-memory
+  locator: Hardware summary slide, memory row
+  sourceId: marcan-wii-fail-2008
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-25
+  extractHash: 221e0d3b049415adafbf26541443987c2311246335f045e8af7a45633971f12a

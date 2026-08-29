@@ -1,0 +1,19 @@
+id: ps5-gddr6
+slug: ps5-gddr6
+kind: memory
+name: PlayStation 5 unified GDDR6 memory
+manufacturer: Sony Interactive Entertainment
+memoryType: GDDR6
+introducedDate: '2020'
+summary: >-
+  Sixteen gibibytes at {{measurement:ps5-gddr6:bandwidth}}, shared by the
+  processor and the graphics engine. Twice the PlayStation 4's capacity, at two
+  and a half times its bandwidth.
+notes: >-
+  Sony's word for it is "System Memory", one pool for the whole machine, so the
+  console's whole-system capacity is this figure and excludes nothing. That is
+  now the norm for a PlayStation: the first four consoles all kept two pools
+  that could not be spent on each other's work.
+sourceIds:
+  - scei-ps5-hardware-specs-2020
+editorialStatus: provisional

@@ -1,0 +1,19 @@
+id: ps3-rsx:context-mhz-550
+subject:
+  kind: component
+  id: ps3-rsx
+label: Frequency
+quantity:
+  state: value
+  value: '550'
+  unit: MHz
+  significantDigits: 3
+provenance: vendor
+evidenceStage: pre-launch
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - scei-ps3-specifications-2005
+extractIds:
+  - scei-ps3-2005:gpu
+evidenceLevel: confirmed

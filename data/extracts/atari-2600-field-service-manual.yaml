@@ -1,0 +1,10 @@
+- id: atari-2600-service:riot
+  sourceId: atari-2600-field-service-manual
+  locator: Theory of Operation, schematic component designation
+  extract: '6532'
+  extractHash: cde2e7e0392f5cfb5b230c8717f054c5a5b722263e6e216f7a748231a9c1aa6f
+  notes: >-
+    The schematic identifies the fitted RIOT IC; the MOS datasheet supplies its
+    RAM capacity.
+  transcribedOn: 2026-08-25
+  transcribedBy: RetroFlops editors

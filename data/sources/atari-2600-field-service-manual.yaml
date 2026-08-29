@@ -1,0 +1,20 @@
+id: atari-2600-field-service-manual
+title: Atari 2600/2600A VCS Domestic Field Service Manual
+publisher: Atari, Inc.
+publishedDate: 1983-01
+accessedDate: 2026-08-25
+locator: Theory of Operation and clock-generator schematic
+extract: Atari 2600/2600A Domestic VCS Field Service Manual.
+tier: A
+sourceType: technical-manual
+url: https://www.atarimania.com/2600/files/vcs_domestic_field_service_manual.pdf
+usageNote: >-
+  A scan of Atari's service manual used to read a numeric hardware figure only
+  after confirming its page-level wording.
+fetch:
+  url: https://www.atarimania.com/2600/files/vcs_domestic_field_service_manual.pdf
+  fetchedAt: 2026-08-25T06:08:03Z
+  httpStatus: 200
+  contentType: application/pdf
+  byteLength: 9334627
+  sha256: bfa7d9ecbcc189b6a5bf7d6250491ee0f73dd1e394e91f3786c6b23c97e9fb93

@@ -1,0 +1,115 @@
+- extract: >-
+    Specifications — GeForce GTX 1080 (Pascal)
+
+    GPU: GP104
+
+    SMs: 20
+
+    CUDA Cores: 2560
+
+    Transistors: 7.2 billion
+
+    Base Clock: 1607 MHz
+
+    Boost Clock: 1733 MHz
+
+    Framebuffer: 8 GB
+
+    Memory Speed: 10 GHz
+
+    Memory Bandwidth: 320 GB/s
+
+    Texture Units: 160
+
+    Texel Fill-Rate: 277.3 Gigatexels/s1
+
+    ROPs: 64
+
+    L2 Cache: 2048 KB
+
+    Power Connectors: 1 x 8-pin
+
+    TDP: 180 W
+
+    Manufacturing Process: 16nm FinFET
+
+    1 Texel Fill-Rates based on the GPU Boost Clock speed
+  extractHash: 166e83c76c364401716f67c6e76c9c03d26875f805eb69fecb16f9f9d2720c00
+  id: nvidia-gtx-1080:specifications
+  locator: >-
+    Specifications table, "GeForce GTX 1080 (Pascal)" column, and the footnote
+    below it
+  notes: >-
+    The table has a column for the GTX 1080 and one for the GTX 980; only the
+    GTX 1080 column is transcribed, and each row label is rejoined with its
+    value by a colon. The display-connector row is omitted. Two clocks appear
+    and they are two quantities: the base clock is the frequency the card is
+    specified to hold, the boost clock the frequency it reaches when there is
+    headroom, and the footnote confirms the vendor treats the second as the
+    basis for its rate figures.
+  sourceId: nvidia-gtx-1080-deep-dive-2016
+  transcribed:
+    significantDigits: 4
+    state: value
+    unit: MHz
+    value: '1607'
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-03
+- extract: >-
+    Comprised of 7.2 billion transistors, and including 2560 single-precision
+    CUDA Cores, the GeForce GTX 1080 is the world’s fastest graphics card,
+    capable of powering next-generation experiences, and today’s demanding
+    Virtual Reality games at a rock-solid 90 frames per second.
+  extractHash: e5c0c57181daaecba23efeb98f76632094254404f94f657c98e961e80a744b5c
+  id: nvidia-gtx-1080:single-precision-cores
+  locator: Paragraph immediately above the Specifications table
+  notes: >-
+    Transcribed because of two words in it. The whitepaper's rate for this card
+    is labeled only "GFLOPs", and this sentence is where the vendor says what
+    precision those cores work in — which is what lets the rate be recorded as a
+    single-precision peak rather than held provisional like the console figures
+    that name no precision at all.
+  sourceId: nvidia-gtx-1080-deep-dive-2016
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-03
+- extract: >-
+    Surrounding the GeForce GTX 1080’s 16nm GPU is 8GB of GDDR5X (G5X) video
+    memory (VRAM). This brand new, never before-used G5X VRAM runs at a
+    blistering data rate of 10Gbps, which when combined with the 256-bit memory
+    interface provides 43% more memory bandwidth than on the previous-generation
+    GeForce GTX 980.
+  extractHash: 51542ae88108af242ac585c483cec724d2c90d9a3e9843a074754ab4d95a3c75
+  id: nvidia-gtx-1080:memory-interface
+  locator: Body text, paragraph on the GP104 GPU and its memory
+  notes: >-
+    The width of the memory interface is stated only in the prose; neither the
+    article's specification table nor the whitepaper's comparison table has a
+    row for it. The 43% is a comparison with another card and is not a figure
+    about this one.
+  sourceId: nvidia-gtx-1080-deep-dive-2016
+  transcribed:
+    significantDigits: 3
+    state: value
+    unit: bit
+    value: '256'
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-04
+- extract: >-
+    GeForce GTX 1080 retail availability from the world's leading add-in card
+    suppliers, including ASUS, Colorful, EVGA, Gainward, Galaxy, Gigabyte,
+    Innovision 3D, MSI, Palit, PNY and Zotac, will begin at the end of May.
+    Partner boards will vary by region, and pricing is expected to start at
+    $599.
+  extractHash: 4ff9812b1497715fe463a4b874ae0f4b5838707f2d562b6de4c84baef16ff37a
+  id: nvidia-gtx-1080:pricing
+  locator: Closing section, paragraph on retail availability
+  notes: >-
+    Transcribed because of what it is not. NVIDIA states no price of its own
+    here: the figure is an expectation about what other companies will charge
+    for their boards, hedged twice over — "will vary by region" and "is expected
+    to" — and it is not a price for the Founders Edition NVIDIA sells itself.
+    Nothing else in the cached NVIDIA sources states a price for this card. No
+    value is transcribed.
+  sourceId: nvidia-gtx-1080-deep-dive-2016
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-04

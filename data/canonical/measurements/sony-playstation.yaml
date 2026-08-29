@@ -1,0 +1,275 @@
+- caveat: >-
+    Describes the integer core only. Geometry and lighting run on the GTE
+    coprocessor and drawing runs on a separate GPU, so this figure covers less
+    of the console's work than a processor clock usually does.
+  comparabilityGroup: clock-frequency|cpu|nominal-clock
+  conditions: System clock of the customized R3000A, per table 2-1. Identical in
+    every region.
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - psx-hw:table-2-1:cpu
+  id: sony-playstation:clock-frequency
+  method: nominal-clock
+  metric: clock-frequency
+  normalized:
+    value: "33868800"
+    unit: Hz
+    significantDigits: 6
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 6
+    state: value
+    unit: MHz
+    value: "33.8688"
+  scope: cpu
+  sourceIds:
+    - psx-hardware-reference
+  status: vendor-rated
+  subject:
+    configurationId: retail
+    id: sony-playstation
+    kind: system
+  evidenceLevel: confirmed
+- caveat: >-
+    The manual writes "2 MB", meaning {{measurement:psx-main-ram:capacity}}.
+    Video memory is a separate {{context:psx-main-ram:context-mib-1}} and is not
+    part of this figure; the two are not one pool and adding them would describe
+    memory the console cannot use interchangeably.
+  comparabilityGroup: memory-capacity|memory|design-capacity
+  conditions: Main memory installed in the console. No TLB is fitted, so the
+    physical map is fixed.
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - psx-hw:ch2:main-memory
+  id: psx-main-ram:capacity
+  method: design-capacity
+  metric: memory-capacity
+  normalized:
+    value: "2097152"
+    unit: B
+    significantDigits: 1
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 1
+    state: value
+    unit: MiB
+    value: "2"
+  scope: memory
+  sourceIds:
+    - psx-hardware-reference
+  status: vendor-rated
+  subject:
+    id: psx-main-ram
+    kind: component
+  evidenceLevel: confirmed
+- caveat: >-
+    Reachable by the GPU rather than by the CPU, so it answers a different
+    question from main memory, the same distinction the Amiga draws between Chip
+    and Fast memory.
+  comparabilityGroup: memory-capacity|memory|design-capacity
+  conditions: Video memory attached to the GPU, holding the frame buffer, texture
+    pages and color lookup tables.
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - psx-hw:ch3:gpu-vram
+  id: psx-vram:capacity
+  method: design-capacity
+  metric: memory-capacity
+  normalized:
+    value: "1048576"
+    unit: B
+    significantDigits: 1
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 1
+    state: value
+    unit: MiB
+    value: "1"
+  scope: memory
+  sourceIds:
+    - psx-hardware-reference
+  status: vendor-rated
+  subject:
+    id: psx-vram
+    kind: component
+  evidenceLevel: confirmed
+- caveat: >-
+    Adds 1 memory-capacity figure obtained by design-capacity. Left out:
+    {{measurement:psx-vram:capacity}} of video memory (owned by the drawing
+    processor and not part of the CPU’s working store). A total is only as
+    trustworthy as the decision about what belongs in it, so both the terms and
+    the exclusions are named records.
+  comparabilityGroup: memory-capacity|whole-system|design-capacity
+  conditions: Main memory, which is the whole of the machine’s general-purpose store.
+  derivedFrom: sony-playstation:whole-system-memory
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - psx-hw:ch2:main-memory
+  id: sony-playstation:whole-system-memory-capacity
+  method: design-capacity
+  metric: memory-capacity
+  normalized:
+    value: "2097152"
+    unit: B
+    significantDigits: 1
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 1
+    state: value
+    unit: MiB
+    value: "2"
+  rounding: none
+  scope: whole-system
+  sourceIds:
+    - psx-hardware-reference
+  status: derived
+  subject:
+    id: sony-playstation
+    kind: system
+  evidenceLevel: confirmed
+- caveat: >-
+    Not-applicable on a citation rather than on an inference. The catalog held
+    nothing here because Sony’s reference never mentioned floating-point
+    hardware, and absent evidence is not evidence of absence; the overview
+    chapter does say what the engine computes in, which is the citation
+    not-applicable needs. The console draws in three dimensions at speed and
+    does it without a floating-point unit, which is why the wobbling geometry of
+    the era looks the way it does.
+  comparabilityGroup: peak-fp32-rate|gpu|theoretical-peak
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - psx-hw:ch1:gte-fixed-point
+  id: sony-playstation:peak-fp32-rate
+  method: theoretical-peak
+  metric: peak-fp32-rate
+  provenance: vendor
+  quantity:
+    note: >-
+      Sony’s developer reference states that the geometry transform engine works
+      in fixed-point format. A machine whose 3D arithmetic is fixed point has no
+      floating-point rate to state, in the same way the 6510 has none.
+    state: not-applicable
+  scope: gpu
+  sourceIds:
+    - psx-hardware-reference
+  status: vendor-rated
+  subject:
+    id: sony-playstation
+    kind: system
+- caveat: >-
+    Unknown, and it is the same finding the processor clock already carries from
+    the other side: this is the machine where one frequency stops describing the
+    hardware. Three chips do the 3D work and the manual times only the first of
+    them.
+  comparabilityGroup: clock-frequency|gpu|nominal-clock
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - psx-hw:table-2-1:cpu
+  id: sony-playstation:gpu-clock-frequency
+  method: nominal-clock
+  metric: clock-frequency
+  provenance: vendor
+  quantity:
+    note: >-
+      The developer reference gives one system clock, in the processor’s
+      specification table, and states no separate frequency for the drawing
+      processor or the geometry engine.
+    state: unknown
+  unknownAudit:
+    reviewedOn: 2026-08-25
+    routesChecked:
+      - vendor-documentation
+      - independent-analysis
+      - community-source
+    outcome: no-published-candidate
+    summary: >-
+      The checked developer reference gives a CPU system clock but no separate
+      frequency for the drawing processor or geometry engine.
+  scope: gpu
+  sourceIds:
+    - psx-hardware-reference
+  status: vendor-rated
+  subject:
+    id: sony-playstation
+    kind: system
+- caveat: >-
+    Unknown for both pools. The reference is unusually clear that they are
+    separate — the processor cannot reach video memory directly — so even a
+    stated rate would have been two rates, not one.
+  comparabilityGroup: memory-bandwidth|memory|theoretical-peak
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - psx-hw:ch3:gpu-vram
+  id: sony-playstation:memory-bandwidth
+  method: theoretical-peak
+  metric: memory-bandwidth
+  provenance: vendor
+  quantity:
+    note: >-
+      The developer reference states the capacity of main memory and of video
+      memory and the bus width, and no transfer rate for either.
+    state: unknown
+  unknownAudit:
+    reviewedOn: 2026-08-25
+    routesChecked:
+      - vendor-documentation
+      - independent-analysis
+      - community-source
+    outcome: no-compatible-candidate
+    summary: >-
+      The reference gives memory capacities and bus width, but no transfer rate
+      for either separate memory pool.
+  scope: memory
+  sourceIds:
+    - psx-hardware-reference
+  status: vendor-rated
+  subject:
+    id: sony-playstation
+    kind: system
+- caveat: >-
+    A supply rating for the SCPH-7501 revision, not for the SCPH-1001 that
+    launched in 1995. Sony shrank and simplified the console repeatedly over its
+    life, so a later revision draws less than the first, and this figure is
+    recorded against the machine with the revision named, the same arrangement
+    as the PlayStation 2’s rating, which comes from the SCPH-39001 manual. The
+    developer reference this record otherwise rests on rates no power at all.
+  comparabilityGroup: rated-power-consumption|whole-system|rated-power
+  conditions: Rating printed in the instruction manual supplied with the SCPH-7501
+    console of 1997.
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - scei-psx-scph-7501:power
+  id: sony-playstation:rated-power-consumption
+  method: rated-power
+  metric: rated-power-consumption
+  normalized:
+    value: "17"
+    unit: W
+    significantDigits: 2
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 2
+    state: value
+    unit: W
+    value: "17"
+  scope: whole-system
+  sourceIds:
+    - scei-psx-scph-7501-manual
+  status: vendor-rated
+  subject:
+    id: sony-playstation
+    kind: system
+  evidenceLevel: confirmed

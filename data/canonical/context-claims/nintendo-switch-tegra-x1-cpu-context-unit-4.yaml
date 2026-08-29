@@ -1,0 +1,18 @@
+id: nintendo-switch-tegra-x1-cpu:context-unit-4
+subject:
+  kind: component
+  id: nintendo-switch-tegra-x1-cpu
+label: Core count
+quantity:
+  state: value
+  value: '4'
+  unit: unit
+  significantDigits: 1
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - nintendo-switch-tech-specs
+  - digitalfoundry-switch-clocks-2016
+evidenceLevel: confirmed

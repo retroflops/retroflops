@@ -1,0 +1,20 @@
+id: agc-block-ii:context-us-11-724
+subject:
+  kind: component
+  id: agc-block-ii
+label: Contextual value
+quantity:
+  state: value
+  value: '11.724'
+  unit: us
+  significantDigits: 5
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - ntrs-19760016247
+extractIds:
+  - ntrs-19760016247:page-29:memory-cycle
+  - ntrs-19760016247:table-1
+evidenceLevel: confirmed

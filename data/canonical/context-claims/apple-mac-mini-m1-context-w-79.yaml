@@ -1,0 +1,19 @@
+id: apple-mac-mini-m1:context-w-79
+subject:
+  kind: system
+  id: apple-mac-mini-m1
+label: Contextual value
+quantity:
+  state: value
+  value: '79'
+  unit: W
+  significantDigits: 2
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - apple-mac-mini-m1-tech-specs
+extractIds:
+  - apple-mac-mini-m1:electrical
+evidenceLevel: confirmed

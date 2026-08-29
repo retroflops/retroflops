@@ -1,0 +1,17 @@
+id: pc-ddr-sdram:context-gb-s-21
+subject:
+  kind: component
+  id: pc-ddr-sdram
+label: Rate
+quantity:
+  state: value
+  value: '21'
+  unit: GB/s
+  significantDigits: 2
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - intel-core-i7-2600k-specifications
+evidenceLevel: confirmed

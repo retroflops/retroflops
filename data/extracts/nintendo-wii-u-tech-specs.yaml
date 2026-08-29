@@ -1,0 +1,18 @@
+- extract: >-
+    CPU | IBM社製　IBM Power®を基にしたマルチコアプロセッサー
+
+    GPU | AMD社製　AMD Radeon™を基にした高精細度GPU
+  extractHash: 0703db3f3d34929d7659ec5b576f1e8cc44553278252c9ccb5c75a8ab39d2341
+  id: nintendo-wii-u:specs:cpu-gpu
+  locator: 本体の主な仕様 / Wii U Console Tech Specs table, CPU and GPU rows
+  notes: >-
+    Two rows, two suppliers, two architecture families and no number. The
+    registered mark and the trademark sign appear in the page as entities and
+    are transcribed as rendered; the double-width space after 社製 is the page's
+    own. The table continues into storage, optical drive, ports and video
+    output, and never reaches a main-memory row — the 32GB and 8GB it does state
+    are the console's flash, a different quantity from the RAM this catalog
+    records elsewhere.
+  sourceId: nintendo-wii-u-tech-specs
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-15

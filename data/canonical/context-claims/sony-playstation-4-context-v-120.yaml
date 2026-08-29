@@ -1,0 +1,19 @@
+id: sony-playstation-4:context-v-120
+subject:
+  kind: system
+  id: sony-playstation-4
+label: Contextual value
+quantity:
+  state: value
+  value: '120'
+  unit: V
+  significantDigits: 3
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - scei-ps4-safety-guide-cuh-1001a
+extractIds:
+  - ps4-cuh-1001a:p11:rated-power
+evidenceLevel: confirmed

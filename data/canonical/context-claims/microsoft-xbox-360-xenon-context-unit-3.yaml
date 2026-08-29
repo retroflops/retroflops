@@ -1,0 +1,17 @@
+id: microsoft-xbox-360-xenon:context-unit-3
+subject:
+  kind: component
+  id: microsoft-xbox-360-xenon
+label: Core count
+quantity:
+  state: value
+  value: '3'
+  unit: unit
+  significantDigits: 1
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - microsoft-xbox-360-hardware-overview
+evidenceLevel: confirmed

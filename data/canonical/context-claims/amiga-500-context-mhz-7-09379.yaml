@@ -1,0 +1,17 @@
+id: amiga-500:context-mhz-7-09379
+subject:
+  kind: system
+  id: amiga-500
+label: Frequency
+quantity:
+  state: value
+  value: '7.09379'
+  unit: MHz
+  significantDigits: 6
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - amiga-hardware-reference-manual
+evidenceLevel: confirmed

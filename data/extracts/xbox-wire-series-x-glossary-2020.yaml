@@ -1,0 +1,18 @@
+- extract: >-
+    While Xbox Series X delivers 12 TFLOPS of 32-bit float performance, two
+    times that of the Xbox One X, the architectural efficiency improvements
+    brought by AMD's RDNA 2 architecture […] means that Xbox Series X will
+    deliver well over twice the effective graphics performance of Xbox One X for
+    games.
+  extractHash: 6ba9fdc3edc25d67e6b743f67c2a95ec868f8f4f355b63211a7dee73262525e9
+  id: xbox-series-x-glossary:tflops
+  locator: Glossary entry for 'TFLOPS (Teraflops)'
+  notes: >-
+    The bracketed ellipsis marks an omitted clause listing Variable Rate Shading
+    and hardware accelerated DirectX Raytracing. "32-bit float" is the precision
+    the specification table omits, and it is what makes this figure recordable
+    as an FP32 rate at all. The generational comparison in the same sentence is
+    not a claim this catalog carries: it names no metric or benchmark.
+  sourceId: xbox-wire-series-x-glossary-2020
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-13

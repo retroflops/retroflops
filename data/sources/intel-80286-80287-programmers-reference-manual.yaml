@@ -1,0 +1,17 @@
+id: intel-80286-80287-programmers-reference-manual
+title: 80286 and 80287 Programmer's Reference Manual
+publisher: Intel Corporation
+url: https://archive.org/details/intel-1987-80286-and-80287-programmers-reference-manual
+publishedDate: '1987'
+accessedDate: 2026-08-24
+locator: >-
+  Appendix B, "The 80286 Instruction Set", printed page B-5, "Clocks" note
+tier: A
+sourceType: technical-manual
+license: Copyright Intel Corporation; quoted under short-extract fair use for
+  verification.
+usageNote: >-
+  The Internet Archive scan is a digitized copy of an Intel manual. Its clock
+  example establishes the 80286's relation to the CLK input, but it names a 10
+  MHz processor and does not establish an installed PC memory configuration.
+editorialStatus: approved

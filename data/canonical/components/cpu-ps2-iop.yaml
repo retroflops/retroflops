@@ -1,0 +1,22 @@
+id: ps2-iop
+slug: ps2-iop
+kind: cpu
+name: PlayStation 2 I/O Processor
+manufacturer: Sony Computer Entertainment
+architecture: MIPS I (PlayStation CPU core)
+instructionSetFamily: mips
+introducedDate: 1999-03
+summary:
+  The original PlayStation's {{context:ps2-iop:context-bit-32}} CPU core, reused
+  as the PlayStation 2's input/output processor and as the machine it becomes
+  when running a PlayStation disc.
+notes:
+  No clock frequency is recorded for it. Sony's specification gives "33.8/37.5
+  MHz" — one figure for each mode the processor runs in, PlayStation
+  compatibility and native I/O — and a single measurement cannot carry two
+  operating points without inventing a distinction between them that the source
+  does not make. The lower figure is the original PlayStation's clock, rounded
+  from {{context:ps2-iop:context-mhz-33-8688}}.
+sourceIds:
+  - scei-ps2-specifications-1999
+editorialStatus: approved

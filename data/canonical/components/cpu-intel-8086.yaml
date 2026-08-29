@@ -1,0 +1,16 @@
+id: intel-8086
+slug: intel-8086
+kind: cpu
+name: Intel 8086
+manufacturer: Intel
+architecture: '8086'
+introducedDate: 1978-06
+instructionSet: Intel 8086
+instructionSetFamily: x86
+summary:
+  The original {{context:intel-8086:context-bit-16}} x86 processor, with a
+  {{context:intel-8086:context-bit-20}} address bus and a separate 8087
+  coprocessor option.
+sourceIds:
+  - intel-historical-x86-documentation
+editorialStatus: provisional

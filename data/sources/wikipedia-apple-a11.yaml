@@ -1,0 +1,20 @@
+id: wikipedia-apple-a11
+title: Apple A11
+publisher: Wikipedia contributors
+accessedDate: 2026-08-26
+locator: Design section, first paragraph
+extract: >-
+  The A11 features an Apple-designed 64-bit ARMv8-A six-core CPU, with two high-performance cores at 2.39 GHz, called Monsoon
+tier: C
+sourceType: wiki
+url: https://en.wikipedia.org/wiki/Apple_A11
+editorialStatus: provisional
+usageNote: >-
+  Tier C community article used only for the provisional performance-core clock of the iPhone X.
+fetch:
+  url: https://en.wikipedia.org/wiki/Apple_A11
+  fetchedAt: 2026-08-26T10:20:35Z
+  httpStatus: 200
+  contentType: text/html; charset=UTF-8
+  byteLength: 257007
+  sha256: 35b153cc9ec7b9b6f44fa10c2386f62d4a515b64b498b86048fc073c0490a387

@@ -1,0 +1,23 @@
+- extract: 16k or 48k bytes of dynamic RAM memory.
+  id: zx-spectrum-48k-manual:ram-capacity
+  locator: System Description, General Description, PDF p. 4
+  sourceId: zx-spectrum-48k-manual
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-25
+  extractHash: 5d2146c748c536516dbedf1924f7fb994c0e974821c8ccff080519f9adfcd8cf
+- extract: The lower 16K bytes of this address space is implemented in ROM.
+  id: zx-spectrum-48k-manual:rom-capacity
+  locator: System Description, 4.2 Memory, PDF p. 5
+  sourceId: zx-spectrum-48k-manual
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-25
+  extractHash: 224a91011d27886029ec316a064c378ce755d8300461019f7b79fa4002e3ef7e
+- extract: >-
+    The ULA derives the CPU clock and video timing from the external 14 MHz
+    crystal.
+  id: zx-spectrum-48k-manual:ula-master-clock
+  locator: System Description, 5.1 and 5.2.2, PDF pp. 6-7
+  sourceId: zx-spectrum-48k-manual
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-25
+  extractHash: da609d7e85640fbc426f7243cfe26b83280f3e0b3e48aaf4a41a77687f0b914b

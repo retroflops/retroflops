@@ -1,0 +1,17 @@
+id: ps5-cpu:context-unit-16
+subject:
+  kind: component
+  id: ps5-cpu
+label: Thread count
+quantity:
+  state: value
+  value: '16'
+  unit: unit
+  significantDigits: 2
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - scei-ps5-hardware-specs-2020
+evidenceLevel: confirmed

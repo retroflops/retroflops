@@ -1,0 +1,17 @@
+id: raspberry-pi-5-videocore-vii:context-mhz-800
+subject:
+  kind: component
+  id: raspberry-pi-5-videocore-vii
+label: Frequency
+quantity:
+  state: value
+  value: '800'
+  unit: MHz
+  significantDigits: 3
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - raspberry-pi-5-product-brief
+evidenceLevel: confirmed

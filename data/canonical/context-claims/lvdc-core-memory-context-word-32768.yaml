@@ -1,0 +1,17 @@
+id: lvdc-core-memory:context-word-32768
+subject:
+  kind: component
+  id: lvdc-core-memory
+label: Capacity
+quantity:
+  state: value
+  value: '32768'
+  unit: word
+  significantDigits: 5
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - ntrs-19700023342
+evidenceLevel: confirmed

@@ -1,0 +1,12 @@
+id: raspberry-pi-5-memory
+slug: raspberry-pi-5-memory
+kind: memory
+name: Raspberry Pi 5 LPDDR4X memory
+manufacturer: Raspberry Pi Ltd
+memoryType: LPDDR4X-4267 SDRAM
+summary:
+  The installed LPDDR4X memory pool of the
+  {{context:raspberry-pi-5-memory:context-gb-8}} Raspberry Pi 5 model.
+sourceIds:
+  - raspberry-pi-5-product-brief
+editorialStatus: approved

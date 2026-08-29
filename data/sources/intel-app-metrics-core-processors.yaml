@@ -1,0 +1,29 @@
+accessedDate: 2026-08-16
+editorialStatus: approved
+fetch:
+  byteLength: 483857
+  contentType: application/pdf
+  fetchedAt: 2026-08-16T17:44:54Z
+  httpStatus: 200
+  sha256: e76679bf3a43886852c563fdac55d38852b49c6927cf9fa2a407fa91ef876995
+  url: https://cdrdv2-public.intel.com/841556/APP-for-Intel-Core-Processors.pdf
+id: intel-app-metrics-core-processors
+license: Copyright Intel Corporation; cited for verification under short-extract
+  fair use.
+locator: >-
+  Page 1, Intel® Core™ 14th Generation table, i9-14900K row (columns: Processor
+  Group | Processor Number | GFLOPS | APP)
+publishedDate: 2026-01-06
+publisher: Intel Corporation
+sourceType: vendor-documentation
+tier: A
+title: APP Metrics for Intel® Microprocessors — Intel® Core™ Processors, Revision 8
+url: https://cdrdv2-public.intel.com/841556/APP-for-Intel-Core-Processors.pdf
+usageNote: >-
+  An export-control matrix, published so that a reader can assess a processor
+  against the US Export Administration Regulations. It states a GFLOPS figure
+  per part and nowhere in its twenty-four pages names a precision: the word
+  appears in no column header, no footnote and no explanatory paragraph. The
+  figures are therefore unusable for any metric that requires a stated
+  precision, and the document says its own numbers are "strictly a
+  recommendation to the user" and are provided as is.

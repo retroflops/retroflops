@@ -1,0 +1,17 @@
+id: agc-block-ii:context-unit-1
+subject:
+  kind: component
+  id: agc-block-ii
+label: Core count
+quantity:
+  state: value
+  value: '1'
+  unit: unit
+  significantDigits: 1
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - ntrs-19760016247
+evidenceLevel: confirmed

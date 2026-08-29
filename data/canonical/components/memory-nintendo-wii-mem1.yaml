@@ -1,0 +1,12 @@
+editorialStatus: provisional
+id: nintendo-wii-mem1
+slug: nintendo-wii-mem1
+kind: memory
+name: Nintendo Wii MEM1
+manufacturer: Nintendo
+architecture: 1T-SRAM
+introducedDate: '2006'
+memoryType: 1T-SRAM
+summary: '{{context:nintendo-wii-mem1:context-mib-24}} of installed 1T-SRAM.'
+sourceIds:
+  - nintendo-wii-hardware-overview

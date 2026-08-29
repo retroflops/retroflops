@@ -1,0 +1,17 @@
+id: nvidia-nv10
+slug: nvidia-nv10
+kind: gpu
+name: NVIDIA GeForce 256 (NVIDIA GeForce 256)
+manufacturer: NVIDIA
+architecture: GeForce 256
+introducedDate: 1999-10
+summary:
+  NVIDIA GeForce 256 graphics processor, represented by vendor reference-card
+  specifications.
+notes:
+  'A fixed-function raster pipeline: pixel and texel fill rates are applicable,
+  while a general programmable FP32 shader peak is not.'
+sourceIds:
+  - visiontek-geforce-256-agp-product-brief
+  - wikipedia-geforce-256-specifications
+editorialStatus: provisional

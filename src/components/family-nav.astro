@@ -1,0 +1,50 @@
+---
+// SPDX-FileCopyrightText: 2026 Wojciech Polak
+// SPDX-License-Identifier: MIT
+
+/**
+ * The family navbox, at the foot of a record page.
+ *
+ * A profile used to end at its sources with nowhere to go but back. This lists
+ * the lineage the record belongs to, oldest first, and closes with the category
+ * above it. Those are the two links a reader standing on the Amiga 500 wants.
+ *
+ * `data-pagefind-ignore` is not an optimization. The same box renders on all
+ * five PlayStation pages, so without it a search for "PlayStation 5" would
+ * match its four predecessors just as strongly and the result list would stop
+ * distinguishing them.
+ */
+import { route } from '~/lib/paths';
+import type { FamilyNav } from '~/lib/families';
+
+interface Props {
+  nav: FamilyNav;
+}
+
+const { nav } = Astro.props;
+
+const headingId = 'family-nav';
+---
+
+<nav class="family-nav" aria-labelledby={headingId} data-pagefind-ignore>
+  <h2 id={headingId}>{nav.label}</h2>
+  <ul class="link-list">
+    {
+      nav.items.map((item) => (
+        <li>
+          {item.current ? (
+            <span class="family-nav__current" aria-current="page">
+              {item.name}
+            </span>
+          ) : (
+            <a href={route(item.path)}>{item.name}</a>
+          )}
+          <span class="meta">{item.meta}</span>
+        </li>
+      ))
+    }
+  </ul>
+  <p class="family-nav__all">
+    <a href={route(nav.category.path)}>All {nav.category.name.toLowerCase()}</a>
+  </p>
+</nav>

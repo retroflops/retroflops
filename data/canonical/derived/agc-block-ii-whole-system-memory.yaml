@@ -1,0 +1,26 @@
+id: apollo-guidance-computer-block-ii:whole-system-memory-capacity
+formula:
+  id: sum
+  version: '1'
+  expression: a + b + …
+inputMeasurementIds:
+  - agc-erasable-core:capacity
+exclusions:
+  - measurementId: agc-core-rope:capacity
+    label: 36,864 words of fixed rope memory
+    reason:
+      woven at manufacture and unwritable in flight, so it is storage the
+      machine reads from rather than memory it works in
+result:
+  state: value
+  value: '2048'
+  unit: word
+  significantDigits: 4
+rounding: none
+caveat: >-
+  Adds 1 memory-capacity-words figure obtained by design-capacity. Left out:
+  {{measurement:agc-core-rope:capacity}} (woven at manufacture and unwritable in
+  flight, so it is storage the machine reads from rather than memory it works
+  in). A total is only as trustworthy as the decision about what belongs in it,
+  so both the terms and the exclusions are named records.
+editorialStatus: approved

@@ -1,0 +1,17 @@
+id: acorn-archimedes-a310:context-kib-512
+subject:
+  kind: system
+  id: acorn-archimedes-a310
+label: Capacity
+quantity:
+  state: value
+  value: '512'
+  unit: KiB
+  significantDigits: 3
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - acorn-archimedes-technical-reference
+evidenceLevel: reported

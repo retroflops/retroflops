@@ -1,0 +1,19 @@
+id: apple-mac-mini-m1:context-bit-128
+subject:
+  kind: system
+  id: apple-mac-mini-m1
+label: Width
+quantity:
+  state: value
+  value: '128'
+  unit: bit
+  significantDigits: 3
+provenance: independent
+evidenceStage: shipped
+status: theoretical
+editorialStatus: provisional
+sourceIds:
+  - anandtech-mac-mini-m1-2020
+extractIds:
+  - anandtech-m1:memory-bandwidth
+evidenceLevel: reported

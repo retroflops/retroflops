@@ -1,0 +1,19 @@
+id: valve-steam-deck:context-w-15
+subject:
+  kind: system
+  id: valve-steam-deck
+label: Contextual value
+quantity:
+  state: value
+  value: '15'
+  unit: W
+  significantDigits: 2
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - valve-steam-deck-tech-specs
+extractIds:
+  - steam-deck:tech:power-supply
+evidenceLevel: confirmed

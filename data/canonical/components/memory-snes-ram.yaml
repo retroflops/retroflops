@@ -1,0 +1,11 @@
+architecture: Static RAM
+editorialStatus: approved
+id: snes-ram
+kind: memory
+manufacturer: Nintendo
+memoryType: Static RAM
+name: Super Nintendo work RAM
+slug: snes-ram
+sourceIds:
+  - nintendo-snes-tech-specs
+summary: '{{measurement:snes-ram:capacity}} writable work RAM.'

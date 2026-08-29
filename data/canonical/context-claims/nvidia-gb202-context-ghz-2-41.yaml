@@ -1,0 +1,21 @@
+id: nvidia-gb202:context-ghz-2-41
+subject:
+  kind: component
+  id: nvidia-gb202
+label: Frequency
+quantity:
+  state: value
+  value: '2.41'
+  unit: GHz
+  significantDigits: 3
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - nvidia-rtx-blackwell-whitepaper
+  - nvidia-rtx-5090-product-specifications
+extractIds:
+  - nvidia-rtx-5090:whitepaper-table
+  - nvidia-rtx-5090:product-specifications
+evidenceLevel: confirmed

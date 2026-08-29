@@ -1,0 +1,379 @@
+- caveat: >-
+    Sony first published this clock as "300 MHz" a year before launch and as
+    {{measurement:sony-playstation-2:cpu-clock-frequency}} afterwards; see the
+    conflict ledger. The figure also covers only the CPU: geometry runs on the
+    two vector units and drawing on a separate chip with a clock of its own.
+  comparabilityGroup: clock-frequency|cpu|nominal-clock
+  conditions: Emotion Engine core clock. Identical in every region, the console
+    having no video-standard-derived clock.
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - scei-2003:specification-table
+  id: sony-playstation-2:cpu-clock-frequency
+  method: nominal-clock
+  metric: clock-frequency
+  normalized:
+    value: "294912000"
+    unit: Hz
+    significantDigits: 6
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 6
+    state: value
+    unit: MHz
+    value: "294.912"
+  scope: cpu
+  sourceIds:
+    - scei-ee-gs-single-chip-2003
+  status: vendor-rated
+  subject:
+    configurationId: retail
+    id: sony-playstation-2
+    kind: system
+  evidenceLevel: confirmed
+- caveat: >-
+    Sony states {{measurement:sony-playstation-2:gpu-clock-frequency}} and
+    derives the chip's own bandwidth figures from it, so the two agree; accounts
+    outside Sony's documentation frequently give
+    {{context:sony-playstation-2:context-mhz-147-456}} instead. No source cited
+    here states that value, so it is not recorded.
+  comparabilityGroup: clock-frequency|gpu|nominal-clock
+  conditions: Graphics Synthesizer clock, as stated in Sony's specification release.
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - scei-ps2-1999:graphics
+  id: sony-playstation-2:gpu-clock-frequency
+  method: nominal-clock
+  metric: clock-frequency
+  normalized:
+    value: "150000000"
+    unit: Hz
+    significantDigits: 3
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 3
+    state: value
+    unit: MHz
+    value: "150"
+  scope: gpu
+  sourceIds:
+    - scei-ps2-specifications-1999
+  status: vendor-rated
+  subject:
+    configurationId: retail
+    id: sony-playstation-2
+    kind: system
+  evidenceLevel: confirmed
+- caveat: >-
+    Sony states the rate without an operation mix, a precision or a benchmark,
+    so it is a vendor peak rather than an achieved result. It is not comparable
+    with the Dreamcast's floating-point figure, which Sega derived from a
+    specific matrix-multiplication workload.
+  comparabilityGroup: peak-fp32-rate|cpu|theoretical-peak
+  conditions: "Whole chip: the FPU coprocessor together with vector units VU0 and
+    VU1, which hold nine floating-point multiply-add units and three dividers
+    between them."
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - scei-ps2-1999:floating-point
+  id: ps2-emotion-engine:peak-fp32-rate
+  method: theoretical-peak
+  metric: peak-fp32-rate
+  normalized:
+    value: "6200000000"
+    unit: FLOP/s
+    significantDigits: 2
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 2
+    state: value
+    unit: GFLOP/s
+    value: "6.2"
+  scope: cpu
+  sourceIds:
+    - scei-ps2-specifications-1999
+  status: vendor-rated
+  subject:
+    id: ps2-emotion-engine
+    kind: component
+  evidenceLevel: confirmed
+- caveat: >-
+    The release writes "32 MB", meaning {{measurement:ps2-main-rdram:capacity}}.
+    The Graphics Synthesizer's {{context:ps2-main-rdram:context-mib-4}} is
+    separate and unreachable from here, so the two are never added.
+  comparabilityGroup: memory-capacity|memory|design-capacity
+  conditions: Main memory fitted to the console. The Emotion Engine can address
+    {{context:ps2-main-rdram:context-mb-256}}, which development hardware used
+    and retail machines never did.
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - scei-ps2-1999:main-memory
+  id: ps2-main-rdram:capacity
+  method: design-capacity
+  metric: memory-capacity
+  normalized:
+    value: "33554432"
+    unit: B
+    significantDigits: 2
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 2
+    state: value
+    unit: MiB
+    value: "32"
+  scope: memory
+  sourceIds:
+    - scei-ps2-specifications-1999
+  status: vendor-rated
+  subject:
+    id: ps2-main-rdram
+    kind: component
+  evidenceLevel: confirmed
+- caveat: >-
+    A bus maximum, not a rate any workload sustains. Rambus reaches it with a
+    narrow channel at a very high transfer rate, which makes it more sensitive
+    to access pattern than a wide, slow bus of the same nominal figure.
+  comparabilityGroup: memory-bandwidth|memory|theoretical-peak
+  conditions: Peak transfer rate of the Direct Rambus channel between main memory
+    and the Emotion Engine.
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - scei-ps2-1999:main-memory
+  id: ps2-main-rdram:bandwidth
+  method: theoretical-peak
+  metric: memory-bandwidth
+  normalized:
+    value: "3200000000"
+    unit: B/s
+    significantDigits: 2
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 2
+    state: value
+    unit: GB/s
+    value: "3.2"
+  scope: memory
+  sourceIds:
+    - scei-ps2-specifications-1999
+  status: theoretical
+  subject:
+    id: ps2-main-rdram
+    kind: component
+  evidenceLevel: confirmed
+- caveat: >-
+    The release writes "4MB", meaning {{measurement:ps2-gs-edram:capacity}}. The
+    figure is quoted from the 2003 description of the merged Emotion Engine and
+    Graphics Synthesizer chip; the embedded memory was not resized when the two
+    dies were combined.
+  comparabilityGroup: memory-capacity|memory|design-capacity
+  conditions: Embedded DRAM on the Graphics Synthesizer die, holding the frame
+    buffer, the Z buffer and textures in one address space.
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - scei-2003:specification-table
+  id: ps2-gs-edram:capacity
+  method: design-capacity
+  metric: memory-capacity
+  normalized:
+    value: "4194304"
+    unit: B
+    significantDigits: 1
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 1
+    state: value
+    unit: MiB
+    value: "4"
+  scope: memory
+  sourceIds:
+    - scei-ee-gs-single-chip-2003
+  status: vendor-rated
+  subject:
+    id: ps2-gs-edram
+    kind: component
+  evidenceLevel: confirmed
+- caveat: >-
+    A bus maximum. The {{measurement:ps2-gs-edram:bus-width}} are not one bus
+    but three ports — separate read and write paths for the frame and Z buffers
+    plus a texture path — so no single operation can consume the whole figure.
+  comparabilityGroup: memory-bandwidth|memory|theoretical-peak
+  conditions: Peak transfer rate of the Graphics Synthesizer's embedded DRAM
+    across its {{measurement:ps2-gs-edram:bus-width}} bus at
+    {{context:ps2-gs-edram:context-mhz-150}}.
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - scei-ps2-1999:graphics
+  id: ps2-gs-edram:bandwidth
+  method: theoretical-peak
+  metric: memory-bandwidth
+  normalized:
+    value: "48000000000"
+    unit: B/s
+    significantDigits: 2
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 2
+    state: value
+    unit: GB/s
+    value: "48"
+  scope: memory
+  sourceIds:
+    - scei-ps2-specifications-1999
+  status: theoretical
+  subject:
+    id: ps2-gs-edram
+    kind: component
+  evidenceLevel: confirmed
+- caveat: >-
+    The total width of the ports into the embedded DRAM, summed. It is an on-die
+    figure and has no counterpart on a console whose graphics memory is
+    external.
+  comparabilityGroup: memory-bus-width|memory|design-capacity
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - scei-ps2-1999:graphics
+  id: ps2-gs-edram:bus-width
+  method: design-capacity
+  metric: memory-bus-width
+  normalized:
+    value: "2560"
+    unit: bit
+    significantDigits: 4
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 4
+    state: value
+    unit: bit
+    value: "2560"
+  scope: memory
+  sourceIds:
+    - scei-ps2-specifications-1999
+  status: vendor-rated
+  subject:
+    id: ps2-gs-edram
+    kind: component
+  evidenceLevel: confirmed
+- caveat: >-
+    A rating rather than a measurement: no workload is stated, and the console
+    draws less than this at idle and while playing a disc. It applies to one
+    revision of the hardware among many, and the metric forbids ratios for
+    exactly that reason.
+  comparabilityGroup: rated-power-consumption|whole-system|rated-power
+  conditions: Rating printed in the instruction manual of the SCPH-39001 console,
+    on a {{context:sony-playstation-2:context-v-120}},
+    {{context:sony-playstation-2:context-hz-60}} supply.
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - scea-ps2-manual:power
+  id: sony-playstation-2:rated-power-consumption
+  method: rated-power
+  metric: rated-power-consumption
+  normalized:
+    value: "79"
+    unit: W
+    significantDigits: 2
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 2
+    state: value
+    unit: W
+    value: "79"
+  scope: whole-system
+  sourceIds:
+    - scea-ps2-scph-39001-manual
+  status: vendor-rated
+  subject:
+    configurationId: retail
+    id: sony-playstation-2
+    kind: system
+  evidenceLevel: confirmed
+- caveat: >-
+    Adds 1 memory-capacity figure obtained by design-capacity. Left out:
+    {{measurement:ps2-gs-edram:capacity}} embedded in the Graphics Synthesizer
+    (on the drawing chip’s own die and unreachable from the processor). A total
+    is only as trustworthy as the decision about what belongs in it, so both the
+    terms and the exclusions are named records.
+  comparabilityGroup: memory-capacity|whole-system|design-capacity
+  conditions: Main memory of the retail console.
+  derivedFrom: sony-playstation-2:whole-system-memory
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - scei-ps2-1999:main-memory
+  id: sony-playstation-2:whole-system-memory-capacity
+  method: design-capacity
+  metric: memory-capacity
+  normalized:
+    value: "33554432"
+    unit: B
+    significantDigits: 2
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 2
+    state: value
+    unit: MiB
+    value: "32"
+  rounding: none
+  scope: whole-system
+  sourceIds:
+    - scei-ps2-specifications-1999
+  status: derived
+  subject:
+    id: sony-playstation-2
+    kind: system
+  evidenceLevel: confirmed
+- caveat: >-
+    Adds 1 memory-bandwidth figure obtained by theoretical-peak. Left out:
+    {{measurement:ps2-gs-edram:bandwidth}} inside the Graphics Synthesizer (the
+    drawing chip’s own embedded memory, which the processor cannot read or
+    write). A total is only as trustworthy as the decision about what belongs in
+    it, so both the terms and the exclusions are named records.
+  comparabilityGroup: memory-bandwidth|whole-system|theoretical-peak
+  conditions: The bus between the processor and the memory it works in.
+  derivedFrom: sony-playstation-2:whole-system-memory-bandwidth
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - scei-ps2-1999:main-memory
+  id: sony-playstation-2:whole-system-memory-bandwidth
+  method: theoretical-peak
+  metric: memory-bandwidth
+  normalized:
+    value: "3200000000"
+    unit: B/s
+    significantDigits: 2
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 2
+    state: value
+    unit: GB/s
+    value: "3.2"
+  rounding: none
+  scope: whole-system
+  sourceIds:
+    - scei-ps2-specifications-1999
+  status: derived
+  subject:
+    id: sony-playstation-2
+    kind: system
+  evidenceLevel: confirmed

@@ -1,0 +1,17 @@
+id: amiga-1200:context-mb-2
+subject:
+  kind: system
+  id: amiga-1200
+label: Capacity
+quantity:
+  state: value
+  value: '2'
+  unit: MB
+  significantDigits: 1
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - amiga-1200-service-manual
+evidenceLevel: confirmed

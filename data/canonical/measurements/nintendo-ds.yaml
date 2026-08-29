@@ -1,0 +1,237 @@
+- caveat: >-
+    The reviewed technical reference states no processor clock. Wikipedia gives
+    {{measurement:nintendo-ds:cpu-clock-frequency}} for the main ARM946E-S, the
+    faster of the console's two processors, and the catalog carries it as
+    rumored.
+  comparabilityGroup: clock-frequency|cpu|nominal-clock
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: nintendo-ds:cpu-clock-frequency
+  method: nominal-clock
+  metric: clock-frequency
+  provenance: community
+  quantity:
+    state: value
+    value: "67"
+    unit: MHz
+    significantDigits: 2
+  scope: cpu
+  sourceIds:
+    - nintendo-ds-technical-reference
+    - wikipedia-nintendo-ds-specifications
+  status: vendor-rated
+  subject:
+    configurationId: retail
+    id: nintendo-ds
+    kind: system
+  evidenceLevel: rumored
+  normalized:
+    value: "67000000"
+    unit: Hz
+    significantDigits: 2
+    unitRegistry: units-v1
+- caveat: The technical reference lists the base system's main RAM capacity.
+  comparabilityGroup: memory-capacity|memory|design-capacity
+  editorialStatus: provisional
+  evidenceStage: shipped
+  extractIds:
+    - gbatek-nds:main-ram
+  id: nintendo-ds-ram:capacity
+  method: design-capacity
+  metric: memory-capacity
+  provenance: vendor
+  quantity:
+    significantDigits: 4
+    state: value
+    unit: KiB
+    value: "4096"
+  scope: memory
+  sourceIds:
+    - nintendo-ds-technical-reference
+  status: vendor-rated
+  subject:
+    id: nintendo-ds-ram
+    kind: component
+  normalized:
+    value: "4194304"
+    unit: B
+    significantDigits: 4
+    unitRegistry: units-v1
+  evidenceLevel: reported
+- caveat: >-
+    The reviewed technical reference describes Game Card addressing, while the
+    base console has no fixed cartridge capacity.
+  comparabilityGroup: clock-frequency|gpu|nominal-clock
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: nintendo-ds:gpu-clock-frequency
+  method: nominal-clock
+  metric: clock-frequency
+  provenance: vendor
+  quantity:
+    note: >-
+      The reviewed technical reference describes the graphics units but does not
+      publish one standalone GPU clock.
+    state: unknown
+  unknownAudit:
+    reviewedOn: 2026-08-25
+    routesChecked:
+      - vendor-documentation
+      - independent-analysis
+      - community-source
+    outcome: no-published-candidate
+    summary: The checked technical reference provides no compatible published value.
+  scope: gpu
+  sourceIds:
+    - nintendo-ds-technical-reference
+  status: vendor-rated
+  subject:
+    id: nintendo-ds
+    kind: system
+- caveat: >-
+    The technical reference documents memory maps and timings, but does not
+    state a main-memory transfer rate from which bandwidth can be stated.
+  comparabilityGroup: memory-bandwidth|memory|theoretical-peak
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: nintendo-ds:memory-bandwidth
+  method: theoretical-peak
+  metric: memory-bandwidth
+  provenance: vendor
+  quantity:
+    note: The reviewed reference gives no main-memory transfer-rate figure.
+    state: unknown
+  unknownAudit:
+    reviewedOn: 2026-08-25
+    routesChecked:
+      - vendor-documentation
+      - independent-analysis
+      - community-source
+    outcome: no-compatible-candidate
+    summary: The checked technical reference provides no compatible published value.
+  scope: memory
+  sourceIds:
+    - nintendo-ds-technical-reference
+  status: vendor-rated
+  subject:
+    id: nintendo-ds
+    kind: system
+- caveat: >-
+    Provisional record for nintendo-ds: the cited primary manual is registered,
+    but its page-level transcription and independent review are still pending.
+  comparabilityGroup: peak-fp32-rate|cpu|theoretical-peak
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: nintendo-ds-arm9:peak-fp32-rate
+  method: theoretical-peak
+  metric: peak-fp32-rate
+  provenance: vendor
+  quantity:
+    note: This console CPU has no integrated floating-point execution unit.
+    state: not-applicable
+  scope: cpu
+  sourceIds:
+    - nintendo-ds-technical-reference
+  status: vendor-rated
+  subject:
+    id: nintendo-ds-arm9
+    kind: component
+- caveat: >-
+    Provisional record for nintendo-ds: the cited primary manual is registered,
+    but its page-level transcription and independent review are still pending.
+  comparabilityGroup: peak-fp32-rate|gpu|theoretical-peak
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: nintendo-ds-2d:peak-fp32-rate
+  method: theoretical-peak
+  metric: peak-fp32-rate
+  provenance: vendor
+  quantity:
+    note: >-
+      This is a tile, sprite or scanline graphics unit, not a floating-point
+      processor; it executes no FP32 operations.
+    state: not-applicable
+  scope: gpu
+  sourceIds:
+    - nintendo-ds-technical-reference
+  status: vendor-rated
+  subject:
+    id: nintendo-ds-2d
+    kind: component
+- caveat: >-
+    The technical reference documents power-management hardware but gives no
+    whole-system power rating.
+  comparabilityGroup: rated-power-consumption|whole-system|rated-power
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: nintendo-ds:rated-power-consumption
+  method: rated-power
+  metric: rated-power-consumption
+  provenance: vendor
+  quantity:
+    note: The reviewed reference gives no whole-system power rating.
+    state: unknown
+  unknownAudit:
+    reviewedOn: 2026-08-25
+    routesChecked:
+      - vendor-documentation
+      - independent-analysis
+      - community-source
+    outcome: no-published-candidate
+    summary: The checked technical reference provides no compatible published value.
+  scope: whole-system
+  sourceIds:
+    - nintendo-ds-technical-reference
+  status: vendor-rated
+  subject:
+    id: nintendo-ds
+    kind: system
+- comparabilityGroup: storage-capacity|storage|design-capacity
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: nintendo-ds:cartridge-storage-capacity
+  method: design-capacity
+  metric: storage-capacity
+  provenance: vendor
+  quantity:
+    note: >-
+      Game cartridges are removable media and their ROM capacity varies by
+      title; no cartridge capacity is part of the base console.
+    state: not-applicable
+  scope: storage
+  sourceIds:
+    - nintendo-ds-technical-reference
+  status: vendor-rated
+  subject:
+    id: nintendo-ds
+    kind: system
+- caveat: >-
+    The whole-system total is the documented base main-RAM capacity; it excludes
+    the separately addressed work, video and cache memories.
+  comparabilityGroup: memory-capacity|whole-system|design-capacity
+  editorialStatus: provisional
+  evidenceStage: shipped
+  extractIds:
+    - gbatek-nds:main-ram
+  id: nintendo-ds:whole-system-memory-capacity
+  method: design-capacity
+  metric: memory-capacity
+  provenance: independent
+  quantity:
+    significantDigits: 4
+    state: value
+    unit: KiB
+    value: "4096"
+  scope: whole-system
+  sourceIds:
+    - nintendo-ds-technical-reference
+  status: vendor-rated
+  subject:
+    id: nintendo-ds
+    kind: system
+  normalized:
+    value: "4194304"
+    unit: B
+    significantDigits: 4
+    unitRegistry: units-v1
+  evidenceLevel: reported

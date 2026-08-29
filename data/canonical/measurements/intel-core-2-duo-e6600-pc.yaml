@@ -1,0 +1,173 @@
+- caveat: >-
+    Intel's own datasheet for this part is not in the catalog. Wikipedia gives
+    {{measurement:intel-core-2-duo-e6600:clock-frequency}} for this model, and
+    the catalog carries it as rumored.
+  comparabilityGroup: clock-frequency|cpu|nominal-clock
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: intel-core-2-duo-e6600:clock-frequency
+  method: nominal-clock
+  metric: clock-frequency
+  provenance: community
+  quantity:
+    state: value
+    value: "2.4"
+    unit: GHz
+    significantDigits: 2
+  scope: cpu
+  sourceIds:
+    - intel-historical-x86-documentation
+    - wikipedia-intel-conroe
+  status: vendor-rated
+  subject:
+    id: intel-core-2-duo-e6600
+    kind: component
+  evidenceLevel: rumored
+  normalized:
+    value: "2400000000"
+    unit: Hz
+    significantDigits: 2
+    unitRegistry: units-v1
+- caveat: >-
+    This figure remains provisional until the cited source is corroborated for
+    the exact configuration.
+  comparabilityGroup: clock-frequency|cpu|peak-clock
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: intel-core-2-duo-e6600:peak-clock
+  method: peak-clock
+  metric: clock-frequency
+  provenance: vendor
+  quantity:
+    note: The E6600 predates Intel Turbo Boost.
+    state: not-applicable
+  scope: cpu
+  sourceIds:
+    - intel-historical-x86-documentation
+  status: vendor-rated
+  subject:
+    id: intel-core-2-duo-e6600
+    kind: component
+- benchmark:
+    id: dhrystone
+    version: "2.1"
+  caveat: >-
+    A named Dhrystone 2.1 result normalized by the clock stated for that run. It
+    remains provisional pending a second independent source.
+  comparabilityGroup: dhrystone-mips-per-mhz|cpu|benchmark-run|dhrystone@2.1
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: intel-core-2-duo-e6600:dhrystone-mips-per-mhz
+  method: benchmark-run
+  metric: dhrystone-mips-per-mhz
+  normalized:
+    value: "3.5"
+    unit: DMIPS/MHz
+    significantDigits: 2
+    unitRegistry: units-v1
+  provenance: independent
+  quantity:
+    significantDigits: 2
+    state: value
+    unit: DMIPS/MHz
+    value: "3.5"
+  scope: cpu
+  sourceIds:
+    - x86-dhrystone-results
+  status: measured
+  subject:
+    id: intel-core-2-duo-e6600
+    kind: component
+  evidenceLevel: reported
+- caveat: >-
+    This figure remains provisional until the cited source is corroborated for
+    the exact configuration.
+  comparabilityGroup: peak-fp32-rate|cpu|theoretical-peak
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: intel-core-2-duo-e6600:peak-fp32-rate
+  method: theoretical-peak
+  metric: peak-fp32-rate
+  provenance: vendor
+  quantity:
+    note: >-
+      The processor supports scalar and SIMD floating point, but the cited
+      specification does not state an FP32 peak in FLOP/s.
+    state: unknown
+  unknownAudit:
+    reviewedOn: 2026-08-25
+    routesChecked:
+      - vendor-documentation
+      - independent-analysis
+      - community-source
+    outcome: no-compatible-candidate
+    summary: The checked historical documentation provides no precision-qualified
+      FP32 rate.
+  scope: cpu
+  sourceIds:
+    - intel-historical-x86-documentation
+  status: vendor-rated
+  subject:
+    id: intel-core-2-duo-e6600
+    kind: component
+- caveat: >-
+    Intel's own datasheet for this part is not in the catalog. Wikipedia states
+    {{measurement:intel-core-2-duo-e6600:thermal-design-power}} for the family
+    this model belongs to rather than for the model alone, so it is carried as
+    rumored.
+  comparabilityGroup: thermal-design-power|cpu|rated-power
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: intel-core-2-duo-e6600:thermal-design-power
+  method: rated-power
+  metric: thermal-design-power
+  provenance: community
+  quantity:
+    state: value
+    value: "65"
+    unit: W
+    significantDigits: 2
+  scope: cpu
+  sourceIds:
+    - intel-historical-x86-documentation
+    - wikipedia-intel-conroe
+  status: vendor-rated
+  subject:
+    id: intel-core-2-duo-e6600
+    kind: component
+  evidenceLevel: rumored
+  normalized:
+    value: "65"
+    unit: W
+    significantDigits: 2
+    unitRegistry: units-v1
+- caveat: >-
+    This figure remains provisional until the cited source is corroborated for
+    the exact configuration.
+  comparabilityGroup: memory-capacity|whole-system|design-capacity
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: intel-core-2-duo-e6600-pc:whole-system-memory-capacity
+  method: design-capacity
+  metric: memory-capacity
+  provenance: vendor
+  quantity:
+    note: >-
+      Intel's {{context:intel-core-2-duo-e6600-pc:context-gb-64}} addressability
+      field does not establish a fitted capacity for this reference PC.
+    state: unknown
+  unknownAudit:
+    reviewedOn: 2026-08-25
+    routesChecked:
+      - vendor-documentation
+      - independent-analysis
+      - community-source
+    outcome: no-compatible-candidate
+    summary: The checked documentation provides no configuration-specific memory total.
+  scope: whole-system
+  sourceIds:
+    - intel-historical-x86-documentation
+  status: vendor-rated
+  subject:
+    id: intel-core-2-duo-e6600-pc
+    kind: system

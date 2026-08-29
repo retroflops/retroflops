@@ -1,0 +1,20 @@
+id: amiga-500-chip-ram
+slug: amiga-500-chip-ram
+kind: memory
+name: Amiga 500 Chip memory
+manufacturer: Commodore-Amiga, Inc.
+architecture: Shared dynamic RAM
+introducedDate: '1985'
+memoryType: Dynamic RAM shared between the CPU and the custom chips
+summary:
+  'The Amiga 500 Chip memory: {{measurement:amiga-500-chip-ram:capacity}} both
+  the 68000 and the custom chips can reach. Everything the graphics, audio and
+  disk hardware operates on has to live here, so its size limits what the
+  machine can do without the CPU.'
+notes:
+  Distinct from Fast memory, which only the CPU can see. This is why an Amiga's
+  chip RAM and its total RAM are different figures answering different
+  questions.
+sourceIds:
+  - amiga-hardware-reference-manual
+editorialStatus: approved

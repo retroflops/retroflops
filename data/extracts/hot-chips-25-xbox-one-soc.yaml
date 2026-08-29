@@ -1,0 +1,29 @@
+- extract: 68 GB/sec peak BW 4 x 64 bit
+  extractHash: 47806146b7400a440dfab80140c2f0a854a1984b85b362a8b6144097887dccc4
+  id: hc25-xbox-one:slide4:ddr3-bandwidth
+  locator: >-
+    Slide 4, 'SoC Components', annotation on the path from the DRAM controller
+    to the four 2 GB DDR3 devices
+  notes: >-
+    Read from the rendered slide; the deck is a set of images and carries no
+    extractable text. The same diagram annotates the on-die SRAM path as '109
+    GB/sec min / 204 GB/sec peak BW / 4 x 256 bit read & write' and the coherent
+    path as '30 GB/sec coherent BW'. Microsoft's later Xbox One S page states
+    the DDR3 figure more precisely as 68.26 GB/s, but that is a different
+    console and is not merged into this one.
+  sourceId: hot-chips-25-xbox-one-soc
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-13
+- extract: 1.31 TFLOPs 41 Gtexels Per Second Graphics & GPGPU Computation
+  extractHash: 0b824a6b06e2e7f52c9f8f504963e61a368c41abc9264bcb3eab1c248ef6046d
+  id: hc25-xbox-one:slide6:tflops
+  locator: Slide 6, 'GPU and GPU MMU Clients', shader-stage annotation
+  notes: >-
+    Transcribed with no value. This is the primary document behind the
+    circulating 1.31 TFLOPS, and it names no precision — the figure sits in one
+    box with a texel rate and is labeled only 'Graphics & GPGPU Computation'.
+    The console's FP32 row therefore stays unknown, and it now cites the slide
+    that leaves it so rather than a specification page that repeats the number.
+  sourceId: hot-chips-25-xbox-one-soc
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-13

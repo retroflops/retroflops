@@ -1,0 +1,221 @@
+- caveat: >-
+    Apple's hardware guide states this system clock frequency for the original
+    compact Macs.
+  comparabilityGroup: clock-frequency|cpu|nominal-clock
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - apple-guide-to-macintosh-family-hardware-1990:system-clock
+  id: apple-macintosh-128k:clock-frequency
+  method: nominal-clock
+  metric: clock-frequency
+  normalized:
+    value: "7833600"
+    unit: Hz
+    significantDigits: 5
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 5
+    state: value
+    unit: MHz
+    value: "7.8336"
+  scope: cpu
+  sourceIds:
+    - apple-guide-to-macintosh-family-hardware-1990
+  status: vendor-rated
+  subject:
+    configurationId: retail
+    id: apple-macintosh-128k
+    kind: system
+  evidenceLevel: confirmed
+- caveat: Apple lists fixed logic-board memory for the Macintosh 128K.
+  comparabilityGroup: memory-capacity|memory|design-capacity
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - macintosh-128k-specifications:logic-board-memory
+  id: macintosh-128k-ram:capacity
+  method: design-capacity
+  metric: memory-capacity
+  normalized:
+    value: "131072"
+    unit: B
+    significantDigits: 3
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 3
+    state: value
+    unit: KiB
+    value: "128"
+  scope: memory
+  sourceIds:
+    - macintosh-128k-technical-reference
+  status: vendor-rated
+  subject:
+    id: macintosh-128k-ram
+    kind: component
+  evidenceLevel: confirmed
+- caveat: Apple states the ROM size in the software specifications table.
+  comparabilityGroup: memory-capacity|memory|design-capacity
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - macintosh-128k-specifications:rom-size
+  id: macintosh-128k-rom:capacity
+  method: design-capacity
+  metric: memory-capacity
+  normalized:
+    value: "65536"
+    unit: B
+    significantDigits: 2
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 2
+    state: value
+    unit: KiB
+    value: "64"
+  scope: memory
+  sourceIds:
+    - macintosh-128k-technical-reference
+  status: vendor-rated
+  subject:
+    id: macintosh-128k-rom
+    kind: component
+  evidenceLevel: confirmed
+- caveat: >-
+    Adds 1 memory-capacity figure obtained by design-capacity. Left out:
+    {{measurement:macintosh-128k-rom:capacity}} of Toolbox ROM (read-only
+    firmware, not memory the machine can write to). A total is only as
+    trustworthy as the decision about what belongs in it, so both the terms and
+    the exclusions are named records.
+  comparabilityGroup: memory-capacity|whole-system|design-capacity
+  derivedFrom: apple-macintosh-128k:whole-system-memory
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: apple-macintosh-128k:whole-system-memory-capacity
+  method: design-capacity
+  metric: memory-capacity
+  normalized:
+    value: "131072"
+    unit: B
+    significantDigits: 6
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 6
+    state: value
+    unit: B
+    value: "131072"
+  scope: whole-system
+  sourceIds:
+    - macintosh-128k-technical-reference
+  status: derived
+  subject:
+    id: apple-macintosh-128k
+    kind: system
+  evidenceLevel: confirmed
+- caveat: >-
+    The compact Macintosh has display timing logic, not a separate graphics
+    processor.
+  comparabilityGroup: clock-frequency|gpu|nominal-clock
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: apple-macintosh-128k:gpu-clock-frequency
+  method: nominal-clock
+  metric: clock-frequency
+  provenance: vendor
+  quantity:
+    state: not-applicable
+  scope: gpu
+  sourceIds:
+    - macintosh-128k-technical-reference
+  status: vendor-rated
+  subject:
+    id: apple-macintosh-128k
+    kind: system
+- caveat: >-
+    The available sources describe shared DRAM and display fetches, but do not
+    establish a transfer-rate figure compatible with this metric.
+  comparabilityGroup: memory-bandwidth|memory|theoretical-peak
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: apple-macintosh-128k:memory-bandwidth
+  method: theoretical-peak
+  metric: memory-bandwidth
+  provenance: vendor
+  quantity:
+    note: No compatible memory-transfer rate is published for this shared-DRAM
+      design.
+    state: unknown
+  unknownAudit:
+    reviewedOn: 2026-08-25
+    routesChecked:
+      - vendor-documentation
+      - archive
+      - specialist-reference
+      - community-source
+    outcome: no-compatible-candidate
+    summary: >-
+      Apple specifications, the archived hardware guide and specialist
+      descriptions establish shared DRAM and video fetches, but none publish a
+      memory-transfer rate for a comparable theoretical-peak measurement.
+  scope: memory
+  sourceIds:
+    - macintosh-128k-technical-reference
+    - apple-guide-to-macintosh-family-hardware-1990
+  status: vendor-rated
+  subject:
+    id: apple-macintosh-128k
+    kind: system
+- caveat: >-
+    Provisional record for macintosh-128k-68000:peak-fp32-rate: the cited
+    primary manual is registered, but its page-level transcription and
+    independent review are still pending.
+  comparabilityGroup: peak-fp32-rate|cpu|theoretical-peak
+  editorialStatus: provisional
+  evidenceStage: shipped
+  id: macintosh-128k-68000:peak-fp32-rate
+  method: theoretical-peak
+  metric: peak-fp32-rate
+  provenance: vendor
+  quantity:
+    note: The original Macintosh does not fit a 68881 floating-point coprocessor.
+    state: not-applicable
+  scope: cpu
+  sourceIds:
+    - macintosh-128k-technical-reference
+  status: vendor-rated
+  subject:
+    id: macintosh-128k-68000
+    kind: component
+- caveat: This is Apple's maximum-watts specification, not a measured operating draw.
+  comparabilityGroup: rated-power-consumption|whole-system|rated-power
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - macintosh-128k-specifications:max-watts
+  id: apple-macintosh-128k:rated-power-consumption
+  method: rated-power
+  metric: rated-power-consumption
+  normalized:
+    value: "60"
+    unit: W
+    significantDigits: 2
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 2
+    state: value
+    unit: W
+    value: "60"
+  scope: whole-system
+  sourceIds:
+    - macintosh-128k-technical-reference
+  status: vendor-rated
+  subject:
+    id: apple-macintosh-128k
+    kind: system
+  evidenceLevel: confirmed

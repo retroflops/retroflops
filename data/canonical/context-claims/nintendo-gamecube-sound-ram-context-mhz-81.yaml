@@ -1,0 +1,17 @@
+id: nintendo-gamecube-sound-ram:context-mhz-81
+subject:
+  kind: component
+  id: nintendo-gamecube-sound-ram
+label: Frequency
+quantity:
+  state: value
+  value: '81'
+  unit: MHz
+  significantDigits: 2
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - nintendo-gamecube-tech-specs
+evidenceLevel: confirmed

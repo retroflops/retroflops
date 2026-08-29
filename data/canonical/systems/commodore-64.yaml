@@ -1,0 +1,102 @@
+id: commodore-64
+slug: commodore-64
+name: Commodore 64
+manufacturer: Commodore Business Machines
+type: home-computer
+releaseDate: 1982-08
+region: Worldwide
+summary: >-
+  The best-selling home computer ever made: a 6510 at roughly
+  {{measurement:commodore-64:pal:clock-frequency}} with
+  {{measurement:c64-system-ram:capacity}} of RAM, a video chip that doubles as
+  the system clock master, and the SID sound chip.
+description: >-
+  A clock rate alone does not describe the Commodore 64. Its 6510 runs at
+  whatever the video standard leaves it:
+  {{context:commodore-64:context-mhz-0-98525}} on PAL machines and
+  {{context:commodore-64:context-mhz-1-02273}} on NTSC ones. The VIC-II derives
+  the system clock from the television color subcarrier. The two variants are
+  the same computer running at slightly different speeds, and neither figure is
+  a round megahertz. Memory is more subtle still: there are
+  {{measurement:c64-system-ram:capacity}} of RAM,
+  {{measurement:c64-system-rom:capacity}} of ROM and a
+  {{context:commodore-64:context-kib-4}} I/O window, all inside one sixteen-bit
+  address space, banked over each other through a port on the processor itself.
+  Adding those capacities together would describe a machine that does not exist.
+  Sound comes from the 6581 SID, which is not recorded as a component here
+  because the catalog models processors, graphics and memory only.
+configurations:
+  - id: pal
+    label: PAL
+    region: Europe
+    entries:
+      - componentId: mos-6510
+        role: main-cpu
+        count: 1
+        shared: false
+        notes:
+          Derived from the PAL video timing, not from a processor speed grade.
+        measurementIds:
+          - commodore-64:pal:clock-frequency
+      - componentId: mos-vic-ii
+        role: gpu
+        count: 1
+        shared: false
+        notes: 6569 in PAL machines. Master of the system clock.
+        measurementIds: []
+      - componentId: c64-system-ram
+        role: system-memory
+        count: 1
+        shared: true
+        notes:
+          Shared with the video chip, which steals bus cycles during raster
+          fetches.
+        measurementIds:
+          - c64-system-ram:capacity
+      - componentId: c64-system-rom
+        role: system-memory
+        count: 1
+        shared: true
+        notes: Banked over the RAM rather than added to it.
+        measurementIds:
+          - c64-system-rom:capacity
+  - id: ntsc
+    label: NTSC
+    region: North America
+    entries:
+      - componentId: mos-6510
+        role: main-cpu
+        count: 1
+        shared: false
+        notes: Derived from the NTSC video timing.
+        measurementIds:
+          - commodore-64:ntsc:clock-frequency
+      - componentId: mos-vic-ii
+        role: gpu
+        count: 1
+        shared: false
+        notes:
+          6567 in NTSC machines, with multiplexed addresses for dynamic RAM.
+        measurementIds:
+          - commodore-64:ntsc:gpu-clock-frequency
+      - componentId: c64-system-ram
+        role: system-memory
+        count: 1
+        shared: true
+        measurementIds:
+          - c64-system-ram:capacity
+      - componentId: c64-system-rom
+        role: system-memory
+        count: 1
+        shared: true
+        measurementIds:
+          - c64-system-rom:capacity
+notes: >-
+  The release date is editorial context; the cited manual documents the machine
+  without dating its launch. Every measurement attached to this system comes
+  from that manual.
+imageIds:
+  - commodore-64-computer
+sourceIds:
+  - c64-programmers-reference-guide
+editorialStatus: approved

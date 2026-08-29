@@ -1,0 +1,20 @@
+id: sony-playstation-2:context-mhz-147-456
+subject:
+  kind: system
+  id: sony-playstation-2
+  configurationId: retail
+label: Frequency
+quantity:
+  state: value
+  value: '147.456'
+  unit: MHz
+  significantDigits: 6
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - scei-ps2-specifications-1999
+extractIds:
+  - scei-ps2-1999:graphics
+evidenceLevel: confirmed

@@ -1,0 +1,20 @@
+id: sgi-octane:context-mhz-500
+subject:
+  kind: system
+  id: sgi-octane
+  configurationId: 2x-250mhz
+label: Frequency
+quantity:
+  state: value
+  value: '500'
+  unit: MHz
+  significantDigits: 3
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - spec-cpu95-octane-fp
+extractIds:
+  - spec-cpu95-octane-fp:summary
+evidenceLevel: confirmed

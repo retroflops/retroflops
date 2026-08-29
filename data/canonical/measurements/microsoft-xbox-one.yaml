@@ -1,0 +1,252 @@
+- caveat: >-
+    Microsoft never published a specification document for this console. The
+    frequency is one the company disclosed at an investor conference, reported
+    by one technical publication and stated again by a second reviewing retail
+    hardware. It describes production hardware; development kits ran at
+    {{context:microsoft-xbox-one:context-ghz-1-6}} and that figure is not
+    carried here.
+  comparabilityGroup: clock-frequency|cpu|nominal-clock
+  conditions: The eight Jaguar cores of the shipped console.
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - df-xbox-one:cpu-clock
+    - computerbase-xbox-one:clocks
+  id: microsoft-xbox-one:retail:cpu-clock-frequency
+  method: nominal-clock
+  metric: clock-frequency
+  normalized:
+    value: "1750000000"
+    unit: Hz
+    significantDigits: 3
+    unitRegistry: units-v1
+  provenance: independent
+  quantity:
+    significantDigits: 3
+    state: value
+    unit: GHz
+    value: "1.75"
+  scope: cpu
+  sourceIds:
+    - digitalfoundry-xbox-one-clocks-2013
+    - computerbase-xbox-one-test
+  status: vendor-rated
+  subject:
+    configurationId: retail
+    id: microsoft-xbox-one
+    kind: system
+  evidenceLevel: confirmed
+- caveat: >-
+    Raised from {{context:microsoft-xbox-one:context-mhz-800}} shortly before
+    launch, in Microsoft's own words at a conference rather than in any document
+    it published. Two independent publications state the final figure, which is
+    what lets it be approved at all.
+  comparabilityGroup: clock-frequency|gpu|nominal-clock
+  conditions: The {{context:microsoft-xbox-one:context-unit-12}} compute units of
+    the shipped console.
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - df-xbox-one:gpu-clock
+    - computerbase-xbox-one:clocks
+  id: microsoft-xbox-one:retail:gpu-clock-frequency
+  method: nominal-clock
+  metric: clock-frequency
+  normalized:
+    value: "853000000"
+    unit: Hz
+    significantDigits: 3
+    unitRegistry: units-v1
+  provenance: independent
+  quantity:
+    significantDigits: 3
+    state: value
+    unit: MHz
+    value: "853"
+  scope: gpu
+  sourceIds:
+    - digitalfoundry-xbox-one-clocks-2013
+    - computerbase-xbox-one-test
+  status: vendor-rated
+  subject:
+    configurationId: retail
+    id: microsoft-xbox-one
+    kind: system
+  evidenceLevel: confirmed
+- caveat: >-
+    Conventional DDR3 rather than the graphics memory its contemporary chose,
+    which is the architectural fact the cited sentence exists to draw out. The
+    console pairs it with {{context:microsoft-xbox-one-ram:context-mb-32}} of
+    on-die eSRAM, a separate quantity recorded separately.
+  comparabilityGroup: memory-capacity|memory|design-capacity
+  conditions: Main memory of the shipped console, excluding the on-die eSRAM.
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - computerbase-xbox-one:ram
+  id: microsoft-xbox-one-ram:capacity
+  method: design-capacity
+  metric: memory-capacity
+  normalized:
+    value: "8589934592"
+    unit: B
+    significantDigits: 1
+    unitRegistry: units-v1
+  provenance: independent
+  quantity:
+    significantDigits: 1
+    state: value
+    unit: GiB
+    value: "8"
+  scope: memory
+  sourceIds:
+    - digitalfoundry-xbox-one-clocks-2013
+    - computerbase-xbox-one-test
+  status: vendor-rated
+  subject:
+    id: microsoft-xbox-one-ram
+    kind: component
+  evidenceLevel: confirmed
+- caveat: >-
+    Adds 1 memory-capacity figure obtained by design-capacity. Nothing in the
+    catalog is left out of it. A total is only as trustworthy as the decision
+    about what belongs in it, so both the terms and the exclusions are named
+    records.
+  comparabilityGroup: memory-capacity|whole-system|design-capacity
+  derivedFrom: microsoft-xbox-one:whole-system-memory
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - computerbase-xbox-one:ram
+  id: microsoft-xbox-one:whole-system-memory-capacity
+  method: design-capacity
+  metric: memory-capacity
+  normalized:
+    value: "8589934592"
+    unit: B
+    significantDigits: 10
+    unitRegistry: units-v1
+  provenance: independent
+  quantity:
+    significantDigits: 10
+    state: value
+    unit: B
+    value: "8589934592"
+  rounding: none
+  scope: whole-system
+  sourceIds:
+    - digitalfoundry-xbox-one-clocks-2013
+    - computerbase-xbox-one-test
+  status: derived
+  subject:
+    id: microsoft-xbox-one
+    kind: system
+  evidenceLevel: confirmed
+- caveat: >-
+    Provisional: one tier B source. Microsoft's engineers state
+    {{measurement:microsoft-xbox-one:memory-bandwidth}} peak for the DDR3 path;
+    the {{context:microsoft-xbox-one-ram:context-mb-32}} of on-die SRAM is
+    annotated separately at {{context:microsoft-xbox-one:context-gb-s-204}} peak
+    ({{context:microsoft-xbox-one:context-gb-s-109}} minimum) and is a different
+    pool. Microsoft's Xbox One S page later stated
+    {{context:microsoft-xbox-one:context-gb-s-68-26}}, but that is a different
+    console and the two figures are kept apart rather than reconciled.
+  comparabilityGroup: memory-bandwidth|memory|theoretical-peak
+  conditions: "{{context:microsoft-xbox-one:context-gb-8}} DDR3 across four
+    {{context:microsoft-xbox-one-jaguar:context-bit-64}} channels, 2013 launch
+    console."
+  editorialStatus: provisional
+  evidenceStage: shipped
+  extractIds:
+    - hc25-xbox-one:slide4:ddr3-bandwidth
+  id: microsoft-xbox-one:memory-bandwidth
+  method: theoretical-peak
+  metric: memory-bandwidth
+  normalized:
+    value: "68000000000"
+    unit: B/s
+    significantDigits: 2
+    unitRegistry: units-v1
+  provenance: independent
+  quantity:
+    significantDigits: 2
+    state: value
+    unit: GB/s
+    value: "68"
+  scope: memory
+  sourceIds:
+    - hot-chips-25-xbox-one-soc
+  status: theoretical
+  subject:
+    id: microsoft-xbox-one
+    kind: system
+  evidenceLevel: reported
+- caveat: >-
+    Microsoft's conference deck states this throughput without naming a
+    precision. Wikipedia gives the same
+    {{measurement:microsoft-xbox-one:peak-fp32-rate}} as the graphics
+    processor's peak, and the catalog reads it as single precision and carries
+    it as rumored.
+  comparabilityGroup: peak-fp32-rate|gpu|theoretical-peak
+  editorialStatus: provisional
+  evidenceStage: shipped
+  extractIds:
+    - hc25-xbox-one:slide6:tflops
+  id: microsoft-xbox-one:peak-fp32-rate
+  method: theoretical-peak
+  metric: peak-fp32-rate
+  provenance: community
+  quantity:
+    state: value
+    value: "1.31"
+    unit: TFLOP/s
+    significantDigits: 3
+  scope: gpu
+  sourceIds:
+    - hot-chips-25-xbox-one-soc
+    - wikipedia-xbox-one-specifications
+  status: theoretical
+  subject:
+    id: microsoft-xbox-one
+    kind: system
+  evidenceLevel: rumored
+  normalized:
+    value: "1310000000000"
+    unit: FLOP/s
+    significantDigits: 3
+    unitRegistry: units-v1
+- caveat: >-
+    Microsoft published no specification document for this console, so there is
+    no vendor page to have omitted a rating: the nearest thing is a conference
+    deck about the chip, which describes the processor and not the machine's
+    supply. Reviews meter the console's draw, which is a different quantity.
+  comparabilityGroup: rated-power-consumption|whole-system|rated-power
+  editorialStatus: approved
+  evidenceStage: shipped
+  id: microsoft-xbox-one:rated-power-consumption
+  method: rated-power
+  metric: rated-power-consumption
+  provenance: vendor
+  quantity:
+    note: >-
+      The vendor engineers' conference paper on this console describes the
+      system on a chip and states no whole-system power rating; Microsoft
+      published no specification page for the console.
+    state: unknown
+  unknownAudit:
+    reviewedOn: 2026-08-25
+    routesChecked:
+      - vendor-documentation
+      - independent-analysis
+      - community-source
+    outcome: no-compatible-candidate
+    summary: >-
+      The checked technical material provides no precision-qualified compatible
+      value.
+  scope: whole-system
+  sourceIds:
+    - hot-chips-25-xbox-one-soc
+  status: vendor-rated
+  subject:
+    id: microsoft-xbox-one
+    kind: system

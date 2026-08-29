@@ -1,0 +1,43 @@
+id: nvidia-geforce-rtx-2080-ti
+slug: nvidia-geforce-rtx-2080-ti
+name: NVIDIA GeForce RTX 2080 Ti
+manufacturer: NVIDIA
+type: accelerator
+family: nvidia-geforce
+releaseDate: 2018-09
+region: Worldwide
+summary: >-
+  NVIDIA GeForce RTX 2080 Ti:
+  {{measurement:nvidia-geforce-rtx-2080-ti-memory:capacity}} of GDDR6,
+  {{measurement:nvidia-geforce-rtx-2080-ti-memory:bandwidth}} peak bandwidth,
+  and {{measurement:nvidia-tu102:peak-fp32-rate}} FP32.
+description: >-
+  A reference graphics accelerator whose general-shader FP32 peak, memory
+  bandwidth and power are kept as distinct measurements.
+configurations:
+  - id: reference-card
+    label: Reference card
+    releaseDate: 2018-09
+    entries:
+      - componentId: nvidia-tu102
+        role: gpu
+        count: 1
+        shared: false
+        notes: >-
+          The lower declared clock; the separately named upper clock is recorded
+          as a peak-clock measurement.
+        measurementIds:
+          - nvidia-tu102:clock-frequency-base
+          - nvidia-tu102:clock-frequency-boost
+      - componentId: nvidia-geforce-rtx-2080-ti-memory
+        role: video-memory
+        count: 1
+        shared: false
+        measurementIds:
+          - nvidia-geforce-rtx-2080-ti-memory:capacity
+sourceIds:
+  - nvidia-geforce-rtx-2080-ti-product-specifications
+editorialStatus: approved
+notes: >-
+  This accelerator’s whole-system memory is its fitted frame buffer; host memory
+  is excluded. Partner cards may differ from this reference configuration.

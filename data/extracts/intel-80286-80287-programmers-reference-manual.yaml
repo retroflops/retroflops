@@ -1,0 +1,19 @@
+- extract: >-
+    This column gives the number of clock cycles that this form of the
+    instruction takes to execute. The amount of time for each clock cycle is
+    computed by dividing one microsecond by the number of MHz at which the 80286
+    is running. For example, a 10-MHz 80286 (with the CLK pin connected to a
+    20-MHz crystal) takes 100 nanoseconds for each clock cycle.
+  extractHash: 'c7862f91b813735daaecca70f3e615db1c4a15b58c0841778b8145c8ca4c45bd'
+  id: intel-80286-80287-programmers-reference-manual:clock-example
+  locator:
+    Appendix B, "The 80286 Instruction Set", printed page B-5, "Clocks" note
+  notes: >-
+    The manual gives a worked 10 MHz example, not a 12 or 12.5 MHz product
+    grade. It establishes that the processor runs at half the CLK crystal rate,
+    so it corroborates the relationship used to read the 80286 datasheet's
+    speed-grade table without supplying a machine configuration or installed
+    memory figure.
+  sourceId: intel-80286-80287-programmers-reference-manual
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-24

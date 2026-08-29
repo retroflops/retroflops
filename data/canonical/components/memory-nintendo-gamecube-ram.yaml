@@ -1,0 +1,12 @@
+editorialStatus: approved
+id: nintendo-gamecube-ram
+slug: nintendo-gamecube-ram
+kind: memory
+name: Nintendo GameCube main memory
+manufacturer: Nintendo
+architecture: 1T-SRAM
+introducedDate: '2001'
+memoryType: 1T-SRAM
+summary: '{{measurement:nintendo-gamecube-ram:capacity}} of installed 1T-SRAM.'
+sourceIds:
+  - nintendo-gamecube-tech-specs

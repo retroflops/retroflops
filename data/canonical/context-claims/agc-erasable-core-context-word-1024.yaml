@@ -1,0 +1,17 @@
+id: agc-erasable-core:context-word-1024
+subject:
+  kind: component
+  id: agc-erasable-core
+label: Capacity
+quantity:
+  state: value
+  value: '1024'
+  unit: word
+  significantDigits: 4
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - ntrs-19760016247
+evidenceLevel: confirmed

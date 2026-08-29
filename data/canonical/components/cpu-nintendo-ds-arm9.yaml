@@ -1,0 +1,12 @@
+architecture: ARM9
+editorialStatus: provisional
+id: nintendo-ds-arm9
+instructionSet: ARMv5TE
+instructionSetFamily: arm
+kind: cpu
+manufacturer: ARM
+name: ARM946E-S
+slug: nintendo-ds-arm9
+sourceIds:
+  - nintendo-ds-technical-reference
+summary: The Nintendo DS's main ARM9 processor.

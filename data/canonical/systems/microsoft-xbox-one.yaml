@@ -1,0 +1,43 @@
+editorialStatus: approved
+id: microsoft-xbox-one
+slug: microsoft-xbox-one
+name: Microsoft Xbox One
+manufacturer: Microsoft
+type: console
+family: microsoft-xbox
+releaseDate: 2013-11
+region: North America
+summary: >-
+  Microsoft Xbox One, represented with its retail processor, graphics and
+  installed writable memory.
+description: >-
+  The Xbox One keeps its Jaguar processor, graphics hardware and installed
+  memory as distinct components, so each measurement retains its own scope.
+configurations:
+  - id: retail
+    label: Retail hardware
+    entries:
+      - componentId: microsoft-xbox-one-jaguar
+        role: main-cpu
+        count: 1
+        shared: false
+        measurementIds:
+          - microsoft-xbox-one:retail:cpu-clock-frequency
+      - componentId: microsoft-xbox-one-gpu
+        role: gpu
+        count: 1
+        shared: false
+        measurementIds:
+          - microsoft-xbox-one:retail:gpu-clock-frequency
+      - componentId: microsoft-xbox-one-ram
+        role: unified-memory
+        count: 1
+        shared: true
+        measurementIds:
+          - microsoft-xbox-one-ram:capacity
+imageIds:
+  - microsoft-xbox-one-console
+sourceIds:
+  - digitalfoundry-xbox-one-clocks-2013
+  - computerbase-xbox-one-test
+  - hot-chips-25-xbox-one-soc

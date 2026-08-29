@@ -1,0 +1,19 @@
+id: nvidia-gtx-1080-memory
+slug: nvidia-gtx-1080-memory
+kind: memory
+name: NVIDIA GeForce GTX 1080 frame buffer
+manufacturer: NVIDIA
+memoryType: GDDR5X
+introducedDate: 2016-05
+summary:
+  Eight gibibytes of GDDR5X on a
+  {{measurement:nvidia-gtx-1080-memory:bus-width}} interface, reachable at
+  {{measurement:nvidia-gtx-1080-memory:bandwidth}}.
+notes:
+  NVIDIA's launch table calls the capacity a framebuffer and the whitepaper does
+  not state it at all; both state the bandwidth. The capacity is read as
+  {{measurement:nvidia-gtx-1080-memory:capacity}}, the binary convention this
+  catalog applies to every memory part.
+sourceIds:
+  - nvidia-gtx-1080-deep-dive-2016
+editorialStatus: approved

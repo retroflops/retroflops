@@ -1,0 +1,42 @@
+accessedDate: 2026-08-17
+alt: A small white NEC PC Engine photographed against white, barely larger than the gray controller
+  plugged into it, with a red PC Engine logo on the lid and a card slot across the top edge.
+attribution: Photograph by Evan-Amos, released into the public domain by its author, via Wikimedia Commons.
+canonical:
+  byteLength: 14977
+  format: avif
+  height: 960
+  sha256: 2b056008027bcb3c5a500277dfe28347a5fcd215f0d2320dddd633af91fcdad0
+  width: 1280
+caption: The Japanese PC Engine, shown with the controller NEC supplied with it.
+creator: Evan-Amos
+creatorType: person
+editorialStatus: approved
+id: nec-pc-engine-console
+original:
+  byteLength: 1578989
+  height: 2040
+  mediaType: image/jpeg
+  sha256: a3cd5e7809e7163690a0922aa26b9f127d0c3f784f8eb61b1ebda3e51fd6f82e
+  width: 4590
+originalUrl: https://upload.wikimedia.org/wikipedia/commons/b/b6/PC-Engine-Console-Set.jpg
+publisher: Wikimedia Commons
+rights:
+  id: pd-self
+  statedAt: https://commons.wikimedia.org/wiki/File:PC-Engine-Console-Set.jpg
+  statement: "I, the copyright holder of this work, release this work into the public domain. This
+    applies worldwide. In some countries this may not be legally possible; if so: I grant anyone the
+    right to use this work for any purpose, without any conditions, unless such conditions are
+    required by law."
+  url: https://commons.wikimedia.org/wiki/Template:PD-self
+sourcePageUrl: https://commons.wikimedia.org/wiki/File:PC-Engine-Console-Set.jpg
+title: PC-Engine-Console-Set.jpg
+transform:
+  background: "#ffffff"
+  fit: pad
+  note: The photograph is wider than 4:3 and the machine reaches both ends of it, so no crop keeps the
+    whole subject. The declared margin is the same white as the backdrop the photograph was taken
+    against, which is why it cannot be seen; it is recorded because it is there.
+  preset: image-v1
+  sourceHeight: 2040
+  sourceWidth: 4590

@@ -1,0 +1,12 @@
+id: flopper-apple-m4-gpu-spec-sheet
+title: Apple M4 GPU specification sheet
+publisher: Flopper
+url: https://flopper.io/gpu/apple-m4/spec-sheet.pdf
+accessedDate: 2026-08-25
+locator: Arithmetic performance, FP32 Peak TFLOPS
+extract: FP32 Peak TFLOPS | 4.3
+tier: C
+sourceType: aggregator
+editorialStatus: provisional
+license: Copyright Flopper. Quoted under short-extract fair use.
+usageNote: A third-party specification sheet; Apple does not publish this standalone rate.

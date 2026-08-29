@@ -1,0 +1,24 @@
+accessedDate: 2026-08-13
+editorialStatus: approved
+fetch:
+  byteLength: 109591
+  contentType: text/html; charset=UTF-8
+  fetchedAt: 2026-08-13T18:08:05Z
+  httpStatus: 200
+  sha256: 9b099d85d27bb7d59b462e29ecbf6bb6887de0097dda7dd0b17483f84cfff21c
+  url: https://news.xbox.com/en-us/2020/03/16/xbox-series-x-tech/
+id: xbox-wire-series-x-tech-2020
+license: Copyright Microsoft. Quoted here under short-extract fair use for
+  verification of the figure cited.
+locator: Xbox Series X full system specifications table, 'Memory Bandwidth' row
+publishedDate: 2020-03-16
+publisher: Microsoft (Xbox Wire)
+sourceType: vendor-documentation
+tier: A
+title: "Xbox Series X: A Closer Look at the Technology Powering the Next Generation"
+url: https://news.xbox.com/en-us/2020/03/16/xbox-series-x-tech/
+usageNote: >-
+  Microsoft states two bandwidths for one console because the 16 GB of GDDR6 is
+  deliberately partitioned into a 10 GB region and a 6 GB region that run at
+  different rates. The two are separate figures and averaging them would
+  describe no part of the machine.

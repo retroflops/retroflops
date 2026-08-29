@@ -1,0 +1,56 @@
+name: Publish the site
+
+# Run only for the default branch. A pull request has already passed the quality
+# gate before it reaches main.
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+# This workflow does not check out or modify this repository. The Pages
+# repository builds the site.
+permissions: {}
+
+# Run one deployment at a time. Do not cancel a queued deployment because an
+# interrupted deployment can leave the site partially updated.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+# GitHub serves an organization root domain only from its matching repository.
+# `actions/deploy-pages` can publish only the repository that runs it, so
+# `retroflops/retroflops.github.io` checks out this repository, builds the
+# requested commit, and deploys it. Its workflow source is in
+# `.github/pages-repository/`.
+env:
+  PAGES_REPOSITORY: retroflops/retroflops.github.io
+  PAGES_WORKFLOW: publish.yml
+
+jobs:
+  publish:
+    name: Ask the Pages repository to publish
+    # Forks cannot publish the site's only Pages deployment and lack the
+    # dispatch token. Skip them before authentication.
+    if: github.repository == 'retroflops/retroflops'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      # The runner includes `gh`. The token can only dispatch workflows in the
+      # publishing repository, unlike a deploy key or `contents: write` token.
+      - name: Dispatch the build
+        env:
+          GH_TOKEN: ${{ secrets.PAGES_DISPATCH_TOKEN }}
+        run: |
+          if [ -z "${GH_TOKEN}" ]; then
+            echo "::error::PAGES_DISPATCH_TOKEN is not set. It needs actions: write on ${PAGES_REPOSITORY}."
+            exit 1
+          fi
+          gh workflow run "${PAGES_WORKFLOW}" \
+            --repo "${PAGES_REPOSITORY}" \
+            --field commit="${GITHUB_SHA}"
+          {
+            echo "Asked ${PAGES_REPOSITORY} to publish ${GITHUB_SHA}."
+            echo ""
+            echo "The build and the deployment are at"
+            echo "https://github.com/${PAGES_REPOSITORY}/actions/workflows/${PAGES_WORKFLOW}."
+          } >> "${GITHUB_STEP_SUMMARY}"

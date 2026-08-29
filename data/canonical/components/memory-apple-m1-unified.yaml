@@ -1,0 +1,17 @@
+id: apple-m1-unified-memory
+slug: apple-m1-unified-memory
+kind: memory
+name: Apple M1 unified memory
+manufacturer: Apple
+memoryType: Unified memory, in package
+summary:
+  One pool of memory inside the M1 package, addressed by the processor cores,
+  the graphics cores and the neural engine alike.
+notes:
+  Fitted at manufacture and not expandable, so the capacity is a property of the
+  machine bought rather than of the machine owned. That is why it is recorded
+  per configuration rather than once for the model.
+sourceIds:
+  - apple-m1-announcement-2020
+  - apple-mac-mini-m1-tech-specs
+editorialStatus: approved

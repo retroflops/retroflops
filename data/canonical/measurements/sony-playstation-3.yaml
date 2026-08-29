@@ -1,0 +1,440 @@
+- caveat: >-
+    Both releases write "256MB", meaning {{measurement:ps3-xdr:capacity}}. The
+    RSX's {{measurement:ps3-xdr:capacity}} is a separate pool, so the console's
+    memory is never one figure of {{context:ps3-xdr:context-mib-512}}. A third
+    Sony document states the same two capacities, and it is the first written
+    for a buyer holding the machine rather than for the press: the specification
+    table in the CECHA01 instruction manual.
+  comparabilityGroup: memory-capacity|memory|design-capacity
+  conditions: Main memory attached to the Cell processor, in the console Sony launched.
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - scei-ps3-2006:specification
+    - scei-ps3-2005:memory
+    - scei-ps3-cecha01:processors-and-memory
+  id: ps3-xdr:capacity
+  method: design-capacity
+  metric: memory-capacity
+  normalized:
+    value: "268435456"
+    unit: B
+    significantDigits: 3
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 3
+    state: value
+    unit: MiB
+    value: "256"
+  scope: memory
+  sourceIds:
+    - scei-ps3-launch-2006
+    - scei-ps3-specifications-2005
+    - scei-ps3-cecha01-manual
+  status: vendor-rated
+  subject:
+    id: ps3-xdr
+    kind: component
+  evidenceLevel: confirmed
+- caveat: >-
+    Both releases write "256MB", meaning {{measurement:ps3-gddr3:capacity}}.
+    External to the RSX rather than embedded in it, unlike the PlayStation 2's
+    graphics memory. A third Sony document states the same two capacities, and
+    it is the first written for a buyer holding the machine rather than for the
+    press: the specification table in the CECHA01 instruction manual.
+  comparabilityGroup: memory-capacity|memory|design-capacity
+  conditions: Video memory attached to the RSX, in the console Sony launched.
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - scei-ps3-2006:specification
+    - scei-ps3-2005:memory
+    - scei-ps3-cecha01:processors-and-memory
+  id: ps3-gddr3:capacity
+  method: design-capacity
+  metric: memory-capacity
+  normalized:
+    value: "268435456"
+    unit: B
+    significantDigits: 3
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 3
+    state: value
+    unit: MiB
+    value: "256"
+  scope: memory
+  sourceIds:
+    - scei-ps3-launch-2006
+    - scei-ps3-specifications-2005
+    - scei-ps3-cecha01-manual
+  status: vendor-rated
+  subject:
+    id: ps3-gddr3
+    kind: component
+  evidenceLevel: confirmed
+- caveat: >-
+    Announced rather than confirmed: Sony's launch specification names the
+    processor without a clock. It stands beside clocks recorded from shipped
+    machines, because a nominal clock is the same quantity whenever it was
+    published, but it stays provisional until a source describing shipped
+    hardware states one, and a provisional figure never feeds a multiplier.
+    Reviewed again against the instruction manual printed for the console that
+    shipped (CECHA01, 2006): its specification table names the Cell and the RSX
+    without a frequency for either and both memories without a transfer rate, so
+    no post-launch Sony document corroborates this figure and it stays
+    provisional.
+  comparabilityGroup: clock-frequency|cpu|nominal-clock
+  conditions: PowerPC core and all SPEs, per the announcement of May 2005,
+    eighteen months before the console shipped.
+  editorialStatus: provisional
+  evidenceStage: pre-launch
+  extractIds:
+    - scei-ps3-2005:cpu
+  id: sony-playstation-3:cpu-clock-frequency
+  method: nominal-clock
+  metric: clock-frequency
+  normalized:
+    value: "3200000000"
+    unit: Hz
+    significantDigits: 2
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 2
+    state: value
+    unit: GHz
+    value: "3.2"
+  scope: cpu
+  sourceIds:
+    - scei-ps3-specifications-2005
+  status: vendor-rated
+  subject:
+    configurationId: launch
+    id: sony-playstation-3
+    kind: system
+  evidenceLevel: confirmed
+- caveat: >-
+    Announced rather than confirmed, and the graphics processor is the part of
+    the console Sony described least: the launch specification names the RSX and
+    stops. Provisional on that ground, so it is shown beside other nominal
+    clocks but never divided into one. Reviewed again against the instruction
+    manual printed for the console that shipped (CECHA01, 2006): its
+    specification table names the Cell and the RSX without a frequency for
+    either and both memories without a transfer rate, so no post-launch Sony
+    document corroborates this figure and it stays provisional.
+  comparabilityGroup: clock-frequency|gpu|nominal-clock
+  conditions: RSX, per the announcement of May 2005.
+  editorialStatus: provisional
+  evidenceStage: pre-launch
+  extractIds:
+    - scei-ps3-2005:gpu
+  id: sony-playstation-3:gpu-clock-frequency
+  method: nominal-clock
+  metric: clock-frequency
+  normalized:
+    value: "550000000"
+    unit: Hz
+    significantDigits: 3
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 3
+    state: value
+    unit: MHz
+    value: "550"
+  scope: gpu
+  sourceIds:
+    - scei-ps3-specifications-2005
+  status: vendor-rated
+  subject:
+    configurationId: launch
+    id: sony-playstation-3
+    kind: system
+  evidenceLevel: confirmed
+- caveat: >-
+    Recorded as single precision on the strength of the SPEs being
+    single-precision units, which is an editorial reading and not a citation:
+    the source states no precision. Provisional on that ground as well as on
+    being a pre-launch figure. Reviewed again against the instruction manual
+    printed for the console that shipped (CECHA01, 2006): its specification
+    table names the Cell and the RSX without a frequency for either and both
+    memories without a transfer rate, so no post-launch Sony document
+    corroborates this figure and it stays provisional.
+  comparabilityGroup: peak-fp32-rate|cpu|theoretical-peak
+  conditions: '"Total floating point performance" of the Cell processor — the
+    PowerPC core with its VMX unit and all seven SPEs — per the announcement of
+    May 2005.'
+  editorialStatus: provisional
+  evidenceStage: pre-launch
+  extractIds:
+    - scei-ps3-2005:cpu
+  id: ps3-cell:peak-fp32-rate
+  method: theoretical-peak
+  metric: peak-fp32-rate
+  normalized:
+    value: "218000000000"
+    unit: FLOP/s
+    significantDigits: 3
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 3
+    state: value
+    unit: GFLOP/s
+    value: "218"
+  scope: cpu
+  sourceIds:
+    - scei-ps3-specifications-2005
+  status: vendor-rated
+  subject:
+    id: ps3-cell
+    kind: component
+  evidenceLevel: confirmed
+- caveat: >-
+    The weakest figure on this record. No precision, no shader-unit count and no
+    operations-per-cycle are stated, so it cannot be reconciled with the
+    {{context:ps3-rsx:context-mhz-550}} quoted beside it, and no later Sony
+    document repeats it. It is recorded because the source states it and
+    withheld from every automatic multiplier because nothing about it can be
+    checked. Reviewed again against the instruction manual printed for the
+    console that shipped (CECHA01, 2006): its specification table names the Cell
+    and the RSX without a frequency for either and both memories without a
+    transfer rate, so no post-launch Sony document corroborates this figure and
+    it stays provisional. It also cannot be read as the same claim as the
+    PlayStation 4's {{context:ps3-rsx:context-tflop-s-1-84}}: the PlayStation
+    4's reconstructs exactly from the compute units its own source names,
+    counting the fused multiply-add each shader lane issues per cycle, and this
+    one reconstructs from nothing. They share a comparability group because both
+    are a vendor's theoretical peak for a graphics processor, which is as far as
+    the group can see: it cannot tell that the two are counting different
+    operations. A search for a checkable figure to set against this one found
+    nothing usable: the rates that circulate for the RSX disagree with each
+    other by more than a factor of two and every one of them traces back to a
+    wiki or a forum, so there is no A source and no pair of agreeing B sources
+    to record a conflict against.
+  comparabilityGroup: peak-fp32-rate|gpu|theoretical-peak
+  conditions: '"Floating point performance" of the RSX, per the announcement of May 2005.'
+  editorialStatus: provisional
+  evidenceStage: pre-launch
+  extractIds:
+    - scei-ps3-2005:gpu
+  id: ps3-rsx:peak-fp32-rate
+  method: theoretical-peak
+  metric: peak-fp32-rate
+  normalized:
+    value: "1800000000000"
+    unit: FLOP/s
+    significantDigits: 2
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 2
+    state: value
+    unit: TFLOP/s
+    value: "1.8"
+  scope: gpu
+  sourceIds:
+    - scei-ps3-specifications-2005
+  status: vendor-rated
+  subject:
+    id: ps3-rsx
+    kind: component
+  evidenceLevel: confirmed
+- caveat: >-
+    A bus figure from a pre-launch table, and one the launch specification does
+    not repeat. The same table quotes the RSX's access to this memory
+    separately, at {{context:ps3-xdr:context-gb-s-20}} writing and
+    {{context:ps3-xdr:context-gb-s-15}} reading, so the processor is not the
+    only claimant on the 25.6. Reviewed again against the instruction manual
+    printed for the console that shipped (CECHA01, 2006): its specification
+    table names the Cell and the RSX without a frequency for either and both
+    memories without a transfer rate, so no post-launch Sony document
+    corroborates this figure and it stays provisional.
+  comparabilityGroup: memory-bandwidth|memory|theoretical-peak
+  conditions: '"System Bandwidth — Main RAM", per the announcement of May 2005.'
+  editorialStatus: provisional
+  evidenceStage: pre-launch
+  extractIds:
+    - scei-ps3-2005:memory
+  id: ps3-xdr:bandwidth
+  method: theoretical-peak
+  metric: memory-bandwidth
+  normalized:
+    value: "25600000000"
+    unit: B/s
+    significantDigits: 3
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 3
+    state: value
+    unit: GB/s
+    value: "25.6"
+  scope: memory
+  sourceIds:
+    - scei-ps3-specifications-2005
+  status: vendor-rated
+  subject:
+    id: ps3-xdr
+    kind: component
+  evidenceLevel: confirmed
+- caveat: >-
+    A bus figure from a pre-launch table. Worth reading beside the PlayStation
+    2's graphics memory, which was sixty-four times smaller and twice this fast,
+    although the multiplier is refused: this figure is provisional, having been
+    announced before the console shipped and never restated afterwards. Reviewed
+    again against the instruction manual printed for the console that shipped
+    (CECHA01, 2006): its specification table names the Cell and the RSX without
+    a frequency for either and both memories without a transfer rate, so no
+    post-launch Sony document corroborates this figure and it stays provisional.
+  comparabilityGroup: memory-bandwidth|memory|theoretical-peak
+  conditions: '"System Bandwidth — VRAM", per the announcement of May 2005.'
+  editorialStatus: provisional
+  evidenceStage: pre-launch
+  extractIds:
+    - scei-ps3-2005:memory
+  id: ps3-gddr3:bandwidth
+  method: theoretical-peak
+  metric: memory-bandwidth
+  normalized:
+    value: "22400000000"
+    unit: B/s
+    significantDigits: 3
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 3
+    state: value
+    unit: GB/s
+    value: "22.4"
+  scope: memory
+  sourceIds:
+    - scei-ps3-specifications-2005
+  status: vendor-rated
+  subject:
+    id: ps3-gddr3
+    kind: component
+  evidenceLevel: confirmed
+- caveat: >-
+    Adds 1 memory-capacity figure obtained by design-capacity. Left out:
+    {{measurement:ps3-xdr:capacity}} of video memory (the RSX’s own pool, which
+    the processor cannot spend on its own work). A total is only as trustworthy
+    as the decision about what belongs in it, so both the terms and the
+    exclusions are named records. A third Sony document states the same two
+    capacities, and it is the first written for a buyer holding the machine
+    rather than for the press: the specification table in the CECHA01
+    instruction manual.
+  comparabilityGroup: memory-capacity|whole-system|design-capacity
+  conditions: Main memory of the console as it shipped.
+  derivedFrom: sony-playstation-3:whole-system-memory
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - scei-ps3-2006:specification
+    - scei-ps3-2005:memory
+    - scei-ps3-cecha01:processors-and-memory
+  id: sony-playstation-3:whole-system-memory-capacity
+  method: design-capacity
+  metric: memory-capacity
+  normalized:
+    value: "268435456"
+    unit: B
+    significantDigits: 3
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 3
+    state: value
+    unit: MiB
+    value: "256"
+  rounding: none
+  scope: whole-system
+  sourceIds:
+    - scei-ps3-launch-2006
+    - scei-ps3-specifications-2005
+    - scei-ps3-cecha01-manual
+  status: derived
+  subject:
+    id: sony-playstation-3
+    kind: system
+  evidenceLevel: confirmed
+- caveat: >-
+    Adds 1 memory-bandwidth figure obtained by theoretical-peak. Left out:
+    {{measurement:ps3-gddr3:bandwidth}} of video memory (the RSX’s own pool,
+    reached by the processor only across a separate interface). A total is only
+    as trustworthy as the decision about what belongs in it, so both the terms
+    and the exclusions are named records. Reviewed again against the instruction
+    manual printed for the console that shipped (CECHA01, 2006): its
+    specification table names the Cell and the RSX without a frequency for
+    either and both memories without a transfer rate, so no post-launch Sony
+    document corroborates this figure and it stays provisional.
+  comparabilityGroup: memory-bandwidth|whole-system|theoretical-peak
+  conditions: The bus between the Cell processor and the XDR memory it works in.
+  derivedFrom: sony-playstation-3:whole-system-memory-bandwidth
+  editorialStatus: provisional
+  evidenceStage: pre-launch
+  extractIds:
+    - scei-ps3-2005:memory
+  id: sony-playstation-3:whole-system-memory-bandwidth
+  method: theoretical-peak
+  metric: memory-bandwidth
+  normalized:
+    value: "25600000000"
+    unit: B/s
+    significantDigits: 3
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 3
+    state: value
+    unit: GB/s
+    value: "25.6"
+  rounding: none
+  scope: whole-system
+  sourceIds:
+    - scei-ps3-specifications-2005
+  status: derived
+  subject:
+    id: sony-playstation-3
+    kind: system
+  evidenceLevel: confirmed
+- caveat: >-
+    A supply rating, not a measurement: no workload is stated and none is
+    implied. It took the manual in the box to find it: neither the specification
+    Sony published before launch nor the launch release itself states a wattage,
+    and the manual is tied to this console rather than to a later, smaller
+    revision by the dimensions and mass it prints beside the figure, which match
+    Sony’s own launch release exactly.
+  comparabilityGroup: rated-power-consumption|whole-system|rated-power
+  conditions: Rating printed in the instruction manual supplied with the CECHA01
+    console, the {{context:sony-playstation-3:context-gb-60}} model launched in
+    November 2006.
+  editorialStatus: approved
+  evidenceStage: shipped
+  extractIds:
+    - scei-ps3-cecha01:power
+  id: sony-playstation-3:rated-power-consumption
+  method: rated-power
+  metric: rated-power-consumption
+  normalized:
+    value: "380"
+    unit: W
+    significantDigits: 2
+    unitRegistry: units-v1
+  provenance: vendor
+  quantity:
+    significantDigits: 2
+    state: value
+    unit: W
+    value: "380"
+  scope: whole-system
+  sourceIds:
+    - scei-ps3-cecha01-manual
+  status: vendor-rated
+  subject:
+    id: sony-playstation-3
+    kind: system
+  evidenceLevel: confirmed

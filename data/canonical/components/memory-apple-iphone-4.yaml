@@ -1,0 +1,14 @@
+id: apple-iphone-4-memory
+slug: apple-iphone-4-memory
+kind: memory
+name: Apple iPhone 4 unified memory
+manufacturer: Apple
+memoryType: Unified mobile DRAM
+summary:
+  The working memory pool used by the Apple iPhone 4; Apple does not state its
+  installed capacity.
+notes:
+  Flash storage is a separate medium and is not a substitute for working memory.
+sourceIds:
+  - apple-iphone-4-tech-specs
+editorialStatus: approved

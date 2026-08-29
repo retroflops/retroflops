@@ -1,0 +1,17 @@
+id: pc-engine-huc6280:context-unit-1
+subject:
+  kind: component
+  id: pc-engine-huc6280
+label: Core count
+quantity:
+  state: value
+  value: '1'
+  unit: unit
+  significantDigits: 1
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - nec-pc-engine-technical-manual
+evidenceLevel: reported

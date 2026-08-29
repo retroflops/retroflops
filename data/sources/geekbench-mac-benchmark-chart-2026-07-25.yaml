@@ -1,0 +1,23 @@
+accessedDate: 2026-07-26
+editorialStatus: approved
+fetch:
+  byteLength: 90857
+  contentType: text/html; charset=utf-8
+  fetchedAt: 2026-08-13T15:31:27Z
+  httpStatus: 200
+  sha256: 4d196cf1003f35fd1513142c78d1243b6bcf567dc7a1bbf29fc188c9785e33e3
+  url: https://web.archive.org/web/20260725063931id_/https://browser.geekbench.com/mac-benchmarks
+id: geekbench-mac-benchmark-chart-2026-07-25
+license: Copyright Primate Labs Inc. Quoted here under short-extract fair use
+  for verification of the figures cited.
+locator: >-
+  Single-Core and Multi-Core tables, rows "Mac mini (Late 2020)" and "Mac mini
+  (2024)"
+publisher: Primate Labs Inc.
+sourceType: official-benchmark-result
+tier: A
+title: Geekbench 6 Mac Benchmark Chart — 25 July 2026 capture
+url: https://web.archive.org/web/20260725063931id_/https://browser.geekbench.com/mac-benchmarks
+usageNote: >-
+  A Wayback capture of Primate Labs' rolling chart. The measurements record
+  their curation date and never claim to be current averages.

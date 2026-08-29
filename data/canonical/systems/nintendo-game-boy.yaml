@@ -1,0 +1,44 @@
+configurations:
+  - entries:
+      - componentId: game-boy-lr35902
+        count: 1
+        role: main-cpu
+        shared: false
+        measurementIds:
+          - nintendo-game-boy:cpu-clock-frequency
+      - componentId: game-boy-ppu
+        count: 1
+        role: gpu
+        shared: false
+        measurementIds:
+          - nintendo-game-boy:gpu-clock-frequency
+      - componentId: game-boy-ram
+        count: 1
+        role: system-memory
+        shared: false
+        measurementIds:
+          - game-boy-ram:capacity
+    id: retail
+    label: Original retail handheld
+editorialStatus: provisional
+id: nintendo-game-boy
+manufacturer: Nintendo
+name: Nintendo Game Boy
+notes: Game Pak ROM is removable storage and is not included in writable memory.
+region: Japan
+releaseDate: 1989-04
+slug: nintendo-game-boy
+sourceIds:
+  - game-boy-cpu-manual
+summary: >-
+  A {{measurement:nintendo-game-boy:cpu-clock-frequency}} handheld with
+  {{measurement:game-boy-ram:capacity}} work RAM and a monochrome
+  tile-and-sprite LCD controller.
+description: >-
+  This entry covers Nintendo's original Game Boy retail handheld. Its compact
+  monochrome design made a useful baseline for the later portable systems in
+  this catalog.
+imageIds:
+  - nintendo-game-boy-handheld
+type: handheld
+family: nintendo-handheld

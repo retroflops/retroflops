@@ -1,0 +1,94 @@
+id: sony-playstation-2
+slug: sony-playstation-2
+name: Sony PlayStation 2
+aliases:
+  - PS2
+manufacturer: Sony Computer Entertainment
+type: console
+family: sony-playstation
+releaseDate: 2000-03
+region: Worldwide
+summary: >-
+  A {{measurement:sony-playstation-2:cpu-clock-frequency}} Emotion Engine rated
+  at 6.2 GFLOPS, {{measurement:ps2-main-rdram:capacity}} of Rambus main memory
+  at {{measurement:ps2-main-rdram:bandwidth}}, and a rasterizer whose
+  {{measurement:ps2-gs-edram:capacity}} frame buffer sits on the die behind a
+  {{measurement:ps2-gs-edram:bus-width}} bus.
+description: >-
+  The PlayStation 2 is the first record in this catalog where the graphics
+  chip's memory is fifteen times faster than the console's main memory, on
+  Sony's own figures. The machine's design follows from that asymmetry. Geometry
+  runs on the Emotion Engine's two vector units, which is where its 6.2 GFLOPS
+  mostly comes from; the Graphics Synthesizer only rasterizes, but does so
+  against a frame buffer it never has to leave the die to reach. It has little
+  room: {{measurement:ps2-gs-edram:capacity}} holds the frame buffer, the Z
+  buffer and whatever textures fit alongside them, so texture data streams in
+  from main memory while drawing proceeds.
+
+
+  Its numbers come from Sony press releases rather than the developer manuals.
+  The EE Overview, EE User's and GS User's manuals describe the caches, bus
+  widths, vector units and memory map, but state neither the processor clock,
+  the installed memory size nor a floating-point rate. SCEI published those
+  three figures in a specification table a year before launch, then corrected
+  the clock in a later release.
+configurations:
+  - id: retail
+    label: Retail console
+    entries:
+      - componentId: ps2-emotion-engine
+        role: main-cpu
+        count: 1
+        shared: false
+        notes: >-
+          {{context:ps2-emotion-engine:context-kb-16}} instruction cache,
+          {{context:ps2-emotion-engine:context-kb-8}} data cache and
+          {{context:ps2-emotion-engine:context-kb-16}} of scratchpad, per the
+          1999 specification.
+        measurementIds:
+          - sony-playstation-2:cpu-clock-frequency
+      - componentId: ps2-graphics-synthesizer
+        role: gpu
+        count: 1
+        shared: false
+        measurementIds:
+          - sony-playstation-2:gpu-clock-frequency
+      - componentId: ps2-main-rdram
+        role: system-memory
+        count: 1
+        shared: false
+        notes: Direct Rambus DRAM, reachable by the Emotion Engine.
+        measurementIds:
+          - ps2-main-rdram:capacity
+      - componentId: ps2-gs-edram
+        role: video-memory
+        count: 1
+        shared: false
+        notes: On the Graphics Synthesizer die. Not addressable as main memory.
+        measurementIds:
+          - ps2-gs-edram:capacity
+      - componentId: ps2-iop
+        role: co-processor
+        count: 1
+        shared: false
+        notes: >-
+          Drives the console's inputs and outputs, and becomes the whole machine
+          when a PlayStation disc is playing.
+        measurementIds:
+          - sony-playstation-2:cpu-clock-frequency
+notes: >-
+  The release date is editorial context: the cited specification release is
+  dated March 1999 and states only an intention to launch during the following
+  fiscal year. Sony's polygon figures, 66 million per second of geometry on the
+  Emotion Engine and 75 million per second of drawing on the Graphics
+  Synthesizer, are not recorded because the catalog has no polygon-rate metric.
+  The rated power consumption is the SCPH-39001 revision's; later revisions drew
+  considerably less, and the 2003 single-chip release puts the launch pair of
+  chips at {{context:sony-playstation-2:context-w-37}} between them.
+imageIds:
+  - sony-playstation-2-console
+sourceIds:
+  - scei-ps2-specifications-1999
+  - scei-ee-gs-single-chip-2003
+  - scea-ps2-scph-39001-manual
+editorialStatus: approved

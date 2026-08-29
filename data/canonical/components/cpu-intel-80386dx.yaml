@@ -1,0 +1,16 @@
+id: intel-80386dx
+slug: intel-80386dx
+kind: cpu
+name: Intel 80386DX
+manufacturer: Intel
+architecture: '80386'
+introducedDate: 1985-10
+instructionSet: Intel 80386
+instructionSetFamily: x86
+summary:
+  The full-bus {{context:intel-80386dx:context-bit-32}} 80386, adding
+  {{context:intel-80386dx:context-bit-32}} registers, paging and a
+  {{context:intel-80386dx:context-bit-32}} external data path to x86 PCs.
+sourceIds:
+  - intel-historical-x86-documentation
+editorialStatus: provisional

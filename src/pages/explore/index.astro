@@ -1,0 +1,195 @@
+---
+// SPDX-FileCopyrightText: 2026 Wojciech Polak
+// SPDX-License-Identifier: MIT
+
+import CatalogFilters from '~/islands/catalog-filters';
+import BaseLayout from '~/layouts/base-layout.astro';
+import {
+  getComponentAvailability,
+  getComponents,
+  getSystemAvailability,
+  getSystems,
+} from '~/lib/catalog';
+import { formatPartialDate, humaniseIdentifier } from '~/lib/display';
+import { buildFacets, facetAttributes } from '~/lib/facets';
+import { route } from '~/lib/paths';
+
+/** Oldest first: the catalog reads as a sequence, not as a ranking. */
+const allSystems = getSystems();
+const systems = allSystems
+  .filter((system) => getSystemAvailability(system).availability === 'catalog')
+  .toSorted((a, b) => a.releaseDate.localeCompare(b.releaseDate));
+const researchSystemCount = allSystems.length - systems.length;
+
+const allComponents = getComponents();
+const catalogComponents = allComponents.filter(
+  (component) => getComponentAvailability(component).availability === 'catalog',
+);
+const componentsByKind = (['cpu', 'gpu', 'memory'] as const).map((kind) => ({
+  kind,
+  label: { cpu: 'Processors', gpu: 'Graphics', memory: 'Memory' }[kind],
+  components: catalogComponents
+    .filter((component) => component.kind === kind)
+    .toSorted((a, b) => a.name.localeCompare(b.name)),
+}));
+
+/*
+ * Whether Research holds anything at all. A catalog in which every record has
+ * grown a figure is the state this catalog is working towards, and a sentence
+ * sending a reader to an empty page is worse than no sentence: the category
+ * pages already gate their own note on the same question.
+ */
+const researchRecordCount = researchSystemCount + (allComponents.length - catalogComponents.length);
+
+const { byRecord, groups } = buildFacets();
+
+/** Search-only names stay out of the visible card, but remain available to Explore's filter. */
+const searchText = (name: string, aliases: readonly string[] | undefined): string =>
+  `${name} ${aliases?.join(' ') ?? ''}`.toLowerCase();
+---
+
+<BaseLayout
+  title="Explore"
+  description="Every system and component in the catalog, with filters for kind, decade, manufacturer, instruction set and verification status."
+>
+  <header class="page-header stack">
+    <p class="page-header__eyebrow">Catalog</p>
+    <h1>Explore</h1>
+    <p class="lede prose">
+      Systems and components with at least one numeric measurement. Every value carries its method
+      and source.{
+        researchRecordCount > 0 && (
+          <Fragment>
+            {' '}
+            Records that preserve only documented gaps live in{' '}
+            <a href={route('/research/')}>Research</a>.
+          </Fragment>
+        )
+      }
+    </p>
+  </header>
+
+  {
+    /*
+    Two columns from 60rem up: the filters stay in view beside the list they act
+    on, which makes a narrowing filter legible because the reader sees the list
+    change. Below that, they sit above the list in one column, and without
+    JavaScript they are not there at all.
+
+    client:only, not client:idle: a server-rendered panel would appear for readers
+    without scripts and do nothing when clicked. Omitting the control avoids
+    presenting an inert one.
+  */
+  }
+  <div class="explore">
+    {
+      /*
+      The wrapper is the grid item, and it is what sticks. The island renders
+      inside its own element, so styling the panel itself would style something
+      that is not a child of this grid.
+    */
+    }
+    <div class="explore__panel">
+      <CatalogFilters groups={groups} client:only="preact" />
+    </div>
+
+    <div class="explore__results stack-l">
+      <section class="stack" aria-labelledby="systems" data-facet-section>
+        <h2 id="systems">Systems</h2>
+        <p class="meta">
+          Ordered by release, oldest first. There is no ranking, and no aggregate score.
+        </p>
+        <ul class="card-grid">
+          {
+            systems.map((system) => (
+              <li
+                class="card stack"
+                data-search={searchText(system.name, system.aliases)}
+                {...facetAttributes(byRecord.get(`system:${system.id}`))}
+              >
+                <p class="card__eyebrow">
+                  {humaniseIdentifier(system.type)} · {formatPartialDate(system.releaseDate)}
+                </p>
+                <h3>
+                  <a href={route(`/systems/${system.slug}/`)}>{system.name}</a>
+                </h3>
+                <p class="card__summary">{system.summary}</p>
+                <p class="meta">
+                  {system.manufacturer} ·{' '}
+                  <span class="numeric">{getSystemAvailability(system).counts.valueCount}</span>{' '}
+                  values ·{' '}
+                  <span class="numeric">{getSystemAvailability(system).counts.unknownCount}</span>{' '}
+                  unknown ·{' '}
+                  <span class="numeric">
+                    {getSystemAvailability(system).counts.notApplicableCount}
+                  </span>{' '}
+                  not applicable
+                </p>
+              </li>
+            ))
+          }
+        </ul>
+      </section>
+
+      {
+        componentsByKind.map(({ kind, label, components }) => (
+          <section class="stack" aria-labelledby={`components-${kind}`} data-facet-section>
+            <h2 id={`components-${kind}`}>{label}</h2>
+            <ul class="card-grid">
+              {components.map((component) => (
+                <li
+                  class="card stack"
+                  data-search={searchText(component.name, component.aliases)}
+                  {...facetAttributes(byRecord.get(`component:${component.id}`))}
+                >
+                  <p class="card__eyebrow">
+                    {component.manufacturer}
+                    {component.introducedDate !== undefined &&
+                      ` · ${formatPartialDate(component.introducedDate)}`}
+                  </p>
+                  <h3>
+                    <a href={route(`/components/${component.kind}/${component.slug}/`)}>
+                      {component.name}
+                    </a>
+                  </h3>
+                  <p class="card__summary">{component.summary}</p>
+                  <p class="meta">
+                    {getComponentAvailability(component).counts.valueCount === 0 ? (
+                      <>
+                        Used by{' '}
+                        <span class="numeric">
+                          {getComponentAvailability(component).catalogSystemIds.length}
+                        </span>{' '}
+                        catalog systems
+                      </>
+                    ) : (
+                      <>
+                        <span class="numeric">
+                          {getComponentAvailability(component).counts.valueCount}
+                        </span>{' '}
+                        values ·{' '}
+                        <span class="numeric">
+                          {getComponentAvailability(component).counts.unknownCount}
+                        </span>{' '}
+                        unknown
+                      </>
+                    )}
+                  </p>
+                </li>
+              ))}
+            </ul>
+          </section>
+        ))
+      }
+    </div>
+  </div>
+  {
+    researchSystemCount > 0 && (
+      <p class="prose meta">
+        <a href={route('/research/')}>Research records</a> keeps {researchSystemCount}{' '}
+        {researchSystemCount === 1 ? 'system' : 'systems'} whose cited sources do not yet provide a
+        numeric measurement.
+      </p>
+    )
+  }
+</BaseLayout>

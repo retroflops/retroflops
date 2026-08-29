@@ -1,0 +1,22 @@
+accessedDate: 2026-07-29
+editorialStatus: approved
+fetch:
+  byteLength: 785750
+  contentType: text/plain; charset=utf-8
+  fetchedAt: 2026-07-29T06:53:38Z
+  httpStatus: 200
+  sha256: e7ca0b77f30995d48df9194e10d3a39fd5967601551b35d34dd3982d2ed8cb85
+  url: https://archive.org/download/amiga-hardware-reference-manual-3rd-edition/Amiga_Hardware_Reference_Manual_3rd_edition_djvu.txt
+id: amiga-hardware-reference-manual
+locator: >-
+  Chapter 1 Introduction: MC68000 and custom chips, p. 2-3; table 1-1 "Summary
+  of Amiga memory configurations", p. 5
+publisher: Commodore-Amiga, Inc.
+sourceType: technical-manual
+tier: A
+title: Amiga Hardware Reference Manual, 3rd Edition
+url: https://archive.org/download/amiga-hardware-reference-manual-3rd-edition/Amiga_Hardware_Reference_Manual_3rd_edition_djvu.txt
+publishedDate: "1991"
+archiveUrl: https://archive.org/details/amiga-hardware-reference-manual-3rd-edition
+license: Copyright Commodore-Amiga, Inc. Quoted here under short-extract fair
+  use for verification of the figures cited.

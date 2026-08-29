@@ -1,0 +1,21 @@
+id: wikipedia-nes-specifications
+title: Nintendo Entertainment System
+publisher: Wikipedia contributors
+accessedDate: 2026-08-26
+locator: Technical specifications section, graphics paragraph
+extract: >-
+  The console's graphics are handled by a Ricoh 2C02, [...] a processor known as the
+  Picture Processing Unit (PPU) that is clocked at 5.37 MHz.
+tier: C
+sourceType: wiki
+url: https://en.wikipedia.org/wiki/Nintendo_Entertainment_System
+editorialStatus: provisional
+usageNote: >-
+  Tier C community article used only for the provisional picture-processor clock. Nintendo's own technical page states no graphics frequency.
+fetch:
+  url: https://en.wikipedia.org/wiki/Nintendo_Entertainment_System
+  fetchedAt: 2026-08-26T09:41:37Z
+  httpStatus: 200
+  contentType: text/html; charset=UTF-8
+  byteLength: 1089275
+  sha256: e8d59af7ef9431e617935d824e322c6117a512e69da7d39d27e3626465579f5d

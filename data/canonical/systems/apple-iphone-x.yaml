@@ -1,0 +1,66 @@
+id: apple-iphone-x
+slug: apple-iphone-x
+name: Apple iPhone X
+manufacturer: Apple
+type: smartphone
+family: apple-iphone
+releaseDate: 2017-11-03
+region: Worldwide
+summary: >-
+  The iPhone that lost the home button: an edge-to-edge OLED display, face
+  recognition in place of a fingerprint reader, and the A11 Bionic behind both.
+description: >-
+  The notch housed the projector and infrared camera that made face recognition
+  work, and set the shape of every iPhone for years afterward. It was also the
+  first iPhone to reach a thousand dollars.
+imageIds:
+  - apple-iphone-x-phone
+configurations:
+  - id: 64gb
+    label: 64 GB model
+    entries:
+      - componentId: apple-iphone-x-cpu
+        role: main-cpu
+        count: 1
+        shared: false
+        measurementIds:
+          - apple-iphone-x:cpu-clock-frequency
+      - componentId: apple-iphone-x-gpu
+        role: gpu
+        count: 1
+        shared: false
+        measurementIds:
+          - apple-iphone-x:gpu-clock-frequency
+      - componentId: apple-iphone-x-memory
+        role: unified-memory
+        count: 1
+        shared: true
+        measurementIds:
+          - apple-iphone-x:whole-system-memory-capacity
+  - id: 256gb
+    label: 256 GB model
+    entries:
+      - componentId: apple-iphone-x-cpu
+        role: main-cpu
+        count: 1
+        shared: false
+        measurementIds:
+          - apple-iphone-x:cpu-clock-frequency
+      - componentId: apple-iphone-x-gpu
+        role: gpu
+        count: 1
+        shared: false
+        measurementIds:
+          - apple-iphone-x:gpu-clock-frequency
+      - componentId: apple-iphone-x-memory
+        role: unified-memory
+        count: 1
+        shared: true
+        measurementIds:
+          - apple-iphone-x:whole-system-memory-capacity
+notes: >-
+  Flash capacity and charger ratings are recorded as the quantities they are,
+  and never stand in for working memory or whole-system power.
+sourceIds:
+  - apple-iphone-x-tech-specs
+editorialStatus: approved

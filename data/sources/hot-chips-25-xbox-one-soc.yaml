@@ -1,0 +1,27 @@
+accessedDate: 2026-08-13
+author: John Sell and Patrick O'Connor, Microsoft
+editorialStatus: approved
+fetch:
+  byteLength: 1690565
+  contentType: application/pdf
+  fetchedAt: 2026-08-13T18:08:04Z
+  httpStatus: 200
+  sha256: 3d7577dcc161b77c5c2f52e76518165b04444104c84ee1496d418cdcd937a158
+  url: https://old.hotchips.org/wp-content/uploads/hc_archives/hc25/HC25.10-SoC1-epub/HC25.26.121-fixed-%20XB1%2020130826gnn.pdf
+id: hot-chips-25-xbox-one-soc
+license: Copyright Microsoft / Hot Chips. Quoted here under short-extract fair
+  use for verification of the figure cited.
+locator: Slide 4, 'SoC Components', memory block diagram annotations
+publishedDate: 2013-08-26
+publisher: Hot Chips 25 (IEEE Technical Committee on Microprocessors and Microcomputers)
+sourceType: independent-analysis
+tier: B
+title: The Xbox One System on a Chip and Kinect Sensor (Hot Chips 25)
+url: https://old.hotchips.org/wp-content/uploads/hc_archives/hc25/HC25.10-SoC1-epub/HC25.26.121-fixed-%20XB1%2020130826gnn.pdf
+usageNote: >-
+  The slides are rasterized images, so the figures were read from rendered pages
+  rather than extracted as text. Presented in August 2013 about the console that
+  shipped that November, which is why it is preferred over Microsoft's later
+  Xbox One S specification page: the One S page states 68.26 GB/s for a
+  different machine. Slide 6 gives the graphics processor as '1.31 TFLOPs' with
+  no precision named, which is why the FP32 row stays unknown.

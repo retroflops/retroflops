@@ -1,0 +1,16 @@
+accessedDate: 2026-08-13
+editorialStatus: provisional
+fetch:
+  byteLength: 1833921
+  contentType: application/pdf
+  fetchedAt: 2026-08-16T17:45:33Z
+  httpStatus: 200
+  sha256: e365473ce1af5ffa95ae25332b9a8235daa720ed95a60c7800fdbbc097a3deff
+  url: https://segaretro.org/images/a/af/Sega_Service_Manual_-_Genesis_II_-_Mega_Drive_II_%28PAL%29_-_001_-_June_1993.pdf
+id: sega-mega-drive-service-manual
+locator: CPU, RAM and custom VDP specification
+publisher: Sega
+sourceType: technical-manual
+tier: A
+title: Sega Mega Drive Service Manual
+url: https://segaretro.org/images/a/af/Sega_Service_Manual_-_Genesis_II_-_Mega_Drive_II_%28PAL%29_-_001_-_June_1993.pdf

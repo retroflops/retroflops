@@ -1,0 +1,43 @@
+accessedDate: 2026-08-17
+alt: "An Xbox Series X standing upright on a wooden shelf: a tall matte black box with a grille of
+  ventilation holes across the top, a lit white Xbox logo near the top of the front face, a disc
+  slot down its left edge, and the black controller lying on the floorboards in front of it."
+attribution: Photograph by Ian Hughes, licensed CC BY 2.0, via Wikimedia Commons.
+canonical:
+  byteLength: 52358
+  format: avif
+  height: 960
+  sha256: 33b1efbde2d28e3ad3fe6aaab7383a9fc64ccd072db5d6104f19395abc352a97
+  width: 1280
+caption: An Xbox Series X with its controller, powered on — the white logo on the front face is lit.
+creator: Ian Hughes
+creatorType: person
+editorialStatus: approved
+id: microsoft-xbox-series-x-console
+original:
+  byteLength: 5830649
+  height: 4032
+  mediaType: image/jpeg
+  sha256: 1422a4ee679ddb6540334c5d901eb36b76d7a12cfb50fd0d11350a5c8f327626
+  width: 3024
+originalUrl: https://upload.wikimedia.org/wikipedia/commons/7/7d/Xbox_series_X_%2850648118708%29.jpg
+publisher: Wikimedia Commons
+rights:
+  id: cc-by-2.0
+  statedAt: https://commons.wikimedia.org/wiki/File:Xbox_series_X_(50648118708).jpg
+  statement: This file is licensed under the Creative Commons Attribution 2.0 Generic license.
+  url: https://creativecommons.org/licenses/by/2.0/
+sourcePageUrl: https://commons.wikimedia.org/wiki/File:Xbox_series_X_(50648118708).jpg
+title: Xbox series X (50648118708).jpg
+transform:
+  background: "#998a75"
+  fit: pad
+  note: "The original is a portrait photograph and the console stands the full height of it with its
+    controller in front, so no 4:3 crop keeps the machine whole — and a crop may not take the
+    controller either. The recipe therefore pads: the photograph lands in the middle of the frame at
+    its own proportions and the margin is a flat tone sampled from the surface the console stands
+    on. It is the shape of the object rather than a failure of the picture; every photograph of
+    these two consoles is portrait, because both are tall boxes."
+  preset: image-v1
+  sourceHeight: 4032
+  sourceWidth: 3024

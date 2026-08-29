@@ -1,0 +1,16 @@
+id: apple-iphone-5s-cpu
+slug: apple-iphone-5s-cpu
+kind: cpu
+name: Apple iPhone 5s CPU
+manufacturer: Apple
+architecture: Apple A7
+introducedDate: '2013'
+instructionSet: Arm64
+instructionSetFamily: arm
+summary: The processor section of the Apple iPhone 5s system-on-chip.
+notes:
+  Apple identifies the chip but does not publish its operating clock in the
+  cited technical specification.
+sourceIds:
+  - apple-iphone-5s-tech-specs
+editorialStatus: approved

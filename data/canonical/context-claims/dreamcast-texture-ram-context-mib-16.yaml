@@ -1,0 +1,17 @@
+id: dreamcast-texture-ram:context-mib-16
+subject:
+  kind: component
+  id: dreamcast-texture-ram
+label: Capacity
+quantity:
+  state: value
+  value: '16'
+  unit: MiB
+  significantDigits: 2
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - dreamcast-hardware-spec
+evidenceLevel: confirmed

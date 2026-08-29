@@ -1,0 +1,43 @@
+accessedDate: 2026-08-17
+alt: A black Atari 2600 with a wood-grain front panel photographed against white, six silver
+  switches along its top edge and a cartridge slot behind them, with a single-button joystick
+  standing in front of it.
+attribution: Photograph by Evan-Amos, released into the public domain by its author, via Wikimedia Commons.
+canonical:
+  byteLength: 35550
+  format: avif
+  height: 960
+  sha256: b106188bdf028608362f9d7ce6fd4bbb07014be9ae9f6be83bf2232d04bf015a
+  width: 1280
+caption: An Atari 2600 in the four-switch wood-veneer case, shown with the joystick sold with it.
+creator: Evan-Amos
+creatorType: person
+editorialStatus: approved
+id: atari-2600-console
+original:
+  byteLength: 2514681
+  height: 2300
+  mediaType: image/jpeg
+  sha256: b959588b416dc38b845184f4afdeb6b346420ba9ff8af5b6323a15e54b9a9127
+  width: 3940
+originalUrl: https://upload.wikimedia.org/wikipedia/commons/b/b9/Atari-2600-Wood-4Sw-Set.jpg
+publisher: Wikimedia Commons
+rights:
+  id: pd-self
+  statedAt: https://commons.wikimedia.org/wiki/File:Atari-2600-Wood-4Sw-Set.jpg
+  statement: "I, the copyright holder of this work, release this work into the public domain. This
+    applies worldwide. In some countries this may not be legally possible; if so: I grant anyone the
+    right to use this work for any purpose, without any conditions, unless such conditions are
+    required by law."
+  url: https://commons.wikimedia.org/wiki/Template:PD-self
+sourcePageUrl: https://commons.wikimedia.org/wiki/File:Atari-2600-Wood-4Sw-Set.jpg
+title: Atari-2600-Wood-4Sw-Set.jpg
+transform:
+  background: "#ffffff"
+  fit: pad
+  note: The photograph is wider than 4:3 and the machine reaches both ends of it, so no crop keeps the
+    whole subject. The declared margin is the same white as the backdrop the photograph was taken
+    against, which is why it cannot be seen; it is recorded because it is there.
+  preset: image-v1
+  sourceHeight: 2300
+  sourceWidth: 3940

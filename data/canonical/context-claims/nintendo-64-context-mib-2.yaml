@@ -1,0 +1,17 @@
+id: nintendo-64:context-mib-2
+subject:
+  kind: system
+  id: nintendo-64
+label: Capacity
+quantity:
+  state: value
+  value: '2'
+  unit: MiB
+  significantDigits: 1
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - n64-programming-manual
+evidenceLevel: confirmed

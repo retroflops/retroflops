@@ -1,0 +1,10 @@
+architecture: Tile and sprite video controller
+editorialStatus: provisional
+id: neo-geo-lspc2
+kind: gpu
+manufacturer: SNK
+name: SNK LSPC2-A2
+slug: neo-geo-lspc2
+sourceIds:
+  - neo-geo-developers-manual
+summary: The Neo Geo tile and sprite graphics controller.

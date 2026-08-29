@@ -1,0 +1,19 @@
+id: c64-system-ram:context-b-65536
+subject:
+  kind: component
+  id: c64-system-ram
+label: Capacity
+quantity:
+  state: value
+  value: '65536'
+  unit: B
+  significantDigits: 5
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - c64-programmers-reference-guide
+extractIds:
+  - c64-prg:p260:memory
+evidenceLevel: confirmed

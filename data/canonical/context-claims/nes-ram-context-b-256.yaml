@@ -1,0 +1,19 @@
+id: nes-ram:context-b-256
+subject:
+  kind: component
+  id: nes-ram
+label: Capacity
+quantity:
+  state: value
+  value: '256'
+  unit: B
+  significantDigits: 3
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - nintendo-nes-tech-specs
+extractIds:
+  - nintendo-nes:specs:memory
+evidenceLevel: confirmed

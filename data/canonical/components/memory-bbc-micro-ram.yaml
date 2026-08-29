@@ -1,0 +1,13 @@
+id: bbc-micro-ram
+slug: bbc-micro-ram
+kind: memory
+name: BBC Micro Model B RAM
+manufacturer: Acorn Computers
+architecture: Dynamic RAM
+introducedDate: '1981'
+memoryType: Dynamic RAM
+summary: '{{measurement:bbc-micro-ram:capacity}} writable system memory.'
+sourceIds:
+  - bbc-micro-service-manual
+  - bbc-micro-information-sheet
+editorialStatus: approved

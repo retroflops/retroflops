@@ -1,0 +1,10 @@
+architecture: Tile and sprite picture-processing units
+editorialStatus: approved
+id: snes-ppu
+kind: gpu
+manufacturer: Nintendo
+name: Super Nintendo PPU pair
+slug: snes-ppu
+sourceIds:
+  - nintendo-snes-tech-specs
+summary: Two picture-processing units for tiled backgrounds and sprites.

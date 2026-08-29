@@ -1,0 +1,19 @@
+accessedDate: 2026-07-29
+editorialStatus: approved
+fetch:
+  byteLength: 1168358
+  contentType: text/html;charset=utf-8
+  fetchedAt: 2026-07-29T17:28:42Z
+  httpStatus: 200
+  sha256: 07f85a51b0ba5007462a5ddb12c9ab13c43596b493aa15f2ff409c8393218497
+  url: https://support.apple.com/en-us/111894
+id: apple-mac-mini-m1-tech-specs
+license: Copyright Apple Inc. Quoted here under short-extract fair use for
+  verification of the figures cited.
+locator: '"Chip", "Memory" and "Electrical and Operating Requirements" sections'
+publishedDate: "2020"
+publisher: Apple Inc.
+sourceType: vendor-documentation
+tier: A
+title: Mac mini (M1, 2020) — Tech Specs
+url: https://support.apple.com/en-us/111894

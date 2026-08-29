@@ -1,0 +1,71 @@
+id: nintendo-64
+slug: nintendo-64
+name: Nintendo 64
+manufacturer: Nintendo
+type: console
+family: nintendo-home-console
+releaseDate: 1996-06
+region: Worldwide
+summary: >-
+  A {{measurement:nintendo-64:cpu-clock-frequency}} R4300 beside the Reality
+  Coprocessor, with {{measurement:n64-rdram:capacity}} of RDRAM shared between
+  processor, geometry engine and rasterizer rather than split into system and
+  video memory.
+description: >-
+  The Nintendo 64 differs from the PlayStation in two architectural respects.
+  Its memory is unified: one RDRAM pool is used in parallel by the CPU, the RSP
+  microcode engine, the RDP graphics pipeline and the I/O interfaces. The
+  PlayStation keeps {{context:nintendo-64:context-mib-2}} of main memory and
+  {{context:nintendo-64:context-mib-1}} of video memory in separate pools
+  connected only by DMA. Its geometry stage is also programmable. The RSP runs
+  microcode, so software rather than fixed silicon determines what the machine
+  does with a triangle.
+
+
+  Those choices make the capacity figures harder to compare than they look. Four
+  megabytes shared between everything is not four megabytes of system memory,
+  and the machine that has to hold textures in the same pool as game state makes
+  a different trade from one with a dedicated frame buffer.
+configurations:
+  - id: retail
+    label: Retail console
+    entries:
+      - componentId: n64-r4300
+        role: main-cpu
+        count: 1
+        shared: false
+        notes: >-
+          The programming manual states a round
+          {{measurement:nintendo-64:cpu-clock-frequency}}.
+        measurementIds:
+          - nintendo-64:cpu-clock-frequency
+      - componentId: n64-rcp
+        role: gpu
+        count: 1
+        shared: false
+        notes: >-
+          Provisional; see the measurement record for why this figure is not yet
+          accepted.
+        measurementIds:
+          - nintendo-64:rcp-clock-frequency
+      - componentId: n64-rdram
+        role: unified-memory
+        count: 1
+        shared: true
+        notes:
+          Used in parallel by the CPU, the RSP, the RDP and the I/O interfaces.
+        measurementIds:
+          - n64-rdram:capacity
+notes: >-
+  The release date is editorial context; the cited manual is an October 1996
+  draft and does not date the launch. The scan of that manual is badly degraded,
+  so no RDRAM clock or bandwidth figure is recorded: the clock-speed list gives
+  an RDRAM entry that can only be reconstructed from the letterforms, and a
+  figure that has to be guessed at is not published. The Expansion Pak that
+  doubles main memory to {{context:nintendo-64:context-mib-8}} is not recorded
+  either, for want of a citation in this document.
+imageIds:
+  - nintendo-64-console
+sourceIds:
+  - n64-programming-manual
+editorialStatus: approved

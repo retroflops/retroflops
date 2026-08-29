@@ -1,0 +1,14 @@
+id: atari-800-ram
+slug: atari-800-ram
+kind: memory
+name: Atari 800 system RAM
+manufacturer: Atari
+architecture: Dynamic RAM
+introducedDate: '1979'
+memoryType: Dynamic RAM
+summary:
+  Writable RAM in the selected {{measurement:atari-800-ram:capacity}} Atari 800
+  configuration.
+sourceIds:
+  - atari-800-technical-reference-notes
+editorialStatus: provisional

@@ -1,0 +1,13 @@
+editorialStatus: approved
+id: valve-steam-deck-zen-2
+slug: valve-steam-deck-zen-2
+kind: cpu
+name: AMD Zen 2
+manufacturer: AMD
+architecture: Zen 2
+introducedDate: '2022'
+instructionSet: x86-64
+instructionSetFamily: x86
+summary: The Valve Steam Deck main processor.
+sourceIds:
+  - valve-steam-deck-tech-specs

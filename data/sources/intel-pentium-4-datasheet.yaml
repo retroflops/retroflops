@@ -1,0 +1,29 @@
+accessedDate: 2026-08-16
+editorialStatus: approved
+fetch:
+  byteLength: 1882597
+  contentType: application/pdf
+  fetchedAt: 2026-08-16T17:44:56Z
+  httpStatus: 200
+  sha256: ca1ec2763cfb2c47043a70be2d4775ec23ad00dc8dddf923c3a721971bbe84e9
+  url: https://download.intel.com/design/Pentium4/datashts/29864312.pdf
+id: intel-pentium-4-datasheet
+license: Copyright Intel Corporation; cited for verification under short-extract
+  fair use.
+locator: >-
+  Table 5-1, "Processor Thermal Design Power", page 69, 800 MHz FSB with 512-KB
+  L2 Cache block, 3 GHz row
+publishedDate: "2004"
+publisher: Intel Corporation
+sourceType: vendor-documentation
+tier: A
+title: >-
+  Intel® Pentium® 4 Processor on 0.13 Micron Process Datasheet (Document Number
+  298643-012)
+url: https://download.intel.com/design/Pentium4/datashts/29864312.pdf
+usageNote: >-
+  This is the first document in this catalog's x86 line whose column is actually
+  headed "Thermal Design Power", and the table is organized by front side bus
+  and voltage-identification group rather than by frequency alone: the same
+  nominal clock appears at different wattages in different blocks, so a figure
+  from it is meaningless without the bus and cache block it was read from.

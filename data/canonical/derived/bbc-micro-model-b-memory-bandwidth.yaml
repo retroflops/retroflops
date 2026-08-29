@@ -1,0 +1,30 @@
+id: bbc-micro-model-b:memory-bandwidth-from-cycle-time
+formula:
+  id: memory-bandwidth-from-cycle-time
+  version: '1'
+  expression: bytes per memory cycle ÷ memory cycle time
+inputMeasurementIds:
+  - bbc-micro-model-b:memory-cycle-time
+constants:
+  - id: bytes-per-memory-cycle
+    label: bytes transferred by one shared-RAM access
+    value: '1'
+    reason: >-
+      The manual describes a data path for all eight data bits, so each cited
+      RAM access transfers one byte.
+    sourceIds:
+      - bbc-micro-service-manual
+result:
+  state: value
+  value: '4000000'
+  unit: B/s
+  significantDigits: 3
+rounding: none
+caveat: >-
+  Divides bytes transferred by one shared-RAM access by the published memory
+  cycle time. The result is an interface ceiling when a manual specifies
+  nanoseconds per byte instead of a transfer rate. It is not measured
+  application throughput: refresh, contention and wait states can consume
+  cycles. Reported to 3 significant digits. That is the precision of the cycle
+  time, because the bytes-per-cycle constant is exact.
+editorialStatus: approved

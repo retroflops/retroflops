@@ -1,0 +1,43 @@
+accessedDate: 2026-08-17
+alt: "A white iPhone 3GS lying face down on a wooden table in a shaft of light: a curved glossy
+  plastic back with an Apple logo, the word iPhone and the regulatory engraving below it."
+attribution: Photograph by MIKI Yoshihito, licensed CC BY 2.0, via Wikimedia Commons.
+canonical:
+  byteLength: 21254
+  format: avif
+  height: 960
+  sha256: 4cbd579703fea167f551154e3e2da9dbaa127bba002ebf0adbc6b74046124141
+  width: 1280
+caption: A white iPhone 3GS, {{context:apple-iphone-3gs:context-gb-16}}, seen from the back — the
+  view the file's own page names, and the only one it offers of this machine.
+creator: MIKI Yoshihito
+creatorType: person
+editorialStatus: approved
+id: apple-iphone-3gs-phone
+original:
+  byteLength: 9522755
+  height: 3168
+  mediaType: image/jpeg
+  sha256: 4da9815deac6ef6ff407dc5ed22732b2e20c884b403f458d0af2c3c5a4d66f2a
+  width: 4752
+originalUrl: https://upload.wikimedia.org/wikipedia/commons/9/96/White_-_iPhone_3GS._%285290540382%29.jpg
+publisher: Wikimedia Commons
+rights:
+  id: cc-by-2.0
+  statedAt: https://commons.wikimedia.org/wiki/File:White_-_iPhone_3GS._(5290540382).jpg
+  statement: This file is licensed under the Creative Commons Attribution 2.0 Generic license.
+  url: https://creativecommons.org/licenses/by/2.0/
+sourcePageUrl: https://commons.wikimedia.org/wiki/File:White_-_iPhone_3GS._(5290540382).jpg
+title: White - iPhone 3GS. (5290540382).jpg
+transform:
+  fit: crop
+  note: A centered crop off the long edges of a 3:2 original. The phone lies well inside the frame, so
+    the crop takes only the table around it.
+  preset: image-v1
+  region:
+    height: 3168
+    width: 4224
+    x: 264
+    y: 0
+  sourceHeight: 3168
+  sourceWidth: 4752

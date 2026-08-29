@@ -1,0 +1,65 @@
+- extract: >-
+    • ASIC: Image drawing VLSI NEC HOLLY 100MHz, Audio YAMAHA AICA
+
+    • Polygon performance: At peak 3 million polygons/sec (triangle /
+    quadrilateral), 1.5 million polygons/sec visible
+
+    • 16MB Main memory (Can expand to a maximum of 32MB)
+
+    • 8MB Texture memory (Can expand to a maximum of 16MB)
+
+    • 2MB Boot ROM
+
+    • 2MB audio memory (Can expand to a maximum of 8MB)
+  extractHash: da79403d0ea1f143399f03854adfb5e9d302d4a3e2d550714a05a123e7e83f70
+  id: dc-hw:1-2:system-specification
+  locator: section 1.2 "System specification", page 3
+  notes: >-
+    The scan renders "VLSI NEC" as "VLVNEC" and runs "8MBTexture" together; both
+    corrected. Bullets for polygon functions, flash memory, audio functions and
+    the GD-ROM drive are omitted as unused. The expansion maxima are the
+    development-hardware ceilings, not retail configurations.
+  sourceId: dreamcast-hardware-spec
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-07-29
+- extract: >-
+    Table 2-1 [...] Instruction core: 32bit RISC, 16bit Instruction
+
+    Pipe line: 5 stage
+
+    FPU: single/double accuracy IEEE754
+
+    Clock: Internal 200 MHz, external 100 MHz, peripheral clock 50MHz
+
+    Performance: 360MIPS (core), 1.4GFLOP (matrix multiplication)
+  extractHash: f92f7c63f15b2be3a3aa0e8f0b16a115192b40f524022fd9be554a57284d1b14
+  id: dc-hw:table-2-1:sh4
+  locator: section 2.1 "Features of SH4", table 2-1, page 7
+  notes: >-
+    The scan lays the table out as a column of row labels followed by a column
+    of values; the pairs are rejoined here with a colon. The superscalar row
+    reads "2 i" and is omitted as unreadable. Neither performance figure states
+    how it was obtained: "360MIPS (core)" names no benchmark and "1.4GFLOP"
+    names no precision, though the FPU row above it offers both single and
+    double.
+  sourceId: dreamcast-hardware-spec
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-07-29
+- extract: >-
+    In order to take advantage of SH4 performance, the SDRAM (which is the main
+    memory) is directly connected to SH4. The bus width is 64bit with a movement
+    frequency of 100MHz and at burst, it has a maximum transfer quantity of
+    800MB/S (a theoretical value) Additionally, SH4 does not share the texture
+    data/audio data and the main memory SDRAM. There is 16MB of base system
+    space.
+  extractHash: 9b612ddc04e19f07c2f194babe45f0d305a66dc5bb9d53ec38d914f7b1db1524
+  id: dc-hw:2-3:main-memory
+  locator: section 2.3 "Main memory", page 8
+  notes: >-
+    Transcribed as printed, including the missing full stop after "(a
+    theoretical value)". The statement that the SH4 does not share texture and
+    audio data with main memory is the architectural point: this console has
+    three separate memory pools where the Nintendo 64 has one.
+  sourceId: dreamcast-hardware-spec
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-07-29

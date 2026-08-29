@@ -1,0 +1,18 @@
+accessedDate: 2026-08-22
+editorialStatus: provisional
+id: atari-2600-stella-programming-guide
+locator: Internet Archive item description and manual title
+publisher: Atari
+sourceType: technical-manual
+tier: B
+title: Stella Programmer's Guide
+url: https://archive.org/download/StellaProgrammersGuide/2600_guide.pdf
+extract: Manual for programming the Atari 2600 Video Computer System by Atari.
+fetch:
+  url: https://archive.org/download/StellaProgrammersGuide/2600_guide.pdf
+  finalUrl: https://ia801803.us.archive.org/4/items/StellaProgrammersGuide/2600_guide.pdf
+  fetchedAt: 2026-08-24T18:58:13Z
+  httpStatus: 200
+  contentType: application/pdf
+  byteLength: 1867303
+  sha256: 1c7c0c91d13f730231875e7ad2478fc388e380380edd10daa69cb3607e559a10

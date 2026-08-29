@@ -1,0 +1,13 @@
+id: ps2-main-rdram
+slug: ps2-main-rdram
+kind: memory
+name: PlayStation 2 main memory (Direct RDRAM)
+manufacturer: Rambus (interface) / Sony Computer Entertainment (system)
+memoryType: Direct Rambus DRAM
+summary:
+  "The Emotion Engine's main memory: a narrow, very fast Rambus channel
+  delivering {{measurement:ps2-main-rdram:bandwidth}}, in a console generation
+  where competitors used wide, slower buses."
+sourceIds:
+  - scei-ps2-specifications-1999
+editorialStatus: approved

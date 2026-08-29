@@ -1,0 +1,18 @@
+id: nvidia-geforce-gtx-580-product-brief
+title: "NVIDIA News: GTX 580 Launch - tolle Preise und Events"
+publisher: NVIDIA
+url: https://www.nvidia.de/content/EMEAI/newsletters/nov10/DE/corporate-de-09112010.html
+publishedDate: 2010-11-09
+accessedDate: 2026-08-22
+locator: GTX 480/GTX 580 comparison table
+extract: >-
+  Grafik-Taktfrequenz 772; Prozessor-Taktfrequenz 1544; 1536 MB GDDR5; 384-bit;
+  Speicherbandbreite 192.4
+tier: A
+sourceType: vendor-documentation
+license: Copyright retained by the publisher. Short extracts are recorded solely
+  to verify the cited specifications.
+editorialStatus: provisional
+usageNote: >-
+  The launch table does not state an explicitly labelled FP32 peak or a numeric
+  board-power rating.

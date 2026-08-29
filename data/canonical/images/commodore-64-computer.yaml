@@ -1,0 +1,43 @@
+accessedDate: 2026-08-17
+alt: A beige Commodore 64 photographed against white from the front left, its brown keyboard
+  carrying the graphic characters on the key fronts, the rainbow Commodore badge above the top row
+  and four brown function keys at the right end.
+attribution: Photograph by Evan-Amos, released into the public domain by its author, via Wikimedia Commons.
+canonical:
+  byteLength: 30437
+  format: avif
+  height: 960
+  sha256: 159e0315364aa8251a03d93acd75d78afdf0476dd0c3eb278e0bdfac44eaae43
+  width: 1280
+caption: A Commodore 64 in the original breadbox case.
+creator: Evan-Amos
+creatorType: person
+editorialStatus: approved
+id: commodore-64-computer
+original:
+  byteLength: 3062856
+  height: 2600
+  mediaType: image/jpeg
+  sha256: e1447d615f0ee15e8e17703da94a5ad34eec1fd6aba2cb2cc678dd4fcad49a0a
+  width: 4600
+originalUrl: https://upload.wikimedia.org/wikipedia/commons/e/e9/Commodore-64-Computer-FL.jpg
+publisher: Wikimedia Commons
+rights:
+  id: pd-self
+  statedAt: https://commons.wikimedia.org/wiki/File:Commodore-64-Computer-FL.jpg
+  statement: "I, the copyright holder of this work, release this work into the public domain. This
+    applies worldwide. In some countries this may not be legally possible; if so: I grant anyone the
+    right to use this work for any purpose, without any conditions, unless such conditions are
+    required by law."
+  url: https://commons.wikimedia.org/wiki/Template:PD-self
+sourcePageUrl: https://commons.wikimedia.org/wiki/File:Commodore-64-Computer-FL.jpg
+title: Commodore-64-Computer-FL.jpg
+transform:
+  background: "#ffffff"
+  fit: pad
+  note: The photograph is wider than 4:3 and the machine reaches both ends of it, so no crop keeps the
+    whole subject. The declared margin is the same white as the backdrop the photograph was taken
+    against, which is why it cannot be seen; it is recorded because it is there.
+  preset: image-v1
+  sourceHeight: 2600
+  sourceWidth: 4600

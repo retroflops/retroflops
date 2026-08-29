@@ -1,0 +1,19 @@
+id: apple-iphone-1st-generation:context-mhz-60
+subject:
+  kind: system
+  id: apple-iphone-1st-generation
+label: Frequency
+quantity:
+  state: value
+  value: '60'
+  unit: MHz
+  significantDigits: 2
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - anandtech-iphone-hardware-2009
+extractIds:
+  - anandtech-iphone:graphics
+evidenceLevel: reported

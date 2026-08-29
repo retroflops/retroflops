@@ -1,0 +1,36 @@
+- extract: CPU	8-bit, 1.66 Mhz
+  extractHash: 093449aa41cc47dada487d5564f2cf991c4d4f4ba183f283de2933b0a689c593
+  id: nintendo-nes:specs:cpu
+  locator: Technical Details table, 'CPU' row
+  notes: >-
+    Nintendo's own figure, and it agrees with nothing else. The console shipped
+    with different crystals in different territories, giving roughly 1.79 MHz
+    where the picture standard was NTSC and roughly 1.77 MHz where it was PAL;
+    1.66 MHz is neither, and the row names no region to explain which machine it
+    describes. The catalog publishes it because it is what the manufacturer
+    states and because no other citable document states anything else — the
+    widely repeated figure has no source this project may use. The lower-case h
+    in "Mhz" is the page's own.
+  sourceId: nintendo-nes-tech-specs
+  transcribed:
+    significantDigits: 3
+    state: value
+    unit: MHz
+    value: '1.66'
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-15
+- extract: Memory	2 Kb RAM - Video RAM 2 Kb
+  extractHash: d87aed2f2dbebdf506dcca83918184c50311dc7642d4f90570fd1a057bf8d486
+  id: nintendo-nes:specs:memory
+  locator: Technical Details table, 'Memory' row
+  notes: >-
+    Two memories, stated together. "Kb" here is kilobytes: read as kilobits the
+    row would give 256 bytes of work memory, which no version of this console
+    has. Nintendo's own Super Nintendo page uses megabits and says so
+    explicitly, so the unit is inconsistent between the two pages rather than
+    ambiguous within this one. The video memory is a term of the machine's
+    memory and is recorded as its own figure, the way the GameCube's sound
+    memory is.
+  sourceId: nintendo-nes-tech-specs
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-15

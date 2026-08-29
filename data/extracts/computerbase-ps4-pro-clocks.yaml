@@ -1,0 +1,37 @@
+- extract: >-
+    Um die CPU-Leistung trotzdem zu erhöhen, ist der Takt von 1,6 GHz auf 2,1
+    GHz gestiegen, was einer Steigerung von rund 30 Prozent entspricht.
+
+    Sony hat darüber hinaus die GPU-Taktrate um 111 MHz auf nunmehr 911 MHz
+    angehoben.
+  extractHash: 003fba15a59324e380da3ba4440f577949517f76cb032c9a500214c6262dd917
+  id: computerbase-ps4-pro:clocks
+  locator: >-
+    section "Quasi eine verdoppelte GPU mit AMDs Polaris-Technik", paragraphs on
+    the processor and the graphics unit
+  notes: >-
+    Two sentences from the same section, rejoined here. The first states the
+    base PlayStation 4's processor clock outright. The second states the
+    graphics clock only as an increment — 911 MHz less 111 MHz leaves 800 MHz —
+    so it corroborates the graphics figure by arithmetic rather than by
+    statement, which is why that figure stays provisional.
+  sourceId: computerbase-ps4-pro-test
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-07-31
+- extract: >-
+    Statt der 18 Compute Units bei der PlayStation 4 sind die doppelten 36 CUs
+    verbaut. Mit den 2.304 ALUs ähnelt der GPU-Teil des SoCs damit der Polaris
+  extractHash: f7957247b222a6186044c8ae400499de5bb448af1ffb72956dcf27281db3a368
+  id: computerbase-ps4-pro:compute-units
+  locator: >-
+    section "Quasi eine verdoppelte GPU mit AMDs Polaris-Technik", paragraph on
+    the shader count
+  notes: >-
+    Quoted for the ratio rather than for either number: thirty-six compute units
+    are 2,304 ALUs, so a compute unit is sixty-four lanes. That is the constant
+    the derived graphics clock divides by, and it is not Sony's — Sony states
+    the eighteen compute units and stops. The sentence is cut mid-clause where
+    the comparison to Polaris begins.
+  sourceId: computerbase-ps4-pro-test
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-04

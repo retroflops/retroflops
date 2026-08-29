@@ -1,0 +1,19 @@
+id: apple-mac-mini-m1:context-bit-16
+subject:
+  kind: system
+  id: apple-mac-mini-m1
+label: Width
+quantity:
+  state: value
+  value: '16'
+  unit: bit
+  significantDigits: 2
+provenance: independent
+evidenceStage: shipped
+status: theoretical
+editorialStatus: provisional
+sourceIds:
+  - anandtech-mac-mini-m1-2020
+extractIds:
+  - anandtech-m1:memory-bandwidth
+evidenceLevel: reported

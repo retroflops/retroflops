@@ -1,0 +1,17 @@
+id: zx-spectrum-rom:context-kib-16
+subject:
+  kind: component
+  id: zx-spectrum-rom
+label: Capacity
+quantity:
+  state: value
+  value: '16'
+  unit: KiB
+  significantDigits: 2
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - zx-spectrum-48k-manual
+evidenceLevel: confirmed

@@ -1,0 +1,26 @@
+- extract: >-
+    Table 12.  Power Dissipation Requirements for Thermal Solution Design /
+    Parameter Typical (1) Max Unit Notes / Active Power Dissipation ... 3.9
+    10.1(2) Watts 100 MHz
+  extractHash: 80087f6d02d4d5e961b3af093184e0f4ee77f3e0bbec7cd52b125e2c3ae4beb9
+  id: intel-pentium-datasheet:active-power-dissipation-100mhz
+  locator: >-
+    Section 3, Table 12 "Power Dissipation Requirements for Thermal Solution
+    Design", page 31, Active Power Dissipation block, 100 MHz row
+  notes: >-
+    The row carries no parameter name of its own: the eight Active Power
+    Dissipation rows share one label and are distinguished only by the frequency
+    in the Notes column, so the 100 MHz row must be read as the sixth of the
+    block. "(2)" is a footnote marker attached to the maximum, not a digit. Note
+    2 reads: "Systems must be designed to thermally dissipate the maximum active
+    power dissipation. It is determined using worst case instruction mix with
+    VCC = 3.3V and also takes into account the thermal time constants of the
+    package." Note 1 makes the 3.9 W a system average, not a specification.
+  sourceId: intel-pentium-datasheet
+  transcribed:
+    significantDigits: 3
+    state: value
+    unit: W
+    value: '10.1'
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-08-16

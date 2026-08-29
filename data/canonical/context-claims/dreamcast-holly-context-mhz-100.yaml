@@ -1,0 +1,17 @@
+id: dreamcast-holly:context-mhz-100
+subject:
+  kind: component
+  id: dreamcast-holly
+label: Frequency
+quantity:
+  state: value
+  value: '100'
+  unit: MHz
+  significantDigits: 3
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+editorialStatus: provisional
+sourceIds:
+  - dreamcast-hardware-spec
+evidenceLevel: confirmed
