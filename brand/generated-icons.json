@@ -19,6 +19,15 @@
       "why": "the horizontal lockup for a README, a slide or an issue, on the site paper",
       "width": 1600
     },
+    "brand/exports/social-preview-1280.png": {
+      "artworkSha256": "d17d2fd66015f9c831df40b49c5ae3e08c83ac88b7fdd54670baab84b943922a",
+      "bytes": 14911,
+      "fileSha256": "0fa897bbaa9fe887a269f916b6be1d8244a6133d9c492500588c8cf7b41c8bf0",
+      "format": "png",
+      "height": 640,
+      "why": "the GitHub repository social preview, uploaded by hand, inside its 40 pt border",
+      "width": 1280
+    },
     "public/apple-touch-icon.png": {
       "artworkSha256": "a4f5fa5d1dd169a215e399aa296475253cd50ce27e399ad2731e43a2ebc3c7da",
       "bytes": 1667,

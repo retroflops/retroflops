@@ -314,8 +314,28 @@ function cropMark(x: number, y: number, dx: number, dy: number): string {
   return `<path d="M${x} ${y + dy}V${y}H${x + dx}" />`;
 }
 
+interface CardGeometry {
+  readonly width: number;
+  readonly height: number;
+  /** Distance of the crop marks' corners from the edge of the card. */
+  readonly inset: number;
+}
+
+/** Open Graph's 1.91:1, the size every card reader crops to. */
+const OPEN_GRAPH_CARD: CardGeometry = { width: 1200, height: 630, inset: 48 };
+
 /**
- * The social preview: 1200×630, the size every card reader crops to.
+ * GitHub's repository social preview, 2:1 at the size it recommends.
+ *
+ * GitHub's template keeps everything inside a 40 pt border, because the card is
+ * trimmed differently wherever the link is unfurled. That is 40 px if a point is
+ * a pixel at 72 ppi and 53⅓ px if it is 1/72 inch against CSS's 1/96, so the
+ * crop marks sit 64 px from the edge, inside the border under either reading.
+ */
+const GITHUB_CARD: CardGeometry = { width: 1280, height: 640, inset: 64 };
+
+/**
+ * The social preview, laid out on a card of the given size.
  *
  * It carries no prose, and not for want of something to say. Text in an SVG is
  * rendered with whatever font the rasterizer finds, which makes the file depend
@@ -323,13 +343,17 @@ function cropMark(x: number, y: number, dx: number, dy: number): string {
  * repository may not do. So the words are the wordmark, which is drawn, and the
  * rest is the site's own furniture: a faint raster, drawing crop marks, and an
  * axis with one phosphor bar on it.
+ *
+ * The content keeps the proportions it was drawn at on the 1200×630 card and is
+ * centered on any other: a larger card only gets more paper around it.
  */
-function socialPreview(): Artwork {
-  const width = 1200;
-  const height = 630;
-  const left = 144;
-  const right = 1056;
-  const axisY = 470;
+function socialPreview({ width, height, inset }: CardGeometry): Artwork {
+  const span = 912;
+  const left = (width - span) / 2;
+  const right = left + span;
+  const shift = (height - OPEN_GRAPH_CARD.height) / 2;
+  const top = 158 + shift;
+  const axisY = 470 + shift;
 
   const ticks: string[] = [];
   for (let index = 0; index <= 12; index += 1) {
@@ -349,14 +373,14 @@ function socialPreview(): Artwork {
       `<rect width="${width}" height="${height}" fill="${PAPER}" />`,
       `<rect width="${width}" height="${height}" fill="url(#raster)" />`,
       `<g fill="none" stroke="${GRAPHITE}" stroke-opacity="0.35" stroke-width="3">`,
-      `  ${cropMark(48, 48, 56, 56)}`,
-      `  ${cropMark(width - 48, 48, -56, 56)}`,
-      `  ${cropMark(48, height - 48, 56, -56)}`,
-      `  ${cropMark(width - 48, height - 48, -56, -56)}`,
+      `  ${cropMark(inset, inset, 56, 56)}`,
+      `  ${cropMark(width - inset, inset, -56, 56)}`,
+      `  ${cropMark(inset, height - inset, 56, -56)}`,
+      `  ${cropMark(width - inset, height - inset, -56, -56)}`,
       '</g>',
       // The lockup at 0.4, which puts the tile at 205 px, large enough to read
       // in a timeline card scaled to a third of this size.
-      '<g transform="translate(144 158) scale(0.4)">',
+      `<g transform="translate(${left} ${top}) scale(0.4)">`,
       '  <use href="#tile" />',
       '  <use href="#mark" />',
       `  <g color="${GRAPHITE}">`,
@@ -376,8 +400,8 @@ function socialPreview(): Artwork {
  * Everything this project publishes a logo into.
  *
  * The web-facing files land in `public/` under the names browsers and crawlers
- * look for; the two that are uploaded somewhere else by hand land in
- * `brand/exports/`, because a GitHub avatar is not a route.
+ * look for; the ones uploaded somewhere else by hand land in `brand/exports/`,
+ * because a GitHub avatar is not a route.
  */
 const OUTPUTS: readonly OutputSpec[] = [
   {
@@ -425,9 +449,16 @@ const OUTPUTS: readonly OutputSpec[] = [
   {
     path: 'public/og-image.png',
     format: 'png',
-    artwork: socialPreview(),
-    sizes: [1200],
+    artwork: socialPreview(OPEN_GRAPH_CARD),
+    sizes: [OPEN_GRAPH_CARD.width],
     why: 'the Open Graph and Twitter card image every page falls back to',
+  },
+  {
+    path: 'brand/exports/social-preview-1280.png',
+    format: 'png',
+    artwork: socialPreview(GITHUB_CARD),
+    sizes: [GITHUB_CARD.width],
+    why: 'the GitHub repository social preview, uploaded by hand, inside its 40 pt border',
   },
   {
     path: 'brand/exports/avatar-512.png',

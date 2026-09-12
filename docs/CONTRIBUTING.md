@@ -187,10 +187,11 @@ acceptable end state.
 ### Changing the logo
 
 `brand/logo.svg` is the artwork. Everything else with a logo in it (the
-favicons, the Apple touch icon, the manifest icons, the social preview, the
-GitHub avatar) is composed from that file by `pnpm brand:icons`, so edit the
-source, run the generator and commit what it wrote. An output edited by hand is
-caught by `pnpm check` and lost at the next run.
+favicons, the Apple touch icon, the manifest icons, the Open Graph image, the
+GitHub avatar and repository social preview) is composed from that file by
+`pnpm brand:icons`, so edit the source, run the generator and commit what it
+wrote. An output edited by hand is caught by `pnpm check` and lost at the next
+run.
 
 The drawing is one stencil alphabet: the mark sets the same R and F as the
 wordmark, heavier. A new letterform belongs in `<defs>` beside the others rather
