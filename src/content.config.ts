@@ -15,6 +15,12 @@
  * still come from the catalog, and the comparability rules still decide which
  * of them may be divided. That is why a preset lives here rather than in
  * `catalog-v1`: it is an argument about the data, not part of it.
+ *
+ * Trivia follows the same reasoning a third time. The games people remember a
+ * machine for, and the event that put it in a headline, are arguments about the
+ * machine rather than properties of it, so they are not `catalog-v1` fields.
+ * They are Markdown because a list of games is a list, and a YAML scalar cannot
+ * hold one.
  */
 
 import { glob } from 'astro/loaders';
@@ -53,4 +59,34 @@ const presets = defineCollection({
   }),
 });
 
-export const collections = { methodology, presets };
+const trivia = defineCollection({
+  /**
+   * One file per machine, named for the system slug. The directory stays flat
+   * on purpose, because the glob loader turns a nested file into an id of
+   * `subdir/slug`, which can never match a slug and fails with a confusing
+   * message.
+   */
+  loader: glob({ base: './src/content/trivia', pattern: '*.md' }),
+  schema: z.object({
+    /**
+     * The section heading. Per entry rather than fixed, because "Trivia" is the
+     * right word for the Atari 2600 and the wrong one for the Apollo Guidance
+     * Computer, where the 1202 alarm is a documented event in a flight record.
+     * The anchor is `#trivia` on every profile regardless, so the heading can
+     * vary without the link doing so.
+     */
+    title: z.string().min(1),
+    /**
+     * The documents this entry rests on, as ids from `data/sources`.
+     *
+     * Trivia is exempt from the A/B/C tiers for the same reason a photograph is.
+     * The tiers are a rule about numeric evidence, and no figure here rests on
+     * any of this. Citation still applies. An entry with no source is somebody's
+     * recollection, and a recollection has no locator, which is this project's
+     * whole objection to a language model's answer.
+     */
+    sourceIds: z.array(z.string().regex(/^[a-z0-9-]+$/)).min(1),
+  }),
+});
+
+export const collections = { methodology, presets, trivia };

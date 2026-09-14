@@ -83,6 +83,12 @@ describe('pilot profile records', () => {
   });
 });
 
+/*
+ * These guards cover catalog prose only. The trivia collection is deliberately
+ * absent from the built artifact this file works from, so the same two guards
+ * for it, distinct bodies and no absence named in one, live in
+ * `src/lib/trivia.test.ts`.
+ */
 describe('editorial profile prose', () => {
   it('keeps every system summary and description distinct', () => {
     for (const field of ['summary', 'description'] as const) {

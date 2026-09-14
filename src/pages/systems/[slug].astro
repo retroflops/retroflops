@@ -3,6 +3,7 @@
 // SPDX-License-Identifier: MIT
 
 import { getImage } from 'astro:assets';
+import { getCollection, render } from 'astro:content';
 
 import BreadcrumbTrail from '~/components/breadcrumb-trail.astro';
 import ConflictCard from '~/components/conflict-card.astro';
@@ -34,12 +35,29 @@ import { route } from '~/lib/paths';
 import { sortConfigurationEntries } from '~/lib/presentation-order';
 import { breadcrumbList, systemArticle } from '~/lib/structured-data';
 import { getLeadImage } from '~/lib/system-images';
+import { triviaBySystemSlug } from '~/lib/trivia';
 
-export function getStaticPaths() {
-  return getSystems().map((system) => ({ params: { slug: system.slug }, props: { system } }));
+export async function getStaticPaths() {
+  const entries = await getCollection('trivia');
+  /*
+   * This resolves the whole collection here rather than one entry per page,
+   * because an orphan is the file no page asks for and a per-page lookup skips
+   * it in silence. It throws once per build on a file naming a machine or a
+   * source the catalog does not hold.
+   */
+  triviaBySystemSlug(entries);
+
+  return getSystems().map((system) => ({
+    params: { slug: system.slug },
+    props: { system, trivia: entries.find((entry) => entry.id === system.slug) },
+  }));
 }
 
-const { system } = Astro.props;
+const { system, trivia } = Astro.props;
+
+/** Capitalized because Astro needs a component-shaped identifier to render it. */
+const TriviaBody = trivia === undefined ? undefined : (await render(trivia)).Content;
+const triviaSources = trivia === undefined ? [] : getSourcesByIds(trivia.data.sourceIds);
 
 const leadImage = getLeadImage(system);
 const availability = getSystemAvailability(system);
@@ -363,6 +381,40 @@ const structuredData = [
     )
   }
 
+  {
+    trivia !== undefined && TriviaBody !== undefined && (
+      <section class="stack trivia" aria-labelledby="trivia">
+        <h2 id="trivia">{trivia.data.title}</h2>
+        {/*
+          A reader meeting cultural material on a page of sourced figures has no
+          other way to tell which of the two they are reading.
+        */}
+        <p class="prose meta">
+          Cultural and historical context, cited but not evidence. No figure in the tables above
+          rests on any of it.
+        </p>
+        <div class="prose trivia__body">
+          <TriviaBody />
+        </div>
+        {/*
+          These stay out of the Sources list below, which means "the documents the
+          figures rest on" and is reciprocated by each source page naming those
+          figures. A trivia citation there would make both say something false.
+        */}
+        <ul class="source-list">
+          {triviaSources.map((source) => (
+            <li>
+              <a href={route(`/sources/${source.id}/`)}>{source.title}</a>
+              <span class="meta">
+                {source.publisher} · tier {source.tier} · {source.locator}
+              </span>
+            </li>
+          ))}
+        </ul>
+      </section>
+    )
+  }
+
   <section class="stack" aria-labelledby="sources">
     <h2 id="sources">Sources</h2>
     <ul class="source-list">
@@ -381,3 +433,33 @@ const structuredData = [
 
   {familyNav !== undefined && <FamilyNav nav={familyNav} />}
 </BaseLayout>
+
+<style>
+  /*
+   * A Markdown body brings the user agent's bullets, which are wanted, and none
+   * of this page's rhythm, which is. Logical properties so the indent follows the
+   * writing direction rather than the left edge.
+   *
+   * No background: this section sets `.meta` twice, and a sunken fill is where
+   * muted text last failed contrast.
+   */
+  .trivia__body :global(p + p),
+  .trivia__body :global(ul),
+  .trivia__body :global(ol) {
+    margin-block-start: var(--space-s);
+  }
+
+  .trivia__body :global(ul),
+  .trivia__body :global(ol) {
+    padding-inline-start: var(--space-l);
+  }
+
+  .trivia__body :global(li + li) {
+    margin-block-start: var(--space-3xs);
+  }
+
+  /* The section already owns the h2, so a heading inside the body is a subheading. */
+  .trivia__body :global(h3) {
+    margin-block-start: var(--space-m);
+  }
+</style>

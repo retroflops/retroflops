@@ -2,17 +2,26 @@
 // SPDX-FileCopyrightText: 2026 Wojciech Polak
 // SPDX-License-Identifier: MIT
 
+import { getCollection } from 'astro:content';
+
 import BaseLayout from '~/layouts/base-layout.astro';
 import { getCatalog } from '~/lib/catalog';
 import { formatPartialDate, humaniseIdentifier, metricLabel } from '~/lib/display';
 import { route } from '~/lib/paths';
 import { breadcrumbList, sourceArticle } from '~/lib/structured-data';
 
-export function getStaticPaths() {
-  return getCatalog().sources.map((source) => ({ params: { id: source.id }, props: { source } }));
+export async function getStaticPaths() {
+  const trivia = await getCollection('trivia');
+  return getCatalog().sources.map((source) => ({
+    params: { id: source.id },
+    props: {
+      source,
+      trivia: trivia.filter((entry) => entry.data.sourceIds.includes(source.id)),
+    },
+  }));
 }
 
-const { source } = Astro.props;
+const { source, trivia } = Astro.props;
 const catalog = getCatalog();
 
 const measurements = catalog.measurements.filter((measurement) =>
@@ -160,6 +169,28 @@ const structuredData = [
               <span class="meta">
                 {measurement.subject.kind} · {measurement.subject.id}
               </span>
+            </li>
+          ))}
+        </ul>
+      </section>
+    )
+  }
+
+  {
+    trivia.length > 0 && (
+      <section class="stack" aria-labelledby="trivia">
+        <h2 id="trivia">Trivia citing this source</h2>
+        {/*
+          Cultural context is exempt from the source tiers, not from citation, so
+          a source cited only here still says what rests on it. Without this
+          section such a page would be a bare record with nothing explaining why
+          it exists.
+        */}
+        <ul class="link-list">
+          {trivia.map((entry) => (
+            <li>
+              <a href={route(`/systems/${entry.id}/#trivia`)}>{entry.data.title}</a>
+              <span class="meta">context, not evidence</span>
             </li>
           ))}
         </ul>
