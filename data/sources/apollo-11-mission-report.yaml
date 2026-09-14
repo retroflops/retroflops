@@ -1,0 +1,15 @@
+id: apollo-11-mission-report
+title: Apollo 11 Mission Report
+publisher: NASA Manned Spacecraft Center
+publishedDate: "1969-11"
+accessedDate: 2026-09-13
+url: https://ntrs.nasa.gov/api/citations/19710015566/downloads/19710015566.pdf
+locator: >-
+  Table 5-I "Lunar descent event times" p. 32; section 5 "Lunar module descent"
+  p. 34; section 4 "Powered descent" p. 19; section 14 "Mission support
+  performance" p. 167; section 16 anomaly "Computer alarms during descent" pp.
+  189-191
+tier: A
+sourceType: government-document
+license: Public domain (work of the United States Government)
+editorialStatus: approved
