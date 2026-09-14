@@ -41,28 +41,28 @@
     "brand:icons:check": "node scripts/brand-icons.ts --check"
   },
   "dependencies": {
-    "@astrojs/preact": "^6.0.4",
+    "@astrojs/preact": "^6.0.5",
     "@observablehq/plot": "^0.6.17",
-    "astro": "^7.2.7",
+    "astro": "^7.3.2",
     "preact": "^10.29.8",
-    "zod": "^4.4.3"
+    "zod": "^4.6.2"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.10",
     "@axe-core/playwright": "^4.13.0",
     "@lhci/cli": "^0.15.1",
     "@playwright/test": "1.62.1",
-    "@types/node": "^26.3.0",
+    "@types/node": "^26.5.1",
     "@vitest/coverage-v8": "^4.1.11",
     "oxfmt": "^0.65.0",
-    "oxlint": "^1.80.0",
+    "oxlint": "^1.82.0",
     "pagefind": "^1.5.2",
     "prettier": "^3.9.6",
     "prettier-plugin-astro": "^0.14.1",
-    "sharp": "^0.35.3",
+    "sharp": "^0.35.4",
     "typescript": "^6.0.3",
     "vitest": "^4.1.11",
-    "yaml": "^2.9.0"
+    "yaml": "^2.9.1"
   },
   "engines": {
     "node": ">=24.15.0",
