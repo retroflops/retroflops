@@ -2,6 +2,18 @@
 # Only the dependencies listed here may run install lifecycle scripts.
 allowBuilds:
   esbuild: true
+# Every audit advisory in this tree reaches us through @lhci/cli, whose own
+# releases still pin the vulnerable ranges. None of these packages has another
+# parent, so pinning them forward here reaches exactly that subtree. The last
+# two are a pair: extract-zip has no patched release at all, and the only way
+# out of it is @puppeteer/browsers 3, which unpacks with modern-tar instead --
+# that major wants a newer proxy-agent than puppeteer-core asks for.
+overrides:
+  '@puppeteer/browsers': ^3.2.2
+  proxy-agent: ^8.0.1
+  qs: ^6.16.0
+  tmp: ^0.2.7
+  uuid: ^11.1.1
 # Packages younger than the default minimum release age are blocked unless listed here.
 minimumReleaseAgeExclude:
   - '@oxfmt/binding-android-arm-eabi@0.61.0'
@@ -45,6 +57,5 @@ minimumReleaseAgeExclude:
   - '@types/node@26.1.2'
   - oxfmt@0.61.0
   - oxlint@1.76.0
-  - tmp@0.2.4 || 0.2.6
+  - tmp@0.2.7
   - uuid@11.1.1
-  - extract-zip@2.0.2

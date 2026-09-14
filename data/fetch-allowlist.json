@@ -452,6 +452,31 @@
       "host": "en.wikipedia.org",
       "pathPrefix": "/wiki/Atari_8-bit_computers",
       "note": "Wikipedia article on the Atari 8-bit computers, pinned as a Tier C community source for the clocks and memory of the Atari 800."
+    },
+    {
+      "host": "www.museumofplay.org",
+      "pathPrefix": "/games/",
+      "note": "The Strong National Museum of Play, pinned to its per-game World Video Game Hall of Fame inductee records. Cited only by trivia, for the museum editorial judgment about how a game was received; never for a figure."
+    },
+    {
+      "host": "www.computerhistory.org",
+      "pathPrefix": "/revolution/",
+      "note": "The Computer History Museum Revolution exhibition, pinned to the exhibition tree. Cited only by trivia."
+    },
+    {
+      "host": "www.computerhistory.org",
+      "pathPrefix": "/timeline/",
+      "note": "The Computer History Museum Timeline of Computer History, one page per year. A separate entry from the exhibition one because it is a separate document series. Cited only by trivia."
+    },
+    {
+      "host": "collection.sciencemuseumgroup.org.uk",
+      "pathPrefix": "/objects/",
+      "note": "Science Museum Group collection object records, pinned to the object namespace so a search page can never become a citation. The descriptions are published under CC BY 4.0. Cited only by trivia."
+    },
+    {
+      "host": "www.computinghistory.org.uk",
+      "pathPrefix": "/det/",
+      "note": "Centre for Computing History collection records, pinned to the per-item path. Cited only by trivia, and only as a community source: the descriptive prose repeats the corresponding Wikipedia article."
     }
   ]
 }

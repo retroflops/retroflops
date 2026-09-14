@@ -24,6 +24,15 @@ test('a system profile is complete: figures, methods and sources', async ({ page
   await expect(page.locator('main a[href*="/sources/"]').first()).toBeVisible();
 });
 
+test('a trivia section and its citations are HTML', async ({ page }) => {
+  await page.goto('/systems/saturn-lvdc/');
+  const trivia = page.locator('section.trivia');
+  await expect(trivia).toBeVisible();
+  // Rendered Markdown, not a script that fetches it.
+  await expect(trivia.locator('.trivia__body p').first()).toBeVisible();
+  await expect(trivia.locator('.source-list a').first()).toBeVisible();
+});
+
 test('a profile navigates to its category and its family without scripts', async ({ page }) => {
   await page.goto('/systems/amiga-500/');
 

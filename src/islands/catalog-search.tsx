@@ -137,8 +137,11 @@ export default function CatalogSearch({ base = '/' }: { base?: string }) {
 
         if (!canceled) {
           setHits(nextHits);
+          // A search that ran and matched nothing is a working search, so the
+          // absence of hits says nothing about the index. Only a missing index
+          // with no catalog names to fall back on leaves search unavailable.
           setStatus(
-            nextHits.length > 0 ? (api === undefined ? 'catalog' : 'ready') : 'unavailable',
+            api === undefined ? (nextHits.length > 0 ? 'catalog' : 'unavailable') : 'ready',
           );
         }
       })();

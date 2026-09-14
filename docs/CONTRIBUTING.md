@@ -164,6 +164,53 @@ outside this repository. The file is a snapshot, never a gate. Some machines may
 never be photographed under terms this project can publish, and that is an
 acceptable end state.
 
+### Adding trivia
+
+Trivia is cultural context: what a machine was used for, and the games it is
+remembered for. It is not a figure, and no figure rests on it.
+
+Write one file per machine at `src/content/trivia/<system-slug>.md`. The file
+name is the system slug, and there is no `system` field in the front matter, so
+the machine is named in one place rather than two. `title` is the section
+heading and is chosen per entry, because "Trivia" suits an Atari and not a
+flight computer. `sourceIds` names records in `data/sources` and needs at least
+one.
+
+**The tier exemption, and its limit.** Trivia is not held to the A/B/C evidence
+thresholds, for the reason a photograph is not. Those thresholds govern numeric
+evidence, and nothing numeric rests on this. Citation still applies. An uncited
+cultural claim is a recollection, and a recollection has no locator.
+
+**Authoring constraints.** Start any heading in the body at `###`; the profile
+owns the `h2`. No `{{...}}` markers, because nothing resolves them outside the
+canonical dataset; write the figure out or write a sentence that does not need
+it. Cite through `sourceIds`, never by pasting a URL into the body, which is
+also what keeps a long address from overflowing a narrow screen. Run
+`pnpm format` and commit what it wrote.
+
+**Keeping a claim checkable.** Game history is easy to get wrong in small ways,
+and the failure mode is writing the sentence first and hunting for a citation
+afterward. Read the document first; if the sentence you wanted is not in it, the
+sentence changes.
+
+- **Never write "first".** It is the most attractive claim and the hardest to
+  source, and it is usually wrong on a technicality. Give the year the document
+  gives and let the reader do the ordering.
+- **A release year is a region and a platform, not a fact.** State what the
+  source states, including its region, or state no year.
+- **A sales figure is a dated marketing number.** Either "as of `<date>`,
+  `<publisher>` stated" or nothing.
+- **Authorship is checkable; intent and anecdote are not.** Who wrote something
+  is normally documentable. That they wrote it in a weekend is normally
+  apocryphal.
+- **If the cited document does not contain the sentence, delete the sentence.**
+  Do not soften it.
+
+An entry is this project's own sentences about what a document says, never a
+rewrite of the document's own passage, and it never quotes more than the short
+extract a source record would. The catalog quotes its sources; it does not
+republish them.
+
 ### What is never a source
 
 - An answer from a language model. It has no locator and cannot be checked.

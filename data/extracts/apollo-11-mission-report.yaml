@@ -1,0 +1,22 @@
+- id: apollo-11-mission-report:section-16:computer-alarms
+  sourceId: apollo-11-mission-report
+  locator: section 16, anomaly "Computer alarms during descent", p. 189
+  extract: >-
+    Five computer program alarms occurred during descent prior to the low-gate
+    phase of the trajectory. The performance of guidance and control functions
+    was not affected.
+
+    The alarms were of the Executive overflow type, which signify that the
+    guidance computer cannot accomplish all of the data processing requested in
+    a computation cycle. The alarms indicated that more than 10 percent of the
+    computation capacity of the computer was preempted by unexpected counter
+    interrupts.
+  extractHash: e40ad223a2b15dc29eb1838b45509d16d46084cc57d2f01a75abd474644d7a69
+  transcribedOn: 2026-09-13
+  transcribedBy: RetroFlops editorial
+  notes: >-
+    Transcribed from the text layer of the scanned NTRS PDF, which sets the
+    section-16 anomaly pages in two columns and reads "10" as "I0" throughout;
+    the digit is corrected here. The second sentence quoted here ends in the
+    report with a clause naming the rendezvous-radar coupling data units, which
+    is not quoted.
