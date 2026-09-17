@@ -8,6 +8,21 @@ and this project follows
 
 ## [Unreleased]
 
+### Added
+
+- Add a release command.
+- Add a generated catalog index.
+- Add trivia for twenty machines.
+- Add a trivia collection for per-machine cultural context.
+
+### Changed
+
+- Upgrade dependencies.
+
+### Fixed
+
+- Repair CI checks on clean checkout.
+
 ## [1.0.0] - 2026-08-29
 
 Initial public release.

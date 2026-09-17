@@ -34,6 +34,7 @@
     "pretypecheck": "pnpm data:build",
     "preview": "ASTRO_TELEMETRY_DISABLED=1 node scripts/preview-server.ts",
     "preview:pages": "ASTRO_TELEMETRY_DISABLED=1 OUT_DIR=dist-pages BASE_PATH=/retroflops/ node scripts/preview-server.ts",
+    "release": "node scripts/release.ts",
     "test": "vitest run",
     "test:e2e": "playwright test",
     "test:watch": "vitest",
