@@ -8,6 +8,8 @@ and this project follows
 
 ## [Unreleased]
 
+## [1.0.1] - 2026-09-17
+
 ### Added
 
 - Add a release command.
