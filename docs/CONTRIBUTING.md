@@ -164,6 +164,10 @@ outside this repository. The file is a snapshot, never a gate. Some machines may
 never be photographed under terms this project can publish, and that is an
 acceptable end state.
 
+After adding or renaming a system or a component, run `pnpm data:index`.
+[CATALOG.md](CATALOG.md) lists what the catalog holds, and `pnpm check` fails
+while it is stale.
+
 ### Adding trivia
 
 Trivia is cultural context: what a machine was used for, and the games it is

@@ -12,7 +12,8 @@
 
 import { getCatalog, getCatalogAvailability } from './catalog.ts';
 import { COMPONENT_KINDS } from './data/schema.ts';
-import { componentKindLabel, systemTypeLabel, systemTypesInUse } from './families.ts';
+import { componentKindLabel, systemTypeLabel } from './display.ts';
+import { systemTypesInUse } from './families.ts';
 import { timelineSeries } from './timeline.ts';
 
 export interface SiteRoute {

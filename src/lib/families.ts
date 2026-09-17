@@ -18,7 +18,14 @@
 import { getComponents, getSystems } from './catalog.ts';
 import type { Component, System, SystemFamily, SystemType } from './data/schema.ts';
 import { COMPONENT_KINDS, SYSTEM_FAMILIES } from './data/schema.ts';
-import { formatPartialDate, humaniseIdentifier, instructionSetLabel } from './display.ts';
+import {
+  componentKindLabel,
+  formatPartialDate,
+  humaniseIdentifier,
+  instructionSetLabel,
+  systemTypeLabel,
+  systemTypesByFirstRelease,
+} from './display.ts';
 import type { Crumb } from './structured-data.ts';
 
 /**
@@ -44,34 +51,8 @@ const SYSTEM_FAMILY_LABELS: Record<SystemFamily, string> = {
   'sony-playstation': 'PlayStation',
 };
 
-/**
- * Category names in the plural, because a category page holds many machines and
- * a breadcrumb pointing at one reads as a claim about this machine alone.
- * Only the types that pluralize irregularly are listed; the rest take an "s".
- */
-const SYSTEM_TYPE_PLURALS: Partial<Record<SystemType, string>> = {
-  'guidance-computer': 'Guidance computers',
-  'home-computer': 'Home computers',
-  'personal-computer': 'Personal computers',
-  accelerator: 'Graphics hardware',
-};
-
-const COMPONENT_KIND_PLURALS = {
-  cpu: 'Processors',
-  gpu: 'Graphics chips',
-  memory: 'Memory',
-} as const;
-
 export function systemFamilyLabel(family: SystemFamily): string {
   return SYSTEM_FAMILY_LABELS[family];
-}
-
-export function systemTypeLabel(type: SystemType): string {
-  return SYSTEM_TYPE_PLURALS[type] ?? `${humaniseIdentifier(type)}s`;
-}
-
-export function componentKindLabel(kind: Component['kind']): string {
-  return COMPONENT_KIND_PLURALS[kind];
 }
 
 /** Oldest first, so a lineage reads as the sequence it was. */
@@ -87,16 +68,7 @@ function byRelease(a: System, b: System): number {
  * routes and put two empty links in the sitemap.
  */
 export function systemTypesInUse(): readonly SystemType[] {
-  const earliest = new Map<SystemType, string>();
-  for (const system of getSystems()) {
-    const seen = earliest.get(system.type);
-    if (seen === undefined || system.releaseDate < seen) {
-      earliest.set(system.type, system.releaseDate);
-    }
-  }
-  return [...earliest.keys()].toSorted((a, b) =>
-    (earliest.get(a) ?? '').localeCompare(earliest.get(b) ?? ''),
-  );
+  return systemTypesByFirstRelease(getSystems());
 }
 
 export function systemsOfType(type: SystemType): readonly System[] {

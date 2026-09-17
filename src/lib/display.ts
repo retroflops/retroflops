@@ -13,7 +13,14 @@
 import type { BenchmarkIdentity } from './data/comparability.ts';
 import { getMethod, type EvidenceStage, type Provenance } from './data/methods.ts';
 import { getMetric, type ConfidenceStatus, type EvidenceLevel } from './data/metrics.ts';
-import type { ComponentRole, InstructionSetFamily, QuantityValue } from './data/schema.ts';
+import type {
+  Component,
+  ComponentRole,
+  InstructionSetFamily,
+  QuantityValue,
+  System,
+  SystemType,
+} from './data/schema.ts';
 import { getUnit } from './data/units.ts';
 
 /** Narrow no-break space, so grouped digits never wrap or drift apart. */
@@ -316,4 +323,44 @@ export function formatPartialDate(date: string): string {
     timeZone: 'UTC',
   });
   return `${monthName} ${year}`;
+}
+
+/**
+ * Category names in the plural, because a category page holds many machines and
+ * a breadcrumb pointing at one reads as a claim about this machine alone.
+ * Only the types that pluralize irregularly are listed; the rest take an "s".
+ */
+const SYSTEM_TYPE_PLURALS: Partial<Record<SystemType, string>> = {
+  'guidance-computer': 'Guidance computers',
+  'home-computer': 'Home computers',
+  'personal-computer': 'Personal computers',
+  accelerator: 'Graphics hardware',
+};
+
+const COMPONENT_KIND_PLURALS = {
+  cpu: 'Processors',
+  gpu: 'Graphics chips',
+  memory: 'Memory',
+} as const;
+
+export function systemTypeLabel(type: SystemType): string {
+  return SYSTEM_TYPE_PLURALS[type] ?? `${humaniseIdentifier(type)}s`;
+}
+
+export function componentKindLabel(kind: Component['kind']): string {
+  return COMPONENT_KIND_PLURALS[kind];
+}
+
+/** The types that have records, ordered by each type's earliest release. */
+export function systemTypesByFirstRelease(systems: readonly System[]): readonly SystemType[] {
+  const earliest = new Map<SystemType, string>();
+  for (const system of systems) {
+    const seen = earliest.get(system.type);
+    if (seen === undefined || system.releaseDate < seen) {
+      earliest.set(system.type, system.releaseDate);
+    }
+  }
+  return [...earliest.keys()].toSorted((a, b) =>
+    (earliest.get(a) ?? '').localeCompare(earliest.get(b) ?? ''),
+  );
 }
