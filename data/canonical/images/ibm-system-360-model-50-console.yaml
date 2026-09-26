@@ -1,0 +1,51 @@
+id: ibm-system-360-model-50-console
+alt: >-
+  An IBM operator panel with rows of indicator lights and switches, above a desk
+  containing a printer and keyboard.
+caption: >-
+  The IBM 2050 operator panel and IBM 1052-7 console at the Museum of
+  Communication in Bern. The full installation is not shown, and the photograph
+  does not establish the memory configuration.
+creator: Sandstein
+creatorType: person
+title: IBM system 360-50 console - MfK Bern.jpg
+publisher: Wikimedia Commons
+sourcePageUrl: https://commons.wikimedia.org/wiki/File:IBM_system_360-50_console_-_MfK_Bern.jpg
+originalUrl: https://upload.wikimedia.org/wikipedia/commons/3/39/IBM_system_360-50_console_-_MfK_Bern.jpg
+accessedDate: 2026-09-26
+attribution: >-
+  Photograph by Sandstein, licensed CC BY-SA 3.0, via Wikimedia Commons.
+  Resized, padded, and re-encoded as AVIF.
+rights:
+  id: cc-by-sa-3.0
+  url: https://creativecommons.org/licenses/by-sa/3.0/
+  statement: This file is licensed under the Creative Commons Attribution-Share
+    Alike 3.0 Unported license.
+  statedAt: https://commons.wikimedia.org/wiki/File:IBM_system_360-50_console_-_MfK_Bern.jpg
+original:
+  sha256: f0c8242df9d7de569e0efc6e92dc66fb52be081aa53c2a0abc155658d591e385
+  byteLength: 3334080
+  width: 2736
+  height: 3648
+  mediaType: image/jpeg
+canonical:
+  format: avif
+  width: 1280
+  height: 960
+  byteLength: 36855
+  sha256: 26ba01c9483df057fe13fab871f6b789c4497d7875ebb988921b7db5b26ac8a3
+transform:
+  preset: image-v1
+  sourceWidth: 2736
+  sourceHeight: 3648
+  fit: pad
+  background: '#f4f1e8'
+  note: >-
+    Preserve the entire portrait photograph, including the operator panel,
+    printer, and keyboard. Resize it without distortion and add side margins to
+    fill the canonical frame. Re-encode it as AVIF without metadata.
+editorialStatus: approved
+notes: >-
+  This photograph illustrates the museum's operator panel and console. It does
+  not show the complete processor, storage, and power installation or establish
+  that the pictured machine is the catalog's 2050F configuration.

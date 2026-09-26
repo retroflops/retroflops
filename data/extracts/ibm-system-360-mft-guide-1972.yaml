@@ -1,0 +1,28 @@
+- id: ibm-system-360-mft-guide-1972:minimum-main-storage
+  sourceId: ibm-system-360-mft-guide-1972
+  locator: >-
+    Printed p. 69 (PDF p. 71), Minimum System Storage and Device Requirements
+  extract: >-
+    at least 128K bytes of main storage
+  extractHash: 'aaa61393ecc7df628e1a1879023597a0eeca1c4a847ba19eda51579c81abb17b'
+  transcribed:
+    state: value
+    value: '128'
+    unit: KiB
+    significantDigits: 3
+  transcribedOn: 2026-09-26
+  transcribedBy: RetroFlops editorial
+  notes: >-
+    The computing system's minimum storage is distinct from the separately
+    stated MFT nucleus size. The paragraph also introduces required devices.
+- id: ibm-system-360-mft-guide-1972:k-definition
+  sourceId: ibm-system-360-mft-guide-1972
+  locator: Printed p. 18 (PDF p. 20), Task Switching, note
+  extract: >-
+    the suffix "K" denotes the value 400 (hexadecimal), or 1024 (decimal).
+  extractHash: '0436ae81932627bc35e2357fa5e6e48f4baac1285783b2f0c5d69f477ed3772c'
+  transcribedOn: 2026-09-26
+  transcribedBy: RetroFlops editorial
+  notes: >-
+    This definition establishes the binary prefix used in the main-storage
+    requirement.

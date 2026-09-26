@@ -1,6 +1,6 @@
 # Catalog index
 
-Every system, processor and graphics chip in the RetroFlops catalog. The 81
+Every system, processor and graphics chip in the RetroFlops catalog. The 82
 systems are grouped by type, and processors and graphics chips follow. Each
 group is sorted by name, and the year after a name is its release or
 introduction date. A chip fitted in several machines is listed once. Memory
@@ -11,6 +11,10 @@ yet, so Explore does not list it. No entry is marked at the moment.
 
 This file is generated. Run `pnpm data:index` after adding or renaming a record;
 `pnpm check` fails while it is out of date.
+
+## Mainframes
+
+- IBM System/360 Model 50 · 1964
 
 ## Guidance computers
 
@@ -143,6 +147,7 @@ This file is generated. Run `pnpm data:index` after adding or renaming a record;
 - Hitachi SH-2 · 1994
 - Hitachi SH-4 · 1998
 - Hudson Soft HuC6280
+- IBM 2050 Processing Unit
 - IBM Broadway · 2006
 - IBM Espresso · 2012
 - IBM Gekko · 2001

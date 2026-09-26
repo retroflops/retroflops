@@ -28,7 +28,7 @@ describe('data:gaps', () => {
     });
 
     const master = await readFile(join(directory, 'research-requests.md'), 'utf8');
-    expect(master).toContain('81 are catalog records with at least');
+    expect(master).toContain('82 are catalog records with at least');
     expect(master).toContain('0 are research records whose source trail is preserved');
     expect(master).toContain('## Part A, Apple iPhones and Apple silicon Macs');
     expect(master).toContain('## Part V');

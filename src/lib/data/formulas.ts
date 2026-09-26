@@ -775,7 +775,7 @@ function buildBandwidthFromTransferRateCaveat(_width: FormulaInput, digits: numb
 function buildBandwidthFromCycleTimeCaveat(bytesPerCycle: string, digits: number): string {
   return (
     `Divides ${bytesPerCycle} by the published memory cycle time. The result is an interface ` +
-    'ceiling when a manual specifies nanoseconds per byte instead of a transfer rate. It is not ' +
+    'ceiling inferred from the transfer width and cycle time. It is not ' +
     'measured application throughput: refresh, contention and wait states can consume cycles. ' +
     `Reported to ${digits} significant digit${digits === 1 ? '' : 's'}. That is the precision of ` +
     'the cycle time, because the bytes-per-cycle constant is exact.'

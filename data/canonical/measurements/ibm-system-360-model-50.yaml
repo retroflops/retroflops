@@ -1,0 +1,275 @@
+- id: ibm-system-360-model-50:clock-frequency
+  subject:
+    kind: system
+    id: ibm-system-360-model-50
+    configurationId: 2050f
+  metric: clock-frequency
+  quantity:
+    state: unknown
+    note: >-
+      The checked documents state internal cycle durations, but do not identify
+      a nominal CPU oscillator frequency.
+  scope: cpu
+  method: nominal-clock
+  provenance: vendor
+  evidenceStage: shipped
+  comparabilityGroup: clock-frequency|cpu|nominal-clock
+  status: vendor-rated
+  editorialStatus: approved
+  sourceIds:
+    - ibm-system-360-model-50-functional-characteristics
+    - ibm-system-360-model-50-processor-controls
+    - ibm-zseries-hardware-2005
+    - ken-shirriff-ibm-model-50-microcode
+  extractIds:
+    - ibm-system-360-model-50-processor-controls:internal-cycle-time
+    - ibm-zseries-hardware-2005:machine-cycle-time
+  unknownAudit:
+    reviewedOn: 2026-09-26
+    routesChecked:
+      - vendor-documentation
+      - independent-analysis
+      - community-source
+      - archive
+    outcome: no-compatible-candidate
+    summary: >-
+      The functional manual, processor-control report, IBM historical table, and
+      Shirriff's independent architecture analysis were read. Their internal
+      timing descriptions do not establish the nominal-clock quantity; no
+      reciprocal frequency is substituted. The independent-analysis and
+      community-source routes refer to the same Shirriff article; they do not
+      constitute two independent sources.
+
+- id: ibm-2050f-main-storage:capacity
+  subject:
+    kind: component
+    id: ibm-2050f-main-storage
+  metric: memory-capacity
+  quantity:
+    state: value
+    value: '65536'
+    unit: B
+    significantDigits: 5
+  scope: memory
+  method: design-capacity
+  provenance: vendor
+  evidenceStage: shipped
+  comparabilityGroup: memory-capacity|memory|design-capacity
+  status: vendor-rated
+  evidenceLevel: confirmed
+  editorialStatus: approved
+  sourceIds:
+    - ibm-system-360-model-50-functional-characteristics
+  extractIds:
+    - ibm-system-360-model-50-functional-characteristics:f50-main-storage
+  normalized:
+    value: "65536"
+    unit: B
+    significantDigits: 5
+    unitRegistry: units-v1
+- id: ibm-system-360-model-50:whole-system-memory-capacity
+  subject:
+    kind: system
+    id: ibm-system-360-model-50
+    configurationId: 2050f
+  metric: memory-capacity
+  quantity:
+    state: value
+    value: '65536'
+    unit: B
+    significantDigits: 5
+  scope: whole-system
+  method: design-capacity
+  provenance: vendor
+  evidenceStage: shipped
+  comparabilityGroup: memory-capacity|whole-system|design-capacity
+  status: vendor-rated
+  evidenceLevel: confirmed
+  editorialStatus: approved
+  sourceIds:
+    - ibm-system-360-model-50-functional-characteristics
+  extractIds:
+    - ibm-system-360-model-50-functional-characteristics:f50-main-storage
+    - ibm-system-360-model-50-functional-characteristics:main-storage-access
+  caveat: >-
+    Program-addressable main storage in the selected F50 configuration. Excludes
+    processor registers, read-only microprogram storage, channel-control storage
+    inaccessible to programs, and optional external core storage.
+  normalized:
+    value: "65536"
+    unit: B
+    significantDigits: 5
+    unitRegistry: units-v1
+- id: ibm-2050f-main-storage:memory-cycle-time
+  subject:
+    kind: component
+    id: ibm-2050f-main-storage
+  metric: memory-cycle-time
+  quantity:
+    state: value
+    value: '2.0'
+    unit: us
+    significantDigits: 2
+  scope: memory
+  method: nominal-cycle-time
+  provenance: vendor
+  evidenceStage: shipped
+  comparabilityGroup: memory-cycle-time|memory|nominal-cycle-time
+  status: vendor-rated
+  evidenceLevel: confirmed
+  editorialStatus: approved
+  sourceIds:
+    - ibm-system-360-model-50-processor-controls
+    - ibm-system-360-model-50-functional-characteristics
+  extractIds:
+    - ibm-system-360-model-50-processor-controls:memory-cycle-time
+    - ibm-system-360-model-50-functional-characteristics:main-storage-access
+  conditions: >-
+    A main-storage read/write cycle; the shorter ROS and local-storage cycles
+    are separate.
+  normalized:
+    value: "0.000002"
+    unit: s
+    significantDigits: 2
+    unitRegistry: units-v1
+- id: ibm-system-360-model-50:memory-bandwidth
+  subject:
+    kind: system
+    id: ibm-system-360-model-50
+    configurationId: 2050f
+  metric: memory-bandwidth
+  quantity:
+    state: value
+    value: '2.0'
+    unit: MB/s
+    significantDigits: 2
+  scope: memory
+  method: theoretical-peak
+  provenance: vendor
+  evidenceStage: shipped
+  comparabilityGroup: memory-bandwidth|memory|theoretical-peak
+  status: derived
+  evidenceLevel: confirmed
+  derivedFrom: ibm-system-360-model-50:memory-bandwidth-from-cycle-time
+  rounding: half-up
+  editorialStatus: approved
+  sourceIds:
+    - ibm-system-360-model-50-functional-characteristics
+    - ibm-system-360-model-50-processor-controls
+  extractIds:
+    - ibm-system-360-model-50-functional-characteristics:main-storage-access
+    - ibm-system-360-model-50-processor-controls:memory-cycle-time
+  conditions: >-
+    Main-storage data transfers only; excludes parity bits and optional external
+    core storage.
+  caveat: >-
+    Divides bytes transferred by one main-storage cycle by the published memory
+    cycle time. The result is an interface ceiling inferred from the transfer
+    width and cycle time. It is not measured application throughput: refresh,
+    contention and wait states can consume cycles. Reported to 2 significant
+    digits. That is the precision of the cycle time, because the bytes-per-cycle
+    constant is exact.
+  normalized:
+    value: "2000000"
+    unit: B/s
+    significantDigits: 2
+    unitRegistry: units-v1
+- id: ibm-system-360-model-50:gpu-clock-frequency
+  subject:
+    kind: system
+    id: ibm-system-360-model-50
+    configurationId: 2050f
+  metric: clock-frequency
+  quantity:
+    state: not-applicable
+    note: >-
+      The selected processing-unit configuration has no fitted graphics
+      processor. The optional display unit is outside its scope.
+  scope: gpu
+  method: nominal-clock
+  provenance: vendor
+  evidenceStage: shipped
+  comparabilityGroup: clock-frequency|gpu|nominal-clock
+  status: vendor-rated
+  editorialStatus: approved
+  sourceIds:
+    - ibm-system-360-model-50-functional-characteristics
+- id: ibm-2050-processing-unit:peak-fp32-rate
+  subject:
+    kind: component
+    id: ibm-2050-processing-unit
+  metric: peak-fp32-rate
+  quantity:
+    state: unknown
+    note: >-
+      Native short hexadecimal floating-point arithmetic is supported. The
+      checked instruction timings are operand-dependent weighted averages, not a
+      theoretical peak operation rate.
+  scope: cpu
+  method: theoretical-peak
+  provenance: vendor
+  evidenceStage: shipped
+  comparabilityGroup: peak-fp32-rate|cpu|theoretical-peak
+  status: vendor-rated
+  editorialStatus: approved
+  sourceIds:
+    - ibm-system-360-model-50-functional-characteristics
+    - ibm-system-360-principles-of-operation
+    - ken-shirriff-ibm-model-50-microcode
+  extractIds:
+    - ibm-system-360-model-50-functional-characteristics:floating-point-timing
+    - ibm-system-360-principles-of-operation:short-floating-point
+  unknownAudit:
+    reviewedOn: 2026-09-26
+    routesChecked:
+      - vendor-documentation
+      - independent-analysis
+      - community-source
+      - archive
+    outcome: no-compatible-candidate
+    summary: >-
+      The functional manual's Timing Assumptions and instruction tables, the
+      architecture manual's floating-point formats, and Shirriff's independent
+      analysis were checked. No precision-qualified theoretical peak rate was
+      found. Reciprocals of average instruction times do not supply this metric.
+      The independent-analysis and community-source routes refer to the same
+      Shirriff article; they do not constitute two independent sources.
+
+- id: ibm-system-360-model-50:rated-power-consumption
+  subject:
+    kind: system
+    id: ibm-system-360-model-50
+    configurationId: 2050f
+  metric: rated-power-consumption
+  quantity:
+    state: unknown
+    note: >-
+      The planning manual states apparent power in kVA and heat output, but does
+      not give configured system consumption in watts.
+  scope: whole-system
+  method: rated-power
+  provenance: vendor
+  evidenceStage: shipped
+  comparabilityGroup: rated-power-consumption|whole-system|rated-power
+  status: vendor-rated
+  editorialStatus: approved
+  sourceIds:
+    - ibm-system-360-physical-planning
+    - ken-shirriff-ibm-model-50-microcode
+  extractIds:
+    - ibm-system-360-physical-planning:apparent-power
+  unknownAudit:
+    reviewedOn: 2026-09-26
+    routesChecked:
+      - vendor-documentation
+      - independent-analysis
+      - community-source
+      - archive
+    outcome: no-compatible-candidate
+    summary: >-
+      The physical-planning specifications for the selected processing unit and
+      Shirriff's independent architecture analysis were checked. Apparent power
+      without a power factor cannot establish real power, and thermal output is
+      not substituted for a system consumption rating. The independent-analysis
+      and community-source routes refer to the same Shirriff article; they do
+      not constitute two independent sources.

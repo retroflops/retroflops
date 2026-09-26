@@ -127,12 +127,20 @@ const GROUPS: readonly Group[] = [
     holds: (system) => system.type === 'guidance-computer',
   },
   {
+    id: '7',
+    title: 'Mainframes and minicomputers',
+    wanted: true,
+    blurb:
+      'Prefer the complete processing unit and its fitted storage cabinets. If no publishable complete-machine view is found, an identifiable operator panel or museum presentation may be used. The caption must identify the pictured parts and say that the full installation is not shown; do not infer its memory configuration.',
+    holds: (system) => system.type === 'mainframe' || system.type === 'minicomputer',
+  },
+  {
     id: '6',
     title: 'Reference platforms, which are not being asked for',
     wanted: false,
     blurb:
       'Do not send photographs for these entries. Each one represents a processor in a typical computer of its era, not a product that somebody sold. Any case would falsely tie the record to one specific machine. The list records that decision.',
-    holds: () => true,
+    holds: (system) => REFERENCE_PLATFORMS.has(system.slug),
   },
 ];
 
@@ -160,7 +168,8 @@ One photograph per machine, of the machine.
 - **The whole device.** Not a detail, not an open case, not a circuit board
   unless the board is the product. A packshot of the box is a photograph of a
   box; a screenshot of software running on the machine is a photograph of
-  nothing at all.
+  nothing at all. For historical mainframes and minicomputers, follow the
+  operator-panel and museum-presentation exception in Group 7 below.
 - **Unmodified.** Recapped, retrobrighted or repainted examples, third-party
   shells, mounted expansions and aftermarket parts all show a machine that is
   no longer the one described. Wear and yellowing are the honest condition of
@@ -242,7 +251,7 @@ async function main(): Promise<void> {
   );
   const illustrated = dataset.systems.length - missing.length;
 
-  // The last group holds anything the others do not, so every machine lands.
+  // Product types and the explicit reference-platform set determine each group.
   const groupOf = new Map<string, Group>();
   for (const system of missing) {
     const group = GROUPS.find((candidate) => candidate.holds(system));
@@ -276,7 +285,7 @@ async function main(): Promise<void> {
       out.push(
         `### ${system.name}`,
         '',
-        `${system.manufacturer} · ${system.releaseDate} · ${system.region} · \`${system.slug}\`${aliases}`,
+        `${system.manufacturer} · ${system.releaseDate}${system.region === undefined ? '' : ` · ${system.region}`} · \`${system.slug}\`${aliases}`,
         '',
         plainText(resolveEditorialText(system.summary, measurements, contextClaims)),
         '',

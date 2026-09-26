@@ -125,6 +125,8 @@ describe('editorial profile prose', () => {
 
 /** Slug → why the machine has no graphics component. */
 const NO_GPU: Readonly<Record<string, string>> = {
+  'ibm-system-360-model-50':
+    'The selected IBM 2050F processing unit includes main storage but no graphics processor; the optional 2250 display is outside this configuration.',
   'apollo-guidance-computer-block-ii':
     'Fact about the hardware: the AGC drove a numeric display, not a raster.',
   'saturn-lvdc': 'Fact about the hardware: the LVDC had no display output at all.',
@@ -165,12 +167,12 @@ const NO_CPU: Readonly<Record<string, string>> = {
 /**
  * Slug → why the machine belongs to no product lineage.
  *
- * Twenty of seventy-eight, and every one of them is a decision rather than an
- * oversight, which is the whole reason this list is written out. A
- * seventy-ninth machine cannot join them quietly: it has to be argued for here
- * first, exactly as `NO_GPU` and `NO_CPU` demand.
+ * Every absence is an explicit editorial decision. New machines need a
+ * reason here, exactly as `NO_GPU` and `NO_CPU` demand.
  */
 const NO_FAMILY: Readonly<Record<string, string>> = {
+  'ibm-system-360-model-50':
+    'The only System/360 model in the catalog; the IBM PC belongs to a separate product lineage, so no existing family fits this mainframe.',
   '3dfx-voodoo-graphics':
     'The only 3dfx card here. Voodoo 2 and Banshee are not in the catalog, so there is no line to be part of.',
   'acorn-archimedes-a310':

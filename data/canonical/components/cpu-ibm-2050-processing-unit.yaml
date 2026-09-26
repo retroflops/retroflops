@@ -1,0 +1,19 @@
+id: ibm-2050-processing-unit
+slug: ibm-2050-processing-unit
+name: IBM 2050 Processing Unit
+manufacturer: IBM
+kind: cpu
+architecture: System/360
+instructionSet: System/360 universal instruction set
+summary: >-
+  A microprogrammed processor with fixed-point and hexadecimal floating-point
+  arithmetic. IBM gives its machine cycle as
+  {{context:ibm-2050-processing-unit:machine-cycle-time}}.
+sourceIds:
+  - ibm-system-360-model-50-functional-characteristics
+  - ibm-system-360-model-50-processor-controls
+  - ibm-zseries-hardware-2005
+editorialStatus: approved
+notes: >-
+  The machine-cycle duration describes internal sequencing. It is retained as
+  context rather than converted into a nominal CPU clock frequency.

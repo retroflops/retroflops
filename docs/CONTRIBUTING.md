@@ -103,6 +103,13 @@ is the subject.
   bare board unless the board is the product. A photograph of the box is a
   photograph of a box. A screenshot of software running on the machine is not a
   photograph of the machine and is never the lead image.
+- **Historical mainframes and minicomputers.** When a documented search finds no
+  publishable view of the complete machine, an identifiable operator panel or
+  museum presentation may illustrate the record. The caption must name the
+  pictured parts and say that the full installation is not shown. It must not
+  claim a memory configuration that the photograph cannot establish. Preserve
+  every pictured part when cropping; use padding if needed. Rights and
+  attribution requirements apply without exception.
 - **No third-party modification.** Recased, repainted, retrobrighted or recapped
   examples, aftermarket shells and mounted expansions all show a machine other
   than the one described. Yellowed plastic and honest wear are the condition of

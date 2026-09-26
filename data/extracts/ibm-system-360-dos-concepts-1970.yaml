@@ -1,0 +1,26 @@
+- id: ibm-system-360-dos-concepts-1970:minimum-main-storage
+  sourceId: ibm-system-360-dos-concepts-1970
+  locator: Printed p. 5, Introduction, minimum main storage
+  extract: >-
+    at least 16K bytes of main storage
+  extractHash: 'b8da0ec97597048c9a2c5152e8c64f6e856ed5d80b52bfa92ce6fe5ddb60cf98'
+  transcribed:
+    state: value
+    value: '16'
+    unit: KiB
+    significantDigits: 2
+  transcribedOn: 2026-09-26
+  transcribedBy: RetroFlops editorial
+  notes: >-
+    The paragraph covers Disk and Tape Operating Systems. The following
+    paragraph separately states disk equipment requirements for DOS.
+- id: ibm-system-360-dos-concepts-1970:k-definition
+  sourceId: ibm-system-360-dos-concepts-1970
+  locator: Printed p. 35, Glossary, K
+  extract: 'K: 1024.'
+  extractHash: '43efec1b03ae4318dd192eb651c54194cbc2f22914121a8fca4df173e6c5cae1'
+  transcribedOn: 2026-09-26
+  transcribedBy: RetroFlops editorial
+  notes: >-
+    This definition establishes the binary prefix used in the main-storage
+    requirement.

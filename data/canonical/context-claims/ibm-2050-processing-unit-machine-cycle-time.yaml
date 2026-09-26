@@ -1,0 +1,25 @@
+id: ibm-2050-processing-unit:machine-cycle-time
+subject:
+  kind: component
+  id: ibm-2050-processing-unit
+label: Machine cycle time
+quantity:
+  state: value
+  value: '500'
+  unit: ns
+  significantDigits: 1
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+evidenceLevel: confirmed
+editorialStatus: approved
+sourceIds:
+  - ibm-zseries-hardware-2005
+  - ibm-system-360-model-50-processor-controls
+extractIds:
+  - ibm-zseries-hardware-2005:machine-cycle-time
+  - ibm-system-360-model-50-processor-controls:internal-cycle-time
+caveat: >-
+  IBM identifies this as a machine cycle; the processor-control report shows the
+  same interval in its ROS and data-flow timing diagram. It does not state a
+  nominal oscillator frequency.

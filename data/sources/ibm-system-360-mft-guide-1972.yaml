@@ -1,0 +1,25 @@
+id: ibm-system-360-mft-guide-1972
+title: "IBM System/360 Operating System: MFT Guide, OS Release 21.7, GC27-6939-10"
+publisher: International Business Machines Corporation
+url: https://bitsavers.org/pdf/ibm/360/os/R21.7_Apr73/GC27-6939-10_MFT_Guide_R21.7_Mar72.pdf
+publishedDate: '1972-03'
+accessedDate: 2026-09-26
+locator: >-
+  Eleventh edition with Technical Newsletter GN28-2546; printed p. 69
+  (PDF p. 71), Minimum System Storage and Device Requirements; printed p. 18
+  (PDF p. 20), definition of K
+tier: A
+sourceType: technical-manual
+editorialStatus: approved
+license: Copyright IBM. Short extracts are retained to verify cited facts.
+usageNote: >-
+  The March 1972 edition incorporates Technical Newsletter GN28-2546 dated
+  April 16, 1973. The resulting scan applies to OS Release 21.7; it does not
+  document the software available at the Model 50's introduction.
+fetch:
+  url: https://bitsavers.org/pdf/ibm/360/os/R21.7_Apr73/GC27-6939-10_MFT_Guide_R21.7_Mar72.pdf
+  fetchedAt: 2026-09-26T20:30:06Z
+  httpStatus: 200
+  contentType: application/pdf
+  byteLength: 12063619
+  sha256: f966b2a421f97b826a6dba5b70bfba975314b2233da745532525350a5c01bd01

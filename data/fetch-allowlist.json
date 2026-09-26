@@ -116,7 +116,7 @@
       "host": "archive.org",
       "pathPrefix": "/download/",
       "redirectHosts": [".archive.org"],
-      "note": "Internet Archive item files. Scans of vendor documentation whose publishers no longer host it — Commodore manuals and similar. The archive is the custodian, not the author: the tier is decided by who wrote the document. Download URLs redirect to a per-item storage node such as dn760008.eu.archive.org, so any host under archive.org is permitted as a redirect target."
+      "note": "Internet Archive item files. Scans of vendor documentation whose publishers no longer host it \u2014 Commodore manuals and similar. The archive is the custodian, not the author: the tier is decided by who wrote the document. Download URLs redirect to a per-item storage node such as dn760008.eu.archive.org, so any host under archive.org is permitted as a redirect target."
     },
     {
       "host": "www.minuszerodegrees.net",
@@ -126,13 +126,13 @@
     {
       "host": "segaretro.org",
       "pathPrefix": "/images/",
-      "note": "Sega Retro's file store, which holds scans of Sega's own service manuals. The wiki around them is an enthusiast encyclopedia and is not cited; only the uploaded documents are, on the same principle as the Internet Archive — the site is the custodian, not the author, and the tier follows whoever wrote the document. A service manual carries a specification page and a power rating that Sega published nowhere else.",
+      "note": "Sega Retro's file store, which holds scans of Sega's own service manuals. The wiki around them is an enthusiast encyclopedia and is not cited; only the uploaded documents are, on the same principle as the Internet Archive \u2014 the site is the custodian, not the author, and the tier follows whoever wrote the document. A service manual carries a specification page and a power rating that Sega published nowhere else.",
       "$comment": "Pinned to the file store rather than the wiki, so an article can never become a citation by accident."
     },
     {
       "host": "datasheets.chipdb.org",
       "pathPrefix": "/Intel/x86/",
-      "note": "chipdb's mirror of Intel processor datasheets, pinned to the x86 directory. Same principle as the Internet Archive and Sega Retro: the site is the custodian, not the author, and the tier follows Intel. Each file kept here carries Intel's own order number and date on its cover, which is what makes the mirrored copy checkable — and these datasheets are where the pre-2000 parts state a thermal figure at all, Intel's own servers having stopped serving them.",
+      "note": "chipdb's mirror of Intel processor datasheets, pinned to the x86 directory. Same principle as the Internet Archive and Sega Retro: the site is the custodian, not the author, and the tier follows Intel. Each file kept here carries Intel's own order number and date on its cover, which is what makes the mirrored copy checkable \u2014 and these datasheets are where the pre-2000 parts state a thermal figure at all, Intel's own servers having stopped serving them.",
       "$comment": "Pinned to the datasheet directory: nothing else on this host is cited."
     },
     {
@@ -185,7 +185,7 @@
     {
       "host": "www.nvidia.com",
       "pathPrefix": "/en-us/geforce/",
-      "note": "NVIDIA's consumer graphics section: the current product pages and the dated GeForce articles that carry a card's launch specification table. A separate entry from the data-center one because it is a separate part of the site — the accelerator entry never opened a path to the GeForce cards."
+      "note": "NVIDIA's consumer graphics section: the current product pages and the dated GeForce articles that carry a card's launch specification table. A separate entry from the data-center one because it is a separate part of the site \u2014 the accelerator entry never opened a path to the GeForce cards."
     },
     {
       "host": "international.download.nvidia.com",
@@ -325,7 +325,7 @@
     {
       "host": "www.nintendo.com",
       "pathPrefix": "/it-it/Assistenza/",
-      "note": "Nintendo's Italian support pages, which still carry per-accessory technical specifications — including electrical ratings for adapters the other regional sites describe only in prose."
+      "note": "Nintendo's Italian support pages, which still carry per-accessory technical specifications \u2014 including electrical ratings for adapters the other regional sites describe only in prose."
     },
     {
       "host": "datasheets.raspberrypi.com",
@@ -336,7 +336,7 @@
     {
       "host": "www.nintendo.com",
       "pathPrefix": "/en-gb/Hardware/Nintendo-History/",
-      "note": "Nintendo's English-language hardware-history section, the counterpart of the Spanish one already listed. It carries per-console 'Technical Details' pages for the Nintendo Entertainment System, the Super Nintendo, the Nintendo 64, the GameCube and the Pokémon mini, and for nothing later — which is itself the answer to what Nintendo published about its newer machines."
+      "note": "Nintendo's English-language hardware-history section, the counterpart of the Spanish one already listed. It carries per-console 'Technical Details' pages for the Nintendo Entertainment System, the Super Nintendo, the Nintendo 64, the GameCube and the Pok\u00e9mon mini, and for nothing later \u2014 which is itself the answer to what Nintendo published about its newer machines."
     },
     {
       "host": "www.nintendo.com",
@@ -477,6 +477,46 @@
       "host": "www.computinghistory.org.uk",
       "pathPrefix": "/det/",
       "note": "Centre for Computing History collection records, pinned to the per-item path. Cited only by trivia, and only as a community source: the descriptive prose repeats the corresponding Wikipedia article."
+    },
+    {
+      "host": "bitsavers.org",
+      "pathPrefix": "/pdf/ibm/360/functional_characteristics/A22-6898-1_360-50_funcChar_1967.pdf",
+      "note": "Fixed IBM primary document scan for System/360 Model 50 verification. The archive is the custodian; IBM authored the document."
+    },
+    {
+      "host": "bitsavers.org",
+      "pathPrefix": "/pdf/ibm/360/fe/C22-6820-8_System_360_Installation_Manual_-_Physical_Planning.pdf",
+      "note": "Fixed IBM primary document scan for System/360 Model 50 verification. The archive is the custodian; IBM authored the document."
+    },
+    {
+      "host": "bitsavers.org",
+      "pathPrefix": "/pdf/ibm/360/princOps/A22-6821-0_360PrincOps.pdf",
+      "note": "Fixed IBM primary document scan for System/360 Model 50 verification. The archive is the custodian; IBM authored the document."
+    },
+    {
+      "host": "archive.computerhistory.org",
+      "pathPrefix": "/resources/access/text/2014/10/102665839-05-01-acc.pdf",
+      "note": "Fixed IBM primary document scan for System/360 Model 50 verification. The archive is the custodian; IBM authored the document."
+    },
+    {
+      "host": "public.dhe.ibm.com",
+      "pathPrefix": "/eserver/zseries/zos/vse/pdf3/wavv05/Bringing_You_Up_To_Date_with_zSeries_Hardware_2005.pdf",
+      "note": "Fixed IBM presentation used to verify the Model 50 introduction date and internal machine cycle."
+    },
+    {
+      "host": "www.righto.com",
+      "pathPrefix": "/2022/01/ibm360model50.html",
+      "note": "Fixed independent Model 50 architecture analysis used in the missing-metric audits."
+    },
+    {
+      "host": "bitsavers.org",
+      "pathPrefix": "/pdf/ibm/360/dos/GC24-5030-8_Disk_and_Tape_Operating_Systems_Concepts_and_Facilities_Oct70.pdf",
+      "note": "Fixed IBM operating-system manual used to verify Model 50 software memory requirements. Bitsavers is the custodian; IBM authored the document."
+    },
+    {
+      "host": "bitsavers.org",
+      "pathPrefix": "/pdf/ibm/360/os/R21.7_Apr73/GC27-6939-10_MFT_Guide_R21.7_Mar72.pdf",
+      "note": "Fixed IBM operating-system manual used to verify Model 50 software memory requirements. Bitsavers is the custodian; IBM authored the document."
     }
   ]
 }

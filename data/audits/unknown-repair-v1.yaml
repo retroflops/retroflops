@@ -1166,3 +1166,18 @@ entries:
     reviewedOn: 2026-08-25
     targetIds:
       - zx-spectrum-rom:capacity
+  - measurementId: ibm-system-360-model-50:clock-frequency
+    disposition: true-unknown
+    reviewedOn: 2026-09-26
+    targetIds:
+      - ibm-system-360-model-50:clock-frequency
+  - measurementId: ibm-2050-processing-unit:peak-fp32-rate
+    disposition: true-unknown
+    reviewedOn: 2026-09-26
+    targetIds:
+      - ibm-2050-processing-unit:peak-fp32-rate
+  - measurementId: ibm-system-360-model-50:rated-power-consumption
+    disposition: true-unknown
+    reviewedOn: 2026-09-26
+    targetIds:
+      - ibm-system-360-model-50:rated-power-consumption

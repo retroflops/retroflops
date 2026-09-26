@@ -1,0 +1,21 @@
+id: ken-shirriff-ibm-model-50-microcode
+title: Simulating the IBM 360/50 mainframe from its microcode
+publisher: Ken Shirriff
+author: Ken Shirriff
+url: https://www.righto.com/2022/01/ibm360model50.html
+publishedDate: 2022-01
+accessedDate: 2026-09-26
+locator: >-
+  Hardware of the Model 50; The Model 50’s internal architecture
+tier: B
+sourceType: independent-analysis
+editorialStatus: approved
+license: Copyright the publisher. Short extracts are retained for verification
+  of cited facts.
+fetch:
+  url: https://www.righto.com/2022/01/ibm360model50.html
+  fetchedAt: 2026-09-26T19:10:35Z
+  httpStatus: 200
+  contentType: text/html; charset=UTF-8
+  byteLength: 252309
+  sha256: 3f3e30fe8a1e3df299fe9e36c3eca843a38cb08f2986e8bddd339cf04895bf1d

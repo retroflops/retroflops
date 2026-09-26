@@ -1,0 +1,12 @@
+- id: ibm-system-360-physical-planning:apparent-power
+  sourceId: ibm-system-360-physical-planning
+  locator:
+    Printed/PDF p. 35, 2050 Processing Unit, Models F and G, Power Requirements
+  extract: >-
+    kva 6.5
+  extractHash: 'd555809396ebca368d04687025b3ea797abb6b51d15f096747e06c8ae71ac971'
+  transcribedOn: 2026-09-26
+  transcribedBy: RetroFlops editorial
+  notes: >-
+    The unit is apparent power. Neither a power factor nor a configured system
+    consumption in watts is stated.

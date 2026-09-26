@@ -1,0 +1,30 @@
+id: ibm-system-360-model-50:memory-bandwidth-from-cycle-time
+formula:
+  id: memory-bandwidth-from-cycle-time
+  version: '1'
+  expression: bytes per memory cycle ÷ memory cycle time
+inputMeasurementIds:
+  - ibm-2050f-main-storage:memory-cycle-time
+constants:
+  - id: bytes-per-memory-cycle
+    label: bytes transferred by one main-storage cycle
+    value: '4'
+    reason: >-
+      The Main Storage section states that each read/write cycle accesses four
+      bytes. This is an exact transfer width, excluding parity bits.
+    sourceIds:
+      - ibm-system-360-model-50-functional-characteristics
+result:
+  state: value
+  value: '2000000'
+  unit: B/s
+  significantDigits: 2
+rounding: half-up
+caveat: >-
+  Divides bytes transferred by one main-storage cycle by the published memory
+  cycle time. The result is an interface ceiling inferred from the transfer
+  width and cycle time. It is not measured application throughput: refresh,
+  contention and wait states can consume cycles. Reported to 2 significant
+  digits. That is the precision of the cycle time, because the bytes-per-cycle
+  constant is exact.
+editorialStatus: approved

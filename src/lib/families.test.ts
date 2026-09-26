@@ -124,9 +124,12 @@ describe('component families', () => {
 describe('categories', () => {
   it('publishes a category only for the types that have records', () => {
     const types = systemTypesInUse();
-    expect(types).not.toContain('mainframe');
+    expect(types).toContain('mainframe');
+    expect(systemsOfType('mainframe').map((record) => record.id)).toEqual([
+      'ibm-system-360-model-50',
+    ]);
     expect(types).not.toContain('minicomputer');
-    // Every published category has machines, and between them they hold all 78.
+    // Every published category has machines, and together they cover the catalog.
     expect(types.filter((type) => systemsOfType(type).length === 0)).toEqual([]);
     const total = types.reduce((sum, type) => sum + systemsOfType(type).length, 0);
     expect(total).toBe(getSystems().length);

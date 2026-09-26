@@ -32,6 +32,8 @@ describe('data:image-gaps', () => {
     const inventory = await readFile(join(directory, 'image-requests.md'), 'utf8');
     expect(inventory).toContain('# Photograph requests');
     expect(inventory).toContain('## Group 6, Reference platforms, which are not being asked for');
+    expect(inventory).not.toContain('### IBM System/360 Model 50');
+    expect(inventory).not.toContain('undefined');
     expect(await readdir(directory)).toEqual(['image-requests.md']);
   });
 });

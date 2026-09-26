@@ -1,0 +1,24 @@
+- id: ibm-zseries-hardware-2005:introduction-date
+  sourceId: ibm-zseries-hardware-2005
+  locator: Slide/PDF p. 59, System/360 Model 50 column, Introduction row
+  extract: >-
+    April 7, 1964
+  extractHash: 'cf495091a81023bad2021074645836de5ff7681222c39346a9d5bc8ec3e5c898'
+  transcribedOn: 2026-09-26
+  transcribedBy: RetroFlops editorial
+  notes: >-
+    The table labels this as Introduction. It does not establish the selected
+    configuration's shipment date.
+- id: ibm-zseries-hardware-2005:machine-cycle-time
+  sourceId: ibm-zseries-hardware-2005
+  locator: Slide/PDF p. 59, System/360 Model 50 column, Machine cycle time row
+  extract: >-
+    500 nanoseconds
+  extractHash: '3bfcc71d7c1c499c4c5d292e3ac74463c2e3cf0e8bc591c539bef06c3466601b'
+  transcribed:
+    state: value
+    value: '500'
+    unit: ns
+    significantDigits: 1
+  transcribedOn: 2026-09-26
+  transcribedBy: RetroFlops editorial

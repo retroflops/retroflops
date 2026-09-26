@@ -1,0 +1,18 @@
+id: ibm-2050f-main-storage
+slug: ibm-2050f-main-storage
+name: IBM 2050F Main Storage
+manufacturer: IBM
+kind: memory
+memoryType: magnetic-core storage
+summary: >-
+  Main storage in the F50 configuration, with
+  {{measurement:ibm-2050f-main-storage:capacity}} available to programs and a
+  {{measurement:ibm-2050f-main-storage:memory-cycle-time}} read/write cycle.
+sourceIds:
+  - ibm-system-360-model-50-functional-characteristics
+  - ibm-system-360-model-50-processor-controls
+editorialStatus: approved
+notes: >-
+  This record describes the fitted main storage. Processor registers,
+  microprogram storage, channel-control storage, and optional external core
+  storage are outside its capacity.

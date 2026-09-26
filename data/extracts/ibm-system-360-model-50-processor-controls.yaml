@@ -1,0 +1,26 @@
+- id: ibm-system-360-model-50-processor-controls:memory-cycle-time
+  sourceId: ibm-system-360-model-50-processor-controls
+  locator: Printed p. 1 (PDF p. 4), main-storage paragraph
+  extract: >-
+    2.0-µsec. cycle.
+  extractHash: '9d33d3e1ec0997be2452639f1893920a98acda5820ce60989685a598a4bb6aba'
+  transcribed:
+    state: value
+    value: '2.0'
+    unit: us
+    significantDigits: 2
+  transcribedOn: 2026-09-26
+  transcribedBy: RetroFlops editorial
+  notes: >-
+    This is the main-storage cycle, not the shorter ROS or data-flow cycle.
+- id: ibm-system-360-model-50-processor-controls:internal-cycle-time
+  sourceId: ibm-system-360-model-50-processor-controls
+  locator: Printed p. 5 (PDF p. 6), Figure 4, ROS and data-flow timing
+  extract: >-
+    500ns
+  extractHash: 'd6194847f8205a3f783e642fc4e8b173b7c54272a9a24cdddc5226053241bb58'
+  transcribedOn: 2026-09-26
+  transcribedBy: RetroFlops editorial
+  notes: >-
+    The timing diagram spans one internal cycle. It does not identify a nominal
+    oscillator frequency.

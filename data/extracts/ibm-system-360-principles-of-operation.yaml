@@ -1,0 +1,12 @@
+- id: ibm-system-360-principles-of-operation:short-floating-point
+  sourceId: ibm-system-360-principles-of-operation
+  locator:
+    Printed/PDF p. 40, Floating-Point Arithmetic, short-precision paragraph
+  extract: >-
+    all operands and results are 32-bit floating-point words
+  extractHash: '700d7d586c67438f64507448e809746a1de811e0b2e0d59e9c80efb047c09a48'
+  transcribedOn: 2026-09-26
+  transcribedBy: RetroFlops editorial
+  notes: >-
+    Short precision uses hexadecimal floating point. The paragraph separately
+    identifies multiplication's long result.

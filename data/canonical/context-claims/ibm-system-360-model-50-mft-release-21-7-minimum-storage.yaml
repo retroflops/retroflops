@@ -1,0 +1,25 @@
+id: ibm-system-360-model-50:mft-release-21-7-minimum-storage
+subject:
+  kind: system
+  id: ibm-system-360-model-50
+label: OS/360 MFT Release 21.7 minimum main storage
+quantity:
+  state: value
+  value: '128'
+  unit: KiB
+  significantDigits: 3
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+evidenceLevel: confirmed
+editorialStatus: approved
+sourceIds:
+  - ibm-system-360-mft-guide-1972
+extractIds:
+  - ibm-system-360-mft-guide-1972:minimum-main-storage
+  - ibm-system-360-mft-guide-1972:k-definition
+caveat: >-
+  This is the computing system's software memory requirement, not the MFT
+  nucleus size or this configuration's installed memory. The manual defines K as
+  1024 and separately lists required devices. The requirement applies to OS/360
+  MFT Release 21.7, not to all OS/360 variants or releases.

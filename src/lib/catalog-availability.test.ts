@@ -15,9 +15,9 @@ describe('catalog availability', () => {
     const systems = [...availability.systems.values()];
     const components = [...availability.components.values()];
 
-    expect(systems.filter((record) => record.availability === 'catalog')).toHaveLength(81);
+    expect(systems.filter((record) => record.availability === 'catalog')).toHaveLength(82);
     expect(systems.filter((record) => record.availability === 'research')).toHaveLength(0);
-    expect(components.filter((record) => record.availability === 'catalog')).toHaveLength(250);
+    expect(components.filter((record) => record.availability === 'catalog')).toHaveLength(252);
     expect(components.filter((record) => record.availability === 'research')).toHaveLength(0);
   });
 

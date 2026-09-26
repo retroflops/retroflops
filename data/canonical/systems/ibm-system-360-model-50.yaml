@@ -1,0 +1,69 @@
+id: ibm-system-360-model-50
+slug: ibm-system-360-model-50
+name: IBM System/360 Model 50
+aliases:
+  - IBM 360/50
+  - IBM 2050F
+manufacturer: IBM
+type: mainframe
+releaseDate: '1964-04-07'
+summary: >-
+  A microprogrammed System/360 mainframe, represented by the F50 configuration
+  with {{measurement:ibm-2050f-main-storage:capacity}} of main storage.
+description: |-
+  IBM designed the Model 50 for commercial and scientific computing. Its
+  universal instruction set combines the System/360 Standard, Commercial, and
+  Scientific sets. The arithmetic unit handles decimal and hexadecimal
+  arithmetic, including short and long hexadecimal floating-point operations.
+
+  Read-only storage holds the microprogram that controls processor data flow;
+  application programs cannot address it directly. Core main storage holds
+  programs and data, while local storage holds registers and scratchpad data.
+  Channels overlap input/output with processor work. The selected F50 configuration
+  includes the processor's main storage without optional external core storage
+  or a display unit.
+
+  Software requirements depend on the operating system and release. IBM's DOS
+  Release 24 manual specifies a minimum of
+  {{context:ibm-system-360-model-50:dos-release-24-minimum-storage}} of main
+  storage, below this configuration's
+  {{measurement:ibm-2050f-main-storage:capacity}}. DOS also requires suitable
+  disk equipment, which is not included here. The OS/360 MFT guide for Release
+  21.7 requires at least
+  {{context:ibm-system-360-model-50:mft-release-21-7-minimum-storage}} of main
+  storage, exceeding this configuration's capacity. These later manuals
+  describe software requirements, not the software supplied at introduction.
+configurations:
+  - id: 2050f
+    label: F50 with IBM 2050F processing unit
+    entries:
+      - componentId: ibm-2050-processing-unit
+        role: main-cpu
+        count: 1
+        shared: false
+        measurementIds:
+          - ibm-system-360-model-50:clock-frequency
+          - ibm-2050-processing-unit:peak-fp32-rate
+      - componentId: ibm-2050f-main-storage
+        role: system-memory
+        count: 1
+        shared: false
+        measurementIds:
+          - ibm-2050f-main-storage:capacity
+          - ibm-2050f-main-storage:memory-cycle-time
+          - ibm-system-360-model-50:memory-bandwidth
+    notes: >-
+      The F50 variant is documented in the functional manual's second edition.
+      Optional external core storage and display units are outside this
+      configuration.
+sourceIds:
+  - ibm-system-360-model-50-functional-characteristics
+  - ibm-zseries-hardware-2005
+  - ibm-system-360-dos-concepts-1970
+  - ibm-system-360-mft-guide-1972
+imageIds:
+  - ibm-system-360-model-50-console
+editorialStatus: approved
+notes: >-
+  The introduction date follows IBM's historical comparison table. It is an
+  announcement date, not a first-shipment date for the selected configuration.

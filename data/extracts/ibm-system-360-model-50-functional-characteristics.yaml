@@ -1,0 +1,38 @@
+- id: ibm-system-360-model-50-functional-characteristics:f50-main-storage
+  sourceId: ibm-system-360-model-50-functional-characteristics
+  locator: Printed/PDF p. 5, model table, F50 / 2050F row
+  extract: >-
+    F50 2050F 65,536 bytes of main storage
+  extractHash: '98bea3fbb20822ff054908816f0f66ff5206b369cb447827b14caae024d95519'
+  transcribed:
+    state: value
+    value: '65536'
+    unit: B
+    significantDigits: 5
+  transcribedOn: 2026-09-26
+  transcribedBy: RetroFlops editorial
+  notes: >-
+    The table identifies the fitted main storage of the selected F50 variant.
+- id: ibm-system-360-model-50-functional-characteristics:main-storage-access
+  sourceId: ibm-system-360-model-50-functional-characteristics
+  locator: Printed/PDF p. 7, Main Storage
+  extract: >-
+    2 microseconds with access to four bytes.
+  extractHash: 'e4b835907fc53784647b39720a0df8c28ff9304dafe84df488e89c047470bd55'
+  transcribedOn: 2026-09-26
+  transcribedBy: RetroFlops editorial
+  notes: >-
+    Four bytes are accessed in each main-storage cycle. The storage extension
+    used for channel controls is not accessible to the problem programmer.
+- id: ibm-system-360-model-50-functional-characteristics:floating-point-timing
+  sourceId: ibm-system-360-model-50-functional-characteristics
+  locator:
+    Printed/PDF p. 41, Timing Assumptions, item 3, floating-point paragraph
+  extract: >-
+    weighted average of these variables.
+  extractHash: '661038d51ac482326122a3b39d9eada23bed335b55605351040d106464e6d963'
+  transcribedOn: 2026-09-26
+  transcribedBy: RetroFlops editorial
+  notes: >-
+    Floating-point times depend on shifts and recomplementation. These weighted
+    averages do not establish a theoretical peak operation rate.

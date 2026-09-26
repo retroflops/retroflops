@@ -1,0 +1,24 @@
+id: ibm-system-360-model-50:dos-release-24-minimum-storage
+subject:
+  kind: system
+  id: ibm-system-360-model-50
+label: DOS Release 24 minimum main storage
+quantity:
+  state: value
+  value: '16'
+  unit: KiB
+  significantDigits: 2
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+evidenceLevel: confirmed
+editorialStatus: approved
+sourceIds:
+  - ibm-system-360-dos-concepts-1970
+extractIds:
+  - ibm-system-360-dos-concepts-1970:minimum-main-storage
+  - ibm-system-360-dos-concepts-1970:k-definition
+caveat: >-
+  This is a software requirement, not the fitted memory capacity. The manual
+  defines K as 1024 and separately requires disk equipment for DOS. It applies
+  to Release 24, not to every DOS release or the Model 50's launch software.

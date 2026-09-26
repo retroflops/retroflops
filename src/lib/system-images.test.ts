@@ -100,6 +100,7 @@ const ILLUSTRATED: Readonly<Record<string, string>> = {
   // no photographer, and everything else there is a module inside a display
   // case or a page out of a manual.
   'apollo-guidance-computer-block-ii': 'apollo-guidance-computer-unit',
+  'ibm-system-360-model-50': 'ibm-system-360-model-50-console',
 };
 
 describe('lead images', () => {
