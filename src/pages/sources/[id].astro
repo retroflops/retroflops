@@ -4,9 +4,10 @@
 
 import { getCollection } from 'astro:content';
 
+import SourceRecord from '~/components/source-record.astro';
 import BaseLayout from '~/layouts/base-layout.astro';
 import { getCatalog } from '~/lib/catalog';
-import { formatPartialDate, humaniseIdentifier, metricLabel } from '~/lib/display';
+import { metricLabel } from '~/lib/display';
 import { route } from '~/lib/paths';
 import { breadcrumbList, sourceArticle } from '~/lib/structured-data';
 
@@ -31,12 +32,6 @@ const systems = catalog.systems.filter((system) => system.sourceIds.includes(sou
 const components = catalog.components.filter((component) =>
   component.sourceIds.includes(source.id),
 );
-
-const TIER_NOTES = {
-  A: 'Vendor documentation, a government document, a technical manual or an official benchmark result. One tier A source is sufficient to publish a figure.',
-  B: 'A high-quality independent analysis. Two agreeing tier B sources are needed to publish a figure.',
-  C: 'A wiki, encyclopedia or aggregator. Used for discovery only, never as evidence for a published figure.',
-} as const;
 
 const absolute = (path: string): string => new URL(route(path), Astro.site ?? Astro.url).href;
 const structuredData = [
@@ -64,98 +59,7 @@ const structuredData = [
 
   <section class="stack" aria-labelledby="record">
     <h2 id="record">The record</h2>
-    <dl class="detail-list">
-      {
-        source.author !== undefined && (
-          <div>
-            <dt>Author</dt>
-            <dd>{source.author}</dd>
-          </div>
-        )
-      }
-      <div>
-        <dt>Type</dt>
-        <dd>{humaniseIdentifier(source.sourceType)}</dd>
-      </div>
-      <div>
-        <dt>Tier</dt>
-        <dd>{source.tier}: {TIER_NOTES[source.tier]}</dd>
-      </div>
-      <div>
-        <dt>Locator</dt>
-        <dd>{source.locator}</dd>
-      </div>
-      {
-        source.publishedDate !== undefined && (
-          <div>
-            <dt>Published</dt>
-            <dd>{formatPartialDate(source.publishedDate)}</dd>
-          </div>
-        )
-      }
-      <div>
-        <dt>Consulted</dt>
-        <dd>{source.accessedDate}</dd>
-      </div>
-      {
-        source.url !== undefined && (
-          <div>
-            <dt>{source.urlStatus === 'known-unavailable' ? 'Original address' : 'Address'}</dt>
-            <dd>
-              <a class="wrap-anywhere" href={source.url} rel="external nofollow">
-                {source.url}
-              </a>
-              {source.urlStatus === 'known-unavailable' && (
-                <span class="meta"> No longer available.</span>
-              )}
-            </dd>
-          </div>
-        )
-      }
-      {
-        source.archiveUrl !== undefined && (
-          <div>
-            <dt>Archive</dt>
-            <dd>
-              <a class="wrap-anywhere" href={source.archiveUrl} rel="external nofollow">
-                {source.archiveUrl}
-              </a>
-            </dd>
-          </div>
-        )
-      }
-      {
-        source.fetch !== undefined && (
-          <div>
-            <dt>Retrieved</dt>
-            <dd>
-              <span class="numeric">{source.fetch.byteLength}</span> bytes,
-              <span class="numeric"> SHA-256 {source.fetch.sha256.slice(0, 16)}…</span>
-              <span class="meta">
-                Recorded by the pipeline as evidence of what was downloaded, never as a fact about
-                the hardware.
-              </span>
-            </dd>
-          </div>
-        )
-      }
-      {
-        source.license !== undefined && (
-          <div>
-            <dt>License</dt>
-            <dd>{source.license}</dd>
-          </div>
-        )
-      }
-      {
-        source.usageNote !== undefined && (
-          <div>
-            <dt>Usage</dt>
-            <dd>{source.usageNote}</dd>
-          </div>
-        )
-      }
-    </dl>
+    <SourceRecord source={source} />
   </section>
 
   {

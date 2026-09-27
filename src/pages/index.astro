@@ -4,6 +4,7 @@
 
 import { getCollection } from 'astro:content';
 
+import PresetCard from '~/components/preset-card.astro';
 import CatalogSearch from '~/islands/catalog-search';
 import BaseLayout from '~/layouts/base-layout.astro';
 import { getCatalog } from '~/lib/catalog';
@@ -107,17 +108,7 @@ const startingPoints = [
     <ul class="card-grid">
       {
         promoted.map(({ preset, comparison }) => (
-          <li class="card stack">
-            <p class="card__eyebrow">
-              {comparison.subjects.length} records ·{' '}
-              <span class="numeric">{comparison.ratioCount}</span>
-              {comparison.ratioCount === 1 ? ' multiplier' : ' multipliers'}
-            </p>
-            <h3>
-              <a href={route(`/compare/${preset.id}/`)}>{preset.data.title}</a>
-            </h3>
-            <p class="card__summary">{preset.data.summary}</p>
-          </li>
+          <PresetCard preset={preset} comparison={comparison} />
         ))
       }
     </ul>

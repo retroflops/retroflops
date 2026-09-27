@@ -18,6 +18,8 @@ import {
   catalogAvailability,
   componentAvailability,
   systemAvailability,
+  type RecordAvailability,
+  type RecordCounts,
 } from '../catalog-availability.ts';
 import { COMPARABILITY_RULES_VERSION } from './comparability.ts';
 import { containsMarker, resolveExportProse } from './editorial-text.ts';
@@ -123,46 +125,44 @@ function buildSummary(dataset: ParsedDataset): string {
 
   const systems = sortById(dataset.systems).map((system) => {
     const state = systemAvailability(availability, system);
-    return {
-      id: system.id,
-      slug: system.slug,
-      name: system.name,
-      manufacturer: system.manufacturer,
-      type: system.type,
-      releaseDate: system.releaseDate,
-      editorialStatus: system.editorialStatus,
-      availability: state.availability,
-      valueCount: state.counts.valueCount,
-      approvedValueCount: state.counts.approvedValueCount,
-      provisionalValueCount: state.counts.provisionalValueCount,
-      unknownCount: state.counts.unknownCount,
-      notApplicableCount: state.counts.notApplicableCount,
-      unverifiedCount: state.counts.unverifiedCount,
-      metrics: [...(metricsBySubject.get(`system:${system.id}`) ?? [])].toSorted(),
-      comparabilityGroups: systemGroups(system),
-    };
+    return Object.assign(
+      {
+        id: system.id,
+        slug: system.slug,
+        name: system.name,
+        manufacturer: system.manufacturer,
+        type: system.type,
+        releaseDate: system.releaseDate,
+        editorialStatus: system.editorialStatus,
+      },
+      availabilityFields(state),
+      {
+        metrics: [...(metricsBySubject.get(`system:${system.id}`) ?? [])].toSorted(),
+        comparabilityGroups: systemGroups(system),
+      },
+    );
   });
 
   const components = sortById(dataset.components).map((component) => {
     const state = componentAvailability(availability, component);
-    return {
-      id: component.id,
-      slug: component.slug,
-      kind: component.kind,
-      name: component.name,
-      manufacturer: component.manufacturer,
-      architecture: component.architecture,
-      editorialStatus: component.editorialStatus,
-      availability: state.availability,
-      valueCount: state.counts.valueCount,
-      approvedValueCount: state.counts.approvedValueCount,
-      provisionalValueCount: state.counts.provisionalValueCount,
-      unknownCount: state.counts.unknownCount,
-      notApplicableCount: state.counts.notApplicableCount,
-      unverifiedCount: state.counts.unverifiedCount,
-      metrics: [...(metricsBySubject.get(`component:${component.id}`) ?? [])].toSorted(),
-      comparabilityGroups: [...(groupsBySubject.get(`component:${component.id}`) ?? [])].toSorted(),
-    };
+    return Object.assign(
+      {
+        id: component.id,
+        slug: component.slug,
+        kind: component.kind,
+        name: component.name,
+        manufacturer: component.manufacturer,
+        architecture: component.architecture,
+        editorialStatus: component.editorialStatus,
+      },
+      availabilityFields(state),
+      {
+        metrics: [...(metricsBySubject.get(`component:${component.id}`) ?? [])].toSorted(),
+        comparabilityGroups: [
+          ...(groupsBySubject.get(`component:${component.id}`) ?? []),
+        ].toSorted(),
+      },
+    );
   });
 
   return canonicalJson({
@@ -273,6 +273,14 @@ function csvField(value: string): string {
 }
 
 /* -------------------------------------------------------------------------- */
+
+/** A record's availability and every count behind it, as the summary publishes them. */
+function availabilityFields(state: {
+  readonly availability: RecordAvailability;
+  readonly counts: RecordCounts;
+}): { readonly availability: RecordAvailability } & RecordCounts {
+  return { availability: state.availability, ...state.counts };
+}
 
 function sortById<T extends { readonly id: string }>(records: readonly T[]): readonly T[] {
   return records.toSorted((a, b) => (a.id < b.id ? -1 : a.id > b.id ? 1 : 0));

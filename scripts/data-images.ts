@@ -117,30 +117,9 @@ async function processImage(
     };
   }
 
-  const digest = sha256(original);
-  if (digest !== image.original.sha256) {
-    return fail(
-      `the cached original hashes to ${digest.slice(0, 12)}, but the record states ` +
-        `${image.original.sha256.slice(0, 12)}`,
-    );
-  }
-
-  const reasons = checkTransformRecipe(image.transform);
-  if (reasons.length > 0) {
-    return fail(`the recipe is not admissible: ${reasons.join(', ')}`);
-  }
-
-  const metadata = await sharp(original).metadata();
-  // `rotate()` applies the EXIF orientation, so an upright photograph stored
-  // sideways would make every coordinate in a crop rectangle wrong.
-  const upright = (metadata.orientation ?? 1) >= 5;
-  const width = upright ? (metadata.height ?? 0) : (metadata.width ?? 0);
-  const height = upright ? (metadata.width ?? 0) : (metadata.height ?? 0);
-  if (width !== image.original.width || height !== image.original.height) {
-    return fail(
-      `the original is ${width}×${height}, but the record states ` +
-        `${image.original.width}×${image.original.height}`,
-    );
+  const problem = await originalProblem(image, original);
+  if (problem !== undefined) {
+    return fail(problem);
   }
 
   let canonical: Buffer;
@@ -157,14 +136,57 @@ async function processImage(
     );
   }
 
+  return await storeCanonical(image, file, canonical, checkOnly);
+}
+
+/** Why the cached original cannot be rendered by the record's recipe, if it cannot. */
+async function originalProblem(image: ImageAsset, original: Buffer): Promise<string | undefined> {
+  const digest = sha256(original);
+  if (digest !== image.original.sha256) {
+    return (
+      `the cached original hashes to ${digest.slice(0, 12)}, but the record states ` +
+      `${image.original.sha256.slice(0, 12)}`
+    );
+  }
+
+  const reasons = checkTransformRecipe(image.transform);
+  if (reasons.length > 0) {
+    return `the recipe is not admissible: ${reasons.join(', ')}`;
+  }
+
+  const metadata = await sharp(original).metadata();
+  // `rotate()` applies the EXIF orientation, so an upright photograph stored
+  // sideways would make every coordinate in a crop rectangle wrong.
+  const upright = (metadata.orientation ?? 1) >= 5;
+  const width = upright ? (metadata.height ?? 0) : (metadata.width ?? 0);
+  const height = upright ? (metadata.width ?? 0) : (metadata.height ?? 0);
+  if (width !== image.original.width || height !== image.original.height) {
+    return (
+      `the original is ${width}×${height}, but the record states ` +
+      `${image.original.width}×${image.original.height}`
+    );
+  }
+  return undefined;
+}
+
+async function readIfPresent(path: string): Promise<Buffer | undefined> {
+  try {
+    return await readFile(path);
+  } catch {
+    return undefined;
+  }
+}
+
+/** Stores the canonical file and its record, or in check mode reports that they are stale. */
+async function storeCanonical(
+  image: ImageAsset,
+  file: string,
+  canonical: Buffer,
+  checkOnly: boolean,
+): Promise<ImageOutcome> {
   const target = imageAssetPath(image.id);
   const canonicalDigest = sha256(canonical);
-  let current: Buffer | undefined;
-  try {
-    current = await readFile(target);
-  } catch {
-    current = undefined;
-  }
+  const current = await readIfPresent(target);
 
   const fileChanged = current === undefined || sha256(current) !== canonicalDigest;
   const recordChanged =
@@ -176,10 +198,13 @@ async function processImage(
   }
 
   if (checkOnly) {
-    return fail(
-      `${fileChanged ? 'the stored file' : 'the record'} is stale; run pnpm data:images and ` +
+    return {
+      id: image.id,
+      status: 'failed',
+      detail:
+        `${fileChanged ? 'the stored file' : 'the record'} is stale; run pnpm data:images and ` +
         'commit the result',
-    );
+    };
   }
 
   await mkdir(DATA_DIRECTORIES.imageAssets, { recursive: true });

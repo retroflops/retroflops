@@ -21,7 +21,7 @@
 
 import type { Catalog } from './data/schema.ts';
 
-export class CatalogFetchError extends Error {
+class CatalogFetchError extends Error {
   constructor(message: string) {
     super(message);
     this.name = 'CatalogFetchError';

@@ -23,7 +23,7 @@ export function repoPath(...segments: string[]): string {
 }
 
 /** Recursively sorts object keys so serialization does not depend on insertion order. */
-export function sortKeysDeep(value: unknown): unknown {
+function sortKeysDeep(value: unknown): unknown {
   if (Array.isArray(value)) {
     return value.map(sortKeysDeep);
   }
@@ -37,11 +37,11 @@ export function sortKeysDeep(value: unknown): unknown {
 }
 
 /** Canonical JSON text: sorted keys, two-space indent, trailing newline. */
-export function toCanonicalJson(value: unknown): string {
+function toCanonicalJson(value: unknown): string {
   return `${JSON.stringify(sortKeysDeep(value), null, 2)}\n`;
 }
 
-export class YamlFileError extends Error {
+class YamlFileError extends Error {
   constructor(message: string) {
     super(message);
     this.name = 'YamlFileError';
@@ -81,7 +81,7 @@ const PROSE_FIELDS = new Set([
 ]);
 
 /** Uses block scalars for the editorial fields that benefit from visible prose. */
-export function formatYamlProse(document: Document): void {
+function formatYamlProse(document: Document): void {
   visit(document, {
     Pair(_, pair) {
       if (!isPair(pair) || !isScalar(pair.key) || !isScalar(pair.value)) {
@@ -208,23 +208,6 @@ export async function listYamlFiles(directory: string): Promise<string[]> {
   }
   return entries
     .filter((name) => name.endsWith('.yaml'))
-    .toSorted((a, b) => (a < b ? -1 : a > b ? 1 : 0))
-    .map((name) => join(directory, name));
-}
-
-/** JSON files in a directory, sorted by name so traversal order is stable. */
-export async function listJsonFiles(directory: string): Promise<string[]> {
-  let entries: string[];
-  try {
-    entries = await readdir(directory);
-  } catch (error) {
-    if ((error as NodeJS.ErrnoException).code === 'ENOENT') {
-      return [];
-    }
-    throw error;
-  }
-  return entries
-    .filter((name) => name.endsWith('.json'))
     .toSorted((a, b) => (a < b ? -1 : a > b ? 1 : 0))
     .map((name) => join(directory, name));
 }

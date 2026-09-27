@@ -1,0 +1,113 @@
+---
+// SPDX-FileCopyrightText: 2026 Wojciech Polak
+// SPDX-License-Identifier: MIT
+
+/** What a source record states about the document: who, what, where and how it was read. */
+import type { Source } from '~/lib/data/schema';
+import { formatPartialDate, humaniseIdentifier } from '~/lib/display';
+
+interface Props {
+  source: Source;
+}
+
+const { source } = Astro.props;
+
+const TIER_NOTES = {
+  A: 'Vendor documentation, a government document, a technical manual or an official benchmark result. One tier A source is sufficient to publish a figure.',
+  B: 'A high-quality independent analysis. Two agreeing tier B sources are needed to publish a figure.',
+  C: 'A wiki, encyclopedia or aggregator. Used for discovery only, never as evidence for a published figure.',
+} as const;
+---
+
+<dl class="detail-list">
+  {
+    source.author !== undefined && (
+      <div>
+        <dt>Author</dt>
+        <dd>{source.author}</dd>
+      </div>
+    )
+  }
+  <div>
+    <dt>Type</dt>
+    <dd>{humaniseIdentifier(source.sourceType)}</dd>
+  </div>
+  <div>
+    <dt>Tier</dt>
+    <dd>{source.tier}: {TIER_NOTES[source.tier]}</dd>
+  </div>
+  <div>
+    <dt>Locator</dt>
+    <dd>{source.locator}</dd>
+  </div>
+  {
+    source.publishedDate !== undefined && (
+      <div>
+        <dt>Published</dt>
+        <dd>{formatPartialDate(source.publishedDate)}</dd>
+      </div>
+    )
+  }
+  <div>
+    <dt>Consulted</dt>
+    <dd>{source.accessedDate}</dd>
+  </div>
+  {
+    source.url !== undefined && (
+      <div>
+        <dt>{source.urlStatus === 'known-unavailable' ? 'Original address' : 'Address'}</dt>
+        <dd>
+          <a class="wrap-anywhere" href={source.url} rel="external nofollow">
+            {source.url}
+          </a>
+          {source.urlStatus === 'known-unavailable' && (
+            <span class="meta"> No longer available.</span>
+          )}
+        </dd>
+      </div>
+    )
+  }
+  {
+    source.archiveUrl !== undefined && (
+      <div>
+        <dt>Archive</dt>
+        <dd>
+          <a class="wrap-anywhere" href={source.archiveUrl} rel="external nofollow">
+            {source.archiveUrl}
+          </a>
+        </dd>
+      </div>
+    )
+  }
+  {
+    source.fetch !== undefined && (
+      <div>
+        <dt>Retrieved</dt>
+        <dd>
+          <span class="numeric">{source.fetch.byteLength}</span> bytes,
+          <span class="numeric"> SHA-256 {source.fetch.sha256.slice(0, 16)}…</span>
+          <span class="meta">
+            Recorded by the pipeline as evidence of what was downloaded, never as a fact about the
+            hardware.
+          </span>
+        </dd>
+      </div>
+    )
+  }
+  {
+    source.license !== undefined && (
+      <div>
+        <dt>License</dt>
+        <dd>{source.license}</dd>
+      </div>
+    )
+  }
+  {
+    source.usageNote !== undefined && (
+      <div>
+        <dt>Usage</dt>
+        <dd>{source.usageNote}</dd>
+      </div>
+    )
+  }
+</dl>

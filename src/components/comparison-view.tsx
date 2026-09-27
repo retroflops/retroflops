@@ -28,7 +28,7 @@
  * arrive decided from `compare.ts`; this file only chooses the words for them.
  */
 
-import { Fragment } from 'preact';
+import { Fragment, type ComponentChildren } from 'preact';
 import { useState } from 'preact/hooks';
 
 import {
@@ -517,6 +517,59 @@ function Cell({
   );
 }
 
+/**
+ * A comparison table: one column per record, each headed by its name and, on
+ * the at-a-glance card, what kind of machine it is.
+ *
+ * The column count is both a custom property, for the grid template, and a
+ * class, because the width at which columns become readable depends on how
+ * many there are and a container query cannot do that arithmetic.
+ */
+function SubjectTable({
+  subjects,
+  corner,
+  variant,
+  children,
+}: {
+  readonly subjects: readonly CompareSubject[];
+  /** Heading of the row-label column. */
+  readonly corner: string;
+  /** Adds `glance-table`, whose headers also name the maker, type and year. */
+  readonly variant?: 'glance';
+  readonly children: ComponentChildren;
+}) {
+  const glance = variant === 'glance';
+  return (
+    <table
+      class={`cmp-table ${glance ? 'glance-table ' : ''}cmp-table--${Math.min(subjects.length, 4)}`}
+      style={{ '--cmp-columns': subjects.length }}
+    >
+      <thead>
+        <tr>
+          <th scope="col">{corner}</th>
+          {subjects.map((subject) => (
+            <th key={subject.id} scope="col">
+              <a href={route(subject.path)}>{subject.name}</a>
+              {glance && <span class="glance__meta">{subject.manufacturer}</span>}
+              {glance && (
+                <span class="glance__meta">
+                  {[subject.typeLabel, subject.year]
+                    .filter((part) => part !== undefined)
+                    .join(' · ')}
+                </span>
+              )}
+              {subject.configuration !== undefined && (
+                <span class="cmp-table__variant">{subject.configuration.label}</span>
+              )}
+            </th>
+          ))}
+        </tr>
+      </thead>
+      <tbody>{children}</tbody>
+    </table>
+  );
+}
+
 function Block({
   block,
   subjects,
@@ -542,61 +595,37 @@ function Block({
 
       {block.incomparable && <p class="cmp-block__warning">{incomparableText(block)}</p>}
 
-      {/*
-       * The column count is both a custom property, for the grid template, and a
-       * class, because the width at which columns become readable depends on how
-       * many there are and a container query cannot do that arithmetic.
-       */}
-      <table
-        class={`cmp-table cmp-table--${Math.min(subjects.length, 4)}`}
-        style={{ '--cmp-columns': subjects.length }}
-      >
-        <thead>
-          <tr>
-            <th scope="col">Method</th>
-            {subjects.map((subject) => (
-              <th key={subject.id} scope="col">
-                <a href={route(subject.path)}>{subject.name}</a>
-                {subject.configuration !== undefined && (
-                  <span class="cmp-table__variant">{subject.configuration.label}</span>
+      <SubjectTable subjects={subjects} corner="Method">
+        {block.rows.map((row) => {
+          const baselineFraction = row.cells[0]?.figures.find((figure) => figure.bar !== undefined)
+            ?.bar?.fraction;
+          return (
+            <tr key={row.group}>
+              <th scope="row">
+                {methodLabel(row.method)}
+                {row.benchmark !== undefined && (
+                  <span class="cmp-table__benchmark">
+                    {row.benchmark.id} {row.benchmark.version}
+                    {row.benchmark.variant !== undefined && `, ${row.benchmark.variant}`}
+                  </span>
                 )}
+                {row.barScale === 'log' && <span class="cmp-table__scale">log scale</span>}
               </th>
-            ))}
-          </tr>
-        </thead>
-        <tbody>
-          {block.rows.map((row) => {
-            const baselineFraction = row.cells[0]?.figures.find(
-              (figure) => figure.bar !== undefined,
-            )?.bar?.fraction;
-            return (
-              <tr key={row.group}>
-                <th scope="row">
-                  {methodLabel(row.method)}
-                  {row.benchmark !== undefined && (
-                    <span class="cmp-table__benchmark">
-                      {row.benchmark.id} {row.benchmark.version}
-                      {row.benchmark.variant !== undefined && `, ${row.benchmark.variant}`}
-                    </span>
-                  )}
-                  {row.barScale === 'log' && <span class="cmp-table__scale">log scale</span>}
-                </th>
-                {row.cells.map((cell) => (
-                  <Cell
-                    key={cell.subjectIndex}
-                    cell={cell}
-                    subject={subjects[cell.subjectIndex]}
-                    baselineName={baselineName}
-                    baselineFraction={baselineFraction}
-                    isBaseline={cell.subjectIndex === 0}
-                    open={open}
-                  />
-                ))}
-              </tr>
-            );
-          })}
-        </tbody>
-      </table>
+              {row.cells.map((cell) => (
+                <Cell
+                  key={cell.subjectIndex}
+                  cell={cell}
+                  subject={subjects[cell.subjectIndex]}
+                  baselineName={baselineName}
+                  baselineFraction={baselineFraction}
+                  isBaseline={cell.subjectIndex === 0}
+                  open={open}
+                />
+              ))}
+            </tr>
+          );
+        })}
+      </SubjectTable>
     </div>
   );
 }
@@ -865,7 +894,6 @@ function Glance({
   readonly glance: readonly GlanceRow[];
   readonly subjects: readonly CompareSubject[];
 }) {
-  const columns = Math.min(subjects.length, 4);
   return (
     <section class="glance stack" aria-labelledby="at-a-glance">
       <div class="stack">
@@ -877,62 +905,37 @@ function Glance({
         </p>
       </div>
 
-      <table
-        class={`cmp-table glance-table cmp-table--${columns}`}
-        style={{ '--cmp-columns': subjects.length }}
-      >
-        <thead>
-          <tr>
-            <th scope="col">Question</th>
-            {subjects.map((subject) => (
-              <th key={subject.id} scope="col">
-                <a href={route(subject.path)}>{subject.name}</a>
-                <span class="glance__meta">{subject.manufacturer}</span>
-                <span class="glance__meta">
-                  {[subject.typeLabel, subject.year]
-                    .filter((part) => part !== undefined)
-                    .join(' · ')}
-                </span>
-                {subject.configuration !== undefined && (
-                  <span class="cmp-table__variant">{subject.configuration.label}</span>
-                )}
-              </th>
-            ))}
-          </tr>
-        </thead>
-        <tbody>
-          {glance.map((row) => {
-            const baselineFraction = row.cells[0]?.figures.find(
-              (figure) => figure.bar !== undefined,
-            )?.bar?.fraction;
-            return (
-              <Fragment key={row.id}>
-                <tr>
-                  <th scope="row">
-                    {row.label}
-                    {row.barScale === 'log' && <span class="cmp-table__scale">log scale</span>}
-                  </th>
-                  {row.cells.map((cell) => (
-                    <GlanceCellView
-                      key={cell.subjectIndex}
-                      cell={cell}
-                      subject={subjects[cell.subjectIndex]}
-                      baselineFraction={baselineFraction}
-                    />
-                  ))}
+      <SubjectTable subjects={subjects} corner="Question" variant="glance">
+        {glance.map((row) => {
+          const baselineFraction = row.cells[0]?.figures.find((figure) => figure.bar !== undefined)
+            ?.bar?.fraction;
+          return (
+            <Fragment key={row.id}>
+              <tr>
+                <th scope="row">
+                  {row.label}
+                  {row.barScale === 'log' && <span class="cmp-table__scale">log scale</span>}
+                </th>
+                {row.cells.map((cell) => (
+                  <GlanceCellView
+                    key={cell.subjectIndex}
+                    cell={cell}
+                    subject={subjects[cell.subjectIndex]}
+                    baselineFraction={baselineFraction}
+                  />
+                ))}
+              </tr>
+              {hasAside(row) && (
+                <tr class="glance__aside-row">
+                  <td class="glance__aside" colSpan={subjects.length + 1}>
+                    <GlanceAside row={row} />
+                  </td>
                 </tr>
-                {hasAside(row) && (
-                  <tr class="glance__aside-row">
-                    <td class="glance__aside" colSpan={subjects.length + 1}>
-                      <GlanceAside row={row} />
-                    </td>
-                  </tr>
-                )}
-              </Fragment>
-            );
-          })}
-        </tbody>
-      </table>
+              )}
+            </Fragment>
+          );
+        })}
+      </SubjectTable>
     </section>
   );
 }

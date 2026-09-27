@@ -68,7 +68,7 @@ export interface RawDataset {
   readonly extracts: readonly LoadedRecord[];
 }
 
-export class DatasetError extends Error {
+class DatasetError extends Error {
   constructor(message: string) {
     super(message);
     this.name = 'DatasetError';

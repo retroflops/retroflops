@@ -1,0 +1,29 @@
+---
+// SPDX-FileCopyrightText: 2026 Wojciech Polak
+// SPDX-License-Identifier: MIT
+
+/**
+ * One record in a card grid: an eyebrow, the linked name and the summary, then
+ * whatever counts the page wants to show beneath them. Extra attributes, such
+ * as Explore's search text and facets, land on the list item.
+ */
+import type { HTMLAttributes } from 'astro/types';
+
+interface Props extends HTMLAttributes<'li'> {
+  eyebrow?: string;
+  href: string;
+  name: string;
+  summary: string;
+}
+
+const { eyebrow, href, name, summary, ...attributes } = Astro.props;
+---
+
+<li class="card stack" {...attributes}>
+  <p class="card__eyebrow">{Astro.slots.has('eyebrow') ? <slot name="eyebrow" /> : eyebrow}</p>
+  <h3>
+    <a href={href}>{name}</a>
+  </h3>
+  <p class="card__summary">{summary}</p>
+  <slot />
+</li>

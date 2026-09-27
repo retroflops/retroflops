@@ -42,15 +42,6 @@ export const PROVENANCES = ['vendor', 'independent', 'community'] as const;
 
 export type Provenance = (typeof PROVENANCES)[number];
 
-export const PROVENANCE_LABELS: Record<Provenance, string> = {
-  /** The party responsible for the hardware: manufacturer, or the program that specified it. */
-  vendor: 'Vendor',
-  /** A third party with no stake in the figure: a laboratory, a journal, a benchmark body. */
-  independent: 'Independent',
-  /** Enthusiast documentation, held to the same source tiers as everything else. */
-  community: 'Community',
-};
-
 /**
  * Whether the figure describes hardware that reached buyers or an announcement
  * made before it did. Also outside the comparability group, a pre-launch figure
@@ -61,11 +52,6 @@ export const PROVENANCE_LABELS: Record<Provenance, string> = {
 export const EVIDENCE_STAGES = ['shipped', 'pre-launch'] as const;
 
 export type EvidenceStage = (typeof EVIDENCE_STAGES)[number];
-
-export const EVIDENCE_STAGE_LABELS: Record<EvidenceStage, string> = {
-  shipped: 'Shipped hardware',
-  'pre-launch': 'Pre-launch announcement',
-};
 
 export interface MethodDefinition {
   readonly id: string;

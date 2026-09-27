@@ -116,7 +116,7 @@ export function getMeasurementsFor(
 }
 
 /** Component ids referenced by any configuration of a system, in first-seen order. */
-export function getComponentIdsUsedBy(system: System): readonly string[] {
+function getComponentIdsUsedBy(system: System): readonly string[] {
   const seen: string[] = [];
   for (const configuration of system.configurations) {
     for (const entry of configuration.entries) {

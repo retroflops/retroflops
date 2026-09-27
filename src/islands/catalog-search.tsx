@@ -68,13 +68,61 @@ async function catalogHits(query: string, base: string): Promise<readonly Hit[]>
     }));
 }
 
-export default function CatalogSearch({ base = '/' }: { base?: string }) {
+async function importPagefind(base: string): Promise<PagefindApi | undefined> {
+  try {
+    // The specifier is built at runtime so the bundler does not try to
+    // resolve an index that only exists once the site has been built.
+    const module = (await import(/* @vite-ignore */ `${base}pagefind/pagefind.js`)) as PagefindApi;
+    await module.init?.();
+    return module;
+  } catch {
+    return undefined;
+  }
+}
+
+async function pagefindHits(api: PagefindApi | undefined, query: string): Promise<readonly Hit[]> {
+  if (api === undefined) {
+    return [];
+  }
+  try {
+    const search = await api.search(query);
+    const data = await Promise.all(
+      search.results.slice(0, MAX_RESULTS).map((result) => result.data()),
+    );
+    return data.map((entry) => ({
+      url: entry.url,
+      title: entry.meta?.title ?? entry.url,
+      excerpt: entry.excerpt,
+    }));
+  } catch {
+    // The small catalog is still useful if Pagefind has an incomplete index.
+    return [];
+  }
+}
+
+/** Pagefind's hits for a query, or the catalog's name matches when it has none. */
+async function searchHits(
+  api: PagefindApi | undefined,
+  query: string,
+  base: string,
+): Promise<readonly Hit[]> {
+  const hits = await pagefindHits(api, query);
+  if (hits.length > 0) {
+    return hits;
+  }
+  try {
+    return await catalogHits(query, base);
+  } catch {
+    // The user-facing state explains the rare case where both fail.
+    return [];
+  }
+}
+
+/** Debounced search that loads the Pagefind index the first time it is needed. */
+function useSearch(query: string, base: string): { status: Status; hits: readonly Hit[] } {
   const [status, setStatus] = useState<Status>('idle');
-  const [query, setQuery] = useState('');
   const [hits, setHits] = useState<readonly Hit[]>([]);
   const apiRef = useRef<PagefindApi | undefined>(undefined);
-  const inputId = useId();
-  const statusId = useId();
 
   useEffect(() => {
     async function loadApi(): Promise<PagefindApi | undefined> {
@@ -82,19 +130,12 @@ export default function CatalogSearch({ base = '/' }: { base?: string }) {
         return apiRef.current;
       }
       setStatus('loading');
-      try {
-        // The specifier is built at runtime so the bundler does not try to
-        // resolve an index that only exists once the site has been built.
-        const module = (await import(
-          /* @vite-ignore */ `${base}pagefind/pagefind.js`
-        )) as PagefindApi;
-        await module.init?.();
+      const module = await importPagefind(base);
+      if (module !== undefined) {
         apiRef.current = module;
         setStatus('ready');
-        return module;
-      } catch {
-        return undefined;
       }
+      return module;
     }
 
     if (query.trim().length < 2) {
@@ -109,32 +150,7 @@ export default function CatalogSearch({ base = '/' }: { base?: string }) {
         if (canceled) {
           return;
         }
-
-        let nextHits: readonly Hit[] = [];
-        if (api !== undefined) {
-          try {
-            const search = await api.search(query);
-            const data = await Promise.all(
-              search.results.slice(0, MAX_RESULTS).map((result) => result.data()),
-            );
-            nextHits = data.map((entry) => ({
-              url: entry.url,
-              title: entry.meta?.title ?? entry.url,
-              excerpt: entry.excerpt,
-            }));
-          } catch {
-            // The small catalog is still useful if Pagefind has an incomplete index.
-          }
-        }
-
-        if (nextHits.length === 0) {
-          try {
-            nextHits = await catalogHits(query, base);
-          } catch {
-            // The user-facing state below explains the rare case where both fail.
-          }
-        }
-
+        const nextHits = await searchHits(api, query, base);
         if (!canceled) {
           setHits(nextHits);
           // A search that ran and matched nothing is a working search, so the
@@ -153,16 +169,30 @@ export default function CatalogSearch({ base = '/' }: { base?: string }) {
     };
   }, [query, base]);
 
-  const message =
-    status === 'catalog'
-      ? 'Showing catalog name matches while the full-text index is unavailable.'
-      : status === 'unavailable'
-        ? 'Search is temporarily unavailable. Every record is listed on Explore.'
-        : status === 'loading'
-          ? 'Loading the search index…'
-          : query.trim().length >= 2 && hits.length === 0 && status === 'ready'
-            ? `Nothing matches “${query}”.`
-            : '';
+  return { status, hits };
+}
+
+function statusMessage(status: Status, query: string, hits: readonly Hit[]): string {
+  switch (status) {
+    case 'catalog':
+      return 'Showing catalog name matches while the full-text index is unavailable.';
+    case 'unavailable':
+      return 'Search is temporarily unavailable. Every record is listed on Explore.';
+    case 'loading':
+      return 'Loading the search index…';
+    case 'ready':
+      return query.trim().length >= 2 && hits.length === 0 ? `Nothing matches “${query}”.` : '';
+    default:
+      return '';
+  }
+}
+
+export default function CatalogSearch({ base = '/' }: { base?: string }) {
+  const [query, setQuery] = useState('');
+  const { status, hits } = useSearch(query, base);
+  const inputId = useId();
+  const statusId = useId();
+  const message = statusMessage(status, query, hits);
 
   return (
     <div class="search">

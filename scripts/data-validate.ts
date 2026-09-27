@@ -14,10 +14,9 @@
  */
 
 import { CATALOG_SCHEMA_VERSION } from '../src/lib/data/schema.ts';
-import { hasErrors, validateDataset, type ValidationIssue } from '../src/lib/data/validate.ts';
-import { countRecords, loadImageFiles, loadRawDataset } from './lib/dataset.ts';
-import { parseDataset } from './lib/parse.ts';
-import { loadUnknownRepairLedger } from './lib/unknown-repair.ts';
+import { hasErrors, type ValidationIssue } from '../src/lib/data/validate.ts';
+import { countRecords } from './lib/dataset.ts';
+import { loadValidatedDataset } from './lib/validated-dataset.ts';
 
 function formatIssue(issue: ValidationIssue): string {
   const marker = issue.severity === 'error' ? 'error' : 'warn ';
@@ -25,17 +24,7 @@ function formatIssue(issue: ValidationIssue): string {
 }
 
 async function main(): Promise<void> {
-  const raw = await loadRawDataset();
-  const { dataset, issues: schemaIssues } = parseDataset(raw);
-
-  // Cross-record checks assume well-formed records, so they only run once the
-  // schema phase is clean. Reporting both at once would bury the real cause.
-  const imageFiles = await loadImageFiles(dataset.images.map((image) => image.id));
-  const unknownRepairLedger = await loadUnknownRepairLedger();
-  const issues =
-    schemaIssues.length > 0
-      ? schemaIssues
-      : [...validateDataset(dataset, { imageFiles, unknownRepairLedger })];
+  const { raw, issues } = await loadValidatedDataset();
 
   const errors = issues.filter((issue) => issue.severity === 'error');
   const warnings = issues.filter((issue) => issue.severity === 'warning');

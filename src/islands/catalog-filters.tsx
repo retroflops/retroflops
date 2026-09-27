@@ -16,6 +16,7 @@
 
 import { useEffect, useState } from 'preact/hooks';
 
+import { followLocation } from '~/islands/follow-location';
 /*
  * From `facet-groups`, not `facets`: the latter reaches the catalog and would
  * ship Zod to the browser with it.
@@ -113,12 +114,7 @@ export default function CatalogFilters({ groups }: { groups: readonly FacetGroup
   }, []);
 
   // Restore from the URL on load, and follow back/forward.
-  useEffect(() => {
-    const sync = (): void => setSelection(readSelection(globalThis.location.search));
-    sync();
-    globalThis.addEventListener('popstate', sync);
-    return () => globalThis.removeEventListener('popstate', sync);
-  }, []);
+  useEffect(() => followLocation((search) => setSelection(readSelection(search))), []);
 
   useEffect(() => {
     const cards = [...document.querySelectorAll<HTMLElement>('[data-facet-kind]')];

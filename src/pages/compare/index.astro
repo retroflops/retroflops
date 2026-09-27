@@ -4,6 +4,8 @@
 
 import { getCollection } from 'astro:content';
 
+import PresetCard from '~/components/preset-card.astro';
+import RecordCard from '~/components/record-card.astro';
 import ComparisonBuilder from '~/islands/comparison-builder';
 import BaseLayout from '~/layouts/base-layout.astro';
 import { getCatalog } from '~/lib/catalog';
@@ -89,18 +91,7 @@ const options = compareOptions(getCatalog());
     <ul class="card-grid">
       {
         catalogCards.map(({ preset, comparison }) => (
-          <li class="card stack">
-            <p class="card__eyebrow">
-              {comparison.subjects.length} records ·{' '}
-              <span class="numeric">{comparison.ratioCount}</span>
-              {comparison.ratioCount === 1 ? ' multiplier' : ' multipliers'}
-            </p>
-            <h3>
-              <a href={route(`/compare/${preset.id}/`)}>{preset.data.title}</a>
-            </h3>
-            <p class="card__summary">{preset.data.summary}</p>
-            <p class="meta">{comparison.subjects.map((subject) => subject.name).join(' · ')}</p>
-          </li>
+          <PresetCard preset={preset} comparison={comparison} showSubjects />
         ))
       }
     </ul>
@@ -117,17 +108,18 @@ const options = compareOptions(getCatalog());
         </p>
         <ul class="card-grid">
           {researchCards.map(({ preset, availability }) => (
-            <li class="card stack" data-pagefind-ignore>
-              <p class="card__eyebrow">
+            <RecordCard
+              href={route(`/compare/${preset.id}/`)}
+              name={preset.data.title}
+              summary={preset.data.summary}
+              data-pagefind-ignore
+            >
+              <Fragment slot="eyebrow">
                 Research example · {availability.catalogRecordCount} catalog records ·{' '}
                 {availability.researchRecordCount} research record
                 {availability.researchRecordCount === 1 ? '' : 's'}
-              </p>
-              <h3>
-                <a href={route(`/compare/${preset.id}/`)}>{preset.data.title}</a>
-              </h3>
-              <p class="card__summary">{preset.data.summary}</p>
-            </li>
+              </Fragment>
+            </RecordCard>
           ))}
         </ul>
       </section>

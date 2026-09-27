@@ -1,0 +1,20 @@
+---
+// SPDX-FileCopyrightText: 2026 Wojciech Polak
+// SPDX-License-Identifier: MIT
+
+/** A record's editorial notes, when it has any. */
+interface Props {
+  notes: string | undefined;
+}
+
+const { notes } = Astro.props;
+---
+
+{
+  notes !== undefined && (
+    <section class="prose stack" aria-labelledby="notes">
+      <h2 id="notes">Editorial notes</h2>
+      <p>{notes}</p>
+    </section>
+  )
+}

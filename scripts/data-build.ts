@@ -13,22 +13,12 @@ import { mkdir, rename, writeFile } from 'node:fs/promises';
 import { dirname, join } from 'node:path';
 
 import { buildArtifacts } from '../src/lib/data/build.ts';
-import { hasErrors, validateDataset } from '../src/lib/data/validate.ts';
-import { loadImageFiles, loadRawDataset } from './lib/dataset.ts';
+import { hasErrors } from '../src/lib/data/validate.ts';
 import { repoPath, sha256 } from './lib/io.ts';
-import { parseDataset } from './lib/parse.ts';
-import { loadUnknownRepairLedger } from './lib/unknown-repair.ts';
+import { loadValidatedDataset } from './lib/validated-dataset.ts';
 
 async function main(): Promise<void> {
-  const raw = await loadRawDataset();
-  const { dataset, issues: schemaIssues } = parseDataset(raw);
-
-  const imageFiles = await loadImageFiles(dataset.images.map((image) => image.id));
-  const unknownRepairLedger = await loadUnknownRepairLedger();
-  const issues =
-    schemaIssues.length > 0
-      ? schemaIssues
-      : [...validateDataset(dataset, { imageFiles, unknownRepairLedger })];
+  const { dataset, issues } = await loadValidatedDataset();
   if (hasErrors(issues)) {
     for (const issue of issues.filter((candidate) => candidate.severity === 'error')) {
       console.error(`  error  ${issue.where}\n         ${issue.message}  [${issue.code}]`);

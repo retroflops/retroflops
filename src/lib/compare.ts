@@ -770,40 +770,16 @@ function systemFigures(
   const variantLabels = new Map(
     system.configurations.map((configuration) => [configuration.id, configuration.label]),
   );
-  /**
-   * The role each part plays. A part fitted in two roles across variants keeps
-   * the first, which is a display detail: the role only decides which figures
-   * are each other's counterpart, never whether they are comparable.
-   */
-  const roles = new Map<string, ComponentRole>();
-  for (const configuration of configurations) {
-    for (const entry of configuration.entries) {
-      if (!roles.has(entry.componentId)) {
-        roles.set(entry.componentId, entry.role);
-      }
-    }
-  }
+  const roles = fittedRoles(configurations);
 
   const figures: CompareFigure[] = [];
   for (const measurement of catalog.measurements) {
-    const { kind, id, configurationId: onVariant } = measurement.subject;
+    const { kind, id } = measurement.subject;
     if (kind === 'system' && id === system.id) {
-      // A figure recorded against one variant belongs only to that variant.
-      if (
-        onVariant !== undefined &&
-        configurationId !== undefined &&
-        onVariant !== configurationId
-      ) {
-        continue;
+      const figure = ownFigure(measurement, configurationId, variantLabels);
+      if (figure !== undefined) {
+        figures.push(figure);
       }
-      // The variant is named on the figure only when the reader has not chosen
-      // one: with a variant selected, the column header already says which it is
-      // and repeating it on every figure is noise.
-      const variant =
-        onVariant === undefined || configurationId !== undefined
-          ? undefined
-          : (variantLabels.get(onVariant) ?? onVariant);
-      figures.push(toFigure(measurement, undefined, variant));
       continue;
     }
     const role = roles.get(id);
@@ -813,6 +789,41 @@ function systemFigures(
     }
   }
   return figures.toSorted(compareFigureEvidence);
+}
+
+/**
+ * The role each part plays. A part fitted in two roles across variants keeps
+ * the first, which is a display detail: the role only decides which figures
+ * are each other's counterpart, never whether they are comparable.
+ */
+function fittedRoles(configurations: System['configurations']): ReadonlyMap<string, ComponentRole> {
+  const roles = new Map<string, ComponentRole>();
+  for (const entry of configurations.flatMap((configuration) => configuration.entries)) {
+    if (!roles.has(entry.componentId)) {
+      roles.set(entry.componentId, entry.role);
+    }
+  }
+  return roles;
+}
+
+/** A figure recorded against the machine itself, unless it belongs to another variant. */
+function ownFigure(
+  measurement: Measurement,
+  configurationId: string | undefined,
+  variantLabels: ReadonlyMap<string, string>,
+): CompareFigure | undefined {
+  const onVariant = measurement.subject.configurationId;
+  if (onVariant === undefined) {
+    return toFigure(measurement, undefined, undefined);
+  }
+  // A figure recorded against one variant belongs only to that variant. The
+  // variant is named on the figure only when the reader has not chosen one:
+  // with a variant selected, the column header already says which it is and
+  // repeating it on every figure is noise.
+  if (configurationId !== undefined) {
+    return onVariant === configurationId ? toFigure(measurement, undefined, undefined) : undefined;
+  }
+  return toFigure(measurement, undefined, variantLabels.get(onVariant) ?? onVariant);
 }
 
 function componentFigures(catalog: Catalog, component: Component): readonly CompareFigure[] {
@@ -850,77 +861,12 @@ export function resolveSelection(
     }
     seen.add(key);
 
-    if (entry.kind === 'system') {
-      const system = catalog.systems.find((candidate) => candidate.slug === entry.slug);
-      if (system === undefined) {
-        problems.push({ code: 'unknown-record', kind: entry.kind, slug: entry.slug });
-        continue;
-      }
-      const configurations = system.configurations.map((configuration) => ({
-        id: configuration.id,
-        label: configuration.label,
-      }));
-      const chosen =
-        entry.configurationId === undefined
-          ? undefined
-          : configurations.find((configuration) => configuration.id === entry.configurationId);
-      if (entry.configurationId !== undefined && chosen === undefined) {
-        problems.push({
-          code: 'unknown-configuration',
-          slug: entry.slug,
-          configurationId: entry.configurationId,
-        });
-      }
-      const componentIds = new Set(
-        system.configurations.flatMap((configuration) =>
-          configuration.entries.map((fitted) => fitted.componentId),
-        ),
-      );
-      subjects.push({
-        subject: {
-          kind: 'system',
-          id: system.id,
-          slug: system.slug,
-          name: system.name,
-          path: `/systems/${system.slug}/`,
-          context: systemContext(system),
-          manufacturer: system.manufacturer,
-          typeLabel: systemTypeLabel(system),
-          year: system.releaseDate.slice(0, 4),
-          configuration: chosen,
-          configurations,
-        },
-        figures: systemFigures(catalog, system, chosen?.id),
-        kinds: new Set(
-          catalog.components
-            .filter((component) => componentIds.has(component.id))
-            .map((component) => component.kind),
-        ),
-      });
-      continue;
+    const resolved =
+      entry.kind === 'system' ? resolveSystem(catalog, entry) : resolveComponent(catalog, entry);
+    problems.push(...resolved.problems);
+    if (resolved.subject !== undefined) {
+      subjects.push(resolved.subject);
     }
-
-    const component = catalog.components.find((candidate) => candidate.slug === entry.slug);
-    if (component === undefined) {
-      problems.push({ code: 'unknown-record', kind: entry.kind, slug: entry.slug });
-      continue;
-    }
-    subjects.push({
-      subject: {
-        kind: 'component',
-        id: component.id,
-        slug: component.slug,
-        name: component.name,
-        path: `/components/${component.kind}/${component.slug}/`,
-        context: componentContext(component),
-        manufacturer: component.manufacturer,
-        typeLabel: componentKindLabel(component),
-        configuration: undefined,
-        configurations: [],
-      },
-      figures: componentFigures(catalog, component),
-      kinds: new Set([component.kind]),
-    });
   }
 
   const kinds = new Set(subjects.map((resolved) => resolved.subject.kind));
@@ -935,6 +881,91 @@ export function resolveSelection(
   }
 
   return { subjects, problems };
+}
+
+interface ResolvedEntry {
+  readonly subject?: ResolvedSubject;
+  readonly problems: readonly CompareProblem[];
+}
+
+function resolveSystem(catalog: Catalog, entry: CompareSelectionEntry): ResolvedEntry {
+  const system = catalog.systems.find((candidate) => candidate.slug === entry.slug);
+  if (system === undefined) {
+    return { problems: [{ code: 'unknown-record', kind: entry.kind, slug: entry.slug }] };
+  }
+  const configurations = system.configurations.map((configuration) => ({
+    id: configuration.id,
+    label: configuration.label,
+  }));
+  const chosen =
+    entry.configurationId === undefined
+      ? undefined
+      : configurations.find((configuration) => configuration.id === entry.configurationId);
+  const problems: CompareProblem[] =
+    entry.configurationId !== undefined && chosen === undefined
+      ? [
+          {
+            code: 'unknown-configuration',
+            slug: entry.slug,
+            configurationId: entry.configurationId,
+          },
+        ]
+      : [];
+  const componentIds = new Set(
+    system.configurations.flatMap((configuration) =>
+      configuration.entries.map((fitted) => fitted.componentId),
+    ),
+  );
+  return {
+    subject: {
+      subject: {
+        kind: 'system',
+        id: system.id,
+        slug: system.slug,
+        name: system.name,
+        path: `/systems/${system.slug}/`,
+        context: systemContext(system),
+        manufacturer: system.manufacturer,
+        typeLabel: systemTypeLabel(system),
+        year: system.releaseDate.slice(0, 4),
+        configuration: chosen,
+        configurations,
+      },
+      figures: systemFigures(catalog, system, chosen?.id),
+      kinds: new Set(
+        catalog.components
+          .filter((component) => componentIds.has(component.id))
+          .map((component) => component.kind),
+      ),
+    },
+    problems,
+  };
+}
+
+function resolveComponent(catalog: Catalog, entry: CompareSelectionEntry): ResolvedEntry {
+  const component = catalog.components.find((candidate) => candidate.slug === entry.slug);
+  if (component === undefined) {
+    return { problems: [{ code: 'unknown-record', kind: entry.kind, slug: entry.slug }] };
+  }
+  return {
+    subject: {
+      subject: {
+        kind: 'component',
+        id: component.id,
+        slug: component.slug,
+        name: component.name,
+        path: `/components/${component.kind}/${component.slug}/`,
+        context: componentContext(component),
+        manufacturer: component.manufacturer,
+        typeLabel: componentKindLabel(component),
+        configuration: undefined,
+        configurations: [],
+      },
+      figures: componentFigures(catalog, component),
+      kinds: new Set([component.kind]),
+    },
+    problems: [],
+  };
 }
 
 /* -------------------------------------------------------------------------- */
@@ -963,27 +994,18 @@ function ratioAgainst(
   const baseline = baselineStated[0];
   const candidate = candidateStated[0];
 
-  const refusals: CompareRatioRefusal[] = [];
-  for (const stated of [baselineStated, candidateStated]) {
-    if (stated.length > 1) {
-      // Two different answers to the same question: either the record states the
-      // figure per variant, or the machine has several parts in this role. The
-      // remedies differ, so the refusals do too.
-      refusals.push(
-        new Set(stated.map((figure) => figure.variant)).size > 1
-          ? 'variant-ambiguous'
-          : 'several-parts',
-      );
-    }
-  }
-  if (baseline === undefined || baseline.absent) {
+  const refusals: CompareRatioRefusal[] = [
+    ...ambiguityRefusal(baselineStated),
+    ...ambiguityRefusal(candidateStated),
+  ];
+  if (baseline === undefined) {
     refusals.push('baseline-has-no-value');
   }
-  if (candidate === undefined || candidate.absent) {
+  if (candidate === undefined) {
     refusals.push('no-value');
   }
   if (refusals.length > 0 || baseline === undefined || candidate === undefined) {
-    return { refusals: refusals.length > 0 ? [...new Set(refusals)] : ['no-value'] };
+    return { refusals: [...new Set(refusals)] };
   }
 
   const numerator = formulaInput(candidate.measurement);
@@ -1024,6 +1046,22 @@ function ratioAgainst(
     },
     refusals: [],
   };
+}
+
+/**
+ * Two different answers to the same question: either the record states the
+ * figure per variant, or the machine has several parts in this role. The
+ * remedies differ, so the refusals do too.
+ */
+function ambiguityRefusal(stated: readonly CompareFigure[]): CompareRatioRefusal[] {
+  if (stated.length <= 1) {
+    return [];
+  }
+  return [
+    new Set(stated.map((figure) => figure.variant)).size > 1
+      ? 'variant-ambiguous'
+      : 'several-parts',
+  ];
 }
 
 /**
@@ -1070,175 +1108,11 @@ export function buildComparison(
     return { subjects, baseline, glance: [], sections: [], problems, rowCount: 0, ratioCount: 0 };
   }
 
-  /**
-   * Groups where the part's role has to decide which figure pairs with which.
-   *
-   * The role exists because one machine can hold several figures in a single
-   * group, the PlayStation 2 states a main and a graphics memory capacity the
-   * same way, and pairing main against video would answer a question nobody
-   * asked. It is a tie-breaker, so it only applies where there is a tie: one
-   * record holding figures in *different roles* within one group. Where every
-   * record fills a single role, the role must not split the row, or a capacity
-   * recorded on a machine would never meet the same capacity recorded on
-   * another machine's memory part.
-   *
-   * Counting roles rather than figures matters for a record whose variants each
-   * state the quantity, the Mac mini's 8 GiB and 16 GiB are one role twice,
-   * and splitting on them would leave two half-rows for one machine.
-   */
-  const roleSplitGroups = new Set<string>();
-  for (const entry of resolved) {
-    const rolesPerGroup = new Map<string, Set<string>>();
-    for (const figure of entry.figures) {
-      const group = figure.measurement.comparabilityGroup;
-      const roles = rolesPerGroup.get(group) ?? new Set<string>();
-      roles.add(figure.role ?? '');
-      rolesPerGroup.set(group, roles);
-      if (roles.size > 1) {
-        roleSplitGroups.add(group);
-      }
-    }
-  }
-
-  // Row key, comparability group, plus role only where roles decide, →
-  // per-subject figures, in order.
-  const rowKeys = new Map<string, CompareFigure[][]>();
-  resolved.forEach((entry, index) => {
-    for (const figure of entry.figures) {
-      const group = figure.measurement.comparabilityGroup;
-      const key = roleSplitGroups.has(group) ? `${group}#${figure.role ?? ''}` : group;
-      let columns = rowKeys.get(key);
-      if (columns === undefined) {
-        columns = resolved.map(() => []);
-        rowKeys.set(key, columns);
-      }
-      columns[index]?.push(figure);
-    }
-  });
-
-  /**
-   * Which subjects state each metric at all, whatever the scope, method or role.
-   *
-   * A row with figures in one column only is usually noise, but not when
-   * another record states the same quantity by a different method, at a
-   * different scope or against a differently organized part. That mismatch is
-   * the case the reader most needs explained, so the count here decides whether
-   * a lone row is dropped or kept as the evidence for it. Keying it by metric
-   * alone is what lets the Commodore 64's 64 KiB of system memory appear beside
-   * the PlayStation 4's 8 GiB of whole-machine memory: the two are not
-   * comparable, and a reader who cannot see that both machines stated a memory
-   * capacity learns nothing from the silence.
-   */
-  const quantitySubjects = new Map<string, Set<number>>();
-  resolved.forEach((entry, index) => {
-    for (const figure of entry.figures) {
-      const key = quantityKeyOf(figure.measurement.metric);
-      const subjectsHere = quantitySubjects.get(key) ?? new Set<number>();
-      subjectsHere.add(index);
-      quantitySubjects.set(key, subjectsHere);
-    }
-  });
-
-  let ratioCount = 0;
-  const rows: CompareRow[] = [];
-
-  for (const rawColumns of rowKeys.values()) {
-    const first = rawColumns.flat()[0];
-    if (first === undefined) {
-      continue;
-    }
-    const { columns, scale: barScale } = withBars(first.measurement.metric, rawColumns);
-    const { comparabilityGroup, metric, scope, method, benchmark } = first.measurement;
-    // Carried only where it decided the row. Naming one column's role above a
-    // row that merged two roles would label the figures wrongly.
-    const role = roleSplitGroups.has(comparabilityGroup) ? first.role : undefined;
-
-    const columnsWithFigures = columns.filter((figures) => figures.length > 0).length;
-    const subjectsStatingIt = quantitySubjects.get(quantityKeyOf(metric))?.size ?? 0;
-    if (columnsWithFigures < 2 && subjectsStatingIt < 2) {
-      continue;
-    }
-
-    const baselineFigures = columns[0] ?? [];
-
-    /** Where this record states the quantity, when this row holds none of its figures. */
-    const statedAs = (index: number): readonly CompareElsewhere[] | undefined => {
-      if ((columns[index]?.length ?? 0) > 0) {
-        return undefined;
-      }
-      const figures = resolved[index]?.figures ?? [];
-      const elsewhere: CompareElsewhere[] = [];
-
-      // Another role inside this same group: one pool where this row wants two.
-      if (role !== undefined) {
-        const roles = new Set(
-          figures
-            .filter(
-              (figure) =>
-                figure.measurement.comparabilityGroup === comparabilityGroup &&
-                figure.role !== undefined &&
-                figure.role !== role,
-            )
-            .map((figure) => figure.role as ComponentRole),
-        );
-        elsewhere.push(
-          ...[...roles].map((named): CompareElsewhere => ({ kind: 'role', role: named })),
-        );
-      }
-
-      // Or at the level of the whole machine, for a machine that holds the
-      // quantity in one place and records it once.
-      if (
-        scope !== 'whole-system' &&
-        figures.some(
-          (figure) =>
-            figure.measurement.metric === metric &&
-            figure.measurement.scope === 'whole-system' &&
-            !figure.absent,
-        )
-      ) {
-        elsewhere.push({ kind: 'whole-system' });
-      }
-
-      return elsewhere.length === 0 ? undefined : elsewhere;
-    };
-
-    const cells: CompareCell[] = columns.map((figures, index) => {
-      if (index === 0) {
-        return { subjectIndex: index, figures, statedAs: statedAs(index), ratioRefusals: [] };
-      }
-      const { ratio, refusals } = ratioAgainst(
-        baselineFigures,
-        figures,
-        baseline?.name ?? '',
-        subjects[index]?.name ?? '',
-      );
-      if (ratio !== undefined) {
-        ratioCount += 1;
-      }
-      return {
-        subjectIndex: index,
-        figures,
-        statedAs: statedAs(index),
-        ratio,
-        ratioRefusals: refusals,
-      };
-    });
-
-    rows.push({
-      group: comparabilityGroup,
-      metric,
-      metricLabel: metricLabel(metric),
-      scope,
-      method,
-      benchmark,
-      role,
-      cells,
-      statedCount: columns.filter((figures) => figures.some((figure) => !figure.absent)).length,
-      ratioCount: cells.filter((cell) => cell.ratio !== undefined).length,
-      barScale,
-    });
-  }
+  const roleSplitGroups = roleSplitGroupsOf(resolved);
+  const quantitySubjects = quantitySubjectsOf(resolved);
+  const rows = [...rowColumnsOf(resolved, roleSplitGroups).values()]
+    .map((rawColumns) => buildRow(rawColumns, { resolved, roleSplitGroups, quantitySubjects }))
+    .filter((row) => row !== undefined);
 
   const sections: CompareSection[] = [];
   for (const section of SECTION_ORDER) {
@@ -1255,8 +1129,201 @@ export function buildComparison(
     sections,
     problems,
     rowCount: rows.length,
-    ratioCount,
+    ratioCount: rows.reduce((total, row) => total + row.ratioCount, 0),
   };
+}
+
+/**
+ * Groups where the part's role has to decide which figure pairs with which.
+ *
+ * The role exists because one machine can hold several figures in a single
+ * group, the PlayStation 2 states a main and a graphics memory capacity the
+ * same way, and pairing main against video would answer a question nobody
+ * asked. It is a tie-breaker, so it only applies where there is a tie: one
+ * record holding figures in *different roles* within one group. Where every
+ * record fills a single role, the role must not split the row, or a capacity
+ * recorded on a machine would never meet the same capacity recorded on
+ * another machine's memory part.
+ *
+ * Counting roles rather than figures matters for a record whose variants each
+ * state the quantity, the Mac mini's 8 GiB and 16 GiB are one role twice,
+ * and splitting on them would leave two half-rows for one machine.
+ */
+function roleSplitGroupsOf(resolved: readonly ResolvedSubject[]): ReadonlySet<string> {
+  const roleSplitGroups = new Set<string>();
+  for (const entry of resolved) {
+    const rolesPerGroup = new Map<string, Set<string>>();
+    for (const figure of entry.figures) {
+      const group = figure.measurement.comparabilityGroup;
+      const roles = rolesPerGroup.get(group) ?? new Set<string>();
+      roles.add(figure.role ?? '');
+      rolesPerGroup.set(group, roles);
+      if (roles.size > 1) {
+        roleSplitGroups.add(group);
+      }
+    }
+  }
+  return roleSplitGroups;
+}
+
+/**
+ * Row key, comparability group, plus role only where roles decide, →
+ * per-subject figures, in order.
+ */
+function rowColumnsOf(
+  resolved: readonly ResolvedSubject[],
+  roleSplitGroups: ReadonlySet<string>,
+): ReadonlyMap<string, CompareFigure[][]> {
+  const rowKeys = new Map<string, CompareFigure[][]>();
+  resolved.forEach((entry, index) => {
+    for (const figure of entry.figures) {
+      const group = figure.measurement.comparabilityGroup;
+      const key = roleSplitGroups.has(group) ? `${group}#${figure.role ?? ''}` : group;
+      let columns = rowKeys.get(key);
+      if (columns === undefined) {
+        columns = resolved.map(() => []);
+        rowKeys.set(key, columns);
+      }
+      columns[index]?.push(figure);
+    }
+  });
+  return rowKeys;
+}
+
+/**
+ * Which subjects state each metric at all, whatever the scope, method or role.
+ *
+ * A row with figures in one column only is usually noise, but not when
+ * another record states the same quantity by a different method, at a
+ * different scope or against a differently organized part. That mismatch is
+ * the case the reader most needs explained, so the count here decides whether
+ * a lone row is dropped or kept as the evidence for it. Keying it by metric
+ * alone is what lets the Commodore 64's 64 KiB of system memory appear beside
+ * the PlayStation 4's 8 GiB of whole-machine memory: the two are not
+ * comparable, and a reader who cannot see that both machines stated a memory
+ * capacity learns nothing from the silence.
+ */
+function quantitySubjectsOf(
+  resolved: readonly ResolvedSubject[],
+): ReadonlyMap<string, ReadonlySet<number>> {
+  const quantitySubjects = new Map<string, Set<number>>();
+  resolved.forEach((entry, index) => {
+    for (const figure of entry.figures) {
+      const key = quantityKeyOf(figure.measurement.metric);
+      const subjectsHere = quantitySubjects.get(key) ?? new Set<number>();
+      subjectsHere.add(index);
+      quantitySubjects.set(key, subjectsHere);
+    }
+  });
+  return quantitySubjects;
+}
+
+interface RowContext {
+  readonly resolved: readonly ResolvedSubject[];
+  readonly roleSplitGroups: ReadonlySet<string>;
+  readonly quantitySubjects: ReadonlyMap<string, ReadonlySet<number>>;
+}
+
+/** One row of figures, or `undefined` for a row with nothing to set side by side. */
+function buildRow(
+  rawColumns: readonly (readonly CompareFigure[])[],
+  { resolved, roleSplitGroups, quantitySubjects }: RowContext,
+): CompareRow | undefined {
+  const first = rawColumns.flat()[0];
+  if (first === undefined) {
+    return undefined;
+  }
+  const { columns, scale: barScale } = withBars(first.measurement.metric, rawColumns);
+  const { comparabilityGroup, metric, scope, method, benchmark } = first.measurement;
+  // Carried only where it decided the row. Naming one column's role above a
+  // row that merged two roles would label the figures wrongly.
+  const role = roleSplitGroups.has(comparabilityGroup) ? first.role : undefined;
+
+  const columnsWithFigures = columns.filter((figures) => figures.length > 0).length;
+  const subjectsStatingIt = quantitySubjects.get(quantityKeyOf(metric))?.size ?? 0;
+  if (columnsWithFigures < 2 && subjectsStatingIt < 2) {
+    return undefined;
+  }
+
+  const baselineFigures = columns[0] ?? [];
+  const baselineName = resolved[0]?.subject.name ?? '';
+  const statedAs = (index: number): readonly CompareElsewhere[] | undefined =>
+    (columns[index]?.length ?? 0) > 0
+      ? undefined
+      : statedElsewhere(resolved[index]?.figures ?? [], first.measurement, role);
+
+  const cells: CompareCell[] = columns.map((figures, index) => {
+    if (index === 0) {
+      return { subjectIndex: index, figures, statedAs: statedAs(index), ratioRefusals: [] };
+    }
+    const { ratio, refusals } = ratioAgainst(
+      baselineFigures,
+      figures,
+      baselineName,
+      resolved[index]?.subject.name ?? '',
+    );
+    return {
+      subjectIndex: index,
+      figures,
+      statedAs: statedAs(index),
+      ratio,
+      ratioRefusals: refusals,
+    };
+  });
+
+  return {
+    group: comparabilityGroup,
+    metric,
+    metricLabel: metricLabel(metric),
+    scope,
+    method,
+    benchmark,
+    role,
+    cells,
+    statedCount: columns.filter((figures) => figures.some((figure) => !figure.absent)).length,
+    ratioCount: cells.filter((cell) => cell.ratio !== undefined).length,
+    barScale,
+  };
+}
+
+/** Where a record states the quantity, when a row holds none of its figures. */
+function statedElsewhere(
+  figures: readonly CompareFigure[],
+  row: Measurement,
+  role: ComponentRole | undefined,
+): readonly CompareElsewhere[] | undefined {
+  const elsewhere: CompareElsewhere[] = [];
+
+  // Another role inside this same group: one pool where this row wants two.
+  if (role !== undefined) {
+    const roles = new Set(
+      figures
+        .filter(
+          (figure) =>
+            figure.measurement.comparabilityGroup === row.comparabilityGroup &&
+            figure.role !== undefined &&
+            figure.role !== role,
+        )
+        .map((figure) => figure.role as ComponentRole),
+    );
+    elsewhere.push(...[...roles].map((named): CompareElsewhere => ({ kind: 'role', role: named })));
+  }
+
+  // Or at the level of the whole machine, for a machine that holds the
+  // quantity in one place and records it once.
+  if (
+    row.scope !== 'whole-system' &&
+    figures.some(
+      (figure) =>
+        figure.measurement.metric === row.metric &&
+        figure.measurement.scope === 'whole-system' &&
+        !figure.absent,
+    )
+  ) {
+    elsewhere.push({ kind: 'whole-system' });
+  }
+
+  return elsewhere.length === 0 ? undefined : elsewhere;
 }
 
 /* -------------------------------------------------------------------------- */
@@ -1492,18 +1559,14 @@ function catalogAxis(
  */
 function neighborhood(length: number, here: readonly number[]): readonly number[] {
   const compared = new Set(here);
-  const first = here[0];
-  const last = here.at(-1);
   const outer: number[] = [];
   const inner: number[] = [];
 
   for (const index of here) {
     for (const side of [index - 1, index + 1]) {
-      if (side < 0 || side >= length || compared.has(side)) {
-        continue;
+      if (side >= 0 && side < length && !compared.has(side)) {
+        (isOuterNeighbor(here, index, side) ? outer : inner).push(side);
       }
-      const isOuter = (index === first && side < index) || (index === last && side > index);
-      (isOuter ? outer : inner).push(side);
     }
   }
 
@@ -1515,6 +1578,11 @@ function neighborhood(length: number, here: readonly number[]): readonly number[
     picked.add(index);
   }
   return [...picked].toSorted((a, b) => a - b);
+}
+
+/** A neighbor beyond the lowest or the highest compared machine. */
+function isOuterNeighbor(here: readonly number[], index: number, side: number): boolean {
+  return (index === here[0] && side < index) || (index === here.at(-1) && side > index);
 }
 
 /**

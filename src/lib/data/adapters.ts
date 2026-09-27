@@ -14,8 +14,6 @@
  * record instead. See `researchRecordSchema` in `schema.ts`.
  */
 
-export const ADAPTER_REGISTRY_VERSION = 'adapters-v1';
-
 export interface ExtractedValue {
   /** The locator that produced this value, echoed back for the audit trail. */
   readonly locator: string;
@@ -117,7 +115,7 @@ const delimitedCell: AdapterDefinition = {
 
 const ADAPTER_LIST: readonly AdapterDefinition[] = [jsonPath, delimitedCell];
 
-export const ADAPTERS: ReadonlyMap<string, AdapterDefinition> = new Map(
+const ADAPTERS: ReadonlyMap<string, AdapterDefinition> = new Map(
   ADAPTER_LIST.map((adapter) => [adapter.id, adapter]),
 );
 

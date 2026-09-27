@@ -24,6 +24,7 @@ import {
   resolveFetchScope,
   type AllowlistEntry,
   type FetchProvenance,
+  type FetchScope,
 } from '../src/lib/data/fetch-policy.ts';
 import {
   imageAssetSchema,
@@ -32,6 +33,7 @@ import {
   type Source,
 } from '../src/lib/data/schema.ts';
 import { sourceCitationUrl } from '../src/lib/data/source-url.ts';
+import { flagValues, statusSummary } from './lib/cli.ts';
 import { DATA_DIRECTORIES, loadRecords, type LoadedRecord } from './lib/dataset.ts';
 import {
   readJsonFile,
@@ -138,65 +140,94 @@ async function retrieve(url: string, entry: AllowlistEntry | undefined): Promise
   let current = url;
 
   for (let hop = 0; hop <= MAX_REDIRECTS; hop += 1) {
-    let response: Response;
-    let attempt = 0;
-    for (;;) {
-      try {
-        // oxlint-disable-next-line no-await-in-loop
-        response = await fetch(current, {
-          redirect: 'manual',
-          headers: { 'User-Agent': USER_AGENT },
-        });
-      } catch (error) {
-        return { ok: false, detail: `${current}: ${(error as Error).message}` };
-      }
-      if (response.status !== 429 || attempt >= THROTTLE_ATTEMPTS) break;
-      const wait = throttleWait(response, attempt);
-      console.log(`  waiting      ${Math.round(wait / 1000)}s: ${current} answered 429`);
-      // oxlint-disable-next-line no-await-in-loop
-      await sleep(wait);
-      attempt += 1;
+    // One hop at a time, so each waits for the previous one.
+    // oxlint-disable-next-line no-await-in-loop
+    const response = await fetchPatiently(current);
+    if (!(response instanceof Response)) {
+      return response;
     }
 
-    const location = response.headers.get('location');
-    if (response.status >= 300 && response.status < 400 && location !== null) {
-      const target = new URL(location, current).toString();
-      const verdict = entry === undefined ? undefined : checkRedirectTarget(target, entry);
-      if (verdict?.allowed !== true) {
-        return {
-          ok: false,
-          detail:
-            `${current} redirected to ${target}, which is refused: ${verdict?.reason ?? 'no allowlist entry'}. ` +
-            'Add the host to the entry\'s "redirectHosts" in data/fetch-allowlist.json if it belongs there.',
-        };
-      }
-      current = target;
+    const redirect = redirectOf(response, current, entry);
+    if (typeof redirect === 'string') {
+      current = redirect;
       continue;
     }
-
-    if (response.status === 429) {
-      return {
-        ok: false,
-        throttled: true,
-        detail: `${current}: still HTTP 429 after ${THROTTLE_ATTEMPTS} waits. Run this again later.`,
-      };
+    if (redirect !== undefined) {
+      return redirect;
     }
-
-    if (!response.ok) {
-      return { ok: false, detail: `${current}: HTTP ${response.status}` };
-    }
-
-    let bytes: Uint8Array;
-    try {
-      // oxlint-disable-next-line no-await-in-loop
-      bytes = new Uint8Array(await response.arrayBuffer());
-    } catch (error) {
-      return { ok: false, detail: `${current}: ${(error as Error).message}` };
-    }
-    return { ok: true, response, bytes, finalUrl: current };
+    // oxlint-disable-next-line no-await-in-loop
+    return await bodyOf(response, current);
   }
 
   return { ok: false, detail: `${url}: more than ${MAX_REDIRECTS} redirects` };
+}
+
+type Failure = Extract<Retrieval, { ok: false }>;
+
+/** One request, repeated after a wait while the host answers 429. */
+async function fetchPatiently(url: string): Promise<Response | Failure> {
+  for (let attempt = 0; ; attempt += 1) {
+    let response: Response;
+    try {
+      // oxlint-disable-next-line no-await-in-loop
+      response = await fetch(url, { redirect: 'manual', headers: { 'User-Agent': USER_AGENT } });
+    } catch (error) {
+      return { ok: false, detail: `${url}: ${(error as Error).message}` };
+    }
+    if (response.status !== 429 || attempt >= THROTTLE_ATTEMPTS) {
+      return response;
+    }
+    const wait = throttleWait(response, attempt);
+    console.log(`  waiting      ${Math.round(wait / 1000)}s: ${url} answered 429`);
+    // oxlint-disable-next-line no-await-in-loop
+    await sleep(wait);
+  }
+}
+
+/**
+ * Where a redirect leads, when the allowlist entry permits it; a failure when
+ * it does not; `undefined` when the response is not a redirect.
+ */
+function redirectOf(
+  response: Response,
+  current: string,
+  entry: AllowlistEntry | undefined,
+): string | Failure | undefined {
+  const location = response.headers.get('location');
+  if (response.status < 300 || response.status >= 400 || location === null) {
+    return undefined;
+  }
+  const target = new URL(location, current).toString();
+  const verdict = entry === undefined ? undefined : checkRedirectTarget(target, entry);
+  if (verdict?.allowed === true) {
+    return target;
+  }
+  return {
+    ok: false,
+    detail:
+      `${current} redirected to ${target}, which is refused: ${verdict?.reason ?? 'no allowlist entry'}. ` +
+      'Add the host to the entry\'s "redirectHosts" in data/fetch-allowlist.json if it belongs there.',
+  };
+}
+
+/** The bytes of a final response, or why there are none. */
+async function bodyOf(response: Response, current: string): Promise<Retrieval> {
+  if (response.status === 429) {
+    return {
+      ok: false,
+      throttled: true,
+      detail: `${current}: still HTTP 429 after ${THROTTLE_ATTEMPTS} waits. Run this again later.`,
+    };
+  }
+  if (!response.ok) {
+    return { ok: false, detail: `${current}: HTTP ${response.status}` };
+  }
+  try {
+    const bytes = new Uint8Array(await response.arrayBuffer());
+    return { ok: true, response, bytes, finalUrl: current };
+  } catch (error) {
+    return { ok: false, detail: `${current}: ${(error as Error).message}` };
+  }
 }
 
 /**
@@ -389,21 +420,66 @@ async function fetchImage(
   };
 }
 
+function recordId(record: LoadedRecord): unknown {
+  return (record.value as { id?: unknown }).id;
+}
+
+/** Refuses a `--only` id that matched nothing, rather than fetching less than was asked for. */
+function assertAllFound(
+  requested: readonly string[],
+  records: readonly LoadedRecord[],
+  scope: FetchScope,
+): void {
+  const found = new Set(records.map(recordId).filter((id): id is string => typeof id === 'string'));
+  const missing = requested.filter((id) => !found.has(id));
+  if (missing.length === 0) {
+    return;
+  }
+  // A narrowed run is the likeliest explanation for an id that exists: say so
+  // rather than let the flag turn a known source into an unknown one.
+  const narrowing =
+    scope.sources && scope.images
+      ? ''
+      : ` This run was limited to ${scope.images ? 'images' : 'sources'}.`;
+  throw new Error(`Unknown source or image id(s): ${missing.join(', ')}.${narrowing}`);
+}
+
+async function fetchRecord(
+  record: LoadedRecord,
+  allowlist: readonly AllowlistEntry[],
+  ifMissing: boolean,
+): Promise<FetchReport> {
+  const isImage = record.kind === 'images';
+  const parsed = (isImage ? imageAssetSchema : sourceSchema).safeParse(record.value);
+  if (!parsed.success) {
+    return {
+      sourceId: String(recordId(record) ?? record.file),
+      status: 'failed',
+      detail: `does not match the ${isImage ? 'image' : 'source'} schema; run pnpm data:validate`,
+    };
+  }
+  return isImage
+    ? fetchImage(parsed.data as ImageAsset, record.file, allowlist, ifMissing)
+    : fetchSource(parsed.data as Source, record.file, allowlist, ifMissing);
+}
+
+/*
+ * A throttle exits non-zero too: nothing was retrieved, and a curation round
+ * that quietly reported success would leave the cache half-built.
+ */
+const FAILING_STATUSES: ReadonlySet<FetchReport['status']> = new Set([
+  'failed',
+  'needs-review',
+  'throttled',
+]);
+
 async function main(): Promise<void> {
   const allowlist = await loadAllowlist();
-  const requested = process.argv
-    .flatMap((argument, index, arguments_) =>
-      argument === '--only' ? [arguments_[index + 1] ?? ''] : [],
-    )
-    .filter((id) => id !== '');
+  const requested = flagValues(process.argv, '--only');
   const requestedIds = new Set(requested);
-
   const wanted = (record: LoadedRecord): boolean => {
-    if (requestedIds.size === 0) {
-      return true;
-    }
-    const id = (record.value as { id?: unknown }).id;
-    return typeof id === 'string' && requestedIds.has(id);
+    const id = recordId(record);
+    return requestedIds.size === 0 || (typeof id === 'string' && requestedIds.has(id));
   };
 
   const ifMissing = process.argv.includes('--if-missing');
@@ -411,35 +487,10 @@ async function main(): Promise<void> {
   const sources = scope.sources ? (await loadRecords('sources')).filter(wanted) : [];
   const images = scope.images ? (await loadRecords('images')).filter(wanted) : [];
   const records = [...sources, ...images];
-
-  if (requestedIds.size > 0 && records.length !== requestedIds.size) {
-    const found = new Set(
-      records
-        .map((record) => (record.value as { id?: unknown }).id)
-        .filter((id): id is string => typeof id === 'string'),
-    );
-    const missing = requested.filter((id) => !found.has(id));
-    // A narrowed run is the likeliest explanation for an id that exists: say so
-    // rather than let the flag turn a known source into an unknown one.
-    const narrowing =
-      scope.sources && scope.images
-        ? ''
-        : ` This run was limited to ${scope.images ? 'images' : 'sources'}.`;
-    throw new Error(`Unknown source or image id(s): ${missing.join(', ')}.${narrowing}`);
-  }
+  assertAllFound(requested, records, scope);
 
   const reports: FetchReport[] = [];
   for (const record of records) {
-    const schema = record.kind === 'images' ? imageAssetSchema : sourceSchema;
-    const parsed = schema.safeParse(record.value);
-    if (!parsed.success) {
-      reports.push({
-        sourceId: String((record.value as { id?: unknown }).id ?? record.file),
-        status: 'failed',
-        detail: `does not match the ${record.kind === 'images' ? 'image' : 'source'} schema; run pnpm data:validate`,
-      });
-      continue;
-    }
     // Sequential on purpose, and spaced: one request at a time is a politeness
     // constraint on other people's servers, not a throughput problem worth
     // solving. A curation round of twenty photographs is twenty megabytes off
@@ -449,40 +500,22 @@ async function main(): Promise<void> {
       // oxlint-disable-next-line no-await-in-loop
       await sleep(1000);
     }
-    reports.push(
-      record.kind === 'images'
-        ? // oxlint-disable-next-line no-await-in-loop
-          await fetchImage(parsed.data as ImageAsset, record.file, allowlist, ifMissing)
-        : // oxlint-disable-next-line no-await-in-loop
-          await fetchSource(parsed.data as Source, record.file, allowlist, ifMissing),
-    );
+    // oxlint-disable-next-line no-await-in-loop
+    reports.push(await fetchRecord(record, allowlist, ifMissing));
   }
 
   for (const report of reports) {
     console.log(`  ${report.status.padEnd(12)} ${report.sourceId}  ${report.detail}`);
   }
 
-  const counts = new Map<FetchReport['status'], number>();
-  for (const report of reports) {
-    counts.set(report.status, (counts.get(report.status) ?? 0) + 1);
-  }
-  const summary = [...counts.entries()].map(([status, count]) => `${count} ${status}`).join(', ');
+  const summary = statusSummary(reports.map((report) => report.status));
   const scanned = [
     ...(scope.sources ? [`${sources.length} source(s)`] : []),
     ...(scope.images ? [`${images.length} image(s)`] : []),
   ].join(' and ');
   console.log(`data:fetch: ${scanned}${summary === '' ? '' : `, ${summary}`}`);
 
-  // A throttle exits non-zero too: nothing was retrieved, and a curation round
-  // that quietly reported success would leave the cache half-built.
-  if (
-    reports.some(
-      (report) =>
-        report.status === 'failed' ||
-        report.status === 'needs-review' ||
-        report.status === 'throttled',
-    )
-  ) {
+  if (reports.some((report) => FAILING_STATUSES.has(report.status))) {
     process.exitCode = 1;
   }
 }

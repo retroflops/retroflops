@@ -17,7 +17,7 @@
 
 import { mkdtemp, readFile, rm, writeFile } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
-import { isAbsolute, join, resolve } from 'node:path';
+import { join } from 'node:path';
 
 import { catalogAvailability, type CatalogAvailability } from '../src/lib/catalog-availability.ts';
 import type { Component, System } from '../src/lib/data/schema.ts';
@@ -26,6 +26,7 @@ import {
   systemTypeLabel,
   systemTypesByFirstRelease,
 } from '../src/lib/display.ts';
+import { outputDirectory } from './lib/cli.ts';
 import { loadRawDataset } from './lib/dataset.ts';
 import { formatGeneratedMarkdown } from './lib/format-generated-markdown.ts';
 import { repoPath } from './lib/io.ts';
@@ -34,15 +35,6 @@ import { parseDataset } from './lib/parse.ts';
 const INDEX_FILE = 'CATALOG.md';
 const DEFAULT_OUTPUT_DIRECTORY = 'docs';
 const LISTED_COMPONENT_KINDS = ['cpu', 'gpu'] as const;
-
-function outputDirectory(): string {
-  const index = process.argv.indexOf('--output-directory');
-  const target = index === -1 ? DEFAULT_OUTPUT_DIRECTORY : process.argv[index + 1];
-  if (target === undefined) {
-    throw new Error('data:index: --output-directory needs a path');
-  }
-  return resolve(isAbsolute(target) ? target : repoPath(target));
-}
 
 interface Entry {
   readonly name: string;
@@ -179,7 +171,10 @@ async function main(): Promise<void> {
     return;
   }
 
-  const path = await writeIndex(outputDirectory(), markdown);
+  const path = await writeIndex(
+    outputDirectory(process.argv, DEFAULT_OUTPUT_DIRECTORY, 'data:index'),
+    markdown,
+  );
   console.log(`data:index: wrote ${path}`);
 }
 

@@ -100,6 +100,79 @@ export function acceptsInputCount(formula: FormulaDefinition, count: number): bo
   return count >= formula.arity.min && (formula.arity.max === null || count <= formula.arity.max);
 }
 
+/** A refusal, each reason stated once. */
+function refused(reasons: readonly string[]): FormulaOutcome {
+  return { ok: false, reasons: [...new Set(reasons)] };
+}
+
+function computed(
+  value: Decimal,
+  unit: UnitId,
+  significantDigits: number,
+  caveat: string,
+): FormulaOutcome {
+  return { ok: true, result: { value: formatDecimal(value), unit, significantDigits, caveat } };
+}
+
+/** What a formula requires of one of its inputs. */
+interface InputExpectation {
+  readonly input: FormulaInput;
+  readonly metric: string;
+  readonly quantity: string;
+}
+
+/**
+ * Every way the inputs miss what the formula expects: wrong metrics first, then
+ * wrong unit quantities, each naming what was expected, then a value that is not
+ * positive. The order is stable, so a refusal reads the same on every build.
+ */
+function expectationFailures(expected: readonly InputExpectation[]): string[] {
+  return [
+    ...expected
+      .filter(({ input, metric }) => input.facets.metric !== metric)
+      .map(({ metric }) => `metric-mismatch:${metric}`),
+    ...expected
+      .filter(({ input, quantity }) => getUnit(input.facets.unit)?.quantity !== quantity)
+      .map(({ quantity }) => `unit-quantity-mismatch:${quantity}`),
+    ...(expected.some(({ input }) => !isPositive(parseDecimal(input.value)))
+      ? ['non-positive-value']
+      : []),
+  ];
+}
+
+function namedConstants(
+  constants: readonly FormulaConstant[] | undefined,
+): ReadonlyMap<string, FormulaConstant> {
+  return new Map((constants ?? []).map((constant) => [constant.id, constant]));
+}
+
+function missingConstants(
+  named: ReadonlyMap<string, FormulaConstant>,
+  ids: readonly string[],
+): string[] {
+  return ids.filter((id) => !named.has(id)).map((id) => `missing-constant:${id}`);
+}
+
+/**
+ * `start` multiplied by each named constant in turn, or the reason the first
+ * one that is not positive cannot be used.
+ */
+function multiplyConstants(
+  start: Decimal,
+  named: ReadonlyMap<string, FormulaConstant>,
+  ids: readonly string[],
+): Decimal | { readonly reason: string } {
+  let product = start;
+  for (const id of ids) {
+    const value = parseDecimal(named.get(id)?.value ?? '0');
+    if (!isPositive(value)) {
+      return { reason: `non-positive-constant:${id}` };
+    }
+    product = multiplyDecimal(product, value);
+  }
+  return product;
+}
+
 /**
  * `a / b` within one comparability group.
  *
@@ -130,16 +203,7 @@ const ratio: FormulaDefinition = {
     // A ratio is no more precise than its least precise input.
     const digits = Math.min(significantDigits, a.significantDigits, b.significantDigits);
     const value = divideDecimal(parseDecimal(a.value), parseDecimal(b.value), digits, rounding);
-
-    return {
-      ok: true,
-      result: {
-        value: formatDecimal(value),
-        unit: 'unit',
-        significantDigits: digits,
-        caveat: buildRatioCaveat(a, b, digits),
-      },
-    };
+    return computed(value, 'unit', digits, buildRatioCaveat(a, b, digits));
   },
 };
 
@@ -200,7 +264,7 @@ const sum: FormulaDefinition = {
       }
     }
     if (reasons.length > 0) {
-      return { ok: false, reasons: [...new Set(reasons)] };
+      return refused(reasons);
     }
 
     const total = inputs
@@ -224,15 +288,7 @@ const sum: FormulaDefinition = {
       return { ok: false, reasons: ['unknown-unit'] };
     }
 
-    return {
-      ok: true,
-      result: {
-        value: formatDecimal(value),
-        unit,
-        significantDigits: digits,
-        caveat: buildSumCaveat(inputs, exclusions ?? []),
-      },
-    };
+    return computed(value, unit, digits, buildSumCaveat(inputs, exclusions ?? []));
   },
 };
 
@@ -279,36 +335,21 @@ const clockFromPeakFp32: FormulaDefinition = {
       return { ok: false, reasons: ['unit-quantity-mismatch'] };
     }
 
-    const named = new Map((constants ?? []).map((constant) => [constant.id, constant]));
-    const missing = CLOCK_FROM_PEAK_CONSTANTS.filter((id) => !named.has(id));
+    const named = namedConstants(constants);
+    const missing = missingConstants(named, CLOCK_FROM_PEAK_CONSTANTS);
     if (missing.length > 0) {
-      return { ok: false, reasons: missing.map((id) => `missing-constant:${id}`) };
+      return refused(missing);
     }
-
-    let divisor = parseDecimal('1');
-    for (const id of CLOCK_FROM_PEAK_CONSTANTS) {
-      const constant = named.get(id);
-      const value = parseDecimal(constant?.value ?? '0');
-      if (!isPositive(value)) {
-        return { ok: false, reasons: [`non-positive-constant:${id}`] };
-      }
-      divisor = multiplyDecimal(divisor, value);
+    const divisor = multiplyConstants(parseDecimal('1'), named, CLOCK_FROM_PEAK_CONSTANTS);
+    if ('reason' in divisor) {
+      return refused([divisor.reason]);
     }
 
     // A count of lanes is exact, so it costs the result no precision: the answer
     // is as precise as the rate that was published, and no more.
     const digits = Math.min(significantDigits, peak.significantDigits);
     const value = divideDecimal(parseDecimal(peak.value), divisor, digits, rounding);
-
-    return {
-      ok: true,
-      result: {
-        value: formatDecimal(value),
-        unit: 'Hz',
-        significantDigits: digits,
-        caveat: buildClockFromPeakCaveat(named, digits),
-      },
-    };
+    return computed(value, 'Hz', digits, buildClockFromPeakCaveat(named, digits));
   },
 };
 
@@ -353,33 +394,24 @@ const peakFp32FromClock: FormulaDefinition = {
       return { ok: false, reasons: ['unit-quantity-mismatch'] };
     }
 
-    const named = new Map((constants ?? []).map((constant) => [constant.id, constant]));
-    const missing = PEAK_FROM_CLOCK_CONSTANTS.filter((id) => !named.has(id));
+    const named = namedConstants(constants);
+    const missing = missingConstants(named, PEAK_FROM_CLOCK_CONSTANTS);
     if (missing.length > 0) {
-      return { ok: false, reasons: missing.map((id) => `missing-constant:${id}`) };
+      return refused(missing);
     }
-
-    let product = parseDecimal(clock.value);
-    for (const id of PEAK_FROM_CLOCK_CONSTANTS) {
-      const constant = named.get(id);
-      const value = parseDecimal(constant?.value ?? '0');
-      if (!isPositive(value)) {
-        return { ok: false, reasons: [`non-positive-constant:${id}`] };
-      }
-      product = multiplyDecimal(product, value);
+    const product = multiplyConstants(parseDecimal(clock.value), named, PEAK_FROM_CLOCK_CONSTANTS);
+    if ('reason' in product) {
+      return refused([product.reason]);
     }
 
     // Counts are exact, so the answer is as precise as the clock and no more.
     const digits = Math.min(significantDigits, clock.significantDigits);
-    return {
-      ok: true,
-      result: {
-        value: formatDecimal(roundToSignificantDigits(product, digits, rounding)),
-        unit: 'FLOP/s',
-        significantDigits: digits,
-        caveat: buildPeakFromClockCaveat(named, digits),
-      },
-    };
+    return computed(
+      roundToSignificantDigits(product, digits, rounding),
+      'FLOP/s',
+      digits,
+      buildPeakFromClockCaveat(named, digits),
+    );
   },
 };
 
@@ -414,34 +446,20 @@ const powerFromVoltageCurrent: FormulaDefinition = {
       return { ok: false, reasons: ['power-from-voltage-current needs exactly two inputs'] };
     }
 
-    const reasons: string[] = [];
     // Order is part of the formula: the expression names the voltage first, and
     // an input pair filed the other way round would recompute to the same watts
     // while describing something else.
-    if (voltage.facets.metric !== 'supply-voltage') {
-      reasons.push('metric-mismatch:supply-voltage');
-    }
-    if (current.facets.metric !== 'supply-current') {
-      reasons.push('metric-mismatch:supply-current');
-    }
-    if (getUnit(voltage.facets.unit)?.quantity !== 'voltage') {
-      reasons.push('unit-quantity-mismatch:voltage');
-    }
-    if (getUnit(current.facets.unit)?.quantity !== 'current') {
-      reasons.push('unit-quantity-mismatch:current');
-    }
-    for (const input of [voltage, current]) {
-      if (!isPositive(parseDecimal(input.value))) {
-        reasons.push('non-positive-value');
-      }
-    }
+    const reasons = expectationFailures([
+      { input: voltage, metric: 'supply-voltage', quantity: 'voltage' },
+      { input: current, metric: 'supply-current', quantity: 'current' },
+    ]);
     // A supply's two rows describe one supply; pairing a console's voltage with
     // another machine's current would produce arithmetic about nothing.
     if (voltage.facets.scope !== current.facets.scope) {
       reasons.push('scope-mismatch');
     }
     if (reasons.length > 0) {
-      return { ok: false, reasons: [...new Set(reasons)] };
+      return refused(reasons);
     }
 
     const product = multiplyDecimal(parseDecimal(voltage.value), parseDecimal(current.value));
@@ -451,15 +469,12 @@ const powerFromVoltageCurrent: FormulaDefinition = {
       current.significantDigits,
     );
 
-    return {
-      ok: true,
-      result: {
-        value: formatDecimal(roundToSignificantDigits(product, digits, rounding)),
-        unit: 'W',
-        significantDigits: digits,
-        caveat: buildPowerFromNameplateCaveat(digits),
-      },
-    };
+    return computed(
+      roundToSignificantDigits(product, digits, rounding),
+      'W',
+      digits,
+      buildPowerFromNameplateCaveat(digits),
+    );
   },
 };
 
@@ -498,26 +513,12 @@ const memoryBandwidthFromTransferRate: FormulaDefinition = {
       };
     }
 
-    const reasons: string[] = [];
-    if (rate.facets.metric !== 'memory-transfer-rate') {
-      reasons.push('metric-mismatch:memory-transfer-rate');
-    }
-    if (width.facets.metric !== 'memory-bus-width') {
-      reasons.push('metric-mismatch:memory-bus-width');
-    }
-    if (getUnit(rate.facets.unit)?.quantity !== 'transfer-rate') {
-      reasons.push('unit-quantity-mismatch:transfer-rate');
-    }
-    if (getUnit(width.facets.unit)?.quantity !== 'bus-width') {
-      reasons.push('unit-quantity-mismatch:bus-width');
-    }
-    for (const input of [rate, width]) {
-      if (!isPositive(parseDecimal(input.value))) {
-        reasons.push('non-positive-value');
-      }
-    }
+    const reasons = expectationFailures([
+      { input: rate, metric: 'memory-transfer-rate', quantity: 'transfer-rate' },
+      { input: width, metric: 'memory-bus-width', quantity: 'bus-width' },
+    ]);
     if (reasons.length > 0) {
-      return { ok: false, reasons: [...new Set(reasons)] };
+      return refused(reasons);
     }
 
     // A bus width is a count of lines, so it is exact and costs the answer no
@@ -526,15 +527,7 @@ const memoryBandwidthFromTransferRate: FormulaDefinition = {
     const bits = multiplyDecimal(parseDecimal(rate.value), parseDecimal(width.value));
     const value = divideDecimal(bits, parseDecimal(BITS_PER_BYTE), digits, rounding);
 
-    return {
-      ok: true,
-      result: {
-        value: formatDecimal(value),
-        unit: 'B/s',
-        significantDigits: digits,
-        caveat: buildBandwidthFromTransferRateCaveat(width, digits),
-      },
-    };
+    return computed(value, 'B/s', digits, buildBandwidthFromTransferRateCaveat(width, digits));
   },
 };
 
@@ -562,18 +555,11 @@ const memoryBandwidthFromCycleTime: FormulaDefinition = {
       };
     }
 
-    const reasons: string[] = [];
-    if (cycle.facets.metric !== 'memory-cycle-time') {
-      reasons.push('metric-mismatch:memory-cycle-time');
-    }
-    if (getUnit(cycle.facets.unit)?.quantity !== 'time') {
-      reasons.push('unit-quantity-mismatch:time');
-    }
-    if (!isPositive(parseDecimal(cycle.value))) {
-      reasons.push('non-positive-value');
-    }
+    const reasons = expectationFailures([
+      { input: cycle, metric: 'memory-cycle-time', quantity: 'time' },
+    ]);
 
-    const named = new Map((constants ?? []).map((constant) => [constant.id, constant]));
+    const named = namedConstants(constants);
     const constantId = MEMORY_BANDWIDTH_FROM_CYCLE_TIME_CONSTANTS[0];
     const bytesPerCycle = named.get(constantId);
     if (bytesPerCycle === undefined) {
@@ -582,22 +568,19 @@ const memoryBandwidthFromCycleTime: FormulaDefinition = {
       reasons.push(`non-positive-constant:${constantId}`);
     }
     if (reasons.length > 0) {
-      return { ok: false, reasons: [...new Set(reasons)] };
+      return refused(reasons);
     }
 
     const bytes = parseDecimal(bytesPerCycle?.value ?? '0');
     const digits = Math.min(significantDigits, cycle.significantDigits);
     const value = divideDecimal(bytes, parseDecimal(cycle.value), digits, rounding);
 
-    return {
-      ok: true,
-      result: {
-        value: formatDecimal(value),
-        unit: 'B/s',
-        significantDigits: digits,
-        caveat: buildBandwidthFromCycleTimeCaveat(bytesPerCycle?.label ?? constantId, digits),
-      },
-    };
+    return computed(
+      value,
+      'B/s',
+      digits,
+      buildBandwidthFromCycleTimeCaveat(bytesPerCycle?.label ?? constantId, digits),
+    );
   },
 };
 
@@ -640,13 +623,10 @@ const priceAdjustedByCpi: FormulaDefinition = {
       reasons.push('non-positive-value');
     }
 
-    const named = new Map((constants ?? []).map((constant) => [constant.id, constant]));
-    const missing = PRICE_CPI_CONSTANTS.filter((id) => !named.has(id));
-    if (missing.length > 0) {
-      reasons.push(...missing.map((id) => `missing-constant:${id}`));
-    }
+    const named = namedConstants(constants);
+    reasons.push(...missingConstants(named, PRICE_CPI_CONSTANTS));
     if (reasons.length > 0) {
-      return { ok: false, reasons: [...new Set(reasons)] };
+      return refused(reasons);
     }
 
     const target = named.get('target-cpi-u');
@@ -656,7 +636,7 @@ const priceAdjustedByCpi: FormulaDefinition = {
     if (!isPositive(targetValue)) reasons.push('non-positive-constant:target-cpi-u');
     if (!isPositive(launchValue)) reasons.push('non-positive-constant:launch-cpi-u');
     if (reasons.length > 0) {
-      return { ok: false, reasons: [...new Set(reasons)] };
+      return refused(reasons);
     }
 
     const digits = Math.min(significantDigits, price.significantDigits);
@@ -667,19 +647,16 @@ const priceAdjustedByCpi: FormulaDefinition = {
       rounding,
     );
 
-    return {
-      ok: true,
-      result: {
-        value: formatDecimal(adjusted),
-        unit: 'USD',
-        significantDigits: digits,
-        caveat: buildPriceAdjustedByCpiCaveat(
-          target?.label ?? 'target CPI-U',
-          launch?.label ?? 'launch CPI-U',
-          digits,
-        ),
-      },
-    };
+    return computed(
+      adjusted,
+      'USD',
+      digits,
+      buildPriceAdjustedByCpiCaveat(
+        target?.label ?? 'target CPI-U',
+        launch?.label ?? 'launch CPI-U',
+        digits,
+      ),
+    );
   },
 };
 
@@ -694,7 +671,7 @@ const FORMULA_LIST: readonly FormulaDefinition[] = [
   priceAdjustedByCpi,
 ];
 
-export const FORMULAS: ReadonlyMap<string, FormulaDefinition> = new Map(
+const FORMULAS: ReadonlyMap<string, FormulaDefinition> = new Map(
   FORMULA_LIST.map((formula) => [`${formula.id}@${formula.version}`, formula]),
 );
 

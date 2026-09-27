@@ -29,6 +29,7 @@ import { promisify } from 'node:util';
 
 import { checkUrlShape } from '../src/lib/data/fetch-policy.ts';
 import { sourceSchema, type Source } from '../src/lib/data/schema.ts';
+import { flagValues } from './lib/cli.ts';
 import { loadRecords } from './lib/dataset.ts';
 
 /** A source with neither of these cannot be re-checked by anybody, ever. */
@@ -88,37 +89,37 @@ function errorDetail(error: unknown): string {
  * whose incomplete certificate chain Node rejects. It remains a validating
  * client. The checker never turns off certificate checks.
  */
+function curlArguments(method: 'HEAD' | 'GET', target: string): string[] {
+  return [
+    '--silent',
+    '--show-error',
+    '--location',
+    '--max-time',
+    String(TIMEOUT_MS / 1000),
+    '--output',
+    '/dev/null',
+    '--write-out',
+    '\n%{http_code}\n%{url_effective}',
+    '--user-agent',
+    REQUEST_HEADERS['User-Agent'],
+    '--header',
+    `Accept: ${REQUEST_HEADERS.Accept}`,
+    '--header',
+    `Accept-Language: ${REQUEST_HEADERS['Accept-Language']}`,
+    '--header',
+    `Cache-Control: ${REQUEST_HEADERS['Cache-Control']}`,
+    ...(method === 'HEAD' ? ['--head'] : ['--range', '0-0']),
+    target,
+  ];
+}
+
 async function reachWithCurl(target: string): Promise<Reachable | Error> {
   for (const method of ['HEAD', 'GET'] as const) {
     try {
-      const curlArguments = [
-        '--silent',
-        '--show-error',
-        '--location',
-        '--max-time',
-        String(TIMEOUT_MS / 1000),
-        '--output',
-        '/dev/null',
-        '--write-out',
-        '\n%{http_code}\n%{url_effective}',
-        '--user-agent',
-        REQUEST_HEADERS['User-Agent'],
-        '--header',
-        `Accept: ${REQUEST_HEADERS.Accept}`,
-        '--header',
-        `Accept-Language: ${REQUEST_HEADERS['Accept-Language']}`,
-        '--header',
-        `Cache-Control: ${REQUEST_HEADERS['Cache-Control']}`,
-      ];
-      if (method === 'HEAD') {
-        curlArguments.push('--head');
-      } else {
-        curlArguments.push('--range', '0-0');
-      }
-      curlArguments.push(target);
-
       // oxlint-disable-next-line no-await-in-loop
-      const { stdout } = await execFile('curl', curlArguments, { timeout: TIMEOUT_MS + 5_000 });
+      const { stdout } = await execFile('curl', curlArguments(method, target), {
+        timeout: TIMEOUT_MS + 5_000,
+      });
       const lines = stdout.trimEnd().split('\n');
       const finalUrl = lines.pop() ?? target;
       const status = Number(lines.pop());
@@ -241,11 +242,7 @@ function clearProgress(): void {
 
 async function main(): Promise<void> {
   const records = await loadRecords('sources');
-  const requested = process.argv
-    .flatMap((argument, index, arguments_) =>
-      argument === '--only' ? [arguments_[index + 1] ?? ''] : [],
-    )
-    .filter((id) => id !== '');
+  const requested = flagValues(process.argv, '--only');
   const requestedIds = new Set(requested);
   const allSources = records.map((record) => sourceSchema.parse(record.value));
   const sources =

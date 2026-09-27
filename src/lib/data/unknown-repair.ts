@@ -3,12 +3,12 @@
 
 import { z } from 'zod';
 
-export const UNKNOWN_REPAIR_BASELINE = '99c5bc2ca113964ff77cde4f9cf0cca9faa323f9' as const;
+const UNKNOWN_REPAIR_BASELINE = '99c5bc2ca113964ff77cde4f9cf0cca9faa323f9' as const;
 export const UNKNOWN_REPAIR_BASELINE_COUNT = 254;
 /** Every ledger entry is now reviewed, so the ceiling is where v1 needs it. */
 export const UNREVIEWED_UNKNOWN_BUDGET = 0;
 
-export const UNKNOWN_REPAIR_DISPOSITIONS = [
+const UNKNOWN_REPAIR_DISPOSITIONS = [
   'unreviewed',
   'confirmed',
   'reported',

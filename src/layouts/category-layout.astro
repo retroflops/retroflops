@@ -1,0 +1,54 @@
+---
+// SPDX-FileCopyrightText: 2026 Wojciech Polak
+// SPDX-License-Identifier: MIT
+
+/**
+ * A category page: a breadcrumb, a header naming the category, and one card
+ * per catalog record. The records kept in Research are counted beneath the
+ * grid, so a reader knows the category is not the whole of what the site holds.
+ */
+import BreadcrumbTrail from '~/components/breadcrumb-trail.astro';
+import { route } from '~/lib/paths';
+import { breadcrumbList, type Crumb } from '~/lib/structured-data';
+
+import BaseLayout from './base-layout.astro';
+
+interface Props {
+  label: string;
+  description: string;
+  crumbs: readonly Crumb[];
+  researchCount: number;
+  /** How one record kept in Research is named, and how several are. */
+  researchNoun: { one: string; other: string };
+}
+
+const { label, description, crumbs, researchCount, researchNoun } = Astro.props;
+
+const absolute = (path: string): string => new URL(route(path), Astro.site ?? Astro.url).href;
+const structuredData = [breadcrumbList(crumbs, absolute)];
+---
+
+<BaseLayout title={label} description={description} structuredData={structuredData}>
+  <BreadcrumbTrail crumbs={crumbs} />
+
+  <header class="page-header stack">
+    <p class="page-header__eyebrow">Category</p>
+    <h1>{label}</h1>
+    <p class="lede prose">{description}</p>
+  </header>
+
+  <section class="stack" aria-labelledby="records">
+    <h2 id="records" class="visually-hidden">{label} in the catalog</h2>
+    <ul class="card-grid">
+      <slot />
+    </ul>
+    {
+      researchCount > 0 && (
+        <p class="prose meta">
+          {researchCount} {researchCount === 1 ? researchNoun.one : researchNoun.other} kept in{' '}
+          <a href={route('/research/')}>Research</a> because no numeric measurement is available.
+        </p>
+      )
+    }
+  </section>
+</BaseLayout>

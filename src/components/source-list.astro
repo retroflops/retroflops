@@ -1,0 +1,27 @@
+---
+// SPDX-FileCopyrightText: 2026 Wojciech Polak
+// SPDX-License-Identifier: MIT
+
+/** A list of cited documents: title, publisher, tier and locator. */
+import type { Source } from '~/lib/data/schema';
+import { route } from '~/lib/paths';
+
+interface Props {
+  sources: readonly Source[];
+}
+
+const { sources } = Astro.props;
+---
+
+<ul class="source-list">
+  {
+    sources.map((source) => (
+      <li>
+        <a href={route(`/sources/${source.id}/`)}>{source.title}</a>
+        <span class="meta">
+          {source.publisher} · tier {source.tier} · {source.locator}
+        </span>
+      </li>
+    ))
+  }
+</ul>

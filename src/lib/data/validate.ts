@@ -20,10 +20,18 @@ import {
   containsMarker,
   containsRawQuantity,
   editorialTextFields,
+  markerTargets,
+  type EditorialReference,
+  type EditorialTextField,
   referencesIn,
   sameSubject,
 } from './editorial-text.ts';
-import { acceptsInputCount, getFormula, type FormulaInput } from './formulas.ts';
+import {
+  acceptsInputCount,
+  getFormula,
+  type FormulaDefinition,
+  type FormulaInput,
+} from './formulas.ts';
 import type { ImageFileReading } from './image-file.ts';
 import { CANONICAL_MAX_BYTES, checkTransformRecipe } from './image-preset.ts';
 import { getImageRights } from './image-rights.ts';
@@ -31,6 +39,7 @@ import { getMetric } from './metrics.ts';
 import { normalizeQuantity } from './normalize.ts';
 import type {
   Component,
+  ConfigurationEntry,
   Conflict,
   ContextClaim,
   DerivedClaim,
@@ -38,6 +47,7 @@ import type {
   Measurement,
   ResearchRecord,
   Source,
+  SubjectRef,
   System,
 } from './schema.ts';
 import { quantityOf } from './units.ts';
@@ -111,17 +121,50 @@ export function validateDataset(
   ];
 }
 
+type LedgerEntry = UnknownRepairLedger['entries'][number];
+
 function checkUnknownRepairLedger(
   dataset: ParsedDataset,
   ledger: UnknownRepairLedger,
 ): ValidationIssue[] {
-  const issues: ValidationIssue[] = [];
+  const issues: ValidationIssue[] = [...checkLedgerTotals(ledger)];
   const measurements = new Map(
     dataset.measurements.map((measurement) => [measurement.id, measurement]),
   );
   const conflicts = new Set(dataset.conflicts.map((conflict) => conflict.id));
   const seen = new Set<string>();
 
+  for (const entry of ledger.entries) {
+    const where = `unknown repair ${entry.measurementId}`;
+    if (seen.has(entry.measurementId)) {
+      issues.push({
+        severity: 'error',
+        code: 'duplicate-unknown-repair-entry',
+        where,
+        message: 'appears more than once',
+      });
+      continue;
+    }
+    seen.add(entry.measurementId);
+    issues.push(...checkLedgerEntry(entry, where, measurements, conflicts));
+  }
+
+  for (const measurement of dataset.measurements) {
+    if (measurement.quantity.state === 'unknown' && !seen.has(measurement.id)) {
+      issues.push({
+        severity: 'error',
+        code: 'unknown-outside-repair-ledger',
+        where: `measurement ${measurement.id}`,
+        message: 'is unknown but does not appear in the v1 repair ledger',
+      });
+    }
+  }
+
+  return issues;
+}
+
+function checkLedgerTotals(ledger: UnknownRepairLedger): ValidationIssue[] {
+  const issues: ValidationIssue[] = [];
   if (ledger.entries.length < UNKNOWN_REPAIR_BASELINE_COUNT) {
     issues.push({
       severity: 'error',
@@ -140,126 +183,111 @@ function checkUnknownRepairLedger(
       message: `${unreviewed} entries remain unreviewed, over the limit of ${UNREVIEWED_UNKNOWN_BUDGET}`,
     });
   }
+  return issues;
+}
 
-  for (const entry of ledger.entries) {
-    const where = `unknown repair ${entry.measurementId}`;
-    if (seen.has(entry.measurementId)) {
-      issues.push({
-        severity: 'error',
-        code: 'duplicate-unknown-repair-entry',
-        where,
-        message: 'appears more than once',
-      });
-      continue;
-    }
-    seen.add(entry.measurementId);
-
-    if (entry.disposition === 'unreviewed') {
-      continue;
-    }
-    if (entry.reviewedOn === undefined) {
-      issues.push({
-        severity: 'error',
-        code: 'unknown-repair-without-date',
-        where,
-        message: 'a completed disposition needs a review date',
-      });
-    }
-    if (entry.targetIds.length === 0) {
-      issues.push({
-        severity: 'error',
-        code: 'unknown-repair-without-target',
-        where,
-        message: 'a completed disposition must name its resulting record',
-      });
-      continue;
-    }
-
-    if (entry.disposition === 'conflict') {
-      if (!entry.targetIds.every((id) => conflicts.has(id))) {
-        issues.push({
-          severity: 'error',
-          code: 'unknown-repair-target-mismatch',
-          where,
-          message: 'a conflict disposition must point to conflict records',
-        });
-      }
-      continue;
-    }
-
-    const targets = entry.targetIds.map((id) => measurements.get(id));
-    if (targets.some((target) => target === undefined)) {
-      issues.push({
-        severity: 'error',
-        code: 'unknown-repair-target-missing',
-        where,
-        message: 'points to a measurement that does not exist',
-      });
-      continue;
-    }
-    const stated = targets.filter((target) => target?.quantity.state === 'value');
-    if (
-      entry.disposition === 'confirmed' ||
-      entry.disposition === 'reported' ||
-      entry.disposition === 'rumored'
-    ) {
-      if (
-        stated.some((target) => target?.evidenceLevel !== entry.disposition) ||
-        stated.length !== targets.length
-      ) {
-        issues.push({
-          severity: 'error',
-          code: 'unknown-repair-target-mismatch',
-          where,
-          message: `must point only to ${entry.disposition} values`,
-        });
-      }
-    } else if (entry.disposition === 'not-applicable') {
-      if (targets.some((target) => target?.quantity.state !== 'not-applicable')) {
-        issues.push({
-          severity: 'error',
-          code: 'unknown-repair-target-mismatch',
-          where,
-          message: 'must point only to not-applicable measurements',
-        });
-      }
-    } else {
-      if (
-        targets.some(
-          (target) => target?.quantity.state !== 'unknown' || target.unknownAudit === undefined,
-        )
-      ) {
-        issues.push({
-          severity: 'error',
-          code: 'unknown-repair-target-mismatch',
-          where,
-          message: 'a true-unknown disposition must point to audited unknown measurements',
-        });
-      }
-      if (
-        targets.some((target) => !target?.unknownAudit?.routesChecked.includes('community-source'))
-      ) {
-        issues.push({
-          severity: 'error',
-          code: 'unknown-repair-without-community-source',
-          where,
-          message: 'a true-unknown disposition requires a documented community-source route check',
-        });
-      }
-    }
+function checkLedgerEntry(
+  entry: LedgerEntry,
+  where: string,
+  measurements: ReadonlyMap<string, Measurement>,
+  conflicts: ReadonlySet<string>,
+): ValidationIssue[] {
+  if (entry.disposition === 'unreviewed') {
+    return [];
+  }
+  const issues: ValidationIssue[] = [];
+  if (entry.reviewedOn === undefined) {
+    issues.push({
+      severity: 'error',
+      code: 'unknown-repair-without-date',
+      where,
+      message: 'a completed disposition needs a review date',
+    });
+  }
+  if (entry.targetIds.length === 0) {
+    issues.push({
+      severity: 'error',
+      code: 'unknown-repair-without-target',
+      where,
+      message: 'a completed disposition must name its resulting record',
+    });
+    return issues;
   }
 
-  for (const measurement of dataset.measurements) {
-    if (measurement.quantity.state === 'unknown' && !seen.has(measurement.id)) {
+  if (entry.disposition === 'conflict') {
+    if (!entry.targetIds.every((id) => conflicts.has(id))) {
       issues.push({
         severity: 'error',
-        code: 'unknown-outside-repair-ledger',
-        where: `measurement ${measurement.id}`,
-        message: 'is unknown but does not appear in the v1 repair ledger',
+        code: 'unknown-repair-target-mismatch',
+        where,
+        message: 'a conflict disposition must point to conflict records',
       });
     }
+    return issues;
   }
 
+  const targets = entry.targetIds.map((id) => measurements.get(id));
+  if (targets.some((target) => target === undefined)) {
+    issues.push({
+      severity: 'error',
+      code: 'unknown-repair-target-missing',
+      where,
+      message: 'points to a measurement that does not exist',
+    });
+    return issues;
+  }
+  issues.push(
+    ...checkLedgerTargets(
+      entry.disposition,
+      targets.filter((target) => target !== undefined),
+      where,
+    ),
+  );
+  return issues;
+}
+
+/** Whether the records a completed disposition points to are what it says they are. */
+function checkLedgerTargets(
+  disposition: Exclude<LedgerEntry['disposition'], 'unreviewed' | 'conflict'>,
+  targets: readonly Measurement[],
+  where: string,
+): ValidationIssue[] {
+  const mismatch = (message: string): ValidationIssue => ({
+    severity: 'error',
+    code: 'unknown-repair-target-mismatch',
+    where,
+    message,
+  });
+
+  if (disposition === 'not-applicable') {
+    return targets.some((target) => target.quantity.state !== 'not-applicable')
+      ? [mismatch('must point only to not-applicable measurements')]
+      : [];
+  }
+  if (disposition !== 'true-unknown') {
+    const stated = targets.filter((target) => target.quantity.state === 'value');
+    const matches =
+      stated.length === targets.length &&
+      stated.every((target) => target.evidenceLevel === disposition);
+    return matches ? [] : [mismatch(`must point only to ${disposition} values`)];
+  }
+
+  const issues: ValidationIssue[] = [];
+  if (
+    targets.some(
+      (target) => target.quantity.state !== 'unknown' || target.unknownAudit === undefined,
+    )
+  ) {
+    issues.push(mismatch('a true-unknown disposition must point to audited unknown measurements'));
+  }
+  if (targets.some((target) => !target.unknownAudit?.routesChecked.includes('community-source'))) {
+    issues.push({
+      severity: 'error',
+      code: 'unknown-repair-without-community-source',
+      where,
+      message: 'a true-unknown disposition requires a documented community-source route check',
+    });
+  }
   return issues;
 }
 
@@ -439,208 +467,229 @@ function duplicatesOf(
   }));
 }
 
-function checkReferences(dataset: ParsedDataset): ValidationIssue[] {
-  const issues: ValidationIssue[] = [];
-  const systemIds = new Set(dataset.systems.map((system) => system.id));
-  const componentIds = new Set(dataset.components.map((component) => component.id));
-  const sourceIds = new Set(dataset.sources.map((source) => source.id));
-  const measurementIds = new Set(dataset.measurements.map((measurement) => measurement.id));
+/** The identifiers a reference may point to, and the checks every kind of record shares. */
+class ReferenceIndex {
+  readonly #dataset: ParsedDataset;
+  readonly #systemIds: ReadonlySet<string>;
+  readonly #componentIds: ReadonlySet<string>;
+  readonly #sourceIds: ReadonlySet<string>;
 
-  const requireSources = (where: string, ids: readonly string[]): void => {
-    for (const id of ids) {
-      if (!sourceIds.has(id)) {
-        issues.push({
+  constructor(dataset: ParsedDataset) {
+    this.#dataset = dataset;
+    this.#systemIds = new Set(dataset.systems.map((system) => system.id));
+    this.#componentIds = new Set(dataset.components.map((component) => component.id));
+    this.#sourceIds = new Set(dataset.sources.map((source) => source.id));
+  }
+
+  hasComponent(id: string): boolean {
+    return this.#componentIds.has(id);
+  }
+
+  sources(where: string, ids: readonly string[]): ValidationIssue[] {
+    return ids
+      .filter((id) => !this.#sourceIds.has(id))
+      .map((id): ValidationIssue => ({
+        severity: 'error',
+        code: 'unknown-source',
+        where,
+        message: `references source "${id}", which does not exist`,
+      }));
+  }
+
+  /**
+   * The subject a record describes must exist, and so must the variant it
+   * narrows the figure to, when it names one and `withConfiguration` asks.
+   */
+  subject(where: string, subject: SubjectRef, withConfiguration: boolean): ValidationIssue[] {
+    const exists =
+      subject.kind === 'system'
+        ? this.#systemIds.has(subject.id)
+        : this.#componentIds.has(subject.id);
+    if (!exists) {
+      return [
+        {
           severity: 'error',
-          code: 'unknown-source',
+          code: 'unknown-subject',
           where,
-          message: `references source "${id}", which does not exist`,
-        });
-      }
+          message: `subject ${subject.kind} "${subject.id}" does not exist`,
+        },
+      ];
     }
-  };
-
-  for (const system of dataset.systems) {
-    requireSources(`system ${system.id}`, system.sourceIds);
-    for (const configuration of system.configurations) {
-      for (const entry of configuration.entries) {
-        if (!componentIds.has(entry.componentId)) {
-          issues.push({
+    if (!withConfiguration || subject.configurationId === undefined) {
+      return [];
+    }
+    const system = this.#dataset.systems.find((candidate) => candidate.id === subject.id);
+    const known = system?.configurations.some(
+      (configuration) => configuration.id === subject.configurationId,
+    );
+    return known === true
+      ? []
+      : [
+          {
             severity: 'error',
-            code: 'unknown-component',
-            where: `system ${system.id}, configuration ${configuration.id}`,
-            message: `references component "${entry.componentId}", which does not exist`,
-          });
-        }
-        const seenMeasurements = new Set<string>();
-        for (const measurementId of entry.measurementIds) {
-          if (seenMeasurements.has(measurementId)) {
-            issues.push({
-              severity: 'error',
-              code: 'duplicate-configuration-measurement',
-              where: `system ${system.id}, configuration ${configuration.id}, component ${entry.componentId}`,
-              message: `lists measurement "${measurementId}" more than once`,
-            });
-          }
-          seenMeasurements.add(measurementId);
-          const measurement = dataset.measurements.find(
-            (candidate) => candidate.id === measurementId,
-          );
-          const entryWhere = `system ${system.id}, configuration ${configuration.id}, component ${entry.componentId}`;
-          if (measurement === undefined) {
-            issues.push({
-              severity: 'error',
-              code: 'unknown-configuration-measurement',
-              where: entryWhere,
-              message: `references measurement "${measurementId}", which does not exist`,
-            });
-            continue;
-          }
-          const belongsToSystem =
-            measurement.subject.kind === 'system' &&
-            measurement.subject.id === system.id &&
-            (measurement.subject.configurationId === undefined ||
-              measurement.subject.configurationId === configuration.id);
-          const belongsToComponent =
-            measurement.subject.kind === 'component' &&
-            measurement.subject.id === entry.componentId;
-          if (!belongsToSystem && !belongsToComponent) {
-            issues.push({
-              severity: 'error',
-              code: 'configuration-measurement-subject-mismatch',
-              where: entryWhere,
-              message: `measurement "${measurementId}" belongs to another system, variant or component`,
-            });
-          } else if (belongsToSystem) {
-            const expectedScopes =
-              entry.role === 'gpu'
-                ? ['gpu']
-                : entry.role === 'storage'
-                  ? ['storage']
-                  : entry.role.includes('memory') || entry.role === 'cache'
-                    ? ['memory', 'whole-system']
-                    : ['cpu'];
-            if (!expectedScopes.includes(measurement.scope)) {
-              issues.push({
-                severity: 'error',
-                code: 'configuration-measurement-scope-mismatch',
-                where: entryWhere,
-                message: `measurement "${measurementId}" has ${measurement.scope} scope, which does not match the ${entry.role} role`,
-              });
-            }
-          }
-        }
-      }
-    }
+            code: 'unknown-configuration',
+            where,
+            message: `configuration "${subject.configurationId}" does not exist on that system`,
+          },
+        ];
   }
+}
 
-  for (const component of dataset.components) {
-    requireSources(`component ${component.id}`, component.sourceIds);
-  }
-
+function checkReferences(dataset: ParsedDataset): ValidationIssue[] {
+  const index = new ReferenceIndex(dataset);
+  const measurementsById = new Map<string, Measurement>();
   for (const measurement of dataset.measurements) {
-    const where = `measurement ${measurement.id}`;
-    requireSources(where, measurement.sourceIds);
-
-    const subjectExists =
-      measurement.subject.kind === 'system'
-        ? systemIds.has(measurement.subject.id)
-        : componentIds.has(measurement.subject.id);
-    if (!subjectExists) {
-      issues.push({
-        severity: 'error',
-        code: 'unknown-subject',
-        where,
-        message: `subject ${measurement.subject.kind} "${measurement.subject.id}" does not exist`,
-      });
-      continue;
-    }
-
-    if (measurement.subject.configurationId !== undefined) {
-      const system = dataset.systems.find((candidate) => candidate.id === measurement.subject.id);
-      const known = system?.configurations.some(
-        (configuration) => configuration.id === measurement.subject.configurationId,
-      );
-      if (known !== true) {
-        issues.push({
-          severity: 'error',
-          code: 'unknown-configuration',
-          where,
-          message: `configuration "${measurement.subject.configurationId}" does not exist on that system`,
-        });
-      }
+    if (!measurementsById.has(measurement.id)) {
+      measurementsById.set(measurement.id, measurement);
     }
   }
 
-  for (const claim of dataset.contextClaims) {
-    const where = `context claim ${claim.id}`;
-    requireSources(where, claim.sourceIds);
-    const subjectExists =
-      claim.subject.kind === 'system'
-        ? systemIds.has(claim.subject.id)
-        : componentIds.has(claim.subject.id);
-    if (!subjectExists) {
-      issues.push({
-        severity: 'error',
-        code: 'unknown-subject',
-        where,
-        message: `subject ${claim.subject.kind} "${claim.subject.id}" does not exist`,
-      });
-      continue;
-    }
-    if (claim.subject.configurationId !== undefined) {
-      const system = dataset.systems.find((candidate) => candidate.id === claim.subject.id);
-      const known = system?.configurations.some(
-        (configuration) => configuration.id === claim.subject.configurationId,
-      );
-      if (known !== true) {
-        issues.push({
-          severity: 'error',
-          code: 'unknown-configuration',
-          where,
-          message: `configuration "${claim.subject.configurationId}" does not exist on that system`,
-        });
-      }
-    }
-  }
-
-  for (const claim of dataset.derivedClaims) {
-    for (const id of claim.inputMeasurementIds) {
-      if (!measurementIds.has(id)) {
-        issues.push({
+  return [
+    ...dataset.systems.flatMap((system) => [
+      ...index.sources(`system ${system.id}`, system.sourceIds),
+      ...checkConfigurationReferences(system, index, measurementsById),
+    ]),
+    ...dataset.components.flatMap((component) =>
+      index.sources(`component ${component.id}`, component.sourceIds),
+    ),
+    ...dataset.measurements.flatMap((measurement) => {
+      const where = `measurement ${measurement.id}`;
+      return [
+        ...index.sources(where, measurement.sourceIds),
+        ...index.subject(where, measurement.subject, true),
+      ];
+    }),
+    ...dataset.contextClaims.flatMap((claim) => {
+      const where = `context claim ${claim.id}`;
+      return [
+        ...index.sources(where, claim.sourceIds),
+        ...index.subject(where, claim.subject, true),
+      ];
+    }),
+    ...dataset.derivedClaims.flatMap((claim) => [
+      ...claim.inputMeasurementIds
+        .filter((id) => !measurementsById.has(id))
+        .map((id): ValidationIssue => ({
           severity: 'error',
           code: 'unknown-measurement',
           where: `derived claim ${claim.id}`,
           message: `references measurement "${id}", which does not exist`,
+        })),
+      // A constant is a claim about hardware like any other, so it is held to the
+      // same standard: it cites sources, and those sources have to exist.
+      ...(claim.constants ?? []).flatMap((constant) =>
+        index.sources(`derived claim ${claim.id}, constant ${constant.id}`, constant.sourceIds),
+      ),
+    ]),
+    ...dataset.conflicts.flatMap((conflict) => {
+      const where = `conflict ${conflict.id}`;
+      return [
+        ...conflict.candidates.flatMap((candidate) => index.sources(where, candidate.sourceIds)),
+        ...index.subject(where, conflict.subject, false),
+      ];
+    }),
+  ];
+}
+
+function checkConfigurationReferences(
+  system: System,
+  index: ReferenceIndex,
+  measurementsById: ReadonlyMap<string, Measurement>,
+): ValidationIssue[] {
+  const issues: ValidationIssue[] = [];
+  for (const configuration of system.configurations) {
+    for (const entry of configuration.entries) {
+      if (!index.hasComponent(entry.componentId)) {
+        issues.push({
+          severity: 'error',
+          code: 'unknown-component',
+          where: `system ${system.id}, configuration ${configuration.id}`,
+          message: `references component "${entry.componentId}", which does not exist`,
         });
       }
-    }
-    // A constant is a claim about hardware like any other, so it is held to the
-    // same standard: it cites sources, and those sources have to exist.
-    for (const constant of claim.constants ?? []) {
-      requireSources(`derived claim ${claim.id}, constant ${constant.id}`, constant.sourceIds);
-    }
-  }
-
-  for (const conflict of dataset.conflicts) {
-    const where = `conflict ${conflict.id}`;
-    for (const candidate of conflict.candidates) {
-      requireSources(where, candidate.sourceIds);
-    }
-    const subjectExists =
-      conflict.subject.kind === 'system'
-        ? systemIds.has(conflict.subject.id)
-        : componentIds.has(conflict.subject.id);
-    if (!subjectExists) {
-      issues.push({
-        severity: 'error',
-        code: 'unknown-subject',
-        where,
-        message: `subject ${conflict.subject.kind} "${conflict.subject.id}" does not exist`,
-      });
+      const where = `system ${system.id}, configuration ${configuration.id}, component ${entry.componentId}`;
+      const seen = new Set<string>();
+      for (const measurementId of entry.measurementIds) {
+        if (seen.has(measurementId)) {
+          issues.push({
+            severity: 'error',
+            code: 'duplicate-configuration-measurement',
+            where,
+            message: `lists measurement "${measurementId}" more than once`,
+          });
+        }
+        seen.add(measurementId);
+        issues.push(
+          ...checkEntryMeasurement(
+            measurementsById.get(measurementId),
+            measurementId,
+            { system, configurationId: configuration.id, entry },
+            where,
+          ),
+        );
+      }
     }
   }
-
   return issues;
+}
+
+/** The device scopes a figure attached to a fitted part may have, given that part's role. */
+function scopesForRole(role: ConfigurationEntry['role']): readonly string[] {
+  if (role === 'gpu' || role === 'storage') {
+    return [role];
+  }
+  return role.includes('memory') || role === 'cache' ? ['memory', 'whole-system'] : ['cpu'];
+}
+
+/**
+ * A figure shown for a fitted part must exist and describe either that part or
+ * this machine (in this variant). A machine-level figure must also have the
+ * scope the part's role implies.
+ */
+function checkEntryMeasurement(
+  measurement: Measurement | undefined,
+  measurementId: string,
+  fitted: { system: System; configurationId: string; entry: ConfigurationEntry },
+  where: string,
+): ValidationIssue[] {
+  if (measurement === undefined) {
+    return [
+      {
+        severity: 'error',
+        code: 'unknown-configuration-measurement',
+        where,
+        message: `references measurement "${measurementId}", which does not exist`,
+      },
+    ];
+  }
+  const { subject } = measurement;
+  const belongsToSystem =
+    subject.kind === 'system' &&
+    subject.id === fitted.system.id &&
+    (subject.configurationId === undefined || subject.configurationId === fitted.configurationId);
+  const belongsToComponent =
+    subject.kind === 'component' && subject.id === fitted.entry.componentId;
+  if (!belongsToSystem && !belongsToComponent) {
+    return [
+      {
+        severity: 'error',
+        code: 'configuration-measurement-subject-mismatch',
+        where,
+        message: `measurement "${measurementId}" belongs to another system, variant or component`,
+      },
+    ];
+  }
+  if (belongsToSystem && !scopesForRole(fitted.entry.role).includes(measurement.scope)) {
+    return [
+      {
+        severity: 'error',
+        code: 'configuration-measurement-scope-mismatch',
+        where,
+        message: `measurement "${measurementId}" has ${measurement.scope} scope, which does not match the ${fitted.entry.role} role`,
+      },
+    ];
+  }
+  return [];
 }
 
 /**
@@ -654,22 +703,8 @@ const NARRATIVE_FIELD = /\.(summary|description)$/;
 /** Numerical prose must point back to the record that owns and sources the value. */
 function checkEditorialText(dataset: ParsedDataset): ValidationIssue[] {
   const issues: ValidationIssue[] = [];
-  const measurements = new Map(dataset.measurements.map((record) => [record.id, record]));
-  const contextClaims = new Map(dataset.contextClaims.map((record) => [record.id, record]));
-  const summaryQuantities = new Map<string, ReadonlySet<string>>();
-
-  for (const system of dataset.systems) {
-    const quantities = new Set<string>();
-    for (const measurementId of system.configurations.flatMap((configuration) =>
-      configuration.entries.flatMap((entry) => entry.measurementIds),
-    )) {
-      const measurement = measurements.get(measurementId);
-      const quantity =
-        measurement === undefined ? undefined : getMetric(measurement.metric)?.quantity;
-      if (quantity !== undefined) quantities.add(quantity);
-    }
-    summaryQuantities.set(system.id, quantities);
-  }
+  const { measurements, contextClaims } = markerTargets(dataset);
+  const summaryQuantities = configurationQuantities(dataset.systems, measurements);
 
   for (const field of editorialTextFields(dataset)) {
     const references = referencesIn(field.text);
@@ -691,78 +726,7 @@ function checkEditorialText(dataset: ParsedDataset): ValidationIssue[] {
         reference.kind === 'measurement'
           ? measurements.get(reference.id)
           : contextClaims.get(reference.id);
-      if (record === undefined) {
-        issues.push({
-          severity: 'error',
-          code: 'unknown-editorial-reference',
-          where: field.where,
-          message: `references ${reference.kind} "${reference.id}", which does not exist`,
-        });
-        continue;
-      }
-      // A marker is a slot, and prose is written expecting it to fill. When the
-      // referenced figure is absent, `formatQuantity` substitutes its absence
-      // label and the sentence survives the build reading "the RAM and ROM
-      // capacities are unknown and unknown". The existing marker guards catch
-      // only a marker that failed to *resolve*; this one catches a marker that
-      // resolved to an absence label. Narrative fields only, such as a caveat or an
-      // absence note is where naming an absence belongs.
-      if (
-        reference.kind === 'measurement' &&
-        record.quantity.state !== 'value' &&
-        NARRATIVE_FIELD.test(field.where)
-      ) {
-        issues.push({
-          severity: 'error',
-          code: 'absence-marker-in-prose',
-          where: field.where,
-          message:
-            `references measurement "${record.id}", which is ${record.quantity.state}; ` +
-            'narrative prose may not resolve to an absence label. Write a sentence that does ' +
-            'not need the figure, or state the figure.',
-        });
-      }
-      if (
-        reference.kind === 'context' &&
-        record.quantity.state === 'value' &&
-        field.subject?.kind === 'system' &&
-        field.where === `system ${field.subject.id}.summary` &&
-        summaryQuantities
-          .get(field.subject.id)
-          ?.has(quantityOf(record.quantity.unit) ?? '__unknown__') === true
-      ) {
-        issues.push({
-          severity: 'error',
-          code: 'context-claim-shadows-measurement',
-          where: field.where,
-          message:
-            `references context claim "${record.id}" for a quantity already represented by a ` +
-            'formal configuration measurement; the summary must reference that measurement',
-        });
-      }
-      const referenceKey = `${record.subject.kind}:${record.subject.id}`;
-      const exactReferenceKey =
-        record.subject.configurationId === undefined
-          ? referenceKey
-          : `${referenceKey}:${record.subject.configurationId}`;
-      const wildcardReferenceKey = `${referenceKey}:*`;
-      if (
-        field.subject !== undefined &&
-        !sameSubject(record, field.subject) &&
-        !field.allowedSubjectKeys?.has(exactReferenceKey) &&
-        !(
-          record.subject.configurationId === undefined &&
-          field.allowedSubjectKeys?.has(referenceKey)
-        ) &&
-        !field.allowedSubjectKeys?.has(wildcardReferenceKey)
-      ) {
-        issues.push({
-          severity: 'error',
-          code: 'editorial-reference-subject-mismatch',
-          where: field.where,
-          message: `references ${reference.kind} "${reference.id}", which belongs to another subject or variant`,
-        });
-      }
+      issues.push(...checkEditorialReference(field, reference, record, summaryQuantities));
     }
 
     if (containsRawQuantity(field.text)) {
@@ -777,6 +741,122 @@ function checkEditorialText(dataset: ParsedDataset): ValidationIssue[] {
   }
 
   return issues;
+}
+
+/** The quantities each system's configuration already states through a measurement. */
+function configurationQuantities(
+  systems: readonly System[],
+  measurements: ReadonlyMap<string, Measurement>,
+): ReadonlyMap<string, ReadonlySet<string>> {
+  return new Map(
+    systems.map((system) => {
+      const quantities = system.configurations
+        .flatMap((configuration) => configuration.entries.flatMap((entry) => entry.measurementIds))
+        .map((id) => {
+          const measurement = measurements.get(id);
+          return measurement === undefined ? undefined : getMetric(measurement.metric)?.quantity;
+        })
+        .filter((quantity) => quantity !== undefined);
+      return [system.id, new Set<string>(quantities)];
+    }),
+  );
+}
+
+function checkEditorialReference(
+  field: EditorialTextField,
+  reference: EditorialReference,
+  record: Measurement | ContextClaim | undefined,
+  summaryQuantities: ReadonlyMap<string, ReadonlySet<string>>,
+): ValidationIssue[] {
+  if (record === undefined) {
+    return [
+      {
+        severity: 'error',
+        code: 'unknown-editorial-reference',
+        where: field.where,
+        message: `references ${reference.kind} "${reference.id}", which does not exist`,
+      },
+    ];
+  }
+  const issues: ValidationIssue[] = [];
+  // A marker is a slot, and prose is written expecting it to fill. When the
+  // referenced figure is absent, `formatQuantity` substitutes its absence
+  // label and the sentence survives the build reading "the RAM and ROM
+  // capacities are unknown and unknown". The existing marker guards catch
+  // only a marker that failed to *resolve*; this one catches a marker that
+  // resolved to an absence label. Narrative fields only, such as a caveat or an
+  // absence note is where naming an absence belongs.
+  if (
+    reference.kind === 'measurement' &&
+    record.quantity.state !== 'value' &&
+    NARRATIVE_FIELD.test(field.where)
+  ) {
+    issues.push({
+      severity: 'error',
+      code: 'absence-marker-in-prose',
+      where: field.where,
+      message:
+        `references measurement "${record.id}", which is ${record.quantity.state}; ` +
+        'narrative prose may not resolve to an absence label. Write a sentence that does ' +
+        'not need the figure, or state the figure.',
+    });
+  }
+  if (reference.kind === 'context' && shadowsMeasurement(field, record, summaryQuantities)) {
+    issues.push({
+      severity: 'error',
+      code: 'context-claim-shadows-measurement',
+      where: field.where,
+      message:
+        `references context claim "${record.id}" for a quantity already represented by a ` +
+        'formal configuration measurement; the summary must reference that measurement',
+    });
+  }
+  if (!subjectMayBeReferenced(field, record)) {
+    issues.push({
+      severity: 'error',
+      code: 'editorial-reference-subject-mismatch',
+      where: field.where,
+      message: `references ${reference.kind} "${reference.id}", which belongs to another subject or variant`,
+    });
+  }
+  return issues;
+}
+
+/** A system summary quoting a context claim for a quantity its configuration already measures. */
+function shadowsMeasurement(
+  field: EditorialTextField,
+  record: Measurement | ContextClaim,
+  summaryQuantities: ReadonlyMap<string, ReadonlySet<string>>,
+): boolean {
+  if (record.quantity.state !== 'value' || field.subject?.kind !== 'system') {
+    return false;
+  }
+  if (field.where !== `system ${field.subject.id}.summary`) {
+    return false;
+  }
+  const quantity = quantityOf(record.quantity.unit) ?? '__unknown__';
+  return summaryQuantities.get(field.subject.id)?.has(quantity) === true;
+}
+
+/** Prose may name its own subject's records, and those of subjects it explicitly allows. */
+function subjectMayBeReferenced(
+  field: EditorialTextField,
+  record: Measurement | ContextClaim,
+): boolean {
+  if (field.subject === undefined || sameSubject(record, field.subject)) {
+    return true;
+  }
+  const allowed = field.allowedSubjectKeys;
+  const referenceKey = `${record.subject.kind}:${record.subject.id}`;
+  const exactReferenceKey =
+    record.subject.configurationId === undefined
+      ? referenceKey
+      : `${referenceKey}:${record.subject.configurationId}`;
+  return (
+    allowed?.has(exactReferenceKey) === true ||
+    (record.subject.configurationId === undefined && allowed?.has(referenceKey) === true) ||
+    allowed?.has(`${referenceKey}:*`) === true
+  );
 }
 
 /**
@@ -794,161 +874,187 @@ function checkImages(
   dataset: ParsedDataset,
   files: ReadonlyMap<string, ImageFileReading> | undefined,
 ): ValidationIssue[] {
-  const issues: ValidationIssue[] = [];
   const imagesById = new Map(dataset.images.map((image) => [image.id, image]));
   const referencedBy = new Map<string, string[]>();
-
   for (const system of dataset.systems) {
     for (const imageId of system.imageIds ?? []) {
-      const holders = referencedBy.get(imageId) ?? [];
-      holders.push(system.id);
-      referencedBy.set(imageId, holders);
-      if (!imagesById.has(imageId)) {
-        issues.push({
-          severity: 'error',
-          code: 'unknown-image',
-          where: `system ${system.id}`,
-          message: `references image "${imageId}", which does not exist`,
-        });
-      }
-    }
-    const seen = new Set<string>();
-    for (const imageId of system.imageIds ?? []) {
-      if (seen.has(imageId)) {
-        issues.push({
-          severity: 'error',
-          code: 'duplicate-image-reference',
-          where: `system ${system.id}`,
-          message:
-            `lists image "${imageId}" more than once. The order of this list is the editorial ` +
-            'order of a gallery, so a repeat is a mistake rather than an emphasis.',
-        });
-      }
-      seen.add(imageId);
+      referencedBy.set(imageId, [...(referencedBy.get(imageId) ?? []), system.id]);
     }
   }
 
-  for (const [imageId, holders] of referencedBy) {
-    if (holders.length > 1) {
-      issues.push({
+  return [
+    ...dataset.systems.flatMap((system) => checkSystemImageList(system, imagesById)),
+    ...[...referencedBy]
+      .filter(([, holders]) => holders.length > 1)
+      .map(([imageId, holders]): ValidationIssue => ({
         severity: 'error',
         code: 'duplicate-image-reference',
         where: `image ${imageId}`,
         message: `is used by more than one system (${holders.toSorted().join(', ')})`,
+      })),
+    ...dataset.images.flatMap((image) => [
+      ...checkImageRecord(image, referencedBy.has(image.id)),
+      ...(files === undefined ? [] : checkImageFile(image, files.get(image.id))),
+    ]),
+  ];
+}
+
+function checkSystemImageList(
+  system: System,
+  imagesById: ReadonlyMap<string, ImageAsset>,
+): ValidationIssue[] {
+  const issues: ValidationIssue[] = [];
+  const imageIds = system.imageIds ?? [];
+  for (const imageId of imageIds) {
+    if (!imagesById.has(imageId)) {
+      issues.push({
+        severity: 'error',
+        code: 'unknown-image',
+        where: `system ${system.id}`,
+        message: `references image "${imageId}", which does not exist`,
       });
     }
   }
-
-  for (const image of dataset.images) {
-    const where = `image ${image.id}`;
-
-    if (referencedBy.get(image.id) === undefined) {
-      issues.push({
-        severity: 'warning',
-        code: 'unused-image',
-        where,
-        message: 'is not referenced by any system, so nothing publishes it',
-      });
-    }
-
-    const rights = getImageRights(image.rights.id);
-    if (rights === undefined) {
+  const seen = new Set<string>();
+  for (const imageId of imageIds) {
+    if (seen.has(imageId)) {
       issues.push({
         severity: 'error',
-        code: 'unknown-image-rights',
-        where,
-        message: `"${image.rights.id}" is not in the image rights registry`,
-      });
-    } else if (image.rights.url !== rights.url) {
-      issues.push({
-        severity: 'error',
-        code: 'image-rights-url-mismatch',
-        where,
+        code: 'duplicate-image-reference',
+        where: `system ${system.id}`,
         message:
-          `cites ${image.rights.url} for ${rights.id}; the canonical statement of those terms ` +
-          `is ${rights.url}`,
+          `lists image "${imageId}" more than once. The order of this list is the editorial ` +
+          'order of a gallery, so a repeat is a mistake rather than an emphasis.',
       });
     }
+    seen.add(imageId);
+  }
+  return issues;
+}
 
-    // Every image names its creator, whether or not the terms oblige it to.
-    // Under a public domain release nobody can make us, which is precisely why
-    // the rule belongs to this project rather than to the license: a catalog
-    // that publishes somebody's photograph says whose it is.
-    if (!image.attribution.includes(image.creator)) {
-      issues.push({
-        severity: 'error',
-        code: 'image-attribution-missing',
-        where,
-        message: `the credit line does not name "${image.creator}"`,
-      });
-    }
+/** What an image record states: its terms, its credit and its recipe. */
+function checkImageRecord(image: ImageAsset, referenced: boolean): ValidationIssue[] {
+  const where = `image ${image.id}`;
+  const issues: ValidationIssue[] = [];
 
-    // The terms must be stated where the file is, not somewhere on the site
-    // that hosts it. A footer licenses a website; this project needs the file.
-    if (
-      image.rights.statedAt !== image.sourcePageUrl &&
-      image.rights.statedAt !== image.originalUrl
-    ) {
-      issues.push({
-        severity: 'error',
-        code: 'image-rights-not-on-source-page',
-        where,
-        message:
-          `states its terms at ${image.rights.statedAt}, which is neither the file's source page ` +
-          'nor the file itself, so nothing ties those terms to this image in particular',
-      });
-    }
+  if (!referenced) {
+    issues.push({
+      severity: 'warning',
+      code: 'unused-image',
+      where,
+      message: 'is not referenced by any system, so nothing publishes it',
+    });
+  }
 
-    for (const reason of checkTransformRecipe(image.transform)) {
-      issues.push({
-        severity: 'error',
-        code: reason,
-        where,
-        message: `the "${image.transform.preset}" recipe is not admissible: ${reason}`,
-      });
-    }
+  issues.push(...checkImageRights(image, where));
 
-    if (
-      image.transform.sourceWidth !== image.original.width ||
-      image.transform.sourceHeight !== image.original.height
-    ) {
-      issues.push({
-        severity: 'error',
-        code: 'image-transform-source-mismatch',
-        where,
-        message:
-          `the recipe was planned against ${image.transform.sourceWidth}×${image.transform.sourceHeight}, ` +
-          `but the original is ${image.original.width}×${image.original.height}`,
-      });
-    }
+  for (const reason of checkTransformRecipe(image.transform)) {
+    issues.push({
+      severity: 'error',
+      code: reason,
+      where,
+      message: `the "${image.transform.preset}" recipe is not admissible: ${reason}`,
+    });
+  }
 
-    if (image.canonical.byteLength > CANONICAL_MAX_BYTES) {
-      issues.push({
-        severity: 'error',
-        code: 'image-too-large',
-        where,
-        message:
-          `the canonical file is ${image.canonical.byteLength} bytes, over the ` +
-          `${CANONICAL_MAX_BYTES} byte limit`,
-      });
-    }
+  if (
+    image.transform.sourceWidth !== image.original.width ||
+    image.transform.sourceHeight !== image.original.height
+  ) {
+    issues.push({
+      severity: 'error',
+      code: 'image-transform-source-mismatch',
+      where,
+      message:
+        `the recipe was planned against ${image.transform.sourceWidth}×${image.transform.sourceHeight}, ` +
+        `but the original is ${image.original.width}×${image.original.height}`,
+    });
+  }
 
-    if (files === undefined) {
-      continue;
-    }
+  if (image.canonical.byteLength > CANONICAL_MAX_BYTES) {
+    issues.push({
+      severity: 'error',
+      code: 'image-too-large',
+      where,
+      message:
+        `the canonical file is ${image.canonical.byteLength} bytes, over the ` +
+        `${CANONICAL_MAX_BYTES} byte limit`,
+    });
+  }
+  return issues;
+}
 
-    const reading = files.get(image.id);
-    if (reading === undefined) {
-      issues.push({
+function checkImageRights(image: ImageAsset, where: string): ValidationIssue[] {
+  const issues: ValidationIssue[] = [];
+  const rights = getImageRights(image.rights.id);
+  if (rights === undefined) {
+    issues.push({
+      severity: 'error',
+      code: 'unknown-image-rights',
+      where,
+      message: `"${image.rights.id}" is not in the image rights registry`,
+    });
+  } else if (image.rights.url !== rights.url) {
+    issues.push({
+      severity: 'error',
+      code: 'image-rights-url-mismatch',
+      where,
+      message:
+        `cites ${image.rights.url} for ${rights.id}; the canonical statement of those terms ` +
+        `is ${rights.url}`,
+    });
+  }
+
+  // Every image names its creator, whether or not the terms oblige it to.
+  // Under a public domain release nobody can make us, which is precisely why
+  // the rule belongs to this project rather than to the license: a catalog
+  // that publishes somebody's photograph says whose it is.
+  if (!image.attribution.includes(image.creator)) {
+    issues.push({
+      severity: 'error',
+      code: 'image-attribution-missing',
+      where,
+      message: `the credit line does not name "${image.creator}"`,
+    });
+  }
+
+  // The terms must be stated where the file is, not somewhere on the site
+  // that hosts it. A footer licenses a website; this project needs the file.
+  if (
+    image.rights.statedAt !== image.sourcePageUrl &&
+    image.rights.statedAt !== image.originalUrl
+  ) {
+    issues.push({
+      severity: 'error',
+      code: 'image-rights-not-on-source-page',
+      where,
+      message:
+        `states its terms at ${image.rights.statedAt}, which is neither the file's source page ` +
+        'nor the file itself, so nothing ties those terms to this image in particular',
+    });
+  }
+  return issues;
+}
+
+/** The stored file against what its record says the bytes are. */
+function checkImageFile(
+  image: ImageAsset,
+  reading: ImageFileReading | undefined,
+): ValidationIssue[] {
+  const where = `image ${image.id}`;
+  if (reading === undefined) {
+    return [
+      {
         severity: 'error',
         code: 'image-file-missing',
         where,
         message: 'has no canonical file; run pnpm data:images',
-      });
-      continue;
-    }
-    if (!reading.ok) {
-      issues.push({
+      },
+    ];
+  }
+  if (!reading.ok) {
+    return [
+      {
         severity: 'error',
         code: `image-${reading.reason}`,
         where,
@@ -956,140 +1062,137 @@ function checkImages(
           reading.reason === 'not-avif'
             ? 'the stored file is not AVIF; the preset stores exactly one format'
             : 'the stored file carries no readable image dimensions',
-      });
-      continue;
-    }
-
-    const facts = reading.facts;
-    if (facts.width !== image.canonical.width || facts.height !== image.canonical.height) {
-      issues.push({
-        severity: 'error',
-        code: 'image-dimensions-mismatch',
-        where,
-        message:
-          `the stored file is ${facts.width}×${facts.height}, but the record states ` +
-          `${image.canonical.width}×${image.canonical.height}`,
-      });
-    }
-    if (facts.byteLength !== image.canonical.byteLength) {
-      issues.push({
-        severity: 'error',
-        code: 'image-byte-length-mismatch',
-        where,
-        message: `the stored file is ${facts.byteLength} bytes; the record states ${image.canonical.byteLength}`,
-      });
-    }
-    if (facts.sha256 !== image.canonical.sha256) {
-      issues.push({
-        severity: 'error',
-        code: 'image-hash-mismatch',
-        where,
-        message:
-          'the stored file does not match its recorded hash. Re-run pnpm data:images, or ' +
-          'establish why the bytes changed before recording the new digest.',
-      });
-    }
+      },
+    ];
   }
 
+  const issues: ValidationIssue[] = [];
+  const facts = reading.facts;
+  if (facts.width !== image.canonical.width || facts.height !== image.canonical.height) {
+    issues.push({
+      severity: 'error',
+      code: 'image-dimensions-mismatch',
+      where,
+      message:
+        `the stored file is ${facts.width}×${facts.height}, but the record states ` +
+        `${image.canonical.width}×${image.canonical.height}`,
+    });
+  }
+  if (facts.byteLength !== image.canonical.byteLength) {
+    issues.push({
+      severity: 'error',
+      code: 'image-byte-length-mismatch',
+      where,
+      message: `the stored file is ${facts.byteLength} bytes; the record states ${image.canonical.byteLength}`,
+    });
+  }
+  if (facts.sha256 !== image.canonical.sha256) {
+    issues.push({
+      severity: 'error',
+      code: 'image-hash-mismatch',
+      where,
+      message:
+        'the stored file does not match its recorded hash. Re-run pnpm data:images, or ' +
+        'establish why the bytes changed before recording the new digest.',
+    });
+  }
   return issues;
 }
 
 /** Metric, unit, scope and benchmark must agree, and the normalized twin must be present. */
 function checkMeasurementFacets(dataset: ParsedDataset): ValidationIssue[] {
-  const issues: ValidationIssue[] = [];
+  return dataset.measurements.flatMap((measurement) =>
+    measurement.quantity.state === 'value'
+      ? checkStatedFacets(measurement)
+      : checkAbsentFacets(measurement),
+  );
+}
 
-  for (const measurement of dataset.measurements) {
-    const where = `measurement ${measurement.id}`;
+function facetIssues(
+  measurement: Measurement,
+  reasons: readonly string[],
+  where: string,
+): ValidationIssue[] {
+  return reasons.map((reason) => ({
+    severity: 'error',
+    code: reason,
+    where,
+    message: `metric "${measurement.metric}" rejects this measurement: ${reason}`,
+  }));
+}
 
-    // Checked for absent figures too: an absence still declares a comparability
-    // group, and that group is how "this machine states no clock" reaches the
-    // same row as the machines that do.
-    const groupFacets = {
-      metric: measurement.metric,
-      scope: measurement.scope,
-      method: measurement.method,
-      benchmark: measurement.benchmark,
-    };
+function checkAbsentFacets(measurement: Measurement): ValidationIssue[] {
+  const where = `measurement ${measurement.id}`;
+  // Checked for absent figures too: an absence still declares a comparability
+  // group, and that group is how "this machine states no clock" reaches the
+  // same row as the machines that do.
+  //
+  // A benchmark identifies a result, and an absence has none. Demanding one
+  // would make a curator invent a benchmark version for a number that does
+  // not exist to record that it does not exist.
+  const reasons = checkGroupFacets({
+    metric: measurement.metric,
+    scope: measurement.scope,
+    method: measurement.method,
+    benchmark: measurement.benchmark,
+  }).filter((reason) => reason !== 'benchmark-required');
+  const issues = facetIssues(measurement, reasons, where);
+  if (measurement.normalized !== undefined) {
+    issues.push({
+      severity: 'error',
+      code: 'normalized-without-value',
+      where,
+      message: 'has no stated value but carries a normalized twin',
+    });
+  }
+  return issues;
+}
 
-    if (measurement.quantity.state !== 'value') {
-      // A benchmark identifies a result, and an absence has none. Demanding one
-      // would make a curator invent a benchmark version for a number that does
-      // not exist to record that it does not exist.
-      const reasons = checkGroupFacets(groupFacets).filter(
-        (reason) => reason !== 'benchmark-required',
-      );
-      for (const reason of reasons) {
-        issues.push({
-          severity: 'error',
-          code: reason,
-          where,
-          message: `metric "${measurement.metric}" rejects this measurement: ${reason}`,
-        });
-      }
-      if (measurement.normalized !== undefined) {
-        issues.push({
-          severity: 'error',
-          code: 'normalized-without-value',
-          where,
-          message: 'has no stated value but carries a normalized twin',
-        });
-      }
-      continue;
-    }
+function checkStatedFacets(measurement: Measurement): ValidationIssue[] {
+  const where = `measurement ${measurement.id}`;
+  const issues = facetIssues(measurement, checkFacets(facetsOf(measurement)), where);
 
-    const facets = facetsOf(measurement);
-    for (const reason of checkFacets(facets)) {
-      issues.push({
-        severity: 'error',
-        code: reason,
-        where,
-        message: `metric "${measurement.metric}" rejects this measurement: ${reason}`,
-      });
-    }
-
-    if (measurement.normalized === undefined) {
-      issues.push({
-        severity: 'error',
-        code: 'missing-normalized',
-        where,
-        message: 'has a stated value but no normalized twin; run pnpm data:normalize',
-      });
-    }
-
-    // An estimate is somebody else's computation, and it is publishable only
-    // when the computation is visible. Without the method and the extract that
-    // carries the formula or the procedure, "estimated" is indistinguishable
-    // from a number a curator liked the look of.
-    if (measurement.status === 'estimated') {
-      if (measurement.method !== 'estimate-from-formula') {
-        issues.push({
-          severity: 'error',
-          code: 'estimate-without-method',
-          where,
-          message:
-            'an estimated figure must use the "estimate-from-formula" method, so that it never ' +
-            'sits in the same comparability group as a figure somebody measured or specified',
-        });
-      }
-      if ((measurement.extractIds ?? []).length === 0) {
-        issues.push({
-          severity: 'error',
-          code: 'estimate-without-procedure',
-          where,
-          message:
-            'an estimated figure must name a research record carrying the formula or the ' +
-            'procedure it was computed by; the sourcing threshold is the same as for any figure',
-        });
-      }
-    }
+  if (measurement.normalized === undefined) {
+    issues.push({
+      severity: 'error',
+      code: 'missing-normalized',
+      where,
+      message: 'has a stated value but no normalized twin; run pnpm data:normalize',
+    });
   }
 
+  // An estimate is somebody else's computation, and it is publishable only
+  // when the computation is visible. Without the method and the extract that
+  // carries the formula or the procedure, "estimated" is indistinguishable
+  // from a number a curator liked the look of.
+  if (measurement.status !== 'estimated') {
+    return issues;
+  }
+  if (measurement.method !== 'estimate-from-formula') {
+    issues.push({
+      severity: 'error',
+      code: 'estimate-without-method',
+      where,
+      message:
+        'an estimated figure must use the "estimate-from-formula" method, so that it never ' +
+        'sits in the same comparability group as a figure somebody measured or specified',
+    });
+  }
+  if ((measurement.extractIds ?? []).length === 0) {
+    issues.push({
+      severity: 'error',
+      code: 'estimate-without-procedure',
+      where,
+      message:
+        'an estimated figure must name a research record carrying the formula or the ' +
+        'procedure it was computed by; the sourcing threshold is the same as for any figure',
+    });
+  }
   return issues;
 }
 
 /** Checks that the declared evidence level matches the sources that state the number. */
 function checkSourceSufficiency(dataset: ParsedDataset): ValidationIssue[] {
-  const issues: ValidationIssue[] = [];
   const byId = new Map(dataset.sources.map((source) => [source.id, source]));
 
   const records: readonly (Measurement | ContextClaim)[] = [
@@ -1097,107 +1200,121 @@ function checkSourceSufficiency(dataset: ParsedDataset): ValidationIssue[] {
     ...dataset.contextClaims,
   ];
 
-  for (const record of records) {
+  return records.flatMap((record) => {
     const kind = 'metric' in record ? 'measurement' : 'context claim';
     const where = `${kind} ${record.id}`;
     const sources = record.sourceIds
       .map((id) => byId.get(id))
       .filter((source): source is Source => source !== undefined);
+    return checkSourceTiers(record, sources, where).concat(
+      checkReducedEvidence(record, sources, where),
+      sources.filter((source) => !isRecheckable(source)).map(unverifiableSource),
+    );
+  });
+}
 
-    const tierA = sources.filter((source) => source.tier === 'A');
-    const tierB = sources.filter((source) => source.tier === 'B');
-    const tierC = sources.filter((source) => source.tier === 'C');
-    const independentTierB = new Set(tierB.map((source) => source.publisher)).size;
-    const exactEvidence =
-      sources.some(
-        (source) =>
-          source.locator.length > 0 &&
-          (source.url !== undefined ||
-            source.archiveUrl !== undefined ||
-            source.extract !== undefined),
-      ) || (record.extractIds ?? []).length > 0;
+function isRecheckable(source: Source): boolean {
+  return (
+    source.url !== undefined || source.archiveUrl !== undefined || source.extract !== undefined
+  );
+}
 
-    if (record.evidenceLevel === 'confirmed' && tierA.length === 0 && independentTierB < 2) {
-      issues.push({
-        severity: 'error',
-        code: 'insufficient-sourcing',
-        where,
-        message:
-          'a confirmed number needs one tier A source or two agreeing tier B sources from ' +
-          `different publishers; found ${tierA.length} tier A and ${independentTierB} independent tier B`,
-      });
-    }
+function unverifiableSource(source: Source): ValidationIssue {
+  return {
+    severity: 'warning',
+    code: 'unverifiable-source',
+    where: `source ${source.id}`,
+    message: 'has neither a URL, an archive URL nor a stored extract, so it cannot be re-checked',
+  };
+}
 
-    if (record.evidenceLevel === 'reported' && tierB.length === 0) {
-      issues.push({
-        severity: 'error',
-        code: 'reported-without-tier-b',
-        where,
-        message: 'a reported number needs at least one tier B source',
-      });
-    }
+/** Each evidence level needs sources of the tiers that can carry it, and no others. */
+function checkSourceTiers(
+  record: Measurement | ContextClaim,
+  sources: readonly Source[],
+  where: string,
+): ValidationIssue[] {
+  const issues: ValidationIssue[] = [];
+  const tierA = sources.filter((source) => source.tier === 'A');
+  const tierB = sources.filter((source) => source.tier === 'B');
+  const tierC = sources.filter((source) => source.tier === 'C');
+  const independentTierB = new Set(tierB.map((source) => source.publisher)).size;
 
-    if (record.evidenceLevel === 'rumored' && tierC.length === 0) {
-      issues.push({
-        severity: 'error',
-        code: 'rumor-without-tier-c',
-        where,
-        message: 'a rumored number needs at least one tier C source that states it',
-      });
-    }
-
-    if (
-      (record.evidenceLevel === 'reported' || record.evidenceLevel === 'rumored') &&
-      record.editorialStatus !== 'provisional'
-    ) {
-      issues.push({
-        severity: 'error',
-        code: 'reduced-evidence-approved',
-        where,
-        message: `${record.evidenceLevel} numbers must remain provisional`,
-      });
-    }
-
-    if (
-      (record.evidenceLevel === 'reported' || record.evidenceLevel === 'rumored') &&
-      !exactEvidence
-    ) {
-      issues.push({
-        severity: 'error',
-        code: 'reduced-evidence-without-extract',
-        where,
-        message:
-          `${record.evidenceLevel} numbers need an exact locator and a re-checkable citation ` +
-          'or research record',
-      });
-    }
-
-    if (record.evidenceLevel !== 'rumored' && tierC.length > 0) {
-      issues.push({
-        severity: 'error',
-        code: 'tier-c-on-non-rumor',
-        where,
-        message: 'tier C sources may support only numbers marked rumored',
-      });
-    }
-
-    for (const source of sources) {
-      if (
-        source.url === undefined &&
-        source.archiveUrl === undefined &&
-        source.extract === undefined
-      ) {
-        issues.push({
-          severity: 'warning',
-          code: 'unverifiable-source',
-          where: `source ${source.id}`,
-          message:
-            'has neither a URL, an archive URL nor a stored extract, so it cannot be re-checked',
-        });
-      }
-    }
+  if (record.evidenceLevel === 'confirmed' && tierA.length === 0 && independentTierB < 2) {
+    issues.push({
+      severity: 'error',
+      code: 'insufficient-sourcing',
+      where,
+      message:
+        'a confirmed number needs one tier A source or two agreeing tier B sources from ' +
+        `different publishers; found ${tierA.length} tier A and ${independentTierB} independent tier B`,
+    });
   }
 
+  if (record.evidenceLevel === 'reported' && tierB.length === 0) {
+    issues.push({
+      severity: 'error',
+      code: 'reported-without-tier-b',
+      where,
+      message: 'a reported number needs at least one tier B source',
+    });
+  }
+
+  if (record.evidenceLevel === 'rumored' && tierC.length === 0) {
+    issues.push({
+      severity: 'error',
+      code: 'rumor-without-tier-c',
+      where,
+      message: 'a rumored number needs at least one tier C source that states it',
+    });
+  }
+
+  return issues;
+}
+
+/**
+ * A reported or rumored number stays provisional and must be re-checkable
+ * exactly; a tier C source may support nothing else.
+ */
+function checkReducedEvidence(
+  record: Measurement | ContextClaim,
+  sources: readonly Source[],
+  where: string,
+): ValidationIssue[] {
+  const issues: ValidationIssue[] = [];
+  const reduced = record.evidenceLevel === 'reported' || record.evidenceLevel === 'rumored';
+  const exactEvidence =
+    sources.some((source) => source.locator.length > 0 && isRecheckable(source)) ||
+    (record.extractIds ?? []).length > 0;
+
+  if (reduced && record.editorialStatus !== 'provisional') {
+    issues.push({
+      severity: 'error',
+      code: 'reduced-evidence-approved',
+      where,
+      message: `${record.evidenceLevel} numbers must remain provisional`,
+    });
+  }
+
+  if (reduced && !exactEvidence) {
+    issues.push({
+      severity: 'error',
+      code: 'reduced-evidence-without-extract',
+      where,
+      message:
+        `${record.evidenceLevel} numbers need an exact locator and a re-checkable citation ` +
+        'or research record',
+    });
+  }
+
+  if (record.evidenceLevel !== 'rumored' && sources.some((source) => source.tier === 'C')) {
+    issues.push({
+      severity: 'error',
+      code: 'tier-c-on-non-rumor',
+      where,
+      message: 'tier C sources may support only numbers marked rumored',
+    });
+  }
   return issues;
 }
 
@@ -1269,174 +1386,220 @@ function checkDuplicateFigures(dataset: ParsedDataset): ValidationIssue[] {
 
 /** Every derived claim must recompute to exactly the stored result. */
 function checkDerivedClaims(dataset: ParsedDataset): ValidationIssue[] {
-  const issues: ValidationIssue[] = [];
   const byId = new Map(dataset.measurements.map((measurement) => [measurement.id, measurement]));
+  return dataset.derivedClaims.flatMap((claim) => checkDerivedClaim(claim, byId));
+}
 
-  for (const claim of dataset.derivedClaims) {
-    const where = `derived claim ${claim.id}`;
-    const formula = getFormula(claim.formula.id, claim.formula.version);
-    if (formula === undefined) {
-      issues.push({
+function checkDerivedClaim(
+  claim: DerivedClaim,
+  byId: ReadonlyMap<string, Measurement>,
+): ValidationIssue[] {
+  const where = `derived claim ${claim.id}`;
+  const formula = getFormula(claim.formula.id, claim.formula.version);
+  if (formula === undefined) {
+    return [
+      {
         severity: 'error',
         code: 'unknown-formula',
         where,
         message: `formula "${claim.formula.id}@${claim.formula.version}" is not in the registry`,
-      });
-      continue;
-    }
+      },
+    ];
+  }
 
-    const inputs: FormulaInput[] = [];
-    let inputsUsable = true;
-    for (const id of claim.inputMeasurementIds) {
-      const measurement = byId.get(id);
-      if (measurement === undefined || measurement.quantity.state !== 'value') {
-        inputsUsable = false;
-        break;
-      }
-      const normalized = measurement.normalized ?? normalizeQuantity(measurement.quantity);
-      inputs.push({
-        facets: facetsOf(measurement),
-        value: normalized.value,
-        significantDigits: normalized.significantDigits,
-      });
-    }
-
-    if (!inputsUsable) {
-      issues.push({
+  const inputs = derivedInputs(claim, byId);
+  if (inputs === undefined) {
+    return [
+      {
         severity: 'error',
         code: 'unusable-derived-input',
         where,
         message: 'an input measurement is missing or has no stated value',
-      });
-      continue;
-    }
+      },
+    ];
+  }
 
-    if (!acceptsInputCount(formula, inputs.length)) {
-      const expected =
-        formula.arity.max === null
-          ? `at least ${formula.arity.min}`
-          : formula.arity.min === formula.arity.max
-            ? `${formula.arity.min}`
-            : `${formula.arity.min}–${formula.arity.max}`;
-      issues.push({
+  if (!acceptsInputCount(formula, inputs.length)) {
+    return [
+      {
         severity: 'error',
         code: 'formula-arity',
         where,
-        message: `formula ${formula.id} takes ${expected} inputs, got ${inputs.length}`,
-      });
-      continue;
-    }
+        message: `formula ${formula.id} takes ${arityText(formula)} inputs, got ${inputs.length}`,
+      },
+    ];
+  }
 
-    // A computation is only as approved as what it was computed from. The
-    // formula no longer refuses provisional inputs. A total of two announced
-    // figures is a legitimate announced total, so the confidence has to travel
-    // here instead, or an announcement would launder itself into an approved
-    // figure by being added up.
-    const provisionalInputs = claim.inputMeasurementIds.filter(
-      (id) => byId.get(id)?.editorialStatus === 'provisional',
-    );
-    const reducedEvidenceInputs = claim.inputMeasurementIds.filter((id) => {
-      const level = byId.get(id)?.evidenceLevel;
-      return level === 'reported' || level === 'rumored';
+  return [
+    ...checkDerivedConfidence(claim, byId, where),
+    ...checkExclusions(claim, byId, where),
+    ...checkRecomputation(claim, formula, inputs, where),
+  ];
+}
+
+/** The claim's inputs as the formula takes them, or `undefined` if one is missing or absent. */
+function derivedInputs(
+  claim: DerivedClaim,
+  byId: ReadonlyMap<string, Measurement>,
+): FormulaInput[] | undefined {
+  const inputs: FormulaInput[] = [];
+  for (const id of claim.inputMeasurementIds) {
+    const measurement = byId.get(id);
+    if (measurement === undefined || measurement.quantity.state !== 'value') {
+      return undefined;
+    }
+    const normalized = measurement.normalized ?? normalizeQuantity(measurement.quantity);
+    inputs.push({
+      facets: facetsOf(measurement),
+      value: normalized.value,
+      significantDigits: normalized.significantDigits,
     });
-    if (reducedEvidenceInputs.length > 0) {
+  }
+  return inputs;
+}
+
+function arityText(formula: FormulaDefinition): string {
+  const { min, max } = formula.arity;
+  if (max === null) {
+    return `at least ${min}`;
+  }
+  return min === max ? `${min}` : `${min}–${max}`;
+}
+
+/**
+ * A computation is only as approved as what it was computed from. The
+ * formula no longer refuses provisional inputs. A total of two announced
+ * figures is a legitimate announced total, so the confidence has to travel
+ * here instead, or an announcement would launder itself into an approved
+ * figure by being added up.
+ */
+function checkDerivedConfidence(
+  claim: DerivedClaim,
+  byId: ReadonlyMap<string, Measurement>,
+  where: string,
+): ValidationIssue[] {
+  const issues: ValidationIssue[] = [];
+  const provisionalInputs = claim.inputMeasurementIds.filter(
+    (id) => byId.get(id)?.editorialStatus === 'provisional',
+  );
+  const reducedEvidenceInputs = claim.inputMeasurementIds.filter((id) => {
+    const level = byId.get(id)?.evidenceLevel;
+    return level === 'reported' || level === 'rumored';
+  });
+  if (reducedEvidenceInputs.length > 0) {
+    issues.push({
+      severity: 'error',
+      code: 'derived-from-reduced-evidence',
+      where,
+      message:
+        `uses reported or rumored input(s) ${reducedEvidenceInputs.join(', ')}. ` +
+        'Those numbers may be displayed but may not produce a new number.',
+    });
+  }
+  if (provisionalInputs.length > 0 && claim.editorialStatus !== 'provisional') {
+    issues.push({
+      severity: 'error',
+      code: 'derived-from-provisional',
+      where,
+      message:
+        `is approved but computes from provisional input(s) ${provisionalInputs.join(', ')}. ` +
+        'A result cannot be more certain than what it was computed from.',
+    });
+  }
+  return issues;
+}
+
+function checkExclusions(
+  claim: DerivedClaim,
+  byId: ReadonlyMap<string, Measurement>,
+  where: string,
+): ValidationIssue[] {
+  const issues: ValidationIssue[] = [];
+  for (const exclusion of claim.exclusions ?? []) {
+    if (!byId.has(exclusion.measurementId)) {
       issues.push({
         severity: 'error',
-        code: 'derived-from-reduced-evidence',
+        code: 'unknown-measurement',
         where,
-        message:
-          `uses reported or rumored input(s) ${reducedEvidenceInputs.join(', ')}. ` +
-          'Those numbers may be displayed but may not produce a new number.',
+        message: `excludes measurement "${exclusion.measurementId}", which does not exist`,
       });
     }
-    if (provisionalInputs.length > 0 && claim.editorialStatus !== 'provisional') {
+    if (claim.inputMeasurementIds.includes(exclusion.measurementId)) {
       issues.push({
         severity: 'error',
-        code: 'derived-from-provisional',
+        code: 'excluded-input',
         where,
-        message:
-          `is approved but computes from provisional input(s) ${provisionalInputs.join(', ')}. ` +
-          'A result cannot be more certain than what it was computed from.',
+        message: `measurement "${exclusion.measurementId}" is both an input and an exclusion`,
       });
     }
+  }
+  return issues;
+}
 
-    for (const exclusion of claim.exclusions ?? []) {
-      if (!byId.has(exclusion.measurementId)) {
-        issues.push({
-          severity: 'error',
-          code: 'unknown-measurement',
-          where,
-          message: `excludes measurement "${exclusion.measurementId}", which does not exist`,
-        });
-      }
-      if (claim.inputMeasurementIds.includes(exclusion.measurementId)) {
-        issues.push({
-          severity: 'error',
-          code: 'excluded-input',
-          where,
-          message: `measurement "${exclusion.measurementId}" is both an input and an exclusion`,
-        });
-      }
-    }
-
-    if (claim.result.state !== 'value') {
-      issues.push({
+/** The stored value, unit and caveat against what the formula computes now. */
+function checkRecomputation(
+  claim: DerivedClaim,
+  formula: FormulaDefinition,
+  inputs: readonly FormulaInput[],
+  where: string,
+): ValidationIssue[] {
+  if (claim.result.state !== 'value') {
+    return [
+      {
         severity: 'error',
         code: 'derived-without-value',
         where,
         message: 'a derived claim must carry a computed value',
-      });
-      continue;
-    }
+      },
+    ];
+  }
 
-    const outcome = formula.compute(inputs, {
-      significantDigits: claim.result.significantDigits,
-      rounding: claim.rounding,
-      exclusions: claim.exclusions,
-      constants: claim.constants,
-    });
-    if (!outcome.ok) {
-      issues.push({
+  const outcome = formula.compute(inputs, {
+    significantDigits: claim.result.significantDigits,
+    rounding: claim.rounding,
+    exclusions: claim.exclusions,
+    constants: claim.constants,
+  });
+  if (!outcome.ok) {
+    return [
+      {
         severity: 'error',
         code: 'formula-refused',
         where,
         message: `the formula refuses these inputs: ${outcome.reasons.join(', ')}`,
-      });
-      continue;
-    }
-
-    if (
-      compareDecimal(parseDecimal(outcome.result.value), parseDecimal(claim.result.value)) !== 0
-    ) {
-      issues.push({
-        severity: 'error',
-        code: 'derived-mismatch',
-        where,
-        message: `stored result ${claim.result.value} does not match the recomputed ${outcome.result.value}`,
-      });
-    }
-    if (outcome.result.unit !== claim.result.unit) {
-      issues.push({
-        severity: 'error',
-        code: 'derived-unit-mismatch',
-        where,
-        message: `stored unit ${claim.result.unit} does not match the computed ${outcome.result.unit}`,
-      });
-    }
-    // The caveat is generated from the inputs precisely so it cannot fall out of
-    // step with them. A hand-written one would survive a change of inputs.
-    if (outcome.result.caveat !== claim.caveat) {
-      issues.push({
-        severity: 'error',
-        code: 'derived-caveat-mismatch',
-        where,
-        message:
-          'the stored caveat is not the one the formula generates for these inputs. ' +
-          `Replace it with: ${outcome.result.caveat}`,
-      });
-    }
+      },
+    ];
   }
 
+  const issues: ValidationIssue[] = [];
+  if (compareDecimal(parseDecimal(outcome.result.value), parseDecimal(claim.result.value)) !== 0) {
+    issues.push({
+      severity: 'error',
+      code: 'derived-mismatch',
+      where,
+      message: `stored result ${claim.result.value} does not match the recomputed ${outcome.result.value}`,
+    });
+  }
+  if (outcome.result.unit !== claim.result.unit) {
+    issues.push({
+      severity: 'error',
+      code: 'derived-unit-mismatch',
+      where,
+      message: `stored unit ${claim.result.unit} does not match the computed ${outcome.result.unit}`,
+    });
+  }
+  // The caveat is generated from the inputs precisely so it cannot fall out of
+  // step with them. A hand-written one would survive a change of inputs.
+  if (outcome.result.caveat !== claim.caveat) {
+    issues.push({
+      severity: 'error',
+      code: 'derived-caveat-mismatch',
+      where,
+      message:
+        'the stored caveat is not the one the formula generates for these inputs. ' +
+        `Replace it with: ${outcome.result.caveat}`,
+    });
+  }
   return issues;
 }
 
@@ -1550,105 +1713,129 @@ const DOCUMENT_SOURCE_TYPES = new Set([
 ]);
 
 function checkResearchRecords(dataset: ParsedDataset): ValidationIssue[] {
-  const issues: ValidationIssue[] = [];
   const sourcesById = new Map(dataset.sources.map((source) => [source.id, source]));
   const recordsById = new Map(dataset.extracts.map((record) => [record.id, record]));
-
-  for (const record of dataset.extracts) {
-    const where = `research record ${record.id}`;
-    if (!sourcesById.has(record.sourceId)) {
-      issues.push({
-        severity: 'error',
-        code: 'unknown-source',
-        where,
-        message: `references source "${record.sourceId}", which does not exist`,
-      });
-      continue;
-    }
-
-    // A transcription that no longer matches its hash has been edited or
-    // corrupted since it was reviewed, so it cannot be trusted as evidence.
-    if (sha256Hex(record.extract) !== record.extractHash) {
-      issues.push({
-        severity: 'error',
-        code: 'extract-hash-mismatch',
-        where,
-        message: 'the extract does not match its recorded hash; re-transcribe and re-hash it',
-      });
-    }
-  }
 
   const numericalRecords: readonly (Measurement | ContextClaim)[] = [
     ...dataset.measurements,
     ...dataset.contextClaims,
   ];
-  for (const numericalRecord of numericalRecords) {
-    const recordKind = 'metric' in numericalRecord ? 'measurement' : 'context claim';
-    const where = `${recordKind} ${numericalRecord.id}`;
-
-    // A cited extract must exist and must belong to a source this figure cites,
-    // otherwise the number points at evidence for something else.
-    for (const extractId of numericalRecord.extractIds ?? []) {
-      const record = recordsById.get(extractId);
-      if (record === undefined) {
-        issues.push({
-          severity: 'error',
-          code: 'unknown-research-record',
-          where,
-          message: `references research record "${extractId}", which does not exist`,
-        });
-        continue;
-      }
-      if (!numericalRecord.sourceIds.includes(record.sourceId)) {
-        issues.push({
-          severity: 'error',
-          code: 'extract-source-mismatch',
-          where,
-          message:
-            `cites research record "${extractId}", which transcribes source ` +
-            `"${record.sourceId}", a source this numerical record does not cite`,
-        });
-      }
-    }
-
-    if (
-      numericalRecord.quantity.state !== 'value' ||
-      numericalRecord.editorialStatus !== 'approved'
-    ) {
-      continue;
-    }
-    if (!('metric' in numericalRecord)) {
-      continue;
-    }
-    for (const sourceId of numericalRecord.sourceIds) {
-      const source = sourcesById.get(sourceId);
-      if (source === undefined || !DOCUMENT_SOURCE_TYPES.has(source.sourceType)) {
-        continue;
-      }
-      if (source.adapter !== undefined) {
-        continue;
-      }
-      // The extract must be named by this measurement. A record merely existing
-      // somewhere for the same document does not say which sentence this
-      // particular figure was read from, and a long report has many.
-      const cited = (numericalRecord.extractIds ?? []).some(
-        (extractId) => recordsById.get(extractId)?.sourceId === sourceId,
+  return [
+    ...dataset.extracts.flatMap((record) => checkExtract(record, sourcesById)),
+    ...numericalRecords.flatMap((numericalRecord) => {
+      const recordKind = 'metric' in numericalRecord ? 'measurement' : 'context claim';
+      const where = `${recordKind} ${numericalRecord.id}`;
+      return checkCitedExtracts(numericalRecord, recordsById, where).concat(
+        'metric' in numericalRecord
+          ? checkDocumentExtracts(numericalRecord, sourcesById, recordsById, where)
+          : [],
       );
-      if (cited) {
-        continue;
-      }
+    }),
+  ];
+}
+
+function checkExtract(
+  record: ResearchRecord,
+  sourcesById: ReadonlyMap<string, Source>,
+): ValidationIssue[] {
+  const where = `research record ${record.id}`;
+  if (!sourcesById.has(record.sourceId)) {
+    return [
+      {
+        severity: 'error',
+        code: 'unknown-source',
+        where,
+        message: `references source "${record.sourceId}", which does not exist`,
+      },
+    ];
+  }
+  // A transcription that no longer matches its hash has been edited or
+  // corrupted since it was reviewed, so it cannot be trusted as evidence.
+  if (sha256Hex(record.extract) !== record.extractHash) {
+    return [
+      {
+        severity: 'error',
+        code: 'extract-hash-mismatch',
+        where,
+        message: 'the extract does not match its recorded hash; re-transcribe and re-hash it',
+      },
+    ];
+  }
+  return [];
+}
+
+/**
+ * A cited extract must exist and must belong to a source this figure cites,
+ * otherwise the number points at evidence for something else.
+ */
+function checkCitedExtracts(
+  numericalRecord: Measurement | ContextClaim,
+  recordsById: ReadonlyMap<string, ResearchRecord>,
+  where: string,
+): ValidationIssue[] {
+  const issues: ValidationIssue[] = [];
+  for (const extractId of numericalRecord.extractIds ?? []) {
+    const record = recordsById.get(extractId);
+    if (record === undefined) {
       issues.push({
         severity: 'error',
-        code: 'missing-research-record',
+        code: 'unknown-research-record',
+        where,
+        message: `references research record "${extractId}", which does not exist`,
+      });
+    } else if (!numericalRecord.sourceIds.includes(record.sourceId)) {
+      issues.push({
+        severity: 'error',
+        code: 'extract-source-mismatch',
         where,
         message:
-          `cites "${sourceId}", a ${source.sourceType} that no adapter reads, but names no ` +
-          'research record carrying the extract and locator this figure was read from',
+          `cites research record "${extractId}", which transcribes source ` +
+          `"${record.sourceId}", a source this numerical record does not cite`,
       });
     }
   }
-
   return issues;
+}
+
+/**
+ * An approved figure read from a document no adapter can parse must name the
+ * research record it was read from.
+ */
+function checkDocumentExtracts(
+  measurement: Measurement,
+  sourcesById: ReadonlyMap<string, Source>,
+  recordsById: ReadonlyMap<string, ResearchRecord>,
+  where: string,
+): ValidationIssue[] {
+  if (measurement.quantity.state !== 'value' || measurement.editorialStatus !== 'approved') {
+    return [];
+  }
+  const documents = measurement.sourceIds
+    .map((sourceId) => sourcesById.get(sourceId))
+    .filter(
+      (source): source is Source =>
+        source !== undefined &&
+        DOCUMENT_SOURCE_TYPES.has(source.sourceType) &&
+        source.adapter === undefined,
+    );
+  // The extract must be named by this measurement. A record merely existing
+  // somewhere for the same document does not say which sentence this
+  // particular figure was read from, and a long report has many.
+  return documents
+    .filter(
+      (source) =>
+        !(measurement.extractIds ?? []).some(
+          (extractId) => recordsById.get(extractId)?.sourceId === source.id,
+        ),
+    )
+    .map((source) => ({
+      severity: 'error',
+      code: 'missing-research-record',
+      where,
+      message:
+        `cites "${source.id}", a ${source.sourceType} that no adapter reads, but names no ` +
+        'research record carrying the extract and locator this figure was read from',
+    }));
 }
 
 function facetsOf(measurement: Measurement): ComparabilityFacets {

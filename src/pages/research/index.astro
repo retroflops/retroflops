@@ -4,6 +4,7 @@
 
 import { getCollection } from 'astro:content';
 
+import SystemCard from '~/components/system-card.astro';
 import BaseLayout from '~/layouts/base-layout.astro';
 import {
   getComponentAvailability,
@@ -12,7 +13,7 @@ import {
   getSystemAvailability,
   getSystems,
 } from '~/lib/catalog';
-import { formatPartialDate, humaniseIdentifier } from '~/lib/display';
+import { humaniseIdentifier } from '~/lib/display';
 import { route } from '~/lib/paths';
 import { presetAvailability } from '~/lib/presets';
 
@@ -70,12 +71,7 @@ const researchExamples = (await getCollection('presets'))
             const state = getSystemAvailability(system);
             const componentIds = componentIdsBySystem.get(system.id) ?? [];
             return (
-              <li class="card stack">
-                <p class="card__eyebrow">{formatPartialDate(system.releaseDate)}</p>
-                <h3>
-                  <a href={route(`/systems/${system.slug}/`)}>{system.name}</a>
-                </h3>
-                <p class="card__summary">{system.summary}</p>
+              <SystemCard system={system} showType={false}>
                 <p class="meta">
                   <span class="numeric">{state.counts.unknownCount}</span> unknown ·{' '}
                   <span class="numeric">{state.counts.notApplicableCount}</span> not applicable
@@ -96,7 +92,7 @@ const researchExamples = (await getCollection('presets'))
                     })}
                   </p>
                 )}
-              </li>
+              </SystemCard>
             );
           })}
         </ul>

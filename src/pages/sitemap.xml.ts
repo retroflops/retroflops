@@ -10,11 +10,10 @@
  */
 
 import type { APIRoute } from 'astro';
-import { getCollection } from 'astro:content';
 
+import { getCollectionRoutes } from '~/lib/collection-routes';
 import { route } from '~/lib/paths';
-import { presetAvailability } from '~/lib/presets';
-import { getSiteRoutes, methodologyRoute, presetRoute } from '~/lib/site-routes';
+import { getSiteRoutes } from '~/lib/site-routes';
 
 function escapeXml(value: string): string {
   return value
@@ -30,20 +29,7 @@ export const GET: APIRoute = async ({ site }) => {
     throw new Error('A sitemap needs an absolute site URL. Set SITE_URL before building.');
   }
 
-  const methodology = (await getCollection('methodology'))
-    .toSorted((a, b) => a.data.order - b.data.order)
-    .map((page) => methodologyRoute(page.id, page.data.title, page.data.summary));
-
-  const presets = (await getCollection('presets'))
-    .toSorted((a, b) => a.data.order - b.data.order)
-    .map((preset) =>
-      presetRoute(
-        preset.id,
-        preset.data.title,
-        preset.data.summary,
-        presetAvailability(preset.data).availability,
-      ),
-    );
+  const { methodology, presets } = await getCollectionRoutes();
 
   const entries = [...getSiteRoutes(), ...presets, ...methodology]
     .filter((entry) => entry.indexing === 'catalog')

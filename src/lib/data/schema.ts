@@ -73,7 +73,7 @@ const confidenceStatus = z.enum(CONFIDENCE_STATUSES);
 const evidenceLevel = z.enum(EVIDENCE_LEVELS);
 const editorialStatus = z.enum(EDITORIAL_STATUSES);
 
-export const UNKNOWN_RESEARCH_ROUTES = [
+const UNKNOWN_RESEARCH_ROUTES = [
   'vendor-documentation',
   'independent-analysis',
   'specialist-reference',
@@ -93,7 +93,7 @@ const unknownAuditSchema = z.object({
  * A quantity that may legitimately be missing. Absence is a first-class state so
  * that "we do not know" and "this machine has no GPU" never collapse into zero.
  */
-export const statedQuantitySchema = z.object({
+const statedQuantitySchema = z.object({
   state: z.literal('value'),
   value: decimalString,
   unit: unitId,
@@ -115,10 +115,10 @@ export type QuantityValue = z.infer<typeof quantitySchema>;
 /* Source                                                                      */
 /* -------------------------------------------------------------------------- */
 
-export const SOURCE_TIERS = ['A', 'B', 'C'] as const;
+const SOURCE_TIERS = ['A', 'B', 'C'] as const;
 const SOURCE_URL_STATUSES = ['known-unavailable'] as const;
 
-export const SOURCE_TYPES = [
+const SOURCE_TYPES = [
   'vendor-documentation',
   'government-document',
   'technical-manual',
@@ -131,7 +131,7 @@ export const SOURCE_TYPES = [
 ] as const;
 
 /** Provenance of one `data:fetch` run against a source URL. */
-export const fetchProvenanceSchema = z.object({
+const fetchProvenanceSchema = z.object({
   url: z.url(),
   /** Present only when a redirect moved the request off the requested URL. */
   finalUrl: z.url().optional(),
@@ -238,7 +238,7 @@ export type ResearchRecord = z.infer<typeof researchRecordSchema>;
  * with the preset, so re-running the normalization on the same original must
  * reproduce the same bytes, which is what makes the stored hash meaningful.
  */
-export const imageTransformSchema = z.object({
+const imageTransformSchema = z.object({
   preset: z.literal(IMAGE_PRESET_ID),
   /** Pixel size of the fetched original, as the recipe was planned against it. */
   sourceWidth: z.int().min(1),
@@ -261,8 +261,6 @@ export const imageTransformSchema = z.object({
   /** Why this recipe was chosen, including what changed and why. */
   note: z.string().min(1),
 });
-
-export type ImageTransform = z.infer<typeof imageTransformSchema>;
 
 /**
  * A photograph of a machine, and the right to publish it.
@@ -370,7 +368,7 @@ export const COMPONENT_KINDS = ['cpu', 'gpu', 'memory'] as const;
  * words. Adding a family is an editorial decision about kinship, so the list
  * grows only when a record genuinely belongs to one.
  */
-export const INSTRUCTION_SET_FAMILIES = [
+const INSTRUCTION_SET_FAMILIES = [
   'mos-6502',
   'motorola-68000',
   'mips',
@@ -382,13 +380,18 @@ export const INSTRUCTION_SET_FAMILIES = [
 
 export type InstructionSetFamily = (typeof INSTRUCTION_SET_FAMILIES)[number];
 
-const componentBase = {
+/** The fields that name a piece of hardware, shared by systems and components. */
+const hardwareIdentity = {
   id: identifier,
   slug,
   name: z.string().min(1),
   /** Editorial names readers may use to find this record in selectors. */
   aliases: z.array(z.string().min(1)).optional(),
   manufacturer: z.string().min(1),
+};
+
+const componentBase = {
+  ...hardwareIdentity,
   architecture: z.string().min(1).optional(),
   introducedDate: partialDate.optional(),
   summary: z.string().min(1),
@@ -448,7 +451,7 @@ export type Component = z.infer<typeof componentSchema>;
 /* Configuration                                                               */
 /* -------------------------------------------------------------------------- */
 
-export const COMPONENT_ROLES = [
+const COMPONENT_ROLES = [
   'main-cpu',
   'co-processor',
   'sound-cpu',
@@ -486,7 +489,7 @@ export const configurationEntrySchema = z
 export type ConfigurationEntry = z.infer<typeof configurationEntrySchema>;
 
 /** A regional or hardware variant of a system. */
-export const configurationSchema = z.object({
+const configurationSchema = z.object({
   id: identifier,
   label: z.string().min(1),
   region: z.string().min(1).optional(),
@@ -494,8 +497,6 @@ export const configurationSchema = z.object({
   entries: z.array(configurationEntrySchema).min(1),
   notes: z.string().min(1).optional(),
 });
-
-export type Configuration = z.infer<typeof configurationSchema>;
 
 /* -------------------------------------------------------------------------- */
 /* System                                                                      */
@@ -509,7 +510,7 @@ export type Configuration = z.infer<typeof configurationSchema>;
  * assert a kinship that does not exist. `smartphone` is therefore its own type
  * rather than a shade of an existing one.
  */
-export const SYSTEM_TYPES = [
+const SYSTEM_TYPES = [
   'guidance-computer',
   'mainframe',
   'minicomputer',
@@ -568,12 +569,7 @@ export const SYSTEM_FAMILIES = [
 export type SystemFamily = (typeof SYSTEM_FAMILIES)[number];
 
 export const systemSchema = z.object({
-  id: identifier,
-  slug,
-  name: z.string().min(1),
-  /** Editorial names readers may use to find this record in selectors. */
-  aliases: z.array(z.string().min(1)).optional(),
-  manufacturer: z.string().min(1),
+  ...hardwareIdentity,
   type: z.enum(SYSTEM_TYPES),
   /** The product lineage this machine belongs to, where it belongs to one. */
   family: z.enum(SYSTEM_FAMILIES).optional(),
@@ -601,7 +597,7 @@ export type System = z.infer<typeof systemSchema>;
 /* Measurement                                                                 */
 /* -------------------------------------------------------------------------- */
 
-export const subjectRefSchema = z.object({
+const subjectRefSchema = z.object({
   kind: z.enum(['system', 'component']),
   id: identifier,
   /** Narrows the figure to one variant of a system. */
@@ -622,213 +618,254 @@ export const subjectRefSchema = z.object({
 
 export type SubjectRef = z.infer<typeof subjectRefSchema>;
 
-export const benchmarkIdentitySchema = z.object({
+const benchmarkIdentitySchema = z.object({
   id: identifier,
   version: z.string().min(1),
   variant: z.string().min(1).optional(),
 });
 
-export const ROUNDING_RULES = ['half-up', 'half-even', 'truncate', 'none'] as const;
+const ROUNDING_RULES = ['half-up', 'half-even', 'truncate', 'none'] as const;
 
 /**
  * Derived twin of a stated quantity, expressed in the quantity's base unit.
  * Written by `data:normalize` and re-derived on every validation run.
  */
-export const normalizedQuantitySchema = z.object({
+const normalizedQuantitySchema = z.object({
   value: decimalString,
   unit: unitId,
   significantDigits: z.int().min(1).max(21),
   unitRegistry: z.string().min(1),
 });
 
-export const measurementSchema = z
-  .object({
-    id: identifier,
-    subject: subjectRefSchema,
-    metric: metricId,
-    quantity: quantitySchema,
-    normalized: normalizedQuantitySchema.optional(),
-    scope: measurementScope,
-    /** How the figure was produced, from the closed `methods-v1` registry. */
-    method: methodId,
-    /**
-     * Who stated the figure. Recorded because it is what a reader wants to know,
-     * and kept out of the comparability group because a vendor's silence must not
-     * cut its hardware off from every figure somebody else published.
-     */
-    provenance,
-    /**
-     * Whether the figure describes hardware that reached buyers or an
-     * announcement made before it did. A `pre-launch` figure must stay
-     * `provisional`, which is what keeps it out of automatic multipliers.
-     */
-    evidenceStage,
-    benchmark: benchmarkIdentitySchema.optional(),
-    /**
-     * The day a moving figure was read, for a figure that moves.
-     *
-     * A benchmark publisher's chart average is recomputed as results arrive, so
-     * it is true of a day and of no other day. Recording it without saying which
-     * day would put a number in the catalog that quietly stops being the one
-     * the citation supports, and would make the build's output depend on when
-     * it ran. Required by validation for every method that produces a rolling
-     * quantity.
-     */
-    asOf: isoDate.optional(),
-    /** Conditions that materially affect the figure: clock, cooling, compiler, workload. */
-    conditions: z.string().min(1).optional(),
-    /** Canonical group id; re-derived and checked below. */
-    comparabilityGroup: z.string().min(1),
-    rounding: z.enum(ROUNDING_RULES).default('none'),
-    status: confidenceStatus,
-    /** Strength of the sources for a stated number. Required only for values. */
-    evidenceLevel: evidenceLevel.optional(),
-    /**
-     * The derived claim this figure carries, for a number this project computed
-     * rather than read. The claim holds the formula, the input records and the
-     * exclusions; validation recomputes it and requires this figure to match, so
-     * a computed total can never drift from its terms.
-     */
-    derivedFrom: identifier.optional(),
-    editorialStatus,
-    sourceIds: z.array(identifier).min(1),
-    /**
-     * Research records carrying the verbatim extract this figure was read from.
-     * Required for figures taken from documents no adapter can read, so a reader
-     * can go from the number to the exact sentence rather than to the document.
-     */
-    extractIds: z.array(identifier).optional(),
-    /** Caveats shown next to the figure wherever it appears. */
-    caveat: z.string().min(1).optional(),
-    /** What was checked before the catalog concluded that a quantity is unknown. */
-    unknownAudit: unknownAuditSchema.optional(),
-  })
-  .superRefine((measurement, ctx) => {
-    // The group comes from metric, scope, method and benchmark, never the unit.
-    // Validation can therefore check it even when the figure itself is absent.
-    const expected = deriveComparabilityGroup({
-      metric: measurement.metric,
-      scope: measurement.scope,
-      method: measurement.method,
-      benchmark: measurement.benchmark,
+const measurementFields = z.object({
+  id: identifier,
+  subject: subjectRefSchema,
+  metric: metricId,
+  quantity: quantitySchema,
+  normalized: normalizedQuantitySchema.optional(),
+  scope: measurementScope,
+  /** How the figure was produced, from the closed `methods-v1` registry. */
+  method: methodId,
+  /**
+   * Who stated the figure. Recorded because it is what a reader wants to know,
+   * and kept out of the comparability group because a vendor's silence must not
+   * cut its hardware off from every figure somebody else published.
+   */
+  provenance,
+  /**
+   * Whether the figure describes hardware that reached buyers or an
+   * announcement made before it did. A `pre-launch` figure must stay
+   * `provisional`, which is what keeps it out of automatic multipliers.
+   */
+  evidenceStage,
+  benchmark: benchmarkIdentitySchema.optional(),
+  /**
+   * The day a moving figure was read, for a figure that moves.
+   *
+   * A benchmark publisher's chart average is recomputed as results arrive, so
+   * it is true of a day and of no other day. Recording it without saying which
+   * day would put a number in the catalog that quietly stops being the one
+   * the citation supports, and would make the build's output depend on when
+   * it ran. Required by validation for every method that produces a rolling
+   * quantity.
+   */
+  asOf: isoDate.optional(),
+  /** Conditions that materially affect the figure: clock, cooling, compiler, workload. */
+  conditions: z.string().min(1).optional(),
+  /** Canonical group id; re-derived and checked below. */
+  comparabilityGroup: z.string().min(1),
+  rounding: z.enum(ROUNDING_RULES).default('none'),
+  status: confidenceStatus,
+  /** Strength of the sources for a stated number. Required only for values. */
+  evidenceLevel: evidenceLevel.optional(),
+  /**
+   * The derived claim this figure carries, for a number this project computed
+   * rather than read. The claim holds the formula, the input records and the
+   * exclusions; validation recomputes it and requires this figure to match, so
+   * a computed total can never drift from its terms.
+   */
+  derivedFrom: identifier.optional(),
+  editorialStatus,
+  sourceIds: z.array(identifier).min(1),
+  /**
+   * Research records carrying the verbatim extract this figure was read from.
+   * Required for figures taken from documents no adapter can read, so a reader
+   * can go from the number to the exact sentence rather than to the document.
+   */
+  extractIds: z.array(identifier).optional(),
+  /** Caveats shown next to the figure wherever it appears. */
+  caveat: z.string().min(1).optional(),
+  /** What was checked before the catalog concluded that a quantity is unknown. */
+  unknownAudit: unknownAuditSchema.optional(),
+});
+
+/** A schema-level objection to a measurement: the field it concerns and why. */
+interface RecordIssue {
+  readonly path: readonly PropertyKey[];
+  readonly message: string;
+}
+
+type MeasurementFields = z.infer<typeof measurementFields>;
+
+function measurementIssues(measurement: MeasurementFields): RecordIssue[] {
+  return [
+    ...groupIssues(measurement),
+    ...statusIssues(measurement),
+    ...unverifiedIssues(measurement),
+    ...evidenceLevelIssues(measurement),
+    ...unknownAuditIssues(measurement),
+    ...normalizedIssues(measurement),
+  ];
+}
+
+function groupIssues(measurement: MeasurementFields): RecordIssue[] {
+  // The group comes from metric, scope, method and benchmark, never the unit.
+  // Validation can therefore check it even when the figure itself is absent.
+  const expected = deriveComparabilityGroup({
+    metric: measurement.metric,
+    scope: measurement.scope,
+    method: measurement.method,
+    benchmark: measurement.benchmark,
+  });
+  return measurement.comparabilityGroup === expected
+    ? []
+    : [
+        {
+          path: ['comparabilityGroup'],
+          message: `comparability group must be "${expected}" for this metric, scope, method and benchmark`,
+        },
+      ];
+}
+
+function statusIssues(measurement: MeasurementFields): RecordIssue[] {
+  const issues: RecordIssue[] = [];
+  // Announced figures are protected by staying provisional rather than by
+  // sitting in a comparability group of their own: `provisional` already
+  // blocks every automatic multiplier, while a separate group would only push
+  // the announcement into a row of its own where it explains nothing.
+  if (measurement.evidenceStage === 'pre-launch' && measurement.editorialStatus !== 'provisional') {
+    issues.push({
+      path: ['editorialStatus'],
+      message:
+        'a pre-launch figure must stay provisional until shipped hardware is documented to carry it',
     });
-    if (measurement.comparabilityGroup !== expected) {
-      ctx.addIssue({
-        code: 'custom',
-        path: ['comparabilityGroup'],
-        message: `comparability group must be "${expected}" for this metric, scope, method and benchmark`,
-      });
-    }
+  }
 
-    // Announced figures are protected by staying provisional rather than by
-    // sitting in a comparability group of their own: `provisional` already
-    // blocks every automatic multiplier, while a separate group would only push
-    // the announcement into a row of its own where it explains nothing.
-    if (
-      measurement.evidenceStage === 'pre-launch' &&
-      measurement.editorialStatus !== 'provisional'
-    ) {
-      ctx.addIssue({
-        code: 'custom',
-        path: ['editorialStatus'],
-        message:
-          'a pre-launch figure must stay provisional until shipped hardware is documented to carry it',
-      });
-    }
+  // `derived` means this project computed the figure through a versioned
+  // formula, which is exactly what a derived claim is. One without the other
+  // is either an uncheckable number or an unused computation.
+  if ((measurement.status === 'derived') !== (measurement.derivedFrom !== undefined)) {
+    issues.push({
+      path: ['derivedFrom'],
+      message:
+        'a figure with status "derived" must name the derived claim it carries, and only such a figure may',
+    });
+  }
+  return issues;
+}
 
-    // `derived` means this project computed the figure through a versioned
-    // formula, which is exactly what a derived claim is. One without the other
-    // is either an uncheckable number or an unused computation.
-    if ((measurement.status === 'derived') !== (measurement.derivedFrom !== undefined)) {
-      ctx.addIssue({
-        code: 'custom',
-        path: ['derivedFrom'],
-        message:
-          'a figure with status "derived" must name the derived claim it carries, and only such a figure may',
-      });
-    }
+/**
+ * `unverified` says nobody here has read the cited page. A note would be a
+ * claim about a document this record admits to not having opened, and that
+ * is precisely the contradiction the state exists to end, several records
+ * once asserted "the manual does not state a standalone clock" beside a
+ * caveat conceding the manual was never transcribed. The state alone is the
+ * whole of what may be said, and it stays provisional until someone reads it.
+ */
+function unverifiedIssues(measurement: MeasurementFields): RecordIssue[] {
+  if (measurement.quantity.state !== 'unverified') {
+    return [];
+  }
+  const issues: RecordIssue[] = [];
+  if (measurement.quantity.note !== undefined) {
+    issues.push({
+      path: ['quantity', 'note'],
+      message:
+        'an unverified figure may not describe what its unread source contains; state the gap by leaving the note off',
+    });
+  }
+  if (measurement.editorialStatus !== 'provisional') {
+    issues.push({
+      path: ['editorialStatus'],
+      message: 'an unverified figure must stay provisional until its source has been read',
+    });
+  }
+  return issues;
+}
 
-    // `unverified` says nobody here has read the cited page. A note would be a
-    // claim about a document this record admits to not having opened, and that
-    // is precisely the contradiction the state exists to end, several records
-    // once asserted "the manual does not state a standalone clock" beside a
-    // caveat conceding the manual was never transcribed. The state alone is the
-    // whole of what may be said, and it stays provisional until someone reads it.
-    if (measurement.quantity.state === 'unverified') {
-      if (measurement.quantity.note !== undefined) {
-        ctx.addIssue({
-          code: 'custom',
-          path: ['quantity', 'note'],
-          message:
-            'an unverified figure may not describe what its unread source contains; state the gap by leaving the note off',
-        });
-      }
-      if (measurement.editorialStatus !== 'provisional') {
-        ctx.addIssue({
-          code: 'custom',
-          path: ['editorialStatus'],
-          message: 'an unverified figure must stay provisional until its source has been read',
-        });
-      }
-    }
+function evidenceLevelIssues(measurement: MeasurementFields): RecordIssue[] {
+  if (measurement.quantity.state !== 'value') {
+    return measurement.evidenceLevel === undefined
+      ? []
+      : [
+          {
+            path: ['evidenceLevel'],
+            message: 'an absent quantity may not declare an evidence level',
+          },
+        ];
+  }
+  const issues: RecordIssue[] = [];
+  if (measurement.evidenceLevel === undefined) {
+    issues.push({
+      path: ['evidenceLevel'],
+      message: 'a stated value must declare its evidence level',
+    });
+  }
+  if (measurement.unknownAudit !== undefined) {
+    issues.push({
+      path: ['unknownAudit'],
+      message: 'a stated value may not carry an unknown audit',
+    });
+  }
+  return issues;
+}
 
-    if (measurement.quantity.state === 'value') {
-      if (measurement.evidenceLevel === undefined) {
-        ctx.addIssue({
-          code: 'custom',
-          path: ['evidenceLevel'],
-          message: 'a stated value must declare its evidence level',
-        });
-      }
-      if (measurement.unknownAudit !== undefined) {
-        ctx.addIssue({
-          code: 'custom',
-          path: ['unknownAudit'],
-          message: 'a stated value may not carry an unknown audit',
-        });
-      }
-    } else if (measurement.evidenceLevel !== undefined) {
-      ctx.addIssue({
-        code: 'custom',
-        path: ['evidenceLevel'],
-        message: 'an absent quantity may not declare an evidence level',
-      });
-    }
-
-    if (measurement.quantity.state === 'unknown') {
-      const routes = measurement.unknownAudit?.routesChecked ?? [];
-      if (
-        measurement.unknownAudit !== undefined &&
-        !routes.some((route) => route !== 'vendor-documentation')
-      ) {
-        ctx.addIssue({
-          code: 'custom',
+function unknownAuditIssues(measurement: MeasurementFields): RecordIssue[] {
+  const audit = measurement.unknownAudit;
+  if (measurement.quantity.state !== 'unknown') {
+    return audit === undefined
+      ? []
+      : [
+          {
+            path: ['unknownAudit'],
+            message: 'only an unknown quantity may carry an unknown audit',
+          },
+        ];
+  }
+  const beyondVendor = (audit?.routesChecked ?? []).some(
+    (route) => route !== 'vendor-documentation',
+  );
+  return audit === undefined || beyondVendor
+    ? []
+    : [
+        {
           path: ['unknownAudit', 'routesChecked'],
           message: 'an unknown audit must include a route beyond vendor documentation',
-        });
-      }
-    } else if (measurement.unknownAudit !== undefined) {
-      ctx.addIssue({
-        code: 'custom',
-        path: ['unknownAudit'],
-        message: 'only an unknown quantity may carry an unknown audit',
-      });
-    }
+        },
+      ];
+}
 
-    if (measurement.quantity.state !== 'value') {
-      return;
-    }
-    if (
-      measurement.normalized !== undefined &&
-      !isNormalizationCurrent(measurement.quantity, measurement.normalized)
-    ) {
-      ctx.addIssue({
-        code: 'custom',
-        path: ['normalized'],
-        message: 'normalized value is stale or hand-edited; re-run data:normalize to regenerate it',
-      });
-    }
-  });
+function normalizedIssues(measurement: MeasurementFields): RecordIssue[] {
+  if (
+    measurement.quantity.state !== 'value' ||
+    measurement.normalized === undefined ||
+    isNormalizationCurrent(measurement.quantity, measurement.normalized)
+  ) {
+    return [];
+  }
+  return [
+    {
+      path: ['normalized'],
+      message: 'normalized value is stale or hand-edited; re-run data:normalize to regenerate it',
+    },
+  ];
+}
+
+export const measurementSchema = measurementFields.superRefine((measurement, ctx) => {
+  for (const issue of measurementIssues(measurement)) {
+    ctx.addIssue({ code: 'custom', path: [...issue.path], message: issue.message });
+  }
+});
 
 export type Measurement = z.infer<typeof measurementSchema>;
 

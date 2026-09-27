@@ -149,6 +149,63 @@ function owningSystems(catalog: Catalog, measurement: Measurement): readonly Sys
   );
 }
 
+function appendTo<T>(map: Map<string, T[]>, key: string, items: readonly T[]): void {
+  if (items.length > 0) {
+    map.set(key, [...(map.get(key) ?? []), ...items]);
+  }
+}
+
+/** A figure that states no value, listed once per machine it belongs to. */
+function absencesOf(
+  measurement: Measurement,
+  systems: readonly System[],
+  part: string | undefined,
+): TimelineAbsence[] {
+  const formatted = formatQuantity(measurement.quantity);
+  return systems.map((system) => ({
+    measurementId: measurement.id,
+    systemName: system.name,
+    systemSlug: system.slug,
+    date: system.releaseDate,
+    part,
+    text: formatted.text,
+    note: formatted.note,
+  }));
+}
+
+/** A stated figure, as one point per machine it belongs to that has a release year. */
+function pointsOf(
+  measurement: Measurement,
+  value: string,
+  systems: readonly System[],
+  part: string | undefined,
+): TimelinePoint[] {
+  const points: TimelinePoint[] = [];
+  for (const system of systems) {
+    const year = Number(system.releaseDate.slice(0, 4));
+    if (!Number.isFinite(year)) {
+      continue;
+    }
+    points.push({
+      measurementId: measurement.id,
+      systemName: system.name,
+      systemSlug: system.slug,
+      date: system.releaseDate,
+      year,
+      part,
+      variant: system.configurations.find(
+        (configuration) => configuration.id === measurement.subject.configurationId,
+      )?.label,
+      value,
+      text: formatQuantity(measurement.quantity).text,
+      status: measurement.status,
+      editorialStatus: measurement.editorialStatus,
+      sourceIds: measurement.sourceIds,
+    });
+  }
+  return points;
+}
+
 /**
  * The series a chart may be drawn for, grouped by metric and device scope.
  *
@@ -166,91 +223,25 @@ export function timelineSeries(catalog: Catalog): readonly TimelineSeries[] {
       measurement.subject.kind === 'component'
         ? catalog.components.find((component) => component.id === measurement.subject.id)?.name
         : undefined;
+    const systems = owningSystems(catalog, measurement);
+    const group = measurement.comparabilityGroup;
 
     if (measurement.quantity.state !== 'value' || measurement.normalized === undefined) {
-      const formatted = formatQuantity(measurement.quantity);
-      for (const system of owningSystems(catalog, measurement)) {
-        const absences = absencesByGroup.get(measurement.comparabilityGroup) ?? [];
-        absences.push({
-          measurementId: measurement.id,
-          systemName: system.name,
-          systemSlug: system.slug,
-          date: system.releaseDate,
-          part: partName,
-          text: formatted.text,
-          note: formatted.note,
-        });
-        absencesByGroup.set(measurement.comparabilityGroup, absences);
-      }
+      appendTo(absencesByGroup, group, absencesOf(measurement, systems, partName));
       continue;
     }
-
-    for (const system of owningSystems(catalog, measurement)) {
-      const onVariant = measurement.subject.configurationId;
-      const variant = system.configurations.find(
-        (configuration) => configuration.id === onVariant,
-      )?.label;
-      const year = Number(system.releaseDate.slice(0, 4));
-      if (!Number.isFinite(year)) {
-        continue;
-      }
-      const points = byGroup.get(measurement.comparabilityGroup) ?? [];
-      points.push({
-        measurementId: measurement.id,
-        systemName: system.name,
-        systemSlug: system.slug,
-        date: system.releaseDate,
-        year,
-        part: partName,
-        variant,
-        value: measurement.normalized.value,
-        text: formatQuantity(measurement.quantity).text,
-        status: measurement.status,
-        editorialStatus: measurement.editorialStatus,
-        sourceIds: measurement.sourceIds,
-      });
-      byGroup.set(measurement.comparabilityGroup, points);
-      facets.set(measurement.comparabilityGroup, measurement);
+    const points = pointsOf(measurement, measurement.normalized.value, systems, partName);
+    appendTo(byGroup, group, points);
+    if (points.length > 0) {
+      facets.set(group, measurement);
     }
   }
 
-  const series: TimelineSeries[] = [];
-  for (const [group, points] of byGroup) {
-    const sample = facets.get(group);
-    const metric = sample === undefined ? undefined : getMetric(sample.metric);
-    if (sample === undefined || metric === undefined) {
-      continue;
-    }
-    // Count machines, not figures. Eight capacities from two machines are a
-    // parts list, not a history.
-    const machines = new Set(points.map((point) => point.systemSlug)).size;
-    if (machines < MIN_POINTS) {
-      continue;
-    }
-
-    const unit = sample.normalized?.unit ?? '';
-    const ordered = points.toSorted(
-      (a, b) => a.date.localeCompare(b.date) || a.systemName.localeCompare(b.systemName),
-    );
-
-    series.push({
-      slug: slugify(group),
-      group,
-      metric: sample.metric,
-      metricLabel: metricLabel(sample.metric),
-      label: timelineLabel(sample.metric, sample.scope, sample.benchmark),
-      scope: sample.scope,
-      method: sample.method,
-      benchmark: sample.benchmark,
-      unit,
-      unitLabel: getUnit(unit)?.label ?? unit,
-      allowsLogScale: metric.allowsLogScale,
-      points: ordered,
-      absences: (absencesByGroup.get(group) ?? []).toSorted((a, b) => a.date.localeCompare(b.date)),
-      summary: summarize(ordered, sample.metric, unit),
-      metricDescription: metric.description,
-    });
-  }
+  const series = [...byGroup]
+    .map(([group, points]) =>
+      seriesFor(group, points, facets.get(group), absencesByGroup.get(group) ?? []),
+    )
+    .filter((entry) => entry !== undefined);
 
   // Keep related charts together. A CPU and GPU FP32 chart answer different
   // questions, but a reader should see both before moving on to another metric.
@@ -261,6 +252,47 @@ export function timelineSeries(catalog: Catalog): readonly TimelineSeries[] {
       a.method.localeCompare(b.method) ||
       a.label.localeCompare(b.label),
   );
+}
+
+function seriesFor(
+  group: string,
+  points: readonly TimelinePoint[],
+  sample: Measurement | undefined,
+  absences: readonly TimelineAbsence[],
+): TimelineSeries | undefined {
+  const metric = sample === undefined ? undefined : getMetric(sample.metric);
+  if (sample === undefined || metric === undefined) {
+    return undefined;
+  }
+  // Count machines, not figures. Eight capacities from two machines are a
+  // parts list, not a history.
+  const machines = new Set(points.map((point) => point.systemSlug)).size;
+  if (machines < MIN_POINTS) {
+    return undefined;
+  }
+
+  const unit = sample.normalized?.unit ?? '';
+  const ordered = points.toSorted(
+    (a, b) => a.date.localeCompare(b.date) || a.systemName.localeCompare(b.systemName),
+  );
+
+  return {
+    slug: slugify(group),
+    group,
+    metric: sample.metric,
+    metricLabel: metricLabel(sample.metric),
+    label: timelineLabel(sample.metric, sample.scope, sample.benchmark),
+    scope: sample.scope,
+    method: sample.method,
+    benchmark: sample.benchmark,
+    unit,
+    unitLabel: getUnit(unit)?.label ?? unit,
+    allowsLogScale: metric.allowsLogScale,
+    points: ordered,
+    absences: absences.toSorted((a, b) => a.date.localeCompare(b.date)),
+    summary: summarize(ordered, sample.metric, unit),
+    metricDescription: metric.description,
+  };
 }
 
 export function findTimelineSeries(catalog: Catalog, slug: string): TimelineSeries | undefined {

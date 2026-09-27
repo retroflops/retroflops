@@ -93,7 +93,7 @@ export function checkTransformRecipe(recipe: TransformRecipe): readonly string[]
     reasons.push('transform-unknown-preset');
   }
 
-  const { sourceWidth, sourceHeight, fit, region, background } = recipe;
+  const { fit, region, background } = recipe;
 
   if (fit !== 'crop' && region !== undefined) {
     reasons.push('transform-region-without-crop');
@@ -104,45 +104,15 @@ export function checkTransformRecipe(recipe: TransformRecipe): readonly string[]
 
   switch (fit) {
     case 'exact': {
-      if (!hasCanonicalAspect(sourceWidth, sourceHeight)) {
-        reasons.push('transform-source-not-4-3');
-      }
-      if (sourceWidth < CANONICAL_WIDTH || sourceHeight < CANONICAL_HEIGHT) {
-        reasons.push('transform-upscales');
-      }
+      reasons.push(...checkExact(recipe));
       break;
     }
     case 'crop': {
-      if (region === undefined) {
-        reasons.push('transform-crop-without-region');
-        break;
-      }
-      if (
-        region.x < 0 ||
-        region.y < 0 ||
-        region.x + region.width > sourceWidth ||
-        region.y + region.height > sourceHeight
-      ) {
-        reasons.push('transform-region-outside-source');
-      }
-      if (!hasCanonicalAspect(region.width, region.height)) {
-        reasons.push('transform-region-not-4-3');
-      }
-      if (region.width < CANONICAL_WIDTH || region.height < CANONICAL_HEIGHT) {
-        reasons.push('transform-upscales');
-      }
+      reasons.push(...checkCrop(recipe));
       break;
     }
     case 'pad': {
-      if (background === undefined) {
-        reasons.push('transform-pad-without-background');
-      } else if (!HEX_COLOR.test(background)) {
-        reasons.push('transform-background-not-hex');
-      }
-      const canvas = padCanvas(sourceWidth, sourceHeight);
-      if (canvas.width < CANONICAL_WIDTH || canvas.height < CANONICAL_HEIGHT) {
-        reasons.push('transform-upscales');
-      }
+      reasons.push(...checkPad(recipe));
       break;
     }
     default: {
@@ -150,5 +120,56 @@ export function checkTransformRecipe(recipe: TransformRecipe): readonly string[]
     }
   }
 
+  return reasons;
+}
+
+function isBelowCanonical(width: number, height: number): boolean {
+  return width < CANONICAL_WIDTH || height < CANONICAL_HEIGHT;
+}
+
+function checkExact({ sourceWidth, sourceHeight }: TransformRecipe): string[] {
+  const reasons: string[] = [];
+  if (!hasCanonicalAspect(sourceWidth, sourceHeight)) {
+    reasons.push('transform-source-not-4-3');
+  }
+  if (isBelowCanonical(sourceWidth, sourceHeight)) {
+    reasons.push('transform-upscales');
+  }
+  return reasons;
+}
+
+function checkCrop({ sourceWidth, sourceHeight, region }: TransformRecipe): string[] {
+  if (region === undefined) {
+    return ['transform-crop-without-region'];
+  }
+  const reasons: string[] = [];
+  const inside =
+    region.x >= 0 &&
+    region.y >= 0 &&
+    region.x + region.width <= sourceWidth &&
+    region.y + region.height <= sourceHeight;
+  if (!inside) {
+    reasons.push('transform-region-outside-source');
+  }
+  if (!hasCanonicalAspect(region.width, region.height)) {
+    reasons.push('transform-region-not-4-3');
+  }
+  if (isBelowCanonical(region.width, region.height)) {
+    reasons.push('transform-upscales');
+  }
+  return reasons;
+}
+
+function checkPad({ sourceWidth, sourceHeight, background }: TransformRecipe): string[] {
+  const reasons: string[] = [];
+  if (background === undefined) {
+    reasons.push('transform-pad-without-background');
+  } else if (!HEX_COLOR.test(background)) {
+    reasons.push('transform-background-not-hex');
+  }
+  const canvas = padCanvas(sourceWidth, sourceHeight);
+  if (isBelowCanonical(canvas.width, canvas.height)) {
+    reasons.push('transform-upscales');
+  }
   return reasons;
 }

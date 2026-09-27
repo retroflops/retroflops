@@ -1,0 +1,27 @@
+---
+// SPDX-FileCopyrightText: 2026 Wojciech Polak
+// SPDX-License-Identifier: MIT
+
+/** A profile's conflicting sources, one card per conflict. */
+import type { Conflict, Source } from '~/lib/data/schema';
+
+import ConflictCard from './conflict-card.astro';
+
+interface Props {
+  conflicts: readonly Conflict[];
+  sources: readonly Source[];
+}
+
+const { conflicts, sources } = Astro.props;
+---
+
+{
+  conflicts.length > 0 && (
+    <section class="stack" aria-labelledby="conflicts">
+      <h2 id="conflicts">Conflicting sources</h2>
+      {conflicts.map((conflict) => (
+        <ConflictCard conflict={conflict} sources={sources} />
+      ))}
+    </section>
+  )
+}

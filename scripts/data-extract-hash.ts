@@ -20,6 +20,7 @@
 import { createHash } from 'node:crypto';
 import { basename } from 'node:path';
 
+import { statusSummary } from './lib/cli.ts';
 import { listYamlFiles, readYamlDocument, repoPath, writeYamlDocumentIfChanged } from './lib/io.ts';
 
 const EXTRACTS_DIRECTORY = repoPath('data/extracts');
@@ -67,6 +68,26 @@ function reviewRecord(record: RecordShape, write: boolean): Report {
   return { status: 'updated', id, detail: `${was} → ${expected.slice(0, 12)}` };
 }
 
+/** Reviews every record in one extract file, rewriting the file when a hash changed. */
+async function reviewFile(file: string, write: boolean): Promise<readonly Report[]> {
+  const { text, document } = await readYamlDocument(file);
+  const parsed = document.toJS({ maxAliasCount: 0 });
+  const records: RecordShape[] = Array.isArray(parsed)
+    ? (parsed as RecordShape[])
+    : [parsed as RecordShape];
+
+  const reports = records.map((record) => reviewRecord(record, write));
+  if (reports.some((report) => report.status === 'updated')) {
+    for (const [index, record] of records.entries()) {
+      const path = Array.isArray(parsed) ? [index, 'extractHash'] : ['extractHash'];
+      document.setIn(path, record.extractHash);
+    }
+    await writeYamlDocumentIfChanged(file, text, document);
+    console.log(`  rewrote ${basename(file)}`);
+  }
+  return reports;
+}
+
 async function main(): Promise<void> {
   const write = process.argv.includes('--write');
   const files = await listYamlFiles(EXTRACTS_DIRECTORY);
@@ -75,27 +96,10 @@ async function main(): Promise<void> {
 
   for (const file of files) {
     // oxlint-disable-next-line no-await-in-loop
-    const { text, document } = await readYamlDocument(file);
-    const parsed = document.toJS({ maxAliasCount: 0 });
-    const records: RecordShape[] = Array.isArray(parsed)
-      ? (parsed as RecordShape[])
-      : [parsed as RecordShape];
-
-    const before = reports.length;
-    for (const record of records) {
-      reports.push(reviewRecord(record, write));
-    }
-
-    const changed = reports.slice(before).some((report) => report.status === 'updated');
-    if (changed) {
-      for (const [index, record] of records.entries()) {
-        const path = Array.isArray(parsed) ? [index, 'extractHash'] : ['extractHash'];
-        document.setIn(path, record.extractHash);
-      }
-      // oxlint-disable-next-line no-await-in-loop
-      await writeYamlDocumentIfChanged(file, text, document);
+    const fileReports = await reviewFile(file, write);
+    reports.push(...fileReports);
+    if (fileReports.some((report) => report.status === 'updated')) {
       rewritten += 1;
-      console.log(`  rewrote ${basename(file)}`);
     }
   }
 
@@ -105,11 +109,7 @@ async function main(): Promise<void> {
     }
   }
 
-  const counts = new Map<Status, number>();
-  for (const report of reports) {
-    counts.set(report.status, (counts.get(report.status) ?? 0) + 1);
-  }
-  const summary = [...counts.entries()].map(([status, count]) => `${count} ${status}`).join(', ');
+  const summary = statusSummary(reports.map((report) => report.status));
   console.log(
     `data:extract-hash: ${reports.length} record(s)${summary === '' ? '' : `, ${summary}`}` +
       `${write ? `, ${rewritten} file(s) rewritten` : ''}`,

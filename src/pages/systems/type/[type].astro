@@ -12,14 +12,12 @@
  * no category at all, so this route is rendered at build time and is right
  * whether or not anything is running in the browser.
  */
-import BreadcrumbTrail from '~/components/breadcrumb-trail.astro';
-import BaseLayout from '~/layouts/base-layout.astro';
+import SystemCard from '~/components/system-card.astro';
+import CategoryLayout from '~/layouts/category-layout.astro';
 import { getSystemAvailability } from '~/lib/catalog';
 import type { SystemType } from '~/lib/data/schema';
-import { formatPartialDate, humaniseIdentifier, systemTypeLabel } from '~/lib/display';
+import { humaniseIdentifier, systemTypeLabel } from '~/lib/display';
 import { systemCategory, systemsOfType, systemTypesInUse } from '~/lib/families';
-import { route } from '~/lib/paths';
-import { breadcrumbList } from '~/lib/structured-data';
 
 export function getStaticPaths() {
   return systemTypesInUse().map((type) => ({ params: { type }, props: { type } }));
@@ -45,50 +43,14 @@ const crumbs = [
 ];
 
 const description = `Every ${humaniseIdentifier(type).toLowerCase()} in the RetroFlops catalog, oldest first.`;
-
-const absolute = (path: string): string => new URL(route(path), Astro.site ?? Astro.url).href;
-const structuredData = [breadcrumbList(crumbs, absolute)];
 ---
 
-<BaseLayout title={label} description={description} structuredData={structuredData}>
-  <BreadcrumbTrail crumbs={crumbs} />
-
-  <header class="page-header stack">
-    <p class="page-header__eyebrow">Category</p>
-    <h1>{label}</h1>
-    <p class="lede prose">{description}</p>
-  </header>
-
-  <section class="stack" aria-labelledby="records">
-    <h2 id="records" class="visually-hidden">{label} in the catalog</h2>
-    <ul class="card-grid">
-      {
-        systems.map((system) => (
-          <li class="card stack">
-            <p class="card__eyebrow">
-              {humaniseIdentifier(system.type)} · {formatPartialDate(system.releaseDate)}
-            </p>
-            <h3>
-              <a href={route(`/systems/${system.slug}/`)}>{system.name}</a>
-            </h3>
-            <p class="card__summary">{system.summary}</p>
-            <p class="meta">
-              {system.manufacturer} ·{' '}
-              <span class="numeric">{getSystemAvailability(system).counts.valueCount}</span> values
-              · <span class="numeric">{getSystemAvailability(system).counts.unknownCount}</span>{' '}
-              unknown
-            </p>
-          </li>
-        ))
-      }
-    </ul>
-    {
-      researchCount > 0 && (
-        <p class="prose meta">
-          {researchCount} {researchCount === 1 ? 'record is' : 'records are'} kept in{' '}
-          <a href={route('/research/')}>Research</a> because no numeric measurement is available.
-        </p>
-      )
-    }
-  </section>
-</BaseLayout>
+<CategoryLayout
+  label={label}
+  description={description}
+  crumbs={crumbs}
+  researchCount={researchCount}
+  researchNoun={{ one: 'record is', other: 'records are' }}
+>
+  {systems.map((system) => <SystemCard system={system} />)}
+</CategoryLayout>

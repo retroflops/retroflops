@@ -77,7 +77,7 @@ export interface HeroImageFacts {
   readonly sourcePageUrl: string;
 }
 
-export function imageObject(image: HeroImageFacts): Node {
+function imageObject(image: HeroImageFacts): Node {
   return {
     '@type': 'ImageObject',
     contentUrl: image.url,

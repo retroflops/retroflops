@@ -43,7 +43,7 @@ export const IMAGE_RIGHTS_REGISTRY_VERSION = 'image-rights-v1';
  * it is what a reader is actually being told: somebody granted permission, or
  * nobody holds the rights to grant.
  */
-export const RIGHTS_BASES = ['license', 'public-domain'] as const;
+const RIGHTS_BASES = ['license', 'public-domain'] as const;
 
 export type RightsBasis = (typeof RIGHTS_BASES)[number];
 
@@ -63,7 +63,7 @@ export interface ImageRights {
   readonly shareAlike: boolean;
 }
 
-export const IMAGE_RIGHTS: readonly ImageRights[] = [
+const IMAGE_RIGHTS: readonly ImageRights[] = [
   {
     id: 'public-domain-mark-1.0',
     label: 'Public Domain Mark 1.0',

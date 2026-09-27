@@ -1,0 +1,77 @@
+---
+// SPDX-FileCopyrightText: 2026 Wojciech Polak
+// SPDX-License-Identifier: MIT
+
+/**
+ * The frame every record profile shares: the breadcrumb, the research notice
+ * when the record has no figure yet, then the page's own sections, and at the
+ * end the documents the figures rest on and the family navbox.
+ *
+ * A research profile stays out of the index, and its breadcrumb leads to
+ * Research rather than to its category. The notice's wording is the page's
+ * own, passed in the `notice` slot.
+ */
+import BreadcrumbTrail from '~/components/breadcrumb-trail.astro';
+import FamilyNav from '~/components/family-nav.astro';
+import ResearchNotice from '~/components/research-notice.astro';
+import SourceList from '~/components/source-list.astro';
+import type { Source } from '~/lib/data/schema';
+import type { FamilyNav as FamilyNavData } from '~/lib/families';
+import { route } from '~/lib/paths';
+import { breadcrumbList, type AbsoluteUrl, type Crumb } from '~/lib/structured-data';
+
+import BaseLayout from './base-layout.astro';
+
+interface Props {
+  record: { readonly name: string; readonly summary: string };
+  /** The profile's own route. */
+  path: string;
+  research: boolean;
+  /** The trail through the record's category, used unless it is a research record. */
+  crumbs: readonly Crumb[];
+  /** The page's JSON-LD description of the record. */
+  article: (absolute: AbsoluteUrl) => Record<string, unknown>;
+  sources: readonly Source[];
+  familyNav: FamilyNavData | undefined;
+}
+
+const { record, path, research, crumbs, article, sources, familyNav } = Astro.props;
+
+/** One array feeds both the visible trail and the JSON-LD, so they cannot drift. */
+const trail = research
+  ? [
+      { name: 'RetroFlops', path: '/' },
+      { name: 'Research', path: '/research/' },
+      { name: record.name, path },
+    ]
+  : crumbs;
+
+const absolute = (target: string): string => new URL(route(target), Astro.site ?? Astro.url).href;
+const structuredData = [article(absolute), breadcrumbList(trail, absolute)];
+---
+
+<BaseLayout
+  title={record.name}
+  description={record.summary}
+  structuredData={structuredData}
+  noindex={research}
+>
+  <BreadcrumbTrail crumbs={trail} />
+
+  {
+    research && (
+      <ResearchNotice label="Research record notice">
+        <slot name="notice" />
+      </ResearchNotice>
+    )
+  }
+
+  <slot />
+
+  <section class="stack" aria-labelledby="sources">
+    <h2 id="sources">Sources</h2>
+    <SourceList sources={sources} />
+  </section>
+
+  {familyNav !== undefined && <FamilyNav nav={familyNav} />}
+</BaseLayout>

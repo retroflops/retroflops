@@ -11,12 +11,11 @@
  */
 
 import type { APIRoute } from 'astro';
-import { getCollection } from 'astro:content';
 
 import { getCatalog } from '~/lib/catalog';
+import { getCollectionRoutes } from '~/lib/collection-routes';
 import { route } from '~/lib/paths';
-import { presetAvailability } from '~/lib/presets';
-import { getSiteRoutes, methodologyRoute, presetRoute } from '~/lib/site-routes';
+import { getSiteRoutes } from '~/lib/site-routes';
 
 export const GET: APIRoute = async ({ site }) => {
   if (site === undefined) {
@@ -30,21 +29,9 @@ export const GET: APIRoute = async ({ site }) => {
   const section = (prefix: string): readonly { path: string; title: string; summary: string }[] =>
     routes.filter((entry) => entry.indexing === 'catalog' && entry.path.startsWith(prefix));
 
-  const methodology = (await getCollection('methodology'))
-    .toSorted((a, b) => a.data.order - b.data.order)
-    .map((page) => methodologyRoute(page.id, page.data.title, page.data.summary));
-
-  const presets = (await getCollection('presets'))
-    .toSorted((a, b) => a.data.order - b.data.order)
-    .map((preset) =>
-      presetRoute(
-        preset.id,
-        preset.data.title,
-        preset.data.summary,
-        presetAvailability(preset.data).availability,
-      ),
-    )
-    .filter((preset) => preset.indexing === 'catalog');
+  const collections = await getCollectionRoutes();
+  const methodology = collections.methodology;
+  const presets = collections.presets.filter((preset) => preset.indexing === 'catalog');
 
   const list = (
     entries: readonly { path: string; title: string; summary: string }[],

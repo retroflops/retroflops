@@ -1,0 +1,38 @@
+---
+// SPDX-FileCopyrightText: 2026 Wojciech Polak
+// SPDX-License-Identifier: MIT
+
+/** A prepared comparison in a card grid, with its record and multiplier counts. */
+import type { CollectionEntry } from 'astro:content';
+
+import type { Comparison } from '~/lib/compare';
+import { route } from '~/lib/paths';
+
+import RecordCard from './record-card.astro';
+
+interface Props {
+  preset: CollectionEntry<'presets'>;
+  comparison: Comparison;
+  /** List the compared records beneath the summary. */
+  showSubjects?: boolean;
+}
+
+const { preset, comparison, showSubjects = false } = Astro.props;
+---
+
+<RecordCard
+  href={route(`/compare/${preset.id}/`)}
+  name={preset.data.title}
+  summary={preset.data.summary}
+>
+  <Fragment slot="eyebrow">
+    {comparison.subjects.length} records ·{' '}
+    <span class="numeric">{comparison.ratioCount}</span>
+    {comparison.ratioCount === 1 ? ' multiplier' : ' multipliers'}
+  </Fragment>
+  {
+    showSubjects && (
+      <p class="meta">{comparison.subjects.map((subject) => subject.name).join(' · ')}</p>
+    )
+  }
+</RecordCard>

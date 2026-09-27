@@ -92,18 +92,21 @@ async function initialChunks(distDir: string, pagePath: string): Promise<Readonl
       continue;
     }
     seen.add(file);
-    for (const match of code.matchAll(STATIC_IMPORT)) {
-      const specifier = match[1] ?? '';
-      if (specifier.startsWith('.') || specifier.startsWith('/')) {
-        queue.push(
-          specifier.startsWith('/')
-            ? resolve(distDir, specifier.replace(/^\//, ''))
-            : resolve(dirname(file), specifier),
-        );
-      }
-    }
+    queue.push(...staticImports(code, file, distDir));
   }
   return seen;
+}
+
+/** The local files a chunk imports statically, resolved against the build. */
+function staticImports(code: string, file: string, distDir: string): string[] {
+  return [...code.matchAll(STATIC_IMPORT)]
+    .map((match) => match[1] ?? '')
+    .filter((specifier) => specifier.startsWith('.') || specifier.startsWith('/'))
+    .map((specifier) =>
+      specifier.startsWith('/')
+        ? resolve(distDir, specifier.replace(/^\//, ''))
+        : resolve(dirname(file), specifier),
+    );
 }
 
 async function gzippedSize(files: Iterable<string>): Promise<number> {
@@ -190,17 +193,14 @@ async function checkImages(): Promise<string[]> {
   return failures;
 }
 
-async function main(): Promise<void> {
-  const distDir = repoPath('dist');
+interface PageChunks {
+  readonly page: PageBudget;
+  readonly chunks: ReadonlySet<string>;
+  readonly size: number;
+}
+
+function checkPageBudgets(perPage: readonly PageChunks[]): string[] {
   const failures: string[] = [];
-
-  const perPage = await Promise.all(
-    PAGES.map(async (page) => {
-      const chunks = await initialChunks(distDir, page.path);
-      return { page, chunks, size: await gzippedSize(chunks) };
-    }),
-  );
-
   console.log('budgets: initial JavaScript per page, gzipped\n');
   for (const { page, chunks, size } of perPage) {
     const status = size <= PAGE_BUDGET_BYTES ? 'ok  ' : 'OVER';
@@ -213,13 +213,16 @@ async function main(): Promise<void> {
       );
     }
   }
+  return failures;
+}
 
-  /*
-   * The plotting library is the only thing in the build large enough to matter,
-   * and the rule it has to obey is not "be small" but "be absent until asked
-   * for". So every chunk over the threshold must be unreachable through static
-   * imports from any page, which is exactly what the sets above collect.
-   */
+/*
+ * The plotting library is the only thing in the build large enough to matter,
+ * and the rule it has to obey is not "be small" but "be absent until asked
+ * for". So every chunk over the threshold must be unreachable through static
+ * imports from any page, which is exactly what the sets above collect.
+ */
+async function checkLazyChunks(distDir: string, perPage: readonly PageChunks[]): Promise<string[]> {
   const assets = join(distDir, '_astro');
   const chunkFiles = (await readdir(assets))
     .filter((name) => name.endsWith('.js'))
@@ -230,14 +233,9 @@ async function main(): Promise<void> {
   const large = measured
     .filter((chunk) => chunk.bytes > LAZY_CHUNK_THRESHOLD_BYTES)
     .map((chunk) => chunk.file);
+  const eager = new Set(perPage.flatMap((entry) => [...entry.chunks]));
 
-  const eager = new Set<string>();
-  for (const entry of perPage) {
-    for (const chunk of entry.chunks) {
-      eager.add(chunk);
-    }
-  }
-
+  const failures: string[] = [];
   console.log('\nbudgets: chunks that must stay behind a dynamic import\n');
   for (const file of large) {
     const name = relative(distDir, file);
@@ -247,8 +245,24 @@ async function main(): Promise<void> {
       failures.push(`${name} is loaded eagerly; a chunk this size must be imported dynamically`);
     }
   }
+  return failures;
+}
 
-  failures.push(...(await checkImages()));
+async function main(): Promise<void> {
+  const distDir = repoPath('dist');
+
+  const perPage = await Promise.all(
+    PAGES.map(async (page) => {
+      const chunks = await initialChunks(distDir, page.path);
+      return { page, chunks, size: await gzippedSize(chunks) };
+    }),
+  );
+
+  const failures = [
+    ...checkPageBudgets(perPage),
+    ...(await checkLazyChunks(distDir, perPage)),
+    ...(await checkImages()),
+  ];
 
   if (failures.length > 0) {
     console.error('');

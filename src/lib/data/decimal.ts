@@ -67,10 +67,6 @@ export function formatDecimal(value: Decimal): string {
   return `${prefix}0.${digits.padStart(fractionLength, '0')}`;
 }
 
-export function isZero(value: Decimal): boolean {
-  return value.coefficient === 0n;
-}
-
 export function isPositive(value: Decimal): boolean {
   return value.coefficient > 0n && value.sign === 1;
 }
@@ -91,11 +87,6 @@ export function compareDecimal(a: Decimal, b: Decimal): -1 | 0 | 1 {
     return -1;
   }
   return scaledA > scaledB ? 1 : 0;
-}
-
-/** True when both values denote the same number, regardless of trailing zeros. */
-export function equalsDecimal(a: Decimal, b: Decimal): boolean {
-  return compareDecimal(a, b) === 0;
 }
 
 /**

@@ -327,10 +327,6 @@ export const UNITS: ReadonlyMap<string, UnitDefinition> = new Map(
 
 export const UNIT_IDS: readonly UnitId[] = UNIT_LIST.map((unit) => unit.id);
 
-export function isUnitId(value: string): value is UnitId {
-  return UNITS.has(value);
-}
-
 export function getUnit(id: string): UnitDefinition | undefined {
   return UNITS.get(id);
 }

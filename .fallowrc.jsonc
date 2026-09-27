@@ -1,0 +1,9 @@
+{
+  "health": {
+    // CRAP is computed from coverage that fallow estimates from the import
+    // graph rather than from a test run, so it flags small functions in
+    // scripts no test imports. Cyclomatic, cognitive and size limits still
+    // apply at their defaults.
+    "maxCrap": 0,
+  },
+}

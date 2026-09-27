@@ -43,7 +43,7 @@ export interface PresetAvailability {
 }
 
 /** Turns a preset's record list into a selection the engine understands. */
-export function presetSelection(preset: PresetData): readonly CompareSelectionEntry[] {
+function presetSelection(preset: PresetData): readonly CompareSelectionEntry[] {
   return preset.records.map((token): CompareSelectionEntry => {
     const [slug = '', configurationId] = token.split('@');
     return { kind: preset.kind, slug, configurationId };

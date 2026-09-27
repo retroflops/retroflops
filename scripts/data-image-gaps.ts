@@ -23,26 +23,17 @@
  */
 
 import { mkdir, writeFile } from 'node:fs/promises';
-import { isAbsolute, join, resolve } from 'node:path';
+import { join } from 'node:path';
 
-import { resolveEditorialText } from '../src/lib/data/editorial-text.ts';
+import { markerTargets, resolveEditorialText } from '../src/lib/data/editorial-text.ts';
 import type { System } from '../src/lib/data/schema.ts';
+import { outputDirectory } from './lib/cli.ts';
 import { loadRawDataset } from './lib/dataset.ts';
 import { formatGeneratedMarkdown } from './lib/format-generated-markdown.ts';
-import { repoPath } from './lib/io.ts';
 import { parseDataset } from './lib/parse.ts';
 
 const DEFAULT_OUTPUT_DIRECTORY = 'data/reports/research';
 const IMAGE_REQUESTS_FILE = 'image-requests.md';
-
-function outputDirectory(): string {
-  const index = process.argv.indexOf('--output-directory');
-  const target = index === -1 ? DEFAULT_OUTPUT_DIRECTORY : process.argv[index + 1];
-  if (target === undefined) {
-    throw new Error('data:image-gaps: --output-directory needs a path');
-  }
-  return resolve(isAbsolute(target) ? target : repoPath(target));
-}
 
 /** External research briefs need copy-and-paste-safe plain text, not web typography. */
 function plainText(value: string): string {
@@ -234,6 +225,23 @@ repeating the same search.
 `;
 }
 
+/** One machine to photograph: its name, what identifies it, and its summary. */
+function machineEntry(system: System, summary: string): readonly string[] {
+  const aliases =
+    system.aliases === undefined || system.aliases.length === 0
+      ? ''
+      : `\n\nAlso known as: ${system.aliases.join(', ')}.`;
+  const region = system.region === undefined ? '' : ` · ${system.region}`;
+  return [
+    `### ${system.name}`,
+    '',
+    `${system.manufacturer} · ${system.releaseDate}${region} · \`${system.slug}\`${aliases}`,
+    '',
+    summary,
+    '',
+  ];
+}
+
 async function main(): Promise<void> {
   const raw = await loadRawDataset();
   const { dataset, issues } = parseDataset(raw);
@@ -243,8 +251,7 @@ async function main(): Promise<void> {
     return;
   }
 
-  const measurements = new Map(dataset.measurements.map((record) => [record.id, record]));
-  const contextClaims = new Map(dataset.contextClaims.map((record) => [record.id, record]));
+  const { measurements, contextClaims } = markerTargets(dataset);
 
   const missing = dataset.systems.filter(
     (system) => system.imageIds === undefined || system.imageIds.length === 0,
@@ -275,25 +282,16 @@ async function main(): Promise<void> {
       '',
       group.blurb,
       '',
+      ...machines.flatMap((system) =>
+        machineEntry(
+          system,
+          plainText(resolveEditorialText(system.summary, measurements, contextClaims)),
+        ),
+      ),
     );
-
-    for (const system of machines) {
-      const aliases =
-        system.aliases === undefined || system.aliases.length === 0
-          ? ''
-          : `\n\nAlso known as: ${system.aliases.join(', ')}.`;
-      out.push(
-        `### ${system.name}`,
-        '',
-        `${system.manufacturer} · ${system.releaseDate}${system.region === undefined ? '' : ` · ${system.region}`} · \`${system.slug}\`${aliases}`,
-        '',
-        plainText(resolveEditorialText(system.summary, measurements, contextClaims)),
-        '',
-      );
-    }
   }
 
-  const directory = outputDirectory();
+  const directory = outputDirectory(process.argv, DEFAULT_OUTPUT_DIRECTORY, 'data:image-gaps');
   const path = join(directory, IMAGE_REQUESTS_FILE);
   await mkdir(directory, { recursive: true });
   await writeFile(path, out.join('\n'), 'utf8');

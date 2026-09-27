@@ -1,0 +1,116 @@
+---
+// SPDX-FileCopyrightText: 2026 Wojciech Polak
+// SPDX-License-Identifier: MIT
+
+/** One configuration of a system: its components, their roles, counts, clocks and capacities. */
+import { getComponentById, getMeasurementById } from '~/lib/catalog';
+import type { Measurement, System } from '~/lib/data/schema';
+import { formatQuantity, methodLabel, roleLabel } from '~/lib/display';
+import { route } from '~/lib/paths';
+import { sortConfigurationEntries } from '~/lib/presentation-order';
+
+interface Props {
+  configuration: System['configurations'][number];
+}
+
+const { configuration } = Astro.props;
+
+const CAPACITY_METRICS: ReadonlySet<string> = new Set([
+  'memory-capacity',
+  'memory-capacity-words',
+  'storage-capacity',
+]);
+
+function values(measurements: readonly Measurement[], showMethod: boolean) {
+  return measurements.map((measurement) => ({
+    quantity: formatQuantity(measurement.quantity),
+    method: showMethod ? methodLabel(measurement.method) : undefined,
+  }));
+}
+
+const rows = sortConfigurationEntries(configuration.entries).map((entry) => {
+  const entryMeasurements = entry.measurementIds
+    .map(getMeasurementById)
+    .filter((measurement) => measurement !== undefined);
+  return {
+    entry,
+    component: getComponentById(entry.componentId),
+    clocks: values(
+      entryMeasurements.filter((measurement) => measurement.metric === 'clock-frequency'),
+      true,
+    ),
+    capacities: values(
+      entryMeasurements.filter((measurement) => CAPACITY_METRICS.has(measurement.metric)),
+      false,
+    ),
+  };
+});
+---
+
+<div class="stack">
+  <h3>{configuration.label}</h3>
+  {configuration.region !== undefined && <p class="meta">{configuration.region}</p>}
+  <div class="table-frame">
+    <table class="config-table">
+      <thead>
+        <tr>
+          <th scope="col">Component</th>
+          <th scope="col">Role</th>
+          <th scope="col">Count</th>
+          <th scope="col">Clock</th>
+          <th scope="col">Capacity</th>
+        </tr>
+      </thead>
+      <tbody>
+        {
+          rows.map(({ entry, component, clocks, capacities }) => (
+            <tr>
+              <th scope="row">
+                {component === undefined ? (
+                  entry.componentId
+                ) : (
+                  <a href={route(`/components/${component.kind}/${component.slug}/`)}>
+                    {component.name}
+                  </a>
+                )}
+                {entry.notes !== undefined && <span class="cell-note">{entry.notes}</span>}
+              </th>
+              <td data-label="Role">{roleLabel(entry.role)}</td>
+              <td class="numeric" data-label="Count">
+                {entry.count}
+              </td>
+              {/*
+                An absence is set in the same column as a figure but must
+                not be set in the same voice: printed at full weight in a
+                numeric cell, the word "unknown" reads as though it were
+                the measurement. The measurement table already draws this
+                distinction with `is-absent`, and this table now matches it.
+              */}
+              <td class="numeric" data-label="Clock">
+                {clocks.length === 0
+                  ? '—'
+                  : clocks.map(({ quantity, method }) => (
+                      <span class:list={['config-value', { 'is-absent': quantity.absent }]}>
+                        {quantity.text}
+                        <span class="cell-note">{method}</span>
+                      </span>
+                    ))}
+              </td>
+              <td class="numeric" data-label="Capacity">
+                {capacities.length === 0
+                  ? '—'
+                  : capacities.map(({ quantity }) => (
+                      <span class:list={['config-value', { 'is-absent': quantity.absent }]}>
+                        {quantity.text}
+                      </span>
+                    ))}
+                {entry.shared && <span class="cell-note">shared</span>}
+              </td>
+            </tr>
+          ))
+        }
+      </tbody>
+    </table>
+  </div>
+  {configuration.notes !== undefined && <p class="prose meta">{configuration.notes}</p>}
+</div>

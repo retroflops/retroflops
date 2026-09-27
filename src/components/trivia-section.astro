@@ -1,0 +1,76 @@
+---
+// SPDX-FileCopyrightText: 2026 Wojciech Polak
+// SPDX-License-Identifier: MIT
+
+/** A system's trivia: cited cultural context, kept apart from the figures and their sources. */
+import { type CollectionEntry, render } from 'astro:content';
+
+import { getSourcesByIds } from '~/lib/catalog';
+
+import SourceList from './source-list.astro';
+
+interface Props {
+  trivia: CollectionEntry<'trivia'>;
+}
+
+const { trivia } = Astro.props;
+
+/** Capitalized because Astro needs a component-shaped identifier to render it. */
+const { Content: TriviaBody } = await render(trivia);
+const sources = getSourcesByIds(trivia.data.sourceIds);
+---
+
+<section class="stack trivia" aria-labelledby="trivia">
+  <h2 id="trivia">{trivia.data.title}</h2>
+  {
+    /*
+    A reader meeting cultural material on a page of sourced figures has no
+    other way to tell which of the two they are reading.
+  */
+  }
+  <p class="prose meta">
+    Cultural and historical context, cited but not evidence. No figure in the tables above rests on
+    any of it.
+  </p>
+  <div class="prose trivia__body">
+    <TriviaBody />
+  </div>
+  {
+    /*
+    These stay out of the Sources list below, which means "the documents the
+    figures rest on" and is reciprocated by each source page naming those
+    figures. A trivia citation there would make both say something false.
+  */
+  }
+  <SourceList sources={sources} />
+</section>
+
+<style>
+  /*
+   * A Markdown body brings the user agent's bullets, which are wanted, and none
+   * of this page's rhythm, which is. Logical properties so the indent follows the
+   * writing direction rather than the left edge.
+   *
+   * No background: this section sets `.meta` twice, and a sunken fill is where
+   * muted text last failed contrast.
+   */
+  .trivia__body :global(p + p),
+  .trivia__body :global(ul),
+  .trivia__body :global(ol) {
+    margin-block-start: var(--space-s);
+  }
+
+  .trivia__body :global(ul),
+  .trivia__body :global(ol) {
+    padding-inline-start: var(--space-l);
+  }
+
+  .trivia__body :global(li + li) {
+    margin-block-start: var(--space-3xs);
+  }
+
+  /* The section already owns the h2, so a heading inside the body is a subheading. */
+  .trivia__body :global(h3) {
+    margin-block-start: var(--space-m);
+  }
+</style>

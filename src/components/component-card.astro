@@ -1,0 +1,55 @@
+---
+// SPDX-FileCopyrightText: 2026 Wojciech Polak
+// SPDX-License-Identifier: MIT
+
+/** A component in a card grid, with its recorded and unknown values. */
+import type { HTMLAttributes } from 'astro/types';
+
+import { getComponentAvailability } from '~/lib/catalog';
+import type { Component } from '~/lib/data/schema';
+import { formatPartialDate } from '~/lib/display';
+import { route } from '~/lib/paths';
+
+import RecordCard from './record-card.astro';
+
+interface Props extends HTMLAttributes<'li'> {
+  component: Component;
+  /**
+   * A component with no figure of its own is in the catalog through the
+   * systems it is fitted to, and can say that instead of "0 values".
+   */
+  showUsedBy?: boolean;
+}
+
+const { component, showUsedBy = false, ...attributes } = Astro.props;
+const availability = getComponentAvailability(component);
+const { counts } = availability;
+const eyebrow =
+  component.introducedDate === undefined
+    ? component.manufacturer
+    : `${component.manufacturer} · ${formatPartialDate(component.introducedDate)}`;
+---
+
+<RecordCard
+  eyebrow={eyebrow}
+  href={route(`/components/${component.kind}/${component.slug}/`)}
+  name={component.name}
+  summary={component.summary}
+  {...attributes}
+>
+  <p class="meta">
+    {
+      showUsedBy && counts.valueCount === 0 ? (
+        <>
+          Used by <span class="numeric">{availability.catalogSystemIds.length}</span> catalog
+          systems
+        </>
+      ) : (
+        <>
+          <span class="numeric">{counts.valueCount}</span> values ·{' '}
+          <span class="numeric">{counts.unknownCount}</span> unknown
+        </>
+      )
+    }
+  </p>
+</RecordCard>

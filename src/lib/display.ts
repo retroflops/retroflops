@@ -132,16 +132,8 @@ export function measurementLabel(
   return benchmark?.variant === undefined ? label : `${label}, ${benchmark.variant}`;
 }
 
-export function metricDescription(metricId: string): string | undefined {
-  return getMetric(metricId)?.description;
-}
-
 export function methodLabel(methodId: string): string {
   return getMethod(methodId)?.label ?? humaniseIdentifier(methodId);
-}
-
-export function methodDescription(methodId: string): string | undefined {
-  return getMethod(methodId)?.description;
 }
 
 /**

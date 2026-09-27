@@ -1,0 +1,28 @@
+---
+// SPDX-FileCopyrightText: 2026 Wojciech Polak
+// SPDX-License-Identifier: MIT
+
+/** A profile's derived claims under one heading, with an optional introduction. */
+import type { DerivedClaim } from '~/lib/data/schema';
+
+import DerivedClaimCard from './derived-claim-card.astro';
+
+interface Props {
+  claims: readonly DerivedClaim[];
+  heading: string;
+}
+
+const { claims, heading } = Astro.props;
+---
+
+{
+  claims.length > 0 && (
+    <section class="stack" aria-labelledby="derived">
+      <h2 id="derived">{heading}</h2>
+      <slot />
+      {claims.map((claim) => (
+        <DerivedClaimCard claim={claim} />
+      ))}
+    </section>
+  )
+}

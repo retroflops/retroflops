@@ -23,11 +23,12 @@
  */
 
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
-import { isAbsolute, join, resolve } from 'node:path';
+import { join } from 'node:path';
 
 import { catalogAvailability, type RecordAvailability } from '../src/lib/catalog-availability.ts';
 import type { Component, Measurement, Source, System } from '../src/lib/data/schema.ts';
 import { sourceCitationUrl } from '../src/lib/data/source-url.ts';
+import { outputDirectory } from './lib/cli.ts';
 import { loadRawDataset } from './lib/dataset.ts';
 import { formatGeneratedMarkdown } from './lib/format-generated-markdown.ts';
 import { repoPath } from './lib/io.ts';
@@ -239,13 +240,21 @@ function availabilityLabel(availability: RecordAvailability): string {
   return availability === 'catalog' ? 'Catalog record' : 'Research record';
 }
 
-function outputDirectory(): string {
-  const index = process.argv.indexOf('--output-directory');
-  const target = index === -1 ? DEFAULT_OUTPUT_DIRECTORY : process.argv[index + 1];
-  if (target === undefined) {
-    throw new Error('data:gaps: --output-directory needs a path');
+/** The heading block every machine gets: its name, then what identifies it. */
+function machineHeading(
+  system: System,
+  availabilityBySystem: ReadonlyMap<string, RecordAvailability>,
+): readonly string[] {
+  const availability = availabilityBySystem.get(system.id);
+  if (availability === undefined) {
+    throw new Error(`data:gaps: missing availability for ${system.id}`);
   }
-  return resolve(isAbsolute(target) ? target : repoPath(target));
+  return [
+    `### ${system.name}`,
+    '',
+    `${system.manufacturer} · ${system.releaseDate} · ${system.type} · \`${system.slug}\` · ${availabilityLabel(availability)}`,
+    '',
+  ];
 }
 
 function renderPart(
@@ -275,15 +284,8 @@ function renderPart(
     const list = (byMachine.get(system.id) ?? []).toSorted((a, b) =>
       a.measurement.id.localeCompare(b.measurement.id),
     );
-    const availability = availabilityBySystem.get(system.id);
-    if (availability === undefined) {
-      throw new Error(`data:gaps: missing availability for ${system.id}`);
-    }
     out.push(
-      `### ${system.name}`,
-      '',
-      `${system.manufacturer} · ${system.releaseDate} · ${system.type} · \`${system.slug}\` · ${availabilityLabel(availability)}`,
-      '',
+      ...machineHeading(system, availabilityBySystem),
       system.summary,
       '',
       `Already read for this machine: ${consulted(system, list, components, sources).join('; ')}.`,
@@ -422,6 +424,77 @@ ${parts
 `;
 }
 
+/**
+ * Every quantity recorded as unknown, with the machines it belongs to. A figure
+ * recorded against a shared part belongs to every machine fitted with it, and
+ * is listed once, under the first of them.
+ */
+function unknownEntries(systems: readonly System[], measurements: readonly Measurement[]): Entry[] {
+  const byId = new Map(systems.map((system) => [system.id, system]));
+  const fittedTo = new Map<string, Set<string>>();
+  for (const system of systems) {
+    for (const componentId of componentsOf(system)) {
+      const owners = fittedTo.get(componentId) ?? new Set<string>();
+      owners.add(system.id);
+      fittedTo.set(componentId, owners);
+    }
+  }
+
+  const entries: Entry[] = [];
+  for (const measurement of measurements.filter(isUnknown)) {
+    const ownerIds =
+      measurement.subject.kind === 'system'
+        ? [measurement.subject.id]
+        : [...(fittedTo.get(measurement.subject.id) ?? [])];
+    const owners = ownerIds
+      .map((id) => byId.get(id))
+      .filter((system): system is System => system !== undefined)
+      .toSorted((a, b) => a.name.localeCompare(b.name));
+    const primary = owners[0];
+    if (primary !== undefined) {
+      entries.push({ measurement, owners, primary });
+    }
+  }
+  return entries;
+}
+
+/** The entries grouped into parts. The last part holds anything the others do not, so every machine lands. */
+function partSections(systems: readonly System[], entries: readonly Entry[]): PartEntries[] {
+  const byId = new Map(systems.map((system) => [system.id, system]));
+  const partOf = new Map<string, string>();
+  for (const system of systems) {
+    const part = PARTS.find((candidate) => candidate.holds(system));
+    if (part !== undefined) partOf.set(system.id, part.id);
+  }
+
+  return PARTS.map((part): PartEntries => {
+    const mine = entries.filter((entry) => partOf.get(entry.primary.id) === part.id);
+    const machineIds = new Set(mine.map((entry) => entry.primary.id));
+    const machines = [...machineIds]
+      .map((id) => byId.get(id))
+      .filter((system): system is System => system !== undefined)
+      .toSorted((a, b) => a.releaseDate.localeCompare(b.releaseDate));
+    return { part, entries: mine, machines };
+  });
+}
+
+/** The inventory and the two prompts that go with it, formatted like the rest of the tree. */
+async function writeResearchPackage(directory: string, inventory: string): Promise<void> {
+  const templateDirectory = repoPath('scripts/templates');
+  await mkdir(directory, { recursive: true });
+  const promptFiles = await Promise.all(
+    PROMPT_TEMPLATES.map(async (file) => ({
+      file,
+      text: await readFile(join(templateDirectory, file), 'utf8'),
+    })),
+  );
+  const outputFiles = [{ file: RESEARCH_REQUESTS_FILE, text: inventory }, ...promptFiles].map(
+    ({ file, text }) => ({ path: join(directory, file), text }),
+  );
+  await Promise.all(outputFiles.map(({ path, text }) => writeFile(path, text, 'utf8')));
+  await formatGeneratedMarkdown(outputFiles.map(({ path }) => path));
+}
+
 async function main(): Promise<void> {
   const raw = await loadRawDataset();
   const { dataset, issues } = parseDataset(raw);
@@ -431,7 +504,6 @@ async function main(): Promise<void> {
     return;
   }
 
-  const systems = new Map(dataset.systems.map((system) => [system.id, system]));
   const components = new Map(dataset.components.map((component) => [component.id, component]));
   const sources = new Map(dataset.sources.map((source) => [source.id, source]));
   const availability = catalogAvailability(dataset);
@@ -439,49 +511,8 @@ async function main(): Promise<void> {
     [...availability.systems].map(([id, record]) => [id, record.availability]),
   );
 
-  const fittedTo = new Map<string, Set<string>>();
-  for (const system of dataset.systems) {
-    for (const componentId of componentsOf(system)) {
-      const owners = fittedTo.get(componentId) ?? new Set<string>();
-      owners.add(system.id);
-      fittedTo.set(componentId, owners);
-    }
-  }
-
-  // The last group holds anything the others do not, so every machine lands.
-  const partOf = new Map<string, string>();
-  for (const system of dataset.systems) {
-    const part = PARTS.find((candidate) => candidate.holds(system));
-    if (part !== undefined) partOf.set(system.id, part.id);
-  }
-
-  // A figure recorded against a shared part belongs to every machine fitted with
-  // it, and is listed once, under the first of them.
-  const entries: Entry[] = [];
-  for (const measurement of dataset.measurements) {
-    if (!isUnknown(measurement)) continue;
-    const ownerIds =
-      measurement.subject.kind === 'system'
-        ? [measurement.subject.id]
-        : [...(fittedTo.get(measurement.subject.id) ?? [])];
-    const owners = ownerIds
-      .map((id) => systems.get(id))
-      .filter((system): system is System => system !== undefined)
-      .toSorted((a, b) => a.name.localeCompare(b.name));
-    const primary = owners[0];
-    if (primary === undefined) continue;
-    entries.push({ measurement, owners, primary });
-  }
-
-  const sections = PARTS.map((part): PartEntries => {
-    const mine = entries.filter((entry) => partOf.get(entry.primary.id) === part.id);
-    const machineIds = new Set(mine.map((entry) => entry.primary.id));
-    const machines = [...machineIds]
-      .map((id) => systems.get(id))
-      .filter((system): system is System => system !== undefined)
-      .toSorted((a, b) => a.releaseDate.localeCompare(b.releaseDate));
-    return { part, entries: mine, machines };
-  });
+  const entries = unknownEntries(dataset.systems, dataset.measurements);
+  const sections = partSections(dataset.systems, entries);
 
   const today = new Date().toISOString().slice(0, 10);
   const machineCount = new Set(entries.map((entry) => entry.primary.id)).size;
@@ -519,20 +550,8 @@ async function main(): Promise<void> {
     ...appendixTwo(dataset.systems),
   );
 
-  const directory = outputDirectory();
-  const templateDirectory = repoPath('scripts/templates');
-  await mkdir(directory, { recursive: true });
-  const promptFiles = await Promise.all(
-    PROMPT_TEMPLATES.map(async (file) => ({
-      file,
-      text: await readFile(join(templateDirectory, file), 'utf8'),
-    })),
-  );
-  const outputFiles = [{ file: RESEARCH_REQUESTS_FILE, text: out.join('\n') }, ...promptFiles].map(
-    ({ file, text }) => ({ path: join(directory, file), text }),
-  );
-  await Promise.all(outputFiles.map(({ path, text }) => writeFile(path, text, 'utf8')));
-  await formatGeneratedMarkdown(outputFiles.map(({ path }) => path));
+  const directory = outputDirectory(process.argv, DEFAULT_OUTPUT_DIRECTORY, 'data:gaps');
+  await writeResearchPackage(directory, out.join('\n'));
   console.log(
     `data:gaps: ${entries.length} open quantities across ${machineCount} machines, ` +
       `plus ${unbacked.figures} figures across ${unbacked.machines} machines shown on no ` +
@@ -553,6 +572,55 @@ async function main(): Promise<void> {
  * of the documents it cites has ever been retrieved and transcribed. That is
  * checkable offline and it does not depend on anybody's opinion of the source.
  */
+/**
+ * Stated figures none of whose cited documents was ever retrieved, grouped by
+ * the machine they belong to. A component's figure goes to the first machine
+ * that uses it.
+ */
+function unbackedByMachine(
+  systems: readonly System[],
+  measurements: readonly Measurement[],
+  backed: (sourceId: string) => boolean,
+): ReadonlyMap<string, readonly Measurement[]> {
+  const ownerOf = new Map<string, string>();
+  for (const system of systems) {
+    for (const componentId of componentsOf(system)) {
+      if (!ownerOf.has(componentId)) ownerOf.set(componentId, system.id);
+    }
+  }
+
+  const byMachine = new Map<string, Measurement[]>();
+  for (const measurement of measurements) {
+    const unbacked =
+      measurement.quantity.state === 'value' &&
+      measurement.sourceIds.length > 0 &&
+      !measurement.sourceIds.some(backed);
+    const owner =
+      measurement.subject.kind === 'system'
+        ? measurement.subject.id
+        : ownerOf.get(measurement.subject.id);
+    if (unbacked && owner !== undefined) {
+      byMachine.set(owner, [...(byMachine.get(owner) ?? []), measurement]);
+    }
+  }
+  return byMachine;
+}
+
+function unverifiedEntry(
+  measurement: Measurement,
+  componentMap: ReadonlyMap<string, Component>,
+): string {
+  const metric = METRIC_NOTES[measurement.metric];
+  const quantity =
+    measurement.quantity.state === 'value'
+      ? `${measurement.quantity.value} ${measurement.quantity.unit}`
+      : '';
+  return `- **\`${measurement.id}\`**. ${metric?.label ?? measurement.metric}, for ${subjectOf(
+    measurement,
+    componentMap,
+  )}. Shown as **${quantity}**, scope \`${measurement.scope}\`.`;
+}
+
 function unverified(
   systems: readonly System[],
   components: readonly Component[],
@@ -569,25 +637,7 @@ function unverified(
   };
 
   const componentMap = new Map(components.map((component) => [component.id, component]));
-  const ownerOf = new Map<string, string>();
-  for (const system of systems) {
-    for (const componentId of componentsOf(system)) {
-      if (!ownerOf.has(componentId)) ownerOf.set(componentId, system.id);
-    }
-  }
-
-  const byMachine = new Map<string, Measurement[]>();
-  for (const measurement of measurements) {
-    if (measurement.quantity.state !== 'value') continue;
-    if (measurement.sourceIds.length === 0) continue;
-    if (measurement.sourceIds.some(backed)) continue;
-    const owner =
-      measurement.subject.kind === 'system'
-        ? measurement.subject.id
-        : ownerOf.get(measurement.subject.id);
-    if (owner === undefined) continue;
-    byMachine.set(owner, [...(byMachine.get(owner) ?? []), measurement]);
-  }
+  const byMachine = unbackedByMachine(systems, measurements, backed);
 
   const machines = [...byMachine.keys()]
     .map((id) => systems.find((system) => system.id === id))
@@ -619,34 +669,14 @@ function unverified(
   for (const system of machines) {
     const list = (byMachine.get(system.id) ?? []).toSorted((a, b) => a.id.localeCompare(b.id));
     const cited = new Set(list.flatMap((measurement) => measurement.sourceIds));
-    const availability = availabilityBySystem.get(system.id);
-    if (availability === undefined) {
-      throw new Error(`data:gaps: missing availability for ${system.id}`);
-    }
     out.push(
-      `### ${system.name}`,
-      '',
-      `${system.manufacturer} · ${system.releaseDate} · ${system.type} · \`${system.slug}\` · ${availabilityLabel(availability)}`,
-      '',
+      ...machineHeading(system, availabilityBySystem),
       `Documents cited but never retrieved: ${[...cited]
         .map((id) => describeSource(id, byId))
         .join('; ')}.`,
       '',
     );
-    for (const measurement of list) {
-      const metric = METRIC_NOTES[measurement.metric];
-      const quantity =
-        measurement.quantity.state === 'value'
-          ? `${measurement.quantity.value} ${measurement.quantity.unit}`
-          : '';
-      out.push(
-        `- **\`${measurement.id}\`**. ${metric?.label ?? measurement.metric}, for ${subjectOf(
-          measurement,
-          componentMap,
-        )}. Shown as **${quantity}**, scope \`${measurement.scope}\`.`,
-      );
-    }
-    out.push('');
+    out.push(...list.map((measurement) => unverifiedEntry(measurement, componentMap)), '');
   }
 
   return { lines: out, figures: total, machines: machines.length };

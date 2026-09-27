@@ -21,8 +21,7 @@ import {
   type FacetOption,
 } from './facet-groups.ts';
 
-export type { EntryFacets, FacetGroup, FacetGroupId, FacetOption };
-export { FACET_GROUP_IDS };
+export type { EntryFacets, FacetGroup };
 
 /**
  * The `kind` facet holds system types and component kinds together, and most of
@@ -104,6 +103,9 @@ export function buildFacets(scope: 'catalog' | 'all' = 'catalog'): FacetedCatalo
       .filter((measurement) => measurement.editorialStatus === 'provisional')
       .map((measurement) => `${measurement.subject.kind}:${measurement.subject.id}`),
   );
+  const status = (key: string, editorialStatus: string): readonly string[] => [
+    editorialStatus === 'provisional' || provisionalSubjects.has(key) ? 'provisional' : 'approved',
+  ];
 
   const makerLabels = new Map<string, string>();
   const addMakers = (manufacturer: string): readonly string[] =>
@@ -113,32 +115,27 @@ export function buildFacets(scope: 'catalog' | 'all' = 'catalog'): FacetedCatalo
       return value;
     });
 
-  for (const system of catalog.systems) {
-    if (scope === 'catalog' && availability.systems.get(system.id)?.availability !== 'catalog') {
-      continue;
-    }
-    const provisional =
-      system.editorialStatus === 'provisional' || provisionalSubjects.has(`system:${system.id}`);
-    byRecord.set(`system:${system.id}`, {
+  const included = (state: { availability: string } | undefined): boolean =>
+    scope === 'all' || state?.availability === 'catalog';
+
+  for (const system of catalog.systems.filter((entry) =>
+    included(availability.systems.get(entry.id)),
+  )) {
+    const key = `system:${system.id}`;
+    byRecord.set(key, {
       kind: [system.type],
       era: decade(system.releaseDate),
       maker: addMakers(system.manufacturer),
       isa: [],
-      status: [provisional ? 'provisional' : 'approved'],
+      status: status(key, system.editorialStatus),
     });
   }
 
-  for (const component of catalog.components) {
-    if (
-      scope === 'catalog' &&
-      availability.components.get(component.id)?.availability !== 'catalog'
-    ) {
-      continue;
-    }
-    const provisional =
-      component.editorialStatus === 'provisional' ||
-      provisionalSubjects.has(`component:${component.id}`);
-    byRecord.set(`component:${component.id}`, {
+  for (const component of catalog.components.filter((entry) =>
+    included(availability.components.get(entry.id)),
+  )) {
+    const key = `component:${component.id}`;
+    byRecord.set(key, {
       kind: [component.kind],
       era: decade(component.introducedDate),
       maker: addMakers(component.manufacturer),
@@ -146,10 +143,15 @@ export function buildFacets(scope: 'catalog' | 'all' = 'catalog'): FacetedCatalo
         component.kind === 'cpu' && component.instructionSetFamily !== undefined
           ? [component.instructionSetFamily]
           : [],
-      status: [provisional ? 'provisional' : 'approved'],
+      status: status(key, component.editorialStatus),
     });
   }
 
+  return { byRecord, groups: facetGroups(countFacetValues(byRecord), makerLabels) };
+}
+
+/** How many records carry each `${group}:${value}`. */
+function countFacetValues(byRecord: ReadonlyMap<string, EntryFacets>): ReadonlyMap<string, number> {
   const counts = new Map<string, number>();
   for (const facets of byRecord.values()) {
     for (const group of FACET_GROUP_IDS) {
@@ -159,7 +161,13 @@ export function buildFacets(scope: 'catalog' | 'all' = 'catalog'): FacetedCatalo
       }
     }
   }
+  return counts;
+}
 
+function facetGroups(
+  counts: ReadonlyMap<string, number>,
+  makerLabels: ReadonlyMap<string, string>,
+): readonly FacetGroup[] {
   const optionsFor = (
     group: FacetGroupId,
     label: (value: string) => string,
@@ -173,7 +181,7 @@ export function buildFacets(scope: 'catalog' | 'all' = 'catalog'): FacetedCatalo
       })
       .toSorted(order);
 
-  const groups: readonly FacetGroup[] = [
+  return [
     {
       id: 'kind',
       label: 'Kind',
@@ -208,8 +216,6 @@ export function buildFacets(scope: 'catalog' | 'all' = 'catalog'): FacetedCatalo
       options: optionsFor('status', (value) => humaniseIdentifier(value), byValue),
     },
   ];
-
-  return { byRecord, groups };
 }
 
 /** Serializes a record's facets into the `data-facet-*` attributes the island reads. */

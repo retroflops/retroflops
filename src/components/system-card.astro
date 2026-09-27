@@ -1,0 +1,54 @@
+---
+// SPDX-FileCopyrightText: 2026 Wojciech Polak
+// SPDX-License-Identifier: MIT
+
+/**
+ * A system in a card grid. Unless the page supplies its own counts, the card
+ * names the manufacturer and the machine's recorded and unknown values.
+ */
+import type { HTMLAttributes } from 'astro/types';
+
+import { getSystemAvailability } from '~/lib/catalog';
+import type { System } from '~/lib/data/schema';
+import { formatPartialDate, humaniseIdentifier } from '~/lib/display';
+import { route } from '~/lib/paths';
+
+import RecordCard from './record-card.astro';
+
+interface Props extends HTMLAttributes<'li'> {
+  system: System;
+  /** A page grouped by type leaves the type out of the eyebrow. */
+  showType?: boolean;
+  /** Also count the quantities that do not exist on this machine. */
+  showNotApplicable?: boolean;
+}
+
+const { system, showType = true, showNotApplicable = false, ...attributes } = Astro.props;
+const { counts } = getSystemAvailability(system);
+const released = formatPartialDate(system.releaseDate);
+---
+
+<RecordCard
+  eyebrow={showType ? `${humaniseIdentifier(system.type)} · ${released}` : released}
+  href={route(`/systems/${system.slug}/`)}
+  name={system.name}
+  summary={system.summary}
+  {...attributes}
+>
+  {
+    Astro.slots.has('default') ? (
+      <slot />
+    ) : (
+      <p class="meta">
+        {system.manufacturer} · <span class="numeric">{counts.valueCount}</span> values ·{' '}
+        <span class="numeric">{counts.unknownCount}</span> unknown
+        {showNotApplicable && (
+          <>
+            {' '}
+            · <span class="numeric">{counts.notApplicableCount}</span> not applicable
+          </>
+        )}
+      </p>
+    )
+  }
+</RecordCard>

@@ -3,37 +3,30 @@
 // SPDX-License-Identifier: MIT
 
 import { getImage } from 'astro:assets';
-import { getCollection, render } from 'astro:content';
+import { getCollection } from 'astro:content';
 
-import BreadcrumbTrail from '~/components/breadcrumb-trail.astro';
-import ConflictCard from '~/components/conflict-card.astro';
-import DerivedClaimCard from '~/components/derived-claim-card.astro';
-import FamilyNav from '~/components/family-nav.astro';
+import ConfigurationTable from '~/components/configuration-table.astro';
+import ConflictsSection from '~/components/conflicts-section.astro';
+import DerivedClaimsSection from '~/components/derived-claims-section.astro';
+import EditorialNotes from '~/components/editorial-notes.astro';
 import MeasurementTable from '~/components/measurement-table.astro';
 import SystemPhoto from '~/components/system-photo.astro';
-import BaseLayout from '~/layouts/base-layout.astro';
+import TriviaSection from '~/components/trivia-section.astro';
+import ProfileLayout from '~/layouts/profile-layout.astro';
 import {
   getComponentById,
   getConflictsFor,
   getDerivedClaimsUsing,
-  getMeasurementById,
   getMeasurementsFor,
   getSystemAvailability,
   getSourcesByIds,
   getSystems,
 } from '~/lib/catalog';
 import { CANONICAL_HEIGHT, CANONICAL_WIDTH } from '~/lib/data/image-preset';
-import {
-  formatPartialDate,
-  formatQuantity,
-  humaniseIdentifier,
-  methodLabel,
-  roleLabel,
-} from '~/lib/display';
+import { formatPartialDate, humaniseIdentifier } from '~/lib/display';
 import { systemCrumbs, systemFamilyNav } from '~/lib/families';
-import { route } from '~/lib/paths';
 import { sortConfigurationEntries } from '~/lib/presentation-order';
-import { breadcrumbList, systemArticle } from '~/lib/structured-data';
+import { systemArticle } from '~/lib/structured-data';
 import { getLeadImage } from '~/lib/system-images';
 import { triviaBySystemSlug } from '~/lib/trivia';
 
@@ -55,23 +48,8 @@ export async function getStaticPaths() {
 
 const { system, trivia } = Astro.props;
 
-/** Capitalized because Astro needs a component-shaped identifier to render it. */
-const TriviaBody = trivia === undefined ? undefined : (await render(trivia)).Content;
-const triviaSources = trivia === undefined ? [] : getSourcesByIds(trivia.data.sourceIds);
-
 const leadImage = getLeadImage(system);
 const availability = getSystemAvailability(system);
-
-/** One array feeds both the visible trail and the JSON-LD, so they cannot drift. */
-const crumbs =
-  availability.availability === 'research'
-    ? [
-        { name: 'RetroFlops', path: '/' },
-        { name: 'Research', path: '/research/' },
-        { name: system.name, path: `/systems/${system.slug}/` },
-      ]
-    : systemCrumbs(system);
-const familyNav = systemFamilyNav(system);
 
 const systemMeasurements = getMeasurementsFor('system', system.id);
 
@@ -116,8 +94,6 @@ const sources = getSourcesByIds([
   ]),
 ]);
 
-const absolute = (path: string): string => new URL(route(path), Astro.site ?? Astro.url).href;
-
 /*
  * The same variant the figure renders at its largest, resolved here so the
  * structured description points at a file that exists rather than at the
@@ -134,46 +110,35 @@ const heroVariant =
         quality: 60,
       });
 
-const structuredData = [
-  systemArticle(
-    system,
-    absolute,
-    leadImage === undefined || heroVariant === undefined
-      ? undefined
-      : {
-          url: new URL(heroVariant.src, Astro.site ?? Astro.url).href,
-          width: CANONICAL_WIDTH,
-          height: CANONICAL_HEIGHT,
-          caption: leadImage.asset.caption,
-          creator: leadImage.asset.creator,
-          creatorType: leadImage.asset.creatorType,
-          creditText: leadImage.asset.attribution,
-          licenseUrl: leadImage.asset.rights.url,
-          sourcePageUrl: leadImage.asset.sourcePageUrl,
-        },
-  ),
-  breadcrumbList(crumbs, absolute),
-];
+const heroImage =
+  leadImage === undefined || heroVariant === undefined
+    ? undefined
+    : {
+        url: new URL(heroVariant.src, Astro.site ?? Astro.url).href,
+        width: CANONICAL_WIDTH,
+        height: CANONICAL_HEIGHT,
+        caption: leadImage.asset.caption,
+        creator: leadImage.asset.creator,
+        creatorType: leadImage.asset.creatorType,
+        creditText: leadImage.asset.attribution,
+        licenseUrl: leadImage.asset.rights.url,
+        sourcePageUrl: leadImage.asset.sourcePageUrl,
+      };
 ---
 
-<BaseLayout
-  title={system.name}
-  description={system.summary}
-  structuredData={structuredData}
-  noindex={availability.availability === 'research'}
+<ProfileLayout
+  record={system}
+  path={`/systems/${system.slug}/`}
+  research={availability.availability === 'research'}
+  crumbs={systemCrumbs(system)}
+  article={(absolute) => systemArticle(system, absolute, heroImage)}
+  sources={sources}
+  familyNav={systemFamilyNav(system)}
 >
-  <BreadcrumbTrail crumbs={crumbs} />
-
-  {
-    availability.availability === 'research' && (
-      <aside class="research-notice prose" aria-label="Research record notice">
-        <p>
-          <strong>Research record.</strong> This profile preserves its source trail, but no numeric
-          measurement is available yet. It stays out of Explore, search, and new comparisons.
-        </p>
-      </aside>
-    )
-  }
+  <Fragment slot="notice">
+    <strong>Research record.</strong> This profile preserves its source trail, but no numeric measurement
+    is available yet. It stays out of Explore, search, and new comparisons.
+  </Fragment>
 
   <header class="page-header system-hero">
     <div class="stack system-hero__text">
@@ -221,95 +186,7 @@ const structuredData = [
     <h2 id="configuration">Configuration</h2>
     {
       system.configurations.map((configuration) => (
-        <div class="stack">
-          <h3>{configuration.label}</h3>
-          {configuration.region !== undefined && <p class="meta">{configuration.region}</p>}
-          <div class="table-frame">
-            <table class="config-table">
-              <thead>
-                <tr>
-                  <th scope="col">Component</th>
-                  <th scope="col">Role</th>
-                  <th scope="col">Count</th>
-                  <th scope="col">Clock</th>
-                  <th scope="col">Capacity</th>
-                </tr>
-              </thead>
-              <tbody>
-                {sortConfigurationEntries(configuration.entries).map((entry) => {
-                  const component = getComponentById(entry.componentId);
-                  const entryMeasurements = entry.measurementIds
-                    .map(getMeasurementById)
-                    .filter((measurement) => measurement !== undefined);
-                  const clocks = entryMeasurements.filter(
-                    (measurement) => measurement.metric === 'clock-frequency',
-                  );
-                  const capacities = entryMeasurements.filter((measurement) =>
-                    ['memory-capacity', 'memory-capacity-words', 'storage-capacity'].includes(
-                      measurement.metric,
-                    ),
-                  );
-                  return (
-                    <tr>
-                      <th scope="row">
-                        {component === undefined ? (
-                          entry.componentId
-                        ) : (
-                          <a href={route(`/components/${component.kind}/${component.slug}/`)}>
-                            {component.name}
-                          </a>
-                        )}
-                        {entry.notes !== undefined && <span class="cell-note">{entry.notes}</span>}
-                      </th>
-                      <td data-label="Role">{roleLabel(entry.role)}</td>
-                      <td class="numeric" data-label="Count">
-                        {entry.count}
-                      </td>
-                      {/*
-                        An absence is set in the same column as a figure but must
-                        not be set in the same voice: printed at full weight in a
-                        numeric cell, the word "unknown" reads as though it were
-                        the measurement. The measurement table already draws this
-                        distinction with `is-absent`, and this table now matches it.
-                      */}
-                      <td class="numeric" data-label="Clock">
-                        {clocks.length === 0
-                          ? '—'
-                          : clocks.map((measurement) => {
-                              const quantity = formatQuantity(measurement.quantity);
-                              return (
-                                <span
-                                  class:list={['config-value', { 'is-absent': quantity.absent }]}
-                                >
-                                  {quantity.text}
-                                  <span class="cell-note">{methodLabel(measurement.method)}</span>
-                                </span>
-                              );
-                            })}
-                      </td>
-                      <td class="numeric" data-label="Capacity">
-                        {capacities.length === 0
-                          ? '—'
-                          : capacities.map((measurement) => {
-                              const quantity = formatQuantity(measurement.quantity);
-                              return (
-                                <span
-                                  class:list={['config-value', { 'is-absent': quantity.absent }]}
-                                >
-                                  {quantity.text}
-                                </span>
-                              );
-                            })}
-                        {entry.shared && <span class="cell-note">shared</span>}
-                      </td>
-                    </tr>
-                  );
-                })}
-              </tbody>
-            </table>
-          </div>
-          {configuration.notes !== undefined && <p class="prose meta">{configuration.notes}</p>}
-        </div>
+        <ConfigurationTable configuration={configuration} />
       ))
     }
   </section>
@@ -346,120 +223,16 @@ const structuredData = [
     )
   }
 
-  {
-    derivedClaims.length > 0 && (
-      <section class="stack" aria-labelledby="derived">
-        <h2 id="derived">Derived figures and comparisons</h2>
-        <p class="prose meta">
-          Computed by this project rather than read from a source, and recomputed from their inputs
-          on every build.
-        </p>
-        {derivedClaims.map((claim) => (
-          <DerivedClaimCard claim={claim} />
-        ))}
-      </section>
-    )
-  }
+  <DerivedClaimsSection claims={derivedClaims} heading="Derived figures and comparisons">
+    <p class="prose meta">
+      Computed by this project rather than read from a source, and recomputed from their inputs on
+      every build.
+    </p>
+  </DerivedClaimsSection>
 
-  {
-    conflicts.length > 0 && (
-      <section class="stack" aria-labelledby="conflicts">
-        <h2 id="conflicts">Conflicting sources</h2>
-        {conflicts.map((conflict) => (
-          <ConflictCard conflict={conflict} sources={sources} />
-        ))}
-      </section>
-    )
-  }
+  <ConflictsSection conflicts={conflicts} sources={sources} />
 
-  {
-    system.notes !== undefined && (
-      <section class="prose stack" aria-labelledby="notes">
-        <h2 id="notes">Editorial notes</h2>
-        <p>{system.notes}</p>
-      </section>
-    )
-  }
+  <EditorialNotes notes={system.notes} />
 
-  {
-    trivia !== undefined && TriviaBody !== undefined && (
-      <section class="stack trivia" aria-labelledby="trivia">
-        <h2 id="trivia">{trivia.data.title}</h2>
-        {/*
-          A reader meeting cultural material on a page of sourced figures has no
-          other way to tell which of the two they are reading.
-        */}
-        <p class="prose meta">
-          Cultural and historical context, cited but not evidence. No figure in the tables above
-          rests on any of it.
-        </p>
-        <div class="prose trivia__body">
-          <TriviaBody />
-        </div>
-        {/*
-          These stay out of the Sources list below, which means "the documents the
-          figures rest on" and is reciprocated by each source page naming those
-          figures. A trivia citation there would make both say something false.
-        */}
-        <ul class="source-list">
-          {triviaSources.map((source) => (
-            <li>
-              <a href={route(`/sources/${source.id}/`)}>{source.title}</a>
-              <span class="meta">
-                {source.publisher} · tier {source.tier} · {source.locator}
-              </span>
-            </li>
-          ))}
-        </ul>
-      </section>
-    )
-  }
-
-  <section class="stack" aria-labelledby="sources">
-    <h2 id="sources">Sources</h2>
-    <ul class="source-list">
-      {
-        sources.map((source) => (
-          <li>
-            <a href={route(`/sources/${source.id}/`)}>{source.title}</a>
-            <span class="meta">
-              {source.publisher} · tier {source.tier} · {source.locator}
-            </span>
-          </li>
-        ))
-      }
-    </ul>
-  </section>
-
-  {familyNav !== undefined && <FamilyNav nav={familyNav} />}
-</BaseLayout>
-
-<style>
-  /*
-   * A Markdown body brings the user agent's bullets, which are wanted, and none
-   * of this page's rhythm, which is. Logical properties so the indent follows the
-   * writing direction rather than the left edge.
-   *
-   * No background: this section sets `.meta` twice, and a sunken fill is where
-   * muted text last failed contrast.
-   */
-  .trivia__body :global(p + p),
-  .trivia__body :global(ul),
-  .trivia__body :global(ol) {
-    margin-block-start: var(--space-s);
-  }
-
-  .trivia__body :global(ul),
-  .trivia__body :global(ol) {
-    padding-inline-start: var(--space-l);
-  }
-
-  .trivia__body :global(li + li) {
-    margin-block-start: var(--space-3xs);
-  }
-
-  /* The section already owns the h2, so a heading inside the body is a subheading. */
-  .trivia__body :global(h3) {
-    margin-block-start: var(--space-m);
-  }
-</style>
+  {trivia !== undefined && <TriviaSection trivia={trivia} />}
+</ProfileLayout>

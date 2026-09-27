@@ -52,7 +52,7 @@ export interface CatalogSummary {
   readonly components: readonly CatalogSummaryComponentRecord[];
 }
 
-export class CatalogSummaryError extends Error {
+class CatalogSummaryError extends Error {
   constructor(message: string) {
     super(message);
     this.name = 'CatalogSummaryError';

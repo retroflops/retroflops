@@ -44,7 +44,6 @@
     "brand:icons:check": "node scripts/brand-icons.ts --check"
   },
   "dependencies": {
-    "@astrojs/preact": "^6.0.5",
     "@observablehq/plot": "^0.6.17",
     "astro": "^7.3.2",
     "preact": "^10.29.8",
@@ -52,6 +51,7 @@
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.10",
+    "@astrojs/preact": "^6.0.5",
     "@axe-core/playwright": "^4.13.0",
     "@lhci/cli": "^0.15.1",
     "@playwright/test": "1.62.1",

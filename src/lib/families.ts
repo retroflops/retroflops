@@ -17,7 +17,6 @@
 
 import { getComponents, getSystems } from './catalog.ts';
 import type { Component, System, SystemFamily, SystemType } from './data/schema.ts';
-import { COMPONENT_KINDS, SYSTEM_FAMILIES } from './data/schema.ts';
 import {
   componentKindLabel,
   formatPartialDate,
@@ -83,9 +82,7 @@ export function componentsOfKind(kind: Component['kind']): readonly Component[] 
     .toSorted((a, b) => a.name.localeCompare(b.name));
 }
 
-export { COMPONENT_KINDS, SYSTEM_FAMILIES };
-
-export interface FamilyGroup<T> {
+interface FamilyGroup<T> {
   readonly id: string;
   readonly label: string;
   readonly members: readonly T[];
@@ -97,7 +94,7 @@ export interface FamilyGroup<T> {
  * Twenty of the machines here are the only one of their kind in the catalog,
  * and for them the honest answer is no navbox at all rather than a box of one.
  */
-export function systemFamilyOf(system: System): FamilyGroup<System> | undefined {
+function systemFamilyOf(system: System): FamilyGroup<System> | undefined {
   if (system.family === undefined) {
     return undefined;
   }
@@ -119,7 +116,7 @@ export function systemFamilyOf(system: System): FamilyGroup<System> | undefined 
  * inventing one for them is a curation decision, not a rendering decision, and
  * until it is made their profiles get the breadcrumb and nothing else.
  */
-export function componentFamilyOf(component: Component): FamilyGroup<Component> | undefined {
+function componentFamilyOf(component: Component): FamilyGroup<Component> | undefined {
   if (component.kind !== 'cpu' || component.instructionSetFamily === undefined) {
     return undefined;
   }

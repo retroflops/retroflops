@@ -15,9 +15,6 @@ importers:
 
   .:
     dependencies:
-      '@astrojs/preact':
-        specifier: ^6.0.5
-        version: 6.0.5(@babel/core@7.29.7(supports-color@7.2.0))(@types/node@26.5.1)(esbuild@0.28.2)(preact@10.29.8)(supports-color@7.2.0)(yaml@2.9.1)
       '@observablehq/plot':
         specifier: ^0.6.17
         version: 0.6.17
@@ -34,6 +31,9 @@ importers:
       '@astrojs/check':
         specifier: ^0.9.10
         version: 0.9.10(prettier-plugin-astro@0.14.1)(prettier@3.9.6)(typescript@6.0.3)
+      '@astrojs/preact':
+        specifier: ^6.0.5
+        version: 6.0.5(@babel/core@7.29.7(supports-color@7.2.0))(@types/node@26.5.1)(esbuild@0.28.2)(preact@10.29.8)(supports-color@7.2.0)(yaml@2.9.1)
       '@axe-core/playwright':
         specifier: ^4.13.0
         version: 4.13.0(playwright-core@1.62.1)

@@ -104,25 +104,8 @@ function parseDefinitions(svg: string): Map<string, string> {
   const inner = svg.slice(open + '<defs>'.length, close);
 
   const definitions = new Map<string, string>();
-  let cursor = 0;
+  let cursor = skipBetweenElements(inner, 0);
   while (cursor < inner.length) {
-    const character = inner[cursor] ?? '';
-    if (character.trim() === '') {
-      cursor += 1;
-      continue;
-    }
-    if (inner.startsWith('<!--', cursor)) {
-      const end = inner.indexOf('-->', cursor);
-      if (end === -1) {
-        throw new Error(`${SOURCE_FILE} has an unterminated comment inside <defs>`);
-      }
-      cursor = end + '-->'.length;
-      continue;
-    }
-    if (character !== '<') {
-      throw new Error(`${SOURCE_FILE} has stray text inside <defs> at offset ${cursor}`);
-    }
-
     const [element, next] = readElement(inner, cursor);
     const id = /\sid="([\w-]+)"/.exec(element)?.[1];
     if (id === undefined) {
@@ -132,9 +115,31 @@ function parseDefinitions(svg: string): Map<string, string> {
       throw new Error(`${SOURCE_FILE} defines "${id}" twice`);
     }
     definitions.set(id, element);
-    cursor = next;
+    cursor = skipBetweenElements(inner, next);
   }
   return definitions;
+}
+
+/** The offset of the next element, past whitespace and comments. Anything else is an error. */
+function skipBetweenElements(inner: string, start: number): number {
+  let cursor = start;
+  while (cursor < inner.length) {
+    const character = inner[cursor] ?? '';
+    if (character.trim() === '') {
+      cursor += 1;
+    } else if (inner.startsWith('<!--', cursor)) {
+      const end = inner.indexOf('-->', cursor);
+      if (end === -1) {
+        throw new Error(`${SOURCE_FILE} has an unterminated comment inside <defs>`);
+      }
+      cursor = end + '-->'.length;
+    } else if (character === '<') {
+      return cursor;
+    } else {
+      throw new Error(`${SOURCE_FILE} has stray text inside <defs> at offset ${cursor}`);
+    }
+  }
+  return cursor;
 }
 
 /** One element starting at `start`, returned with the offset just past it. */
@@ -146,31 +151,25 @@ function readElement(markup: string, start: number): [string, number] {
 
   let cursor = start;
   let depth = 0;
-  while (cursor < markup.length) {
+  while (cursor !== -1 && cursor < markup.length) {
     const tagEnd = findTagEnd(markup, cursor);
-    const tag = markup.slice(cursor, tagEnd);
-    if (tag.startsWith(`</${name}`)) {
-      depth -= 1;
-      if (depth === 0) {
-        return [markup.slice(start, tagEnd), tagEnd];
-      }
-    } else if (tag.startsWith(`<${name}`)) {
-      if (tag.endsWith('/>')) {
-        if (depth === 0) {
-          return [markup.slice(start, tagEnd), tagEnd];
-        }
-      } else {
-        depth += 1;
-      }
+    depth += depthChange(markup.slice(cursor, tagEnd), name);
+    // The element began with its own opening tag, so depth returns to zero only
+    // when that tag closes itself or its closing tag arrives.
+    if (depth === 0) {
+      return [markup.slice(start, tagEnd), tagEnd];
     }
-    cursor = tagEnd;
-    const nextTag = markup.indexOf('<', cursor);
-    if (nextTag === -1) {
-      break;
-    }
-    cursor = nextTag;
+    cursor = markup.indexOf('<', tagEnd);
   }
   throw new Error(`${SOURCE_FILE} has an unclosed <${name}> inside <defs>`);
+}
+
+/** How a tag moves the nesting of elements called `name`: one in, one out, or neither. */
+function depthChange(tag: string, name: string): number {
+  if (tag.startsWith(`</${name}`)) {
+    return -1;
+  }
+  return tag.startsWith(`<${name}`) && !tag.endsWith('/>') ? 1 : 0;
 }
 
 /** The offset just past the `>` of the tag starting at `start`, quotes respected. */
@@ -647,68 +646,80 @@ async function check(rendered: readonly Rendered[]): Promise<string[]> {
   }
 
   const results = await Promise.all(
-    rendered.map(async (item) => {
-      const found: string[] = [];
-      const record = manifest[item.spec.path];
-      const file = await readIfPresent(repoPath(item.spec.path));
-
-      if (record === undefined) {
-        return [`${item.spec.path}: not recorded in ${MANIFEST_FILE}, run pnpm brand:icons`];
-      }
-      if (file === undefined) {
-        return [`${item.spec.path}: missing, run pnpm brand:icons`];
-      }
-      if (record.artworkSha256 !== item.artworkSha256) {
-        found.push(
-          `${item.spec.path}: ${SOURCE_FILE} has changed since this was generated, ` +
-            'run pnpm brand:icons',
-        );
-      }
-      const digest = sha256(file);
-      if (record.fileSha256 !== digest) {
-        found.push(
-          `${item.spec.path}: the committed file hashes to ${digest.slice(0, 12)}, but ` +
-            `${MANIFEST_FILE} records ${record.fileSha256.slice(0, 12)}`,
-        );
-      }
-      if (record.bytes !== file.length) {
-        found.push(`${item.spec.path}: ${file.length} bytes on disk, ${record.bytes} recorded`);
-      }
-
-      if (item.spec.format === 'svg') {
-        if (!file.equals(item.bytes)) {
-          found.push(`${item.spec.path}: does not match the composition, run pnpm brand:icons`);
-        }
-        return found;
-      }
-      if (file.length > MAX_PNG_BYTES) {
-        found.push(
-          `${item.spec.path}: ${file.length} bytes, over the ${MAX_PNG_BYTES} byte budget`,
-        );
-      }
-      if (item.spec.format === 'ico') {
-        const count = file.readUInt16LE(4);
-        if (file.readUInt16LE(2) !== 1 || count !== item.spec.sizes.length) {
-          found.push(`${item.spec.path}: not an ICO holding ${item.spec.sizes.length} images`);
-        }
-        return found;
-      }
-
-      const metadata = await sharp(file).metadata();
-      if (metadata.format !== 'png') {
-        found.push(`${item.spec.path}: is a ${metadata.format ?? 'unreadable'} file, not a PNG`);
-      }
-      if (metadata.width !== item.width || metadata.height !== item.height) {
-        found.push(
-          `${item.spec.path}: is ${metadata.width}×${metadata.height}, ` +
-            `expected ${item.width}×${item.height}`,
-        );
-      }
-      return found;
-    }),
+    rendered.map(async (item) =>
+      checkRendered(item, manifest[item.spec.path], await readIfPresent(repoPath(item.spec.path))),
+    ),
   );
 
   return [...problems, ...results.flat()];
+}
+
+/** One generated file against its manifest record and against what it should contain. */
+async function checkRendered(
+  item: Rendered,
+  record: OutputRecord | undefined,
+  file: Buffer | undefined,
+): Promise<string[]> {
+  if (record === undefined) {
+    return [`${item.spec.path}: not recorded in ${MANIFEST_FILE}, run pnpm brand:icons`];
+  }
+  if (file === undefined) {
+    return [`${item.spec.path}: missing, run pnpm brand:icons`];
+  }
+  return [...checkAgainstRecord(item, record, file), ...(await checkContent(item, file))];
+}
+
+function checkAgainstRecord(item: Rendered, record: OutputRecord, file: Buffer): string[] {
+  const found: string[] = [];
+  if (record.artworkSha256 !== item.artworkSha256) {
+    found.push(
+      `${item.spec.path}: ${SOURCE_FILE} has changed since this was generated, ` +
+        'run pnpm brand:icons',
+    );
+  }
+  const digest = sha256(file);
+  if (record.fileSha256 !== digest) {
+    found.push(
+      `${item.spec.path}: the committed file hashes to ${digest.slice(0, 12)}, but ` +
+        `${MANIFEST_FILE} records ${record.fileSha256.slice(0, 12)}`,
+    );
+  }
+  if (record.bytes !== file.length) {
+    found.push(`${item.spec.path}: ${file.length} bytes on disk, ${record.bytes} recorded`);
+  }
+  return found;
+}
+
+/** Whether the committed file is still what it claims to be. */
+async function checkContent(item: Rendered, file: Buffer): Promise<string[]> {
+  if (item.spec.format === 'svg') {
+    return file.equals(item.bytes)
+      ? []
+      : [`${item.spec.path}: does not match the composition, run pnpm brand:icons`];
+  }
+  const found: string[] = [];
+  if (file.length > MAX_PNG_BYTES) {
+    found.push(`${item.spec.path}: ${file.length} bytes, over the ${MAX_PNG_BYTES} byte budget`);
+  }
+  if (item.spec.format === 'ico') {
+    const count = file.readUInt16LE(4);
+    if (file.readUInt16LE(2) !== 1 || count !== item.spec.sizes.length) {
+      found.push(`${item.spec.path}: not an ICO holding ${item.spec.sizes.length} images`);
+    }
+    return found;
+  }
+
+  const metadata = await sharp(file).metadata();
+  if (metadata.format !== 'png') {
+    found.push(`${item.spec.path}: is a ${metadata.format ?? 'unreadable'} file, not a PNG`);
+  }
+  if (metadata.width !== item.width || metadata.height !== item.height) {
+    found.push(
+      `${item.spec.path}: is ${metadata.width}×${metadata.height}, ` +
+        `expected ${item.width}×${item.height}`,
+    );
+  }
+  return found;
 }
 
 /* -------------------------------------------------------------------------- */
