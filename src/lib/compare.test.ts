@@ -368,6 +368,16 @@ describe('rows and sections', () => {
 });
 
 describe('multipliers', () => {
+  it('explains word-width limits in the PDP-8 and Apollo multiplier', () => {
+    const result = comparison(
+      'dec-pdp-8@standard-table-model',
+      'apollo-guidance-computer-block-ii@block-ii',
+    );
+    const row = findRow(result, 'memory-capacity-words|whole-system|design-capacity');
+    expect(row.cells[1]?.ratio?.caveat).toContain('machine word counts, not bits or bytes');
+    expect(row.cells[1]?.ratio?.caveat).toContain('word width');
+  });
+
   it('divides two figures from one comparability group, against the first column', () => {
     const result = comparison('commodore-64@pal', 'commodore-64@ntsc');
     const row = findRow(result, 'clock-frequency|cpu|nominal-clock');

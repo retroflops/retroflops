@@ -5,3 +5,19 @@
   sourceId: game-boy-advance-technical-manual
   transcribedBy: RetroFlops editorial
   transcribedOn: 2026-08-22
+- extract: The 96 Kbytes from 06000000h is the VRAM area.
+  extractHash: 036a1b73e22e8f2d899f8a51ae85164277154f207f16d14f92c6fd73096840a1
+  id: agb-programming-manual:vram-capacity
+  locator: Memory Map, printed p. 19; VRAM Memory Map, printed p. 32
+  notes: >-
+    The VRAM region spans 06000000h through 06017FFFh. The broader block
+    diagram's display-memory total also includes separate palette and object
+    attribute memory.
+  sourceId: game-boy-advance-technical-manual
+  transcribed:
+    significantDigits: 2
+    state: value
+    unit: KiB
+    value: '96'
+  transcribedBy: RetroFlops editorial
+  transcribedOn: 2026-10-13

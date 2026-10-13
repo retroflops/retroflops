@@ -73,11 +73,7 @@ describe('pilot profile records', () => {
         )
         .map((measurement) => [measurement.id, measurement]),
     );
-    expect(figures.get('zx-spectrum-48k:gpu-clock-frequency')?.quantity).toMatchObject({
-      state: 'value',
-      value: '14',
-      unit: 'MHz',
-    });
+    expect(figures.get('zx-spectrum-48k:gpu-clock-frequency')?.quantity.state).toBe('unknown');
     expect(figures.get('zx-spectrum-48k:memory-bandwidth')?.quantity.state).toBe('unknown');
     expect(figures.get('zx-spectrum-z80a:peak-fp32-rate')?.quantity.state).toBe('not-applicable');
   });
@@ -125,6 +121,8 @@ describe('editorial profile prose', () => {
 
 /** Slug → why the machine has no graphics component. */
 const NO_GPU: Readonly<Record<string, string>> = {
+  'dec-pdp-8':
+    'The original standard table model has no graphics processor; CRT display equipment was optional.',
   'ibm-system-360-model-50':
     'The selected IBM 2050F processing unit includes main storage but no graphics processor; the optional 2250 display is outside this configuration.',
   'apollo-guidance-computer-block-ii':
@@ -171,6 +169,8 @@ const NO_CPU: Readonly<Record<string, string>> = {
  * reason here, exactly as `NO_GPU` and `NO_CPU` demand.
  */
 const NO_FAMILY: Readonly<Record<string, string>> = {
+  'dec-pdp-8':
+    'The original PDP-8 is the only member of its product line in this catalog; later PDP-8 models are not yet recorded.',
   'ibm-system-360-model-50':
     'The only System/360 model in the catalog; the IBM PC belongs to a separate product lineage, so no existing family fits this mainframe.',
   '3dfx-voodoo-graphics':
@@ -312,6 +312,8 @@ describe('every machine is linked to its parts', () => {
  * and not others cannot compare them at all.
  */
 const NO_WHOLE_SYSTEM_MEMORY: Readonly<Record<string, string>> = {
+  'dec-pdp-8':
+    'The original PDP-8 has word-addressed core with 12-bit words. Its whole-system capacity is recorded in machine words rather than invented bytes.',
   'apple-iphone-3gs':
     'Apple identifies the phone but does not publish its installed DRAM capacity; listed flash storage is a different medium and cannot answer the memory question.',
   'apollo-guidance-computer-block-ii':
@@ -331,12 +333,16 @@ const NO_WHOLE_SYSTEM_MEMORY: Readonly<Record<string, string>> = {
   msx: 'The verified MSX Technical Data Book record does not expose a page-level RAM figure, so the catalog cannot state a whole-system total.',
   'nec-pc-engine':
     'The verified developer-documentation bundle does not expose a page-level RAM figure, so the catalog cannot state a whole-system total.',
+  'nintendo-game-boy':
+    'Nintendo lists work and display RAM as separate pools. The work-RAM figure alone cannot stand for whole-system capacity without a derived total and explicit exclusions.',
   'nintendo-wii':
     'Nintendo public Wii manuals do not state the installed memory pools, so the catalog cannot state a whole-system total.',
   'nvidia-geforce-6800-ultra':
     'No qualifying source establishes installed board memory, so the catalog records the capacity as unknown rather than adding a guessed total.',
   'sega-master-system':
     'The verified service-manual record does not expose a page-level RAM figure, so the catalog cannot state a whole-system total.',
+  'snk-neo-geo-aes':
+    'SNK lists work, video, palette, and sound RAM separately, while internal line buffers remain unquantified. The work-RAM value is not a whole-system total.',
 };
 
 describe('every machine states how much memory it has', () => {

@@ -15,6 +15,18 @@ import { expect, test } from '@playwright/test';
 import { AWKWARD_COMPARE_QUERY, FOUR_UP_COMPARE_QUERY } from './support.ts';
 
 test.describe('a comparison restored from its URL', () => {
+  test('explains what a machine-word multiplier measures', async ({ page }) => {
+    await page.goto(
+      '/compare/?systems=dec-pdp-8@standard-table-model,apollo-guidance-computer-block-ii@block-ii',
+    );
+    const multiplier = page
+      .locator('.cmp-detail')
+      .filter({ has: page.getByText('0.5×') })
+      .first();
+    await multiplier.locator('summary').click();
+    await expect(multiplier.getByText(/machine word counts, not bits or bytes/)).toBeVisible();
+  });
+
   test('shows two records with the metrics they share', async ({ page }) => {
     await page.goto(`/compare/${AWKWARD_COMPARE_QUERY}`);
     await expect(page.getByRole('heading', { name: 'At a glance' })).toBeVisible();

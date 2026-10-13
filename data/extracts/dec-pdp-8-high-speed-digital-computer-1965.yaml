@@ -1,0 +1,134 @@
+- id: dec-pdp-8-high-speed-digital-computer-1965:standard-components
+  sourceId: dec-pdp-8-high-speed-digital-computer-1965
+  locator: Printed/PDF p. 6, Standard PDP-8 Functional Components
+  extract: >-
+    The standard PDP-8, in any physical configuration, consists of a processor,
+    core memory, operator console, input/output facilities, and a Teletype
+    input/output device.
+  extractHash: '748231744c1db9072e28f742a3b0ddca363c252a1e39a48d6d51e3d8233b4506'
+  transcribedOn: 2026-10-13
+  transcribedBy: RetroFlops editorial
+  notes: >-
+    This defines the standard system boundary for the selected table model.
+
+- id: dec-pdp-8-high-speed-digital-computer-1965:core-capacity
+  sourceId: dec-pdp-8-high-speed-digital-computer-1965
+  locator: Printed/PDF p. 7, Core Memory
+  extract: >-
+    Core memory for the standard PDP-8 has a capacity of 4096 words, 12 bits in
+    length.
+  extractHash: '271a1c253f883fd5a695918f2c1b73ca170020484f225075e2abb5ea89ebae2a'
+  transcribed:
+    state: value
+    value: '4096'
+    unit: word
+    significantDigits: 4
+  transcribedOn: 2026-10-13
+  transcribedBy: RetroFlops editorial
+  notes: >-
+    The source gives the word count and width of the fitted basic core.
+
+- id: dec-pdp-8-high-speed-digital-computer-1965:computer-cycle
+  sourceId: dec-pdp-8-high-speed-digital-computer-1965
+  locator: Printed/PDF p. 7, Major State Generator
+  extract: >-
+    During any one instruction a state lasts for one computer cycle, or 1.6
+    microseconds.
+  extractHash: '43c81328eb6a1db956df4f1bfddb537f1ce34652e2b26e2f6f00298cd6930594'
+  transcribedOn: 2026-10-13
+  transcribedBy: RetroFlops editorial
+  notes: >-
+    This is a computer-cycle duration, not an oscillator frequency.
+
+- id: dec-pdp-8-high-speed-digital-computer-1965:tad-instruction-time
+  sourceId: dec-pdp-8-high-speed-digital-computer-1965
+  locator: Printed/PDF p. 10, Table 1, TAD Y row
+  extract: "TAD Y 1 3.2 Two's complement add."
+  extractHash: 'f3ed5b84c3aead014ae6b5a7f7e0d402208f4b0c01b46e357b90ae9c1e2d9424'
+  transcribed:
+    state: value
+    value: '3.2'
+    unit: us
+    significantDigits: 2
+  transcribedOn: 2026-10-13
+  transcribedBy: RetroFlops editorial
+  notes: >-
+    The table labels execution time in microseconds. TAD is the add instruction;
+    the table's footnote limits this value to direct addressing.
+
+- id: dec-pdp-8-high-speed-digital-computer-1965:indirect-address-time
+  sourceId: dec-pdp-8-high-speed-digital-computer-1965
+  locator: Printed/PDF p. 10, Table 1 footnote
+  extract: >-
+    The time listed is for direct addressing; add 1.6 microseconds to this time
+    to determine indirect address execution time.
+  extractHash: '942ef460a791849f1d13466832f9422ed079ac1f913986703df7440533d3c063'
+  transcribedOn: 2026-10-13
+  transcribedBy: RetroFlops editorial
+  notes: >-
+    Indirect addressing adds one computer cycle to the listed TAD time. The
+    printed footnote uses a semicolon after "addressing"; the PDF text layer
+    incorrectly reads it as a period.
+
+- id: dec-pdp-8-high-speed-digital-computer-1965:data-break-rate
+  sourceId: dec-pdp-8-high-speed-digital-computer-1965
+  locator: Printed/PDF p. 4, High Speed Data Break
+  extract: >-
+    memory at a 1.6 microsecond per word transfer rate.
+  extractHash: '05540147765884c0311f9e9431acedea0611cdf1f22bfff770a6c23c3d0109ce'
+  transcribedOn: 2026-10-13
+  transcribedBy: RetroFlops editorial
+  notes: >-
+    The preceding sentence specifies peripheral data transfers to or from core;
+    this is not a general memory-bandwidth measurement.
+
+- id: dec-pdp-8-high-speed-digital-computer-1965:standard-teletype
+  sourceId: dec-pdp-8-high-speed-digital-computer-1965
+  locator: Printed/PDF p. 8, Teletype Input/Output
+  extract: >-
+    A Teletype Model 33 Automatic Send Receive (ASR) set is included in each
+    standard PDP-8.
+  extractHash: 'f08d07eba2bb198bbfe097a04b2267d378d9d83b3d7af99d0dbde27b4316c6be'
+  transcribedOn: 2026-10-13
+  transcribedBy: RetroFlops editorial
+  notes: >-
+    The Teletype belongs to the standard system boundary, including the power
+    question.
+
+- id: dec-pdp-8-high-speed-digital-computer-1965:optional-displays
+  sourceId: dec-pdp-8-high-speed-digital-computer-1965
+  locator: Printed/PDF p. 16, Optional Equipment
+  extract: >-
+    Equipment available for inclusion in a PDP-8 system includes options for the
+    processor, reading and punching devices, plotting and printing output
+    machinery, CRT displays,
+  extractHash: '871c09876625ce553f599d5456e7f9c4055e1445ed604c9f8f1164a33e641878'
+  transcribedOn: 2026-10-13
+  transcribedBy: RetroFlops editorial
+  notes: >-
+    CRT displays are listed as optional equipment, outside the standard model.
+
+- id: dec-pdp-8-high-speed-digital-computer-1965:floating-point-package
+  sourceId: dec-pdp-8-high-speed-digital-computer-1965
+  locator: Printed/PDF p. 15, Floating Point Package
+  extract: >-
+    The Floating Point Package permits the PDP-8 to perform arithmetic
+    operations that many other computers can perform only after the addition of
+    costly optional hardware.
+  extractHash: 'e129fa40cca9f80a4bae2bae7f64079967b8637ae2d5b12214a769296355aaab'
+  transcribedOn: 2026-10-13
+  transcribedBy: RetroFlops editorial
+  notes: >-
+    The named package is software for the basic machine; it does not establish
+    native floating-point hardware throughput.
+
+- id: dec-pdp-8-high-speed-digital-computer-1965:power-dissipation
+  sourceId: dec-pdp-8-high-speed-digital-computer-1965
+  locator: Printed/PDF p. 18, Specifications / Electrical
+  extract: 'POWER DISSIPATION: 780 watts.'
+  extractHash: '9b91826ec6c075f5ebd3e47a6acf9fca12964784d5ca799e16c339c386c3ec0b'
+  transcribedOn: 2026-10-13
+  transcribedBy: RetroFlops editorial
+  notes: >-
+    The page does not say whether this includes the standard Teletype. It also
+    does not identify the figure as a measured wall draw.

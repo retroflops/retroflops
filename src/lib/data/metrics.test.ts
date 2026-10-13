@@ -72,6 +72,8 @@ describe('metrics that refuse to be divided', () => {
     const forbidden = METRIC_IDS.filter((id) => getMetric(id)?.allowsRatio === false);
     expect(forbidden.toSorted()).toEqual(
       [
+        // Native instructions differ in precision and addressing across CPUs.
+        'instruction-execution-time',
         // A cooling-design target defined differently by each vendor and era.
         'thermal-design-power',
         // A supply rating stated without any reproducible workload.

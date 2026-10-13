@@ -121,6 +121,8 @@
   comparabilityGroup: memory-capacity|whole-system|design-capacity
   editorialStatus: provisional
   evidenceStage: shipped
+  extractIds:
+    - atari-800-reference:ram-48k
   id: atari-800:whole-system-memory-capacity
   method: design-capacity
   metric: memory-capacity

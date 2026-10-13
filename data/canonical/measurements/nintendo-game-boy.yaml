@@ -212,25 +212,31 @@
     id: nintendo-game-boy
     kind: system
 - caveat: >-
-    Nintendo's programming manual states this writable work-RAM capacity for the
-    console. Removable cartridge ROM is program storage and is not included.
+    Nintendo's programming manual lists work RAM and display RAM separately. The
+    work-RAM figure does not establish the console's total installed RAM.
   comparabilityGroup: memory-capacity|whole-system|design-capacity
   editorialStatus: provisional
   evidenceStage: shipped
   id: nintendo-game-boy:whole-system-memory-capacity
   method: design-capacity
   metric: memory-capacity
-  normalized:
-    value: "8192"
-    unit: B
-    significantDigits: 4
-    unitRegistry: units-v1
   provenance: vendor
   quantity:
-    significantDigits: 4
-    state: value
-    unit: B
-    value: "8192"
+    note: >-
+      Work RAM alone omits display RAM and other internal storage. A comparable
+      total needs a derived claim with stated inclusions and exclusions.
+    state: unknown
+  unknownAudit:
+    reviewedOn: 2026-10-13
+    routesChecked:
+      - vendor-documentation
+      - independent-analysis
+      - community-source
+    outcome: no-compatible-candidate
+    summary: >-
+      Nintendo's feature table and the independent Pan Docs memory map identify
+      separate work, display, object-attribute, and high-RAM regions. The
+      previous work-RAM-only value is not a whole-system capacity.
   scope: whole-system
   sourceIds:
     - game-boy-cpu-manual
@@ -238,4 +244,3 @@
   subject:
     id: nintendo-game-boy
     kind: system
-  evidenceLevel: reported

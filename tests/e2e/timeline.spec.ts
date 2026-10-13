@@ -42,6 +42,25 @@ function readable(text: string): string {
 }
 
 test.describe('a chart is a picture of the table below it', () => {
+  test('native addition times show their conditions without a speed multiplier', async ({
+    page,
+  }) => {
+    await page.goto('/timeline/instruction-execution-time-cpu-add-instruction/');
+    const summary = page.locator('section[aria-labelledby="chart"] > p').first();
+    await expect(summary).toContainText('3 figures from 3 machines');
+    await expect(summary).not.toContainText('×');
+
+    const rows = page.locator('section[aria-labelledby="data"] tbody tr');
+    await expect(rows.filter({ hasText: 'DEC PDP-8' })).toContainText('Direct-address TAD');
+    await expect(rows.filter({ hasText: 'Apollo Guidance Computer' })).toContainText(
+      'Single-precision addition',
+    );
+    await expect(rows.filter({ hasText: 'Saturn Launch Vehicle' })).toContainText('Add-subtract');
+    await expect(page.locator('section[aria-labelledby="reading"]')).toContainText(
+      'does not claim a common workload or a speed multiplier',
+    );
+  });
+
   test('plots no point the table does not also carry', async ({ page }) => {
     await page.goto(SERIES_PATH);
     const plotted = page.locator('.chart__plot circle');

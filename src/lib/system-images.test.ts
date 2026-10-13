@@ -101,6 +101,7 @@ const ILLUSTRATED: Readonly<Record<string, string>> = {
   // case or a page out of a manual.
   'apollo-guidance-computer-block-ii': 'apollo-guidance-computer-unit',
   'ibm-system-360-model-50': 'ibm-system-360-model-50-console',
+  'dec-pdp-8': 'dec-pdp-8-console',
 };
 
 describe('lead images', () => {

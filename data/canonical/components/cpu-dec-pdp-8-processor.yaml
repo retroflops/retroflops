@@ -1,0 +1,19 @@
+id: dec-pdp-8-processor
+slug: dec-pdp-8-processor
+kind: cpu
+name: DEC PDP-8 processor
+manufacturer: Digital Equipment Corporation
+architecture: PDP-8
+introducedDate: '1965'
+instructionSet: PDP-8
+summary: >-
+  The parallel fixed-point processor in the original PDP-8, with a
+  {{context:dec-pdp-8-processor:computer-cycle-time}} computer cycle and a
+  {{measurement:dec-pdp-8-processor:addition-time}} direct-address TAD addition.
+sourceIds:
+  - dec-pdp-8-high-speed-digital-computer-1965
+editorialStatus: approved
+notes: >-
+  The brochure's computer-cycle duration does not establish a nominal processor
+  clock frequency. DEC lists a Floating Point Package among its programs; that
+  does not establish native floating-point hardware in this configuration.

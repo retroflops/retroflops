@@ -78,6 +78,8 @@ export interface TimelinePoint {
   readonly value: string;
   /** The figure as the source stated it, unit included. */
   readonly text: string;
+  /** The source's operation, configuration, or run conditions. */
+  readonly conditions?: string | undefined;
   readonly status: ConfidenceStatus;
   readonly editorialStatus: EditorialStatus;
   readonly sourceIds: readonly string[];
@@ -198,6 +200,7 @@ function pointsOf(
       )?.label,
       value,
       text: formatQuantity(measurement.quantity).text,
+      conditions: measurement.conditions,
       status: measurement.status,
       editorialStatus: measurement.editorialStatus,
       sourceIds: measurement.sourceIds,
@@ -338,7 +341,7 @@ function summarize(points: readonly TimelinePoint[], metric: MetricId, unit: str
       );
     } else {
       sentences.push(
-        `The two are not divided into a multiple: ${label} is not a metric where a ratio means anything. ${plottedIn.charAt(0).toUpperCase()}${plottedIn.slice(1)}.`,
+        `The two are not divided into a multiple: these records do not support a like-for-like ratio. ${plottedIn.charAt(0).toUpperCase()}${plottedIn.slice(1)}.`,
       );
     }
   }

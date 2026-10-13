@@ -4,6 +4,13 @@ Two kinds of change arrive here, and they are held to different standards. A
 change to the code has to pass `pnpm check`. A change to the data has to pass
 `pnpm check` **and** convince a reader who does not trust it.
 
+## Commit messages
+
+Use [Conventional Commits 1.0.0](https://www.conventionalcommits.org/en/v1.0.0/)
+for every commit. Start the subject with a type and optional scope, then a colon
+and a short description, such as `feat(catalog): add original DEC PDP-8`. Use
+`fix` for a bug fix and `feat` for a new feature or catalog entry.
+
 ## Reporting a correction
 
 The most useful correction names three things: the record, the figure, and the
@@ -89,6 +96,17 @@ citing an unopened manual cannot make the catalog look finished.
 
 Components are shared where the hardware is the same, and separate where it is
 not. Which of those a case is takes an argument, not a guess.
+
+The metric backbone is a coverage check, not a finished profile. Before calling
+a machine complete, read its rendered page as a visitor: it should identify the
+exact model and standard configuration, explain what made it useful or
+historically notable, show how a person operated or programmed it, and make its
+distinctive hardware and at least one supported performance characteristic
+understandable. Follow the linked sources for each claim. If the best documents
+give no compatible performance figure, explain that limit without turning an
+unrelated cycle time or transfer rate into a clock or bandwidth. A reviewer
+should flag a page that passes validation yet leaves these basic questions
+unanswered. Do not fill gaps by borrowing specifications from later models.
 
 ### Adding a photograph
 

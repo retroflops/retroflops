@@ -72,12 +72,18 @@ describe('timeline series', () => {
     expect(series[gpuPeak]?.label).toBe('Peak FP32 rate (GPU)');
   });
 
-  it('withholds a series with fewer than three machines', () => {
-    // Only the Apollo Guidance Computer and the Saturn LVDC publish an addition
-    // time, and two points are a line rather than a history.
-    expect(
-      findTimelineSeries(catalog, 'instruction-execution-time-cpu-add-instruction'),
-    ).toBeUndefined();
+  it('plots the three documented addition times as one method-specific series', () => {
+    const additions = bySlug('instruction-execution-time-cpu-add-instruction');
+    expect(additions.points.map((point) => point.systemSlug)).toEqual([
+      'dec-pdp-8',
+      'apollo-guidance-computer-block-ii',
+      'saturn-lvdc',
+    ]);
+    expect(additions.points[0]?.measurementId).toBe('dec-pdp-8-processor:addition-time');
+    expect(additions.points[0]?.text).toContain('3.2');
+    expect(additions.points[0]?.conditions).toContain('Direct-address TAD');
+    expect(additions.summary).not.toMatch(/\d+×/);
+    expect(additions.allowsLogScale).toBe(false);
   });
 
   it('plots figures in the quantity’s base unit while keeping the stated text', () => {

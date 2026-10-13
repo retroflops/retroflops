@@ -1,0 +1,17 @@
+id: dec-pdp-8-core-memory
+slug: dec-pdp-8-core-memory
+kind: memory
+name: DEC PDP-8 standard core memory
+manufacturer: Digital Equipment Corporation
+architecture: Coincident-current ferrite core
+introducedDate: '1965'
+memoryType: Random-access ferrite-core memory
+summary: >-
+  The fitted word-addressed core memory in DEC's standard PDP-8, with
+  {{measurement:dec-pdp-8-core-memory:capacity}} of storage.
+sourceIds:
+  - dec-pdp-8-high-speed-digital-computer-1965
+editorialStatus: approved
+notes: >-
+  The basic core is the sole fitted program memory in this configuration.
+  Optional memory extension is excluded.

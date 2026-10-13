@@ -1,0 +1,22 @@
+id: dec-pdp-8-processor:computer-cycle-time
+subject:
+  kind: component
+  id: dec-pdp-8-processor
+label: Computer cycle duration
+quantity:
+  state: value
+  value: '1.6'
+  unit: us
+  significantDigits: 2
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+evidenceLevel: confirmed
+editorialStatus: approved
+sourceIds:
+  - dec-pdp-8-high-speed-digital-computer-1965
+extractIds:
+  - dec-pdp-8-high-speed-digital-computer-1965:computer-cycle
+caveat: >-
+  DEC describes the duration of one major-state computer cycle. This is not a
+  nominal oscillator frequency or the execution time of every instruction.

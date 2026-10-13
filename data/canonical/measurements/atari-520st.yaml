@@ -88,12 +88,16 @@
     kind: component
   evidenceLevel: reported
 - caveat: >-
-    The service manual states this RAM capacity for the 520ST. Its separate
+    The service manual's introduction gives a smaller addressable span because
+    the reset vectors occupy the first addresses. Its Main Memory section gives
+    the installed RAM capacity recorded here. The separate
     {{measurement:atari-520st-rom:capacity}} TOS ROM is firmware, not writable
     working memory.
   comparabilityGroup: memory-capacity|whole-system|design-capacity
   editorialStatus: provisional
   evidenceStage: shipped
+  extractIds:
+    - atari-st-service:520st-ram-capacity
   id: atari-520st:whole-system-memory-capacity
   method: design-capacity
   metric: memory-capacity

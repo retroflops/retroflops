@@ -1,0 +1,252 @@
+- id: dec-pdp-8-processor:clock-frequency
+  subject:
+    kind: component
+    id: dec-pdp-8-processor
+  metric: clock-frequency
+  quantity:
+    state: unknown
+    note: >-
+      The checked brochure specifies a computer-cycle duration rather than a
+      nominal processor oscillator frequency.
+  scope: cpu
+  method: nominal-clock
+  provenance: vendor
+  evidenceStage: shipped
+  comparabilityGroup: clock-frequency|cpu|nominal-clock
+  status: vendor-rated
+  editorialStatus: approved
+  sourceIds:
+    - dec-pdp-8-high-speed-digital-computer-1965
+  extractIds:
+    - dec-pdp-8-high-speed-digital-computer-1965:computer-cycle
+  unknownAudit:
+    reviewedOn: 2026-10-13
+    routesChecked:
+      - vendor-documentation
+      - community-source
+    outcome: no-compatible-candidate
+    summary: >-
+      DEC's brochure gives a computer-cycle duration. The University of
+      Amsterdam museum's PDP-8 page discusses memory-cycle timing, not a nominal
+      processor oscillator. Neither checked source establishes the nominal clock
+      frequency.
+
+- id: dec-pdp-8-processor:addition-time
+  subject:
+    kind: component
+    id: dec-pdp-8-processor
+  metric: instruction-execution-time
+  quantity:
+    state: value
+    value: '3.2'
+    unit: us
+    significantDigits: 2
+  scope: cpu
+  method: add-instruction
+  provenance: vendor
+  evidenceStage: shipped
+  comparabilityGroup: instruction-execution-time|cpu|add-instruction
+  status: vendor-rated
+  evidenceLevel: confirmed
+  editorialStatus: approved
+  sourceIds:
+    - dec-pdp-8-high-speed-digital-computer-1965
+  extractIds:
+    - dec-pdp-8-high-speed-digital-computer-1965:tad-instruction-time
+    - dec-pdp-8-high-speed-digital-computer-1965:indirect-address-time
+  conditions: Direct-address TAD Y instruction in DEC Table 1.
+  caveat: >-
+    The table's time is for direct addressing. Indirect addressing adds one
+    computer cycle; this is an instruction time, not a processor clock.
+  normalized:
+    value: "0.0000032"
+    unit: s
+    significantDigits: 2
+    unitRegistry: units-v1
+
+- id: dec-pdp-8-core-memory:capacity
+  subject:
+    kind: component
+    id: dec-pdp-8-core-memory
+  metric: memory-capacity-words
+  quantity:
+    state: value
+    value: '4096'
+    unit: word
+    significantDigits: 4
+  scope: memory
+  method: design-capacity
+  provenance: vendor
+  evidenceStage: shipped
+  comparabilityGroup: memory-capacity-words|memory|design-capacity
+  status: vendor-rated
+  evidenceLevel: confirmed
+  editorialStatus: approved
+  sourceIds:
+    - dec-pdp-8-high-speed-digital-computer-1965
+  extractIds:
+    - dec-pdp-8-high-speed-digital-computer-1965:core-capacity
+  conditions: Standard fitted core with its native word width.
+  caveat: >-
+    This is a word count for the fitted core, with
+    {{context:dec-pdp-8-core-memory:word-width}} per word, not a byte-addressed
+    capacity. Optional memory extension is excluded.
+  normalized:
+    value: "4096"
+    unit: word
+    significantDigits: 4
+    unitRegistry: units-v1
+
+- id: dec-pdp-8:whole-system-memory-capacity
+  subject:
+    kind: system
+    id: dec-pdp-8
+    configurationId: standard-table-model
+  metric: memory-capacity-words
+  quantity:
+    state: value
+    value: '4096'
+    unit: word
+    significantDigits: 4
+  scope: whole-system
+  method: design-capacity
+  provenance: vendor
+  evidenceStage: shipped
+  comparabilityGroup: memory-capacity-words|whole-system|design-capacity
+  status: vendor-rated
+  evidenceLevel: confirmed
+  editorialStatus: approved
+  sourceIds:
+    - dec-pdp-8-high-speed-digital-computer-1965
+  extractIds:
+    - dec-pdp-8-high-speed-digital-computer-1965:standard-components
+    - dec-pdp-8-high-speed-digital-computer-1965:core-capacity
+  conditions: Standard table-model configuration with its single fitted core.
+  caveat: >-
+    The standard configuration has one program-memory pool. Processor registers,
+    the Teletype's paper tape, and optional memory extension are excluded. The
+    source counts words of {{context:dec-pdp-8-core-memory:word-width}} each, so
+    this figure is not a byte capacity. Word counts from machines with different
+    word widths are not like-for-like bit-capacity comparisons.
+  normalized:
+    value: "4096"
+    unit: word
+    significantDigits: 4
+    unitRegistry: units-v1
+
+- id: dec-pdp-8:memory-bandwidth
+  subject:
+    kind: system
+    id: dec-pdp-8
+    configurationId: standard-table-model
+  metric: memory-bandwidth
+  quantity:
+    state: unknown
+    note: >-
+      DEC specifies a data-break transfer interval for peripheral access to core
+      memory, not a general memory-transfer bandwidth.
+  scope: memory
+  method: theoretical-peak
+  provenance: vendor
+  evidenceStage: shipped
+  comparabilityGroup: memory-bandwidth|memory|theoretical-peak
+  status: vendor-rated
+  editorialStatus: approved
+  sourceIds:
+    - dec-pdp-8-high-speed-digital-computer-1965
+  extractIds:
+    - dec-pdp-8-high-speed-digital-computer-1965:data-break-rate
+  unknownAudit:
+    reviewedOn: 2026-10-13
+    routesChecked:
+      - vendor-documentation
+      - community-source
+    outcome: no-compatible-candidate
+    summary: >-
+      DEC states a data-break interval for transfers between a peripheral and
+      the core. The University of Amsterdam museum describes memory-cycle
+      timing, but neither source establishes an unrestricted bandwidth figure
+      compatible with this metric.
+
+- id: dec-pdp-8:gpu-clock-frequency
+  subject:
+    kind: system
+    id: dec-pdp-8
+    configurationId: standard-table-model
+  metric: clock-frequency
+  quantity:
+    state: not-applicable
+    note: >-
+      The standard table-model configuration has no graphics processor. CRT
+      display equipment was optional.
+  scope: gpu
+  method: nominal-clock
+  provenance: vendor
+  evidenceStage: shipped
+  comparabilityGroup: clock-frequency|gpu|nominal-clock
+  status: vendor-rated
+  editorialStatus: approved
+  sourceIds:
+    - dec-pdp-8-high-speed-digital-computer-1965
+  extractIds:
+    - dec-pdp-8-high-speed-digital-computer-1965:standard-components
+    - dec-pdp-8-high-speed-digital-computer-1965:optional-displays
+
+- id: dec-pdp-8-processor:peak-fp32-rate
+  subject:
+    kind: component
+    id: dec-pdp-8-processor
+  metric: peak-fp32-rate
+  quantity:
+    state: not-applicable
+    note: >-
+      The standard processor has no native floating-point hardware. DEC
+      describes floating-point operations through a software package.
+  scope: cpu
+  method: theoretical-peak
+  provenance: vendor
+  evidenceStage: shipped
+  comparabilityGroup: peak-fp32-rate|cpu|theoretical-peak
+  status: vendor-rated
+  editorialStatus: approved
+  sourceIds:
+    - dec-pdp-8-high-speed-digital-computer-1965
+  extractIds:
+    - dec-pdp-8-high-speed-digital-computer-1965:floating-point-package
+
+- id: dec-pdp-8:rated-power-consumption
+  subject:
+    kind: system
+    id: dec-pdp-8
+    configurationId: standard-table-model
+  metric: rated-power-consumption
+  quantity:
+    state: unknown
+    note: >-
+      DEC gives a power-dissipation figure without stating whether it includes
+      the Teletype supplied with the standard installation.
+  scope: whole-system
+  method: rated-power
+  provenance: vendor
+  evidenceStage: shipped
+  comparabilityGroup: rated-power-consumption|whole-system|rated-power
+  status: vendor-rated
+  editorialStatus: approved
+  sourceIds:
+    - dec-pdp-8-high-speed-digital-computer-1965
+  extractIds:
+    - dec-pdp-8-high-speed-digital-computer-1965:power-dissipation
+    - dec-pdp-8-high-speed-digital-computer-1965:standard-teletype
+  unknownAudit:
+    reviewedOn: 2026-10-13
+    routesChecked:
+      - vendor-documentation
+      - specialist-reference
+      - community-source
+    outcome: no-compatible-candidate
+    summary: >-
+      DEC's dissipation figure has no boundary statement for the standard
+      Teletype. Gordon Bell's DEC timeline repeats the figure without resolving
+      that boundary. The University of Amsterdam museum catalog describes the
+      standard installation but states no power boundary. The figure cannot
+      represent rated power for the full selected installation.

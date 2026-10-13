@@ -10,4 +10,4 @@ sourceIds:
   - game-boy-advance-technical-manual
 summary:
   '{{measurement:gba-video-ram:capacity}} of memory the picture processor draws
-  from, counted with the object attribute and palette memory beside it.'
+  from. Palette and object-attribute memory are separate.'

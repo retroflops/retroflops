@@ -1,0 +1,23 @@
+id: dec-pdp-8-high-speed-digital-computer-1965
+title: 'PDP-8: A High Speed Digital Computer'
+publisher: Digital Equipment Corporation
+url: https://archive.computerhistory.org/resources/access/text/2009/11/102683307.05.01.acc.pdf
+publishedDate: '1965'
+accessedDate: 2026-10-13
+locator: >-
+  Features and data break: printed/PDF p. 4; standard components: p. 6;
+  core, cycle, and console: p. 7; Teletype: p. 8; instruction timing:
+  p. 10; programming: pp. 14-15; optional equipment: p. 16;
+  electrical specifications: p. 18
+tier: A
+sourceType: vendor-documentation
+editorialStatus: approved
+license: Copyright Digital Equipment Corporation. Short extracts are retained
+  for verification of cited facts.
+fetch:
+  url: https://archive.computerhistory.org/resources/access/text/2009/11/102683307.05.01.acc.pdf
+  fetchedAt: 2026-10-13T16:04:43Z
+  httpStatus: 200
+  contentType: application/pdf
+  byteLength: 3721571
+  sha256: b3939edf8b9fdad5be987f694df01f7d245d747640755d748fff069045a50c50

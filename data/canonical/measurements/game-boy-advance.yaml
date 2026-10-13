@@ -255,35 +255,33 @@
     id: game-boy-advance
     kind: system
 - caveat: >-
-    Nintendo's verified AGB manual passage states no video-RAM capacity.
-    Wikipedia gives {{measurement:gba-video-ram:capacity}}, and its own hardware
-    section says that figure counts the picture processor's video RAM together
-    with the object attribute memory and palette RAM beside it. The capacity is
-    recorded as the infobox states it, and the catalog carries it as rumored
-    until a Nintendo document states it.
+    The manual's broad display-memory diagram includes palette and
+    object-attribute memory. Its memory map isolates the video-RAM pool measured
+    here.
   comparabilityGroup: memory-capacity|memory|design-capacity
   editorialStatus: provisional
   evidenceStage: shipped
+  extractIds:
+    - agb-programming-manual:vram-capacity
   id: gba-video-ram:capacity
   method: design-capacity
   metric: memory-capacity
-  provenance: community
+  provenance: vendor
   quantity:
     state: value
-    value: "98"
+    value: "96"
     unit: KiB
     significantDigits: 2
   scope: memory
   sourceIds:
     - game-boy-advance-technical-manual
-    - wikipedia-game-boy-advance-specifications
   status: vendor-rated
   subject:
     id: gba-video-ram
     kind: component
-  evidenceLevel: rumored
+  evidenceLevel: reported
   normalized:
-    value: "100352"
+    value: "98304"
     unit: B
     significantDigits: 2
     unitRegistry: units-v1

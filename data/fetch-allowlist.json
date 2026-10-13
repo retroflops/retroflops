@@ -499,6 +499,11 @@
       "note": "Fixed IBM primary document scan for System/360 Model 50 verification. The archive is the custodian; IBM authored the document."
     },
     {
+      "host": "archive.computerhistory.org",
+      "pathPrefix": "/resources/access/text/2009/11/102683307.05.01.acc.pdf",
+      "note": "Fixed DEC PDP-8 primary brochure scan. The archive is the custodian; Digital Equipment Corporation authored the document."
+    },
+    {
       "host": "public.dhe.ibm.com",
       "pathPrefix": "/eserver/zseries/zos/vse/pdf3/wavv05/Bringing_You_Up_To_Date_with_zSeries_Hardware_2005.pdf",
       "note": "Fixed IBM presentation used to verify the Model 50 introduction date and internal machine cycle."

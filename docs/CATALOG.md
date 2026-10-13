@@ -1,6 +1,6 @@
 # Catalog index
 
-Every system, processor and graphics chip in the RetroFlops catalog. The 82
+Every system, processor and graphics chip in the RetroFlops catalog. The 83
 systems are grouped by type, and processors and graphics chips follow. Each
 group is sorted by name, and the year after a name is its release or
 introduction date. A chip fitted in several machines is listed once. Memory
@@ -15,6 +15,10 @@ This file is generated. Run `pnpm data:index` after adding or renaming a record;
 ## Mainframes
 
 - IBM System/360 Model 50 · 1964
+
+## Minicomputers
+
+- DEC PDP-8 · 1965
 
 ## Guidance computers
 
@@ -143,6 +147,7 @@ This file is generated. Run `pnpm data:index` after adding or renaming a record;
 - ARM946E-S
 - Broadcom BCM2712 · 2023
 - Cell Broadband Engine · 2005
+- DEC PDP-8 processor · 1965
 - Emotion Engine · 1999
 - Hitachi SH-2 · 1994
 - Hitachi SH-4 · 1998

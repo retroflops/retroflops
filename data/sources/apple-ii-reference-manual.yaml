@@ -1,6 +1,7 @@
 id: apple-ii-reference-manual
 title: Apple II Reference Manual
 publisher: Apple Computer, Inc.
+url: https://archive.org/download/applerefjan78/appleIIrefjan78.pdf
 archiveUrl: https://archive.org/details/applerefjan78
 publishedDate: "1978"
 accessedDate: 2026-08-22
@@ -8,3 +9,11 @@ locator: Getting Started, p. 1; Hardware, Sections 2, 6, and 7
 tier: A
 sourceType: technical-manual
 editorialStatus: approved
+fetch:
+  url: https://archive.org/download/applerefjan78/appleIIrefjan78.pdf
+  finalUrl: https://dn760104.eu.archive.org/0/items/applerefjan78/appleIIrefjan78.pdf
+  fetchedAt: 2026-10-13T14:58:53Z
+  httpStatus: 200
+  contentType: application/pdf
+  byteLength: 10059029
+  sha256: 2fe28aacbc5f4ca682ccd1580067fb261330cbf8d853f579f65d2001ebcac332

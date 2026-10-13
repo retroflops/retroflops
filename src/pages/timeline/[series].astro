@@ -145,6 +145,9 @@ const structuredData = [
                 <td data-label="Released">{formatPartialDate(point.date)}</td>
                 <td class="numeric" data-label="Figure">
                   {point.text}
+                  {point.conditions !== undefined && (
+                    <span class="cell-note">{point.conditions}</span>
+                  )}
                 </td>
                 <td data-label="Confidence">
                   {statusLabel(point.status)}
@@ -196,6 +199,15 @@ const structuredData = [
       {series.benchmark !== undefined && ' and one benchmark version'}. There is no chart of all
       clock frequencies over time because they are not one quantity.
     </p>
+    {
+      series.metric === 'instruction-execution-time' && (
+        <p>
+          These are timings for each machine's native operation. Word width, addressing, and
+          arithmetic can differ. Read the conditions beside each figure; the chart does not claim a
+          common workload or a speed multiplier.
+        </p>
+      )
+    }
     <p>
       Points use the release date of the machine a figure belongs to, including figures recorded
       against a part. A release date applies only to a machine that shipped.

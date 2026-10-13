@@ -1,0 +1,19 @@
+id: dec-pdp-8-core-memory:word-width
+subject:
+  kind: component
+  id: dec-pdp-8-core-memory
+label: Word width
+quantity:
+  state: value
+  value: '12'
+  unit: bit
+  significantDigits: 2
+provenance: vendor
+evidenceStage: shipped
+status: vendor-rated
+evidenceLevel: confirmed
+editorialStatus: approved
+sourceIds:
+  - dec-pdp-8-high-speed-digital-computer-1965
+extractIds:
+  - dec-pdp-8-high-speed-digital-computer-1965:core-capacity

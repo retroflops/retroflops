@@ -128,7 +128,7 @@ describe('categories', () => {
     expect(systemsOfType('mainframe').map((record) => record.id)).toEqual([
       'ibm-system-360-model-50',
     ]);
-    expect(types).not.toContain('minicomputer');
+    expect(systemsOfType('minicomputer').map((record) => record.id)).toEqual(['dec-pdp-8']);
     // Every published category has machines, and together they cover the catalog.
     expect(types.filter((type) => systemsOfType(type).length === 0)).toEqual([]);
     const total = types.reduce((sum, type) => sum + systemsOfType(type).length, 0);

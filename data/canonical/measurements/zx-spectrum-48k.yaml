@@ -57,6 +57,8 @@
   comparabilityGroup: memory-capacity|memory|design-capacity
   editorialStatus: provisional
   evidenceStage: shipped
+  extractIds:
+    - zx-spectrum-48k-manual:rom-capacity
   id: zx-spectrum-rom:capacity
   method: design-capacity
   metric: memory-capacity
@@ -83,6 +85,8 @@
   comparabilityGroup: memory-capacity|whole-system|design-capacity
   editorialStatus: provisional
   evidenceStage: shipped
+  extractIds:
+    - zx-spectrum-48k-manual:ram-capacity
   id: zx-spectrum-48k:whole-system-memory-capacity
   method: design-capacity
   metric: memory-capacity
@@ -106,8 +110,8 @@
     unitRegistry: units-v1
   evidenceLevel: confirmed
 - caveat: >-
-    This is the ULA master clock used for video timing. It is not a modern GPU
-    execution clock.
+    The service manual gives the ULA's external clock for video timing, not a
+    comparable graphics execution clock.
   comparabilityGroup: clock-frequency|gpu|nominal-clock
   editorialStatus: provisional
   evidenceStage: shipped
@@ -116,10 +120,22 @@
   metric: clock-frequency
   provenance: vendor
   quantity:
-    significantDigits: 2
-    state: value
-    unit: MHz
-    value: "14"
+    note: >-
+      The cited oscillator drives video timing; its frequency is not an
+      execution-clock figure for comparison with graphics processors.
+    state: unknown
+  unknownAudit:
+    reviewedOn: 2026-10-13
+    routesChecked:
+      - vendor-documentation
+      - independent-analysis
+      - community-source
+    outcome: no-compatible-candidate
+    summary: >-
+      The service manual identifies an external ULA clock for video timing.
+      Independent hardware analysis distinguishes that input from the ULA's
+      divided internal timing, so the published input cannot serve as a GPU
+      nominal clock.
   scope: gpu
   sourceIds:
     - zx-spectrum-48k-manual
@@ -127,12 +143,6 @@
   subject:
     id: zx-spectrum-48k
     kind: system
-  normalized:
-    value: "14000000"
-    unit: Hz
-    significantDigits: 2
-    unitRegistry: units-v1
-  evidenceLevel: confirmed
 - caveat: >-
     The service manual describes the ULA's priority over RAM access, but gives
     no memory transfer-rate figure from which bandwidth can be stated.

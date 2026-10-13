@@ -392,12 +392,12 @@ const METRIC_LIST = [
     label: 'Instruction execution time',
     quantity: 'time',
     allowedScopes: ['cpu'],
-    allowsRatio: true,
-    allowsLogScale: true,
+    allowsRatio: false,
+    allowsLogScale: false,
     requiresBenchmark: false,
     higherIsBetter: false,
     description:
-      'Time to execute one named instruction. Which instruction it is forms part of the method, so an addition time and a multiplication time are never in the same comparability group.',
+      'Time to execute one named instruction. The method separates addition from multiplication, but native operations can still differ in word width, addressing, and precision. These timings do not support cross-machine speed multipliers.',
   },
   {
     id: 'transistor-count',

@@ -213,26 +213,29 @@
   subject:
     id: snk-neo-geo-aes
     kind: system
-- caveat: >-
-    The hardware specification states this work-RAM capacity for the console.
-    Removable cartridge ROM is program storage and is not included.
-  comparabilityGroup: memory-capacity|whole-system|design-capacity
+- comparabilityGroup: memory-capacity|whole-system|design-capacity
   editorialStatus: provisional
   evidenceStage: shipped
   id: snk-neo-geo-aes:whole-system-memory-capacity
   method: design-capacity
   metric: memory-capacity
-  normalized:
-    value: "65536"
-    unit: B
-    significantDigits: 5
-    unitRegistry: units-v1
   provenance: vendor
   quantity:
-    significantDigits: 5
-    state: value
-    unit: B
-    value: "65536"
+    note: >-
+      The cited figure covers work RAM only. Video, palette, and sound RAM are
+      separate; the capacity of the internal line buffers is not established.
+    state: unknown
+  unknownAudit:
+    reviewedOn: 2026-10-13
+    routesChecked:
+      - vendor-documentation
+      - independent-analysis
+      - community-source
+    outcome: no-compatible-candidate
+    summary: >-
+      The SNK hardware specification and an independent AES hardware analysis
+      identify separate memory pools. A whole-system total needs a derived claim
+      with explicit exclusions; the internal line-buffer capacity is unresolved.
   scope: whole-system
   sourceIds:
     - neo-geo-developers-manual
@@ -240,4 +243,3 @@
   subject:
     id: snk-neo-geo-aes
     kind: system
-  evidenceLevel: reported

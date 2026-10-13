@@ -1,0 +1,53 @@
+id: dec-pdp-8-console
+alt: >-
+  A DEC PDP-8 in a museum, with a tall dark enclosure above a beige front panel
+  of indicator lamps and toggle switches.
+caption: >-
+  The original PDP-8's console and enclosure at the Science Museum, London. The
+  standard Teletype and full installation are not shown; the photograph does not
+  establish the fitted memory capacity.
+creator: Daderot
+creatorType: person
+title: >-
+  PDP-8 minicomputer, Digital Equipment Corporation, 1965 - Science Museum,
+  London - DSC05572.jpg
+publisher: Wikimedia Commons
+sourcePageUrl: https://commons.wikimedia.org/wiki/File:PDP-8_minicomputer,_Digital_Equipment_Corporation,_1965_-_Science_Museum,_London_-_DSC05572.jpg
+originalUrl: https://upload.wikimedia.org/wikipedia/commons/d/d4/PDP-8_minicomputer%2C_Digital_Equipment_Corporation%2C_1965_-_Science_Museum%2C_London_-_DSC05572.jpg
+accessedDate: 2026-10-13
+attribution: >-
+  Photograph by Daderot, dedicated to the public domain under CC0 1.0, via
+  Wikimedia Commons. Resized, padded, and re-encoded as AVIF.
+rights:
+  id: cc0-1.0
+  url: https://creativecommons.org/publicdomain/zero/1.0/
+  statement: >-
+    I, the copyright holder of this work, hereby publish it under the following
+    license: This file is made available under the Creative Commons CC0 1.0
+    Universal Public Domain Dedication.
+  statedAt: https://commons.wikimedia.org/wiki/File:PDP-8_minicomputer,_Digital_Equipment_Corporation,_1965_-_Science_Museum,_London_-_DSC05572.jpg
+original:
+  sha256: 1d2248d03ca940ec98afac4c66abeb1d2ba2a062960706480b0214ac79f5648b
+  byteLength: 3174231
+  width: 3561
+  height: 4386
+  mediaType: image/jpeg
+canonical:
+  format: avif
+  width: 1280
+  height: 960
+  byteLength: 35334
+  sha256: e4f218daaca044691fdf433dcc5f37f03849f3af1fc31d72e3140adbbdf30842
+transform:
+  preset: image-v1
+  sourceWidth: 3561
+  sourceHeight: 4386
+  fit: pad
+  background: '#f4f1e8'
+  note: >-
+    Keep the entire photographed console and enclosure. Resize the portrait
+    frame without distortion and add side margins to reach the canonical frame.
+editorialStatus: approved
+notes: >-
+  The museum image does not show the standard Teletype or the full installation
+  and cannot establish the photographed machine's memory configuration.

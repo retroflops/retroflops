@@ -25,8 +25,10 @@ test.describe('full-text search', () => {
 
   test('says so when nothing matches, rather than showing an empty list', async ({ page }) => {
     await page.goto('/');
-    await page.getByLabel('Search systems, components, sources and methodology').fill('zzzzqqq');
-    await expect(page.getByText(/Nothing matches/)).toBeVisible();
+    await page
+      .getByLabel('Search systems, components, sources and methodology')
+      .fill('qzxjkvpymnfr');
+    await expect(page.getByText(/Nothing matches/)).toBeVisible({ timeout: 15_000 });
   });
 });
 

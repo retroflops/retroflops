@@ -814,6 +814,11 @@ entries:
     reviewedOn: 2026-08-25
     targetIds:
       - nintendo-game-boy:rated-power-consumption
+  - measurementId: nintendo-game-boy:whole-system-memory-capacity
+    disposition: true-unknown
+    reviewedOn: 2026-10-13
+    targetIds:
+      - nintendo-game-boy:whole-system-memory-capacity
   - measurementId: nintendo-gamecube:peak-fp32-rate
     disposition: true-unknown
     reviewedOn: 2026-08-25
@@ -1082,6 +1087,11 @@ entries:
     reviewedOn: 2026-08-25
     targetIds:
       - snk-neo-geo-aes:memory-bandwidth
+  - measurementId: snk-neo-geo-aes:whole-system-memory-capacity
+    disposition: true-unknown
+    reviewedOn: 2026-10-13
+    targetIds:
+      - snk-neo-geo-aes:whole-system-memory-capacity
   - measurementId: snk-neo-geo-aes:rated-power-consumption
     disposition: true-unknown
     reviewedOn: 2026-08-25
@@ -1137,8 +1147,8 @@ entries:
     targetIds:
       - zx-spectrum-48k:clock-frequency
   - measurementId: zx-spectrum-48k:gpu-clock-frequency
-    disposition: confirmed
-    reviewedOn: 2026-08-25
+    disposition: true-unknown
+    reviewedOn: 2026-10-13
     targetIds:
       - zx-spectrum-48k:gpu-clock-frequency
   - measurementId: zx-spectrum-48k:memory-bandwidth
@@ -1181,3 +1191,18 @@ entries:
     reviewedOn: 2026-09-26
     targetIds:
       - ibm-system-360-model-50:rated-power-consumption
+  - measurementId: dec-pdp-8-processor:clock-frequency
+    disposition: true-unknown
+    reviewedOn: 2026-10-13
+    targetIds:
+      - dec-pdp-8-processor:clock-frequency
+  - measurementId: dec-pdp-8:memory-bandwidth
+    disposition: true-unknown
+    reviewedOn: 2026-10-13
+    targetIds:
+      - dec-pdp-8:memory-bandwidth
+  - measurementId: dec-pdp-8:rated-power-consumption
+    disposition: true-unknown
+    reviewedOn: 2026-10-13
+    targetIds:
+      - dec-pdp-8:rated-power-consumption
